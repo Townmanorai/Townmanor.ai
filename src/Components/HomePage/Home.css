@@ -1,0 +1,19 @@
+.slick-next:before {
+    content: '→';
+    color: #000000;
+}
+
+.slick-prev:before {
+    content: '←';
+    color: #000000;
+}
+
+.slick-next:hover {
+    content: '→';
+    color: #ff0000;
+}
+
+.slick-prev:hover {
+    content: '←';
+    color: #ff0000;
+}
