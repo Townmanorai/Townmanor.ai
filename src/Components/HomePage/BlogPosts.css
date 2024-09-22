@@ -1,0 +1,46 @@
+/* .slick-prev, .slick-next {
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: flex; /* Use flexbox */
+    /* justify-content: center; Center horizontally */
+    /* align-items: center; Center vertically */
+    /* width: 40px;
+    height: 40px;
+    padding: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    border: none;
+    outline: none;
+    background-color: black; */
+/* } */
+
+/* .slick-prev {
+    left: -350px;
+} */
+
+/* .slick-next {
+    right: 1000px;
+} */
+
+/* .slick-prev:before, .slick-next:before {
+    /* font-family: 'slick';
+    font-size: 50px;
+    line-height: 1;
+    opacity: 0.75;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: '←'; Example for previous arrow */
+/* }  */
+
+/* .slick-next:before {
+    content: '→'; /* Example for next arrow */
+/* } */ 
+
+/* .slick-prev:hover, .slick-next:hover {
+    color: white;
+    background-color: red;
+} */

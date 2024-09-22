@@ -1,0 +1,78 @@
+/* Section Styles */
+.state-house-tax-section {
+    padding: 40px 0;
+    background-color: #f8f9fa;
+  }
+  
+  .state-house-tax-heading {
+    text-align: center;
+  }
+  
+  .state-house-tax-heading span {
+    display: block;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .state-house-tax-heading h3 {
+    font-size: 24px;
+    color: #222;
+    margin-top: 10px;
+  }
+  
+  /* State Card */
+  .slick-slide {
+    padding: 0 10px; /* Add 10px padding to both sides */
+  }
+  
+  .state-house-tax-card {
+    background: linear-gradient(to right, #e6b5b5, #f4e3c3);
+    border-radius: 12px;
+    padding: 0;
+    width: 100%; /* Take full width of the slick slide */
+    overflow: hidden;
+    position: relative;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+    margin: 10px 0; /* Optional vertical margin */
+  }
+  
+  .state-house-tax-card:hover {
+    background-color: #f8d7da; 
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .state-house-tax-card .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+  }
+  
+  .state-image img {
+    border-radius: 10px;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #ff000087;
+  }
+  
+  .state-details {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .state-name-title {
+    font-size: 18px;
+    font-weight: 400;
+    color: #000;
+    text-transform: capitalize;
+  }
+  
+  .state-house-tax-card:hover .state-name-title {
+    color: #ff0000;
+  }
+  

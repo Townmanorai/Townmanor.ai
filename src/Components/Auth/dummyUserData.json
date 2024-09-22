@@ -1,0 +1,30 @@
+{
+    "users": [
+      {
+        "username": "testuser1",
+        "password": "password123",
+        "email": "testuser1@example.com",
+        "name": "John Doe",
+        "rememberMe": true,
+        "gstNo": "GST123456789",
+        "phone": "+1234567890",
+        "reraRegister": "Yes",
+        "reraRegisterNo": "RERA123456",
+        "aadhaarNo": "AADHAAR1234567890",
+        "panNo": "PAN123456",
+        "termsAccepted": true
+      },
+      {
+        "username": "testuser2",
+        "password": "password456",
+        "email": "testuser2@example.com",
+        "name": "Jane Smith",
+        "rememberMe": false,
+        "gstNo": "GST987654321",
+        "phone": "+0987654321",
+        "reraRegister": "No",
+        "termsAccepted": true
+      }
+    ]
+  }
+  

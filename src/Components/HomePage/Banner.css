@@ -1,0 +1,25 @@
+.drop-menu {
+    position: relative;
+  }
+  
+  .dropeddown {
+    display: none; /* Hidden by default */
+    position: absolute; /* Adjust positioning as needed */
+    background-color: white; /* Background color for dropdown items */
+    border: 1px solid #ccc; /* Border for dropdown items */
+    z-index: 1000; /* Ensure it appears on top */
+  }
+  
+  .dropeddown.open {
+    display: block; /* Show dropdown when open class is added */
+  }
+  
+  .dropeddown li {
+    padding: 10px; /* Adjust as needed */
+    cursor: pointer; /* Change cursor to pointer for dropdown items */
+  }
+  
+  .dropeddown li:hover {
+    background-color: #f0f0f0; /* Highlight on hover */
+  }
+  
