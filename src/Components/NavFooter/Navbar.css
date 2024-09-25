@@ -1,0 +1,236 @@
+/* Base styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .row {
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .wpart {
+    width: 100%;
+  }
+  
+  .header .navbar-brand {
+    margin-right: -100px;
+    margin-top: 10px;
+  }
+    
+  .top-header {
+    background-color: #f8f8f8;
+    padding: 10px 0;
+  }
+  
+  .top-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .top-header .header-address {
+    display: flex;
+    align-items: center;
+  }
+  
+  .top-header .header-address a {
+    margin-right: 15px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .top-header .header-address a i {
+    margin-right: 5px;
+  }
+  
+  .top-header .loginSignupAJ {
+    display: flex;
+    align-items: center;
+  }
+  
+  .top-header .loginSignupAJ a {
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 5px;
+  }
+  
+  .navbar-expand-lg .navbar-collapse ul#main-menu {
+    margin-left: 160px !important;
+}
+
+  .top-header .header-social {
+    display: flex;
+    align-items: center;
+  }
+  
+  .top-header .header-social a {
+    margin-left: 10px;
+    color: #333;
+  }
+  
+  .header {
+    background-color: #fff;
+    padding: 10px 0;
+  }
+  
+  .header .container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .header .navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header .navbar-brand img {
+    width: 215px;
+  }
+  
+  header .header {
+    min-height: auto;
+    padding: 0px  5px;
+  }
+  
+  .header .menu-button {
+    display: none;
+    background: none;
+    border: none;
+  }
+  
+  .header .icon-spar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #333;
+  }
+  
+  .header .navbar-collapse {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .header .navbar-collapse.show {
+    display: block;
+  }
+  
+  .header .navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header .navbar-nav .nav-item {
+    margin-left: 15px;
+  }
+  
+  .header .navbar-nav .nav-item a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .header .navbar-nav .submit-btn {
+    /* background-color: #007bff; */
+    color: #fff;
+    /* padding: 5px 10px; */
+    border-radius: 3px;
+  }
+  
+  .header .navbar-nav .signin-btn {
+    margin-right: 0px !important;
+    margin-top: 3px;
+  }
+  
+  .header .navbar-nav .submit-btn a {
+    color: #fff;
+  }
+  
+  .header .close-menu {
+    display: none;
+    background: none;
+    border: none;
+    color: #333;
+  }
+  
+  .header .navbar-nav .nav-item .nav-link {
+    color: #040404;
+    font-size: 15px;
+    position: relative;
+    font-weight: normal;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .header .menu-button {
+      display: block;
+    }
+  
+    .header .navbar-collapse {
+      display: none;
+    }
+  
+    .header .navbar-collapse.show {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      align-content: flex-start;
+      flex-wrap: nowrap;
+      font-size: 32px !important;
+      justify-content: flex-start;
+  }
+  
+  
+    .header .navbar-nav{
+      display: flex;
+      align-items: stretch;
+      align-content: flex-end;
+      justify-content: center;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      margin-bottom: 17px;
+    }
+
+    
+  
+    .header .close-menu {
+      display: block;
+      align-self: flex-end;
+    }
+  
+    .top-header .container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .top-header .header-address, .top-header .loginSignupAJ, .top-header .header-social {
+      margin-bottom: 10px;
+    }
+  
+    .top-header .header-social {
+      justify-content: flex-start;
+    }
+  
+    .header .navbar-nav .submit-btn a, .header .navbar-nav .nav-item.signin-btn .nav-link {
+      padding: 10px 130px;
+    }
+    .header .navbar-nav .nav-item .nav-link.sbmt-btn {
+      padding: 10px 100px;
+    }
+    body #navbarSupportedContent .navbar-nav {
+      margin-bottom: -15px;
+  }
+  }
