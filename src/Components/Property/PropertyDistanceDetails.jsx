@@ -3,57 +3,62 @@ import React from "react";
 import "../common.css";
 import "../commonsecond.css";
 
-// Dummy JSON for category_options_43 (Distances)
+// Distance data with icons
 const categoryOptions43 = [
   {
     option_name: "Metro",
-    option_value: "2.5 km",
+    json_key: "metro",
     icon: "http://localhost/townmanor.in/templates/selio/assets/img/icons/option_id/46.png"
   },
   {
     option_name: "Healthcare",
-    option_value: "0.6 km",
+    json_key: "hospital",
     icon: "http://localhost/townmanor.in/templates/selio/assets/img/icons/option_id/48.png"
   },
   {
     option_name: "Restaurant",
-    option_value: "0.4 km",
+    json_key: "restaurant",
     icon: "http://localhost/townmanor.in/files/dinner.png"
   },
   {
     option_name: "School",
-    option_value: "0.6 km",
+    json_key: "school",
     icon: "http://localhost/townmanor.in/files/school_1.png"
   },
   {
     option_name: "Mall",
-    option_value: "1.6 km",
+    json_key: "mall",
     icon: "http://localhost/townmanor.in/files/shopping_bag.png"
   },
   {
     option_name: "Cinemas",
-    option_value: "1.7 km",
+    json_key: "cinema",
     icon: "http://localhost/townmanor.in/files/film.png"
   },
   {
-    option_name: "Park",
-    option_value: "0.2 km",
-    icon: "http://localhost/townmanor.in/files/park (1).png"
+    option_name: "Bus Stop",
+    json_key: "bus",
+    icon: "http://localhost/townmanor.in/files/bus_stop.png"
   }
 ];
 
-const PropertyDistanceDetails = () => {
+const PropertyDistanceDetails = ({ distances }) => {
+  // Filter distances based on whether the value exists in the JSON data
+  const filteredDistances = categoryOptions43.filter(
+    option => distances[option.json_key] && distances[option.json_key] !== ""
+  );
+
   return (
     <div className="details-info">
       <h3>Distances</h3>
       <ul>
-        {categoryOptions43.map((row, key) => (
+        {filteredDistances.map((row, key) => (
           <li key={key}>
             <h4>
               <img src={row.icon} alt={row.option_name} />
               {row.option_name}:
             </h4>
-            <span>{row.option_value}</span>
+            <span>{distances[row.json_key]}</span>
           </li>
         ))}
       </ul>
@@ -62,6 +67,72 @@ const PropertyDistanceDetails = () => {
 };
 
 export default PropertyDistanceDetails;
+
+
+
+// import React from "react";
+// import "../common.css";
+// import "../commonsecond.css";
+
+// // Dummy JSON for category_options_43 (Distances)
+// const categoryOptions43 = [
+//   {
+//     option_name: "Metro",
+//     option_value: "2.5 km",
+//     icon: "http://localhost/townmanor.in/templates/selio/assets/img/icons/option_id/46.png"
+//   },
+//   {
+//     option_name: "Healthcare",
+//     option_value: "0.6 km",
+//     icon: "http://localhost/townmanor.in/templates/selio/assets/img/icons/option_id/48.png"
+//   },
+//   {
+//     option_name: "Restaurant",
+//     option_value: "0.4 km",
+//     icon: "http://localhost/townmanor.in/files/dinner.png"
+//   },
+//   {
+//     option_name: "School",
+//     option_value: "0.6 km",
+//     icon: "http://localhost/townmanor.in/files/school_1.png"
+//   },
+//   {
+//     option_name: "Mall",
+//     option_value: "1.6 km",
+//     icon: "http://localhost/townmanor.in/files/shopping_bag.png"
+//   },
+//   {
+//     option_name: "Cinemas",
+//     option_value: "1.7 km",
+//     icon: "http://localhost/townmanor.in/files/film.png"
+//   },
+//   {
+//     option_name: "Park",
+//     option_value: "0.2 km",
+//     icon: "http://localhost/townmanor.in/files/park (1).png"
+//   }
+// ];
+
+// const PropertyDistanceDetails = () => {
+//   return (
+//     <div className="details-info">
+//       <h3>Distances</h3>
+//       <ul>
+//         {categoryOptions43.map((row, key) => (
+//           <li key={key}>
+//             <h4>
+//               <img src={row.icon} alt={row.option_name} />
+//               {row.option_name}:
+//             </h4>
+//             <span>{row.option_value}</span>
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// };
+
+// export default PropertyDistanceDetails;
 
 
 // import React from 'react';
