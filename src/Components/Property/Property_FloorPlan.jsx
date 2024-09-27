@@ -5,11 +5,11 @@ import "../commonsecond.css";
 // Dummy JSON data for file repository
 const fileRep = [
   {
-    filename: './sobha_310_riverside_crescent52.jpg',
+    filename: '/sobha_310_riverside_crescent52.jpg',
     isThumbnail: true,
   },
   {
-    filename: './sobha_310_riverside_crescent53.jpg',
+    filename: '/sobha_310_riverside_crescent53.jpg',
     isThumbnail: false,
   },
   {
@@ -27,7 +27,7 @@ const PropertyFloorPlan = () => {
     return (
       <div className="floorplan">
         <h3>Floorplan</h3>
-        <img src="./sobha_310_riverside_crescent52.jpg" alt="Floorplan" />
+        <img src="/sobha_310_riverside_crescent52.jpg" alt="Floorplan" />
       </div>
     );
   }

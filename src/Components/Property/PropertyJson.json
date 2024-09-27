@@ -1,0 +1,264 @@
+[
+  {
+    "id": 1,
+    "title": "Beautiful Property Title",
+    "address": "123 Main St, Springfield",
+    "city": "Chennai",
+    "locality": "Adyar",
+    "property_name": "Sunrise Apartments",
+    "configuration": "3BHK",
+    "area_detail": "1400 sqft",
+    "area_type": "Carpet",
+    "bathrooms": 3,
+    "balconies": 2,
+    "description": "This is a long description for the property. It provides details about the property, its features, and the surrounding areas.",
+    "furnish_type": "Semi-Furnished",
+    "rera_id": "RERA7890",
+    "floor_no": 7,
+    "total_floor": 15,
+    "construction_status": "Ready to Move",
+    "property_date": "2024-08-22T18:30:00.000Z",
+    "property_facing": "North",
+    "price": 18000000,
+    "maintenance_charge": 6000,
+    "token_amount": 80000,
+    "length": 70,
+    "width": 55,
+    "monthly_rent": 55000,
+    "security_deposit": 165000,
+    "current_lease": "John Doe",
+    "remaining_time": "3 years",
+    "boundary_wall": 1,
+    "no_of_open_sides": 2,
+    "floor_allowed": 8,
+    "modify_interior": 1,
+    "lock_in_period": "1 year",
+    "pricerange": "1.8-2 Cr",
+    "currency": "INR",
+    "amenities": [
+      "Gym",
+      "Club House"
+    ],
+    "metro": "",
+    "school": "500m",
+    "hospital": "2km",
+    "mall": "1.5km",
+    "restaurant": "200m",
+    "bus": "300m",
+    "cinema": "400m",
+    "country": "India",
+    "images": [
+      {
+        "url": "770x483sobha_310_riverside_crescent1.webp",
+        "alt": "Image 1",
+        "title": "Title 1"
+      },
+      {
+        "url": "770x483sobha_310_riverside_crescent3.webp",
+        "alt": "Image 2",
+        "title": "Title 2"
+      },
+      {
+        "url": "770x483sobha_310_riverside_crescent1.webp",
+        "alt": "Image 3",
+        "title": "Title 3"
+      },
+      {
+        "url": "770x483sobha_310_riverside_crescent1.webp",
+        "alt": "Image 4",
+        "title": "Title 4"
+      }
+    ],
+    "lat": "28.510228",
+    "lng": "77.417115",
+    "fileRepository": [
+      {
+        "filename": "./sobha_310_riverside_crescent52.jpg",
+        "isThumbnail": true
+      },
+      {
+        "filename": "./sobha_310_riverside_crescent53.jpg",
+        "isThumbnail": false
+      },
+      {
+        "filename": "sample-file.pdf",
+        "isThumbnail": false
+      }
+    ],
+    "reviews": {
+      "enabled": true,
+      "publicVisibleEnabled": true,
+      "submitted": 0,
+      "all": []
+    },
+    "settings": {
+      "reviewsEnabled": true,
+      "reviewsPublicVisibleEnabled": true
+    },
+    "purpose": "sale",
+    "FeaturedAgentsId": [
+      "1",
+      "2"
+    ],
+    "AgentsOnSpotlightId": [
+      "1"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Modern Family Home",
+    "address": "456 Elm St, Chennai",
+    "city": "Chennai",
+    "locality": "T Nagar",
+    "property_name": "Green Valley",
+    "configuration": "2BHK",
+    "area_detail": "950 sqft",
+    "area_type": "Carpet",
+    "bathrooms": 2,
+    "balconies": 1,
+    "description": "A cozy 2BHK apartment located in the heart of T Nagar.",
+    "furnish_type": "Fully Furnished",
+    "rera_id": "RERA1234",
+    "floor_no": 5,
+    "total_floor": 10,
+    "construction_status": "Ready to Move",
+    "property_date": "2024-07-15T10:00:00.000Z",
+    "property_facing": "East",
+    "price": 12000000,
+    "maintenance_charge": 4000,
+    "token_amount": 60000,
+    "length": 50,
+    "width": 45,
+    "monthly_rent": 40000,
+    "security_deposit": 120000,
+    "current_lease": "Jane Smith",
+    "remaining_time": "2 years",
+    "boundary_wall": 1,
+    "no_of_open_sides": 1,
+    "floor_allowed": 6,
+    "modify_interior": 0,
+    "lock_in_period": "6 months",
+    "pricerange": "1.2-1.5 Cr",
+    "currency": "INR",
+    "amenities": [
+      "Pool",
+      "Garden"
+    ],
+    "metro": "800m",
+    "school": "300m",
+    "hospital": "1km",
+    "mall": "1km",
+    "restaurant": "100m",
+    "bus": "200m",
+    "cinema": "300m",
+    "country": "India",
+    "images": [
+      {
+        "url": "image2.webp",
+        "alt": "Image 1",
+        "title": "Title 1"
+      }
+    ],
+    "lat": "28.612228",
+    "lng": "77.427115",
+    "fileRepository": [
+      {
+        "filename": "./image2.jpg",
+        "isThumbnail": true
+      }
+    ],
+    "reviews": {
+      "enabled": true,
+      "publicVisibleEnabled": true,
+      "submitted": 0,
+      "all": []
+    },
+    "settings": {
+      "reviewsEnabled": true,
+      "reviewsPublicVisibleEnabled": true
+    },
+    "purpose": "sale",
+    "FeaturedAgentsId": [
+      1,3,5
+    ],
+    "AgentsOnSpotlightId": [
+      1
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Luxury Apartment with Sea View",
+    "address": "789 Sea View Rd, Chennai",
+    "city": "Chennai",
+    "locality": "Marina",
+    "property_name": "Ocean Breeze",
+    "configuration": "4BHK",
+    "area_detail": "2500 sqft",
+    "area_type": "Built-up",
+    "bathrooms": 4,
+    "balconies": 3,
+    "description": "Experience luxury living with stunning sea views from every room.",
+    "furnish_type": "Luxury Furnished",
+    "rera_id": "RERA5678",
+    "floor_no": 15,
+    "total_floor": 20,
+    "construction_status": "Ready to Move",
+    "property_date": "2024-06-20T14:30:00.000Z",
+    "property_facing": "West",
+    "price": 50000000,
+    "maintenance_charge": 12000,
+    "token_amount": 200000,
+    "length": 90,
+    "width": 70,
+    "monthly_rent": 150000,
+    "security_deposit": 450000,
+    "current_lease": "Mark Johnson",
+    "remaining_time": "1 year",
+    "boundary_wall": 1,
+    "no_of_open_sides": 3,
+    "floor_allowed": 18,
+    "modify_interior": 1,
+    "lock_in_period": "2 years",
+    "pricerange": "5-6 Cr",
+    "currency": "INR",
+    "amenities": [
+      "Gym",
+      "Spa",
+      "Rooftop Terrace"
+    ],
+    "metro": "1km",
+    "school": "600m",
+    "hospital": "1.5km",
+    "mall": "2km",
+    "restaurant": "300m",
+    "bus": "500m",
+    "cinema": "600m",
+    "country": "India",
+    "images": [
+      {
+        "url": "image3.webp",
+        "alt": "Image 1",
+        "title": "Title 1"
+      }
+    ],
+    "lat": "28.515228",
+    "lng": "77.437115",
+    "fileRepository": [
+      {
+        "filename": "./image3.jpg",
+        "isThumbnail": true
+      }
+    ],
+    "reviews": {
+      "enabled": true,
+      "publicVisibleEnabled": true,
+      "submitted": 0,
+      "all": []
+    },
+    "settings": {
+      "reviewsEnabled": true,
+      "reviewsPublicVisibleEnabled": true
+    },
+    "purpose": "sale"
+  }
+]
