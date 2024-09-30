@@ -71,6 +71,10 @@
     height: 200px;
     overflow: hidden;
   }
+
+  .strip-red {
+    border-bottom: 4px solid #ee0000;
+}
   
   .pic-count {
     position: absolute;

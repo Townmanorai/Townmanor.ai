@@ -17,12 +17,16 @@ import './Home.css'
 import ExclusiveOwnerProperties from './ExclusiveOwnerProperties'
 import TopRentedProperties from './TopRentedProperties'
 
+import AdsSpace from './AdsSpace'
+
 function Home() {
   return (
     <div>
       
       <Banner />
       <InHouseServices />
+      {/* <Diya /> */}
+      <AdsSpace/>
       <Discovermore />
       <PopularListing />
       <RightAgents />
