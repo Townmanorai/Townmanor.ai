@@ -1,0 +1,206 @@
+/* General reset */
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Diwali celebration styling */
+.diya-celebration {
+    position: relative;
+    z-index: 1;
+    /* Ensure the diya is on top of the fireworks */
+    text-align: center;
+    color: white;
+    padding-top: 80px;
+    /* Added padding to avoid overlap with navbar */
+}
+
+/* Banner styling */
+.diwali-banner {
+    background-color: rgb(255 0 0 / 69%);
+    /* Orange background with transparency */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+.diwali-banner h2 {
+    font-size: 2.5rem;
+    /* Larger text for the heading */
+    margin-bottom: 10px;
+}
+
+.diwali-banner p {
+    font-size: 1.2rem;
+    /* Smaller text for the description */
+}
+
+/* Lights container */
+.diwali-lights {
+    display: flex;
+    /* Flexbox for layout */
+    justify-content: center;
+    /* Center the diya */
+    align-items: center;
+    /* Vertically center the diya */
+    margin-top: 20px;
+}
+
+/* Diya styles (from your original CSS) */
+.diya-container {
+    height: 300px;
+    width: 300px;
+    position: relative;
+    margin: auto;
+}
+
+.diya-base {
+    height: 100px;
+    width: 300px;
+    background-color: #fdcf0f;
+    border-radius: 0 0 150px 150px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+    overflow: hidden;
+}
+
+.diya-inner {
+    width: 300px;
+    height: 30px;
+    background-color: #fd500a;
+    border-radius: 50%;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 133px;
+}
+
+.diya-shadow {
+    height: 60px;
+    width: 320px;
+    background-color: rgba(25, 5, 71, 0.5);
+    position: absolute;
+    bottom: 30px;
+    border-radius: 50%;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+.diya-flame {
+    height: 110px;
+    width: 110px;
+    background-color: #fdf1c2;
+    border-radius: 160px 0;
+    transform: rotate(-45deg);
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 36px;
+    animation: scale-up 2s infinite;
+}
+
+@keyframes scale-up {
+    50% {
+        transform: rotate(-45deg) scale(1.05);
+        bottom: 42px;
+    }
+}
+
+.diya-flame:after {
+    content: "";
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background-color: #f4c631;
+    border-radius: 120px 0;
+    left: 125%;
+    top: 68%;
+    margin-left: -120px;
+    margin-top: -20px;
+    animation: scale-up 5s infinite;
+}
+
+.diya-dots {
+    height: 10px;
+    width: 10px;
+    background-color: #0b0b0b;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: -5px;
+    margin-left: -5px;
+}
+
+.diya-line-1 {
+    height: 25px;
+    width: 10px;
+    background-color: #ffb700;
+    position: absolute;
+    left: 50%;
+    bottom: 115px;
+    margin-left: -5px;
+}
+
+.diya-line-2 {
+    height: 20px;
+    width: 10px;
+    background-color: #e2e300;
+    position: absolute;
+    left: 50%;
+    bottom: 120px;
+    margin-left: -5px;
+}
+
+.diya-celebration {
+    text-align: center;
+  }
+  
+  .diya-celebration {
+    text-align: center;
+  }
+  
+  .diwali-lights {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .diya-container {
+    width: 100px; /* Fixed width for diya */
+    position: relative;
+  }
+  
+  .diya-container.left {
+    margin-right: 20px;
+    padding-left: 480px;
+}
+  
+  .diya-container.right {
+    margin-left: 140px;
+    margin-right: 250px; /* Add margin to the right diya */
+  }
+  
+  .ad-video-container {
+    width: 60%; /* Set a fixed width for the video container */
+    max-width: 500px;
+    text-align: center; /* Center the video */
+}
+
+.ad-video {
+    width: 100%;
+    max-width: 100%; /* Keep the video within its container */
+    border-radius: 10px;
+}
+  

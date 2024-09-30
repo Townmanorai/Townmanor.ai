@@ -1,0 +1,152 @@
+.plans-info-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f900;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .plans-info-container h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #b30000;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .plans-info-container h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+    margin-left: 100px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .plans-info-container h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 120px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  }
+  
+  .plans-info-container p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+  
+  .plans-info-container ul {
+    margin-left: 120px;
+    padding-left: 20px;
+    list-style: disc;
+  }
+  
+  .plans-info-container ol {
+    margin-left: 120px;
+    padding-left: 20px;
+    list-style: decimal;
+  }
+  
+  .plans-info-container ul ul {
+    list-style: circle;
+    padding-left: 20px;
+    margin-left: 0px;
+  }
+  
+  .plans-info-container li {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .plans-info-container li b {
+    color: #b30000;
+  }
+  
+  .plans-info-container a {
+    color: #ff0000;
+    text-decoration: underline;
+  }
+  
+  .plans-info-container a:hover {
+    color: #b32700;
+    text-decoration: none;
+  }
+  
+  .plans-info-container .plan-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #28a745;
+  }
+  
+  .plans-info-container .old-price {
+    text-decoration: line-through;
+    color: #dc3545;
+  }
+  
+  .plans-info-container .plan-duration {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 5px;
+  }
+  
+  .plans-info-container .plan-benefits ul {
+    list-style: square;
+    padding-left: 25px;
+    color: #333;
+  }
+  
+  .plans-info-container .plan-benefits ul li {
+    margin-bottom: 5px;
+  }
+  
+  .plans-info-container ol li {
+    margin-bottom: 15px;
+  }
+  
+  .plans-info-container button {
+    background-color: #0056b3;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .plans-info-container button:hover {
+    background-color: #004090;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .plans-info-container {
+      padding: 15px;
+    }
+  
+    .plans-info-container h1 {
+      font-size: 2rem;
+    }
+  
+    .plans-info-container h2 {
+      font-size: 1.6rem;
+    }
+  
+    .plans-info-container h3 {
+      font-size: 1.4rem;
+    }
+  
+    .plans-info-container p, .plans-info-container li {
+      font-size: 0.95rem;
+    }
+  }
+  
