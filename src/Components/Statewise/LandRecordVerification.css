@@ -1,0 +1,115 @@
+.land-record-verification-page {
+    padding: 40px;
+    background: url(../../../public/dubai-marina-sunset.jpg);
+}
+
+.land-record-title {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 40px;
+    font-size: 28px;
+    color: #333;
+    display: block;
+    padding: 20px;
+    background-color: #ffffff1c;
+    border-radius: 8px;
+    font-size: 30px;
+    font-weight: 700;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.land-record-content {
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+}
+
+.land-record-input-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.land-record-input-container input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.land-record-input-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.land-record-input-container button:hover {
+    background-color: #d00000;
+}
+
+/* Land Record Details Styling */
+.land-record-details {
+    margin-top: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.land-record-item {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* FAQ Section Styling */
+.faq-section {
+    margin-top: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.faq-section h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-question {
+    font-size: 20px;
+    color: #000000;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #f0f0f0;
+}
+
+.faq-answer {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #ff0000;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
