@@ -1,19 +1,19 @@
-import React from 'react'
+import React from 'react';
 
 import "../common.css";
 import "../commonsecond.css";
 
-import PropertyHeader from './PropertyHeader'
+import PropertyHeader from './PropertyHeader';
 import FavListingPreviewActions from './FavListingPreviewActions';
 
-
-function PropertyTopHeader() {
+function PropertyTopHeader({ title, address ,pricerange,price ,area_detail ,purpose}) {
   return (
-    <div class="prop-slider-content">
-        <PropertyHeader />
-        <FavListingPreviewActions />
+    <div className="prop-slider-content">
+      <PropertyHeader title={title} address={address} price={price} pricerange={pricerange} area_detail={area_detail} purpose={purpose}
+    />
+      <FavListingPreviewActions />
     </div>
-  )
+  );
 }
 
-export default PropertyTopHeader
+export default PropertyTopHeader;
