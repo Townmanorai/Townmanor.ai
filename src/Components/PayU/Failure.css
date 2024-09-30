@@ -1,0 +1,54 @@
+.failure-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffe6e6;
+    text-align: center;
+  }
+  
+  .failure-message {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .failure-message h1 {
+    color: #dc3545; /* Red color for failure */
+    font-size: 2.5rem;
+  }
+  
+  .failure-message p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  
+  .retry-button, .home-button {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .retry-button {
+    background-color: #dc3545;
+  }
+  
+  .retry-button:hover {
+    background-color: #b02a37;
+  }
+  
+  .home-button {
+    background-color: #6c757d;
+  }
+  
+  .home-button:hover {
+    background-color: #5a6268;
+  }
+  
