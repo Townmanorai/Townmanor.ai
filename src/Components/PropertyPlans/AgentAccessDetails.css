@@ -1,0 +1,99 @@
+.widget-panel.details-access {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-center {
+    margin-bottom: 20px;
+  }
+  
+  .text-center .title {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .text-center p {
+    font-size: 16px;
+    color: #666;
+    margin-top: 10px;
+  }
+  
+  .content-box {
+    margin-top: 30px;
+  }
+  
+  .details-access-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .details-plan {
+    width: 33%;
+    padding: 20px;
+  }
+  
+  .plan-data {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px;
+  }
+  
+  .details-count {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .price_plans {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .price_plans del {
+    color: #999;
+    font-size: 14px;
+  }
+  
+  .current-price {
+    color: #ff5a5f;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .bottom_list {
+    margin-top: 10px;
+  }
+  
+  .bottom_list li {
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .list_icon_ {
+    margin-right: 10px;
+  }
+  
+  .unlock-now {
+    background-color: #ff5a5f;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .unlock-now:hover {
+    background-color: #ff4040;
+  }
+  
