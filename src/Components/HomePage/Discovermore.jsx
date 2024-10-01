@@ -44,7 +44,7 @@ const Discovermore = () => {
           </div>
         </div>
 
-        <Slider {...settings} className="banner-carousel">
+        <Slider {...settings} className="banner-carousel" style={{height:"250px"}}>
           <div className="banner-slide">
             <img src={'/600x600ad_space_available_4.jpg'} alt="ad_space_available_4.jpg" />
           </div>
