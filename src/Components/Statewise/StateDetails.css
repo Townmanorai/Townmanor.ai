@@ -1,0 +1,88 @@
+.state-details-page {
+    padding: 40px;
+    background: url(../../../public/dubai-marina-sunset.jpg);
+    /* background-color: #f4f4f4; */
+}
+
+.state-details-page h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 40px;
+    font-size: 28px;
+    color: #333;
+    display: block;
+    padding: 20px;
+    background-color: #ffffff1c;
+    border-radius: 8px;
+    font-size: 30px;
+    font-weight: 700;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* .State-name{
+
+} */
+
+.options-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+.options-container a {
+    display: block;
+    padding: 20px;
+    background-color: #ffffffb5;
+    border-radius: 8px;
+    text-align: center;
+    width: 280px;
+    text-decoration: none;
+    color: #fe0000;
+    font-size: 20px;
+    font-weight: 600;
+    box-shadow: 15px 15px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+
+
+.options-container a:hover {
+    background-color: #ff0000;
+    color: #fff;
+}
+
+.cities-list h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.cities-list ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+}
+
+.cities-list li {
+    margin: 10px;
+}
+
+.cities-list a {
+    padding: 10px 50px;
+    background-color: #fff;
+    border-radius: 6px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #ff0000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.cities-list a:hover {
+    background-color: #ff0000;
+    color: #fff;
+}
