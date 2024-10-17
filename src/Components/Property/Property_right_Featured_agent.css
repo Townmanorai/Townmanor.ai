@@ -1,0 +1,5 @@
+/* Add this to your CSS file */
+.product-wrap.custom-padding {
+  padding: 0 !important;
+  display: block !important;
+}

@@ -1,0 +1,1538 @@
+[
+    {
+        "id": 1,
+        "name": "Estate 1",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.5355,
+            "lng": 77.3910
+        },
+        "city": "Noida"
+    },
+    {
+        "id": 2,
+        "name": "Estate 2",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.7041,
+            "lng": 77.1025
+        },
+        "city": "Delhi"
+    },
+    {
+        "id": 3,
+        "name": "Estate 3",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4089,
+            "lng": 77.3178
+        },
+        "city": "Faridabad"
+    },
+    {
+        "id": 4,
+        "name": "Estate 4",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4595,
+            "lng": 77.0266
+        },
+        "city": "Gurugram"
+    },
+    {
+        "id": 5,
+        "name": "Estate 5",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 25.276987,
+            "lng": 55.296249
+        },
+        "city": "Dubai"
+    },
+    {
+        "id": 6,
+        "name": "Estate 6",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.5355,
+            "lng": 77.3910
+        },
+        "city": "Noida"
+    },
+    {
+        "id": 7,
+        "name": "Estate 7",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.7041,
+            "lng": 77.1025
+        },
+        "city": "Delhi"
+    },
+    {
+        "id": 8,
+        "name": "Estate 8",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4089,
+            "lng": 77.3178
+        },
+        "city": "Faridabad"
+    },
+    {
+        "id": 9,
+        "name": "Estate 9",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4595,
+            "lng": 77.0266
+        },
+        "city": "Gurugram"
+    },
+    {
+        "id": 10,
+        "name": "Estate 1",
+        "image": "./1.webp",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 25.276987,
+            "lng": 55.296249
+        },
+        "city": "Dubai"
+    },
+    {
+        "id": 11,
+        "name": "Estate 11",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.5355,
+            "lng": 77.3910
+        },
+        "city": "Noida"
+    },
+    {
+        "id": 12,
+        "name": "Estate 12",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.7041,
+            "lng": 77.1025
+        },
+        "city": "Delhi"
+    },
+    {
+        "id": 13,
+        "name": "Estate 13",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4089,
+            "lng": 77.3178
+        },
+        "city": "Faridabad"
+    },
+    {
+        "id": 14,
+        "name": "Estate 14",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4595,
+            "lng": 77.0266
+        },
+        "city": "Gurugram"
+    },
+    {
+        "id": 15,
+        "name": "Estate 15",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 25.276987,
+            "lng": 55.296249
+        },
+        "city": "Dubai"
+    },
+    {
+        "id": 16,
+        "name": "Estate 16",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.5355,
+            "lng": 77.3910
+        },
+        "city": "Noida"
+    },
+    {
+        "id": 17,
+        "name": "Estate 17",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.7041,
+            "lng": 77.1025
+        },
+        "city": "Delhi"
+    },
+    {
+        "id": 18,
+        "name": "Estate 18",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4089,
+            "lng": 77.3178
+        },
+        "city": "Faridabad"
+    },
+    {
+        "id": 19,
+        "name": "Estate 19",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4595,
+            "lng": 77.0266
+        },
+        "city": "Gurugram"
+    },
+    {
+        "id": 20,
+        "name": "Estate 2",
+        "image": "./1.webp",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 25.276987,
+            "lng": 55.296249
+        },
+        "city": "Dubai"
+    },
+    {
+        "id": 21,
+        "name": "Estate 21",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.5355,
+            "lng": 77.3910
+        },
+        "city": "Noida"
+    },
+    {
+        "id": 22,
+        "name": "Estate 22",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.7041,
+            "lng": 77.1025
+        },
+        "city": "Delhi"
+    },
+    {
+        "id": 23,
+        "name": "Estate 23",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4089,
+            "lng": 77.3178
+        },
+        "city": "Faridabad"
+    },
+    {
+        "id": 24,
+        "name": "Estate 24",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4595,
+            "lng": 77.0266
+        },
+        "city": "Gurugram"
+    },
+    {
+        "id": 25,
+        "name": "Estate 25",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 25.276987,
+            "lng": 55.296249
+        },
+        "city": "Dubai"
+    },
+    {
+        "id": 26,
+        "name": "Estate 26",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.5355,
+            "lng": 77.3910
+        },
+        "city": "Noida"
+    },
+    {
+        "id": 27,
+        "name": "Estate 27",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.7041,
+            "lng": 77.1025
+        },
+        "city": "Delhi"
+    },
+    {
+        "id": 28,
+        "name": "Estate 28",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4089,
+            "lng": 77.3178
+        },
+        "city": "Faridabad"
+    },
+    {
+        "id": 29,
+        "name": "Estate 29",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4595,
+            "lng": 77.0266
+        },
+        "city": "Gurugram"
+    },
+    {
+        "id": 30,
+        "name": "Estate 3",
+        "image": "./1.webp",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 25.276987,
+            "lng": 55.296249
+        },
+        "city": "Dubai"
+    },
+    {
+        "id": 31,
+        "name": "Estate 31",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.5355,
+            "lng": 77.3910
+        },
+        "city": "Noida"
+    },
+    {
+        "id": 32,
+        "name": "Estate 32",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.7041,
+            "lng": 77.1025
+        },
+        "city": "Delhi"
+    },
+    {
+        "id": 33,
+        "name": "Estate 33",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4089,
+            "lng": 77.3178
+        },
+        "city": "Faridabad"
+    },
+    {
+        "id": 34,
+        "name": "Estate 34",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4595,
+            "lng": 77.0266
+        },
+        "city": "Gurugram"
+    },
+    {
+        "id": 35,
+        "name": "Estate 35",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 25.276987,
+            "lng": 55.296249
+        },
+        "city": "Dubai"
+    },
+    {
+        "id": 36,
+        "name": "Estate 36",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.5355,
+            "lng": 77.3910
+        },
+        "city": "Noida"
+    },
+    {
+        "id": 37,
+        "name": "Estate 37",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.7041,
+            "lng": 77.1025
+        },
+        "city": "Delhi"
+    },
+    {
+        "id": 38,
+        "name": "Estate 38",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4089,
+            "lng": 77.3178
+        },
+        "city": "Faridabad"
+    },
+    {
+        "id": 39,
+        "name": "Estate 39",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4595,
+            "lng": 77.0266
+        },
+        "city": "Gurugram"
+    },
+    {
+        "id": 40,
+        "name": "Estate 4",
+        "image": "./1.webp",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 25.276987,
+            "lng": 55.296249
+        },
+        "city": "Dubai"
+    },
+    {
+        "id": 41,
+        "name": "Estate 3",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.5355,
+            "lng": 77.3910
+        },
+        "city": "Noida"
+    },
+    {
+        "id": 42,
+        "name": "Estate 4",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4089,
+            "lng": 77.3178
+        },
+        "city": "Faridabad"
+    },
+    {
+        "id": 43,
+        "name": "Estate 5",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4595,
+            "lng": 77.0266
+        },
+        "city": "Gurugram"
+    },
+    {
+        "id": 44,
+        "name": "Estate 6",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 25.2048,
+            "lng": 55.2708
+        },
+        "city": "Dubai"
+    },
+    {
+        "id": 45,
+        "name": "Estate 7",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.7041,
+            "lng": 77.1025
+        },
+        "city": "Delhi"
+    },
+    {
+        "id": 46,
+        "name": "Estate 8",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 19.0760,
+            "lng": 72.8777
+        },
+        "city": "Mumbai"
+    },
+    {
+        "id": 47,
+        "name": "Estate 9",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 13.0827,
+            "lng": 80.2707
+        },
+        "city": "Chennai"
+    },
+    {
+        "id": 48,
+        "name": "Estate 1",
+        "image": "./1.webp",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 22.5726,
+            "lng": 88.3639
+        },
+        "city": "Kolkata"
+    },
+    {
+        "id": 49,
+        "name": "Estate 11",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 12.9716,
+            "lng": 77.5946
+        },
+        "city": "Bengaluru"
+    },
+    {
+        "id": 50,
+        "name": "Estate 12",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 17.3850,
+            "lng": 78.4867
+        },
+        "city": "Hyderabad"
+    },
+    {
+        "id": 51,
+        "name": "Estate 13",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 23.0225,
+            "lng": 72.5714
+        },
+        "city": "Ahmedabad"
+    },
+    {
+        "id": 52,
+        "name": "Estate 14",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 26.9124,
+            "lng": 75.7873
+        },
+        "city": "Jaipur"
+    },
+    {
+        "id": 53,
+        "name": "Estate 15",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 21.1702,
+            "lng": 72.8311
+        },
+        "city": "Surat"
+    },
+    {
+        "id": 54,
+        "name": "Estate 16",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 18.5204,
+            "lng": 73.8567
+        },
+        "city": "Pune"
+    },
+    {
+        "id": 55,
+        "name": "Estate 17",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 22.3072,
+            "lng": 73.1812
+        },
+        "city": "Vadodara"
+    },
+    {
+        "id": 56,
+        "name": "Estate 18",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 19.2183,
+            "lng": 72.9781
+        },
+        "city": "Thane"
+    },
+    {
+        "id": 57,
+        "name": "Estate 19",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.6692,
+            "lng": 77.4538
+        },
+        "city": "Ghaziabad"
+    },
+    {
+        "id": 58,
+        "name": "Estate 2",
+        "image": "./1.webp",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.6139,
+            "lng": 77.2090
+        },
+        "city": "New Delhi"
+    },
+    {
+        "id": 59,
+        "name": "Estate 21",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4595,
+            "lng": 77.0266
+        },
+        "city": "Gurgaon"
+    },
+    {
+        "id": 60,
+        "name": "Estate 22",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 25.276987,
+            "lng": 55.296249
+        },
+        "city": "Dubai"
+    },
+    {
+        "id": 61,
+        "name": "Estate 23",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.7041,
+            "lng": 77.1025
+        },
+        "city": "Delhi"
+    },
+    {
+        "id": 62,
+        "name": "Estate 24",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.5355,
+            "lng": 77.3910
+        },
+        "city": "Noida"
+    },
+    {
+        "id": 63,
+        "name": "Estate 25",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4089,
+            "lng": 77.3178
+        },
+        "city": "Faridabad"
+    },
+    {
+        "id": 64,
+        "name": "Estate 26",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4595,
+            "lng": 77.0266
+        },
+        "city": "Gurugram"
+    },
+    {
+        "id": 65,
+        "name": "Estate 27",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 25.2048,
+            "lng": 55.2708
+        },
+        "city": "Dubai"
+    },
+    {
+        "id": 66,
+        "name": "Estate 28",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 19.0760,
+            "lng": 72.8777
+        },
+        "city": "Mumbai"
+    },
+    {
+        "id": 67,
+        "name": "Estate 29",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 13.0827,
+            "lng": 80.2707
+        },
+        "city": "Chennai"
+    },
+    {
+        "id": 68,
+        "name": "Estate 3",
+        "image": "./1.webp",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 22.5726,
+            "lng": 88.3639
+        },
+        "city": "Kolkata"
+    },
+    {
+        "id": 69,
+        "name": "Estate 31",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 12.9716,
+            "lng": 77.5946
+        },
+        "city": "Bengaluru"
+    },
+    {
+        "id": 70,
+        "name": "Estate 32",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 17.3850,
+            "lng": 78.4867
+        },
+        "city": "Hyderabad"
+    },
+    {
+        "id": 71,
+        "name": "Estate 33",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 23.0225,
+            "lng": 72.5714
+        },
+        "city": "Ahmedabad"
+    },
+    {
+        "id": 72,
+        "name": "Estate 34",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 26.9124,
+            "lng": 75.7873
+        },
+        "city": "Jaipur"
+    },
+    {
+        "id": 73,
+        "name": "Estate 35",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 21.1702,
+            "lng": 72.8311
+        },
+        "city": "Surat"
+    },
+    {
+        "id": 74,
+        "name": "Estate 36",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 18.5204,
+            "lng": 73.8567
+        },
+        "city": "Pune"
+    },
+    {
+        "id": 75,
+        "name": "Estate 37",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 22.3072,
+            "lng": 73.1812
+        },
+        "city": "Vadodara"
+    },
+    {
+        "id": 76,
+        "name": "Estate 38",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 19.2183,
+            "lng": 72.9781
+        },
+        "city": "Thane"
+    },
+    {
+        "id": 77,
+        "name": "Estate 39",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.6692,
+            "lng": 77.4538
+        },
+        "city": "Ghaziabad"
+    },
+    {
+        "id": 78,
+        "name": "Estate 4",
+        "image": "./1.webp",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.6139,
+            "lng": 77.2090
+        },
+        "city": "New Delhi"
+    },
+    {
+        "id": 79,
+        "name": "Estate 41",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4595,
+            "lng": 77.0266
+        },
+        "city": "Gurgaon"
+    },
+    {
+        "id": 80,
+        "name": "Estate 42",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 25.276987,
+            "lng": 55.296249
+        },
+        "city": "Dubai"
+    },
+    {
+        "id": 81,
+        "name": "Estate 43",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.7041,
+            "lng": 77.1025
+        },
+        "city": "Delhi"
+    },
+    {
+        "id": 82,
+        "name": "Estate 44",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.5355,
+            "lng": 77.3910
+        },
+        "city": "Noida"
+    },
+    {
+        "id": 83,
+        "name": "Estate 45",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4089,
+            "lng": 77.3178
+        },
+        "city": "Faridabad"
+    },
+    {
+        "id": 84,
+        "name": "Estate 46",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4595,
+            "lng": 77.0266
+        },
+        "city": "Gurugram"
+    },
+    {
+        "id": 85,
+        "name": "Estate 47",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 25.2048,
+            "lng": 55.2708
+        },
+        "city": "Dubai"
+    },
+    {
+        "id": 86,
+        "name": "Estate 48",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 19.0760,
+            "lng": 72.8777
+        },
+        "city": "Mumbai"
+    },
+    {
+        "id": 87,
+        "name": "Estate 49",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 13.0827,
+            "lng": 80.2707
+        },
+        "city": "Chennai"
+    },
+    {
+        "id": 88,
+        "name": "Estate 5",
+        "image": "./1.webp",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 22.5726,
+            "lng": 88.3639
+        },
+        "city": "Kolkata"
+    },
+    {
+        "id": 89,
+        "name": "Estate 51",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 12.9716,
+            "lng": 77.5946
+        },
+        "city": "Bengaluru"
+    },
+    {
+        "id": 90,
+        "name": "Estate 52",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 17.3850,
+            "lng": 78.4867
+        },
+        "city": "Hyderabad"
+    },
+    {
+        "id": 91,
+        "name": "Estate 53",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 23.0225,
+            "lng": 72.5714
+        },
+        "city": "Ahmedabad"
+    },
+    {
+        "id": 92,
+        "name": "Estate 54",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 26.9124,
+            "lng": 75.7873
+        },
+        "city": "Jaipur"
+    },
+    {
+        "id": 93,
+        "name": "Estate 55",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 21.1702,
+            "lng": 72.8311
+        },
+        "city": "Surat"
+    },
+    {
+        "id": 94,
+        "name": "Estate 56",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 18.5204,
+            "lng": 73.8567
+        },
+        "city": "Pune"
+    },
+    {
+        "id": 95,
+        "name": "Estate 57",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 22.3072,
+            "lng": 73.1812
+        },
+        "city": "Vadodara"
+    },
+    {
+        "id": 96,
+        "name": "Estate 58",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 19.2183,
+            "lng": 72.9781
+        },
+        "city": "Thane"
+    },
+    {
+        "id": 97,
+        "name": "Estate 6",
+        "image": "./1.webp",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.6692,
+            "lng": 77.4538
+        },
+        "city": "Ghaziabad"
+    },
+    {
+        "id": 98,
+        "name": "Estate 61",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.6139,
+            "lng": 77.2090
+        },
+        "city": "New Delhi"
+    },
+    {
+        "id": 99,
+        "name": "Estate 62",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4595,
+            "lng": 77.0266
+        },
+        "city": "Gurgaon"
+    },
+    {
+        "id": 100,
+        "name": "Estate 63",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 25.276987,
+            "lng": 55.296249
+        },
+        "city": "Dubai"
+    },
+    {
+        "id": 101,
+        "name": "Estate 64",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.7041,
+            "lng": 77.1025
+        },
+        "city": "Delhi"
+    },
+    {
+        "id": 102,
+        "name": "Estate 65",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.5355,
+            "lng": 77.3910
+        },
+        "city": "Noida"
+    },
+    {
+        "id": 103,
+        "name": "Estate 66",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4089,
+            "lng": 77.3178
+        },
+        "city": "Faridabad"
+    },
+    {
+        "id": 104,
+        "name": "Estate 67",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4595,
+            "lng": 77.0266
+        },
+        "city": "Gurugram"
+    },
+    {
+        "id": 105,
+        "name": "Estate 68",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 25.2048,
+            "lng": 55.2708
+        },
+        "city": "Dubai"
+    },
+    {
+        "id": 106,
+        "name": "Estate 69",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 19.0760,
+            "lng": 72.8777
+        },
+        "city": "Mumbai"
+    },
+    {
+        "id": 107,
+        "name": "Estate 7",
+        "image": "./1.webp",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 13.0827,
+            "lng": 80.2707
+        },
+        "city": "Chennai"
+    },
+    {
+        "id": 108,
+        "name": "Estate 71",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 22.5726,
+            "lng": 88.3639
+        },
+        "city": "Kolkata"
+    },
+    {
+        "id": 109,
+        "name": "Estate 72",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 12.9716,
+            "lng": 77.5946
+        },
+        "city": "Bengaluru"
+    },
+    {
+        "id": 110,
+        "name": "Estate 73",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 17.3850,
+            "lng": 78.4867
+        },
+        "city": "Hyderabad"
+    },
+    {
+        "id": 111,
+        "name": "Estate 74",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 23.0225,
+            "lng": 72.5714
+        },
+        "city": "Ahmedabad"
+    },
+    {
+        "id": 112,
+        "name": "Estate 75",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 26.9124,
+            "lng": 75.7873
+        },
+        "city": "Jaipur"
+    },
+    {
+        "id": 113,
+        "name": "Estate 76",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 21.1702,
+            "lng": 72.8311
+        },
+        "city": "Surat"
+    },
+    {
+        "id": 114,
+        "name": "Estate 77",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 18.5204,
+            "lng": 73.8567
+        },
+        "city": "Pune"
+    },
+    {
+        "id": 115,
+        "name": "Estate 78",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 22.3072,
+            "lng": 73.1812
+        },
+        "city": "Vadodara"
+    },
+    {
+        "id": 116,
+        "name": "Estate 79",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 19.2183,
+            "lng": 72.9781
+        },
+        "city": "Thane"
+    },
+    {
+        "id": 117,
+        "name": "Estate 8",
+        "image": "./1.webp",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.6692,
+            "lng": 77.4538
+        },
+        "city": "Ghaziabad"
+    },
+    {
+        "id": 118,
+        "name": "Estate 81",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.6139,
+            "lng": 77.2090
+        },
+        "city": "New Delhi"
+    },
+    {
+        "id": 119,
+        "name": "Estate 82",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4595,
+            "lng": 77.0266
+        },
+        "city": "Gurgaon"
+    },
+    {
+        "id": 120,
+        "name": "Estate 83",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 25.276987,
+            "lng": 55.296249
+        },
+        "city": "Dubai"
+    },
+    {
+        "id": 121,
+        "name": "Estate 84",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.7041,
+            "lng": 77.1025
+        },
+        "city": "Delhi"
+    },
+    {
+        "id": 122,
+        "name": "Estate 85",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.5355,
+            "lng": 77.3910
+        },
+        "city": "Noida"
+    },
+    {
+        "id": 123,
+        "name": "Estate 86",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4089,
+            "lng": 77.3178
+        },
+        "city": "Faridabad"
+    },
+    {
+        "id": 124,
+        "name": "Estate 87",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 28.4595,
+            "lng": 77.0266
+        },
+        "city": "Gurugram"
+    },
+    {
+        "id": 125,
+        "name": "Estate 88",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 25.2048,
+            "lng": 55.2708
+        },
+        "city": "Dubai"
+    },
+    {
+        "id": 126,
+        "name": "Estate 89",
+        "price": "&#8377; 500,00",
+        "image": "./1.webp",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 19.0760,
+            "lng": 72.8777
+        },
+        "city": "Mumbai"
+    },
+    {
+        "id": 127,
+        "name": "Estate 9",
+        "image": "./1.webp",
+        "price": "&#8377; 500,00",
+        "description": "A luxurious estate in Noida.",
+        "gps": {
+            "lat": 13.0827,
+            "lng": 80.2707
+        },
+        "city": "Chennai"
+    }
+]

@@ -1,0 +1,18 @@
+.nav-tabs .nav-item.show .nav-link, .nav-tabss .nav-link.active {
+    color: #f3f3f3;
+    /* background-color: #fd2c2c; */
+    background: none;
+    border-color: var(--bs-nav-tabs-link-active-border-color);
+}
+
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabss .nav-link.active {
+    color: #D81212;
+}
+
+@media (max-width: 768px) { /* Adjust the breakpoint as needed */
+    .map-hidden {
+      display: none;
+    }
+  }
+  

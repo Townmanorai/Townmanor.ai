@@ -701,7 +701,7 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import TopRentedProperties from '../HomePage/TopRentedProperties';
 import ExclusiveOwnerProperties from '../HomePage/ExclusiveOwnerProperties';
-import dummyCitiesData from '../../JsonData/ecity.json'; // Adjust the path as needed
+import dummyCitiesData from '../../JsonData/ecity.json'; 
 import NewLaunchedProjects from '../HomePage/NewLaunchedProjects';
 import UpComingProjects from '../HomePage/UpComingProjects';
 

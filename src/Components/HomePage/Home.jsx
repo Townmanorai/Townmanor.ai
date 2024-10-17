@@ -16,6 +16,7 @@ import StateHouseTax from './StateHouseTax'
 import './Home.css'
 import ExclusiveOwnerProperties from './ExclusiveOwnerProperties'
 import TopRentedProperties from './TopRentedProperties'
+import PropertyList from './PropertyList'
 
 function Home() {
   return (
@@ -28,6 +29,7 @@ function Home() {
       <RightAgents />
       <CategoriesPresentation />
       <StateHouseTax />
+      <PropertyList />
       <ExclusiveOwnerProperties />
       <TopRentedProperties />
       <LocationsGrid />

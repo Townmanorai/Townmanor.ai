@@ -1,6 +1,6 @@
 import React from 'react';
-import "../common.css";
-import "../commonsecond.css";
+import "../../common.css";
+import "../../commonsecond.css";
 
 
 // Dummy JSON data for breadcrumb links

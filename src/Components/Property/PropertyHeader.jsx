@@ -235,7 +235,7 @@ const PropertyHeader = ({
                   <>
                     {area_detail}
                     {pricerange && area_detail && " / "}
-                    {pricerange && `$${pricerange}`}
+                    {pricerange && `Rs ${pricerange}`}
                   </>
                 )}
               </>

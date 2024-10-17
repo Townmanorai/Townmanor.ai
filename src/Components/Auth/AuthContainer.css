@@ -1,0 +1,41 @@
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #f3f3f3;
+    /* background-color: #fd2c2c; */
+    background: linear-gradient(to right, #ff4447, #8a2e2e);
+    border-color: var(--bs-nav-tabs-link-active-border-color);
+}
+
+.nav-tabs .nav-link {
+    margin-bottom: calc(-1* var(--bs-nav-tabs-border-width));
+    color: #000000;
+    background-color: #f3f3f3;
+    border-color: var(--bs-nav-tabs-link-active-border-color);
+    border: var(--bs-nav-tabs-border-width) solid transparent;
+    border-top-left-radius: var(--bs-nav-tabs-border-radius);
+    border-top-right-radius: var(--bs-nav-tabs-border-radius);
+}
+
+.nav-tabs .nav-item {
+    margin: 5px;
+}
+
+.nav-tabs {
+    z-index: 0;
+    position: relative;
+}
+
+.btn2 {
+    float: left;
+    width: 100%;
+    color: #ffffff;
+    font-size: 14px;
+    height: 51px;
+    line-height: 51px;
+    border-radius: 30px;
+    text-align: center;
+    border: 0;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
