@@ -1,0 +1,61 @@
+/* PropertyLead.css */
+
+.property-leads-container {
+    max-width: 100%; /* Limit the width of the container */
+    margin: 20px auto; /* Center the container */
+    padding: 20px; /* Add padding for spacing */
+    border: 1px solid #e1e1e1; /* Light border for separation */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background color */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .property-leads-container h3 {
+    font-size: 24px; /* Heading size */
+    color: #333; /* Darker text color */
+    margin-bottom: 20px; /* Spacing below heading */
+  }
+  
+  .property-leads-container ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+  }
+  .lead-details div {
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #1e202014;
+    text-align: center;
+    padding: 25px;
+    font-size: large;
+}
+  .property-leads-container li {
+    margin-bottom: 15px; /* Spacing between list items */
+    padding: 15px; /* Padding for list items */
+    border: 1px solid #ddd; /* Border around each property */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #fff; /* White background for properties */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .property-leads-container li:hover {
+    background-color: #f1f1f1; /* Change background on hover */
+  }
+  
+  .property-leads-container strong {
+    color: #555; /* Darker color for labels */
+  }
+  
+  .property-leads-container p {
+    color: #777; /* Lighter color for loading text */
+    font-style: italic; /* Italic style for loading text */
+  }
+  
+  /* Styling for lead details */
+  .lead-details {
+    margin-top: 10px; /* Spacing above lead details */
+    padding: 10px; /* Padding for lead details */
+    border: 1px dashed #007bff; /* Dashed border to differentiate */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #e7f3ff; /* Light blue background for lead details */
+  }
+  

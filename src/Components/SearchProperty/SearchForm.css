@@ -1,0 +1,49 @@
+.banner-search .btn, .banner-search .btn:hover {
+    background: linear-gradient(to right, #ff4447, #8a2e2e);
+}
+
+body .winter_dropdown_tree {
+    min-width: 200px !important;
+    position:fixed;
+}
+
+button.btn.btn-outline-primary {
+    background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
+}
+
+
+@media (max-width: 767px) {
+    .half-map-sec .widget-property-search {
+        padding: 10px 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .banner-search.sw_search_form, .side .banner-search, .half-map-sec .widget-property-search .banner-search, .banner .banner-search {
+        margin: 2px 5px;
+        width: initial;
+    }
+}
+
+@media (max-width: 767px) {
+    .half-map-sec .banner-search .form_field:nth-child(2), .half-map-sec .banner-search .form_field, .half-map-sec .banner-search .input-field, .half-map-sec .banner-search .feat-srch .form_field:nth-child(2), .half-map-sec .feat-srch>*, .sw_search_form .form_field, .sw_search_form .input-field {
+        padding: 0px 10px;
+    }
+}
+
+.half-map-sec .widget-property-search .form_field {
+    margin-bottom: 5px;
+}
+
+.half-map-sec .widget-property-search {
+    float: left;
+    padding: 34px 50px 0 35px;
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .banner-search.sw_search_form, .side .banner-search, .half-map-sec .widget-property-search .banner-search, .banner .banner-search {
+        margin: -20px -20px;
+        width: initial;
+    }
+}

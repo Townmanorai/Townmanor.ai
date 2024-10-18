@@ -1101,6 +1101,8 @@
 // export default PricingPlans;
 
 
+//------------------------------------------------------------------------------------------------------------------------------
+
 import React from "react";
 import FireworksComponent from "./Fireworks";  // Import Fireworks component
 import Diya from "./Diya";  // Import Diya component
@@ -1111,6 +1113,8 @@ import FAQSection from "./SubscriptionFAQSection";
 import AgentsPlans from "./AgentPlans";
 import AgentAccessDetails from "./AgentAccessDetails";
 import PlansInfo from "./PlansInfo";
+import { useNavigate } from "react-router-dom";
+
 
 const pricingPlans = [
   {
@@ -1226,11 +1230,20 @@ const pricingPlans = [
   
 ];
 
+
+
 const PricingPlans = () => {
+  const navigate = useNavigate();
+
+  const handleChoosePlan = (plan) => {
+    console.log(plan);
+    // Navigate to /payment with the selected plan details
+    navigate("/payment", { state: { plan } });
+  };
+
   return (
     <>
       <FireworksComponent />
-      <Diya />
 
       <div className="wpart">
         <section className="Pricing_palns">
@@ -1240,7 +1253,13 @@ const PricingPlans = () => {
                 <div className="widget-panel rr5">
                   <div className="text-center">
                     <h2 className="title">Find the Perfect Plan for Your Property Needs</h2>
-                    <p>Explore our tailored pricing plans designed to meet your specific real estate goals. Whether you’re looking to buy, sell, or invest, we offer flexible options that fit your budget and requirements. Choose the plan that’s right for you and take the next step with confidence.</p>
+                    <p>
+                      Explore our tailored pricing plans designed to meet your
+                      specific real estate goals. Whether you’re looking to buy,
+                      sell, or invest, we offer flexible options that fit your
+                      budget and requirements. Choose the plan that’s right for
+                      you and take the next step with confidence.
+                    </p>
                   </div>
                   <div className="content-box">
                     <table className="table table-striped data_table price-pg24 dataTable" id="DataTables_Table_0">
@@ -1253,18 +1272,24 @@ const PricingPlans = () => {
                                 {plan.oldPrice && (
                                   <li style={{ fontSize: "17px" }}>
                                     <del>
-                                      <i className="fa fa-inr" aria-hidden="true"></i>{" "}
-                                      {plan.oldPrice}
+                                      <i className="fa fa-inr" aria-hidden="true"></i> {plan.oldPrice}
                                     </del>
                                     <span>/{plan.duration}</span>
                                   </li>
                                 )}
                                 <li className="price_plans">
-                                  <i className="fa fa-inr" aria-hidden="true"></i>{" "}
-                                  {plan.price}
+                                  <i className="fa fa-inr" aria-hidden="true"></i> {plan.price}
                                   <span>/{plan.duration}</span>
                                 </li>
-                                <form action={plan.formAction} method="post">
+                                {/* Retain form structure but intercept submission */}
+                                <form
+                                  action={plan.formAction}
+                                  method="post"
+                                  onSubmit={(e) => {
+                                    e.preventDefault();
+                                    handleChoosePlan(plan); // Navigate to payment page
+                                  }}
+                                >
                                   {Object.keys(plan.hiddenInputs).map((key) => (
                                     <input
                                       key={key}
@@ -1289,7 +1314,14 @@ const PricingPlans = () => {
                                   {plan.benefits.map((benefit, idx) => (
                                     <li key={idx}>
                                       <span className="list_icon_">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check" viewBox="0 0 16 16">
+                                        <svg
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          width="16"
+                                          height="16"
+                                          fill="currentColor"
+                                          className="bi bi-check"
+                                          viewBox="0 0 16 16"
+                                        >
                                           <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"></path>
                                         </svg>
                                       </span>

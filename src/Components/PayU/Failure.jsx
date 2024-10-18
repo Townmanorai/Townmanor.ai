@@ -3,19 +3,19 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import './Failure.css';
 
 const Failure = () => {
-  // const location = useLocation();
-  // const query = new URLSearchParams(location.search);
-  // const txnid = query.get('txnid');
-  // const amount = query.get('amount');
-  // const firstname = query.get('firstname');
-  // const email = query.get('email');
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
+  const txnid = query.get('txnid');
+  const amount = query.get('amount');
+  const firstname = query.get('firstname');
+  const email = query.get('email');
 
   // const location = useLocation();
   // const query = new URLSearchParams(location.search);
-  const txnid = '123456';
-  const amount = '100';
-  const firstname = 'Ravindra';
-  const email = 'ravindra@gmail.com';
+  // const txnid = '123456';
+  // const amount = '100';
+  // const firstname = 'Ravindra';
+  // const email = 'ravindra@gmail.com';
 
   const navigate = useNavigate();
 
