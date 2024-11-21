@@ -619,12 +619,18 @@ const Navbar = () => {
                           </span>
                         </li>
                         <li className="nav-item submit-btn">
-                          <a href="https://townmanor.in/frontend/login/en#sw_register" className="my-2 my-sm-0 nav-link sbmt-btn overflowVisible">
+                        <Link to="/form" className="my-2 my-sm-0 nav-link sbmt-btn overflowVisible">
                             <i className="icon-plus"></i>
                             <span>Property Listing</span>
                             <span className="FrEe">Free</span>
                             <span className="powered_by_ai_btn">Powered By AI</span>
-                          </a>
+                          </Link>
+                          {/* <a href="https://townmanor.in/frontend/login/en#sw_register" className="my-2 my-sm-0 nav-link sbmt-btn overflowVisible">
+                            <i className="icon-plus"></i>
+                            <span>Property Listing</span>
+                            <span className="FrEe">Free</span>
+                            <span className="powered_by_ai_btn">Powered By AI</span>
+                          </a> */}
                         </li>
                       </ul>
                     </div>

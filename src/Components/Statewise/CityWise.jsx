@@ -702,8 +702,8 @@ import { Link, useParams } from 'react-router-dom';
 import TopRentedProperties from '../HomePage/TopRentedProperties';
 import ExclusiveOwnerProperties from '../HomePage/ExclusiveOwnerProperties';
 import dummyCitiesData from '../../JsonData/ecity.json'; 
-import NewLaunchedProjects from '../HomePage/NewLaunchedProjects';
-import UpComingProjects from '../HomePage/UpComingProjects';
+// import NewLaunchedProjects from '../HomePage/NewLaunchedProjects';
+// import UpComingProjects from '../HomePage/UpComingProjects';
 
 const CityWise = () => {
     const { cityName, stateName } = useParams();
@@ -793,10 +793,10 @@ const CityWise = () => {
                 </div>
             </div>
             <div className='mt-4'>
-            <NewLaunchedProjects stateName={cityName}/>
+            {/* <NewLaunchedProjects stateName={cityName}/> */}
             <TopRentedProperties stateName={cityName} />
             <ExclusiveOwnerProperties stateName={cityName} />
-            <UpComingProjects stateName={cityName}/>
+            {/* <UpComingProjects stateName={cityName}/> */}
             </div>
             
         </>

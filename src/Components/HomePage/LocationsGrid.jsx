@@ -159,7 +159,7 @@ const LocationsGrid = () => {
                             ? `${childsData.count} Listing`
                             : `${childsData.count} Listings`}
                         </p>
-                        <i className="fa fa-angle-right"></i>
+                        <i className="fa fa-angle-up"></i>
                       </div>
                     </div>
                   </a>

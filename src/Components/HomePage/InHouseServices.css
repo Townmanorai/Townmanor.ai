@@ -1,0 +1,39 @@
+/* Mobile specific styles */
+@media (max-width: 767px) {
+    
+    .explore-feature .scrollable-cards {
+      display: flex;
+      justify-content: flex-start !important;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -ms-overflow-style: none; 
+      scrollbar-width: none; 
+    }
+  
+    .explore-feature .scrollable-cards::-webkit-scrollbar {
+      display: none; 
+    }
+  
+    /* Ensure each column (card) takes proper width */
+    .explore-feature .scrollable-cards .col-lg-2 {
+      flex: 0 0 auto; 
+      width: 47%; 
+      margin-right: 15px; 
+    }
+  
+    .explore-feature .scrollable-cards .card {
+      width: 100%; 
+    }
+  
+    /* Remove default gutter styles to prevent overlapping */
+    .explore-feature .row {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  
+    .explore-feature .col-lg-2 {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+  }
+  

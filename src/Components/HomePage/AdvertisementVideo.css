@@ -1,0 +1,44 @@
+/* Styles for the Advertisement Video Component */
+
+.ad-video-section {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to create multiple rows on smaller screens */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .video-ad-container {
+    max-width: 300px; /* Set a max width for each video */
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 10px; /* Add margin to create space between videos */
+  }
+  
+  .responsive-ad-video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    outline: none;
+  }
+  
+  /* Responsive styles for mobile */
+  @media (max-width: 768px) {
+    .ad-video-section {
+      padding: 10px;
+    }
+  
+    .video-ad-container {
+      max-width: 100%;
+      padding: 5px;
+    }
+  
+    .responsive-ad-video {
+      width: 100%;
+    }
+  }
+  

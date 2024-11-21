@@ -1,0 +1,260 @@
+#main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.trans-main {
+    display: flex;
+    width: 38vw;
+    height: 54vh;
+    /* margin: 10% 23%; */
+    border: 2px solid #cfcccc;
+    padding: 63px 2vw;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 18px;
+    font-family: monospace;
+    padding-left: 16vw;
+    line-height: 42px;
+    background: linear-gradient(90deg, rgba(246, 162, 162, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    border-radius: 15px;
+    position: fixed;
+    z-index: 0;
+    margin-bottom: 14px;
+}
+.trans-main h2{
+    font-size: 20px;
+    font-weight:600;
+}
+.trans-main p{
+    color: gray;
+}
+.detail{
+    display: flex;
+    justify-content: space-between;
+}
+.detailx{
+    font-size: 26px;
+    font-weight: 600;
+}
+.left{
+    font-weight: 550;
+}
+.right{
+    color: gray;
+}
+.right input{
+    width: 195px;
+    height: 35px;
+    background: transparent;
+    outline: none;
+    border: none;
+    box-shadow: 3px 3px 6px #e39999;
+    border-radius: 7px;
+}
+#pay {
+    /* border: 2px solid green; */
+    /* color: green; */
+    /* color: green; */
+    width: 15vw;
+    font-weight: 550;
+    border-radius: 12px;
+    height: 4vh;
+    border-spacing: none;
+    /* margin-bottom: -44px; */
+    margin-top: 9px;
+    /* letter-spacing: 6px; */
+    border-radius: 10px !important;
+}
+#pay2 {
+    border: 2px solid #bb1717;
+    color: #bb1717;
+    width: 10vw;
+    border-radius: 12px;
+    height: 4vh;
+    border-spacing: none;
+    /* margin-bottom: -44px; */
+    margin-top: 9px;
+    background-color: white;
+}
+#specialprice{
+    color: red;
+}
+.planbox{
+    background: white;
+    padding: 16px 27px;
+    margin-right: 25vw;
+    width: 17vw;
+    border: 2px solid #d3d3d3;
+    z-index: 1;
+    height: 39vh;
+    line-height: 39px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: monospace;
+}
+.plan{
+    margin-left: 2vw;
+    border-radius: 12px !important;
+    margin-top: 2vh;
+    font-weight: 550;
+    width: 12vw;
+}
+.planbox h2{
+    font-weight: 550;
+}
+#bullet{
+    font-size: 1.8rem;
+    color: rgb(116, 43, 43);
+}
+@media only screen and (min-width: 0px) and (max-width: 500px) {
+    .trans-main {
+        display: flex;
+        width: 95vw;
+        height: 60vh;
+        /* margin: 10% 23%; */
+        border: 2px solid #cfcccc;
+        padding: 3px 2vw;
+        flex-direction: column;
+        font-size: 14px;
+        font-family: monospace;
+        padding-left: 7vw;
+        line-height: 44px;
+        background: linear-gradient(90deg, rgba(246, 162, 162, 1) 0%, rgba(255, 255, 255, 1) 100%);
+        border-radius: 15px;
+        position: fixed;
+        z-index: 0;
+        margin-bottom: 14px;
+        margin-top: -32vh;
+    }
+    #main {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 99vh;
+    }
+    .planbox {
+        background: white;
+        padding: 20px 20px;
+        /* margin-right: 25vw; */
+        width: 80vw;
+        border: 2px solid #d3d3d3;
+        z-index: 1;
+        height: 41vh;
+        line-height: 30px;
+        border-radius: 12px;
+        font-size: 14px;
+        font-family: monospace;
+        margin-top: 382px;
+        margin-right: 0px;
+        margin-left: 27px;
+    }
+    .detailx {
+        font-size: 18px;
+        font-weight: 400;
+    }
+    .detailx {
+        font-size: 18px;
+        font-weight: 400;
+    }
+    .trans-main h2 {
+        font-size: 18px;
+    }
+    #pay {
+        /* border: 2px solid green; */
+        /* color: green; */
+        /* color: green; */
+        width: 49vw;
+        font-weight: 550;
+        border-radius: 12px;
+        height: 5vh;
+        border-spacing: none;
+        /* margin-bottom: -44px; */
+        margin-top: 9px;
+        /* letter-spacing: 6px; */
+        border-radius: 10px !important;
+    }
+    .plan {
+        margin-left: 2vw;
+        border-radius: 12px !important;
+        margin-top: 2vh;
+        font-weight: 550;
+        width: 57vw;
+    }
+}
+@media only screen and (min-width: 501px) and (max-width: 1000px){
+    .planbox {
+        background: white;
+        padding: 16px 27px;
+        margin-right: 43vw;
+        width: 26vw;
+        border: 2px solid #d3d3d3;
+        z-index: 1;
+        height: 37vh;
+        line-height: 35px;
+        border-radius: 12px;
+        font-size: 16px;
+        font-family: monospace;
+    }
+    .trans-main {
+        display: flex;
+        width: 54vw;
+        height: 60vh;
+        /* margin: 10% 23%; */
+        border: 2px solid #cfcccc;
+        padding: 63px 2vw;
+        flex-direction: column;
+        flex-wrap: wrap;
+        font-size: 18px;
+        font-family: monospace;
+        padding-left: 19vw;
+        line-height: 35px;
+        background: linear-gradient(90deg, rgba(246, 162, 162, 1) 0%, rgba(255, 255, 255, 1) 100%);
+        border-radius: 15px;
+        position: fixed;
+        z-index: 0;
+        margin-bottom: 14px;
+    }
+    .plan {
+        margin-left: 1vw;
+        border-radius: 12px !important;
+        margin-top: 2vh;
+        font-weight: 550;
+        width: 19vw;
+    }
+}
+@media only screen and (min-width: 1000px) and (max-width: 1700px){
+    .planbox {
+        background: white;
+        padding: 16px 27px;
+        margin-right: 36vw;
+        width: 21vw;
+        border: 2px solid #d3d3d3;
+        z-index: 1;
+        height: 42vh;
+        line-height: 31px;
+        border-radius: 12px;
+        font-size: 16px;
+        font-family: monospace;
+    }
+    .trans-main {
+        display: flex;
+        width: 44vw;
+        height: 60vh;
+        /* margin: 10% 23%; */
+        border: 2px solid #cfcccc;
+        padding: 63px 2vw;
+        flex-direction: column;
+        flex-wrap: wrap;
+        font-size: 18px;
+        font-family: monospace;
+        padding-left: 16vw;
+        line-height: 35px;
+        background: linear-gradient(90deg, rgba(246, 162, 162, 1) 0%, rgba(255, 255, 255, 1) 100%);
+        border-radius: 15px;
+        position: fixed;
+        z-index: 0;
+        margin-bottom: 14px;
+    }
+}

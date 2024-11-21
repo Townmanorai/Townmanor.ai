@@ -1,0 +1,65 @@
+/* Mobile specific styles */
+@media (max-width: 767px) {
+    /* Make the row containing the cards scrollable */
+    .popular-listing .scrollable-cards {
+      display: flex;
+      justify-content: flex-start !important;
+      flex-wrap: nowrap; /* Prevent wrapping */
+      overflow-x: auto; /* Enable horizontal scroll */
+      -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+      scrollbar-width: none; /* Hide scrollbar in Firefox */
+    }
+
+    .popular-listing .scrollable-cards::-webkit-scrollbar {
+      display: none; /* Hide scrollbar in Chrome and Safari */
+    }
+
+    /* Ensure each column (card) takes proper width */
+    .popular-listing .scrollable-cards .col-lg-4,
+    .popular-listing .scrollable-cards .col-md-6 {
+      flex: 0 0 auto; /* Prevent shrinking */
+      width: 80%; /* Adjust the width of each card for mobile view */
+      margin-right: 15px; /* Add space between cards */
+    }
+
+    .popular-listing .scrollable-cards .card {
+      width: 100%; /* Ensure card takes up the full width of the column */
+    }
+
+    /* Ensure the "Load More" button is below the cards */
+    .popular-listing .load-more-posts {
+      margin-top: 20px; /* Add space above the button */
+      text-align: center; /* Center the button */
+      width: 100%;
+    }
+
+    /* Remove default gutter styles to prevent overlapping */
+    .popular-listing .row {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    .popular-listing .col-lg-12 {
+      padding: 0;
+    }
+}
+
+/* Hide this section on mobile */
+@media (max-width: 767px) {
+    .col-lg-12 .load-more-posts {
+      display: none;
+    }
+  
+    /* Show this section on mobile */
+    .load-more-posts-mobile {
+      display: block !important;
+      text-align: center;
+      margin: 20px 0;
+    }
+  }
+  
+  /* By default, hide the mobile version on larger screens */
+  .load-more-posts-mobile {
+    display: none;
+  }
+  

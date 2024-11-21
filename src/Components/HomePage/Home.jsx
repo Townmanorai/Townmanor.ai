@@ -16,9 +16,8 @@ import StateHouseTax from './StateHouseTax'
 import './Home.css'
 import ExclusiveOwnerProperties from './ExclusiveOwnerProperties'
 import TopRentedProperties from './TopRentedProperties'
+// import AdvertisementVideo from './AdvertisementVideo'
 import PropertyList from './PropertyList'
-
-import AdsSpace from './AdsSpace'
 
 function Home() {
   return (
@@ -26,16 +25,15 @@ function Home() {
       
       <Banner />
       <InHouseServices />
-      {/* <Diya /> */}
-      <AdsSpace/>
+      {/* <AdvertisementVideo /> */}
       <Discovermore />
       <PopularListing />
       <RightAgents />
       <CategoriesPresentation />
-      <StateHouseTax />
-      <PropertyList />
       <ExclusiveOwnerProperties />
+      <PropertyList />
       <TopRentedProperties />
+      <StateHouseTax />
       <LocationsGrid />
       <ExploreFeatures />
       <ClientsSay />

@@ -1,42 +1,13 @@
 /* Add padding to the slick-list */
 .slick-list {
-    padding: 0px !important;
+    padding: 40px !important;
     /* Add padding of 40px */
 }
 
 /* Add padding inside the product-wrap */
-/* .product-wrap {
+.product-wrap {
     padding: 20px !important;
     /* Add padding of 20px inside product-wrap */
-    /* display: inline-block; */
-    /* Ensure inline-block is maintained */ */
-/* } */
-
-
-
-.popular-cities .card.popular_locations img.img-fluid {
-    position: absolute;
-    width: 85px;
-    height: 85px;
-    border-radius: 50px;
-    margin: auto;
-    margin-top: 9px;
-    border: 3px solid #fff;
-    top: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.popular-cities .card {
-    position: relative;
-    margin-top: 30px;
-    border: 0;
-}
-
-.popular-cities .card.popular_locations .card-body {
-    position: static;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 60px 0px 10px;
+    display: inline-block;
+    /* Ensure inline-block is maintained */
 }

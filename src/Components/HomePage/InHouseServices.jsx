@@ -1,4 +1,5 @@
 import React from 'react';
+import "./InHouseServices.css";
 import "../common.css";
 import "../commonsecond.css";
 
@@ -16,14 +17,15 @@ const InHouseServices = () => {
             </div>
           </div>
         </div>
-        <div className="row justify-content-center">
+        
+        <div className="row justify-content-center scrollable-cards">
           <div className="col-lg-2 col-md-3 col-6">
             <a href="https://townmanor.in/en/190/home_loan" title="">
               <div className="card card_services">
                 <div className="card-body">
                   <i className="icon-sevices">
                     <img
-                       src={"/servicesIcon1.png"}
+                      src={"/servicesIcon1.png"}
                       alt="Home Loan"
                     />
                   </i>

@@ -4,8 +4,8 @@ import './StateDetails.css';
 import TopRentedProperties from '../HomePage/TopRentedProperties';
 import ExclusiveOwnerProperties from '../HomePage/ExclusiveOwnerProperties';
 import dummyCitiesData from '../../JsonData/ecity.json';
-import NewLaunchedProjects from '../HomePage/NewLaunchedProjects';
-import UpComingProjects from '../HomePage/UpComingProjects';
+// import NewLaunchedProjects from '../HomePage/NewLaunchedProjects';
+// import UpComingProjects from '../HomePage/UpComingProjects';
 
 const StateDetails = () => {
     const { stateName } = useParams(); // Get the selected state from the URL
@@ -91,10 +91,10 @@ const StateDetails = () => {
                 </div>
             </div>
             <div className='mt-4'>
-            <NewLaunchedProjects stateName={stateName}/>
+            {/* <NewLaunchedProjects stateName={stateName}/> */}
             <TopRentedProperties stateName={stateName} />
             <ExclusiveOwnerProperties stateName={stateName} />
-            <UpComingProjects stateName={stateName}/>
+            {/* <UpComingProjects stateName={stateName}/> */}
             </div>
             
         </>

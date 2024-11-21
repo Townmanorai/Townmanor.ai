@@ -172,7 +172,7 @@ const Map = ({ results }) => {
       // Initialize the map
       map = L.map('main-map', {
         center: [28.5355, 77.3910], // Default center
-        zoom: 5,                    // Default zoom level
+        zoom: 10,                    // Default zoom level
         scrollWheelZoom: true,
         maxZoom: 18                 // Set a maxZoom value for the map
       });
