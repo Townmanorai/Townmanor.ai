@@ -112,6 +112,22 @@ import PropertyListedUserList from './Components/HomePage/PropertyListedUserList
 import Phone from './Components/Form/Phone';
 import PhoneSearch from './Components/SearchBar/PhoneSearch';
 import MainSearch from './Components/SearchBar/MainSearch';
+import HomeLane from './Components/HomeInterior/HomeLane';
+// import Commercial3 from './Components/Commercial/Commercial3';
+import ModularKitchen from './Components/HomeInterior/ModularKitchen';
+import WardDrobes from './Components/HomeInterior/WardDrobes';
+import Masterbedroom from './Components/HomeInterior/Masterbedroom';
+import Tv from './Components/HomeInterior/Tv';
+import Livingroom from './Components/HomeInterior/Livingroom';
+import FalseCeling from './Components/HomeInterior/FalseCeling';
+import Bathroom from './Components/HomeInterior/Bathroom';
+import Kids from './Components/HomeInterior/Kids';
+import FullHouseinterior from './Components/HomeInterior/FullHouseInterior';
+import CommercialInterior from './Components/HomeInterior/CommercialInterior';
+import Officeinterior from './Components/HomeInterior/OfficeInterior';
+import Bedroom from './Components/HomeInterior/Bedroom';
+import Furniture from './Components/HomeInterior/Furniture';
+// import HomeShift from './HomeShift/HomeShift';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null); // State to hold the current user
@@ -155,6 +171,20 @@ function App() {
         <Route path="/form" element={<Phone />} />
         <Route path="/search/:name" element={<PhoneSearch />} />
         <Route path="/Searchbar" element={<MainSearch />} />
+        <Route path='/homelane' element={<HomeLane/>}></Route>
+        <Route path='/homelane/kitchen' element={<ModularKitchen/>}></Route>
+        <Route path='/homelane/warddrobe' element={<WardDrobes/>}></Route>
+        <Route path='/homelane/masterbedroom' element={<Masterbedroom/>}></Route>
+        <Route path='/homelane/tv' element={<Tv/>}></Route>
+        <Route path='/homelane/livingroom' element={<Livingroom/>}></Route>
+        <Route path='/homelane/falseceiling' element={<FalseCeling/>}></Route>
+        <Route path='/homelane/bathroom' element={<Bathroom/>}></Route>
+        <Route path='/homelane/kids' element={<Kids/>}></Route>
+        <Route path='/homelane/fullhouseinterior' element={<FullHouseinterior/>}></Route>
+        <Route path='/homelane/commercialinterior' element={<CommercialInterior/>}></Route>
+        <Route path='/homelane/officeinterior' element={<Officeinterior/>}></Route>
+        <Route path='/homelane/bedroom' element={<Bedroom/>}></Route>
+        <Route path='/homelane/furniture' element={<Furniture/>}></Route>
           {/* Dynamic Route for State */}
           {/* <Route path="/state/:stateName" element={<StateDetails />} /> */}
 
