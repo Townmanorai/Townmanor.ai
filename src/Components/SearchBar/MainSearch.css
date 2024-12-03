@@ -1,0 +1,17 @@
+
+@media only screen and (min-width: 0px) and (max-width: 768px) {
+    .mobile_only {
+        display: block !important;
+    }
+    .laptop_only {
+        display: none !important;
+    }
+}
+@media only screen and (min-width: 761px) and (max-width: 3000px) {
+    .mobile_only{
+        display: none !important;
+    }
+    .laptop_only{
+        display: block !important;
+    }
+}

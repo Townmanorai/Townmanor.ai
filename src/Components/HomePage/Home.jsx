@@ -18,12 +18,14 @@ import ExclusiveOwnerProperties from './ExclusiveOwnerProperties'
 import TopRentedProperties from './TopRentedProperties'
 // import AdvertisementVideo from './AdvertisementVideo'
 import PropertyList from './PropertyList'
+import MainSearch from '../SearchBar/MainSearch'
 
 function Home() {
   return (
     <div>
       
-      <Banner />
+      {/* <Banner /> */}
+      <MainSearch/>
       <InHouseServices />
       {/* <AdvertisementVideo /> */}
       <Discovermore />

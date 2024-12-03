@@ -109,6 +109,9 @@ import HomeLoan from './Components/HomeLoan/HomeLoan';
 import CreditScore from './Components/Credit-Score/CreditScore';
 import Insurance from './Components/Insurance/Insurance';
 import PropertyListedUserList from './Components/HomePage/PropertyListedUserList';
+import Phone from './Components/Form/Phone';
+import PhoneSearch from './Components/SearchBar/PhoneSearch';
+import MainSearch from './Components/SearchBar/MainSearch';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null); // State to hold the current user
@@ -142,13 +145,16 @@ function App() {
         <Route path="/payment" element={<PaymentForm />} />
         <Route path="/success" element={<Success />} />
         <Route path="/failure" element={<Failure />} />
-
+         
         <Route path="/home-loan" element={<HomeLoan />} />
         <Route path="/credit-score" element={<CreditScore />} />
         <Route path="/insurance" element={<Insurance  />} />
 
         <Route path="/property-details/:property_name" element={<PropertyListedUserList />} />
-
+        {/* sunny route */}
+        <Route path="/form" element={<Phone />} />
+        <Route path="/search/:name" element={<PhoneSearch />} />
+        <Route path="/Searchbar" element={<MainSearch />} />
           {/* Dynamic Route for State */}
           {/* <Route path="/state/:stateName" element={<StateDetails />} /> */}
 

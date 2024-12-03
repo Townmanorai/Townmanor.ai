@@ -1,0 +1,96 @@
+ /* .phonenavbar{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 6px;
+  background-color: white;
+  color: black;
+  margin-top: 0vh;
+  }
+  
+  .nav-item {
+    cursor: pointer;
+    padding: 6px;
+    transition: background-color 0.3s;
+  }
+  .nav-item:hover{
+    font-weight: bold;
+    border-bottom: 2px solid red;
+  }
+  .active{
+    font-weight: bold;
+    border-bottom: 2px solid red;
+  } */
+ /* .search-bar-item select,
+ .search-bar-item input {
+   width: 100%;
+   padding: 8px;
+   margin: 4px 0;
+   border: none;
+   border-radius: 4px;
+   outline: none;
+ }
+
+ .slider {
+   width: 12vw;
+   box-shadow: none;
+   border: none;
+ } */
+
+ /* .multi-range-slider {
+   display: flex !important;
+   position: fixed !important;
+   border: none !important;
+   border-radius: 10px;
+   padding: 20px 10px;
+   box-shadow: none !important;
+   flex-direction: column;
+   -webkit-touch-callout: none;
+   -webkit-user-select: none;
+   user-select: none;
+   /* margin-top: 40px !important; */
+
+ 
+
+ /* .multi-range-slider .thumb::before {
+   width: 18px !important;
+   height: 18px !important;
+   border: solid 3px white !important;
+
+ }
+
+ .multi-range-slider .labels {
+   display: none !important;
+ }
+
+ #searchrange {
+   margin-left: 8%;
+ }
+
+ .price {
+   display: flex;
+   justify-content: space-between;
+   font-size: 16px;
+   font-weight: 400;
+   font-family: sans-serif;
+   margin: 0px 10px;
+ }
+
+ .locality {
+   margin-top: 8vh;
+ }
+
+ .newprop {
+   margin-top: 2vh;
+ }
+
+ #search-btn {
+   margin-top: 2vh;
+   width: 91vw;
+   position: fixed;
+   background: linear-gradient(to right, #ff4447, #8a2e2e);
+ }
+
+ #hello {
+   width: 10vw !important;
+ } */

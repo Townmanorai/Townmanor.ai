@@ -1,0 +1,58 @@
+.phone-searchbar {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 6px;
+  background-color: transparent !important;
+  color: white !important;
+  margin-top: 3vh !important;
+  }
+  
+  .nav-item {
+    cursor: pointer;
+    padding: 6px;
+    transition: background-color 0.3s;
+  }
+  .nav-item:hover{
+    font-weight: bold;
+    border-bottom: 2px solid red;
+  }
+  .activep{
+    cursor: pointer;
+    padding: 6px;
+    font-weight: bold;
+    border-bottom: 2px solid red;
+  }
+  .searchbox{
+    width: 65%;
+    margin-left: 17%;
+    background: white;
+    height: 8vh;
+    padding: 11px 14px;
+    margin-top: 1vh;
+    border-radius: 15px;
+  }
+  #searchinput{
+    outline: none;
+    height: 5vh;
+    width: 44vw;
+    border: none;
+   
+  }
+  #banner{
+    background: url('/public/search.jpg');
+    background-size: cover;
+    padding: 10px 10px;
+    height: 35vh;
+  }
+  .searchbutton{
+    font-size: 1.3rem;
+    border :2px solid white;
+  }
+  #search_icon{
+    width: 13% !important;
+  }
+  
+  
+  
+  
