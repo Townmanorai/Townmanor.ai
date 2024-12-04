@@ -1,7 +1,12 @@
 .drop-menu {
     position: relative;
   }
-  
+  .banner.widget_edit_enabled {
+    background: url(../dubai-marina-sunset.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
   .dropeddown {
     display: none; /* Hidden by default */
     position: absolute; /* Adjust positioning as needed */
