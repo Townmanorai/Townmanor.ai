@@ -43,7 +43,7 @@ const ClientSay = () => {
       <div className="container text-center">
         <h3 className="testi_title">Testimonials</h3>
       </div>
-      <div className="testimonial_gb ">
+      <div className="testimonial_gb client-Say">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xl-6">
