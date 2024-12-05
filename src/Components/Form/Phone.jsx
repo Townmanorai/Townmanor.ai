@@ -142,13 +142,15 @@ function Phone() {
         'cinema': null,
         'country': 'india'
     })
+    const gpskey = import.meta.env.VITE_GPS_KEY
+    const aikey = import.meta.env.VITE_OPEN_API_KEY
     const getCoordinates = async () => {
         setCoordinates(null); // Reset coordinates on new request
         try {
             const response = await axios.get(`https://maps.gomaps.pro/maps/api/geocode/json`, {
                 params: {
                     address: formdata.property_name,
-                    key: 'AlzaSyMPwhjsTA8V3WjSO0SMbMsxq98NZIMXGAK' // Your API key
+                    key: gpskey // Your API key
                 }
             });
     
@@ -186,7 +188,7 @@ function Phone() {
                 },
                 {
                     headers: {
-                        'Authorization': `Bearer ${`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`}`, // Replace with your API key
+                        'Authorization': `Bearer ${aikey}`, // Replace with your API key
                         'Content-Type': 'application/json'
                     },
                 }
