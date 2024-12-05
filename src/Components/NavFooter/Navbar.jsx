@@ -597,7 +597,7 @@ const Navbar = () => {
                       <li className="nav-item"><Link to="/search-property" className="nav-link">Search Property</Link></li>
                       <li className="nav-item"><Link to="/home-loan" className="nav-link">Home Loan</Link></li>
                       <li className="nav-item"><Link to="/insurance" className="nav-link">Insurance</Link></li>
-                      <li className="nav-item"><Link to="/home-interior" className="nav-link">Home Interior</Link></li>
+                      <li className="nav-item"><Link to="/homelane" className="nav-link">Home Interior</Link></li>
                       <li className="nav-item"><Link to="/pricing-plans" className="nav-link">Subscription Plan</Link></li>
                     </ul>
                     <div className="d-inline my-2 my-lg-0">
