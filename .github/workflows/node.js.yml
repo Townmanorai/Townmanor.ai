@@ -27,18 +27,17 @@ jobs:
 
     - name: Build React app
       run: |
-        npm run build
-        ls -al dist  # List contents of dist for debugging
+        npm run build    # This should create the dist folder
+        ls -al dist      # List contents of dist for debugging to verify dist folder creation
 
     # Step 4: Check if dist Directory Exists and Create Archive
     - name: Create Build Archive
       run: |
         if [ -d "dist" ]; then
+          echo "Found dist directory. Creating archive..."
           tar -czvf react-build.tar.gz -C dist .
-        elif [ -d "build" ]; then
-          tar -czvf react-build.tar.gz -C build .
         else
-          echo "Neither dist nor build directory found, aborting."
+          echo "dist directory not found, aborting."
           exit 1
         fi
 
