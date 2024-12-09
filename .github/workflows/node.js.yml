@@ -28,7 +28,16 @@ jobs:
     - name: Build React app
       run: npm run build
 
-    # Step 4: Create Build Archive
+    # Step 4: Check if Build Directory Exists and Create Archive
+    - name: Check if Build Directory Exists
+      run: |
+        if [ -d "build" ]; then
+          echo "Build directory exists, proceeding with creating archive."
+        else
+          echo "Build directory does not exist, aborting."
+          exit 1
+        fi
+
     - name: Create Build Archive
       run: tar -czvf react-build.tar.gz -C build .
 
@@ -45,15 +54,25 @@ jobs:
 
           # Backup the current build (if exists)
           if [ -d "dist" ]; then
+            echo "Backing up current dist folder..."
             mv dist dist_backup_$(date +%s)
           fi
 
-          # Deploy the new build
+          # Create the dist directory and extract the new build
+          echo "Extracting new build..."
           mkdir -p dist
           rm -rf dist/*
           tar -xzvf react-build.tar.gz -C dist
 
+          # Check if the build was successfully extracted
+          if [ ! -d "dist" ] || [ -z "$(ls -A dist)" ]; then
+            echo "Error: Build extraction failed. Restoring previous build..."
+            mv dist_backup_* dist
+            exit 1
+          fi
+
           # Check if Nginx is serving the new build correctly
+          echo "Verifying deployment..."
           if curl -Is http://your-server-ip | grep -q "200 OK"; then
             echo "New build verified successfully."
           else
@@ -63,6 +82,7 @@ jobs:
           fi
 
           # Restart Nginx
+          echo "Restarting Nginx..."
           sudo systemctl restart nginx
 
     # Step 6: Archive React build (Optional)
