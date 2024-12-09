@@ -28,18 +28,18 @@ jobs:
     - name: Build React app
       run: npm run build
 
-    # Step 4: Check if Build Directory Exists and Create Archive
-    - name: Check if Build Directory Exists
+    # Step 4: Check if dist Directory Exists and Create Archive
+    - name: Check if dist Directory Exists
       run: |
-        if [ -d "build" ]; then
-          echo "Build directory exists, proceeding with creating archive."
+        if [ -d "dist" ]; then
+          echo "dist directory exists, proceeding with creating archive."
         else
-          echo "Build directory does not exist, aborting."
+          echo "dist directory does not exist, aborting."
           exit 1
         fi
 
     - name: Create Build Archive
-      run: tar -czvf react-build.tar.gz -C build .
+      run: tar -czvf react-build.tar.gz -C dist .
 
     # Step 5: Deploy to AWS EC2
     - name: Deploy to AWS EC2
@@ -52,7 +52,7 @@ jobs:
           # Navigate to deployment directory
           cd /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai
 
-          # Backup the current build (if exists)
+          # Backup the current dist folder (if exists)
           if [ -d "dist" ]; then
             echo "Backing up current dist folder..."
             mv dist dist_backup_$(date +%s)
