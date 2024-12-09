@@ -28,7 +28,11 @@ jobs:
     - name: Build React app
       run: npm run build
 
-    # Step 4: Deploy to EC2
+    # Step 4: Create Build Archive
+    - name: Create Build Archive
+      run: tar -czvf react-build.tar.gz -C build .
+
+    # Step 5: Deploy to AWS EC2
     - name: Deploy to AWS EC2
       uses: appleboy/ssh-action@v0.1.6
       with:
@@ -36,15 +40,34 @@ jobs:
         username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
+          # Navigate to deployment directory
           cd /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai
-          rm -rf dist
-          mkdir dist
+
+          # Backup the current build (if exists)
+          if [ -d "dist" ]; then
+            mv dist dist_backup_$(date +%s)
+          fi
+
+          # Deploy the new build
+          mkdir -p dist
+          rm -rf dist/*
           tar -xzvf react-build.tar.gz -C dist
+
+          # Check if Nginx is serving the new build correctly
+          if curl -Is http://your-server-ip | grep -q "200 OK"; then
+            echo "New build verified successfully."
+          else
+            echo "Deployment failed! Restoring previous build."
+            mv dist_backup_* dist
+            exit 1
+          fi
+
+          # Restart Nginx
           sudo systemctl restart nginx
 
-    # Step 5: Archive Build (Optional)
+    # Step 6: Archive React build (Optional)
     - name: Archive React build
       uses: actions/upload-artifact@v3
       with:
         name: react-build
-        path: ./build
+        path: react-build.tar.gz
