@@ -167,7 +167,7 @@ const PropertyList = () => {
 
   const fetchProperties = async () => {
     try {
-      const response = await fetch('http://localhost:3030/api/properties/admin');
+      const response = await fetch('http://ec2-43-205-18-191.ap-south-1.compute.amazonaws.com/api/api/properties/admin');
       const data = await response.json();
       const sortedData = data.sort((a, b) => a.property_name.localeCompare(b.property_name));
       setProperties(sortedData);

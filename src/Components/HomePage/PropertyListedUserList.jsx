@@ -97,7 +97,7 @@ const PropertyListedUserList = () => {
 
   const fetchPropertyDetails = async () => {
     try {
-      const response = await fetch(`http://localhost:3030/api/properties/${property_name}`);
+      const response = await fetch(`http://ec2-43-205-18-191.ap-south-1.compute.amazonaws.com/api/api/properties/${property_name}`);
       const data = await response.json();
       console.log("Fetched data:", data);
 
