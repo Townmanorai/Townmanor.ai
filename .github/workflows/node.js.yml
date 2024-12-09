@@ -26,20 +26,21 @@ jobs:
       run: npm ci
 
     - name: Build React app
-      run: npm run build
+      run: |
+        npm run build
+        ls -al dist  # List contents of dist for debugging
 
     # Step 4: Check if dist Directory Exists and Create Archive
-    - name: Check if dist Directory Exists
+    - name: Create Build Archive
       run: |
         if [ -d "dist" ]; then
-          echo "dist directory exists, proceeding with creating archive."
+          tar -czvf react-build.tar.gz -C dist .
+        elif [ -d "build" ]; then
+          tar -czvf react-build.tar.gz -C build .
         else
-          echo "dist directory does not exist, aborting."
+          echo "Neither dist nor build directory found, aborting."
           exit 1
         fi
-
-    - name: Create Build Archive
-      run: tar -czvf react-build.tar.gz -C dist .
 
     # Step 5: Deploy to AWS EC2
     - name: Deploy to AWS EC2
