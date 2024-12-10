@@ -71,8 +71,8 @@ jobs:
           echo "Removing old archive..."
           rm -f react-build.tar.gz
 
-          # Transfer new archive to EC2
-          echo "Transferring new archive to EC2..."
+          # Upload the new build archive to EC2
+          echo "Uploading new build archive to EC2..."
           scp -i ~/.ssh/id_rsa react-build.tar.gz ubuntu@ec2-43-205-18-191.ap-south-1.compute.amazonaws.com:/home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai
 
           # Extract the new build
