@@ -26,25 +26,17 @@ jobs:
       run: npm ci
 
     - name: Build React app
-      run: |
-        npm run build    # This should create the dist folder
-        ls -al dist      # List contents of dist for debugging to verify dist folder creation
-        tar -czvf react-build.tar.gz -C dist .  # Create the tar.gz file if dist exists
+      run: npm run build    # This should create the dist folder
 
-    # Step 4: Check if dist Directory Exists and Create Archive
-    - name: Create Build Archive
+    - name: List contents of dist folder
       run: |
         if [ -d "dist" ]; then
-          echo "Found dist directory. Creating archive..."
-          tar -czvf react-build.tar.gz -C dist .   # Create archive from dist folder
-          echo "Archive created successfully. Listing contents of archive:"
-          tar -tzvf react-build.tar.gz # List the archive contents for verification
+          ls -al dist
         else
-          echo "dist directory not found, aborting."
-          exit 1
+          echo "dist directory does not exist."
         fi
 
-    # Step 5: Deploy to AWS EC2
+    # Step 4: Deploy to AWS EC2 (Using sudo commands)
     - name: Deploy to AWS EC2
       uses: appleboy/ssh-action@v0.1.6
       with:
@@ -52,75 +44,29 @@ jobs:
         username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          # Navigate to deployment directory
-          cd /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai
+          # Step 1: Create distold folder if it doesn't exist
+          echo "Creating distold directory..."
+          sudo mkdir -p /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai/distold
 
-          # Backup the current dist folder (if exists)
-          if [ -d "dist" ]; then
-            echo "Backing up current dist folder..."
-            sudo chown -R ubuntu:ubuntu dist   # Ensure ownership
-            mv dist dist_backup_$(date +%s)
-            sudo chmod -R 755 dist_backup_*    # Ensure permissions for backup
-          fi
+          # Step 2: Move contents of dist folder to distold folder
+          echo "Moving files from dist to distold..."
+          sudo mv /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai/dist/* /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai/distold/
 
-          # Ensure permissions for deployment directory
-          sudo chown -R ubuntu:ubuntu /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai
-          sudo chmod -R 755 /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai
+          # Step 3: Set permissions for distold folder
+          echo "Setting permissions for distold folder..."
+          sudo chown -R ubuntu:ubuntu /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai/distold
+          sudo chmod -R 755 /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai/distold
 
-          # Remove any existing react-build.tar.gz
-          echo "Removing old archive..."
-          rm -f react-build.tar.gz
-
-          # Upload the new build archive to EC2
-          echo "Uploading new build archive to EC2..."
-          scp -i ~/.ssh/id_rsa react-build.tar.gz ubuntu@ec2-43-205-18-191.ap-south-1.compute.amazonaws.com:/home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai
-
-          # Extract the new build
-          echo "Extracting new build..."
-          mkdir -p dist
-          rm -rf dist/*  # Clear the directory before extracting
-          tar -xzvf react-build.tar.gz -C dist
-
-          # Debugging: List the extracted files
-          echo "Listing contents of dist after extraction:"
-          ls -al dist
-
-          # Ensure permissions for the new build
-          sudo chown -R ubuntu:ubuntu dist
-          sudo chmod -R 755 dist
-
-          # Error handling: Restore the previous build if extraction fails
-          if [ ! -d "dist" ] || [ -z "$(ls -A dist)" ]; then
-            echo "Error: Build extraction failed. Restoring previous build..."
-            if ls dist_backup_* > /dev/null 2>&1; then
-              sudo mv dist_backup_* dist  # Restore backup
-              sudo chown -R ubuntu:ubuntu dist  # Restore ownership
-              sudo chmod -R 755 dist           # Restore permissions
-            fi
-            exit 1
-          fi
-
-          # Verify deployment by checking Nginx response
+          # Step 4: Verify deployment by checking Nginx response
           echo "Verifying deployment..."
           if curl -Is http://ec2-43-205-18-191.ap-south-1.compute.amazonaws.com/ | grep -q "200 OK"; then
             echo "New build verified successfully."
           else
-            echo "Deployment failed! Restoring previous build..."
-            if ls dist_backup_* > /dev/null 2>&1; then
-              sudo mv dist_backup_* dist  # Restore backup
-              sudo chown -R ubuntu:ubuntu dist  # Restore ownership
-              sudo chmod -R 755 dist           # Restore permissions
-            fi
+            echo "Deployment failed! Rolling back..."
+            # Rollback logic here if needed
             exit 1
           fi
 
-          # Restart Nginx
+          # Step 5: Restart Nginx to apply new changes
           echo "Restarting Nginx..."
           sudo systemctl restart nginx
-
-    # Step 6: Archive React build (Optional)
-    - name: Archive React build
-      uses: actions/upload-artifact@v3
-      with:
-        name: react-build
-        path: react-build.tar.gz
