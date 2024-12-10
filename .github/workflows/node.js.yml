@@ -14,14 +14,18 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    # Step 2: Set Up Node.js
+    # Step 2: Verify Checkout
+    - name: Verify checkout
+      run: git status
+
+    # Step 3: Set Up Node.js
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
         node-version: 20.x
         cache: 'npm'
 
-    # Step 3: Install Dependencies and Build Project
+    # Step 4: Install Dependencies and Build Project
     - name: Install dependencies
       run: npm ci
 
@@ -36,7 +40,7 @@ jobs:
           echo "dist directory does not exist."
         fi
 
-    # Step 4: Deploy to AWS EC2 (Using sudo commands)
+    # Step 5: Deploy to AWS EC2
     - name: Deploy to AWS EC2
       uses: appleboy/ssh-action@v0.1.6
       with:
@@ -44,20 +48,28 @@ jobs:
         username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          # Step 1: Create distold folder if it doesn't exist
+          # Step 1: Navigate to the repository directory
+          echo "Navigating to the repo directory..."
+          cd /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai
+
+          # Step 2: Pull the latest changes from GitHub
+          echo "Pulling latest changes from GitHub..."
+          git pull origin main  # Or your branch name
+
+          # Step 3: Create distold folder if it doesn't exist
           echo "Creating distold directory..."
           sudo mkdir -p /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai/distold
 
-          # Step 2: Move contents of dist folder to distold folder
+          # Step 4: Move contents of dist folder to distold folder
           echo "Moving files from dist to distold..."
           sudo mv /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai/dist/* /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai/distold/
 
-          # Step 3: Set permissions for distold folder
+          # Step 5: Set permissions for distold folder
           echo "Setting permissions for distold folder..."
           sudo chown -R ubuntu:ubuntu /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai/distold
           sudo chmod -R 755 /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai/distold
 
-          # Step 4: Verify deployment by checking Nginx response
+          # Step 6: Verify deployment by checking Nginx response
           echo "Verifying deployment..."
           if curl -Is http://ec2-43-205-18-191.ap-south-1.compute.amazonaws.com/ | grep -q "200 OK"; then
             echo "New build verified successfully."
@@ -67,6 +79,6 @@ jobs:
             exit 1
           fi
 
-          # Step 5: Restart Nginx to apply new changes
+          # Step 7: Restart Nginx to apply new changes
           echo "Restarting Nginx..."
           sudo systemctl restart nginx
