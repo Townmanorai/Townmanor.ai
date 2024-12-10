@@ -60,11 +60,11 @@ jobs:
             sudo chmod -R 755 dist_backup_*    # Ensure permissions for backup
           fi
 
-          # Ensure permissions for dist directory
+          # Ensure permissions for the deployment directory
           sudo chown -R ubuntu:ubuntu /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai
           sudo chmod -R 755 /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai
 
-          # Create the dist directory and extract the new build
+          # Extract the new build
           echo "Extracting new build..."
           mkdir -p dist
           rm -rf dist/*
@@ -77,21 +77,25 @@ jobs:
           # Error handling: Restore the previous build if extraction fails
           if [ ! -d "dist" ] || [ -z "$(ls -A dist)" ]; then
             echo "Error: Build extraction failed. Restoring previous build..."
-            sudo mv dist_backup_* dist  # Use sudo here to ensure proper permissions
-            sudo chown -R ubuntu:ubuntu dist  # Restore ownership
-            sudo chmod -R 755 dist           # Restore permissions
+            if ls dist_backup_* > /dev/null 2>&1; then
+              sudo mv dist_backup_* dist  # Use sudo to restore backup
+              sudo chown -R ubuntu:ubuntu dist  # Restore ownership
+              sudo chmod -R 755 dist           # Restore permissions
+            fi
             exit 1
           fi
 
-          # Check if Nginx is serving the new build correctly
+          # Verify deployment by checking Nginx response
           echo "Verifying deployment..."
           if curl -Is http://ec2-43-205-18-191.ap-south-1.compute.amazonaws.com/ | grep -q "200 OK"; then
             echo "New build verified successfully."
           else
-            echo "Deployment failed! Restoring previous build."
-            sudo mv dist_backup_* dist  # Use sudo here to restore backup
-            sudo chown -R ubuntu:ubuntu dist  # Restore ownership
-            sudo chmod -R 755 dist           # Restore permissions
+            echo "Deployment failed! Restoring previous build..."
+            if ls dist_backup_* > /dev/null 2>&1; then
+              sudo mv dist_backup_* dist  # Restore backup
+              sudo chown -R ubuntu:ubuntu dist  # Restore ownership
+              sudo chmod -R 755 dist           # Restore permissions
+            fi
             exit 1
           fi
 
