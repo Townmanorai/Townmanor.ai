@@ -85,7 +85,7 @@ jobs:
 
           # Check if Nginx is serving the new build correctly
           echo "Verifying deployment..."
-          if curl -Is http://your-server-ip | grep -q "200 OK"; then
+          if curl -Is http://ec2-43-205-18-191.ap-south-1.compute.amazonaws.com/ | grep -q "200 OK"; then
             echo "New build verified successfully."
           else
             echo "Deployment failed! Restoring previous build."
