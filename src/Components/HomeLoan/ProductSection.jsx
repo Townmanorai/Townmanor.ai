@@ -6,7 +6,7 @@ import "../commonsecond.css";
 
 // Dummy JSON data
 const dummyData = {
-  heading: "Turn your dream home into a reality with our home loans!",
+  heading: "Turn your dream home into a reality with our home loans! Townmanor",
   features: [
     "Customized Repayment Plans",
     "Low-Interest Rates",
