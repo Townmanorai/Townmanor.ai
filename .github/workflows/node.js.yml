@@ -60,6 +60,10 @@ jobs:
             sudo chmod -R 755 dist_backup_*    # Ensure permissions for backup
           fi
 
+          # Ensure permissions for dist directory
+          sudo chown -R ubuntu:ubuntu /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai
+          sudo chmod -R 755 /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai
+
           # Create the dist directory and extract the new build
           echo "Extracting new build..."
           mkdir -p dist
@@ -73,7 +77,7 @@ jobs:
           # Error handling: Restore the previous build if extraction fails
           if [ ! -d "dist" ] || [ -z "$(ls -A dist)" ]; then
             echo "Error: Build extraction failed. Restoring previous build..."
-            mv dist_backup_* dist
+            sudo mv dist_backup_* dist  # Use sudo here to ensure proper permissions
             sudo chown -R ubuntu:ubuntu dist  # Restore ownership
             sudo chmod -R 755 dist           # Restore permissions
             exit 1
@@ -85,7 +89,7 @@ jobs:
             echo "New build verified successfully."
           else
             echo "Deployment failed! Restoring previous build."
-            mv dist_backup_* dist
+            sudo mv dist_backup_* dist  # Use sudo here to restore backup
             sudo chown -R ubuntu:ubuntu dist  # Restore ownership
             sudo chmod -R 755 dist           # Restore permissions
             exit 1
