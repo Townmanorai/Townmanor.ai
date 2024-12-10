@@ -73,6 +73,7 @@ const SearchForm = () => {
       // Example API call, replace with your actual API URL
       const response = await fetch(`http://ec2-43-205-18-191.ap-south-1.compute.amazonaws.com/search-property?city=${city}&configuration=${config}&furnish_type=${furnish}&construction_status=${status}`);
       
+      
       if (response.ok) {
         const data = await response.json();
         // Handle the fetched data as needed

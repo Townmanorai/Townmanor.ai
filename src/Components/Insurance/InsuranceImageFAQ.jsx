@@ -119,6 +119,34 @@ const InsuranceSectionFAQ = () => {
                             </div>
                           </div>
                         </div>
+                        <div className="card">
+                          <div className="card-header" id="faqHeading-1">
+                            <div className="mb-0">
+                              <h5 className="faq-title" onClick={() => handleFaqClick('faqCollapse-1')}>
+                                <span className="badge">2</span>  What is a term life insurance policy?
+                              </h5>
+                            </div>
+                          </div>
+                          <div className={`collapse ${expandedFaq === 'faqCollapse-1' ? 'show' : ''}`} aria-labelledby="faqHeading-1" id="faqCollapse-1">
+                            <div className="card-body">
+                              <p>Term life insurance provides coverage for a specific period. If the insured dies during this period, the nominee receives the death benefit.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="card">
+                          <div className="card-header" id="faqHeading-1">
+                            <div className="mb-0">
+                              <h5 className="faq-title" onClick={() => handleFaqClick('faqCollapse-1')}>
+                                <span className="badge">3</span> What is whole life insurance?
+                              </h5>
+                            </div>
+                          </div>
+                          <div className={`collapse ${expandedFaq === 'faqCollapse-1' ? 'show' : ''}`} aria-labelledby="faqHeading-1" id="faqCollapse-1">
+                            <div className="card-body">
+                              <p>Whole life insurance provides coverage for the insured’s entire life and includes a savings component known as cash value, which grows over time.</p>
+                            </div>
+                          </div>
+                        </div>
                         {/* Add more FAQs as needed */}
                       </div>
                     </div>
