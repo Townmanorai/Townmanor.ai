@@ -1,84 +1,55 @@
-name: CI/CD Pipeline for Townmanor.ai
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Node.js CI for React
 
 on:
   push:
     branches:
-      - "main"
+      - "main"  # This triggers the workflow on push to the "main" branch
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: self-hosted  # You can change to "ubuntu-latest" or another runner if needed
+
+    strategy:
+      matrix:
+        node-version: [20.x]  # You can add more versions if needed
 
     steps:
-    # Step 1: Checkout Code
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4  # Fetch the code from your GitHub repository
 
-    # Step 2: Verify Checkout
-    - name: Verify checkout
-      run: git status
-
-    # Step 3: Set Up Node.js
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 20.x
+        node-version: ${{ matrix.node-version }}
         cache: 'npm'
 
-    # Step 4: Install Dependencies and Build Project
     - name: Install dependencies
-      run: npm ci
+      run: npm ci  # Installs all dependencies listed in package-lock.json
 
-    - name: Build React app
-      run: npm run build    # This should create the dist folder
+    - name: Run build
+      run: npm run build  # Generates the production-ready build files (e.g., in the "dist" folder)
 
-    - name: List contents of dist folder
+    - name: Set file permissions for dist folder (if it exists)
       run: |
-        if [ -d "dist" ]; then
-          ls -al dist
-        else
-          echo "dist directory does not exist."
+        if [ -d "./dist" ]; then
+          sudo chown -R $USER:$USER ./dist
+          sudo chmod -R 777 ./dist
         fi
 
-    # Step 5: Deploy to AWS EC2
-    - name: Deploy to AWS EC2
-      uses: appleboy/ssh-action@v0.1.6
+    - name: Archive build artifacts (optional)
+      uses: actions/upload-artifact@v3
       with:
-        host: ec2-43-205-18-191.ap-south-1.compute.amazonaws.com
-        username: ubuntu
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          # Step 1: Navigate to the repository directory
-          echo "Navigating to the repo directory..."
-          cd /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai
+        name: react-build
+        path: ./dist  # Upload the build artifacts for further steps (e.g., for deployment)
 
-          # Step 2: Pull the latest changes from GitHub
-          echo "Pulling latest changes from GitHub..."
-          git pull origin main  # Or your branch name
+    - name: Clean dist folder (optional)
+      run: |
+        if [ -d "./dist" ]; then
+          sudo rm -rf ./dist/*
+        fi
 
-          # Step 3: Create distold folder if it doesn't exist
-          echo "Creating distold directory..."
-          sudo mkdir -p /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai/distold
-
-          # Step 4: Move contents of dist folder to distold folder
-          echo "Moving files from dist to distold..."
-          sudo mv /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai/dist/* /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai/distold/
-
-          # Step 5: Set permissions for distold folder
-          echo "Setting permissions for distold folder..."
-          sudo chown -R ubuntu:ubuntu /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai/distold
-          sudo chmod -R 755 /home/ubuntu/frontend/_work/Townmanor.ai/Townmanor.ai/distold
-
-          # Step 6: Verify deployment by checking Nginx response
-          echo "Verifying deployment..."
-          if curl -Is http://ec2-43-205-18-191.ap-south-1.compute.amazonaws.com/ | grep -q "200 OK"; then
-            echo "New build verified successfully."
-          else
-            echo "Deployment failed! Rolling back..."
-            # Rollback logic here if needed
-            exit 1
-          fi
-
-          # Step 7: Restart Nginx to apply new changes
-          echo "Restarting Nginx..."
-          sudo systemctl restart nginx
+    - name: Build project again (optional)
+      run: npm run build  # Rebuilds the project, if needed (in case of cleaning)
