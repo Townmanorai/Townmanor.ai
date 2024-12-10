@@ -9,6 +9,11 @@ const insuranceCompanies = {
       { id: 'canara', imgSrc: 'https://townmanor.in/templates/selio/assets/selfImages/Canara_HSBC_Insurance.webp', alt: 'Canara HSBC Insurance' },
       { id: 'edelweis', imgSrc: 'https://townmanor.in/templates/selio/assets/selfImages/Edelweis_Tokio_Insurance.webp', alt: 'Edelweis Tokio Insurance' },
       { id: 'exide', imgSrc: 'https://townmanor.in/templates/selio/assets/selfImages/Exide-insurance.webp', alt: 'Exide Insurance' },
+      { id: 'bajaj', imgSrc: 'https://townmanor.in/templates/selio/assets/selfImages/Bajaj-Allianz-Insurance.webp', alt: 'Bajaj Allianz Insurance' },
+      { id: 'birla', imgSrc: 'https://townmanor.in/templates/selio/assets/selfImages/Birla_Sunlife_Insurance.webp', alt: 'Birla Sunlife Insurance' },
+      { id: 'canara', imgSrc: 'https://townmanor.in/templates/selio/assets/selfImages/Canara_HSBC_Insurance.webp', alt: 'Canara HSBC Insurance' },
+      { id: 'edelweis', imgSrc: 'https://townmanor.in/templates/selio/assets/selfImages/Edelweis_Tokio_Insurance.webp', alt: 'Edelweis Tokio Insurance' },
+      { id: 'exide', imgSrc: 'https://townmanor.in/templates/selio/assets/selfImages/Exide-insurance.webp', alt: 'Exide Insurance' },
     ],
     health: [
       { id: 'bajaj', imgSrc: 'https://townmanor.in/templates/selio/assets/selfImages/Bajaj-Allianz-Insurance.webp', alt: 'Bajaj Allianz Insurance' },
