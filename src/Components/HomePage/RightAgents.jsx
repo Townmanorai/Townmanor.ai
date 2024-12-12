@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Slider from "react-slick";
+import "./RightAgents.css";
 import "../common.css";
 import "../commonsecond.css";
 

@@ -37,3 +37,16 @@
     }
   }
   
+
+  @media only screen and (max-width: 767px) {
+		.section-heading h3, .section-heading h1 {
+    		font-size: 21px !important;
+			}
+        .explore-feature.row {
+            display: flex;
+            flex-wrap: nowrap;
+            margin-right: -15px;
+            overflow-x: scroll; /* Enable horizontal scrolling */
+            margin-left: -15px;
+        }
+    }

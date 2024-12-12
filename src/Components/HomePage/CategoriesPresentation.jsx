@@ -1,6 +1,7 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./CategoriesPresentation.css"
 import "../common.css";
 import "../commonsecond.css";
 
@@ -36,8 +37,14 @@ const CategoriesPresentation = () => {
           <div className="col-xl-6 col-lg-6 p-0">
             <div className="intro-content bg-black">
               <div className="AddOff_c">
-                <span className="title-sub-top">Address of</span>
-                <h3>Limitless Luxury at Townmanor</h3>
+                {/* <span className="title-sub-top">Address of</span> */}
+                {/* <h3>Limitless Luxury at Townmanor</h3> */}
+
+                <div class="project-spotlight-container">
+ 					   <h2 class="project-spotlight project-spotlight-projects">PROJECTS</h2>
+    					<h2 class="project-spotlight project-spotlight-on">ON</h2>
+   						 <h2 class="project-spotlight project-spotlight-spotlight">SPOTLIGHT</h2>
+					</div>
               </div>
             </div>
           </div>

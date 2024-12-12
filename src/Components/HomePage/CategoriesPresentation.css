@@ -1,0 +1,135 @@
+.intro.section-padding {
+    padding: 10px 0px 6px;
+}
+
+.custom-style {
+    font-size: 30px;
+    margin-top: 125px;
+    margin-left: 120px;
+}
+
+.fire-icon {
+    font-size: 48px;
+    color: red;
+}
+
+.description {
+    font-size: 30px;
+    color: #eb0a0a;
+    font-weight: 100;
+}
+
+.project-spotlight-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+    margin-left: 100px;
+text-align: center;
+}
+
+.project-spotlight {
+font-size: 50px;
+text-transform: uppercase;
+line-height: 58px;
+color: #fff;
+margin-bottom: 10px;
+background: -webkit-linear-gradient(45deg, #afafaf, #fff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: block;
+text-align: center;
+margin: 0;
+}
+
+.project-spotlight-on {
+font-size: 45px;
+margin-top: 5px;
+}
+
+.project-spotlight-spotlight {
+font-size: 55px;
+margin-top: 5px;
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 992px) {
+.project-spotlight {
+    font-size: 40px;
+    line-height: 48px;
+}
+.project-spotlight-on {
+    font-size: 35px;
+    margin-top: -8px;
+}
+.project-spotlight-spotlight {
+    font-size: 45px;
+    margin-top: -3px;
+}
+}
+
+/* Small devices (phones, 576px and up) */
+@media (max-width: 768px) {
+.project-spotlight {
+    font-size: 30px;
+    line-height: 36px;
+}
+.project-spotlight-on {
+    font-size: 28px;
+    margin-top: -6px;
+}
+.project-spotlight-spotlight {
+    font-size: 35px;
+    margin-top: -2px;
+}
+}
+
+/* Extra small devices (phones, 576px and below) */
+@media (max-width: 576px) {
+.project-spotlight {
+    font-size: 24px;
+    line-height: 30px;
+}
+.project-spotlight-on {
+    font-size: 22px;
+    margin-top: -4px;
+}
+.project-spotlight-spotlight {
+    font-size: 28px;
+    margin-top: -1px;
+}
+}
+@media only screen and (max-width: 768px) {
+    .custom-style {
+        margin-top: 80px !important;
+        margin-left: 50px !important;
+        font-size: 24px !important;
+    }
+
+    .fire-icon {
+        font-size: 36px !important;
+    }
+
+    .description {
+        font-size: 24px !important;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .custom-style {
+        margin-top: 40px !important;
+        margin-left: 0px !important;
+        margin-bottom: -50px;
+        font-size: 0px !important;
+    }
+
+    .fire-icon {
+        font-size: 24px !important;
+        margin-left: 55px;
+    }
+
+    .description {
+        font-size: 18px !important;
+    }
+}

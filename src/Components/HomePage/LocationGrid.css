@@ -11,3 +11,8 @@
     display: inline-block;
     /* Ensure inline-block is maintained */
 }
+
+section.popular-cities.hp_s1.section-padding.widget_edit_enabled {
+    padding: 25px 0 0px;
+    margin: 19px 0;
+}

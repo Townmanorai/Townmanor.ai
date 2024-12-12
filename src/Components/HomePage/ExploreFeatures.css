@@ -1,0 +1,52 @@
+.explore-feature .card .card-body.choose{
+    padding: 5px 11px 5px 15px;
+    border-radius: 10px;
+    height: 240px;
+}
+
+.card-body.choose {
+    border-radius: 20px;
+}
+
+	.explore-feature .card .card-body i {
+    height: 65px;
+    width: 65px;
+}
+	.icon-FEATURES img {
+    filter: invert(1);
+    max-width: 35px;
+}
+	.explore-feature .card .card-body h3 {
+    font-size: 16px;
+    margin: 10px auto 10px auto;
+    line-height: 18px;
+}
+	.explore-feature .card .card-body p {
+    font-size: 12px;
+    padding: 0;
+    min-height: 90px;
+}
+	.explore-feature .card .card-body p {
+    font-size: 13px;
+    line-height: 22px;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #67686c;
+    line-height: 21px;
+    padding: 0 10px;
+    font-family: raleway, sans-serif;
+}
+	
+	.explore-features-section-details {
+    margin-bottom: 0px;
+	height: 240px;
+}
+    @media only screen and (max-width: 767px) {
+        .explore-feature.row {
+            display: flex;
+            flex-wrap: nowrap;
+            margin-right: -15px;
+            overflow-x: scroll; /* Enable horizontal scrolling */
+            margin-left: -15px;
+        }
+    }

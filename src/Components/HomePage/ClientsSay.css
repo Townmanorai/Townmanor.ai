@@ -1,9 +1,55 @@
 .testimonial_gb.client-Say{
     background: url(../testi-bg.png);
-    width: 100%;
+    width: 75%;
     height: 100%;
     background-size: cover;
-    padding: 0 0 90px;
+    padding: 0 0 0px;
     border-radius: 8px;
     margin: auto;
 }
+
+.testimonial_gb {
+    width: 75%;
+    height: 100%;
+    background-size: cover;
+    padding: 0px 60px 10px;
+    border-radius: 8px;
+    margin: auto;
+}
+	.testimonial_gb .cm-img {
+    width: 70px;
+}
+
+.cm-info-sec .cm-info h3 {
+    font-weight: 100;
+    color: #0c0c0c;
+    color: white;
+}
+	
+	.testimonail-sect .comment-info > p {
+    border: none;
+    font-size: 13px;
+    color: #fff;
+    font-family: 'Gilroy';
+    font-weight: 300;
+    line-height: 17px;
+    text-align: center;
+    max-width: 749px;
+    margin: auto !important;
+    width: auto;
+    float: none;
+    padding: 90px 0px 0px 0;
+}
+    @media only screen and (max-width: 767px) {
+       .testimonial_gb {
+    padding: 0px 30px 10px;
+}
+		.comment-info .cm-info {
+    padding-top: 9px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+    }

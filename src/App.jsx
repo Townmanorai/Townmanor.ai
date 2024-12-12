@@ -127,6 +127,7 @@ import CommercialInterior from './Components/HomeInterior/CommercialInterior';
 import Officeinterior from './Components/HomeInterior/OfficeInterior';
 import Bedroom from './Components/HomeInterior/Bedroom';
 import Furniture from './Components/HomeInterior/Furniture';
+import Footer from './Components/NavFooter/Footer';
 // import HomeShift from './HomeShift/HomeShift';
 
 function App() {
@@ -195,6 +196,7 @@ function App() {
           <Route path="/rera/:stateName" element={<RERA />} />
           <Route path="/stateName/:stateName/city/:cityName" element={<CityWise />} />  Example for city route */}
       </Routes>
+      <Footer />
     </Router>
   );
 }

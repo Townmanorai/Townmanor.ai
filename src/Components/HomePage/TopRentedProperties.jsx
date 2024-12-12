@@ -93,7 +93,7 @@ const TopRentedProperties = ({stateName}) => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <div className="swiper-button-next"><a href="javascript:void(0)"></a></div>,
     prevArrow: <div className="swiper-button-prev"><a href="javascript:void(0)"></a></div>,

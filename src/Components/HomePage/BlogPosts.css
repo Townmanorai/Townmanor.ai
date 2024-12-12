@@ -44,3 +44,55 @@
     color: white;
     background-color: red;
 } */
+
+
+.blog-img>a img {
+    width: 100%;
+    float: left;
+    height: 160px;
+}
+  .post_info h3 a {
+    font-size: 13px;
+}
+  .blog-single-post p {
+    font-size: 12px;
+    line-height: 20px;
+    
+}
+  
+  .read_more_blog {
+    background: #111;
+    color: #fff !important;
+    padding: 7px 10px !important;
+    display: inline-block;
+    font-size: 12px !important;
+}
+  
+  .blog_news_peh {
+    font-size: 12px;
+    line-height: 24px;
+}
+  .post_info h3 a {
+    padding-top: 0px;
+}
+  .blog-grid-posts .post_info {
+    padding: 25px 20px 5px;
+}
+  .blog-grid-posts .blog-single-post p {
+    margin-bottom: 5px;
+}
+  .blog-single-post p {
+    font-size: 12px;
+    line-height: 19px;
+}
+  
+  .blog-grid-posts .post_info>h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+  .section-heading h3, .section-heading h1 {
+    font-size: 30px;
+}
+    @media only screen and (max-width: 767px) {
+       
+    }

@@ -63,3 +63,73 @@
     display: none;
   }
   
+
+  .popular-listing .col-lg-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 24.333333%;
+    max-width: 72.333333%;
+}
+.popular-listing .card .card-body h3{
+font-size: 13px;
+font-weight: 600;
+margin-bottom: 0px;
+}
+.popular-listing.hp2 .card {
+margin-bottom: 25px;
+height: 252px;
+}
+.popular-listing .card .card-body h5{
+color: #242526;
+font-weight: 500;
+font-size: 13px;
+}
+
+.popular-listing .card .card-body .rate-info{
+    position: relative;
+  padding: 0 0 0px 0;
+}
+.popular-listing.hp2 .card.listing {
+  height: 260px;
+}
+@media only screen and (max-width: 767px) {
+    .popular-listing.row {
+        display: flex;
+        flex-wrap: nowrap;
+        margin-right: -15px;
+        overflow-x: scroll; /* Enable horizontal scrolling */
+        margin-left: -15px;
+    }
+    .popular-listing.card {
+        width: 300px; /* Set the width of cards for mobile view */
+        margin-right: 226px; /* Add margin between cards */
+    }
+.popular-listing.hp2 .card.listing {
+     height: 290px;
+}
+    .load-more-posts {
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+.popular-listing.hp2 .card .carousel-item img {
+  border-radius: 20px !important;
+  overflow: hidden;
+  height: 150px;
+}
+
+  @media only screen and (max-width: 767px) {
+  
+  .property-box{
+    width: 250px
+  }
+      .card {
+          width: 250px; /* Set the width of cards for mobile view */
+          margin-right: 10px; /* Add margin between cards */
+      }
+  }
+
+  .popular-listing .card {
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 22px 22px 20px 20px !important;
+}

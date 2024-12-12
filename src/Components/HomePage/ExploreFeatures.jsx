@@ -1,4 +1,5 @@
 import React from 'react';
+import './ExploreFeatures.css'
 import "../common.css"; 
 import "../commonsecond.css";
 
@@ -20,7 +21,7 @@ const ExploreFeatures = () => {
           <div className="col-xl-3 col-sm-6 col-md-6 col-lg-4">
             <a href="#" title="">
               <div className="card">
-                <div className="card-body">
+                <div className="card-body choose">
                   <i className="icon-FEATURES">
                     <img src="./rupee.png" alt="Perfect Tools" />
                   </i>
@@ -35,7 +36,7 @@ const ExploreFeatures = () => {
           <div className="col-xl-3 col-sm-6 col-md-6 col-lg-4">
             <a href="#" title="">
               <div className="card">
-                <div className="card-body">
+                <div className="card-body choose">
                   <i className="icon-FEATURES">
                     <img src="./brokerage.png" alt="Search in Click" />
                   </i>
@@ -50,7 +51,7 @@ const ExploreFeatures = () => {
           <div className="col-xl-3 col-sm-6 col-md-6 col-lg-4">
             <a href="#" title="">
               <div className="card">
-                <div className="card-body">
+                <div className="card-body choose">
                   <i className="icon-FEATURES">
                     <img src="./relationship.png" alt="User Control" />
                   </i>
@@ -65,7 +66,7 @@ const ExploreFeatures = () => {
           <div className="col-xl-3 col-sm-6 col-md-6 col-lg-4">
             <a href="#" title="">
               <div className="card">
-                <div className="card-body">
+                <div className="card-body choose">
                   <i className="icon-FEATURES">
                     <img src="./doorstep-delivery.png" alt="5 Star Support" />
                   </i>
