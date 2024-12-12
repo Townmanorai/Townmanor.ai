@@ -6,3 +6,13 @@
     padding-top: 20px;
     border-radius: 40px 0 0 0;
 } */
+
+.footer_area {
+    background: url(../footer-bg.jpg);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: bottom;
+    padding-top: 20px;
+    border-radius: 40px 0 0;
+}
