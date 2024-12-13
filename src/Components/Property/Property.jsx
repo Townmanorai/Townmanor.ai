@@ -32,7 +32,7 @@ function Property() {
   useEffect(() => {
     const fetchProperty = async () => {
       try {
-        const response = await fetch(`http://townmanor.ai/api/property/${id}`);
+        const response = await fetch(`http://www.townmanor.ai/api/property/${id}`);
         if (!response.ok) {
           throw new Error('Property not found');
         }
