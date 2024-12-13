@@ -140,7 +140,7 @@ function Property() {
     try {
       const images = JSON.parse(property.image_repository);
       return images.length > 0 ? images.map((img) => ({
-        url: `files/${img.trim()}`,
+        url: `https://townmanor.in/files/${img.trim()}`,
         alt: `Property Image`,
       })) : [{ url: dummyImage, alt: 'No images available' }];
     } catch (error) {

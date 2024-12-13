@@ -8,3 +8,8 @@ h5.blackalpenliebe {
     color: red;
     margin: 10px;
 }
+
+img.d-block.w-100.img-fluid {
+    height: 250px;
+    object-fit: fill;
+}
