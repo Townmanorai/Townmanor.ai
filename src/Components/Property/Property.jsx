@@ -55,7 +55,7 @@ function Property() {
         try {
           // Decode the token
           const decodedToken = jwtDecode(token);
-          const response = await fetch(`http://townmanor.ai/api/user/${decodedToken.username}`, {
+          const response = await fetch(`http://www.townmanor.ai/api/user/${decodedToken.username}`, {
             credentials: 'include', // Include cookies to access JWT
           });
           const userData = await response.json();
@@ -88,7 +88,7 @@ function Property() {
       };
 
       try {
-        const response = await fetch('http://townmanor.ai/api/property_lead', {
+        const response = await fetch('http://www.townmanor.ai/api/property_lead', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
