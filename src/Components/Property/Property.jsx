@@ -28,6 +28,9 @@ function Property() {
   const [error, setError] = useState(null);
   const [user, setUser] = useState(null); // For storing user data
 
+  // Dummy image URL for fallback
+  const dummyImage = 'https://via.placeholder.com/600x400?text=No+Image+Available';
+
   // Fetch property details from API when component mounts
   useEffect(() => {
     const fetchProperty = async () => {
@@ -127,16 +130,26 @@ function Property() {
   //   alt: `Property Image`,
   // }));
 
-  let images = [];
+  // Parse image repository or fallback to dummy image
+  const getImages = () => {
+    // Check if image_repository is null or empty
+    if (!property?.image_repository || property.image_repository === "null") {
+      return [{ url: dummyImage, alt: 'No images available' }];
+    }
+    
+    try {
+      const images = JSON.parse(property.image_repository);
+      return images.length > 0 ? images.map((img) => ({
+        url: `files/${img.trim()}`,
+        alt: `Property Image`,
+      })) : [{ url: dummyImage, alt: 'No images available' }];
+    } catch (error) {
+      console.error('Error parsing image_repository:', error);
+      return [{ url: dummyImage, alt: 'Error loading images' }];
+    }
+  };
 
-  try {
-    images = JSON.parse(property.image_repository).map((img) => ({
-      url: `files/${img.trim()}`,
-      alt: `Property Image`,
-    }));
-  } catch (error) {
-    console.error("Error parsing image_repository:", error);
-  }
+  let images = getImages();
 
   return (
     <div>
