@@ -1,0 +1,1554 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+.fronthead {
+    font-size: 1.5rem;
+    text-align: center;
+    padding-top: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.containerbox {
+    display: block;
+    font-family: "Poppins", sans-serif !important;
+}
+
+.combanner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    padding: 10px;
+    background-color: #afaaaa;
+    margin: 0vh 3vw;
+    margin-top: 2vh;
+    border-radius: 10px;
+    border: 2px solid rgb(170, 170, 170);
+    /* background: url("/public/blue.png"); */
+}
+
+#ban-img {
+    height: 56vh !important;
+    width: 99%;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 19vh 1vw;
+}
+
+.left p {
+    color: black;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+.right {
+    display: flex;
+    flex-basis: 60%;
+    justify-content: right;
+}
+
+#comimg {
+
+    border-radius: 10px;
+    width: 80%;
+}
+
+.combtn {
+    color: white;
+    background-color: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 15vw;
+    margin: 4vh 2vw;
+    letter-spacing: 2px;
+
+}
+.combtn2 {
+    color: white;
+    background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 15vw;
+    margin: 0vh 2vw;
+    border: none;
+}
+
+.combtn3 {
+    font-size: 14px;
+    height: 8.5vh !important;
+    color: white;
+    background: black;
+    padding: 10px 14px;
+    border-radius: 10px;
+    width: 26vw;
+    margin: 0vh 1.5vw !important;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.combuttonbox {
+    display: flex;
+    flex-direction: row;
+    margin-left: 6vw;
+}
+
+.combannerupdate {
+    margin-top: 0px;
+    justify-content: start;
+    background-color: #f4f4f4;
+    height: 8vh;
+}
+
+.combannerupdate select {
+    margin-left: 10vw;
+    width: 10vw;
+    height: 5vh;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    text-align: center;
+    background-color: #e9e8e8;
+    font-weight: bold;
+}
+
+.combannerupdate input {
+    margin: 0vh 4vw;
+    width: 40vw;
+    height: 5vh;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    text-align: center;
+    background-color: #e9e8e8;
+    font-size: 18px;
+}
+
+.mapbox {
+    border-radius: 12px;
+    padding: 8px;
+    height: 40vh;
+    margin: 5vh 3.5vw;
+    border: 1px solid grey;
+    margin-bottom: 2vh;
+}
+.mapbox2 {
+    border-radius: 12px;
+    padding: 8px;
+    height: 40vh;
+    border: 1px solid grey;
+}
+.chart{
+    border-radius: 10px;
+    margin: 40px;
+    padding: 10px;
+}
+.commute{
+    width: 61vw;
+    margin: 0px 1vw !important;
+}
+
+.investmentplan {
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid black; */
+    padding: 13px;
+    margin: 5vh 4vw;
+    border-radius: 12px;
+}
+.investmentoption {
+    padding: 10px 30px;
+    margin: 4vh 7vw;
+    border: 1px solid rgb(171, 170, 170);
+    border-radius: 12px;
+    max-width: -webkit-fill-available;
+}
+.invdata {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-top: 36px;
+}
+
+#add {
+    float: left;
+    font-size: 1.2rem;
+    color: #5f5f5f;
+    margin-right: 30vw;
+    margin-top: 10px;
+}
+.activecom {
+    color: white;
+    background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 15vw;
+    margin: 0vh 2vw;
+}
+
+.invbtn {
+    border-radius: 12px;
+    height: 5vh;
+    margin: 0vh 3vw;
+    float: right;
+    width: 7vw;
+    float: right;
+    margin-bottom: 10px;
+    /* background-color: #563aab; */
+    color: crimson;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: 1px solid black;
+}
+.invbtn:hover {
+    background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
+    color: white;
+}
+
+.invbtn2 {
+    color: #074907;
+}
+
+.combtn1 {
+    color: white;
+    background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
+    padding: 0px 20px;
+    border-radius: 10px;
+    width: 24vw;
+    margin: 0vh 14vw;
+}
+
+.combtn4 {
+    color: #000000;
+    /* background: linear-gradient(to right, #ff4447, #8a2e2e) !important; */
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 37vw;
+    margin: 0vh 2vw;
+    border: 2px solid #d1d1d1;
+    font-size: 17px;
+    box-shadow: 2px 2px 2px 2px #d5d4d4;
+}
+
+.combuttonbox2 {
+    display: flex;
+    flex-direction: row;
+    margin-left: 1vw;
+}
+
+.combtn3 {
+    font-size: 14px;
+    height: 6.5vh !important;
+    color: white;
+    background: black;
+    padding: 10px 14px;
+    border-radius: 10px;
+    width: 26vw;
+    margin: 0vh 1.5vw !important;
+    text-align: left;
+}
+#investhead {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+#loadmore {
+    align-items: center;
+    text-align: center;
+}
+
+#advimg {
+    text-align: center;
+    width: 70%;
+    border: 2px solid grey;
+    padding: 14px;
+    border-radius: 12px;
+    margin-left: 83px;
+}
+#advimg2 {
+    text-align: center;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.advimg {
+    margin: 3vh 5vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border: 2px solid gray; */
+    padding: 10px;
+}
+.slick-slide>div {
+    margin: 0px 5px;
+}
+.slick-prev:before,
+.slick-next:before {
+    font-size: 35px !important;
+    line-height: 0;
+    opacity: .75;
+    color: #464444 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.comimf {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* border:2px solid grey; */
+    padding: 10px;
+    margin: 3vh 4vw;
+}
+.comimf iframe{
+    border-radius: 12px;
+}
+.contactbox {
+    border: 2px solid grey;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 12px;
+    border: 2px solid #cdcdcd;
+}
+
+.contactbox h3 {
+    font-size: 1.3rem;
+}
+
+#contactform {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-top: 4vh;
+}
+
+#contactform input {
+    width: 17vw;
+    margin: 1vh 2vw;
+    height: 5vh;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+.investmentoptionbox2 {
+    display: none;
+}
+
+.comparebox {
+    display: flex;
+    flex-direction: flex;
+    margin: 5vh 1vw;
+
+    border-radius: 12px;
+}
+
+.comparebox2 {
+    display: none;
+}
+
+#compareimg {
+    width: 55%;
+    border: 0.5 px gray;
+    border-radius: 12px;
+    height: 14vh;
+}
+.databox {
+    border-radius: 12px;
+    display: flex;
+    /* border: 2px solid #dbdada; */
+    margin: 1vh 1vw;
+    padding: 2px 0vw;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 40px;
+    padding: 8px 13px;
+    box-shadow: 4px 5px 6px 5px #e1dddd;
+    background: #efefef;
+
+
+}
+
+.dataheading {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    margin-top: 21.5vh;
+    line-height: 40px;
+    margin-left: 10px;
+    max-width: 22vw;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+#datahead {
+    font-weight: 600;
+}
+
+.odd {
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+#imagebox {
+    width: 17vw;
+    max-height: 27vh;
+
+}
+
+.advbox2 {
+    width: 40vw;
+    margin: 2vh 8vw;
+}
+
+#advertisment {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    height: fit-content;
+}
+
+.descriptionbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 4vh 2vw;
+    padding: 20px;
+    border-radius: 14px;
+}
+
+.left1 {
+    background: white;
+    display: flex;
+    flex-basis: 70%;
+    flex-direction: column;
+    font-size: 1.2rem;
+    line-height: 42px;
+    margin-left: 5vw;
+    /* border: 2px solid #aba6a6; */
+    padding: 20px;
+    border-radius: 12px;
+    margin-right: 75px;
+    max-width: 854px;
+}
+
+.right1 {
+    width: 32vw;
+    height: 40vh;
+    /* padding: 10px 10px; */
+    border-radius: 12px;
+}
+
+.right1 img {
+    width: 100%;
+    /* padding: 10px; */
+    /* border: 2px solid #c7b8b8; */
+    border-radius: 12px;
+    height: -webkit-fill-available;
+}
+.headdbox {
+    font-size: 18px;
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 4%;
+}
+
+.headdbox h1{
+    font-size: 24px;
+    font-weight: 600;
+    color: #d81212;
+}
+
+
+
+h1,h2{
+    margin: 0;
+}
+
+.detailbox {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(342px, 1fr));
+    gap: 10px;
+}
+.hlt-data{
+    font-size: 15px;
+}
+.fronthead2 {
+    text-align: left;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 2%;
+}
+
+.fronth2{
+    text-align: left;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 2%;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 2%;
+}
+
+#address {
+    color: #5f5f5f;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.detailbox li span {
+    font-weight: 600;
+}
+
+.right1 li {
+    border: 2px solid #cfcfcf;
+    padding: 10px;
+    margin: 2vh 3vw;
+    font-size: 18px;
+    border-radius: 12px;
+    background: white;
+}
+
+.right1 h1 {
+    font-size: 1.3rem;
+}
+
+.advimg2 {
+    margin-left: 5vw;
+}
+
+.right2 {
+    flex-basis: 70%;
+    text-align: center;
+    align-items: center;
+}
+
+button.ls-submit {
+    color: white;
+    background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
+    border-radius: 10px;
+    width: 12vw;
+    border: none;
+}
+
+.left2 {
+    flex-basis: 25%;
+}
+
+.left2 h1 {
+    font-size: 2rem;
+    color: #000000;
+    text-align: center;
+    margin-top: 11vh;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: darkseagreen
+}
+
+.feature {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.popup {
+    width: 30vw;
+    height: 10vh;
+}
+
+#leadform {
+    text-align: left;
+    font-size: 18px;
+}
+#leadform .imcross {
+    float: right;
+    border: none;
+    background: white;
+    /* margin-top: 5vh; */
+}
+
+
+.submit {
+    text-align: center;
+    margin-right: 8vw;
+    width: 10vw;
+    background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
+    margin-top: 5vh;
+}
+
+.similar {
+    display: flex;
+}
+
+.similar-prop{
+    width: 1250px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.sp-head{
+    display: block;
+    margin: auto;
+}
+
+.sp-head h2{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.simbox {
+    position: relative;
+    width: 17vw;
+    margin: 5px;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 4px 6px 10px #ebe8e8;
+    height: 50vh;
+    transition: transform 0.3s ease;
+}
+
+
+
+.simbox ul{
+    margin: 0px 4px;
+    margin-bottom: 40px;
+}
+
+.simbox span {
+    font-weight: 600;
+}
+
+.sb-button{
+    margin: auto;
+    padding: 5px 20px;
+    border-radius: 5px;
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: red;
+    border: 1px solid red;
+    background-color: white;
+    font-size: 14px;
+}
+
+.simbox button:hover{
+    /* transform: translateX(-50%) scale(1.02); */
+    opacity: 0.9;
+}
+
+#head {
+    font-weight: 600;
+    font-size: 24px;
+}
+
+#simimg {
+    min-width: 200px;
+    max-width: -webkit-fill-available;
+    height: 150px;
+    margin: auto;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.smallswipe {
+    display: none;
+}
+
+.advimg3 {
+    display: none;
+}
+
+.similar2 {
+    display: none;
+}
+
+.lease {
+    display: flex;
+    flex-direction: row;
+    margin: 10vh 4vw;
+}
+
+.lease-category {
+    border: 2px solid #c3c3c3;
+    margin: 2vh 5vw;
+    width: 23vw;
+    height: 30vh;
+    padding: 12px 126px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 6px;
+    border-radius: 12px;
+    color: black;
+}
+
+.office {
+    background: url("/public/office-space.jpg") !important;
+    background-size: cover !important;
+    opacity: 84%;
+}
+.shop {
+    background: url("/public/shop.jpg");
+    background-size: cover;
+    opacity: 84%;
+}
+
+.showroom {
+    background: url("/public/showroom.jpg");
+    background-size: cover;
+    opacity: 84%;
+}
+
+.leaseproperty {
+    height: 88vh;
+    /* border: 2px solid black; */
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    margin: 2vh 8vw;
+}
+.lease-payment{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 14px;
+    
+}
+.leasebox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 2vh 1vw;
+    border: 2px solid #c1bebe;
+    border-radius: 12px;
+    padding: 20px;
+    height: 26vh;
+}
+
+#leasephoto {
+    width: 68%;
+}
+
+.leasepropertydata {
+    border: 2px solid gray;
+    padding: 10px 20px;
+    margin: 2vh 7vw;
+}
+
+#leaseimg {
+    flex-basis: 30%;
+}
+
+.leasedetail {
+    flex-basis: 65%;
+    line-height: 40px;
+    padding: 15px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    background-color: white;
+    height: 22vh;
+    border-radius: 11px;
+}
+.leasedetail p {
+    font-size: 20px;
+    color: #5f5f5f;
+    margin-top: 10px;
+}
+#leasef {
+    display: flex;
+    flex-direction: row;
+}
+#leasef li {
+    padding: 2px 12px;
+    border-radius: 10px;
+    margin: 1vh 1vw;
+    height: 5vh;
+    box-shadow: 3px 3px 4px #c5c5c5;
+    color: #074907;
+}
+.banner-modal-content {
+    position: relative;
+    text-align: center;
+    display: inline-block;
+  }
+  
+  #bannerimg {
+    max-width: 100%;  /* Make sure the image scales with the container */
+    height: auto;     /* Maintain aspect ratio */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+  }
+  
+  .banner-cross {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 999;
+  }
+  
+  .banner-cross:hover {
+    color: #ddd;
+  }
+  
+  /* Main content styling */
+  .content {
+    margin-top: 60px; /* Adjust content to avoid overlap with the banner */
+  }
+  .sf-box1-amenities {
+    flex-basis: 71%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 0vh 5vw;
+}
+.custom2 {
+    width: 19vw;
+    margin: 1vh 1vw;
+    background: linear-gradient(to right, #ff4447, #8a2e2e);
+    color: white;
+    border: none;
+    border-radius: 7px;
+}
+
+#leaseamount {
+    font-size: 22px;
+    font-weight: 600;
+    color: black;
+}
+#right2 {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #ffffff;
+    line-height: 35px;
+    width: 32vw !important;
+    margin: 0vh;
+    padding: 2vh 2vw;
+    font-size: 18px;
+    letter-spacing: 1px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 4px 4px 6px #c3c3c3;
+}
+#comingsoon {
+    font-size: 1.8rem;
+    margin-bottom: 10vh;
+    background: linear-gradient(to right, #ff4447, #8a2e2e);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.submit{
+    background: white !important;
+}
+#floorbox{
+    width: 19vw;
+    height: 35vh;
+    border-radius: 12px;
+    cursor: pointer;
+   
+}
+#lead2{
+  z-index: 99; 
+}
+.banner-cross{
+    float: right;
+    border: none;
+    background: white;
+    color: red;
+    text-align: center;
+    align-items: center;
+}
+#bannerimg{
+    width: 40%;
+}
+/* .chart-container {
+    width: 100%;
+    height: 400px; /* Ensure the chart has enough space */
+
+#floorimg{
+    width: 53vw;
+    height: 73vh;
+}
+
+.floor-comm {
+    margin: 40px auto;
+    width: 1240px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.floor-comm h1{
+    padding: 5%;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.advimgx {
+    /* margin: 3vh 8vw; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border: 2px solid gray; */
+    padding: 10px;
+}
+#advimg3 {
+    text-align: center;
+    width: 100%;
+    height: 32vh;
+    border-radius: 12px;
+}
+#right2 h1{
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 4%;
+}
+#offerhead{
+    font-weight: 600;
+}
+.floorplanmob{
+    display: none;
+}
+
+.r2-vid iframe {
+    border-radius: 10px;
+}
+  
+
+.lease-submit {
+    margin: auto !important;
+}
+.main-banner{
+    display: flex;
+    flex-direction: row;
+    
+}
+@media only screen and (min-width: 0px) and (max-width: 500px) {
+    #ban-img {
+        height: 26vh !important;
+        width: 99%;
+    }
+    .left {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 2vh 1vw;
+    }
+    #lead {
+        width: 70vw !important;
+        height: 49vh !important;
+    }
+
+    .submit {
+        text-align: center;
+        /* margin-right: 8vw; */
+        width: 50vw;
+        background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
+    }
+    #add {
+        float: left;
+    }
+    .leaseban{
+        margin-top: 15vh !important;
+    }
+    .agent {
+        display: none;
+    }
+    .lease {
+        display: flex;
+        flex-direction: column !important;
+        margin: 10vh 4vw;
+    }
+    .lease-category {
+        border: 2px solid #c3c3c3;
+        margin: 2vh 5vw;
+        width: 41vw;
+        height: 21vh;
+        padding: 12px 126px;
+        font-size: 1.3rem;
+        font-weight: 600;
+        border-radius: 12px;
+        color: #000000;
+        justify-content: start;
+    }
+
+    
+
+    .advimg {
+        display: none;
+    }
+    .advbox2 {
+        width: 40vw;
+        margin: 2vh 0vw !important;
+    }
+    .similar2 {
+        display: block;
+    }
+    .advimg3 {
+        display: block;
+    }
+
+    .bigswipe {
+        display: none;
+    }
+
+    #comimg {
+        border-radius: 10px;
+        width: 96%;
+    }
+
+    .smallswipe {
+        display: block;
+    }
+
+    .comparebox {
+        display: none;
+    }
+
+    .comparebox2 {
+        display: flex;
+        flex-direction: flex;
+        margin: 5vh 1vw;
+
+        border-radius: 12px;
+    }
+    .containerbox {
+        display: block;
+        margin-top: 22px;
+    }
+   
+    #compareimg {
+        width: 202%;
+        border: 0.5 px gray;
+        border-radius: 12px;
+    }
+
+    .advbox2 {
+        width: 40vw;
+        margin: 2vh 3vw;
+    }
+
+    #advertisment {
+        width: 99%;
+        padding: 10px;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    .databox {
+        border-radius: 12px;
+        display: flex;
+        /* border: 2px solid #dbdada; */
+        margin: 0vh -4vw;
+        padding: 2px 0vw;
+        font-size: 13px;
+        text-align: center;
+        line-height: 24px;
+        padding: 8px 11px;
+        box-shadow: 4px 5px 6px 5px #e1dddd;
+        background: #efefef;
+        width: 42vw;
+    }
+
+.combannerupdate {
+    height: 15vh;
+}
+
+.combannerupdate select {
+    margin-left: 0vw;
+    width: 36vw;
+}
+
+.combannerupdate input {
+    margin: 0vh 1vw;
+    width: 45vw;
+    height: 5vh;
+}
+
+.combtn2 {
+    padding: 11px 20px;
+    border-radius: 10px;
+    width: 43vw;
+    margin: 1vh 22vw;
+    height: 6vh;
+}
+
+.combanner {
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    padding: 10px;
+    margin: 0vh 3vw;
+    margin-top: 0vh;
+}
+.right1 img {
+    width: 100%;
+    /* padding: 10px; */
+    /* border: 2px solid #c7b8b8; */
+    border-radius: 12px;
+    height: 24vh;
+}
+.combtn {
+    color: white;
+    background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 60vw;
+    margin: 4vh 2vw;
+}
+
+.fronthead {
+    font-size: 15px;
+}
+
+.mapbox {
+    height: 30vh;
+}
+
+.leaflet-attribution-flag {
+    display: none !important;
+}
+
+.activecom {
+    padding: 11px 20px;
+    border-radius: 10px;
+    width: 24vw;
+    margin: 0vh 3vw;
+}
+
+.combuttonbox {
+    display: flex;
+    flex-direction: row;
+    margin-left: -9vw;
+}
+
+.combtn3 {
+    font-size: 14px;
+    height: 8.5vh;
+    color: white;
+    background: black;
+    padding: 10px 14px;
+    border-radius: 10px;
+    width: 28vw;
+    margin: 0vh 1vw;
+    text-align: left;
+}
+
+.investmentoption {
+    padding: 10px 11px;
+    margin: 2vh -8vw !important;
+    border: 1px solid rgb(171, 170, 170);
+    border-radius: 12px;
+    height: 46vh !important;
+    flex-wrap: wrap;
+}
+
+#add {
+    margin-right: 1vw;
+}
+
+.investmentplan {
+    height: 49vh;
+    /* border: 2px solid black; */
+}
+
+.invbtn {
+    border-radius: 9px;
+    height: 4vh;
+    margin: 1vh 3vw;
+    float: right;
+    width: 28vw  !important;
+    float: right;
+    margin-bottom: 10px;
+    /* background-color: #563aab; */
+    color: crimson;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    border: 1px solid black;
+}
+
+.invbtn2 {
+    color: #074907;
+}
+
+.invbtn:hover {
+    background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
+    color: white;
+}
+
+.combuttonbox2 {
+    display: flex;
+    flex-direction: column;
+}
+.combtn4 {
+    color: #000000;
+    /* background: linear-gradient(to right, #ff4447, #8a2e2e) !important; */
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 63vw !important;
+    margin: 0.5vh 2vw !important;
+    border: 2px solid #d1d1d1;
+    font-size: 12px;
+    box-shadow: 2px 2px 2px 2px #d5d4d4;
+}
+
+.investmentoptionbox {
+    display: none !important;
+}
+
+.investmentoptionbox2 {
+    display: block;
+}
+
+.comimf {
+    flex-direction: column;
+}
+
+.contactbox {
+    margin-top: 4vh;
+}
+
+#contactform input {
+    width: 60vw;
+    margin: 1vh 2vw;
+    height: 5vh;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+.descriptionbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0vh 2vw;
+    padding: 20px;
+    border-radius: 14px;
+}
+
+.subfeature-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0vh 2vw;
+    padding: 20px;
+    border-radius: 14px;
+}
+.left1 {
+    text-align: start;
+    display: flex;
+    flex-basis: 41%;
+    flex-direction: column;
+    font-size: 14px;
+    line-height: 26px;
+    margin-left: 0vw;
+    border: 2px solid #cbc6c6;
+    padding: 20px;
+    border-radius: 12px;
+    margin-right: 7px;
+    margin: 1vh 1vw;
+}
+
+.right1 {
+    border: 2px solid #cbc6c6;
+    text-align: center;
+    width: 83vw;
+    height: 36vh;
+    padding: 10px 10px;
+    border-radius: 12px;
+}
+.commute {
+    width: 74vw;
+    margin: 0px -3vw !important;
+}
+#lead2{
+    height: 58vh !important;
+    width: 84vw !important;
+}
+#floorimg {
+    width: 74vw;
+    height: 53vh;
+}
+.sf-box1 {
+    text-align: center;
+    display: flex;
+    flex-basis: 41%;
+    flex-direction: column;
+    font-size: 14px;
+    line-height: 26px;
+    margin-left: 0vw;
+    border: 2px solid #cbc6c6;
+    padding: 20px;
+    border-radius: 12px;
+    margin-right: 7px;
+    margin: 1vh 1vw;
+}
+
+.sf-box2 {
+    border: 2px solid #cbc6c6;
+    text-align: center;
+    width: 83vw;
+    height: 27vh;
+    padding: 10px 10px;
+    border-radius: 12px;
+}
+#advimg2 {
+    margin: 3vh 1vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border: 2px solid gray; */
+    padding: 10px;
+}
+
+#advimg {
+    text-align: center;
+    width: 100%;
+    border: 2px solid #cbc6c6;
+    padding: 14px;
+    border-radius: 12px;
+    margin-left: 3px;
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.mapbox2 {
+    margin-left: 3vw;
+    border-radius: 12px;
+    padding: 8px;
+    height: 45vh;
+    margin: 0vh 4vw;
+    border: 1px solid #938f8f;
+    margin-bottom: 2vh;
+    width: 86vw;
+    margin-left: 3vw;
+}
+.similar {
+    display: none;
+}
+
+.simbox {
+    margin: 2vh 4vw;
+    text-align: center;
+    width: 90vw;
+    border: 2px solid #b9d8ff;
+    padding: 10px;
+    line-height: 25px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: #fdfafa;
+    border-radius: 12px;
+    box-shadow: 4px 6px 10px #ebe8e8;
+}
+
+.combtn1 {
+    color: white;
+    background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
+    padding: 0px 20px;
+    border-radius: 10px;
+    width: 57vw;
+    margin: 0vh 8vw;
+}
+
+.subfeature-box {
+    flex-direction: column;
+}
+
+
+}
+
+
+@media only screen and (min-width: 1000px) and (max-width: 1100px){
+
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1600px) {
+    .leaseproperty {
+        height: 77vh;
+        /* border: 2px solid black; */
+        scroll-behavior: smooth;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        margin: 2vh 8vw;
+    }
+
+    .leasebox {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 2vh 1vw;
+        border: 2px solid #c1bebe;
+        border-radius: 12px;
+        padding: 20px;
+        height: 35vh;
+    }
+
+    .leasedetail {
+        flex-basis: 65%;
+        line-height: 40px;
+        padding: 15px;
+        font-size: 18px;
+        letter-spacing: 1px;
+        background-color: white;
+        height: 27vh;
+        border-radius: 11px;
+    }
+
+    #leasef li {
+        padding: 2px 12px;
+        border-radius: 10px;
+        margin: 1vh 0.5vw;
+        height: 5vh;
+        box-shadow: 3px 3px 4px #c5c5c5;
+        color: #074907;
+    }
+}
+
+
+/* amenities */
+
+.subfeature-box {       /* descriptionbox duplicate */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 4vh 2vw;
+    padding: 20px;
+    border-radius: 14px;
+}
+
+.sf-box1 {              /* left1 duplicate */
+    flex-basis: 61%;
+    flex-direction: column;
+    margin-left: 7vw;
+    border-radius: 12px;
+    margin-right: 75px;
+}
+
+.sf-box2 {              /* left2 duplicate */
+    text-align: center;
+    flex-basis: 29%;
+    height: auto;
+}
+
+#head {
+    font-size: 16px;
+}
+
+.simbox{
+    font-size: 13px;
+    line-height: 25px;
+}
+
+.combtn1 {
+    border: none;
+    margin-top: auto;
+}
+
+.sf-box1-amenities {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    max-width: 854px;
+}
+
+.sf-box1-amenities h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 3%;
+}
+
+.sf-box1-amenities ul {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(3, 1fr); /* Create three equal columns */
+    gap: 10px; /* Space between grid items */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sf-box1-amenities li {
+    padding: 10px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s ease; 
+    transition: color 0.4s ease-in-out; 
+}
+
+.sf-box1-amenities li:hover {
+    color: red;
+}
+
+.sf-box1-amenities p {
+    font-size: 16px;
+    color: #666;
+}
+
+
+
+/* added css  */
+
+.investmentoptionbox {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+button.prisubmit {
+    margin: 1vh 2vh;
+    border: none;
+    border-radius: 9px;
+    font-size: 16px;
+    width: 120px;
+    padding: 4px 0px;
+    background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
+    color: white;
+}
+
+button.prisubmit:hover{
+    color: red;
+    background: white !important;
+    border: 1px solid red;
+}
+
+.detailbox li {
+    list-style: none;
+    font-size: 14px;
+}
+
+.detailbox li span{
+    color: #242526;
+}
+
+

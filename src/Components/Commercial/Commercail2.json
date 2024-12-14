@@ -1,0 +1,94 @@
+[
+    {
+      "id": 1,
+      "com_prop_id":6,
+      "category": "shop",
+      "name": "ground floor",
+      "price": "12Cr onwards",
+      "othercharge": [
+       
+      ],
+      "paymentplan": [
+        ["Plan Ratio", "50:50"],
+        ["at the time of Booking", "50% of BSp"],
+        ["on offer of possession", "50% of BSP"]
+      ],
+      "floorplan": "/m3mfloor1.jpg",
+      "Available_Unit": "",
+      "Total_unit": ""
+    },
+    {
+      "id": 2,
+      "com_prop_id":6,
+      "category": "shop",
+      "name": "1st floor",
+      "price": "4.5Cr onwards",
+      "othercharge": [
+       
+      ],
+      "paymentplan": [
+        ["Plan Ratio", "50:50"],
+        ["at the time of Booking", "50% of BSp"],
+        ["on offer of possession", "50% of BSP"]
+      ],
+      "floorplan": "/m3mfloor1.jpg",
+      "Available_Unit": "",
+      "Total_unit": ""
+    },
+    {
+      "id": 3,
+     "com_prop_id":6,
+      "category": "shop",
+      "name": "2nd floor",
+      "price": "3.5Cr onwards",
+      "othercharge": [
+       
+      ],
+      "paymentplan": [
+        ["Plan Ratio", "50:50"],
+        ["at the time of Booking", "50% of BSp"],
+        ["on offer of possession", "50% of BSP"]
+      ],
+      "floorplan": "/m3mfloor1.jpg",
+      "Available_Unit": "",
+      "Total_unit": ""
+    },
+    {
+      "id": 4,
+    "com_prop_id":6,
+      "category": "restuarant",
+      "name": "Food court 3rd and 4th floor",
+      "price": "3 Crore onwards",
+      "othercharge": [
+       
+      ],
+      "paymentplan": [
+        ["Plan Ratio", "50:50"],
+        ["at the time of Booking", "50% of BSp"],
+        ["on offer of possession", "50% of BSP"]
+      ],
+      "floorplan": "/m3mfloor2.jpg",
+      "Available_Unit": "",
+      "Total_unit": ""
+    },
+    {
+      "id": 5,
+      "com_prop_id":6,
+      "category": "other",
+      "name": "Mulitplex 3rd and 4th floor",
+      "price": "27 Crore onwards",
+      "othercharge": [
+       
+      ],
+      "paymentplan": [
+        ["Plan Ratio", "50:50"],
+        ["at the time of Booking", "50% of BSp"],
+        ["on offer of possession", "50% of BSP"]
+      ],
+      "floorplan": "/m3mfloor2.jpg",
+      "Available_Unit": "",
+      "Total_unit": ""
+    }
+   
+  ]
+  

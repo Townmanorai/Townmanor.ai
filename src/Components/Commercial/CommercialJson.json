@@ -1,0 +1,33 @@
+[
+    {
+        "id": 6,
+        "project_Name": "M3M Jewel",
+        "city":"Gurgaon",
+        "Address": "Sector 25, Gurgaon",
+        "invest": "50,000 per sq.ft",
+        "Category": ["shop","restuarant","other"],
+        "Return": "12% PA",
+        "Possession_Date": "Jan 23",
+        "Builder": "M3M India",
+        "Construction": "Ready to Move",
+        "Project_Unit": 372,
+        "lat": "28.50639515147929",
+        "lng": "77.08218130856974",
+        "Description": "",
+        "reraid": "GGM/722/454/2023/66",
+        "Project_Area_Range": "300 - 1500 Sq. Ft.",
+        "videoid":"Gm4qN2-XAnI",
+        "amenities": ["power Backup","foodcourt","CCTV","lift","multiplex","Atm","24*7 security"],
+         "Distance":[ { "name": "iffco Chowk ", "distance": "0.90km" },
+         { "name": "MG Road ", "distance": "1.44 km" },
+         { "name": "Dlf Cyber city ", "distance": "2.9km" }],
+         "Image_banner":"m3mbanner.jpg",
+         "Face_image":"m3mmain5.jpg",
+         "floorplan":["m3mfloor1.jpg","m3mfloor2.jpg"],
+         "Main_image":["m3mmain1.jpg","m3mmain5.jpg","m3mmain2.jpg","m3mmain3.jpg","m3mmain4.jpg","m3mmain6.jpg"],
+         "office_image":[],
+         "Retail_shop":["m3mmain2.jpg","m3mmain3.jpg"],
+         "Restuarant":[],
+         "other":[]
+    }
+]

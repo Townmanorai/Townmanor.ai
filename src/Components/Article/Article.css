@@ -1,0 +1,11 @@
+.blog-single-post{
+    width: 110%;
+   
+}
+.blog-single-post p{
+    font-size: 18px ;
+}
+.blog-single-post h1{
+    font-size: 22px ;
+    font-weight: 500;
+}

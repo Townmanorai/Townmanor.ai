@@ -131,6 +131,8 @@ import Footer from './Components/NavFooter/Footer';
 import StateDetails from './Components/Statewise/StateDetails';
 import ForgotPassword from './Components/Auth/ForgotPassword';
 import Signup from './Components/Auth/SignUpForm';
+import Commercial3 from './Components/Commercial/Commercial3';
+import Commercial from './Components/Commercial/Commercial';
 // import HomeShift from './HomeShift/HomeShift';
 
 function App() {
@@ -193,6 +195,8 @@ function App() {
         <Route path='/homelane/furniture' element={<Furniture/>}></Route>
           {/* Dynamic Route for State */}
           <Route path="/state/:stateName" element={<StateDetails />} />
+          <Route path="/commercial3/:index" element={<Commercial3/>} />
+        <Route path="/commercial" element={<Commercial/>} />
 
           {/* You can also add dynamic routes for specific city or option pages */}
           {/* <Route path="/properties-for-sale-rent/:stateName" element={<PropertiesForSaleRent />} />
