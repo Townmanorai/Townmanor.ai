@@ -1,0 +1,17 @@
+.pagination .active a {
+    font-weight: bold;
+    color: #fff;
+    background-color: #ff1100;
+    border-color: #ff0000;
+  }
+  
+  .current-page-info p {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #333;
+  }
+  
+  .current-page-info strong {
+    color: #ff0000;
+  }
+  
