@@ -140,7 +140,7 @@ const ResultsItem = ({ item }) => {
 
   return (
     <div className="col-md-6">
-      <div className="card">
+      <div className="card search-page">
         {/* Use Link for navigation */}
         <Link to={`/property/${item.id}`} title={item.option_10}>
           <div className={`img-block ${item.option_1 ? 'video-block' : ''}`}>

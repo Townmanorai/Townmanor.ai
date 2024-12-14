@@ -6,3 +6,7 @@ body, html {
 div#root {
   height: 100%;
 }
+
+*{
+  font-family: Poppins, Helvetica, Arial, Lucida, sans-serif !important;
+}

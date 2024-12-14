@@ -205,7 +205,9 @@ body, html {
       margin-bottom: 17px;
     }
 
-    
+    .navbar-expand-lg .navbar-collapse ul#main-menu {
+      margin-left: 5px !important;
+  }
   
     .header .close-menu {
       display: block;

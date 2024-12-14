@@ -1,0 +1,6 @@
+@media only screen and (max-width: 767px) {
+    .card.search-page {
+        width: 310px;
+        margin-right: 10px;
+    }
+}

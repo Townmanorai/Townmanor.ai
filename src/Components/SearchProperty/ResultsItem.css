@@ -13,3 +13,39 @@ img.d-block.w-100.img-fluid {
     height: 250px;
     object-fit: fill;
 }
+
+body div.form-group.search_field .winter_dropdown_tree button:first-child div.form-group.search_field .winter_dropdown_tree button:first-child, div.form-group .winter_dropdown_tree button:first-child {
+    width: calc(100% - 40px);
+    min-width: initial;
+    padding-right: 5px;
+    position: relative;
+    z-index: 1 !important;
+    text-align: left;
+}
+
+.banner-search .btn {
+    border-radius: 50px;
+    margin: 7px 0px;
+    padding: 0 36px;
+    height: 51px;
+    line-height: 51px;
+    float: right;
+    border: 0;
+    font-size: 14px;
+    color: #fff;
+    box-shadow: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1 !important;
+}
+
+@media only screen and (max-width: 767px) {
+    .card.search-page {
+        width: 310px;
+        margin-right: 10px;
+    }
+    img.d-block.w-100.img-fluid {
+        height: 200px;
+        object-fit: fill;
+    }
+}

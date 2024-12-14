@@ -1,10 +1,11 @@
 import React from 'react';
+import './PropertyCard.css'
 import "../../common.css";
 import "../../commonsecond.css"
 
 const PropertyCard = ({ item }) => (
-  <div className="card">
-    <a href={item.url} title={item.option_10}>
+  <div className="card search-page">
+    <a href={item.url} title={item.url}>
       <div className="img-block">
         <span className="verifiedBadge">Verified</span>
         <div className="overlay"></div>
