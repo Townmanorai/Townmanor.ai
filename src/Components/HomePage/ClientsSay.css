@@ -7,7 +7,13 @@
     border-radius: 8px;
     margin: auto;
 }
-
+.comment-info {
+    margin-left: -45px;
+}
+.explore-feature .card {
+    border-radius: 10px;
+    margin-left: 25px;
+}
 .testimonial_gb {
     width: 75%;
     height: 100%;

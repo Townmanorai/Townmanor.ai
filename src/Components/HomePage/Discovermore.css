@@ -2,3 +2,13 @@
     border-radius: 10px;
     object-fit: fill;
   }
+
+  
+  @media (max-width: 767px) {
+    .banner-carousel .slick-slide .banner-slide, .banner-carousel .slick-slide>div:not(.banner_text), .banner-slide>img {
+      height: 200px !important;
+      -webkit-object-fit: cover;
+      object-fit: cover;
+      margin-left: -15px;
+    }
+}

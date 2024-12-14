@@ -41,12 +41,28 @@
     margin-bottom: 0px;
 	height: 240px;
 }
-    @media only screen and (max-width: 767px) {
-        .explore-feature.row {
-            display: flex;
-            flex-wrap: nowrap;
-            margin-right: -15px;
-            overflow-x: scroll; /* Enable horizontal scrolling */
-            margin-left: -15px;
-        }
+
+@media (max-width: 767px) {
+    .row.justify-content-center.choose {
+        display: flex;
+        justify-content: flex-start !important;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
+}
+
+/* @media (max-width: 767px) {
+    .explore-feature.row.choose {
+        display: flex;
+        flex-wrap: nowrap;
+        margin-right: -15px;
+        overflow-x: scroll; 
+        margin-left: -15px;
+    }
+} */
+
+/* @media only screen and (max-width: 767px) {
+    
+} */

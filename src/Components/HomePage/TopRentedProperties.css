@@ -123,3 +123,13 @@
     background-color: #0056b3;
   }
   
+
+  .rented-title-text {
+    font-size: 22px;
+    font-weight: 600;
+    color: #000000;
+    text-transform: uppercase;
+}
+.strip-blue {
+  border-bottom: none;
+}

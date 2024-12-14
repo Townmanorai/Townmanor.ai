@@ -128,6 +128,9 @@ import Officeinterior from './Components/HomeInterior/OfficeInterior';
 import Bedroom from './Components/HomeInterior/Bedroom';
 import Furniture from './Components/HomeInterior/Furniture';
 import Footer from './Components/NavFooter/Footer';
+import StateDetails from './Components/Statewise/StateDetails';
+import ForgotPassword from './Components/Auth/ForgotPassword';
+import Signup from './Components/Auth/SignUpForm';
 // import HomeShift from './HomeShift/HomeShift';
 
 function App() {
@@ -146,6 +149,8 @@ function App() {
         <Route path="/admin-property" element={<AdminPropertyPage />} />
         <Route path="/search-property" element={<SearchPropertyPage />} />
         <Route path="/auth" element={<AuthContainer onUserLogin={handleUserLogin} />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} /> {/* Forgot Password Route */}
+        <Route path="/sign-up" element={<Signup />} /> {/* Sign Up Route */}
         <Route path="/pricing-plans" element={<PricingPlans />} />
         <Route path="/subscription-plans" element={<SubscriptionPricingPlan />} />
         <Route path="/dashboard" element={<Dashboard />} />
@@ -187,7 +192,7 @@ function App() {
         <Route path='/homelane/bedroom' element={<Bedroom/>}></Route>
         <Route path='/homelane/furniture' element={<Furniture/>}></Route>
           {/* Dynamic Route for State */}
-          {/* <Route path="/state/:stateName" element={<StateDetails />} /> */}
+          <Route path="/state/:stateName" element={<StateDetails />} />
 
           {/* You can also add dynamic routes for specific city or option pages */}
           {/* <Route path="/properties-for-sale-rent/:stateName" element={<PropertiesForSaleRent />} />

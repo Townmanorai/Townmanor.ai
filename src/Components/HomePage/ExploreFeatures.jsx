@@ -16,7 +16,7 @@ const ExploreFeatures = () => {
           </div>
         </div>
 
-        <div className="row justify-content-center">
+        <div className="row justify-content-center choose">
           {/* First Feature */}
           <div className="col-xl-3 col-sm-6 col-md-6 col-lg-4">
             <a href="#" title="">
