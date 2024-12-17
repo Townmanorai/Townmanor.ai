@@ -20,7 +20,7 @@ const InHouseServices = () => {
         
         <div className="row justify-content-center scrollable-cards">
           <div className="col-lg-2 col-md-3 col-6">
-            <a href="https://townmanor.in/en/190/home_loan" title="">
+            <a href="/home-loan" title="">
               <div className="card card_services">
                 <div className="card-body">
                   <i className="icon-sevices">
@@ -35,7 +35,7 @@ const InHouseServices = () => {
             </a>
           </div>
           <div className="col-lg-2 col-md-3 col-6">
-            <a href="https://townmanor.in/en/193/home_interior" title="">
+            <a href="/homelane" title="">
               <div className="card card_services">
                 <div className="card-body">
                   <i className="icon-sevices">
@@ -50,7 +50,7 @@ const InHouseServices = () => {
             </a>
           </div>
           <div className="col-lg-2 col-md-3 col-6">
-            <a href="https://townmanor.in/en/191/insurance" title="">
+            <a href="/insurance" title="">
               <div className="card card_services">
                 <div className="card-body">
                   <i className="icon-sevices">
@@ -65,7 +65,7 @@ const InHouseServices = () => {
             </a>
           </div>
           <div className="col-lg-2 col-md-3 col-6">
-            <a href="#" title="" data-toggle="modal" data-target="#exampleModal">
+            <a href="/homeshift" title="" data-toggle="modal" data-target="#exampleModal">
               <div className="card card_services">
                 <div className="card-body">
                   <i className="icon-sevices">

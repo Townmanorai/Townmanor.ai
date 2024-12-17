@@ -95,7 +95,9 @@ const InsuranceSection = () => {
                     <div className="text-trm-condition">
                       By submitting you agree to <a href="https://townmanor.in/en/195/terms_and_condition">Terms of use</a> and <a href="https://townmanor.in/en/195/terms_and_condition">T&amp;C</a>
                     </div>
-                    <button type="submit" className="btn btn-primary btn-submit">Submit</button>
+                    <button type="submit" className="btn btn-primary btn-submit" style={{
+                      marginLeft:"-9vw"
+                    }}>Submit</button>
                   </div>
                 </form>
               </div>

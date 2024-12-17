@@ -329,18 +329,18 @@ function HomeLane() {
           <div class="row justify-content-center">
             <ul>
               <li class="tab tab_services">
-                <a href="http://localhost:5173/homelane/kitchen" />
+                <a href="http://localhost:5173/homelane/kitchen">
                 <img src="https://townmanor.in/templates/selio/assets/selfImages/homeInteriorCategory/modular-kitchen.png" />
 
                 <h3>Modular Kitchen</h3>
-
+                </a>
               </li>
               <li class="tab tab_services">
-                <a href="http://localhost:5173/homelane/warddrobe" />
+                <a href="http://localhost:5173/homelane/warddrobe">
                 <img src="https://townmanor.in/templates/selio/assets/selfImages/homeInteriorCategory/wardrobes.png" />
 
                 <h3>Wardrobes</h3>
-
+                </a>
               </li>
               <li class="tab tab_services">
                 <a href="http://localhost:5173/homelane/masterbedroom" />

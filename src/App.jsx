@@ -133,6 +133,7 @@ import ForgotPassword from './Components/Auth/ForgotPassword';
 import Signup from './Components/Auth/SignUpForm';
 import Commercial3 from './Components/Commercial/Commercial3';
 import Commercial from './Components/Commercial/Commercial';
+import HomeShift from './Components/HomeShift/HomeShift';
 // import HomeShift from './HomeShift/HomeShift';
 
 function App() {
@@ -179,23 +180,24 @@ function App() {
         <Route path="/form" element={<Phone />} />
         <Route path="/search/:name" element={<PhoneSearch />} />
         <Route path="/Searchbar" element={<MainSearch />} />
-        <Route path='/homelane' element={<HomeLane/>}></Route>
-        <Route path='/homelane/kitchen' element={<ModularKitchen/>}></Route>
-        <Route path='/homelane/warddrobe' element={<WardDrobes/>}></Route>
-        <Route path='/homelane/masterbedroom' element={<Masterbedroom/>}></Route>
-        <Route path='/homelane/tv' element={<Tv/>}></Route>
-        <Route path='/homelane/livingroom' element={<Livingroom/>}></Route>
-        <Route path='/homelane/falseceiling' element={<FalseCeling/>}></Route>
-        <Route path='/homelane/bathroom' element={<Bathroom/>}></Route>
-        <Route path='/homelane/kids' element={<Kids/>}></Route>
-        <Route path='/homelane/fullhouseinterior' element={<FullHouseinterior/>}></Route>
-        <Route path='/homelane/commercialinterior' element={<CommercialInterior/>}></Route>
-        <Route path='/homelane/officeinterior' element={<Officeinterior/>}></Route>
-        <Route path='/homelane/bedroom' element={<Bedroom/>}></Route>
-        <Route path='/homelane/furniture' element={<Furniture/>}></Route>
+        <Route path='/homelane' element={<HomeLane />} />
+<Route path='/homelane/kitchen' element={<ModularKitchen />} />
+<Route path='/homelane/warddrobe' element={<WardDrobes />} />
+<Route path='/homelane/masterbedroom' element={<Masterbedroom />} />
+<Route path='/homelane/tv' element={<Tv />} />
+<Route path='/homelane/livingroom' element={<Livingroom />} />
+<Route path='/homelane/falseceiling' element={<FalseCeling />} />
+<Route path='/homelane/bathroom' element={<Bathroom />} />
+<Route path='/homelane/kids' element={<Kids />} />
+<Route path='/homelane/fullhouseinterior' element={<FullHouseinterior />} />
+<Route path='/homelane/commercialinterior' element={<CommercialInterior />} />
+<Route path='/homelane/officeinterior' element={<Officeinterior />} />
+<Route path='/homelane/bedroom' element={<Bedroom />} />
+<Route path='/homelane/furniture' element={<Furniture />} />
           {/* Dynamic Route for State */}
           <Route path="/state/:stateName" element={<StateDetails />} />
           <Route path="/commercial3/:index" element={<Commercial3/>} />
+          <Route path='/homeShift' element={<HomeShift/>}></Route>
         <Route path="/commercial" element={<Commercial/>} />
 
           {/* You can also add dynamic routes for specific city or option pages */}

@@ -170,7 +170,7 @@ const InsuranceSectionFAQ = () => {
                 ))}
               </div>
               <br />
-              <section className="faq-section paddinngTB" id="faqs1">
+              <section className="faq-section paddinngTB" id="faqs1" >
                 <div className="container">
                   <div className="row">
                     <div className="col-md-12">

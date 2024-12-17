@@ -1104,7 +1104,7 @@
 //------------------------------------------------------------------------------------------------------------------------------
 
 import React from "react";
-import FireworksComponent from "./Fireworks";  // Import Fireworks component
+// import FireworksComponent from "./Fireworks";  // Import Fireworks component
 import Diya from "./Diya";  // Import Diya component
 import "../common.css";
 import "../commonsecond.css";
@@ -1243,7 +1243,7 @@ const PricingPlans = () => {
 
   return (
     <>
-      <FireworksComponent />
+
 
       <div className="wpart">
         <section className="Pricing_palns">
@@ -1338,8 +1338,8 @@ const PricingPlans = () => {
                   </div>
                 </div>
                 <AgentsPlans />
-                <AgentAccessDetails />
-                <PlansInfo />
+                {/* <AgentAccessDetails />
+                <PlansInfo /> */}
               </div>
             </div>
           </div>

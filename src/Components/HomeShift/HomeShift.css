@@ -1,0 +1,576 @@
+
+        
+        .shiftbox {
+            max-width: 1180px;
+            margin-left: 120px;
+        }
+        .partner-card {
+        background-color: #fff;
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+.partners-card.home-shift-top-bar {
+    height: 300px !important;
+}
+    .partners-card {
+            background-color: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .partners-card img {
+            width: 150px;
+            border-radius: 8px;
+        }
+        .partner-content {
+            flex: 1;
+            margin-left: 20px;
+        }
+        .partner-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+.home-shift-partner-logo {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: space-between;
+    align-items: flex-end;
+    gap: 25px;
+}
+
+img.home-shift-logo-img {
+    width: 275px;
+    height: 225px;
+}
+
+.home-shift-partner-logo img {
+    height: 40px;
+    margin-top: 25px;
+	width : 110px
+}
+
+
+        .service-card {
+            background-color: #e8f0fe;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .service-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .service-text {
+            font-size: 16px;
+            color: #333;
+        }
+        .btn-visit {
+            background-color: #ff0000;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            margin-top: 25px;
+            display: inline-block;
+        }
+        .btn-visit:hover {
+            background-color: #0056b3;
+        }
+        .homeshift h1 {
+            font-size: 40px;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .service-section {
+            margin-bottom: 40px;
+            background-color: #f8f8f81a;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+.service-heading {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 25px;
+    margin-left: 25px;
+}
+
+.vehicle-fleet {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.vehicle-card {
+    display: flex;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.vehicle-card.reverse-layout {
+    flex-direction: row-reverse;
+}
+
+.vehicle-image {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    padding: 5px;
+}
+
+.vehicle-info {
+    padding: 10px 20px;
+}
+
+.vehicle-info h3 {
+    font-size: 18px;
+    color: #222;
+}
+
+.vehicle-info p {
+    font-size: 15px;
+    color: #555;
+}
+
+.vehicle-info .fare-details {
+    font-size: 12px;
+    color: #777;
+}
+
+.know-more {
+    color: rgb(0, 174, 255);
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.partner-content .btn-visit {
+    background: linear-gradient(to right, #ff4447, #8a2e2e);
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    margin-top: 25px;
+    display: inline-block;
+}
+
+.know-more:hover {
+    text-decoration: underline;
+}
+
+
+ /* Floating Form Styling */
+ .floating-form {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #ffffff;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        z-index: 1000;
+        width: 300px;
+    }
+
+    .floating-form h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .floating-form label {
+        font-size: 14px;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .floating-form input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
+
+    .floating-form input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .floating-form input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    /* Styles for other sections */
+    .faq-section {
+        margin-top: 40px;
+        padding: 20px;
+        background-color:white;
+        border-radius: 10px;
+        height: 90vh;
+    }
+
+    .faq-question {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .faq-answer {
+        margin-bottom: 20px;
+        color: #555;
+    }
+
+    .service-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ff0000;
+    margin: 0 5px;
+}
+
+.service-text {
+    font-size: 14px;
+    color: #333;
+}
+
+.service-step {
+        margin-bottom: 20px;
+    }
+
+    .service-step h3 {
+        color: #007bff;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .service-step p {
+        font-size: 16px;
+        color: #555;
+    }
+
+    /* Service Steps Styling */
+    .steps-heading {
+        font-size: 25px;
+        color: #a19b9b;
+        margin-bottom: 20px;
+        text-align: center;
+        text-transform: capitalize;
+    }
+
+    .steps-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+    }
+
+    .service-step {
+        flex-basis: 45%;
+        margin-bottom: 25px;
+    }
+
+    .service-step h3 {
+        color: #0c0707;
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .service-step p {
+        font-size: 16px;
+        color: #555;
+    }
+
+    /* Hover effect for .service-step */
+.service-step:hover {
+    color: black;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add border shadow */
+    transform: translateY(-5px); /* Make it pop up */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for .vehicle-card */
+.vehicle-card:hover {/* Change background color to red */
+    color: gray;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add border shadow */
+    transform: translateY(-5px); /* Make it pop up */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+.service-step:hover p {
+    color: grey; /* Change text color of p tag to white */
+}
+.vehicle-card:hover p {
+    color: grey; /* Change text color of p tag to white */
+}
+.vehicle-card:hover a {
+    color: black; 
+}
+
+
+/* Existing styles for .service-step */
+.service-step {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1)
+
+}
+
+/* Existing styles for .vehicle-card */
+.vehicle-card {
+    display: flex;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+
+.floating-form {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ffffff;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 470px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.floating-form.hidden {
+    display: none;
+}
+
+.close-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.minimized-form {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff000078;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.floating-form .btn-calc {
+    background: linear-gradient(to right, #ff4447, #8a2e2e);
+    color: #fff;
+    border: 1px solid #e6181b;
+    transition: .5s;
+    padding: 10px 20px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    grid-gap: 0 10px;
+    cursor: pointer;
+    outline: none;
+    line-height: 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: auto;
+}
+
+.floating-form p {
+    font-family: "Raleway", sans-serif;
+    font-size: 13px;
+    color: black;
+    line-height: 24px;
+}
+.close-btn {
+    background-color: #000000a6;
+    border: none;
+    color: white;
+    font-size: 24px;
+    position: absolute;
+    top: 21px;
+    border-radius: 24px;
+    right: 10px;
+    width: 32px;
+    cursor: pointer;
+}
+/* Media Queries for Responsiveness */
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .partners-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .partner-logo {
+        width: 120px;
+        margin: 0 auto;
+    }
+
+    .floating-form-footer {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .shiftbox {
+        padding: 15px;
+		margin-left: 0px;
+    }
+
+    .steps-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-step {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .partner-logo {
+        width: 100px;
+    }
+
+.homeshift h1 {
+    font-size: 23px;
+    margin: -14px;
+    padding: 10px;
+}
+p {
+    font-size: 10px;
+    line-height: 20px;
+}
+.steps-heading {
+    font-size: 25px;
+    color: #ff0000;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+img.home-shift-logo-img {
+    width: 200px;
+    height: 225px;
+}
+.ProductBanner_Heading {
+    font-weight: 300;
+    line-height: 24px;
+    color: #282828;
+    font-size: 22px;
+    margin-top: 13px;
+    font-family: "Poppins", 'Roboto';
+}
+.bold-loan {
+    font-size: 23px;
+    font-weight: 700;
+    color: #e6181b;
+    font-family: "Poppins", 'Roboto';
+}
+.home-shift-partner-logo img {
+    height: 28px;
+    margin-top: 10px;
+    width: 80px;
+}
+.home-shift-partner-logo {
+    gap: 10px;
+}
+.partners-card.home-shift-top-bar {
+    height: 350px !important;
+	margin-top:0px !important;
+    padding-top: 3px !important;
+
+}
+
+}
+
+@media (max-width: 480px) {
+    .floating-form-footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .steps-container {
+        gap: 10px;
+    }
+
+    .partners-card {
+        padding: 15px;
+    }
+
+    .service-text {
+        font-size: 12px;
+    }
+    .faq-section {
+        margin-top: 27px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        height: 162vh;
+        margin-top: 0px;
+    max-width: 800px;
+    /* margin-left: 350px; */
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: -2px;
+    margin-left: 0px !important;
+    }
+    .floating-form {
+        position: fixed;
+        bottom: 20px;
+        right: 36px;
+        background-color: #f1f0f0;
+        color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        width: 348px;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+}
+
+   
