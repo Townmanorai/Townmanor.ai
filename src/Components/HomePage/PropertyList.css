@@ -16,6 +16,7 @@
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 5px;
+  height: 200px;
   width: calc(33% - 20px); /* Adjust width for three columns with spacing */
   margin-bottom: 20px; /* Spacing between rows */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);

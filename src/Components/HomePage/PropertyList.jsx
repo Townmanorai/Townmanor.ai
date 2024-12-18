@@ -18,9 +18,22 @@ const PropertyList = () => {
     try {
       const response = await fetch('http://www.townmanor.ai/api/api/properties/admin');
       const data = await response.json();
-      const sortedData = data.sort((a, b) => a.property_name.localeCompare(b.property_name));
-      setProperties(sortedData);
-      console.log("sortedData", sortedData);
+      // Check if the data is an array and log it
+      if (Array.isArray(data)) {
+        console.log("Fetched data:", data);
+        const sortedData = data.sort((a, b) => {
+          const nameA = a.property_name ? a.property_name : '';
+          const nameB = b.property_name ? b.property_name : '';
+          return nameA.localeCompare(nameB);
+        });
+        // Limit to first 10 properties
+        const limitedData = sortedData.slice(0, 10);
+        
+        setProperties(limitedData);
+        console.log("Sorted and limited data:", limitedData);
+      } else {
+        console.error('Fetched data is not an array:', data);
+      }
     } catch (error) {
       console.error('Error fetching properties:', error);
     }
@@ -63,11 +76,12 @@ const PropertyList = () => {
       {properties.length > 0 ? (
         <Slider {...sliderSettings}>
           {properties.map((property) => (
-            <div className="property-card" key={property.property_name} onClick={() => handlePropertyClick(property.property_name)}>
+            <div className="property-card"  key={property.property_name} onClick={() => handlePropertyClick(property.property_name)}>
               <img
-                src='./851x678godrej_tropical_isle1.jpg'
+                src={property.one_image_location ? `https://townmanor.in/files/${property.one_image_location}` : 'https://townmanor.in/files/3cb1_1.jpg'}
                 alt={property.property_name}
                 className="property-image"
+                style={{ height: '100px' }} 
               />
               <div className="property-detail">
                 <h3 className="property-name">{property.property_name}</h3>
