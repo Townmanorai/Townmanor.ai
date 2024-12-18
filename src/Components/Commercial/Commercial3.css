@@ -216,11 +216,13 @@ flex-wrap: wrap;
     color: white;
     /* background: linear-gradient(to right, #ff4447, #8a2e2e) !important; */
     background: gray;
-    padding: 0px 20px;
-    border-radius: 6px;
+    padding: 4px 20px;
+    border-radius: 5px;
     width: 13vw;
     margin: 0 auto;
-    /* margin: 0vh 0vw; */
+    
+    /* margin: 0vh 
+    0vw; */
     /* margin-left: 19vw; */
 }
 .left1 h1{
@@ -261,7 +263,7 @@ flex-wrap: wrap;
 button.ls-submit {
     color: white;
     background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
-    border-radius: 10px;
+    border-radius: 5px;
     width: 7vw;
     border: none;
     height: fit-content;
@@ -539,7 +541,7 @@ button.ls-submit {
     height: 73vh;
 }
 .floor-comm {
-    margin: 40px auto;
+    margin: 20px auto;
     width: 89vw;
     background: white;
     border-radius: 10px;
@@ -610,6 +612,14 @@ button.ls-submit {
 .simbox span {
     font-weight: 600;
 }
+#read_more{
+    background: none;
+    border: none;
+    font-size: 14px;
+    text-decoration: underline;
+    color: red;
+    /* box-shadow: 1px 1px 1px 1px gray; */
+}
 #simimg {
     min-width: 200px;
     max-width: -webkit-fill-available;
@@ -666,6 +676,8 @@ button.ls-submit {
     .payment-plan-title {
       font-size: 20px;
     }
+
+    
   }
 @media only screen and (min-width: 0px) and (max-width: 500px){
     #photos {
@@ -678,11 +690,13 @@ button.ls-submit {
         cursor: pointer;
         box-shadow: 1px 0px 2px 1px gray;
     }
+
     .advimgx {
-        margin: 3vh 3vw;
+        margin: 0vh 0vw;
+        margin-left: 15px;
     }
     #sideimagebox {
-        width: 37vw;
+        width: 41vw;
         height: 9vh;
         background-color: aquamarine;
         margin: 1vh 1vw;
@@ -709,11 +723,20 @@ button.ls-submit {
         height: 37vh;
     }
     .main-banner {
-        display: flex;
-        /* flex-direction: column; */
-        flex-wrap: wrap;
-        gap: 10px;
-        height: 52vh;
+        display: grid;
+                /* flex-direction: column; */
+                flex-wrap: wrap;
+                gap: 0px;
+                height: 45vh;
+                align-items: center;
+                text-align: center;
+                align-content: center;
+    }
+    div#investment {
+        display: flex
+    ;
+        align-items: baseline;
+        justify-content: flex-start;
     }
     #projectheading h1 {
         font-size: 20px;
@@ -745,7 +768,7 @@ button.ls-submit {
         line-height: 32px;
         margin-left: -2vw;
         /* border: 2px solid #aba6a6; */
-        padding: 20px;
+        padding: 2px;
         border-radius: 12px;
         /* margin-right: 75px; */
         width: 90vw;
@@ -753,28 +776,29 @@ button.ls-submit {
     .combtn1 {
         color: white;
         background: gray;
-        padding: 0px 20px;
-        border-radius: 6px;
-        width: 73vw;
-        margin: 0 auto;
+        padding: 4px 20px;
+        border-radius: 5px;
+        width: 45vw;
+        margin: 8px auto;
     }
     #right2 {
       
         line-height: 35px;
         width: 88vw !important;
         margin: 0vh;
-        padding: 2vh 2vw;
+        padding: 2vw 2vw;
         font-size: 14px;
         margin-top: 3vh;
 
     }
     .lease-submit {
         display: flex;
-        gap: 70px;
+        gap: 30px;
     }
     button.ls-submit {
         width: 30vw;
     }
+    
     #foodcourtname {
         font-size: 12px;
         font-weight: 500;
@@ -787,6 +811,7 @@ button.ls-submit {
         justify-content: space-around;
         padding-top: 5px;
         padding: 13px;
+        gap: 10px;
         margin: 2vh;
         border: 1px solid #d5d5d5;
         border-radius: 7px;
@@ -795,53 +820,129 @@ button.ls-submit {
         cursor: pointer;
     }
     .categorybox {
-        width: fit-content;
-        height: 9vh;
-        /* border: 2px solid gray; */
-        border-radius: 7px;
-        padding: 13px 4px;
-        font-size: 12px;
+     
+            width: 39vw;
+            height: 7vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 2px solid gray; */
+            border-radius: 7px;
+            padding: 3px 4px;
+            font-size: 12px;
+      
+    }
+    .sf-box1-amenities {
+        padding: 8px;
+        background-color: #fff;
+        border-radius: 6px;
+        max-width: 854px;
+        margin: 0px;
     }
     .sf-box1-amenities ul {
-        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        justify-items: stretch;
+        align-items: end;
+        align-content: stretch;
+    }
+    .sf-box1-amenities ul {
+      
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .new h1 {
+        font-size: 20px;
+        font-weight: 500;
+    }
+    .left1 h1 {
+        font-size: 16px !important;
+        text-align: center;
+        padding-top: 10px;
+
+    }
+    .sf-box1-amenities h2 {
+        font-size: 16px;
     }
     .sf-box1-amenities li {
-        font-size: 14px;
+        font-size: 12px;
+    }
+    .sf-box1-amenities li {
+        box-shadow: 0px 0px 1px 1px #cdc8c8;
+    }
+    .sf-box1-amenities h2 {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 3%;
     }
     .deskview{
         display: none;
     }
     .detailbox {
-        display: grid
-    ;
-        grid-template-columns: repeat(auto-fill, minmax(221px, 1fr));
+        display: grid;
+        grid-template-columns: auto auto;
         gap: 1px;
         margin-top: 15px;
+    }
+    .category {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 10px;
+        margin: 2vh 0px;
+        justify-content: center;
     }
     .detailbox li {
         list-style: none;
         font-size: 12px;
-        box-shadow: 1px 0px 2px 1px gray;
+        box-shadow: 1px 0px 2px 1px #edecec;
         margin: 7px;
         text-align: center;
         border-radius: 4px;
     }
+    #mainphotobanner{
+        width: 78vw !important;
+        margin: 10vh 25vw;
+        height: 51vh !important;
+    }
+    #mainphotoimg {
+        width: 65vw;
+        height: 40vh;
+        border-radius: 10px;
+    }
+    .commvideo {
+        height: 32vh;
+    }
     #right2 h1{
-        font-size: 18px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .commvideo {
+        background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
+       
     }
     #right2 li {
         list-style: none;
-        /* border: 1px solid gray; */
-        margin: 8px;
-        padding: 2px 25px;
+        border: none;
+        margin: 5px;
+        padding: 2px 0px;
         text-align: center;
-        box-shadow: 1px 1px 3px 1px #bfbbbb;
+        box-shadow: 0px 0px 2px 0px #bfbbbb;
+    }
+    .hlt-data {
+        font-size: 15px;
+        padding: 0px 30px;
     }
     .deskview{
         display:  none !important;
     }
     .mobileview{
         display: flex !important;
+    }
+    .knowmore{
+        display: inline-block;
     }
     #advimg3 {
         text-align: center;
@@ -856,17 +957,18 @@ button.ls-submit {
         border-radius: 10px;
     }
     .mapbox2 {
-        border-radius: 7px;
+        border-radius: 5px;
         padding: 0px;
-        height: 38vh;
+        height: 35vh;
         border: none;
-        width: 76vw;
+        margin-top: 10px;
+        width: 83vw;
         box-shadow: 1px 1px 4px 0px gray;
     }
     .simbox {
         position: relative;
-        width: 77vw;
-        height: 60vh;
+        width: 73vw;
+        height: auto;
         transition: transform 0.3s ease;
     }
     .similar-prop {
@@ -982,19 +1084,18 @@ button.ls-submit {
         margin-right: 10px;
     }
     #right2 {
-        display: flex
-;
+        display: flex;
         flex-direction: column;
         border: 2px solid #ffffff;
         line-height: 35px;
         height: 23vh;
         width: 35vw !important;
         margin: 0vh;
-        padding: 2vh 2vw;
+        padding: 2vw 2vw;
         font-size: 18px;
         letter-spacing: 1px;
         background: white;
-        border-radius: 12px;
+        border-radius: 5px;
         box-shadow: 4px 4px 6px #c3c3c3;
     }
     .simbox {

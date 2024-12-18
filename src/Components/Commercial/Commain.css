@@ -217,14 +217,7 @@
     color: #074907;
 }
 
-.combtn1 {
-    color: white;
-    background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
-    padding: 0px 20px;
-    border-radius: 10px;
-    width: 24vw;
-    margin: 0vh 14vw;
-}
+
 
 .combtn4 {
     color: #000000;
@@ -415,32 +408,12 @@
     padding: 10px;
     border: 1px solid gray;
     border-radius: 10px;
-    height: fit-content;
+    height: 40vh;
 }
 
-.descriptionbox {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 4vh 2vw;
-    padding: 20px;
-    border-radius: 14px;
-}
 
-.left1 {
-    background: white;
-    display: flex;
-    flex-basis: 70%;
-    flex-direction: column;
-    font-size: 1.2rem;
-    line-height: 42px;
-    margin-left: 5vw;
-    /* border: 2px solid #aba6a6; */
-    padding: 20px;
-    border-radius: 12px;
-    margin-right: 75px;
-    max-width: 854px;
-}
+
+
 
 .right1 {
     width: 32vw;
@@ -476,11 +449,7 @@ h1,h2{
     margin: 0;
 }
 
-.detailbox {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(342px, 1fr));
-    gap: 10px;
-}
+
 .hlt-data{
     font-size: 15px;
 }
@@ -507,9 +476,7 @@ h1,h2{
     font-weight: 600;
 }
 
-.detailbox li span {
-    font-weight: 600;
-}
+
 
 .right1 li {
     border: 2px solid #cfcfcf;
@@ -534,13 +501,7 @@ h1,h2{
     align-items: center;
 }
 
-button.ls-submit {
-    color: white;
-    background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
-    border-radius: 10px;
-    width: 12vw;
-    border: none;
-}
+
 
 .left2 {
     flex-basis: 25%;
@@ -610,7 +571,7 @@ button.ls-submit {
     font-weight: 600;
 }
 
-.simbox {
+/* .simbox {
     position: relative;
     width: 17vw;
     margin: 5px;
@@ -620,7 +581,7 @@ button.ls-submit {
     box-shadow: 4px 6px 10px #ebe8e8;
     height: 50vh;
     transition: transform 0.3s ease;
-}
+} */
 
 
 
@@ -687,18 +648,27 @@ button.ls-submit {
 }
 
 .lease-category {
-    border: 2px solid #c3c3c3;
+    order: 2px solid #c3c3c3;
     margin: 2vh 5vw;
     width: 23vw;
     height: 30vh;
-    padding: 12px 126px;
+    /* padding: 12px 126px; */
     font-size: 1.3rem;
     font-weight: 600;
     letter-spacing: 6px;
     border-radius: 12px;
-    color: black;
+    background: #0f181f80;
+    box-shadow: 2px 2px 2px 2px gray;
 }
-
+.lease-category h1{
+    color: white;
+    text-align: center;
+}
+#leaseimg{
+    width: 100%;
+    border-radius: 7px;
+    height: 25.5vh;
+}
 .office {
     background: url("/public/office-space.jpg") !important;
     background-size: cover !important;
@@ -819,13 +789,7 @@ button.ls-submit {
   .content {
     margin-top: 60px; /* Adjust content to avoid overlap with the banner */
   }
-  .sf-box1-amenities {
-    flex-basis: 71%;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    margin: 0vh 5vw;
-}
+ 
 .custom2 {
     width: 19vw;
     margin: 1vh 1vw;
@@ -840,20 +804,7 @@ button.ls-submit {
     font-weight: 600;
     color: black;
 }
-#right2 {
-    display: flex;
-    flex-direction: column;
-    border: 2px solid #ffffff;
-    line-height: 35px;
-    width: 32vw !important;
-    margin: 0vh;
-    padding: 2vh 2vw;
-    font-size: 18px;
-    letter-spacing: 1px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 4px 4px 6px #c3c3c3;
-}
+
 #comingsoon {
     font-size: 1.8rem;
     margin-bottom: 10vh;
@@ -864,13 +815,7 @@ button.ls-submit {
 .submit{
     background: white !important;
 }
-#floorbox{
-    width: 19vw;
-    height: 35vh;
-    border-radius: 12px;
-    cursor: pointer;
-   
-}
+
 #lead2{
   z-index: 99; 
 }
@@ -889,24 +834,9 @@ button.ls-submit {
     width: 100%;
     height: 400px; /* Ensure the chart has enough space */
 
-#floorimg{
-    width: 53vw;
-    height: 73vh;
-}
 
-.floor-comm {
-    margin: 40px auto;
-    width: 1240px;
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-}
 
-.floor-comm h1{
-    padding: 5%;
-    font-size: 24px;
-    font-weight: 600;
-}
+
 
 .advimgx {
     /* margin: 3vh 8vw; */
@@ -922,12 +852,7 @@ button.ls-submit {
     height: 32vh;
     border-radius: 12px;
 }
-#right2 h1{
-    text-align: center;
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 4%;
-}
+
 #offerhead{
     font-weight: 600;
 }
@@ -940,14 +865,8 @@ button.ls-submit {
 }
   
 
-.lease-submit {
-    margin: auto !important;
-}
-.main-banner{
-    display: flex;
-    flex-direction: row;
-    
-}
+
+
 @media only screen and (min-width: 0px) and (max-width: 500px) {
     #ban-img {
         height: 26vh !important;
@@ -975,7 +894,7 @@ button.ls-submit {
         float: left;
     }
     .leaseban{
-        margin-top: 15vh !important;
+        margin-top: 22vh !important;
     }
     .agent {
         display: none;
@@ -986,19 +905,31 @@ button.ls-submit {
         margin: 10vh 4vw;
     }
     .lease-category {
-        border: 2px solid #c3c3c3;
+        order: 2px solid #c3c3c3;
         margin: 2vh 5vw;
-        width: 41vw;
-        height: 21vh;
-        padding: 12px 126px;
+        width: 79vw;
+        height: 30vh;
+        /* padding: 12px 126px; */
         font-size: 1.3rem;
         font-weight: 600;
+        letter-spacing: 6px;
         border-radius: 12px;
-        color: #000000;
-        justify-content: start;
+        background: #0f181f80;
+        box-shadow: 2px 2px 2px 2px gray;
+    }
+    .lease-category h1{
+        color: white;
+        text-align: center;
+    }
+    #leaseimg{
+        width: 100%;
+        border-radius: 7px;
+        height: 20vh;
     }
 
-    
+    .contactbox h3 {
+        font-size: 14px;
+    }
 
     .advimg {
         display: none;
@@ -1050,7 +981,7 @@ button.ls-submit {
     }
 
     .advbox2 {
-        width: 40vw;
+        width: 94vw;
         margin: 2vh 3vw;
     }
 
@@ -1088,14 +1019,15 @@ button.ls-submit {
     margin: 0vh 1vw;
     width: 45vw;
     height: 5vh;
+    font-size: 12px;
 }
 
 .combtn2 {
-    padding: 11px 20px;
+    padding: 4px 20px;
     border-radius: 10px;
     width: 43vw;
     margin: 1vh 22vw;
-    height: 6vh;
+    height: 5vh;
 }
 
 .combanner {
@@ -1141,9 +1073,10 @@ button.ls-submit {
 }
 
 .combuttonbox {
-    display: flex;
-    flex-direction: row;
-    margin-left: -9vw;
+    display: grid
+    ;
+            gap: 7px;
+            grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
 }
 
 .combtn3 {
@@ -1151,11 +1084,12 @@ button.ls-submit {
     height: 8.5vh;
     color: white;
     background: black;
-    padding: 10px 14px;
-    border-radius: 10px;
-    width: 28vw;
+    padding: 7px 14px;
+    border-radius: 7px;
+    width: 36vw;
     margin: 0vh 1vw;
-    text-align: left;
+    text-align: center;
+    height: 8vh !important;
 }
 
 .investmentoption {
@@ -1169,6 +1103,7 @@ button.ls-submit {
 
 #add {
     margin-right: 1vw;
+    font-size: 14px;
 }
 
 .investmentplan {
@@ -1242,14 +1177,7 @@ button.ls-submit {
     border: none;
     outline: none;
 }
-.descriptionbox {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 0vh 2vw;
-    padding: 20px;
-    border-radius: 14px;
-}
+
 
 .subfeature-box {
     display: flex;
@@ -1259,20 +1187,7 @@ button.ls-submit {
     padding: 20px;
     border-radius: 14px;
 }
-.left1 {
-    text-align: start;
-    display: flex;
-    flex-basis: 41%;
-    flex-direction: column;
-    font-size: 14px;
-    line-height: 26px;
-    margin-left: 0vw;
-    border: 2px solid #cbc6c6;
-    padding: 20px;
-    border-radius: 12px;
-    margin-right: 7px;
-    margin: 1vh 1vw;
-}
+
 
 .right1 {
     border: 2px solid #cbc6c6;
@@ -1356,7 +1271,7 @@ button.ls-submit {
     display: none;
 }
 
-.simbox {
+/* .simbox {
     margin: 2vh 4vw;
     text-align: center;
     width: 90vw;
@@ -1368,16 +1283,9 @@ button.ls-submit {
     background: #fdfafa;
     border-radius: 12px;
     box-shadow: 4px 6px 10px #ebe8e8;
-}
+} */
 
-.combtn1 {
-    color: white;
-    background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
-    padding: 0px 20px;
-    border-radius: 10px;
-    width: 57vw;
-    margin: 0vh 8vw;
-}
+
 
 .subfeature-box {
     flex-direction: column;
@@ -1475,44 +1383,9 @@ button.ls-submit {
     margin-top: auto;
 }
 
-.sf-box1-amenities {
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    max-width: 854px;
-}
 
-.sf-box1-amenities h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 3%;
-}
 
-.sf-box1-amenities ul {
-    display: grid; /* Use grid layout */
-    grid-template-columns: repeat(3, 1fr); /* Create three equal columns */
-    gap: 10px; /* Space between grid items */
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
 
-.sf-box1-amenities li {
-    padding: 10px;
-    border-radius: 4px;
-    box-sizing: border-box;
-    transition: box-shadow 0.3s ease; 
-    transition: color 0.4s ease-in-out; 
-}
-
-.sf-box1-amenities li:hover {
-    color: red;
-}
-
-.sf-box1-amenities p {
-    font-size: 16px;
-    color: #666;
-}
 
 
 
@@ -1542,13 +1415,8 @@ button.prisubmit:hover{
     border: 1px solid red;
 }
 
-.detailbox li {
-    list-style: none;
-    font-size: 14px;
-}
 
-.detailbox li span{
-    color: #242526;
-}
+
+
 
 

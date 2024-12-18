@@ -58,7 +58,7 @@ function Commercial() {
     return commercialdata.filter(item => item.city === city);
   };
   const navigate = useNavigate();
-  const [category, setcategroy] = useState('Office Space');
+  const [category, setcategroy] = useState('shop');
   const [visibleCount, setVisibleCount] = useState(3);
   const [compareData, setCompareData] = useState([]);
   const [leasetype, setleasetype] = useState('');
@@ -137,7 +137,9 @@ function Commercial() {
 
     return formatted.join(' ');
   }
-  const filteredData = filterDataByCity();
+  const filteredData = commercialdata
+  .filter(item => item.city === city)  // Filter by city
+  .filter(item => JSON.parse(item.category).includes(category));
   // console.log(filteredData);
   const trimPossessionDate = (dateString) => {
     return dateString.slice(0, -14); // Removes the last 15 characters
@@ -264,8 +266,8 @@ function Commercial() {
                   </div>
                   <div className='combuttonbox2'>
                     <button className='combtn4'>Invest: {item.invest}</button>
-                    <button className='combtn4'>Get Guaranteed lease {item.lease_amount} per month</button>
-                    <button className='combtn4'>Possession Date: {item.possession_date}</button>
+                    <button className='combtn4'>Get Guaranteed lease {item.lease_amount}</button>
+                    <button className='combtn4'>Possession Date: {trimPossessionDate(item.possession_date)}</button>
                   </div>
                 </div>
               ))}
@@ -311,7 +313,7 @@ function Commercial() {
           </>
         )}
 
-        { compareData.length > 0 && (
+        { compareData.length > 1 && (
           <>
             <div className='comparebox2'>
               <Swiper
@@ -347,28 +349,36 @@ function Commercial() {
             </div>
           </>
         )}
-        <div className='fronthead leaseban'>
+        <div className='fronthead leaseban '>
           <h1>Find <b>Perfect</b> Lease <b>Property</b></h1>
         </div>
         <div className='lease'>
-          <div className='lease-category office' onClick={() => {
+          <div className='lease-category' onClick={() => {
             setleasetype('office_space');
             setVisible(!visible);
           }}>
-            
-            officespace
-          </div >
-          <div className='lease-category shop' onClick={() => {
-            setleasetype('shop');
-            setVisible(!visible);
-          }}>
-            Shop
+          <h1>OfficeSpace</h1>
+          <div>
+            <img src="/office-space.jpg" alt="" id='leaseimg' />
           </div>
-          <div className='lease-category showroom' onClick={() => {
+          </div >
+          <div className='lease-category' onClick={() => {
             setleasetype('shop');
             setVisible(!visible);
           }}>
-            Showroom
+           <h1>Shop/Retail Space</h1>
+           <div>
+            <img src="/Shop.jpg" alt="" id='leaseimg' />
+          </div>
+          </div>
+          <div className='lease-category' onClick={() => {
+            setleasetype('shop');
+            setVisible(!visible);
+          }}>
+          <h1>OfficeSpace</h1>
+          <div>
+            <img src="/showroom.jpg" alt="" id='leaseimg' />
+          </div>
           </div>
         </div>
         <div className='fronthead' style={{ display: visible ? 'block' : 'none' }}>
@@ -398,8 +408,8 @@ function Commercial() {
         <div className='smallswipe'>
           <Swiper
             modules={[Autoplay, EffectCards]}
-            spaceBetween={50}
-            slidesPerView={2}
+            spaceBetween={20}
+            slidesPerView={1}
 
             autoplay={{
               delay: 3000,
