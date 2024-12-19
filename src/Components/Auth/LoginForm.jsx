@@ -13,7 +13,7 @@ const Login = ({ onLogin }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://www.townmanor.ai/api/users/login', {
+      const response = await fetch('http://www.townmanor.ai/api/api/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

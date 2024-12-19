@@ -45,7 +45,7 @@ const Signup = () => {
 
     try {
       // API call to signup endpoint
-      const response = await axios.post('http://localhost:3030/api/users/signup', {
+      const response = await axios.post('http://www.townmanor.ai/api/api/users/signup', {
         name: formData.name_surname,
         username: formData.username,
         mail: formData.mail,
