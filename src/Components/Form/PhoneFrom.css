@@ -57,7 +57,7 @@ body,html{
  flex-wrap: wrap;
 }
 #floorplanname2,#filebox2{
-  font-size: 16px;
+  font-size: 12px;
   width: 8vw;
   border: 2px solid gray;
   text-align: center;
@@ -67,7 +67,7 @@ body,html{
   height: 6vh;
 }
 #deleteicon2{
-  width: 30%;
+  width: 10%;
   cursor: pointer;
 }
 
@@ -110,8 +110,8 @@ body,html{
     box-shadow: 2px 3px 2px #e1dddd;
 }
 .formfield-c{
-    width: 59vw !important;
-    height: 11vh !important;
+    width: 55vw !important;
+    height: 20vh !important;
     outline: none;
     border: none;
     /* font-weight: 600; */

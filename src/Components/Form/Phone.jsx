@@ -29,7 +29,8 @@ import { PiWarehouseLight } from "react-icons/pi";
 import { MdDelete } from "react-icons/md";
 import axios from 'axios';
 import './PhoneFrom.css'
-
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 function Phone() {
     const [category, setcategory] = useState('residential')
     const [sold, setsold] = useState('')
@@ -53,6 +54,17 @@ function Phone() {
     const [coordinates, setCoordinates] = useState(null);
     const [description, setDescription] = useState("");
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
+   
+    useEffect(() => {
+        const token = Cookies.get('token'); // Get token from cookies
+
+        // Check if the token exists
+        if (!token) {
+            // If no token, redirect to the authentication page
+            navigate('/auth'); 
+        }
+    }, [navigate]);
     const initialdata = {
         'pincode': null,
         'city': null,
@@ -100,7 +112,7 @@ function Phone() {
     }
     const [formdata, setformdata] = useState({
         'pincode': null,
-        'city': null,
+        'city': 'noida',
         'locality': null,
         'property_name': null,
         'address': null,
@@ -234,55 +246,131 @@ function Phone() {
                 : prevData[name].filter((item) => item !== value),
         }));
     };
-    const handleFloorplanChange = (event) => {
+    const handleFloorplanChange = async (event) => {
         const files = Array.from(event.target.files);
-
+    
         // Check if the current floor plans plus the new files exceed the limit
         if (files.length + floorplan.length > 4) {
             alert('You can upload up to 4 floor plans.');
             // Only allow as many as needed to stay within the limit
             files.splice(4 - floorplan.length);
         }
-
-        // Extract file names and update state
-        const newFloorPlans = files.map((file) => file.name);
-        setfloorplan((prevFloorPlans) => [...prevFloorPlans, ...newFloorPlans]);
+    
+        // Prepare the FormData to send to the backend
+        const formData = new FormData();
+        files.forEach(file => {
+            formData.append("images", file); // 'floorplans' is the key expected by the backend
+        });
+    
+        try {
+            // Upload the floorplans to the backend
+            const response = await axios.post('http://localhost:3030/upload-images', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+    
+            // Check if the upload was successful
+            if (response.status === 200) {
+                // Assuming the backend returns the floorplan paths in the `imagePaths` field
+                const uploadedFloorplanPaths = response.data.imagePaths;
+                console.log(uploadedFloorplanPaths);
+    
+                // Trim the paths to remove the "public\\images\\" part
+                const trimmedFloorplanPaths = uploadedFloorplanPaths.map((path) => {
+                    return path.replace("public\\images\\", ""); // Modify path as needed
+                });
+    
+                // Update the floorplan state with the trimmed paths
+                setfloorplan((prevFloorPlans) => [...prevFloorPlans, ...trimmedFloorplanPaths]);
+    
+                console.log(trimmedFloorplanPaths);
+            } else {
+                console.error('Error uploading floorplans:', response);
+                alert('Failed to upload floorplans');
+            }
+        } catch (error) {
+            console.error('Error uploading floorplans:', error);
+            alert('An error occurred while uploading the floorplans');
+        }
     };
 
-    const handlePhotosChange = (event) => {
+    const handlePhotosChange = async (event) => {
         const files = Array.from(event.target.files);
-
+    
         // Check if the current photos plus the new files exceed the limit
         if (files.length + photos.length > 10) {
             alert('You can upload up to 10 photos.');
             // Only allow as many as needed to stay within the limit
-            files.splice(10 - formdata.photos.length);
+            files.splice(10 - photos.length);
         }
+    
+        // Prepare the FormData to send to the backend
+        const formData = new FormData();
+        files.forEach(file => {
+            formData.append("images", file); // 'images' is the key expected by the backend
+        });
+    
+        try {
+            // Upload the images to the backend
+            const response = await axios.post('http://localhost:3030/upload-images', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+    
+            // Check if the upload was successful
+            if (response.status === 200) {
+                // Assuming the backend returns the image paths in the `imagePaths` field
+                const uploadedImagePaths = response.data.imagePaths;
+                console.log(uploadedImagePaths);
+                // Convert relative paths to full URLs
+                const trimmedImagePaths = uploadedImagePaths.map((path) => {
+                    return path.replace("public\\images\\", "");
+                });
+    
+                // Update the photos state with the full image URLs
+                setphotos((prevPhotos) => [...prevPhotos, ...trimmedImagePaths]);
 
-        // Extract file names and update state
-        const newPhotos = files.map((file) => file.name);
-        setphotos((prevphotos) => [...prevphotos, ...newPhotos]);
+                console.log(trimmedImagePaths);
+            } else {
+                console.error('Error uploading images:', response);
+                alert('Failed to upload images');
+            }
+        } catch (error) {
+            console.error('Error uploading images:', error);
+            alert('An error occurred while uploading the images');
+        }
     };
     const leasedchange1 = (e) => {
         setleased(e.target.value);
     }
+     
     const handleSubmit = async (event) => {
         event.preventDefault();
         
         // Call getCoordinates to update coordinates
         await getCoordinates();
-    
+        if (loading) {
+            alert("Loading coordinates, please wait...");
+            return;
+        }
+        const lat = coordinates.lat
+        const lng = coordinates.lng
         // Prepare the form data to be sent in the POST request
         const formDataToSubmit = {
             ...formdata,
+            city:formdata.city,
+            description:description,
             purpose: purpose,       // Append purpose
             category: category,       // Append category
             residential: residential, // Append residential type
             floorplan: floorplan,     // Append floorplan
-            photos: photos, // Append photos array
+            image_repository: photos, // Append photos array
             Commercail: commercial,
             leased: leased ,
-            coordinates:coordinates//commercial category
+            lat:lat,
+            lng:lng//commercial category
         };
         console.log(formDataToSubmit);
         try {
@@ -614,8 +702,9 @@ function Phone() {
                                                     <select
                                                         name='construction_status'
                                                         className='formfield-a'
-                                                        value={formdata.construction_status}
+                                                        
                                                         onChange={handleChange}
+                                                        value={formdata.construction_status}
                                                         required
                                                     >
                                                         <option value='Ready to Move'>Ready to Move</option>
@@ -625,7 +714,7 @@ function Phone() {
                                                 </div>
                                                 <div>
                                                     <label className='formtext'> possesion date</label>
-                                                    <input className='formfield-a' type='date' name='property_date' value={formdata.property_date} onChange={handleChange}></input>
+                                                    <input className='formfield-a' type='date' name='property_date'  onChange={handleChange} value={formdata.property_date} ></input>
                                                 </div>
 
                                             </div>

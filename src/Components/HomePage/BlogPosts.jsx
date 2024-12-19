@@ -1,6 +1,5 @@
 // src/HomePage/BlogPosts.jsx
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -8,8 +7,15 @@ import 'slick-carousel/slick/slick-theme.css';
 import './BlogPosts.css'
 import "../common.css";
 import "../commonsecond.css";
-
+import blog from './BlogPost.json'
+import { Link, useParams } from 'react-router-dom';
 const BlogPosts = () => {
+  const [blogdata, setblogdata] = useState([]);
+
+  useEffect(() => {
+    setblogdata(blog);
+  }, []); // Empty dependency array to ensure it runs only once on mount
+  const {id}= useParams();
   const settings = {
     dots: true,
     infinite: true,
@@ -56,91 +62,35 @@ const BlogPosts = () => {
           <div className="col-lg-8">
             <div className="blog-grid-posts mg">
               <Slider {...settings}>
-                {/* Slide 1 */}
-                <div className="product-wrap">
-                  <div className="blog-single-post">
-                    <div className="blog-img">
-                      <a href="https://example.com" title="Navigating Growth: Analyzing the Impact of Jewar Airport on Noida's Infrastructure">
-                        <img src="./800x500landing_lights.jpg" alt="Navigating Growth" />
-                      </a>
-                      <div className="view-post">
-                        <a href="https://example.com" className="view-posts">View Post</a>
+                {/* Dynamically render slides based on blogdata */}
+                {blogdata.map((post) => (
+                  <div key={post.id} className="product-wrap">
+                    <div className="blog-single-post">
+                      <div className="blog-img">
+                        <Link to={`/article/${post.id}`} title={post.heading}>
+                          <img src={post.img} alt={post.heading}  style={{height:'19vh'}}/>
+                        </Link>
+                        <div className="view-post">
+                          <Link to={`/article/${post.id}`} className="view-posts">View Post</Link>
+                        </div>
+                      </div>
+                      <div className="post_info">
+                        <ul className="post-nfo post_date">
+                          <li><i className="la la-calendar"></i> {post.date}</li>
+                        </ul>
+                        <h3>
+                          <Link to={`/article/${post.id}`} title={post.heading}>
+                            {post.heading}
+                          </Link>
+                        </h3>
+                        <p>{post.data.substring(0, 150)}...</p> {/* Show the first 150 characters as a preview */}
+                        <Link className="read_more_blog" to={`/article/${post.id}`}>
+                          Read More <i className="la la-long-arrow-right"></i>
+                        </Link>
                       </div>
                     </div>
-                    <div className="post_info">
-                      <ul className="post-nfo post_date">
-                        <li><i className="la la-calendar"></i> Jan 24, 2024</li>
-                      </ul>
-                      <h3>
-                        <a href="https://example.com" title="">
-                          Navigating Growth: Analyzing the Impact of Jewar Airport on Noida's Infrastructure
-                        </a>
-                      </h3>
-                      <p>Noida, a city synonymous with rapid development...</p>
-                      <a className="read_more_blog" href="https://example.com">
-                        Read More <i className="la la-long-arrow-right"></i>
-                      </a>
-                    </div>
                   </div>
-                </div>
-
-                {/* Slide 2 */}
-                <div className="product-wrap">
-                  <div className="blog-single-post">
-                    <div className="blog-img">
-                      <a href="https://example.com" title="Navigating the Evolving Landscape- A Look at the Indian Real Estate Market Forecast">
-                        <img src="./800x500smiling_african_american_lady_chair_near_plan_model_house_table.jpg" alt="Evolving Landscape" />
-                      </a>
-                      <div className="view-post">
-                        <a href="https://example.com" className="view-posts">View Post</a>
-                      </div>
-                    </div>
-                    <div className="post_info">
-                      <ul className="post-nfo post_date">
-                        <li><i className="la la-calendar"></i> Jan 24, 2024</li>
-                      </ul>
-                      <h3>
-                        <a href="https://example.com" title="">
-                          Navigating the Evolving Landscape: A Look at the Indian Real Estate Market Forecast
-                        </a>
-                      </h3>
-                      <p>The Indian real estate market, a constantly evolving giant has witnessed...</p>
-                      <a className="read_more_blog" href="https://example.com">
-                        Read More <i className="la la-long-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Slide 3 */}
-                <div className="product-wrap">
-                  <div className="blog-single-post">
-                    <div className="blog-img">
-                      <a href="https://example.com" title="Townmanor Unveils: Your Essential Guide to Home Loans">
-                        <img src="./800x500blog1.jpg" alt="Home Loans Guide" />
-                      </a>
-                      <div className="view-post">
-                        <a href="https://example.com" className="view-posts">View Post</a>
-                      </div>
-                    </div>
-                    <div className="post_info">
-                      <ul className="post-nfo post_date">
-                        <li><i className="la la-calendar"></i> Jan 24, 2024</li>
-                      </ul>
-                      <h3>
-                        <a href="https://example.com" title="">
-                          Townmanor Unveils: Your Essential Guide to Home Loans
-                        </a>
-                      </h3>
-                      <p>Just landed your dream home? Fantastic! The next thrilling step: securing a home loan...</p>
-                      <a className="read_more_blog" href="https://example.com">
-                        Read More <i className="la la-long-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Additional slides can be added in a similar fashion */}
+                ))}
               </Slider>
             </div>
           </div>

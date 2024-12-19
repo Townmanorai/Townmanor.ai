@@ -1,65 +1,62 @@
-import React from 'react';
-import { useParams } from 'react-router-dom'; // Import useParams to access URL parameters
-import blogk from '../HomePage/BlogPost.json';// Import the blog data
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom'
+import blogk from '../HomePage/BlogPost.json'
 import './Article.css'
 function Article() {
-  const { id } = useParams(); // Get the id from the URL
-  const post = blogk.find(post => post.id === parseInt(id)); // Find the post by id
+  const [listdata, setlistdata] = useState([]);
+  useEffect(() => {
+    setlistdata(blogk);
+  })
+  console.log(listdata);
+  const { id } = useParams();
+  const post = blogk.find(post => post.id === parseInt(id));
 
   if (!post) {
-    return <p>Post not found!</p>; // Handle case when post is not found
+    return <p>Post not found!</p>;
   }
+
+  let currentdate = new Date();
+  let formetteddate = currentdate.toLocaleDateString();
 
   return (
     <>
-      <section className="pager-sec bfr widget_edit_enabled">
-        <div className="container">
-          <div className="pager-sec-details">
-            <h3>{post.heading}</h3>
-            <ul className="breadcrumb">
-              <li><a href="https://townmanor.in/en">Home</a><span className="delimiter"></span></li>
-              <li><span></span><span className="delimiter"></span></li>
-              <li><span>{post.heading}</span></li>
-            </ul>
-          </div>
+      <div className='article-main'>
+        <div className='heading'>
+          <h1>{post.heading}</h1>
         </div>
-      </section>
-      <section className="listing-main-sec section-padding2">
-        <div className="container" style={{
-            maxWidth:'1440px'
-        }}>
-          <div className="listing-main-sec-details" style={{
-            display:'flex'
-          }}>
-            <div className="row" style={{
-                flexBasis:'91%'
-            }}>
-              <div className="col-lg-8">
-                <div className="blog-single-post single" style={{
-            Width:'111% !important'
-        }}>
-                  <h1>{post.heading} </h1>
-                 <br></br>
-                  <p>{post.data}</p> {/* Render full post data here */}
-                </div>
+        <div className='content'>
+          <div className='left-content'>
+            {
+              blogk.map((item, index) => (
+                <a key={index}>
+                  <p>
+                    {item.heading}
+                  </p>
+                </a>
+              ))
+            }
+          </div>
+
+          <div className='right-content'>
+            <div className='content-img'>
+              <div className='cm-header'>
+                <h6 style={{ fontSize: "20px", fontWeight: "600" }}>Townmanor </h6>
+                <div>Date: {formetteddate}</div>
               </div>
-            
+              <div className='cont-m-img'>
+                {<img src={post.img} alt="header-image" />}
+                
+              <p>{post.heading}</p>
+              </div>
             </div>
-            <div style={{
-                flexBasis:'30%'
-            }}>
-                <img src={post.img} style={{
-                        width: '23vw',
-                        height: '28vh',
-                        border: '2px solid #e3e1e1',
-                        padding: '10px',
-                        borderRadius: '8px',
-                        boxShadow: '1px 1px 1px 1px gray'
-                }}></img>
-              </div>
+            <div className='content-data'>
+              <p>
+                {post.data}
+              </p>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
     </>
   );
 }
