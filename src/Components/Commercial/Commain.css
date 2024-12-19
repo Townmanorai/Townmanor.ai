@@ -5,7 +5,7 @@
     font-size: 1.5rem;
     text-align: center;
     padding-top: 20px;
-    letter-spacing: 2px;
+    letter-spacing: 0px;
     font-weight: bold;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .combtn3 {
-    font-size: 14px;
+    font-size: 12px;
     height: 8.5vh !important;
     color: white;
     background: black;
@@ -114,7 +114,7 @@
     height: 5vh;
     border: none;
     outline: none;
-    border-radius: 12px;
+    border-radius: 5px;
     text-align: center;
     background-color: #e9e8e8;
     font-weight: bold;
@@ -126,7 +126,7 @@
     height: 5vh;
     border: none;
     outline: none;
-    border-radius: 12px;
+    border-radius: 5px;
     text-align: center;
     background-color: #e9e8e8;
     font-size: 18px;
@@ -195,9 +195,9 @@
 }
 
 .invbtn {
-    border-radius: 12px;
-    height: 5vh;
-    margin: 0vh 3vw;
+    border-radius: 6px;
+    height: 4vh;
+    margin: 1vh 3vw;
     float: right;
     width: 7vw;
     float: right;
@@ -205,7 +205,7 @@
     /* background-color: #563aab; */
     color: crimson;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 0px;
     border: 1px solid black;
 }
 .invbtn:hover {
@@ -894,15 +894,16 @@ h1,h2{
         float: left;
     }
     .leaseban{
-        margin-top: 22vh !important;
+        margin-top: 27vh !important;
     }
     .agent {
         display: none;
     }
     .lease {
         display: flex;
-        flex-direction: column !important;
-        margin: 10vh 4vw;
+        flex-direction: row;
+        overflow: scroll;
+        margin: 2vh 4vw;
     }
     .lease-category {
         order: 2px solid #c3c3c3;
@@ -912,13 +913,14 @@ h1,h2{
         /* padding: 12px 126px; */
         font-size: 1.3rem;
         font-weight: 600;
-        letter-spacing: 6px;
+        letter-spacing: 0px;
         border-radius: 12px;
-        background: #0f181f80;
-        box-shadow: 2px 2px 2px 2px gray;
+        background: #4c0a0a;
+        box-shadow: 0px 0px 0px 0px gray;
     }
     .lease-category h1{
         color: white;
+        width: 250px;
         text-align: center;
     }
     #leaseimg{
@@ -1023,10 +1025,10 @@ h1,h2{
 }
 
 .combtn2 {
-    padding: 4px 20px;
-    border-radius: 10px;
-    width: 43vw;
-    margin: 1vh 22vw;
+    padding: 2px 20px;
+    border-radius: 5px;
+    width: 70vw;
+    margin: 1vh 8vw;
     height: 5vh;
 }
 
@@ -1035,7 +1037,7 @@ h1,h2{
     /* justify-content: space-evenly; */
     padding: 10px;
     margin: 0vh 3vw;
-    margin-top: 0vh;
+    margin-top: 2vh;
 }
 .right1 img {
     width: 100%;
@@ -1054,7 +1056,7 @@ h1,h2{
 }
 
 .fronthead {
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .mapbox {
@@ -1080,16 +1082,16 @@ h1,h2{
 }
 
 .combtn3 {
-    font-size: 14px;
+    font-size: 13px;
     height: 8.5vh;
     color: white;
     background: black;
-    padding: 7px 14px;
-    border-radius: 7px;
-    width: 36vw;
+    padding: 5px 14px;
+    border-radius: 5px;
+    width: 34vw;
     margin: 0vh 1vw;
     text-align: center;
-    height: 8vh !important;
+    height: 9vh !important;
 }
 
 .investmentoption {
@@ -1112,17 +1114,17 @@ h1,h2{
 }
 
 .invbtn {
-    border-radius: 9px;
+    border-radius: 6px;
     height: 4vh;
     margin: 1vh 3vw;
     float: right;
-    width: 28vw  !important;
+    width: 30vw  !important;
     float: right;
     margin-bottom: 10px;
     /* background-color: #563aab; */
     color: crimson;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 2px;
     border: 1px solid black;
 }
