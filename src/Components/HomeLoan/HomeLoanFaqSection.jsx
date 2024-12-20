@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../common.css";
 import "../commonsecond.css";
 
 // Dummy JSON data
-const faqData = [
+
+const faqs = [
   {
     id: 1,
     question: "What is a Home Loan?",
@@ -43,10 +44,44 @@ const faqData = [
     id: 8,
     question: "What is the difference between fixed and floating interest rates?",
     answer: "Fixed interest rates offer stability but may be higher initially. Floating rates, while variable, can offer lower rates when the market is favorable."
+  },
+  {
+    id: 9,
+    question: "What is the Loan to Value Ratio (LTV)?",
+    answer: "LTV is the ratio of the loan amount to the property’s value. For example, if a property is worth ₹50 lakhs and the loan is ₹40 lakhs, the LTV is 80%."
+  },
+  {
+    id: 10,
+    question: "What are the tax benefits of taking a home loan?",
+    answer: "You can claim up to ₹2 lakh on interest under Section 24(b) and ₹1.5 lakh on principal repayment under Section 80C of the Income Tax Act."
+  },
+  {
+    id: 11,
+    question: "Can I get a home loan if I have a low credit score?",
+    answer: "While it's harder to get a loan with a low CIBIL score (below 650), some lenders may still offer loans but at higher interest rates."
+  },
+  {
+    id: 12,
+    question: "How can I improve my loan eligibility?",
+    answer: "Improve eligibility by increasing your income, reducing existing debt, improving your credit score, or opting for a longer tenure."
   }
 ];
 
 const HomeLoanFaqSection = () => {
+  const [activeIndex,setActiveIndex]= useState('');
+  const toggleAnswer = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+};
+const formatAnswer = (answer) => {
+    return answer.split('\n').map((item, index) => {
+        return (
+            <span key={index}>
+                {item}
+                {index !== answer.split('\n').length - 1 && <br />}
+            </span>
+        );
+    });
+};
   return (
     <section className="faq-section paddinngTB" id="faqs1">
       <div className="container">
@@ -57,7 +92,7 @@ const HomeLoanFaqSection = () => {
             </div>
           </div>
 
-          <div className="col-md-10 offset-md-1">
+          {/* <div className="col-md-10 offset-md-1">
             <div className="faq" id="accordion">
               {faqData.map(faq => (
                 <div key={faq.id} className="card">
@@ -88,7 +123,37 @@ const HomeLoanFaqSection = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
+           <div className="col-md-10 offset-md-1">
+                        <div className="faq">
+                            {faqs.map((faq, index) => (
+                                <div className="card" key={index}>
+                                    <div className="card-header" id={`faqHeading-${index}`}>
+                                        <div className="mb-0">
+                                            <h5
+                                                className="faq-title"
+                                                onClick={() => toggleAnswer(index)}
+                                            >
+                                                <span className="badge">{index + 1}</span>{" "}
+                                                {faq.question}
+                                            </h5>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        className={`collapse ${activeIndex === index ? "show" : ""}`}
+                                        id={`faqCollapse-${index}`}
+                                    >
+                                        <div className="card-body">
+                                            {/* Format the answer with <br /> */}
+                                            {formatAnswer(faq.answer)}
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                    </div>
         </div>
       </div>
     </section>

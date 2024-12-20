@@ -329,91 +329,91 @@ function HomeLane() {
           <div class="row justify-content-center">
             <ul>
               <li class="tab tab_services">
-                <a href="http://localhost:5173/homelane/kitchen">
+                <a href="http://townmanor.ai/homelane/kitchen">
                 <img src="https://townmanor.in/templates/selio/assets/selfImages/homeInteriorCategory/modular-kitchen.png" />
 
                 <h3>Modular Kitchen</h3>
                 </a>
               </li>
               <li class="tab tab_services">
-                <a href="http://localhost:5173/homelane/warddrobe">
+                <a href="http://townmanor.ai/homelane/warddrobe">
                 <img src="https://townmanor.in/templates/selio/assets/selfImages/homeInteriorCategory/wardrobes.png" />
 
                 <h3>Wardrobes</h3>
                 </a>
               </li>
               <li class="tab tab_services">
-                <a href="http://localhost:5173/homelane/masterbedroom" />
+                <a href="http://townmanor.ai/homelane/masterbedroom" >
                 <img src="https://townmanor.in/templates/selio/assets/selfImages/homeInteriorCategory/master-bedroom.png" />
 
                 <h3>Master Bedroom</h3>
-
+                </a>
               </li>
               <li class="tab tab_services">
-                <a href="http://localhost:5173/homelane/tv">
+                <a href="http://townmanor.ai/homelane/tv">
                   <img src="https://townmanor.in/templates/selio/assets/selfImages/homeInteriorCategory/tv-unit.png" />
 
                   <h3>TV Unit</h3>
                 </a>
               </li>
               <li class="tab tab_services">
-                <a href="http://localhost:5173/homelane/livingroom">
+                <a href="http://townmanor.ai/homelane/livingroom">
                   <img src="https://townmanor.in/templates/selio/assets/selfImages/homeInteriorCategory/living-room.png" />
 
                   <h3>Living Room</h3>
                 </a>
               </li>
               <li class="tab tab_services">
-                <a href="http://localhost:5173/homelane/falseceiling">
+                <a href="http://townmanor.ai/homelane/falseceiling">
                   <img src="https://townmanor.in/templates/selio/assets/selfImages/homeInteriorCategory/false-ceiling.png" />
 
                   <h3>False Ceiling</h3>
                 </a>
               </li>
               <li class="tab tab_services">
-                <a href="http://localhost:5173/homelane/bathroom">
+                <a href="http://townmanor.ai/homelane/bathroom">
                   <img src="https://townmanor.in/templates/selio/assets/selfImages/homeInteriorCategory/bathroom.png" />
 
                   <h3>Bathroom</h3>
                 </a>
               </li>
               <li class="tab tab_services">
-                <a href="http://localhost:5173/homelane/kids">
+                <a href="http://townmanor.ai/homelane/kids">
                   <img src="https://townmanor.in/templates/selio/assets/selfImages/homeInteriorCategory/kids-room.png" />
 
                   <h3>Kids Room</h3>
                 </a>
               </li>
               <li class="tab tab_services">
-                <a href="http://localhost:5173/homelane/fullhouseinterior">
+                <a href="http://townmanor.ai/homelane/fullhouseinterior">
                   <img src="https://townmanor.in/templates/selio/assets/selfImages/homeInteriorCategory/full-house-interiors.png" />
 
                   <h3>Full House Interiors</h3>
                 </a>
               </li>
               <li class="tab tab_services">
-                <a href="http://localhost:5173/homelane/commercialinterior">
+                <a href="http://townmanor.ai/homelane/commercialinterior">
                   <img src="https://townmanor.in/templates/selio/assets/selfImages/homeInteriorCategory/commercial-interiors.png" />
 
                   <h3>Commercial Interiors</h3>
                 </a>
               </li>
               <li class="tab tab_services">
-                <a href="http://localhost:5173/homelane/officeinterior">
+                <a href="http://townmanor.ai/homelane/officeinterior">
                   <img src="https://townmanor.in/templates/selio/assets/selfImages/homeInteriorCategory/office-interior.png" />
 
                   <h3>Office Interior</h3>
                 </a>
               </li>
               <li class="tab tab_services">
-                <a href="http://localhost:5173/homelane/bedroom">
+                <a href="http://townmanor.ai/homelane/bedroom">
                   <img src="https://townmanor.in/templates/selio/assets/selfImages/homeInteriorCategory/bedroom.png" />
 
                   <h3>Bedroom</h3>
                 </a>
               </li>
               <li class="tab tab_services">
-                <a href="http://localhost:5173/homelane/furniture">
+                <a href="http://townmanor.ai/homelane/furniture">
 
                   <img src="https://townmanor.in/templates/selio/assets/selfImages/homeInteriorCategory/Furniture_logo.png" />
                   <h3>Furniture</h3>
