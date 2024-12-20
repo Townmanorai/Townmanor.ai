@@ -98,7 +98,10 @@
 .combuttonbox {
     display: flex;
     flex-direction: row;
-    margin-left: 6vw;
+    /* margin-left: 6vw; */
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .combannerupdate {
