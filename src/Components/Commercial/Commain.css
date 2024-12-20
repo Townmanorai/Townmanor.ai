@@ -72,8 +72,8 @@
 .combtn2 {
     color: white;
     background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
-    padding: 10px 20px;
-    border-radius: 10px;
+    padding: 12px 20px;
+    border-radius: 6px;
     width: 15vw;
     margin: 0vh 2vw;
     border: none;
@@ -102,7 +102,7 @@
 }
 
 .combannerupdate {
-    margin-top: 0px;
+    margin-top: 10px;
     justify-content: start;
     background-color: #f4f4f4;
     height: 8vh;
@@ -175,7 +175,7 @@
     display: flex;
     flex-direction: row;
     justify-content: end;
-    margin-top: 36px;
+    margin-top: 50px;
 }
 
 #add {
@@ -196,7 +196,7 @@
 
 .invbtn {
     border-radius: 6px;
-    height: 4vh;
+    height: 5vh;
     margin: 1vh 3vw;
     float: right;
     width: 7vw;
@@ -204,7 +204,7 @@
     margin-bottom: 10px;
     /* background-color: #563aab; */
     color: crimson;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0px;
     border: 1px solid black;
 }
@@ -227,8 +227,8 @@
     width: 37vw;
     margin: 0vh 2vw;
     border: 2px solid #d1d1d1;
-    font-size: 17px;
-    box-shadow: 2px 2px 2px 2px #d5d4d4;
+    font-size: 15px;
+    box-shadow: 1px 0px 0px 0px #d5d4d4;
 }
 
 .combuttonbox2 {
@@ -404,15 +404,12 @@
 }
 
 #advertisment {
-    width: 50%;
+    width: 55%;
     padding: 10px;
     border: 1px solid gray;
     border-radius: 10px;
-    height: 40vh;
+    height: 30vh;
 }
-
-
-
 
 
 .right1 {
@@ -644,7 +641,7 @@ h1,h2{
 .lease {
     display: flex;
     flex-direction: row;
-    margin: 10vh 4vw;
+    margin: 5vh 4vw;
 }
 
 .lease-category {
@@ -655,10 +652,10 @@ h1,h2{
     /* padding: 12px 126px; */
     font-size: 1.3rem;
     font-weight: 600;
-    letter-spacing: 6px;
-    border-radius: 12px;
-    background: #0f181f80;
-    box-shadow: 2px 2px 2px 2px gray;
+    letter-spacing: 0px;
+    border-radius: 5px;
+    background: #401010e8;
+    box-shadow: 1px 2px 2px 3px #5a1f1fba;
 }
 .lease-category h1{
     color: white;
@@ -894,7 +891,7 @@ h1,h2{
         float: left;
     }
     .leaseban{
-        margin-top: 27vh !important;
+        margin-top: 15vh !important;
     }
     .agent {
         display: none;
@@ -909,7 +906,7 @@ h1,h2{
         order: 2px solid #c3c3c3;
         margin: 2vh 5vw;
         width: 79vw;
-        height: 30vh;
+        height: 25vh;
         /* padding: 12px 126px; */
         font-size: 1.3rem;
         font-weight: 600;
@@ -1075,8 +1072,7 @@ h1,h2{
 }
 
 .combuttonbox {
-    display: grid
-    ;
+    display: grid;
             gap: 7px;
             grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
 }
@@ -1091,7 +1087,7 @@ h1,h2{
     width: 34vw;
     margin: 0vh 1vw;
     text-align: center;
-    height: 9vh !important;
+    height: 8vh !important;
 }
 
 .investmentoption {
@@ -1099,7 +1095,7 @@ h1,h2{
     margin: 2vh -8vw !important;
     border: 1px solid rgb(171, 170, 170);
     border-radius: 12px;
-    height: 46vh !important;
+    height: 35vh !important;
     flex-wrap: wrap;
 }
 
@@ -1115,7 +1111,7 @@ h1,h2{
 
 .invbtn {
     border-radius: 6px;
-    height: 4vh;
+    height: 5vh;
     margin: 1vh 3vw;
     float: right;
     width: 30vw  !important;
@@ -1123,9 +1119,9 @@ h1,h2{
     margin-bottom: 10px;
     /* background-color: #563aab; */
     color: crimson;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 11px;
-    letter-spacing: 2px;
+    letter-spacing: 0px;
     border: 1px solid black;
 }
 
@@ -1151,7 +1147,7 @@ h1,h2{
     margin: 0.5vh 2vw !important;
     border: 2px solid #d1d1d1;
     font-size: 12px;
-    box-shadow: 2px 2px 2px 2px #d5d4d4;
+    box-shadow: 1px 0px 0px 0px #d5d4d4;
 }
 
 .investmentoptionbox {
