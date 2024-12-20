@@ -16,7 +16,7 @@ const PropertyList = () => {
 
   const fetchProperties = async () => {
     try {
-      const response = await fetch('http://www.townmanor.ai/api/api/properties/admin');
+      const response = await fetch('https://www.townmanor.ai/api/api/properties/admin');
       const data = await response.json();
       // Check if the data is an array and log it
       if (Array.isArray(data)) {

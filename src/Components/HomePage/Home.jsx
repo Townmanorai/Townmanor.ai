@@ -30,7 +30,7 @@ function Home() {
       {/* <AdvertisementVideo /> */}
       <Discovermore />
       <PopularListing />
-      <RightAgents />
+      {/* <RightAgents /> */}
       <CategoriesPresentation />
       <ExclusiveOwnerProperties />
       <PropertyList />

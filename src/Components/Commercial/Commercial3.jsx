@@ -39,9 +39,9 @@ function Commercial3() {
     // Fetching commercial details from the provided API
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://www.townmanor.ai/api/api/commercial/commercial-details/${index}`);
-        const response2 = await fetch(`http://www.townmanor.ai/api/api/commercial/commercial-units/com_prop_id/${index}`);
-        const response3 = await fetch(`http://www.townmanor.ai/api/api/commercial/commercial-details/city/Noida`);
+        const response = await fetch(`https://www.townmanor.ai/api/api/commercial/commercial-details/${index}`);
+        const response2 = await fetch(`https://www.townmanor.ai/api/api/commercial/commercial-units/com_prop_id/${index}`);
+        const response3 = await fetch(`https://www.townmanor.ai/api/api/commercial/commercial-details/city/Noida`);
         const data = await response.json();
         const data2 = await response2.json();
         // Assuming the API returns JSON data

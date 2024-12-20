@@ -13,7 +13,7 @@ const Login = ({ onLogin }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://www.townmanor.ai/api/api/users/login', {
+      const response = await fetch('https://www.townmanor.ai/api/api/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ const Login = ({ onLogin }) => {
       console.log('Response:', data); // Add this for debugging
     
       if (response.ok) {
-        window.location.href = 'http://www.townmanor.ai/';
+        window.location.href = 'https://www.townmanor.ai/';
       } else {
         setError(data.message || 'Login failed');
       }

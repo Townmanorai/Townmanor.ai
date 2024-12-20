@@ -264,7 +264,7 @@ function Phone() {
     
         try {
             // Upload the floorplans to the backend
-            const response = await axios.post('http://localhost:3030/upload-images', formData, {
+            const response = await axios.post('https://www.townmanor.ai/api/upload-images', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -313,7 +313,7 @@ function Phone() {
     
         try {
             // Upload the images to the backend
-            const response = await axios.post('http://localhost:3030/upload-images', formData, {
+            const response = await axios.post('https://www.townmanor.ai/api/upload-images', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -375,7 +375,7 @@ function Phone() {
         console.log(formDataToSubmit);
         try {
             // Send the form data to the server
-            const response = await axios.post('http://localhost:3030/addproperty', formDataToSubmit);
+            const response = await axios.post('https://www.townmanor.ai/api/addproperty', formDataToSubmit);
             
             // Handle the response from the server
             if (response.status === 201) {

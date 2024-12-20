@@ -18,7 +18,7 @@ const PropertyListedUserList = () => {
 
   const fetchPropertyDetails = async () => {
     try {
-      const response = await fetch(`http://www.townmanor.ai/api/api/properties/${property_name}`);
+      const response = await fetch(`https://www.townmanor.ai/api/api/properties/${property_name}`);
       const data = await response.json();
       console.log("Fetched data:", data);
 

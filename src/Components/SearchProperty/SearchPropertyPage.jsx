@@ -34,7 +34,7 @@ const SearchPropertyPage = () => {
 
     //http://localhost:5173/search-property?city=Delhi&configuration=2BHK&furnish_type=Furnished&construction_status=New&page=1 
     // Fetch the properties based on dynamic query parameters
-    fetch(`http://www.townmanor.ai/api/properties?city=${encodedCity}&configuration=${encodedConfiguration}&furnish_type=${encodedFurnishType}&construction_status=${encodedConstructionStatus}&page=${currentPage}`)
+    fetch(`https://www.townmanor.ai/api/properties?city=${encodedCity}&configuration=${encodedConfiguration}&furnish_type=${encodedFurnishType}&construction_status=${encodedConstructionStatus}&page=${currentPage}`)
       .then(response => response.json())
       .then(data => {
         console.log(data);

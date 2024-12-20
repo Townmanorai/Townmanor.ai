@@ -42,7 +42,7 @@ function Commercial() {
   useEffect(() => {
     const fetchCommercialData = async () => {
       try {
-        const response = await axios.get('http://www.townmanor.ai/api/api/commercial/commercial-details');
+        const response = await axios.get('https://www.townmanor.ai/api/api/commercial/commercial-details');
         // Parse the category string to an array
         setcommercialdata(response.data);
         console.log(commercialdata);
