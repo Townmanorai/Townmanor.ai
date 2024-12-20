@@ -375,7 +375,7 @@ function Commercial() {
             setleasetype('shop');
             setVisible(!visible);
           }}>
-          <h1>OfficeSpace</h1>
+          <h1>Showroom</h1>
           <div>
             <img src="/showroom.jpg" alt="" id='leaseimg' />
           </div>
@@ -387,8 +387,8 @@ function Commercial() {
         <div className='bigswipe'>
           <Swiper
             modules={[Autoplay, EffectCards]}
-            spaceBetween={50}
-            slidesPerView={3}
+            spaceBetween={20}
+            slidesPerView={4}
 
             autoplay={{
               delay: 3000,
@@ -408,9 +408,8 @@ function Commercial() {
         <div className='smallswipe'>
           <Swiper
             modules={[Autoplay, EffectCards]}
-            spaceBetween={20}
+            spaceBetween={30}
             slidesPerView={1}
-
             autoplay={{
               delay: 3000,
               disableOnInteraction: false, // Autoplay will not be disabled after user interactions
