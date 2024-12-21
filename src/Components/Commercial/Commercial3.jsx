@@ -452,7 +452,7 @@ function Commercial3() {
         </div>
       </div>
       <div className='descriptionbox'>
-        <div className='left1'>
+        <div className='left1 highsec'>
           <h1 className='fronthead2'>Highlights </h1>
           <ul className='hlt-data'>
             <li>
@@ -729,7 +729,7 @@ function Commercial3() {
           {Array.isArray(similarproperties2) && similarproperties2.length > 0 ? (
             similarproperties2.map((item, index) => (
               <div key={index} className='simbox'>
-                <li className='simimgbox'><img src={'/' + item.face_image} id='simimg' alt="property"></img></li>
+                <li className='simimgbox'><img src={'/' + item.face_image} id='simimg1' alt="property"></img></li>
                 <li id='head'>{item.property_name}</li>
                 <ul>
                   <li><span>Location:</span>{item.address}</li>
@@ -759,7 +759,7 @@ function Commercial3() {
             {similarproperties2.map((item, index) => (
               <SwiperSlide>
                 <div key={index} className='simbox'>
-                  <li className='simimgbox'><img src={'/' + item.face_image} id='simimg'></img></li>
+                  <li className='simimgbox'><img src={'/' + item.face_image} id='simimg1' className='simproimg'></img></li>
                   <li id='head'>{item.property_name}</li>
                   <ul>
                     <li><span>Location:</span>{item.address}</li>
