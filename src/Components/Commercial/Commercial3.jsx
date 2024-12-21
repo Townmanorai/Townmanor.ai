@@ -256,7 +256,7 @@ const other = comdata && comdata.other
               style={{
                 background: officeImages && officeImages.length > 0
                   ? `url(${'/' + officeImages[0]})`
-                  : 'url(/public/officespaceimg.jpg)'
+                  : 'url(/officespaceimg.jpg)'
               }}
             >
               {!(officeImages && officeImages.length > 0) && (
@@ -291,7 +291,7 @@ const other = comdata && comdata.other
               style={{
                 background: shopImages && shopImages.length > 0
                   ? `url(${'/' + shopImages[0]})`
-                  : 'url(/public/retailspaceimg.png)'
+                  : 'url(/retailspaceimg.png)'
               }}
 
             >
@@ -327,7 +327,7 @@ const other = comdata && comdata.other
               style={{
                 background: restuarant && restuarant.length > 0
                   ? `url(${'/' + restuarant[0]})`
-                  : 'url(/public/restaurants.jpg)'
+                  : 'url(/restaurants.jpg)'
               }}
             >
               {!(restuarant && restuarant.length > 0) && (
@@ -362,7 +362,7 @@ const other = comdata && comdata.other
               style={{
                 background: other && other.length > 0
                   ? `url(${'/' + other[0]})`
-                  : 'url(/public/other.jpg)'
+                  : 'url(/other.jpg)'
               }}
               
             >
