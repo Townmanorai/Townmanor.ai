@@ -208,7 +208,18 @@ function Commercial3() {
     console.error("Error parsing floorplan:", e);
     floorplanArray = []; // Default to an empty array if parsing fails
   }
-
+  const officeImages = comdata && comdata.office_image
+  ? JSON.parse(comdata.office_image)
+  : [];
+const shopImages = comdata && comdata.retail_shop
+  ? JSON.parse(comdata.retail_shop)
+  : [];
+const restuarant = comdata && comdata.restaurant
+  ? JSON.parse(comdata.restaurant)
+  : [];
+const other = comdata && comdata.other
+  ? JSON.parse(comdata.other)
+  : [];
   return (
     <>
       <div style={{
@@ -241,25 +252,121 @@ function Commercial3() {
               openModal();
               setmodalimages('office_image');
               setmodalwork(`${comdata.office_image}`);
-            }}>
+            }}
+              style={{
+                background: officeImages && officeImages.length > 0
+                  ? `url(${'/' + officeImages[0]})`
+                  : 'url(/public/officespaceimg.jpg)'
+              }}
+            >
+              {!(officeImages && officeImages.length > 0) && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '25px',
+                    left: '-5px',
+                    width: '130px',
+                    height: '25px',
+                    backgroundColor: 'rgb(78 13 13)', // Red background
+                    color: 'white',
+                    display: 'flex',
+                    justifyContent: 'center', // Corrected property
+                    alignItems: 'center', // Corrected property
+                    fontSize: '14px',
+                    fontWeight: 'bold',
+                    transform: 'rotate(-25deg)', // Rotated by -25 degrees
+                    borderRadius: '12px',
+                    overflow: 'hidden',
+                  }}
+                >
+                  Not Available
+                </div>
+              )}
               <span>Office Space</span></div>
             <div id='sideimagebox' className='retailspace' onClick={() => {
               openModal();
               setmodalimages('retail_shop');
               setmodalwork(`${comdata.retail_shop}`);
-            }}>
+            }}
+              style={{
+                background: shopImages && shopImages.length > 0
+                  ? `url(${'/' + shopImages[0]})`
+                  : 'url(/public/retailspaceimg.png)'
+              }}
+
+            >
+              {!(shopImages && shopImages.length > 0) && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '25px',
+                    left: '-5px',
+                    width: '130px',
+                    height: '25px',
+                    backgroundColor: 'rgb(78 13 13)', // Red background
+                    color: 'white',
+                    display: 'flex',
+                    justifyContent: 'center', // Corrected property
+                    alignItems: 'center', // Corrected property
+                    fontSize: '14px',
+                    fontWeight: 'bold',
+                    transform: 'rotate(-25deg)', // Rotated by -25 degrees
+                    borderRadius: '12px',
+                    overflow: 'hidden',
+                  }}
+                >
+                  Not Available
+                </div>
+              )}
               <span>Retail Space/Shop</span></div>
             <div id='sideimagebox' className='restuarant' onClick={() => {
               openModal();
               setmodalimages('restaurant');
               setmodalwork(`${comdata.restaurant}`);
-            }}>
+            }}
+              style={{
+                background: restuarant && restuarant.length > 0
+                  ? `url(${'/' + restuarant[0]})`
+                  : 'url(/public/restaurants.jpg)'
+              }}
+            >
+              {!(restuarant && restuarant.length > 0) && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '25px',
+                    left: '-5px',
+                    width: '130px',
+                    height: '25px',
+                    backgroundColor: 'rgb(78 13 13)', // Red background
+                    color: 'white',
+                    display: 'flex',
+                    justifyContent: 'center', // Corrected property
+                    alignItems: 'center', // Corrected property
+                    fontSize: '14px',
+                    fontWeight: 'bold',
+                    transform: 'rotate(-25deg)', // Rotated by -25 degrees
+                    borderRadius: '12px',
+                    overflow: 'hidden',
+                  }}
+                >
+                  Not Available
+                </div>
+              )}
               <span>Restuarant</span></div>
             <div id='sideimagebox' onClick={() => {
               openModal();
               setmodalimages('other');
               setmodalwork(`${comdata.other}`);
-            }}>
+            }}
+              style={{
+                background: other && other.length > 0
+                  ? `url(${'/' + other[0]})`
+                  : 'url(/public/other.jpg)'
+              }}
+              
+            >
+            
               <span>other</span></div>
           </div>
           <div className='secondaryPhoto mobileview'>
@@ -268,7 +375,13 @@ function Commercial3() {
               openModal();
               setmodalimages('office_image');
               setmodalwork(`${comdata.office_image}`);
-            }}>
+            }}
+            style={{
+              background: officeImages && officeImages.length > 0
+                ? `url(${'/' + officeImages[0]})`
+                : 'url(/public/officespaceimg.jpg)'
+            }}
+            >
               <span>Office Space</span>
             </div>
 
@@ -277,27 +390,45 @@ function Commercial3() {
               openModal();
               setmodalimages('retail_shop');
               setmodalwork(`${comdata.retail_shop}`);
-            }}>
+            }}
+            style={{
+              background: shopImages && shopImages.length > 0
+                ? `url(${'/' + shopImages[0]})`
+                : 'url(/public/retailspaceimg.png)'
+            }}
+            >
               <span>Retail Space/Shop</span>
-              </div>
+            </div>
 
 
             <div id='sideimagebox' className='restuarant' onClick={() => {
               openModal();
               setmodalimages('restaurant');
               setmodalwork(`${comdata.restaurant}`);
-            }}>
+            }}
+            style={{
+              background: restuarant && restuarant.length > 0
+                ? `url(${'/' + restuarant[0]})`
+                : 'url(/public/restaurants.jpg)'
+            }}
+            >
               <span>Restuarant</span>
-              </div>
+            </div>
 
 
             <div id='sideimagebox' onClick={() => {
               openModal();
               setmodalimages('other');
               setmodalwork(`${comdata.other}`);
-            }}>
+            }}
+            style={{
+              background: other && other.length > 0
+                ? `url(${'/' + other[0]})`
+                : 'url(/public/other.jpg)'
+            }}
+            >
               <span>other</span>
-              
+
             </div>
 
           </div>
@@ -508,7 +639,7 @@ function Commercial3() {
                 ))
               ) : (
                 // Optionally display a message if selectedFoodCourt is empty or not an array
-                <li>No Data available</li>
+                <li>Select the category</li>
               )}
             </ul>
 

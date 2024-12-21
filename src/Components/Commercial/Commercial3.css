@@ -127,12 +127,13 @@ flex-wrap: wrap;
     border-radius: 10px;
 }
 #sideimagebox {
-    background: url('/public/other.jpg');
-    background-size: cover;
     color: white;
     opacity: 0.85; /* Adjust the overall opacity */
     position: relative; /* To position the overlay inside it */
     border-radius: 10px;
+    background-size: 100% 100% !important;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 22vw;
     height: 23vh;
     background-color: aquamarine;
@@ -141,7 +142,7 @@ flex-wrap: wrap;
     text-align: center;
     font-size: 1.5rem;
     letter-spacing: 1px;
-    border-radius: 10px; /* Make sure the border radius is consistent */
+    border-radius: 10px;  /* Make sure the border radius is consistent */
   }
   
   #sideimagebox::before {
@@ -150,8 +151,7 @@ flex-wrap: wrap;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    background-color: rgba(128, 128, 128, 0.5); /* Gray color with opacity */
+    bottom: 0; /* Gray color with opacity */
     border-radius: 10px; /* Match border radius of the container */
     z-index: 1; /* Ensure the overlay is beneath the text */
   }
@@ -490,12 +490,16 @@ button.ls-submit {
     grid-template-columns: repeat(1, 1fr); /* Create three equal columns */
 }
 .officespace{
-    background: url('/public/officespaceimg.jpg') !important;
-    background-size: contain !important;
+    /* background: url('/public/officespaceimg.jpg') !important; */
+    /* background-size: contain !important; */
+    background-size: 100% 100% !important;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .retailspace{
-    background: url('/public/retailspaceimg.png') !important;
-    background-size: contain !important;
+    background-size: 100% 100% !important;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .restuarant{
     background: url('/public/restaurants.jpg') !important;
