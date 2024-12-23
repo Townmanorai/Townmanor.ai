@@ -142,7 +142,11 @@ function Commercial() {
   .filter(item => JSON.parse(item.category).includes(category));
   // console.log(filteredData);
   const trimPossessionDate = (dateString) => {
-    return dateString.slice(0, -14); // Removes the last 15 characters
+    // Ensure dateString is valid before slicing
+    if (dateString && typeof dateString === 'string' && dateString.length > 14) {
+      return dateString.slice(0, -14); // Remove the last 14 characters
+    }
+    return dateString; // Return the original value if it's invalid
   };
   const handleCompare = (index) => {
     const selectedItem = filteredData[index];

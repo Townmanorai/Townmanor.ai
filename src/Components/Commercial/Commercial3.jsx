@@ -671,9 +671,9 @@ const other = comdata && comdata.other
                 <h1 id='buildingname'>{filteredFoodCourt.name}</h1>
                 <span><SlClose onClick={closeModal2} /></span>
               </div>
-              <h1 style={{ fontSize: '18px' }}>Available Unit: {filteredFoodCourt.available_unit}</h1>
+              {/* <h1 style={{ fontSize: '18px' }}>Available Unit: {filteredFoodCourt.available_unit}</h1> */}
               <br />
-              <h1 style={{ fontSize: '18px' }}>Total Unit: {filteredFoodCourt.total_unit}</h1>
+              <h1 style={{ fontSize: '18px' }}>Lease Guarantee: {filteredFoodCourt.total_unit}</h1>
               <h2 className='payment-plan-title'>Price plan</h2>
 
               <table className="pricing-table">
