@@ -632,8 +632,8 @@ const other = comdata && comdata.other
                   <li className='fc-li' key={index} onClick={() => openModal2(index)}>
                     <span id='foodcourtname'>{item.name}</span>
                     <span id='foodcourtprice'>Invest: {item.price}</span>
-                    <span id='foodcourt' className='deskview'>Available unit: {item.available_unit}</span>
-                    <span id='foodcourt' className='deskview'>Total unit: {item.total_unit}</span>
+                    {/* <span id='foodcourt' className='deskview'>Available unit: {item.available_unit}</span> */}
+                    <span id='foodcourt' className='deskview'>lease Guarantee: {item.total_unit}</span>
                     <span><button type="button" className="btn btn-outline-primary knowmore">Know More</button></span>
                   </li>
                 ))
