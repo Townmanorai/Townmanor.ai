@@ -5,7 +5,6 @@ import Map from '../SearchProperty/Map'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Commercialdata from './CommercialJson.json';
 import lease from './Lease.json';
 import { useNavigate } from 'react-router-dom';
 import { useLocation, useParams } from 'react-router-dom';

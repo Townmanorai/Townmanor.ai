@@ -640,7 +640,7 @@ button.ls-submit {
     /* box-shadow: 1px 1px 1px 1px gray; */
 }
 #simimg1 {
-    min-width: 300px;
+    min-width: 240px;
     max-width: -webkit-fill-available;
     height: 150px;
     margin: auto;
@@ -746,7 +746,7 @@ button.ls-submit {
                 /* flex-direction: column; */
                 flex-wrap: wrap;
                 gap: 0px;
-                height: 45vh;
+                height: 62vh;
                 align-items: center;
                 text-align: center;
                 align-content: center;
@@ -826,7 +826,9 @@ button.ls-submit {
         margin: auto;
         display: flex
     ;
-        justify-content: space-around;
+      flex-wrap: wrap;
+
+        justify-content: flex-start;
         padding-top: 5px;
         padding: 13px;
         gap: 10px;
@@ -921,8 +923,8 @@ button.ls-submit {
         border-radius: 4px;
     }
     #mainphotobanner{
-        width: 78vw !important;
-        margin: 10vh 25vw;
+        width: 80vw !important;
+        margin: 10vh 1vw;
         height: 51vh !important;
     }
     #mainphotoimg {
