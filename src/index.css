@@ -10,3 +10,11 @@ div#root {
 *{
   font-family: Poppins, Helvetica, Arial, Lucida, sans-serif !important;
 }
+.ReactModal__Overlay {
+  z-index: 10000 !important; /* Ensures it is always on top */
+  position: fixed !important; /* Fix modal's position */
+}
+
+.ReactModal__Content {
+  position: relative !important; /* Make content relative to overlay */
+}

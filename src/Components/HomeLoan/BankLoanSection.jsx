@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../common.css";
 import "../commonsecond.css";
-
+import Modal from 'react-modal'
+import { SlClose } from "react-icons/sl";
 // Dummy JSON data
 const dummyData = [
   {
@@ -104,10 +105,149 @@ const dummyData = [
     prePaymentCharges: "--"
   }
 ];
-
+const cities = ["Mumbai", "Bangalore", "Noida", "Gurgaon", "Hyderabad","pune"];
+const occupations = ["Salaried", "Self employed Professional", "partner", "private Ltd", "partnership / LLP","proprietership"];
 const BankLoanSection = () => {
+  const [isModal,setisModal] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    city: cities[0],
+    occupation: occupations[0]
+  });
+  const customStyles = {
+    content: {
+      top: '45%',
+      left: '25%',
+      right: 'auto',
+      bottom: 'auto',
+      height: '32vh',
+      width: '40vw',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      position: 'fixed', // Ensure it stays on top of other content
+      zIndex: 9999, // Ensures the modal is on top
+    },
+  };
+  const openModal = () => {
+    setisModal(true);
+  };
+  const closeModal = () => {
+    setisModal(false);
+  };
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData({
+      ...formData,
+      [id]: value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Convert form data to JSON
+    const dataToSend = JSON.stringify(formData);
+    console.log(dataToSend)
+    // try {
+    //   // Send data to your API
+    //   const response = await fetch('https://your-api-endpoint.com/api', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: dataToSend,
+    //   });
+
+    //   if (response.ok) {
+    //     console.log("Form data sent successfully");
+    //     closeModal(); // Close modal on successful submit
+    //   } else {
+    //     console.error("Error sending form data");
+    //   }
+    // } catch (error) {
+    //   console.error("Network error:", error);
+    // }
+  };
   return (
+    
     <div className="container">
+          <Modal
+        isOpen={isModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        id='mainphotobanner'
+      >
+        <div id='contactclose'>
+          <SlClose onClick={closeModal} />
+        </div>
+        <form style={{ margin: '2vh 0px' }} onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label htmlFor="name" className="form-label">Name</label>
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              placeholder="Enter your name"
+              style={{ height: '5vh' }}
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="phone" className="form-label">Phone</label>
+            <input
+              type="tel"
+              className="form-control"
+              id="phone"
+              placeholder="Enter your phone number"
+              style={{ height: '5vh' }}
+              value={formData.phone}
+              onChange={handleChange}
+            />
+          </div>
+
+          {/* Select City Field */}
+          <div className="mb-3">
+            <label htmlFor="city" className="form-label">Select City</label>
+            <select
+              className="form-control"
+              id="city"
+              style={{ height: '5vh' }}
+              value={formData.city}
+              onChange={handleChange}
+            >
+              {cities.map((city, index) => (
+                <option key={index} value={city}>
+                  {city}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Select Occupation Field */}
+          <div className="mb-3">
+            <label htmlFor="occupation" className="form-label">Select Occupation</label>
+            <select
+              className="form-control"
+              id="occupation"
+              style={{ height: '5vh' }}
+              value={formData.occupation}
+              onChange={handleChange}
+            >
+              {occupations.map((occupation, index) => (
+                <option key={index} value={occupation}>
+                  {occupation}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
+        </form>
+      </Modal>
       {dummyData.map((bank, index) => (
         <div key={index} className="DescriptionBank_FirstTable position-relative mt-4">
           <div className="DescriptionBank_Details">
@@ -134,6 +274,7 @@ const BankLoanSection = () => {
                   data-toggle="modal"
                   data-target="#exampleModal"
                   className="btn-calc InterestRateNew_instantApply"
+                  onClick={openModal}
                 >
                   Apply Now
                 </button>
@@ -164,6 +305,7 @@ const BankLoanSection = () => {
           </div>
         </div>
       ))}
+
     </div>
   );
 };
