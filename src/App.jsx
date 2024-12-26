@@ -135,6 +135,8 @@ import Commercial3 from './Components/Commercial/Commercial3';
 import Commercial from './Components/Commercial/Commercial';
 import HomeShift from './Components/HomeShift/HomeShift';
 import Article from './Components/Article/Article';
+import LeaseProperty from './Components/Commercial/LeaseProperty';
+
 // import HomeShift from './HomeShift/HomeShift';
 
 function App() {
@@ -201,7 +203,7 @@ function App() {
           <Route path='/homeShift' element={<HomeShift/>}></Route>
         <Route path="/commercial" element={<Commercial/>} />
         <Route path='/article/:id' element={<Article/>}></Route>
-
+        <Route path="/commercialform" element={<LeaseProperty/>} />
           {/* You can also add dynamic routes for specific city or option pages */}
           {/* <Route path="/properties-for-sale-rent/:stateName" element={<PropertiesForSaleRent />} />
           <Route path="/pay-house-tax-online/:stateName" element={<PayHouseTaxOnline />} />
