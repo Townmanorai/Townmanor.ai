@@ -136,7 +136,7 @@ import Commercial from './Components/Commercial/Commercial';
 import HomeShift from './Components/HomeShift/HomeShift';
 import Article from './Components/Article/Article';
 import LeaseProperty from './Components/Commercial/LeaseProperty';
-
+import Propertx from './Components/OwnerAgent/Property';
 // import HomeShift from './HomeShift/HomeShift';
 
 function App() {
@@ -173,10 +173,10 @@ function App() {
         <Route path="/payment" element={<PaymentForm />} />
         <Route path="/success" element={<Success />} />
         <Route path="/failure" element={<Failure />} />
-         
+
         <Route path="/home-loan" element={<HomeLoan />} />
         <Route path="/credit-score" element={<CreditScore />} />
-        <Route path="/insurance" element={<Insurance  />} />
+        <Route path="/insurance" element={<Insurance />} />
 
         <Route path="/property-details/:property_name" element={<PropertyListedUserList />} />
         {/* sunny route */}
@@ -184,28 +184,29 @@ function App() {
         <Route path="/search/:name" element={<PhoneSearch />} />
         <Route path="/Searchbar" element={<MainSearch />} />
         <Route path='/homelane' element={<HomeLane />} />
-<Route path='/homelane/kitchen' element={<ModularKitchen />} />
-<Route path='/homelane/warddrobe' element={<WardDrobes />} />
-<Route path='/homelane/masterbedroom' element={<Masterbedroom />} />
-<Route path='/homelane/tv' element={<Tv />} />
-<Route path='/homelane/livingroom' element={<Livingroom />} />
-<Route path='/homelane/falseceiling' element={<FalseCeling />} />
-<Route path='/homelane/bathroom' element={<Bathroom />} />
-<Route path='/homelane/kids' element={<Kids />} />
-<Route path='/homelane/fullhouseinterior' element={<FullHouseinterior />} />
-<Route path='/homelane/commercialinterior' element={<CommercialInterior />} />
-<Route path='/homelane/officeinterior' element={<Officeinterior />} />
-<Route path='/homelane/bedroom' element={<Bedroom />} />
-<Route path='/homelane/furniture' element={<Furniture />} />
-          {/* Dynamic Route for State */}
-          <Route path="/state/:stateName" element={<StateDetails />} />
-          <Route path="/commercial3/:index" element={<Commercial3/>} />
-          <Route path='/homeShift' element={<HomeShift/>}></Route>
-        <Route path="/commercial" element={<Commercial/>} />
-        <Route path='/article/:id' element={<Article/>}></Route>
-        <Route path="/commercialform" element={<LeaseProperty/>} />
-          {/* You can also add dynamic routes for specific city or option pages */}
-          {/* <Route path="/properties-for-sale-rent/:stateName" element={<PropertiesForSaleRent />} />
+        <Route path='/homelane/kitchen' element={<ModularKitchen />} />
+        <Route path='/homelane/warddrobe' element={<WardDrobes />} />
+        <Route path='/homelane/masterbedroom' element={<Masterbedroom />} />
+        <Route path='/homelane/tv' element={<Tv />} />
+        <Route path='/homelane/livingroom' element={<Livingroom />} />
+        <Route path='/homelane/falseceiling' element={<FalseCeling />} />
+        <Route path='/homelane/bathroom' element={<Bathroom />} />
+        <Route path='/homelane/kids' element={<Kids />} />
+        <Route path='/homelane/fullhouseinterior' element={<FullHouseinterior />} />
+        <Route path='/homelane/commercialinterior' element={<CommercialInterior />} />
+        <Route path='/homelane/officeinterior' element={<Officeinterior />} />
+        <Route path='/homelane/bedroom' element={<Bedroom />} />
+        <Route path='/homelane/furniture' element={<Furniture />} />
+        {/* Dynamic Route for State */}
+        <Route path="/state/:stateName" element={<StateDetails />} />
+        <Route path="/commercial3/:index" element={<Commercial3 />} />
+        <Route path='/homeShift' element={<HomeShift />}></Route>
+        <Route path="/commercial" element={<Commercial />} />
+        <Route path='/article/:id' element={<Article />}></Route>
+        <Route path="/commercialform" element={<LeaseProperty />} />
+        <Route path="/propertyOA" element={<Propertx />} />
+        {/* You can also add dynamic routes for specific city or option pages */}
+        {/* <Route path="/properties-for-sale-rent/:stateName" element={<PropertiesForSaleRent />} />
           <Route path="/pay-house-tax-online/:stateName" element={<PayHouseTaxOnline />} />
           <Route path="/land-record-verification/:stateName" element={<LandRecordVerification />} />
           <Route path="/rera/:stateName" element={<RERA />} />
