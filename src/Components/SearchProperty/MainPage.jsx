@@ -10,13 +10,13 @@ import Pagination from './Pagination';
 
 const MainPage = ({ results, total_rows, view_grid_selected, view_list_selected }) => {
   // console.log({results, total_rows, view_grid_selected, view_list_selected});
-  console.log("main page");
+  // console.log("main page");
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
   const totalPages = Math.ceil(results.length / itemsPerPage);
-  console.log(totalPages);
+  // console.log(totalPages);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);

@@ -37,7 +37,7 @@ const SearchPropertyPage = () => {
     fetch(`https://www.townmanor.ai/api/properties?city=${encodedCity}&configuration=${encodedConfiguration}&furnish_type=${encodedFurnishType}&construction_status=${encodedConstructionStatus}&page=${currentPage}`)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         setResults(data); 
         setTotalPages(data.length); // Assuming data contains 'totalPages'
       })

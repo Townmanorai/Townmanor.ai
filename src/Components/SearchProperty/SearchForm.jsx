@@ -68,7 +68,7 @@ const SearchForm = () => {
 
     // Fetch data based on query parameters
     const fetchData = async () => {
-      console.log('Fetching data for:', { city, config, furnish, status });
+      // console.log('Fetching data for:', { city, config, furnish, status });
 
       // Example API call, replace with your actual API URL
       const response = await fetch(`https://www.townmanor.ai/search-property?city=${city}&configuration=${config}&furnish_type=${furnish}&construction_status=${status}`);
