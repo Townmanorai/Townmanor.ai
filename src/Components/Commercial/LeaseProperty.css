@@ -1,0 +1,158 @@
+/* Scoped styles for LeaseProperty component */
+.lease-property-form {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .lease-property-form h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .lease-property-form label {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .lease-property-form input, 
+  .lease-property-form select {
+    padding: 10px;
+    margin: 8px 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 17vw;
+    height: 5vh;
+  }
+  
+  .lease-property-form input[type="file"] {
+    padding: 5px;
+  }
+  
+  .lease-property-form button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .lease-property-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .lease-property-form .category-input {
+    display: flex;
+    align-items: center;
+  }
+  
+  .lease-property-form .category-input input {
+    margin-right: 10px;
+  }
+  
+  .lease-property-form .category-list ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .lease-property-form .category-list li {
+    background-color: #e7e7e7;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 4px;
+  }
+  
+  .lease-property-form button[type="submit"] {
+    background-color: #28a745;
+  }
+  
+  .lease-property-form button[type="submit"]:hover {
+    background-color: #218838;
+  }
+  /* General Styles for the Form */
+.commercial-form {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for Form Fields */
+.form-field {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.input-field:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.category-input {
+  display: flex;
+  gap: 10px;
+}
+
+.btnn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btnn:hover {
+  background-color: #0056b3;
+}
+
+.category-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.category-list li {
+  margin-top: 5px;
+}
+
+.charge-field, .payment-plan-field {
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+.price-plan-box {
+  background: #efefef;
+  height: 170vh;
+  border: 2px solid rgb(194, 194, 194);
+  padding: 10px;
+  margin: 7vh 2vw;
+  border-radius: 10px;
+}
