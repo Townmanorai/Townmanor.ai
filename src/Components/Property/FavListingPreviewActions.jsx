@@ -21,7 +21,7 @@ const FavListingPreviewActions = ({ propertyId }) => {
 
           // Check if the property is already in the user's favorites
           const response = await axios.get(
-            `https://www.townmanor.ai/api/favorites/${decodedToken.username}`
+            `https://www.townmanor.ai/api/api/favorites/${decodedToken.username}`
           );
 
           const favoriteProperties = response.data.map(
