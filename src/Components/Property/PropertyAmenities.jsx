@@ -274,67 +274,67 @@ const categoryOptions21 = [
   {
     option_name: "Balcony",
     option_value: true,
-    icon: "http://localhost/townmanor.in/files/balcony.png",
+    icon: "https://townmanor.in/files/balcony.png",
   },
   {
     option_name: "Lift",
     option_value: true,
-    icon: "http://localhost/townmanor.in/files/elevator_11529195_2.png",
+    icon: "https://townmanor.in/files/elevator_11529195_2.png",
   },
   {
     option_name: "Pool",
     option_value: true,
-    icon: "http://localhost/townmanor.in/files/swimming.png",
+    icon: "https://townmanor.in/files/swimming.png",
   },
   {
     option_name: "Parking",
     option_value: true,
-    icon: "http://localhost/townmanor.in/templates/selio/assets/img/icons/option_id/32.png",
+    icon: "https://townmanor.in/templates/selio/assets/img/icons/option_id/32.png",
   },
   {
     option_name: "Gym",
     option_value: true,
-    icon: "http://localhost/townmanor.in/files/e4d81f13f9.png",
+    icon: "https://townmanor.in/files/e4d81f13f9.png",
   },
   {
     option_name: "Intercom Facility",
     option_value: true,
-    icon: "http://localhost/townmanor.in/files/telephone_1.png",
+    icon: "https://townmanor.in/files/telephone_1.png",
   },
   {
     option_name: "Club House",
     option_value: true,
-    icon: "http://localhost/townmanor.in/files/city_hall.png",
+    icon: "https://townmanor.in/files/city_hall.png",
   },
   {
     option_name: "CCTV",
     option_value: true,
-    icon: "http://localhost/townmanor.in/files/cctv_camera.png",
+    icon: "https://townmanor.in/files/cctv_camera.png",
   },
   {
     option_name: "Power Backup",
     option_value: true,
-    icon: "http://localhost/townmanor.in/files/power_plug.png",
+    icon: "https://townmanor.in/files/power_plug.png",
   },
   {
     option_name: "Park/Garden",
     option_value: true,
-    icon: "http://localhost/townmanor.in/files/park.png",
+    icon: "https://townmanor.in/files/park.png",
   },
   {
     option_name: "Security",
     option_value: true,
-    icon: "http://localhost/townmanor.in/files/security_agent.png",
+    icon: "https://townmanor.in/files/security_agent.png",
   },
   {
     option_name: "Multiple Purpose Court",
     option_value: true,
-    icon: "http://localhost/townmanor.in/files/basketball_player_scoring.png",
+    icon: "https://townmanor.in/files/basketball_player_scoring.png",
   },
   {
     option_name: "Play Area",
     option_value: true,
-    icon: "http://localhost/townmanor.in/files/slide.png",
+    icon: "https://townmanor.in/files/slide.png",
   },
 ];
 

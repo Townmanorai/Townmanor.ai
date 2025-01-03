@@ -51,6 +51,7 @@ function Property() {
     // Function to decode JWT and fetch user data
     const fetchUser = async () => {
       const token = Cookies.get('jwttoken'); // Retrieve the token from cookies
+      console.log("token",token);
       if (token) {
         try {
           // Decode the token
@@ -169,6 +170,7 @@ function Property() {
                     price={property.price}
                     area_detail={property.area_detail}
                     purpose={property.purpose}
+                    id={property.id}
                   />
                 </div>
               </div>

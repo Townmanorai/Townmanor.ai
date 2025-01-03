@@ -8,37 +8,37 @@ const categoryOptions43 = [
   {
     option_name: "Metro",
     json_key: "metro",
-    icon: "http://localhost/townmanor.in/templates/selio/assets/img/icons/option_id/46.png"
+    icon: "https://townmanor.in/templates/selio/assets/img/icons/option_id/46.png"
   },
   {
     option_name: "Healthcare",
     json_key: "hospital",
-    icon: "http://localhost/townmanor.in/templates/selio/assets/img/icons/option_id/48.png"
+    icon: "https://townmanor.in/templates/selio/assets/img/icons/option_id/48.png"
   },
   {
     option_name: "Restaurant",
     json_key: "restaurant",
-    icon: "http://localhost/townmanor.in/files/dinner.png"
+    icon: "https://townmanor.in/files/dinner.png"
   },
   {
     option_name: "School",
     json_key: "school",
-    icon: "http://localhost/townmanor.in/files/school_1.png"
+    icon: "https://townmanor.in/files/school_1.png"
   },
   {
     option_name: "Mall",
     json_key: "mall",
-    icon: "http://localhost/townmanor.in/files/shopping_bag.png"
+    icon: "https://townmanor.in/files/shopping_bag.png"
   },
   {
     option_name: "Cinemas",
     json_key: "cinema",
-    icon: "http://localhost/townmanor.in/files/film.png"
+    icon: "https://townmanor.in/files/film.png"
   },
   {
     option_name: "Bus Stop",
     json_key: "bus",
-    icon: "http://localhost/townmanor.in/files/bus_stop.png"
+    icon: "https://townmanor.in/files/bus_stop.png"
   }
 ];
 
