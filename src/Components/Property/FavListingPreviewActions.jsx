@@ -10,108 +10,108 @@ const FavListingPreviewActions = ({ propertyId }) => {
 
   useEffect(() => {
     const checkUserLogin = async () => {
-      const token = Cookies.get("jwttoken"); // Retrieve token from cookies
-      console.log("taken2",token);
+      const token = Cookies.get("jwttoken");
 
       if (token) {
         try {
-          // Decode the token
           const decodedToken = jwtDecode(token);
           setUsername(decodedToken.username);
 
-          // Check if the property is already in the user's favorites
           const response = await axios.get(
             `https://www.townmanor.ai/api/api/favorites/${decodedToken.username}`
           );
 
-          const favoriteProperties = response.data.map(
-            (fav) => fav.property_id
+          const favoriteProperties = response.data.map((fav) =>
+            String(fav.property_id)
           );
-          setFavoriteAdded(favoriteProperties.includes(propertyId));
+          setFavoriteAdded(favoriteProperties.includes(String(propertyId)));
         } catch (error) {
-          console.error("Error checking user or favorites:", error);
+          console.error("Error checking user or favorites:", error.response?.data || error.message);
         }
       } else {
-        // Redirect to login page if not logged in
+        console.log("Token not found. Redirecting to login.");
         // window.location.href = "https://www.townmanor.ai/auth";
-        console.log("token not found");
       }
     };
 
     checkUserLogin();
   }, [propertyId]);
 
+  const addToFavorites = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
 
+    if (!username) {
+      window.location.href = "https://www.townmanor.ai/auth";
+      return;
+    }
 
-const addToFavorites = async (e) => {
-  e.preventDefault();
-  setIsLoading(true);  // Show loader while waiting for response
-  // console.log("Add to Favorites clicked");
+    try {
+      const response = await axios.post(
+        "https://www.townmanor.ai/api/api/favorites",
+        {
+          username,
+          property_id: propertyId,
+        }
+      );
+      if (response.status === 201) {
+        setFavoriteAdded(true);
+      }
+    } catch (error) {
+      console.error("Error adding to favorites:", error.response?.data || error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-  if (!username) {
-    // window.location.href = "https://www.townmanor.ai/auth";
-    console.log("uername");
-    return;
-  }
+  const removeFromFavorites = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
 
-  try {
-    await axios.post("https://www.townmanor.ai/api/api/favorites", {
-      username,
-      property_id: propertyId,
-    });
-    setFavoriteAdded(true);  
-  } catch (error) {
-    console.error("Error adding to favorites:", error);
-  } finally {
-    setIsLoading(false);  // Hide loader once request completes
-  }
-};
+    if (!username) {
+      window.location.href = "https://www.townmanor.ai/auth";
+      return;
+    }
 
-const removeFromFavorites = async (e) => {
-  e.preventDefault();
-  setIsLoading(true);  // Show loader while waiting for response
-  // console.log("Remove from Favorites clicked");
-
-  if (!username) {
-    window.location.href = "https://www.townmanor.ai/auth";
-    return;
-  }
-
-  try {
-    await axios.delete("https://www.townmanor.ai/api/api/favorites", {
-      data: { username, property_id: propertyId },
-    });
-    setFavoriteAdded(false);  
-  } catch (error) {
-    console.error("Error removing from favorites:", error);
-  } finally {
-    setIsLoading(false);  // Hide loader once request completes
-  }
-};
-
+    try {
+      const response = await axios.delete(
+        "https://www.townmanor.ai/api/api/favorites",
+        {
+          data: { username, property_id: propertyId },
+        }
+      );
+      if (response.status === 200) {
+        setFavoriteAdded(false);
+      }
+    } catch (error) {
+      console.error("Error removing from favorites:", error.response?.data || error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="listing_preview_actions">
       <div className="fav">
-      <button
-        id="add_to_favorites"
-        className="btn2"
-        style={{ display: favoriteAdded ? "none" : "inline-block" }}
-        onClick={addToFavorites}
-        disabled={isLoading} // Disable button while loading
+        <button
+          id="add_to_favorites"
+          className="btn2"
+          style={{ display: favoriteAdded ? "none" : "inline-block" }}
+          onClick={addToFavorites}
+          disabled={isLoading || favoriteAdded}
         >
-        {isLoading ? "Adding..." : <><i className="la la-star-o"></i> Add to favorites</>}
-      </button>
+          {isLoading ? "Adding..." : <><i className="la la-star-o"></i> Add to favorites</>}
+        </button>
 
-      <button
-        id="remove_from_favorites"
-        className="btn2"
-        style={{ display: favoriteAdded ? "inline-block" : "none" }}
-        onClick={removeFromFavorites}
-        disabled={isLoading} // Disable button while loading
+        <button
+          id="remove_from_favorites"
+          className="btn2"
+          style={{ display: favoriteAdded ? "inline-block" : "none" }}
+          onClick={removeFromFavorites}
+          disabled={isLoading || !favoriteAdded}
         >
-        {isLoading ? "Removing..." : <><i className="la la-star"></i> Remove from favorites</>}
-      </button>
+          {isLoading ? "Removing..." : <><i className="la la-star"></i> Remove from favorites</>}
+        </button>
       </div>
     </div>
   );
