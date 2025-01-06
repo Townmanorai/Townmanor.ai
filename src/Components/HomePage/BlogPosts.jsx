@@ -9,6 +9,7 @@ import "../common.css";
 import "../commonsecond.css";
 import blog from './BlogPost.json'
 import { Link, useParams } from 'react-router-dom';
+import { FaArrowRight } from "react-icons/fa";
 const BlogPosts = () => {
   const [blogdata, setblogdata] = useState([]);
 
@@ -85,7 +86,10 @@ const BlogPosts = () => {
                         </h3>
                         <p>{post.data.substring(0, 150)}...</p> {/* Show the first 150 characters as a preview */}
                         <Link className="read_more_blog" to={`/article/${post.id}`}>
-                          Read More <i className="la la-long-arrow-right"></i>
+                          Read More <i ><FaArrowRight style={{
+                            height:'15px',
+                            margin:'2px 0px'
+                          }} /></i>
                         </Link>
                       </div>
                     </div>

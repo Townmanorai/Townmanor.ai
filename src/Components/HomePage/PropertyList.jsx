@@ -40,7 +40,7 @@ const PropertyList = () => {
   };
 
   const handlePropertyClick = (property_name) => {
-    navigate(`/property-details/${property_name}`);
+    navigate(`/propertyOA`);
   };
 
   // Slider settings

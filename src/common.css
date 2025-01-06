@@ -21,7 +21,10 @@
     line-height: .75em;
     vertical-align: -15%
 }
-
+#hearticon:hover{
+transition: color 0.2s ease-in;
+color: red;
+}
 .fa-2x {
     font-size: 2em
 }

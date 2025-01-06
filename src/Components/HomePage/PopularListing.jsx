@@ -3,7 +3,11 @@ import React from "react";
 import "./PopularListing.css"
 import "../common.css";
 import "../commonsecond.css";
-
+import 'bootstrap-icons/font/bootstrap-icons.css'; 
+import { FaHeart } from "react-icons/fa";
+import { IoLocationOutline } from "react-icons/io5";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { MdKeyboardArrowLeft } from "react-icons/md";
 const PopularListing = () => {
   // Assuming you have an array of properties that you map over
   const properties = [
@@ -163,7 +167,11 @@ const PopularListing = () => {
                           className="carousel-control-prev-icon"
                           aria-hidden="true"
                         ></span> */}
-                        <i className="fa fa-angle-left"></i>
+                        <i>
+                        <MdKeyboardArrowLeft style={{
+                          color:'white'
+                        }}  />
+                        </i>
                         {/* <span className="visually-hidden">Previous</span> */}
                       </button>
                       <button
@@ -177,7 +185,10 @@ const PopularListing = () => {
                           aria-hidden="true"
                         ></span> */}
                         {/* <span className="visually-hidden">Next</span> */}
-                        <i className="fa fa-angle-right"></i>
+                        <i><MdKeyboardArrowRight style={{
+                          color:'white',
+                          height:'40px !important'
+                        }} /></i>
                       </button>
                     </div>
                     {/* Bootstrap 5 Carousel ends */}
@@ -194,7 +205,10 @@ const PopularListing = () => {
                       <h5>{property.price}</h5>
                     </div>
                     <p>
-                      <i className="la la-map-marker"></i> {property.address}
+                      <i><IoLocationOutline style={{
+                        height:'18px',
+                        color:'red'
+                      }} /></i> {property.address}
                     </p>
                   </a>
                   <ul>
@@ -205,7 +219,12 @@ const PopularListing = () => {
                 <div className="card-footer">
                   <span className="favorites-actions pull-left">
                     <a href="#" data-id={property.id} className="add-to-favorites">
-                      <i className="la la-heart-o"></i>
+                      {/* <i className="la la-heart-o"></i> */}
+                      <i><FaHeart style={{
+                        height:'18px',
+                        
+                      }}
+                      id="hearticon" /></i>
                     </a>
                   </span>
                   <a

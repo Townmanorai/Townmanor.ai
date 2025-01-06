@@ -43,32 +43,44 @@ const HomeLoanForm = () => {
 
   // Handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Prepare data as JSON
+    e.preventDefault();  // Prevent page refresh
+  
+    // Prepare data to be sent to the server
     const dataToSend = {
-      ...formData,
-      dob: formData.dob, // Ensure dob is in correct format if needed
+      city: formData.city,
+      occupationType: formData.occupationType,
+      loanAmount: formData.loanAmount,
+      netSalary: formData.netSalary,
+      name: formData.name,
+      mobile: formData.mobile,
+      monthlyEmi: formData.monthlyEmi,
+      tenure: formData.tenure,
+      dob: formData.dob,
+      termsAccepted: formData.termsAccepted
     };
-    console.log(dataToSend);
-    // try {
-    //   const response = await fetch(dummyData.formAction, {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(dataToSend),
-    //   });
-
-    //   if (response.ok) {
-    //     alert('Form submitted successfully!');
-    //   } else {
-    //     alert('Error submitting the form');
-    //   }
-    // } catch (error) {
-    //   console.error('Error submitting the form:', error);
-    //   alert('Error submitting the form');
-    // }
+  
+    try {
+      const response = await fetch('https://www.townmanor.ai/api/api/loan-applications', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dataToSend),
+      });
+  
+      if (response.ok) {
+        const result = await response.json();
+        alert('Form submitted successfully!'); // Optionally, display result.message if returned by API
+        console.log('API Response:', result); // Optional: Log the API response
+      } else {
+        const errorResult = await response.json();
+        alert(`Error submitting the form: ${errorResult.message || 'Something went wrong'}`);
+        console.error('Error response from API:', errorResult);
+      }
+    } catch (error) {
+      console.error('Error submitting the form:', error);
+      alert('Error submitting the form');
+    }
   };
 
   return (

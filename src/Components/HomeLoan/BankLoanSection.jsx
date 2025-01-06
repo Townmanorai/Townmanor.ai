@@ -145,29 +145,33 @@ const BankLoanSection = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     // Convert form data to JSON
     const dataToSend = JSON.stringify(formData);
-    console.log(dataToSend)
-    // try {
-    //   // Send data to your API
-    //   const response = await fetch('https://your-api-endpoint.com/api', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: dataToSend,
-    //   });
-
-    //   if (response.ok) {
-    //     console.log("Form data sent successfully");
-    //     closeModal(); // Close modal on successful submit
-    //   } else {
-    //     console.error("Error sending form data");
-    //   }
-    // } catch (error) {
-    //   console.error("Network error:", error);
-    // }
+    
+    try {
+      // Send data to the API using POST request
+      const response = await fetch('https://www.townmanor.ai/api/api/user-occupations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: dataToSend,
+      });
+  
+      // Check if the response is successful
+      if (response.ok) {
+        console.log("Form data sent successfully");
+        closeModal(); // Close modal on successful submit
+        // Optionally, you can handle success, like showing a success message.
+      } else {
+        console.error("Error sending form data");
+        // Handle error, show a message if needed
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+      // Handle network error, show a message if needed
+    }
   };
   return (
     
