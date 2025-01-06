@@ -41,7 +41,7 @@
 
 .table-list th,
 .table-list td {
-  padding: 15px;
+  padding: 5px 15px;
   text-align: center;
 }
 
@@ -49,6 +49,8 @@
   background-color: transparent;
   color: #333;
   font-weight: bold;
+  border: none;
+  padding: 15px;
 }
 
 .table-list tr {
@@ -66,6 +68,7 @@
 .table-list tr td {
   border: none; 
   border-radius: 10px;
+  vertical-align: middle;
 }
 
 .profile-img {

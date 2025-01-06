@@ -1,0 +1,34 @@
+
+.nav_nav_tabs .nav-link label{
+    margin-right: 5px;
+}
+
+.nav_nav_tabs .nav-link .Insurance_radio {
+    position: static;
+}
+
+#partners-section .nav-pills .nav-link.active{
+    color: white !important;
+    border-radius: 5px !important;
+}
+
+.btn-submit.btn-submit-1{
+    transform: translateX(0px) ;
+}
+
+.form-group label{
+    font-size: 13px !important;
+}
+
+.form .form-control{
+    border-bottom: none;
+    font-size: 16px;
+}
+
+.faq-section.paddinngTB{
+    /* margin-left: auto !important; */
+}
+
+#faq-title h3{
+    color: #242526;
+}

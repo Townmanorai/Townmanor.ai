@@ -6,7 +6,7 @@ import './ExclusiveOwnerProperties.css';
 const propertiesData = [
   {
     id: 1,
-    imgSrc: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Jul/10/Photo_h180_w240/73347279_1_PropertyImage1720633861437_180_240.jpg",
+    imgSrc: "https://www.asenseinterior.com/assets/uploads//94e315b9c1ef2c76e217253180cb7868.jpg",
     type: "2 BHK Flat",
     price: "₹3.60 Cr",
     location: "Mindspace, Mumbai",
@@ -15,7 +15,7 @@ const propertiesData = [
   },
   {
     id: 2,
-    imgSrc: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Aug/22/Photo_h180_w240/73121863_3_PropertyImage18-406577106275577_180_240.jpg",
+    imgSrc: "https://media.designcafe.com/wp-content/uploads/2022/07/15170350/luxury-home-design-on-budget.jpg",
     type: "1 BHK Flat",
     price: "₹30 Lac",
     location: "Virar East, Mumbai",
@@ -24,7 +24,7 @@ const propertiesData = [
   },
   {
     id: 1,
-    imgSrc: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Jul/10/Photo_h180_w240/73347279_1_PropertyImage1720633861437_180_240.jpg",
+    imgSrc: "https://media.designcafe.com/wp-content/uploads/2019/12/23111709/interior-companies-in-bangalore-946x662.jpg",
     type: "2 BHK Flat",
     price: "₹3.60 Cr",
     location: "Mindspace, Mumbai",
@@ -33,7 +33,7 @@ const propertiesData = [
   },
   {
     id: 2,
-    imgSrc: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Aug/22/Photo_h180_w240/73121863_3_PropertyImage18-406577106275577_180_240.jpg",
+    imgSrc: "https://media.designcafe.com/wp-content/uploads/2020/09/26174201/3bhk-house-interior-design.jpg",
     type: "1 BHK Flat",
     price: "₹30 Lac",
     location: "Virar East, Mumbai",
@@ -42,7 +42,7 @@ const propertiesData = [
   },
   {
     id: 1,
-    imgSrc: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Jul/10/Photo_h180_w240/73347279_1_PropertyImage1720633861437_180_240.jpg",
+    imgSrc: "https://media.designcafe.com/wp-content/uploads/2021/04/26145859/home-office-design-by-best-interior-designers-in-bengalore-mumbai-hyderabad.jpg",
     type: "2 BHK Flat",
     price: "₹3.60 Cr",
     location: "Mindspace, Mumbai",
@@ -51,7 +51,7 @@ const propertiesData = [
   },
   {
     id: 2,
-    imgSrc: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Aug/22/Photo_h180_w240/73121863_3_PropertyImage18-406577106275577_180_240.jpg",
+    imgSrc: "https://media.designcafe.com/wp-content/uploads/2020/07/23154645/best-interior-designers-living-room-designs.jpg",
     type: "1 BHK Flat",
     price: "₹30 Lac",
     location: "Virar East, Mumbai",
@@ -60,7 +60,7 @@ const propertiesData = [
   },
   {
     id: 1,
-    imgSrc: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Jul/10/Photo_h180_w240/73347279_1_PropertyImage1720633861437_180_240.jpg",
+    imgSrc: "https://media.designcafe.com/wp-content/uploads/2020/07/23171403/best-home-interiors-space-saving-designs.jpg",
     type: "2 BHK Flat",
     price: "₹3.60 Cr",
     location: "Mindspace, Mumbai",
@@ -69,7 +69,7 @@ const propertiesData = [
   },
   {
     id: 2,
-    imgSrc: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Aug/22/Photo_h180_w240/73121863_3_PropertyImage18-406577106275577_180_240.jpg",
+    imgSrc: "https://media.designcafe.com/wp-content/uploads/2022/06/29150132/modern-minimalist-living-room-with-bookshelf-and-sofa.jpg",
     type: "1 BHK Flat",
     price: "₹30 Lac",
     location: "Virar East, Mumbai",
@@ -78,7 +78,7 @@ const propertiesData = [
   },
   {
     id: 1,
-    imgSrc: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Jul/10/Photo_h180_w240/73347279_1_PropertyImage1720633861437_180_240.jpg",
+    imgSrc: "https://media.designcafe.com/wp-content/uploads/2020/05/15151655/industrial-style-living-room-interior-with-furniture-sofa.jpg",
     type: "2 BHK Flat",
     price: "₹3.60 Cr",
     location: "Mindspace, Mumbai",
@@ -87,7 +87,7 @@ const propertiesData = [
   },
   {
     id: 2,
-    imgSrc: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Aug/22/Photo_h180_w240/73121863_3_PropertyImage18-406577106275577_180_240.jpg",
+    imgSrc: "https://media.designcafe.com/wp-content/uploads/2023/08/25160343/living-room-red-couch-with-recliner-lounge.jpg",
     type: "1 BHK Flat",
     price: "₹30 Lac",
     location: "Virar East, Mumbai",

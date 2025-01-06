@@ -1,4 +1,5 @@
 import React from 'react';
+import './InsuranceSection.css'
 
 // Dummy JSON data for insurance options
 const insuranceOptions = [
@@ -48,7 +49,7 @@ const InsuranceSection = () => {
                     ))}
                   </div>
                   <div className="Insurance_fill_form">
-                    <div className="form-group">
+                    <div className="form-group fg1">
                       <input type="text" className="form-control" name="name" required />
                       <label className="label_up">Name *</label>
                     </div>
@@ -95,8 +96,8 @@ const InsuranceSection = () => {
                     <div className="text-trm-condition">
                       By submitting you agree to <a href="https://townmanor.in/en/195/terms_and_condition">Terms of use</a> and <a href="https://townmanor.in/en/195/terms_and_condition">T&amp;C</a>
                     </div>
-                    <button type="submit" className="btn btn-primary btn-submit" style={{
-                      marginLeft:"-9vw"
+                    <button type="submit" className="btn btn-primary btn-submit btn-submit-1" style={{
+                      marginLeft:"0vw"
                     }}>Submit</button>
                   </div>
                 </form>
