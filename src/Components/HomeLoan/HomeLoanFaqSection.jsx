@@ -92,38 +92,7 @@ const formatAnswer = (answer) => {
             </div>
           </div>
 
-          {/* <div className="col-md-10 offset-md-1">
-            <div className="faq" id="accordion">
-              {faqData.map(faq => (
-                <div key={faq.id} className="card">
-                  <div className="card-header" id={`faqHeading-${faq.id}`}>
-                    <div className="mb-0">
-                      <h5
-                        className="faq-title"
-                        data-aria-controls={`faqCollapse-${faq.id}`}
-                        data-aria-expanded="false"
-                        data-target={`#faqCollapse-${faq.id}`}
-                        data-toggle="collapse"
-                      >
-                        <span className="badge">{faq.id}</span>
-                        {faq.question}
-                      </h5>
-                    </div>
-                  </div>
-                  <div
-                    aria-labelledby={`faqHeading-${faq.id}`}
-                    className="collapse"
-                    data-parent="#accordion"
-                    id={`faqCollapse-${faq.id}`}
-                  >
-                    <div className="card-body">
-                      <p>{faq.answer}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div> */}
+         
            <div className="col-md-10 offset-md-1">
                         <div className="faq">
                             {faqs.map((faq, index) => (

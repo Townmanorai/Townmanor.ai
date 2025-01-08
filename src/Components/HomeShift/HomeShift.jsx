@@ -58,6 +58,41 @@ function HomeShift() {
                 `YYes, cancellations and rescheduling are possible. Please refer to the terms and conditions for cancellation policies or contact our support team for assistance.`,
         },
     ];
+    const [formData, setFormData] = useState({
+        name: '',
+        phone: '',
+        pickup_location: '',
+        drop_location: ''
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        // Create the request payload (form data)
+       
+        console.log(formData)
+        // Send the data to the server using fetch or axios
+        // fetch('https://townmanor.in/customform/homeInteriorsNew', {
+        //     method: 'POST',
+        //     body: formPayload
+        // })
+        // .then((response) => response.json())
+        // .then((data) => {
+        //     // Handle the server response (optional)
+        //     console.log('Form submitted successfully', data);
+        // })
+        // .catch((error) => {
+        //     // Handle errors (optional)
+        //     console.error('Error submitting form', error);
+        // });
+    };
     return (
         <>
 
@@ -294,48 +329,80 @@ function HomeShift() {
 
 
                 {/* Form Section */}
-                <form action="https://townmanor.in/customform/homeInteriorsNew" method="post" acceptCharset="utf-8" className="LeadPopup_popUpWindow pt-4 px-3" autoComplete="nope">
-                    <div id="floatingForm" className={`floating-form ${isMinimized ? 'hidden' : ''}`}>
-                        <button type="button" id="closeButton" className="close-btn" onClick={() => setIsMinimized(true)}>×</button>
-                        <div id="formContent">
-                            <h3>Get Home Shift Services Now!</h3>
-                            <div className="form_item">
-                                <input type="text" name="name" className="formInput" autoComplete="nope" required />
-                                <label htmlFor="name" className="font12 fontMedium formLabel">Full Name *</label>
-                            </div>
-
-                            <div className="form_item">
-                                <input type="tel" name="phone" className="formInput" autoComplete="nope" required />
-                                <label htmlFor="phone" className="font12 fontMedium formLabel">Phone Number *</label>
-                            </div>
-
-                            <div className="form_item">
-                                <input type="text" name="pickup_location" className="formInput" autoComplete="nope" required />
-                                <label htmlFor="pickup-location" className="font12 fontMedium formLabel">Pickup Location *</label>
-                            </div>
-
-                            <div className="form_item">
-                                <input type="text" name="drop_location" className="formInput" autoComplete="nope" required />
-                                <label htmlFor="drop-location" className="font12 fontMedium formLabel">Drop Location *</label>
-                            </div>
-
-                            <div className="LeadPopup_rangecalc">
-                                <button type="submit" className="btn-calc">Submit Form</button>
-                            </div>
-
-                            <div className="mt-4">
-                                <p>By submitting this form, you agree to our <a href="https://townmanor.in/en/181/privacy_policy">privacy policy</a> and <a href="https://townmanor.in/en/195/terms_and_condition">terms of use</a>, granting us permission to use your personal information as specified in the privacy policy.</p>
-                            </div>
-                        </div>
+                <form onSubmit={handleSubmit} acceptCharset="utf-8" className="LeadPopup_popUpWindow pt-4 px-3" autoComplete="nope">
+            <div id="floatingForm" className={`floating-form ${isMinimized ? 'hidden' : ''}`}>
+                <button type="button" id="closeButton" className="close-btn" onClick={() => setIsMinimized(true)}>×</button>
+                <div id="formContent">
+                    <h3>Get Home Shift Services Now!</h3>
+                    <div className="form_item">
+                        <input
+                            type="text"
+                            name="name"
+                            className="formInput"
+                            autoComplete="nope"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                        />
+                        <label htmlFor="name" className="font12 fontMedium formLabel">Full Name *</label>
                     </div>
 
-                    {/* Minimized form button */}
-                    {isMinimized && (
-                        <div id="minimizedForm" className="minimized-form" onClick={() => setIsMinimized(false)}>
-                            <span>Click to maximize</span>
-                        </div>
-                    )}
-                </form>
+                    <div className="form_item">
+                        <input
+                            type="tel"
+                            name="phone"
+                            className="formInput"
+                            autoComplete="nope"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            required
+                        />
+                        <label htmlFor="phone" className="font12 fontMedium formLabel">Phone Number *</label>
+                    </div>
+
+                    <div className="form_item">
+                        <input
+                            type="text"
+                            name="pickup_location"
+                            className="formInput"
+                            autoComplete="nope"
+                            value={formData.pickup_location}
+                            onChange={handleChange}
+                            required
+                        />
+                        <label htmlFor="pickup-location" className="font12 fontMedium formLabel">Pickup Location *</label>
+                    </div>
+
+                    <div className="form_item">
+                        <input
+                            type="text"
+                            name="drop_location"
+                            className="formInput"
+                            autoComplete="nope"
+                            value={formData.drop_location}
+                            onChange={handleChange}
+                            required
+                        />
+                        <label htmlFor="drop-location" className="font12 fontMedium formLabel">Drop Location *</label>
+                    </div>
+
+                    <div className="LeadPopup_rangecalc">
+                        <button type="submit" className="btn-calc">Submit Form</button>
+                    </div>
+
+                    <div className="mt-4">
+                        <p>By submitting this form, you agree to our <a href="https://townmanor.in/en/181/privacy_policy">privacy policy</a> and <a href="https://townmanor.in/en/195/terms_and_condition">terms of use</a>, granting us permission to use your personal information as specified in the privacy policy.</p>
+                    </div>
+                </div>
+            </div>
+
+            {/* Minimized form button */}
+            {isMinimized && (
+                <div id="minimizedForm" className="minimized-form" onClick={() => setIsMinimized(false)}>
+                    <span>Click to maximize</span>
+                </div>
+            )}
+        </form>
             </div >
         </>
     )

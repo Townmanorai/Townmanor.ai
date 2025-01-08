@@ -1527,7 +1527,7 @@ header {
     background: none;
     padding: 0 10px 8px 0px;
     border-width: 0;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.1) !important;
     width: 100%;
     box-shadow: none;
     outline: none;
@@ -1535,7 +1535,7 @@ header {
     font-size: 18px;
     font-weight: 500;
     color: #222;
-    margin-top: 0px;
+    margin: 8px 0px;
     border-radius: 0px;
 }   
 .form label {

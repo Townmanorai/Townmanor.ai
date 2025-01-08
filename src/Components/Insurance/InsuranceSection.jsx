@@ -1,5 +1,5 @@
-import React from 'react';
-import './InsuranceSection.css'
+import React, { useState } from 'react';
+import './InsuranceSection.css';
 
 // Dummy JSON data for insurance options
 const insuranceOptions = [
@@ -9,6 +9,31 @@ const insuranceOptions = [
 ];
 
 const InsuranceSection = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    phoneNumber: '',
+    email: '',
+    pinCode: '',
+    city: '',
+    tenure: '',
+    selectedInsurance: 'General Life Insurance',
+    authorized: true,
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add form submission logic here
+    console.log(formData);
+  };
+
   return (
     <section className="insurance_bg">
       <div className="container">
@@ -25,15 +50,9 @@ const InsuranceSection = () => {
                 </p>
               </div>
               <div className="insurance_forms">
-                <form
-                  action="https://townmanor.in/customform/insurance"
-                  method="post"
-                  acceptCharset="utf-8"
-                  className="form mt-3"
-                  autoComplete="nope"
-                >
+                <form onSubmit={handleSubmit} className="form mt-3" autoComplete="nope">
                   <div className="nav_nav_tabs">
-                    {insuranceOptions.map(option => (
+                    {insuranceOptions.map((option) => (
                       <a key={option.id} className="nav-link">
                         <img className="Insurance_img_icon" src={option.imgSrc} alt={option.label} />
                         <label htmlFor={option.id}>{option.label}</label>
@@ -41,43 +60,81 @@ const InsuranceSection = () => {
                           className="Insurance_radio"
                           type="radio"
                           id={option.id}
-                          name="lifeInsurance"
+                          name="selectedInsurance"
                           value={option.value}
-                          defaultChecked={option.id === 'General-Life-Insurance'}
+                          checked={formData.selectedInsurance === option.value}
+                          onChange={handleChange}
                         />
                       </a>
                     ))}
                   </div>
                   <div className="Insurance_fill_form">
                     <div className="form-group fg1">
-                      <input type="text" className="form-control" name="name" required />
+                      <input
+                        type="text"
+                        className="form-control"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                      />
                       <label className="label_up">Name *</label>
                     </div>
                     <div className="form-group">
                       <input
                         type="text"
                         className="form-control"
-                        pattern="[0-9]+{10,15}"
+                        pattern="[0-9]{10,15}"
                         minLength="10"
                         maxLength="15"
+                        name="phoneNumber"
+                        value={formData.phoneNumber}
+                        onChange={handleChange}
                         required
                       />
                       <label className="label_up">Phone Number *</label>
                     </div>
                     <div className="form-group">
-                      <input type="email" className="form-control" name="email" required />
+                      <input
+                        type="email"
+                        className="form-control"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                      />
                       <label className="label_up">Email ID *</label>
                     </div>
                     <div className="form-group">
-                      <input type="number" className="form-control" name="pinCode" required />
+                      <input
+                        type="number"
+                        className="form-control"
+                        name="pinCode"
+                        value={formData.pinCode}
+                        onChange={handleChange}
+                        required
+                      />
                       <label className="label_up">Pin Code *</label>
                     </div>
                     <div className="form-group">
-                      <input type="text" className="form-control" name="city" required />
+                      <input
+                        type="text"
+                        className="form-control"
+                        name="city"
+                        value={formData.city}
+                        onChange={handleChange}
+                        required
+                      />
                       <label className="label_up">City *</label>
                     </div>
                     <div className="form-group">
-                      <select className="form-control" name="tenure" required>
+                      <select
+                        className="form-control"
+                        name="tenure"
+                        value={formData.tenure}
+                        onChange={handleChange}
+                        required
+                      >
                         <option value="">Tenure *</option>
                         <option value="5 Years">5 Years</option>
                         <option value="10 Years">10 Years</option>
@@ -87,7 +144,14 @@ const InsuranceSection = () => {
                     </div>
                     <div className="form-group mb-0">
                       <div className="d-flex align-items-start custom_radio">
-                        <input type="checkbox" className="form-check" id="exampleCheck1" defaultChecked />
+                        <input
+                          type="checkbox"
+                          className="form-check"
+                          id="exampleCheck1"
+                          checked={formData.authorized}
+                          onChange={handleChange}
+                          name="authorized"
+                        />
                         <label className="form-check position-relative m-0 pl-2 font-bold" htmlFor="exampleCheck1">
                           Hereby authorize TownManor and its partners to contact me via WhatsApp, sms, phone, email etc.
                         </label>
@@ -96,9 +160,9 @@ const InsuranceSection = () => {
                     <div className="text-trm-condition">
                       By submitting you agree to <a href="https://townmanor.in/en/195/terms_and_condition">Terms of use</a> and <a href="https://townmanor.in/en/195/terms_and_condition">T&amp;C</a>
                     </div>
-                    <button type="submit" className="btn btn-primary btn-submit btn-submit-1" style={{
-                      marginLeft:"0vw"
-                    }}>Submit</button>
+                    <button type="submit" className="btn btn-primary btn-submit btn-submit-1" style={{ marginLeft: '0vw' }}>
+                      Submit
+                    </button>
                   </div>
                 </form>
               </div>

@@ -64,6 +64,9 @@ function Phone() {
             // If no token, redirect to the authentication page
             navigate('/auth'); 
         }
+        else{
+            navigate('/form'); 
+        }
     }, [navigate]);
     const initialdata = {
         'pincode': null,

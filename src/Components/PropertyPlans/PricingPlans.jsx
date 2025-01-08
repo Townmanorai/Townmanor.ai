@@ -1114,8 +1114,8 @@ import AgentsPlans from "./AgentPlans";
 import AgentAccessDetails from "./AgentAccessDetails";
 import PlansInfo from "./PlansInfo";
 import { useNavigate } from "react-router-dom";
-
-
+import { MdCurrencyRupee } from "react-icons/md";
+import { FaRupeeSign } from "react-icons/fa";
 const pricingPlans = [
   {
     name: "Free",
@@ -1244,7 +1244,37 @@ const PricingPlans = () => {
   return (
     <>
 
-
+<div 
+      className="diwali-offer-banner text-center" 
+      style={{
+        backgroundColor: '#fdd835', 
+        color: '#333', 
+        padding: '20px', 
+        marginBottom: '20px', 
+        borderRadius: '12px'
+      }}
+    >
+      <h2>🎉 Season Offer 🎉</h2>
+      <p>
+        List <strong>Unlimited Properties</strong> during this season and earn <strong>₹100</strong> for each property listed!  
+        Fill out the form to claim your reward today. Offer valid for a limited period only.
+      </p>
+      
+      <button 
+        className="btn btn-primary" 
+        data-toggle="modal" 
+        data-target="#claimOfferModal" 
+        style={{
+          background: 'linear-gradient(to right, #ff4447, #8a2e2e)', 
+          border: 'none', 
+          padding: '10px 20px', 
+          fontSize: '16px', 
+          cursor: 'pointer'
+        }}
+      >
+        Claim Your Reward
+      </button>
+    </div>
       <div className="wpart">
         <section className="Pricing_palns">
           <div className="container">
@@ -1272,13 +1302,15 @@ const PricingPlans = () => {
                                 {plan.oldPrice && (
                                   <li style={{ fontSize: "17px" }}>
                                     <del>
-                                      <i className="fa fa-inr" aria-hidden="true"></i> {plan.oldPrice}
+                                      <i  aria-hidden="true"><MdCurrencyRupee /></i> {plan.oldPrice}
                                     </del>
                                     <span>/{plan.duration}</span>
                                   </li>
                                 )}
                                 <li className="price_plans">
-                                  <i className="fa fa-inr" aria-hidden="true"></i> {plan.price}
+                                  <i  aria-hidden="true"><FaRupeeSign style={{
+                                    marginBottom:'7px'
+                                  }} /></i> {plan.price}
                                   <span>/{plan.duration}</span>
                                 </li>
                                 {/* Retain form structure but intercept submission */}

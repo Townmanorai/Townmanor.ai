@@ -163,7 +163,8 @@
 
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import { MdCurrencyRupee } from "react-icons/md";
+import { FaRupeeSign } from "react-icons/fa";
 const pricingPlans = [
   {
     name: "Featured Agent",
@@ -274,14 +275,16 @@ const AgentsPlans = () => {
                     {plan.oldPrice && (
                       <li style={{ fontSize: "17px" }}>
                         <del>
-                          <i className="fa fa-inr" aria-hidden="true"></i>{" "}
+                          <i aria-hidden="true"><MdCurrencyRupee /></i>{" "}
                           {plan.oldPrice}
                         </del>
                         <span>/{plan.duration}</span>
                       </li>
                     )}
                     <li className="price_plans">
-                      <i className="fa fa-inr" aria-hidden="true"></i>{" "}
+                      <i aria-hidden="true"><FaRupeeSign style={{
+                                                          marginBottom:'7px'
+                                                        }} /></i>{" "}
                       {plan.price}
                       <span>/{plan.duration}</span>
                     </li>
