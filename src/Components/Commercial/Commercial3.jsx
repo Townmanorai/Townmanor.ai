@@ -264,9 +264,9 @@ const other = comdata && comdata.other
                   style={{
                     position: 'absolute',
                     top: '25px',
-                    left: '-5px',
+                    left: '3px',
                     width: '130px',
-                    height: '25px',
+                    height: '41px',
                     backgroundColor: 'rgb(78 13 13)', // Red background
                     color: 'white',
                     display: 'flex',
@@ -279,7 +279,7 @@ const other = comdata && comdata.other
                     overflow: 'hidden',
                   }}
                 >
-                  Not Available
+                  Image not Available
                 </div>
               )}
               <span>Office Space</span></div>
@@ -300,9 +300,9 @@ const other = comdata && comdata.other
                   style={{
                     position: 'absolute',
                     top: '25px',
-                    left: '-5px',
+                    left: '3px',
                     width: '130px',
-                    height: '25px',
+                    height: '41px',
                     backgroundColor: 'rgb(78 13 13)', // Red background
                     color: 'white',
                     display: 'flex',
@@ -315,7 +315,7 @@ const other = comdata && comdata.other
                     overflow: 'hidden',
                   }}
                 >
-                  Not Available
+                  Image not Available
                 </div>
               )}
               <span>Retail Space/Shop</span></div>
@@ -335,9 +335,9 @@ const other = comdata && comdata.other
                   style={{
                     position: 'absolute',
                     top: '25px',
-                    left: '-5px',
+                    left: '3px',
                     width: '130px',
-                    height: '25px',
+                    height: '41px',
                     backgroundColor: 'rgb(78 13 13)', // Red background
                     color: 'white',
                     display: 'flex',
@@ -350,7 +350,7 @@ const other = comdata && comdata.other
                     overflow: 'hidden',
                   }}
                 >
-                  Not Available
+                  Image not Available
                 </div>
               )}
               <span>Restuarant</span></div>
@@ -522,7 +522,7 @@ const other = comdata && comdata.other
           <p><a href=''>know More</a></p>
         </div> */}
         <div id='investment'>
-          <h1>Available Unit : </h1>
+          <h1>Total Unit : </h1>
           <span>{comdata.project_unit}</span>
         </div>
       </div>
@@ -576,8 +576,8 @@ const other = comdata && comdata.other
             <button className='ls-submit' onClick={openContact}>Contact us</button>
           </div>
 
-          <li>Townmanor Infratect LLP</li>
-          <li>Support@townmanor.in</li>
+          <li>Townmanor Infratech LLP</li>
+          <li>Support@townmanor.ai</li>
           <li>7042888903</li>
 
         </div>
@@ -861,8 +861,9 @@ const other = comdata && comdata.other
             similarproperties2.map((item, index) => (
               <div key={index} className='simbox'>
                 <li className='simimgbox'><img src={'/' + item.face_image} id='simimg1' alt="property"></img></li>
-                <li id='head'>{item.property_name}</li>
+                <li id='head'>{item.project_name}</li>
                 <ul>
+                  
                   <li><span>Location:</span>{item.address}</li>
                   <li><span>Invest:</span>&#8377;{item.invest}</li>
                   <li><span>Return:</span>{item.return_policy} </li>
@@ -891,7 +892,7 @@ const other = comdata && comdata.other
               <SwiperSlide>
                 <div key={index} className='simbox'>
                   <li className='simimgbox'><img src={'/' + item.face_image} id='simimg1' className='simproimg'></img></li>
-                  <li id='head'>{item.property_name}</li>
+                  <li id='head'>{item.project_name}</li>
                   <ul>
                     <li><span>Location:</span>{item.address}</li>
                     <li><span>Invest:</span>&#8377;{item.invest}</li>
