@@ -294,7 +294,29 @@ const Footer = () => {
                     <a href="https://townmanor.in/en/145/?search=%7B">Greater Noida</a> |{' '}
                     <a href="https://townmanor.in/treefield/en/88586/faridabad">Faridabad</a> |{' '}
                     <a href="https://townmanor.in/treefield/en/88577/noida">Noida</a> |{' '}
-                    <a href="https://townmanor.in/treefield/en/88580/gurgaon">Gurgoan</a>
+                    <a href="https://townmanor.in/treefield/en/88580/gurgaon">Gurgoan</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88613/ahmedabad">Ahmedabad</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88614/jaipur">Jaipur</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88615/bengaluru">Bengaluru</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88616/goa">Goa</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88617/chennai">Chennai</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88618/mumbai">Mumbai</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88619/chandigarh">Chandigarh</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88620/kolkata">Kolkata</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88621/dehradun">Dehradun</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88622/hyderabad">Hyderabad</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88623/patna">Patna</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88624/bhopal">Bhopal</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88625/thiruvananthapuram">Thiruvananthapuram</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88626/indore">Indore</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88627/guwahati">Guwahati</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88628/varanasi">Varanasi</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88629/nagpur">Nagpur</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88630/sonipat">Sonipat</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88631/navimumbai">Navi Mumbai</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88632/vijayawada">Vijayawada</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88633/agra">Agra</a> |{' '}
+                    <a href="https://townmanor.in/treefield/en/88634/pune">Pune</a> |{' '}
                   </p>
                 </div>
               </div>
