@@ -354,7 +354,7 @@ h3 {
 
 }
 
-@media only screen and (min-width: 1000px) and (max-width: 1370px) {
+@media only screen and (min-width: 1000px) and (max-width: 1299px) {
 
 
   .total {
@@ -388,18 +388,16 @@ h3 {
     margin-top: 40px;
     gap: 20px;
   }
-
-  .btnr {
-    font-size: 15px;
-    display: flex
-    ;
-            justify-content: space-around;
-            align-items: center;
-            min-width: 7.5vw;
+  .mysearchbar {
+    width: 77vw;
+    /* margin-left: -84px; */
+  }
+  .btnr{
+   min-width: 11vw;
   }
 }
 
-@media only screen and (min-width: 1371px) and (max-width: 1900px) {
+@media only screen and (min-width: 1300px) and (max-width: 1900px) {
   .total {
     display: none;
   }
@@ -442,6 +440,17 @@ h3 {
     border: none !important;
     background-color: #ffffff;
   }
+  .search-bar {
+    gap: 12px;
+    padding: 5px;
+  
+}
+#bannerhead {
+  margin-top: 6vh;
+}
+.btnr {
+  min-width: 10.5vw;
+}
 }
 
 @media only screen and (min-width: 1901px) and (max-width: 3000px) {

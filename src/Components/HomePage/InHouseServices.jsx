@@ -18,7 +18,9 @@ const InHouseServices = () => {
           </div>
         </div>
         
-        <div className="row justify-content-center scrollable-cards">
+        <div className="row justify-content-center scrollable-cards" style={{
+          flexWrap:'nowrap'
+        }}>
           <div className="col-lg-2 col-md-3 col-6">
             <a href="/home-loan" title="">
               <div className="card card_services">
@@ -79,6 +81,7 @@ const InHouseServices = () => {
               </div>
             </a>
           </div>
+          
           <div className="col-lg-2 col-md-3 col-6">
             <a href="#" title="" data-toggle="modal" data-target="#exampleModal">
               <div className="card card_services">
@@ -105,6 +108,25 @@ const InHouseServices = () => {
                     />
                   </i>
                   <h3>Find an Agent</h3>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div className="col-lg-2 col-md-3 col-6" >
+            <a href="/commercial" title="" data-toggle="modal" data-target="#exampleModal" >
+              <div className="card card_services" style={{
+              backgroundColor:'lightgray'
+            }}>
+                <div className="card-body" style={{
+              backgroundColor:'lightgray'
+            }}>
+                  <i className="icon-sevices">
+                    <img
+                      src={'/building.png'}
+                      alt="Home Shift"
+                    />
+                  </i>
+                  <h3>Commercial</h3>
                 </div>
               </div>
             </a>

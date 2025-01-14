@@ -20,8 +20,8 @@ const ExploreFeatures = () => {
           {/* First Feature */}
           <div className="col-xl-3 col-sm-6 col-md-6 col-lg-4">
             <a href="#" title="">
-              <div className="card">
-                <div className="card-body choose">
+              <div className="card" >
+                <div className="card-body choose" >
                   <i className="icon-FEATURES">
                     <img src="./rupee.png" alt="Perfect Tools" />
                   </i>
