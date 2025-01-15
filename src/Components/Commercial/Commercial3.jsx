@@ -233,7 +233,7 @@ const other = comdata && comdata.other
                 try {
                   const parsedImages = JSON.parse(comdata.main_image);
                   return parsedImages.length > 0 ? (
-                    <img src={'/' + parsedImages[1]} alt="Main Photo" />
+                    <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + parsedImages[1]} alt="Main Photo" />
                   ) : (
                     <p>No image available</p> // Fallback message if no image is available
                   );
@@ -255,7 +255,7 @@ const other = comdata && comdata.other
             }}
               style={{
                 background: officeImages && officeImages.length > 0
-                  ? `url(${'/' + officeImages[0]})`
+                  ? `url(${'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + officeImages[0]})`
                   : 'url(/officespaceimg.jpg)'
               }}
             >
@@ -290,7 +290,7 @@ const other = comdata && comdata.other
             }}
               style={{
                 background: shopImages && shopImages.length > 0
-                  ? `url(${'/' + shopImages[0]})`
+                  ? `url(${'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + shopImages[0]})`
                   : 'url(/retailspaceimg.png)'
               }}
 
@@ -326,7 +326,7 @@ const other = comdata && comdata.other
             }}
               style={{
                 background: restuarant && restuarant.length > 0
-                  ? `url(${'/' + restuarant[0]})`
+                  ? `url(${'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + restuarant[0]})`
                   : 'url(/restaurants.jpg)'
               }}
             >
@@ -361,7 +361,7 @@ const other = comdata && comdata.other
             }}
               style={{
                 background: other && other.length > 0
-                  ? `url(${'/' + other[0]})`
+                  ? `url(${'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + other[0]})`
                   : 'url(/other.jpg)'
               }}
               
@@ -378,7 +378,7 @@ const other = comdata && comdata.other
             }}
             style={{
               background: officeImages && officeImages.length > 0
-                ? `url(${'/' + officeImages[0]})`
+                ? `url(${'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + officeImages[0]})`
                 : 'url(/officespaceimg.jpg)'
             }}
             >
@@ -393,7 +393,7 @@ const other = comdata && comdata.other
             }}
             style={{
               background: shopImages && shopImages.length > 0
-                ? `url(${'/' + shopImages[0]})`
+                ? `url(${'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + shopImages[0]})`
                 : 'url(/retailspaceimg.png)'
             }}
             >
@@ -408,7 +408,7 @@ const other = comdata && comdata.other
             }}
             style={{
               background: restuarant && restuarant.length > 0
-                ? `url(${'/' + restuarant[0]})`
+                ? `url(${'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + restuarant[0]})`
                 : 'url(/restaurants.jpg)'
             }}
             >
@@ -423,7 +423,7 @@ const other = comdata && comdata.other
             }}
             style={{
               background: other && other.length > 0
-                ? `url(${'/' + other[0]})`
+                ? `url(${'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + other[0]})`
                 : 'url(/other.jpg)'
             }}
             >
@@ -456,7 +456,7 @@ const other = comdata && comdata.other
           >
             {imageArray.map((item, index) => (
               <SwiperSlide key={index}>
-                <img src={'/' + cleanString(item)} id="mainphotoimg" alt={`Commercial image ${index + 1}`} />
+                <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + cleanString(item)} id="mainphotoimg" alt={`Commercial image ${index + 1}`} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -483,7 +483,7 @@ const other = comdata && comdata.other
           {comdata.main_image && Array.isArray(JSON.parse(comdata.main_image)) && JSON.parse(comdata.main_image).length > 0 ? (
             JSON.parse(comdata.main_image).map((item, index) => (
               <SwiperSlide key={index}>
-                <img src={'/' + item} id='mainphotoimg' alt={`Commercial image ${index + 1}`} />
+                <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + item} id='mainphotoimg' alt={`Commercial image ${index + 1}`} />
               </SwiperSlide>
             ))
           ) : (
@@ -718,7 +718,7 @@ const other = comdata && comdata.other
 
               <h2 className='payment-plan-title'>Floor Plan</h2>
               <div id='buildingfpbox'>
-                <img src={filteredFoodCourt.floorplan} id='buildingfloorplan' alt="Floor Plan" />
+                <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images'+filteredFoodCourt.floorplan} id='buildingfloorplan' alt="Floor Plan" />
               </div>
             </div>
           ) : (
@@ -792,7 +792,7 @@ const other = comdata && comdata.other
                     openModal3();
                     setVisible(true);
                   }}>
-                    <img src={'/' + item} id="advimg3" alt={`Commercial image ${index + 1}`} />
+                    <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + item} id="advimg3" alt={`Commercial image ${index + 1}`} />
                   </div>
                 </SwiperSlide>
               ))
@@ -820,7 +820,7 @@ const other = comdata && comdata.other
                     openModal3();
                     setVisible(true);
                   }}>
-                    <img src={'/' + item} id="advimg3" alt={`Commercial image ${index + 1}`} />
+                    <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + item} id="advimg3" alt={`Commercial image ${index + 1}`} />
                   </div>
                 </SwiperSlide>
               ))
@@ -836,7 +836,7 @@ const other = comdata && comdata.other
             id='lead2'
           >
             <div>
-              <img src={imgpath} id='floorimg'></img>
+              <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images'+imgpath} id='floorimg'></img>
             </div>
           </Modal>
         </div>
@@ -848,7 +848,7 @@ const other = comdata && comdata.other
           </div>
         </div>
         <div id='right2'>
-          <img src={'/' + comdata.image_banner} id='advertisement'></img>
+          <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + comdata.image_banner} id='advertisement'></img>
         </div>
       </div>
       <div className='similar-prop'>
@@ -860,7 +860,7 @@ const other = comdata && comdata.other
           {Array.isArray(similarproperties2) && similarproperties2.length > 0 ? (
             similarproperties2.map((item, index) => (
               <div key={index} className='simbox'>
-                <li className='simimgbox'><img src={'/' + item.face_image} id='simimg1' alt="property"></img></li>
+                <li className='simimgbox'><img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + item.face_image} id='simimg1' alt="property"></img></li>
                 <li id='head'>{item.project_name}</li>
                 <ul>
                   
@@ -891,7 +891,7 @@ const other = comdata && comdata.other
             {similarproperties2.map((item, index) => (
               <SwiperSlide>
                 <div key={index} className='simbox'>
-                  <li className='simimgbox'><img src={'/' + item.face_image} id='simimg1' className='simproimg'></img></li>
+                  <li className='simimgbox'><img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + item.face_image} id='simimg1' className='simproimg'></img></li>
                   <li id='head'>{item.project_name}</li>
                   <ul>
                     <li><span>Location:</span>{item.address}</li>

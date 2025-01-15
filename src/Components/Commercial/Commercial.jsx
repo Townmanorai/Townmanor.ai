@@ -178,7 +178,7 @@ function Commercial() {
 
 
         <div className='combanner'>
-          <img src='/blue.png' id='ban-img'></img>
+          <img src='https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/blue.png' id='ban-img'></img>
 
         </div>
         <div className='combanner combannerupdate'>
@@ -299,7 +299,7 @@ function Commercial() {
                 <div key={index} className='databox'>
                   <ul>
                     <li id='datahead'>{item.project_name}</li>
-                    <li id='imagebox'><img src={'/'+item.face_image} id='compareimg' /></li>
+                    <li id='imagebox'><img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/'+item.face_image} id='compareimg' /></li>
                     <li className='odd'> &#8377;{item.invest}</li>
                     <li>{item.address}</li>
                     <li className='odd'> &#8377;{item.return_policy} </li>
@@ -333,7 +333,7 @@ function Commercial() {
                     <div key={index} className='databox'>
                       <ul>
                       <li id='datahead'>{item.project_name}</li>
-                    <li id='imagebox'><img src={'/'+item.face_image} id='compareimg' /></li>
+                    <li id='imagebox'><img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/'+item.face_image} id='compareimg' /></li>
                     <li className='odd'> &#8377;{item.invest}</li>
                     <li>{item.address}</li>
                     <li className='odd'> &#8377;{item.return_policy} </li>
@@ -362,7 +362,7 @@ function Commercial() {
           }}>
           <h1>OfficeSpace</h1>
           <div>
-            <img src="/office-space.jpg" alt="" id='leaseimg' />
+            <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/office-space.jpg" alt="" id='leaseimg' />
           </div>
           </div >
           <div className='lease-category' onClick={() => {
@@ -371,7 +371,7 @@ function Commercial() {
           }}>
            <h1>Shop/Retail Space</h1>
            <div>
-            <img src="/Shop.jpg" alt="" id='leaseimg' />
+            <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/Shop.jpg" alt="" id='leaseimg' />
           </div>
           </div>
           <div className='lease-category' onClick={() => {
@@ -380,7 +380,7 @@ function Commercial() {
           }}>
           <h1>Showroom</h1>
           <div>
-            <img src="/showroom.jpg" alt="" id='leaseimg' />
+            <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/showroom.jpg" alt="" id='leaseimg' />
           </div>
           </div>
         </div>
@@ -401,7 +401,7 @@ function Commercial() {
             {commercialdata.map((item, index) => (
 
               <SwiperSlide>
-                <div className='advbox2'><img src={'/'+item.image_banner} id='advertisment' alt={`Commercial image ${index + 1}`} /></div>
+                <div className='advbox2'><img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/'+item.image_banner} id='advertisment' alt={`Commercial image ${index + 1}`} /></div>
               </SwiperSlide>
             ))}
 
@@ -421,7 +421,7 @@ function Commercial() {
             {commercialdata.map((item, index) => (
 
               <SwiperSlide>
-                <div className='advbox2'><img src={'/'+item.image_banner} id='advertisment' alt={`Commercial image ${index + 1}`} /></div></SwiperSlide>
+                <div className='advbox2'><img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/'+item.image_banner} id='advertisment' alt={`Commercial image ${index + 1}`} /></div></SwiperSlide>
             ))}
 
             ...

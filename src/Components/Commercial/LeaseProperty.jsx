@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './LeaseProperty.css';  // Import the CSS file
 import { useNavigate } from 'react-router-dom';
-
+import axios from 'axios';
 function LeaseProperty() {
   const [distances, setDistances] = useState([{ name: '', distance: '' }]);
   const [categories, setCategories] = useState([]);
@@ -41,13 +41,12 @@ function LeaseProperty() {
     Restuarant: [],
     other: [],
   });
-
   // Handle input changes for all fields
   const handleInputChange = (field, value) => {
-    setFormData({
-      ...formData,
+    setFormData(prevState => ({
+      ...prevState,
       [field]: value,
-    });
+    }));
   };
 
   // Function to handle adding a new distance field
@@ -70,7 +69,7 @@ function LeaseProperty() {
   // Handle adding category (tag)
   const handleAddCategory = () => {
     if (categoryInput.trim() !== '') {
-      setCategories([...categories, categoryInput.trim()]);
+      setCategories(prevCategories => [...prevCategories, categoryInput.trim()]);
       setCategoryInput('');
     }
   };
@@ -79,133 +78,186 @@ function LeaseProperty() {
   };
 
   // Handle adding category (tag)
-  const handleAddAmmenties = () => {
+  const handleAddAmenities = () => {
     if (amentiesinput.trim() !== '') {
-      setamenties([...amenities, amentiesinput.trim()]);
+      setamenties(prevAmenities => [...prevAmenities, amentiesinput.trim()]);
       setamentiesinput('');
     }
   };
   // Handle file input changes
-  const handleFileChange = (e, field) => {
+  // const handleFileChange = (e, field) => {
+  //   const files = Array.from(e.target.files);
+  //   setFormData({
+  //     ...formData,
+  //     [field]: files,
+  //   });
+  // };
+  const handleFileChange = async (e, type) => {
     const files = Array.from(e.target.files);
-    setFormData({
-      ...formData,
-      [field]: files,
-    });
-  };
-  const handleFileChange2 = (e, type) => {
-    const file = e.target.files[0];  // Since only one file can be uploaded at a time
-    if (type === 'Image_banner') {
-      setImageBanner(file);  // Store image banner
-    } else if (type === 'Face_image') {
-      setFaceImage(file);  // Store face image
+    if (files.length === 0) return; // If no files are selected, return
+
+    const formData = new FormData();
+    files.forEach(file => formData.append('images', file));
+
+    try {
+      const response = await axios.post('https://www.townmanor.ai/api/image/aws-upload-commercial-images', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+
+      if (response.status === 200) {
+        const uploadedPaths = response.data.fileUrls.map(path =>
+          path.replace('https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/', '')
+        );
+        if (type === 'Image_banner') {
+          setFormData(prevState => ({
+            ...prevState,
+            [type]: uploadedPaths[0],
+          }));// Store image banner
+        } else if (type === 'Face_image') {
+          setFormData(prevState => ({
+            ...prevState,
+            [type]: uploadedPaths[0],
+          })); // Store face image
+        }
+        else{
+          setFormData(prevState => ({
+            ...prevState,
+            [type]: uploadedPaths,
+          }));
+        }
+      }
+    } catch (error) {
+      console.error('File upload failed:', error);
+      alert('An error occurred while uploading the file.');
     }
   };
+  const handleFileChange2 = async (e, type) => {
+    const file = e.target.files[0]; // Assuming only one file is selected
+    if (!file) return; // If no file selected, exit
+  
+    try {
+      // Prepare FormData for file upload
+      const formData = new FormData();
+      formData.append('images', file); // Append the file to the form data
+  
+      // Send the file to the server using Axios
+      const response = await axios.post('https://www.townmanor.ai/api/image/aws-upload-commercial-images', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+  
+      if (response.status === 200) {
+        // Assuming the backend returns the file URLs in the `fileUrls` field
+        const uploadedFloorplanPaths = response.data.fileUrls;
+        // console.log(uploadedFloorplanPaths);
+  
+        const trimmedFloorplanPaths = uploadedFloorplanPaths.map((path) =>
+          path.replace('https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/', '') // Modify path as needed
+        );
+  
+        if (type === 'Image_banner') {
+          setImageBanner(trimmedFloorplanPaths[0]);  // Store image banner
+        } else if (type === 'Face_image') {
+          setFaceImage(trimmedFloorplanPaths[0]);  // Store face image
+        }
+        console.log(formData.type)
+      }
+    } catch (error) {
+      console.error('Error uploading floorplans:', error);
+      alert('An error occurred while uploading the floorplans');
+    }
+  };
+  
   // Handle form submission and create JSON object
   const handleSubmit = (e) => {
     e.preventDefault();
+   
+   
+    // Ensure all arrays are initialized as empty arrays if they are undefined
     const submissionData = {
       ...formData,
-      Image_banner: imageBanner ? imageBanner.name : '',
-      Face_image: faceImage ? faceImage.name : '',
-      // Handle other fields for multiple files like floorplan, Main_image, etc.
-    };
-
-    console.log('Submitted JSON data:', JSON.stringify(submissionData));
-    console.log(formData.Face_image)
-    setFormData({
-      id: '',
-      project_Name: '',
-      city: 'Noida',
-      Address: '',
-      invest: '',
-      Category: [],
-      Return: '',
-      Possession_Date: '',
-      Builder: '',
-      Construction: '',
-      Project_Unit: '',
-      lat: '',
-      lng: '',
-      Description: '',
-      reraid: '',
-      Project_Area_Range: '',
-      videoid: '',
-      amenities: [],
-      Distance: [],
-      Image_banner: null,
-      Face_image: null,
-      floorplan: [],
-      Main_image: [],
-      office_image: [],
-      Retail_shop: [],
-      Restuarant: [],
-      other: [],
-    });
-    setCategories([]);
-    const sqlQuery = `
-    INSERT INTO commercial_details (
-        project_name, 
-        city, 
-        address, 
-        invest, 
-        category, 
-        return_policy, 
-        possession_date, 
-        builder, 
-        construction_status, 
-        project_unit, 
-        lat, 
-        lng, 
-        description, 
-        rera_id, 
-        project_area_range, 
-        video_id, 
-        amenities, 
-        distance, 
-        image_banner, 
-        face_image, 
-        floorplan, 
-        main_image, 
-        office_image, 
-        retail_shop, 
-        restaurant, 
-        other
-    )
-    VALUES (
-        '${formData.project_Name}', 
-        '${formData.city}', 
-        '${formData.Address}', 
-        '${formData.invest}', 
-        '${JSON.stringify(categories)}', 
-        '${formData.Return}', 
-        '${formData.Possession_Date}', 
-        '${formData.Builder}', 
-        '${formData.Construction}', 
-        ${formData.Project_Unit}, 
-        ${formData.lat}, 
-        ${formData.lng}, 
-        '${formData.Description}', 
-        '${formData.reraid}', 
-        '${formData.Project_Area_Range}', 
-        '${formData.videoid}', 
-        '${JSON.stringify(amenities)}', 
-        '${JSON.stringify(distances)}', 
-               '${imageBanner ? imageBanner.name : ''}',  
-        '${faceImage ? faceImage.name : ''}',  
-       '${JSON.stringify(formData.floorplan.map((file) => file.name))}', 
-        '${JSON.stringify(formData.Main_image.map((file) => file.name))}', 
-        '${JSON.stringify(formData.office_image.map((file) => file.name))}', 
-        '${JSON.stringify(formData.Retail_shop.map((file) => file.name))}', 
-        '${JSON.stringify(formData.Restuarant.map((file) => file.name))}', 
-        '${JSON.stringify(formData.other.map((file) => file.name))}'
-    );
+      Category: categories.length > 0 ? JSON.stringify(categories) : "[]",  // Default to empty array if empty
+      amenities: amenities.length > 0 ? JSON.stringify(amenities) : "[]",   // Default to empty array if empty
+      Distance: distances.length > 0 ? JSON.stringify(distances) : "[]",    // Default to empty array if empty
+      floorplan: JSON.stringify(formData.floorplan), // Directly stringify the floorplan
+      Main_image: JSON.stringify(formData.Main_image), // Directly stringify Main_image
+      office_image: JSON.stringify(formData.office_image), // Directly stringify office_image
+      Retail_shop: JSON.stringify(formData.Retail_shop), // Directly stringify Retail_shop
+      Restaurant: JSON.stringify(formData.Restuarant), // Directly stringify Restaurant
+      other: JSON.stringify(formData.other),
+    }
+    const categoryData = JSON.stringify(categories);
+    const amenitiesData = JSON.stringify(amenities);
+    const distanceData = JSON.stringify(distances);
+    const floorplanData = JSON.stringify(formData.floorplan);
+    const mainImageData = JSON.stringify(formData.Main_image);
+    const officeImageData = JSON.stringify(formData.office_image);
+    const retailShopData = JSON.stringify(formData.Retail_shop);
+    const restaurantData = JSON.stringify(formData.Restuarant);
+    const otherData = JSON.stringify(formData.other);
+    const queryx = `
+        INSERT INTO commercial_details (
+            project_name, 
+            city, 
+            address, 
+            invest, 
+            category, 
+            return_policy, 
+            possession_date, 
+            builder, 
+            construction_status, 
+            project_unit, 
+            lat, 
+            lng, 
+            description, 
+            rera_id, 
+            project_area_range, 
+            video_id, 
+            amenities, 
+            distance, 
+            image_banner, 
+            face_image, 
+            floorplan, 
+            main_image, 
+            office_image, 
+            retail_shop, 
+            restaurant, 
+            other
+        ) 
+        VALUES (
+            '${formData.project_Name}', 
+            '${formData.city}', 
+            '${formData.Address}', 
+            '${formData.invest}', 
+            '${categoryData}', 
+            '${formData.Return}', 
+            '${formData.Possession_Date}', 
+            '${formData.Builder}', 
+            '${formData.Construction}', 
+            ${formData.Project_Unit}, 
+            ${formData.lat}, 
+            ${formData.lng}, 
+            '${formData.Description}', 
+            '${formData.reraid}', 
+            '${formData.Project_Area_Range}', 
+            '${formData.videoid}', 
+            '${amenitiesData}', 
+            '${distanceData}', 
+            '${formData.Image_banner}', 
+            '${formData.Face_image}', 
+            ${floorplanData}, 
+            ${mainImageData}, 
+            ${officeImageData}, 
+            ${retailShopData}, 
+            ${restaurantData}, 
+            ${otherData}
+        );
     `;
-    setquery(sqlQuery);
-    // Log the SQL query
-    console.log('Generated SQL Query:', sqlQuery);
-
+    setquery(queryx);
+    console.log('Form submission data:', submissionData);
   };
+ 
   const goToAbout = () => {
     navigate('/commercialform2');  // Navigate to the "/about" page
   };
@@ -311,7 +363,7 @@ function LeaseProperty() {
                 onChange={handleAmentiesInputChange}
                 placeholder="Enter amenties"
               />
-              <button type="button" onClick={handleAddAmmenties}>
+              <button type="button" onClick={handleAddAmenities}>
                 Add Amenties
               </button>
             </div>
@@ -418,14 +470,14 @@ function LeaseProperty() {
         <label>Banner Image</label>
         <input
           type="file"
-          onChange={(e) => handleFileChange2(e, 'Image_banner')}
+          onChange={(e) => handleFileChange(e, 'Image_banner')}
         />
         <br />
 
         <label>Face Image</label>
         <input
           type="file"
-          onChange={(e) => handleFileChange2(e, 'Face_image')}
+          onChange={(e) => handleFileChange(e, 'Face_image')}
         />
         <br />
 
