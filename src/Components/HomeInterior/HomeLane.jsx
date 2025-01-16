@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Modal from 'react-modal';
 import { ImCross } from "react-icons/im";
+import axios from 'axios';
 
 function HomeLane() {
 
@@ -35,13 +36,24 @@ function HomeLane() {
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission
 
-    // Validate form data
+    
     if (!formData.name || !formData.email || !formData.mobile || !formData.city || !formData.occupationType) {
       alert('All fields are required');
       return;
     }
-    else{
-      console.log(formData)
+    const datatosend = {
+      name:formData.name,
+      email:formData.email,
+      mobile:formData.mobile,
+      city:formData.city,
+      occupationType:formData.occupationType
+     }
+    try{
+       const response = await axios.post('https://www.townmanor.ai/api/api/home-interior',datatosend);
+       alert("Request Sended SucessFully")
+    }
+    catch (error){
+      alert(error)
     }
   }
   const customStyles = {

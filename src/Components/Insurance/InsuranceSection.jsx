@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './InsuranceSection.css';
+import axios from 'axios';
 
 // Dummy JSON data for insurance options
 const insuranceOptions = [
@@ -28,10 +29,28 @@ const InsuranceSection = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Add form submission logic here
-    console.log(formData);
+    const datatosend = {
+      name:formData.name,
+      phoneNumber:formData.phoneNumber,
+      email:formData.email,
+      pinCode:formData.pinCode,
+      city:formData.city,
+      tenure:formData.tenure,
+      selectedInsurance:formData.selectedInsurance,
+      authorized:formData.authorized
+    }
+    try{
+      const response = await axios.post('https://www.townmanor.ai/api/api/home-insurance',datatosend);
+      alert("Request Sended Sucessfully");
+     
+    }
+    catch(error){
+     alert(error);
+     console.log(datatosend);
+    }
   };
 
   return (

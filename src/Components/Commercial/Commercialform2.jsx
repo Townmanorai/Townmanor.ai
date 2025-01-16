@@ -112,7 +112,7 @@ function CommercialForm2() {
         .join(", ");
 
       const comPropId = pricePlan.id; // Assuming this is populated elsewhere
-      const floorplanFile = pricePlan.floorplan ? `'/${pricePlan.floorplan}'` : 'NULL';
+      const floorplanFile = pricePlan.floorplan ? `'${pricePlan.floorplan}'` : 'NULL';
 
       return `(
         ${comPropId}, 
@@ -253,15 +253,23 @@ function CommercialForm2() {
                   Copy from Previous
                 </button>
               </div>
-
               <div className="form-field">
+                <label className="form-label">Floor Plan:</label>
+                <input
+                  className="input-field"
+                  type="text"
+                  value={pricePlan.floorplan}
+                  onChange={(e) => handleInputChange(index, 'floorplan', e.target.value)}
+                />
+              </div>
+              {/* <div className="form-field">
                 <label className="form-label">Floor Plan (File Upload):</label>
                 <input
                   className="input-field"
-                  type="file"
+                  type="text"
                   onChange={(e) => handleFileChange(index, e)}
                 />
-              </div>
+              </div> */}
 
               <div className="form-field">
                 <label className="form-label">Available Unit:</label>

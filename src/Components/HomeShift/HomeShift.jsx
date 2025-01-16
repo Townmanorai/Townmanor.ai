@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './HomeShift.css'
+import axios from 'axios';
 function HomeShift() {
     const [activeIndex, setActiveIndex] = useState(null);
     // const [floatbtn,setfloatbtn]
@@ -72,26 +73,25 @@ function HomeShift() {
             [name]: value
         });
     };
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
+        const dataToSend = {
+            drop_location:formData.drop_location,
+            name:formData.name,
+            phone:formData.phone,
+            pickup_location:formData.pickup_location
+          };
         // Create the request payload (form data)
        
         console.log(formData)
-        // Send the data to the server using fetch or axios
-        // fetch('https://townmanor.in/customform/homeInteriorsNew', {
-        //     method: 'POST',
-        //     body: formPayload
-        // })
-        // .then((response) => response.json())
-        // .then((data) => {
-        //     // Handle the server response (optional)
-        //     console.log('Form submitted successfully', data);
-        // })
-        // .catch((error) => {
-        //     // Handle errors (optional)
-        //     console.error('Error submitting form', error);
-        // });
+       try{
+         const response = await axios.post('https://www.townmanor.ai/api/api/home-shift',dataToSend);
+        //  console.log(response);
+         alert("Request Sended Sucessfully");
+       }
+        catch(error){
+            alert(error);
+        }
     };
     return (
         <>

@@ -296,8 +296,10 @@ function LeaseProperty() {
               value={formData.city}
               onChange={(e) => handleInputChange('city', e.target.value)}
             >
-              <option>Noida</option>
-              <option>Gurugram</option>
+              <option value='Noida'>Noida</option>
+              <option value='Gurgoan'>Gurugram</option>
+              <option value='Delhi'>Gurugram</option>
+              <option value='Faridabad'>Gurugram</option>
             </select>
           </div>
           <div className="form-field">
@@ -402,7 +404,7 @@ function LeaseProperty() {
           <div className="form-field">
             <label>Construction Status</label>
             <input
-              type="text"
+             select
               value={formData.Construction}
               onChange={(e) => handleInputChange('Construction', e.target.value)}
             />
