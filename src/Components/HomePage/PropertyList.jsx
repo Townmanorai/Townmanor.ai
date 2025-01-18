@@ -73,6 +73,7 @@ const PropertyList = () => {
 
   return (
     <div className="property-list-container">
+      {/* <h3>Builder property </h3> */}
       {properties.length > 0 ? (
         <Slider {...sliderSettings}>
           {properties.map((property) => (

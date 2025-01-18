@@ -35,7 +35,7 @@ function Property() {
   useEffect(() => {
     const fetchProperty = async () => {
       try {
-        const response = await fetch(`https://www.townmanor.ai/api/property/${id}`);
+        const response = await fetch(`https://www.townmanor.ai/api/owner-property/${id}`);
         if (!response.ok) {
           throw new Error('Property not found');
         }
@@ -141,7 +141,7 @@ function Property() {
     try {
       const images = JSON.parse(property.image_repository);
       return images.length > 0 ? images.map((img) => ({
-        url: `https://townmanor.in/files/${img.trim()}`,
+        url: `https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/${img.trim()}`,
         alt: `Property Image`,
       })) : [{ url: dummyImage, alt: 'No images available' }];
     } catch (error) {

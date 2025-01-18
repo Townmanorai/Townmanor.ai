@@ -16,7 +16,10 @@
     padding-top: 20px;
     border-radius: 40px 0 0;
 }
-
+/* .bottom.section-padding {
+    padding: 0px 0px 0px;
+    overflow: hidden;
+} */
 @media only screen and (min-width: 0px) and (max-width: 500px) {
     .footer_area {
         background: url(../footer-bg.jpg);

@@ -132,7 +132,7 @@ const ExclusiveOwnerProperties = ({stateName}) => {
         <section className="exclusive-section has-slider">
           <div className="exclusive-section-title">
             <div className="exclusive-title-text strip-orange">
-            {stateName ? `Owner-Exclusive Homes in ${stateName}` : 'Owner-Exclusive Homes in Noida'}
+            {stateName ? `Resale properties in ${stateName}` : 'Resale properties in Noida'}
             </div>
             <a href="javascript:void(0);" className="exclusive-anchor-see-all push-right">
               See all Properties

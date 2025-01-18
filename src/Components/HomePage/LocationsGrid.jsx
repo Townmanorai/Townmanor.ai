@@ -423,8 +423,8 @@ const LocationsGrid = () => {
         <div className="row justify-content-center">
           <div className="col-xl-6">
             <div className="section-heading mb-0 pb-0">
-              <span>Popular Cities</span>
-              <h3>Find Perfect Place</h3>
+              {/* <span>Popular Cities</span> */}
+              <h3>Explore properties cities wise</h3>
             </div>
           </div>
         </div>

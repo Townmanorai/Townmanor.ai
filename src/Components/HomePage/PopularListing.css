@@ -89,7 +89,9 @@ font-size: 13px;
   padding: 0 0 0px 0;
 }
 .popular-listing.hp2 .card.listing {
-  height: 260px;
+  height: 300px;
+  margin: 0px 0px 10px 0px;
+  min-height: 300px;
 }
 @media only screen and (max-width: 767px) {
     .popular-listing.row {

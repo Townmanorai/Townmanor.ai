@@ -136,13 +136,13 @@ import "./ResultsItem.css";
 const ResultsItem = ({ item }) => {
   // Safely parse the image repository JSON string and prepend base URL
   const slideshowImages = item.image_repository ? 
-    JSON.parse(item.image_repository.replace(/&quot;/g, '"')).map(img => `https://townmanor.in/files/${img}`) : [];
+    JSON.parse(item.image_repository.replace(/&quot;/g, '"')).map(img => `https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/${img}`) : [];
 
   return (
     <div className="col-md-6">
       <div className="card search-page">
         {/* Use Link for navigation */}
-        <Link to={`/property/${item.id}`} title={item.option_10}>
+        <Link to={`/home/${item.id}`} title={item.option_10}>
           <div className={`img-block ${item.option_1 ? 'video-block' : ''}`}>
             <span className="verifiedBadge">Verified</span>
             <div className="overlay"></div>

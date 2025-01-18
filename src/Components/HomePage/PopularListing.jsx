@@ -117,7 +117,7 @@ const PopularListing = () => {
             <div className="col-lg-4 col-md-6" key={property.id}>
               <div className="card listing">
                 <a
-                  href={`http://ec2-43-205-18-191.ap-south-1.compute.amazonaws.com/property/${property.id}/en/${property.title.replace(" ", "_")}`}
+                  href={`https://townmanor.ai/property/${property.id}/en/${property.title.replace(" ", "_")}`}
                   title={property.title}
                 >
                   <div className="img-block">
