@@ -21,7 +21,7 @@ function Commercial() {
   const [commercialdata, setcommercialdata] = useState([]);
   const [compareshow, setcompareshow] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [city, setCity] = useState();
+  const [city, setCity] = useState('Noida');
   const [leasedata, setleasedata] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
 
