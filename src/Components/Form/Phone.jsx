@@ -133,7 +133,7 @@ function Phone() {
         'floor_allowed': null,
         'modifyinterior': null,
         'lock_in_period': null,
-        'pricerange': 'Lak',
+        'pricerange': 'Lakh',
         'money_type': 'Rupees',
         amenities: [],
         'metro': null,
