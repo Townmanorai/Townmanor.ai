@@ -20,6 +20,8 @@
     "express": "^4.21.0",
     "fireworks-js": "^2.10.8",
     "js-cookie": "^3.0.5",
+    "jspdf": "^2.5.2",
+    "jspdf-autotable": "^3.8.4",
     "jwt-decode": "^4.0.0",
     "leaflet": "^1.9.4",
     "leaflet.markercluster": "^1.5.3",

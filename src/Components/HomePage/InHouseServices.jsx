@@ -57,7 +57,7 @@ const InHouseServices = () => {
                 <div className="card-body">
                   <i className="icon-sevices">
                     <img
-                      src={'servicesIcon3.png'}
+                      src={'/servicesIcon3.png'}
                       alt="Home Insurance"
                     />
                   </i>
@@ -72,7 +72,7 @@ const InHouseServices = () => {
                 <div className="card-body">
                   <i className="icon-sevices">
                     <img
-                      src={'servicesIcon4.png'}
+                      src={'/servicesIcon4.png'}
                       alt="Home Shift"
                     />
                   </i>
@@ -88,7 +88,7 @@ const InHouseServices = () => {
                 <div className="card-body">
                   <i className="icon-sevices">
                     <img
-                      src={'servicesIcon5.png'}
+                      src={'/servicesIcon5.png'}
                       alt="Property valuation"
                     />
                   </i>

@@ -1,0 +1,48 @@
+.distance {
+  font-size: 25px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  padding-bottom: 30px;
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+
+.distance h3 {
+  font-size: 18px;
+  color: #242526;
+  font-weight: 500;
+  padding-bottom: 25px;
+}
+
+.distance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 10px;
+}
+
+.distance-grid div {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #67686c;
+  margin-bottom: 30px;
+}
+
+.distance-grid span {
+  color: #242526;
+  margin-right: 14px;
+}
+
+.icon-distance {
+  margin-right: 20px;
+  width: 20px;
+}
+
+@media (max-width: 760px) {
+  .distance-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}

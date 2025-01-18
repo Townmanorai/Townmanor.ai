@@ -1,0 +1,154 @@
+.subitem-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3%;
+}
+
+.upper {
+  margin-bottom: -10px;
+  max-width: 700px;
+  background-color: #f8e1e1;
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.upper::-webkit-scrollbar {
+  display: none;
+}
+
+.lower {
+  max-width: 800px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  padding-top: 20px;
+  box-shadow: 0 4px 15px rgba(116, 44, 44, 0.2);
+  transition: box-shadow 0.3s ease;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.lower::-webkit-scrollbar {
+  display: none;
+}
+
+.upper-div {
+  min-width: 600px;
+}
+
+.lower-div {
+  min-width: 700px;
+}
+
+.upper-div,
+.lower-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subdetail-item {
+  flex: 1;
+  padding: 5px;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center the items */
+}
+
+.subdetail-item span {
+  display: block;
+  color: #666;
+  font-size: 14px;
+  white-space: nowrap; /* Prevent line breaks in the label */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ellipsis if label is too long */
+}
+
+.subdetail-item div {
+  display: flex;
+  justify-content: center; /* Center the value */
+  overflow: hidden; /* Hide overflow */
+  max-height: 20px; /* Adjust based on your font size */
+  line-height: 1.6; /* Control line height */
+  white-space: nowrap; /* Prevent line breaks in the value */
+  text-overflow: ellipsis; /* Add ellipsis if value is too long */
+}
+
+.subdetail-item strong {
+  font-size: 13px;
+  font-weight: bold;
+  color: #363636;
+}
+
+
+.lower-box .subdetail-item {
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 480px) {
+  .subitem-div {
+    display: flex;
+    flex-direction: column;
+    align-items: normal;
+    padding: 0px 5px;
+  }
+
+  .upper {
+    margin: 0px 4%;
+    margin-bottom: -6px;
+    padding: 3px;
+    border-radius: 10px;
+  }
+
+  .lower {
+    padding: 0px;
+    padding-top: 10px;
+  }
+
+  .upper-div {
+    min-width: 400px;
+  }
+
+  .lower-div {
+    min-width: 600px;
+  }
+
+  .subdetail-item span {
+    overflow: visible;
+    font-size: 11px;
+    font-weight: 300;
+    line-height: 4px;
+  }
+
+  .subdetail-item strong {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .subitem-div {
+    display: flex;
+    flex-direction: column;
+    align-items: normal;
+  }
+
+  .upper {
+    margin: 0px 4%;
+    margin-bottom: -6px;
+  }
+
+  .subdetail-item span {
+    line-height: 8px;
+    overflow: visible;
+    margin-bottom: 5px;
+  }
+}

@@ -1,0 +1,52 @@
+
+.prop-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 20px;
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  .prop-header {
+    padding: 7px;
+    width: max-content;
+  }
+  
+  .prop-header ul {
+    display: flex; 
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+  }
+  
+  .prop-header li {
+    padding: 10px 20px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+  }
+  
+  .prop-header li:hover {
+    background-color: #f0f0f0;
+    color: #fa7e7e; 
+  }
+  
+  .prop-header .active-tab {
+    background-color: #e64949;
+    color: #fff; 
+    border-radius: 8px 8px ;
+    font-weight: bold; 
+  }
+  
+  @media (max-width: 768px) {
+
+    .prop-container {
+      display: none;
+    }
+    
+  }
+
+ 
