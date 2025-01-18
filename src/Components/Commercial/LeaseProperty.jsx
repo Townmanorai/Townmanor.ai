@@ -297,9 +297,9 @@ function LeaseProperty() {
               onChange={(e) => handleInputChange('city', e.target.value)}
             >
               <option value='Noida'>Noida</option>
-              <option value='Gurgoan'>Gurugram</option>
-              <option value='Delhi'>Gurugram</option>
-              <option value='Faridabad'>Gurugram</option>
+              <option value='Gurgaon'>Gurugram</option>
+              <option value='Delhi'>Delhi</option>
+              <option value='Faridabad'>Faridabad</option>
             </select>
           </div>
           <div className="form-field">
@@ -325,12 +325,18 @@ function LeaseProperty() {
           <div className="form-field">
             <label>Categories (Tags)</label>
             <div className="category-input">
-              <input
+              <select
                 type="text"
                 value={categoryInput}
                 onChange={handleCategoryInputChange}
                 placeholder="Enter category"
-              />
+              >
+                <option value="">select option</option>
+                <option value="officespace">officespace</option>
+                <option value="shop">shop</option>
+                <option value="restaurant">restuarant</option>
+                <option value="other">other</option>
+               </select> 
               <button type="button" onClick={handleAddCategory}>
                 Add Category
               </button>
@@ -403,11 +409,16 @@ function LeaseProperty() {
         <div className="form-row">
           <div className="form-field">
             <label>Construction Status</label>
-            <input
+            <select
              select
               value={formData.Construction}
               onChange={(e) => handleInputChange('Construction', e.target.value)}
-            />
+            >
+            <option value="">select option</option>
+            <option value="Ready To Move">Ready To Move</option>
+            <option value="Under Construction">Under Construction</option>
+            <option value="New Launch">New Launch</option>
+            </select>
           </div>
           <div className="form-field">
             <label>Project Unit</label>

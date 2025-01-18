@@ -21,7 +21,7 @@ function Commercial() {
   const [commercialdata, setcommercialdata] = useState([]);
   const [compareshow, setcompareshow] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [city, setCity] = useState('Noida');
+  const [city, setCity] = useState();
   const [leasedata, setleasedata] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -44,6 +44,8 @@ function Commercial() {
         const response = await axios.get('https://www.townmanor.ai/api/api/commercial/commercial-details');
         // Parse the category string to an array
         setcommercialdata(response.data);
+        console.log(response.data)
+        // setCity('Noida');
         console.log(commercialdata);
       } catch (error) {
         console.error('Error fetching data:', error);

@@ -55,19 +55,7 @@ function Phone() {
     const [description, setDescription] = useState("");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-   
-    useEffect(() => {
-        const token = Cookies.get('token'); // Get token from cookies
-
-        // Check if the token exists
-        if (!token) {
-            // If no token, redirect to the authentication page
-            navigate('/auth'); 
-        }
-        else{
-            navigate('/form'); 
-        }
-    }, [navigate]);
+  
     const initialdata = {
         'pincode': null,
         'city': null,
@@ -267,7 +255,7 @@ function Phone() {
     
         try {
             // Upload the floorplans to the backend
-            const response = await axios.post('https://www.townmanor.ai/api/upload-images', formData, {
+            const response = await axios.post('https://www.townmanor.ai/api/image/aws-upload-owner-images', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -276,12 +264,12 @@ function Phone() {
             // Check if the upload was successful
             if (response.status === 200) {
                 // Assuming the backend returns the floorplan paths in the `imagePaths` field
-                const uploadedFloorplanPaths = response.data.imagePaths;
+                const uploadedFloorplanPaths = response.data.fileUrls;
                 console.log(uploadedFloorplanPaths);
     
                 // Trim the paths to remove the "public\\images\\" part
                 const trimmedFloorplanPaths = uploadedFloorplanPaths.map((path) => {
-                    return path.replace("public\\images\\", ""); // Modify path as needed
+                    return path.replace("https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/", ""); // Modify path as needed
                 });
     
                 // Update the floorplan state with the trimmed paths
@@ -309,14 +297,14 @@ function Phone() {
         }
     
         // Prepare the FormData to send to the backend
-        const formData = new FormData();
+        const formdata = new FormData();
         files.forEach(file => {
-            formData.append("images", file); // 'images' is the key expected by the backend
+            formdata.append('images', file); // 'images' is the key expected by the backend
         });
     
         try {
             // Upload the images to the backend
-            const response = await axios.post('https://www.townmanor.ai/api/upload-images', formData, {
+            const response = await axios.post('https://www.townmanor.ai/api/image/aws-upload-owner-images', formdata, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -325,11 +313,11 @@ function Phone() {
             // Check if the upload was successful
             if (response.status === 200) {
                 // Assuming the backend returns the image paths in the `imagePaths` field
-                const uploadedImagePaths = response.data.imagePaths;
+                const uploadedImagePaths = response.data.fileUrls;
                 console.log(uploadedImagePaths);
                 // Convert relative paths to full URLs
                 const trimmedImagePaths = uploadedImagePaths.map((path) => {
-                    return path.replace("public\\images\\", "");
+                    return path.replace("https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/", "");
                 });
     
                 // Update the photos state with the full image URLs
@@ -378,7 +366,7 @@ function Phone() {
         console.log(formDataToSubmit);
         try {
             // Send the form data to the server
-            const response = await axios.post('https://www.townmanor.ai/api/addproperty', formDataToSubmit);
+            const response = await axios.post('https://www.townmanor.ai/api/owner-property/', formDataToSubmit);
             
             // Handle the response from the server
             if (response.status === 201) {
