@@ -18,13 +18,13 @@ function Dashboard() {
   // UseEffect to extract the username from the JWT token in cookies
   useEffect(() => {
     const token = Cookies.get('jwttoken'); // Retrieve the token from cookies
-    console.log('Token from cookies:', token);  // Log the retrieved token for debugging
+    // console.log('Token from cookies:', token);  // Log the retrieved token for debugging
 
     if (token) {
       try {
         // Decode the token
         const decodedToken = jwtDecode(token);  
-        console.log('Decoded Token:', decodedToken);
+        // console.log('Decoded Token:', decodedToken);
         setUsername(decodedToken.username); // Set the username from the token
       } catch (error) {
         console.error('Error decoding token:', error);
@@ -46,7 +46,7 @@ function Dashboard() {
           const listingResponse = await fetch(`https://www.townmanor.ai/api/userpackage/${username}`);
           const listingData = await listingResponse.json();
           setprofileData(userData);
-          console.log('listingData Data:', listingData);
+          // console.log('listingData Data:', listingData);
     
           // Parse propertylisting if it's a string
           let propertyListingArray = [];
@@ -94,12 +94,12 @@ function Dashboard() {
             const parsedPackageData = JSON.parse(packageData.package_json);
             
             setPackageData(parsedPackageData); // Set the parsed package data
-            console.log('Parsed Package Data:', parsedPackageData);
+            // console.log('Parsed Package Data:', parsedPackageData);
 
             const parsedSubHistoryData = JSON.parse(packageData.subscription_history);
             
             setsubscriptionData(parsedSubHistoryData); // Set the parsed package data
-            console.log('Parsed Subs History Data:', parsedSubHistoryData);
+            // console.log('Parsed Subs History Data:', parsedSubHistoryData);
           } else {
             console.warn('Package not found for user:', username);
           }

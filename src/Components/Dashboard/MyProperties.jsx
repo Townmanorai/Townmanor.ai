@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MyProperties = ({ propertyData,packageData }) => {
-  console.log('Package Data:', packageData);
+  // console.log('Package Data:', packageData);
   return (
     <>
     <div className="content-box">
@@ -73,7 +73,7 @@ const MyProperties = ({ propertyData,packageData }) => {
               </thead>
               <tbody>
                 {/* Debug to see packageData type */}
-                {console.log('Type of packageData:', typeof packageData)}
+                {/* {console.log('Type of packageData:', typeof packageData)} */}
                 {/* Check if packageData is an array */}
                 {packageData && Array.isArray(packageData) && packageData.length > 0 ? (
                   packageData.map((pkg) => (

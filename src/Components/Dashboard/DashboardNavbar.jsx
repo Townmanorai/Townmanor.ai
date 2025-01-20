@@ -51,7 +51,7 @@ import Propertylead from './Propertylead';
 const DashboardNavbar = ({propertyData ,packageData,subscriptionData,profileData}) => {
   const [activeTab, setActiveTab] = useState('properties'); 
 
-  console.log("ProfileData User" , profileData);
+  // console.log("ProfileData User" , profileData);
 
   const renderContent = () => {
     switch (activeTab) {

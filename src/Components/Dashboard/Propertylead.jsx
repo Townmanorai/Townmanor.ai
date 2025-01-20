@@ -15,7 +15,7 @@ function PropertyLead({ propertyData }) {
     leadData.forEach(property => {
       axios.get(`https://www.townmanor.ai/api/property_lead/${property.id}`)
         .then(response => {
-          console.log(`API Response for property ${property.id}:`, response.data); // Debug: Log the API response
+          // console.log(`API Response for property ${property.id}:`, response.data); // Debug: Log the API response
           setLeadDetails(prevDetails => ({
             ...prevDetails,
             [property.id]: response.data // Store lead details based on property ID

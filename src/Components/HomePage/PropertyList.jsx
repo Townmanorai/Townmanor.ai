@@ -3,8 +3,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Slider from 'react-slick'; // Import the slider
-import './PropertyList.css'; // Your CSS file for styling
+import Slider from 'react-slick'; 
+import './PropertyList.css';
 
 const PropertyList = () => {
   const [properties, setProperties] = useState([]);
@@ -20,7 +20,7 @@ const PropertyList = () => {
       const data = await response.json();
       // Check if the data is an array and log it
       if (Array.isArray(data)) {
-        console.log("Fetched data:", data);
+        // console.log("Fetched data:", data);
         const sortedData = data.sort((a, b) => {
           const nameA = a.property_name ? a.property_name : '';
           const nameB = b.property_name ? b.property_name : '';
@@ -30,7 +30,7 @@ const PropertyList = () => {
         const limitedData = sortedData.slice(0, 10);
         
         setProperties(limitedData);
-        console.log("Sorted and limited data:", limitedData);
+        // console.log("Sorted and limited data:", limitedData);
       } else {
         console.error('Fetched data is not an array:', data);
       }
