@@ -340,47 +340,72 @@ function Phone() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         
+        // Show a loading spinner or similar UI feedback while waiting for coordinates
+        setLoading(true);
+    
         // Call getCoordinates to update coordinates
         await getCoordinates();
+    
+        // Ensure coordinates are successfully retrieved before proceeding
+        
+    
+        // Ensure that all required fields are filled out
+        // if (!formdata.property_name || !formdata.price || !formdata.city ) {
+        //     alert("Please fill in all required fields.");
+        //     setLoading(false);  // Stop loading
+        //     return;
+        // }
+    
+        // Generate description using OpenAI (if applicable)
+        if (!description) {
+            await generateDescription();
+        }
+    
+        // Wait for the description to be generated
         if (loading) {
-            alert("Loading coordinates, please wait...");
+            alert("Generating description, please wait...");
             return;
         }
-        const lat = coordinates.lat
-        const lng = coordinates.lng
+    
         // Prepare the form data to be sent in the POST request
         const formDataToSubmit = {
             ...formdata,
-            city:formdata.city,
-            description:description,
-            purpose: purpose,       // Append purpose
-            category: category,       // Append category
-            residential: residential, // Append residential type
-            floorplan: floorplan,     // Append floorplan
-            image_repository: photos, // Append photos array
+            city: formdata.city,
+            description: description,  // Ensure description is populated
+            purpose: purpose,       
+            category: category,       
+            residential: residential, 
+            floorplan: floorplan,     
+            image_repository: photos, 
             Commercail: commercial,
-            leased: leased ,
-            lat:lat,
-            lng:lng//commercial category
+            leased: leased,
+            lat: coordinates ? coordinates.lat : null,
+            lng: coordinates ? coordinates.lng : null
         };
-        console.log(formDataToSubmit);
+    
+        console.log("Form Data to Submit:", formDataToSubmit);  // Debugging
+    
         try {
             // Send the form data to the server
             const response = await axios.post('https://www.townmanor.ai/api/owner-property/', formDataToSubmit);
-            
+    
             // Handle the response from the server
             if (response.status === 201) {
                 console.log('Property added successfully:', response.data);
                 alert('Form submitted successfully!');
+                setLoading(false);// Navigate to a success page, if needed
             } else {
                 console.error('Error submitting form:', response);
                 alert('Failed to submit form.');
+                setLoading(false);
             }
         } catch (error) {
             console.error('Error submitting form:', error);
             alert('An error occurred. Please try again.');
+            setLoading(false);
         }
     };
+    
     const removeFile = (fileName, type) => {
         setformdata((prevData) => ({
             ...prevData,
