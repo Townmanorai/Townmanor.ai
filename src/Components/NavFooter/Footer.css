@@ -31,3 +31,21 @@
         border-radius: 40px 0 0;
     }
 }
+
+.footer-list .fc-icon{
+    left: -10px;
+    top: -4px;
+}
+
+.footer-list .fc-icon svg{
+    height: 16px;
+}
+
+.fc-icon{
+    left: -10px;
+    top: -4px;
+}
+
+.ml-2{
+    margin-top: 7px;
+}

@@ -2,8 +2,16 @@ import React from 'react';
 import "./Footer.css"
 import "../common.css";
 import "../commonsecond.css";
-
-
+import { LuMapPin } from "react-icons/lu";
+import { BsTelephone } from "react-icons/bs";
+import { RiSmartphoneLine } from "react-icons/ri";
+import { BsEnvelope } from "react-icons/bs";
+import { CiCircleChevRight } from "react-icons/ci";
+import { BiLogoFacebook } from "react-icons/bi";
+import { LiaTwitter } from "react-icons/lia";
+import { CiLinkedin } from "react-icons/ci";
+import { TiSocialLinkedin } from "react-icons/ti";
+import { LiaInstagram } from "react-icons/lia";
 
 const Footer = () => {
   return (
@@ -71,29 +79,29 @@ const Footer = () => {
                 <h3>CONTACT US</h3>
                 <ul className="footer-list">
                   <li>
-                    <i className="la la-map-marker"></i>
+                    <i className='fc-icon'><LuMapPin/></i>
                     <span className="value">ST-304, Eldeco Studio, Sector 93A, Noida India, PIN-201304</span>
                   </li>
                   <li>
-                    <i className="la la-phone"></i>
+                    <i className='fc-icon'><BsTelephone/></i>
                     <span className="value">
                       <a href="tel://9101204420450">+91-0120-4420450</a>
                     </span>
                   </li>
                   <li>
-                    <i className="la la-mobile"></i>
+                    <i className='fc-icon'><RiSmartphoneLine/></i>
                     <span className="value">
                       <a href="tel:+91 7042888903">7042888903</a>
                     </span>
                   </li>
                   <li>
-                    <i className="la la-envelope"></i>
+                    <i className='fc-icon'><BsEnvelope/></i>
                     <span className="value">
                       <a href="mailto:corporate@townmanor.in">corporate@townmanor.in</a>
                     </span>
                   </li>
                   <li>
-                    <i className="la la-chevron-circle-right"></i>
+                    <i className='fc-icon'><CiCircleChevRight/></i>
                     <span className="value">
                       <a href="https://townmanor.in/en/180/contact_us">CONTACT US</a>
                     </span>
@@ -251,26 +259,26 @@ const Footer = () => {
                     href="https://www.facebook.com/share.php?u=https://townmanor.in/"
                     onClick={() => window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600')}
                   >
-                    <i className="fa fa-facebook"></i>
+                    <i className='.fc-icon'><BiLogoFacebook/></i>
                   </a>
                   <a
                     href="https://twitter.com/home?status=https://townmanor.in/"
                     onClick={() => window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600')}
                   >
-                    <i className="fa fa-twitter"></i>
+                    <i className='.fc-icon'><LiaTwitter/></i>
                   </a>
                   <a
                     target="_blank"
                     href="https://www.linkedin.com/company/townmanor/"
                     onClick={() => window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600')}
                   >
-                    <i className="fa fa-linkedin"></i>
+                    <i className='.fc-icon'><TiSocialLinkedin/></i>
                   </a>
                   <a
                     href="https://www.instagram.com"
                     onClick={() => window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600')}
                   >
-                    <i className="fa fa-instagram"></i>
+                    <i className='.fc-icon'><LiaInstagram/></i>
                   </a>
                 </div>
               </div>
@@ -331,7 +339,7 @@ const Footer = () => {
                     <img
                       src="./Dubai-flag.jpg"
                       alt="Godrej Woods"
-                      className="footer-flag"
+                      className="footer-flag ml-2"
                     />
                     <img
                       src="./Flag-Doha.jpg"
