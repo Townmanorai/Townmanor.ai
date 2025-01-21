@@ -70,7 +70,7 @@ const Map = ({ results }) => {
 
   // Function to generate marker HTML content
   const generateMarkerHtml = (item) => {
-    let innerMarker = '<div class="marker-container"><div class="marker-card"><div class="front face"><i class="la la-home"></i></div><div class="back face"><i class="la la-home"></i></div><div class="marker-arrow"></div></div></div>';
+    let innerMarker = '<div class="marker-container"><div class="marker-card"><div class="front face"><i class="bi bi-house-door"></i></div><div class="back face"><i class="bi bi-house-door"></i></div><div class="marker-arrow"></div></div></div>';
   
     if (item.icon) {
       innerMarker = `<div class="marker-container marker-container-image"><div class="marker-card"><div class="front face"><img src="${item.icon}" alt="icon"></img></div></div><div class="marker-arrow"></div></div>`;

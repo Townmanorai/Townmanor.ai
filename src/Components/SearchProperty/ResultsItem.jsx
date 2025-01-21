@@ -127,8 +127,11 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import Carousel from 'react-bootstrap/Carousel'; // Importing Carousel from react-bootstrap
-
+import Carousel from 'react-bootstrap/Carousel';
+import { FaLocationDot } from "react-icons/fa6"; // Importing Carousel from react-bootstrap
+import { FaHeart } from "react-icons/fa6";
+import { CiCalendarDate } from "react-icons/ci";
+import { MdPeople } from "react-icons/md";
 import "../../common.css";
 import "../../commonsecond.css";
 import "./ResultsItem.css";
@@ -183,7 +186,7 @@ const ResultsItem = ({ item }) => {
             <h3>{item.option_10 || item.property_name}</h3>
             <div className="rate-info">
               <h5 className='blackalpenliebe'>
-                &#8377; {item.option_37 || item.price}
+                &#8377; {item.option_37 || item.price} {item.pricerange}
               </h5>
               {item.option_4 && (
                 <span className={`rate-info purpose-${item.option_4.toLowerCase().replace(/ /g, '_')}`}>
@@ -197,7 +200,7 @@ const ResultsItem = ({ item }) => {
               )}
             </div>
             <p>
-              <i className="la la-map-marker"></i>
+              <i ><FaLocationDot /></i>
               {item.address}
             </p>
           </Link>
@@ -213,17 +216,25 @@ const ResultsItem = ({ item }) => {
         <div className="card-footer">
           <span className="favorites-actions pull-left">
             <a href="#" data-id={item.id} className="add-to-favorites" style={{ display: item.is_favorite ? 'none' : '' }}>
-              <i className="la la-heart-o"></i>
+              <FaHeart  id='hearticon' />
             </a>
             <a href="#" data-id={item.id} className="remove-from-favorites" style={{ display: !item.is_favorite ? 'none' : '' }}>
-              <i className="la la-heart-o"></i>
+             
             </a>
             <i className="fa fa-spinner fa-spin fa-custom-ajax-indicator"></i>
           </span>
-          <span className='agent-owner'> {item.Listed_By}</span>
+
+          <span>
+          <MdPeople id='peopleicon' />
+          <span className='agent-owner'>   {item.Listed_By}</span>
+          </span>
+          
+
           <a href="#" title={swInDateFormat(item.property_date)} className="pull-right">
-            <i className="la la-calendar-check-o"></i>
-            {humanTimeDiff(new Date(item.property_date))}
+            <div>
+              <CiCalendarDate id='calendericon' />
+              {humanTimeDiff(new Date(item.property_date))}
+            </div>
           </a>
         </div>
         <Link to={`/property/${item.id}`} title={item.option_10} className="ext-link"></Link>
@@ -246,9 +257,40 @@ const showPrice = (price) => {
 
 const humanTimeDiff = (date) => {
   const now = new Date();
-  const diff = Math.floor((now - date) / (1000 * 60 * 60 * 24));
-  return `${diff} days ago`;
+  const diffInMs = now - date;
+
+  // If the date is in the future, return a custom message
+  if (diffInMs < 0) {
+    return "in the future";
+  }
+
+  const diffInSec = Math.floor(diffInMs / 1000); // Difference in seconds
+  const diffInMin = Math.floor(diffInSec / 60); // Difference in minutes
+  const diffInHours = Math.floor(diffInMin / 60); // Difference in hours
+  const diffInDays = Math.floor(diffInHours / 24); // Difference in days
+  const diffInWeeks = Math.floor(diffInDays / 7); // Difference in weeks
+  const diffInMonths = Math.floor(diffInDays / 30); // Approximate difference in months
+  const diffInYears = Math.floor(diffInDays / 365); // Difference in years
+  
+  // Return a human-friendly string based on the difference
+  if (diffInSec < 60) {
+    return `${diffInSec} seconds ago`;
+  } else if (diffInMin < 60) {
+    return `${diffInMin} minutes ago`;
+  } else if (diffInHours < 24) {
+    return `${diffInHours} hours ago`;
+  } else if (diffInDays < 7) {
+    return `${diffInDays} days ago`;
+  } else if (diffInWeeks < 4) {
+    return `${diffInWeeks} weeks ago`;
+  } else if (diffInMonths < 12) {
+    return `${diffInMonths} months ago`;
+  } else {
+    return `${diffInYears} years ago`;
+  }
 };
+
+
 
 export default ResultsItem;
 

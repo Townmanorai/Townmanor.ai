@@ -120,8 +120,11 @@ const InHouseServices = () => {
                 <div className="card-body" style={{
               backgroundColor:'lightgray'
             }}>
-                  <i className="icon-sevices">
+                  <i className="icon-sevices" style={{
+              backgroundColor:'rgb(255 174 23)'
+            }}>
                     <img
+                      
                       src={'/building.png'}
                       alt="Home Shift"
                     />

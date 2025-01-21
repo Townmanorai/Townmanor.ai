@@ -1,6 +1,7 @@
 h5.blackalpenliebe {
     color: black;
     font-size: 15px;
+    display: contents;
 }
 
 .agent-owner {
@@ -9,43 +10,118 @@ h5.blackalpenliebe {
     margin: 10px;
 }
 
-img.d-block.w-100.img-fluid {
-    height: 250px;
-    object-fit: fill;
+.card .card-body.item-list{
+    padding: 0 10px ;
 }
 
-body div.form-group.search_field .winter_dropdown_tree button:first-child div.form-group.search_field .winter_dropdown_tree button:first-child, div.form-group .winter_dropdown_tree button:first-child {
-    width: calc(100% - 40px);
-    min-width: initial;
-    padding-right: 5px;
-    position: relative;
-    z-index: 1 !important;
-    text-align: left;
+.card .card-footer{
+    padding: 5px 10px !important;
 }
 
-.banner-search .btn {
-    border-radius: 50px;
-    margin: 7px 0px;
-    padding: 0 36px;
-    height: 51px;
-    line-height: 51px;
-    float: right;
-    border: 0;
-    font-size: 14px;
-    color: #fff;
-    box-shadow: none;
-    position: relative;
-    overflow: hidden;
-    z-index: 1 !important;
+.card .card-body ul{
+    padding-bottom: 3px !important;
 }
 
-@media only screen and (max-width: 767px) {
-    .card.search-page {
-        width: 310px;
-        margin-right: 10px;
-    }
-    img.d-block.w-100.img-fluid {
-        height: 200px;
-        object-fit: fill;
-    }
+.card .card-body ul:after {
+    border: none !important;
+}
+
+.card .card-body p{
+    margin-bottom: 2px !important;
+    width: auto !important;
+    color: black !important;
+}
+
+.card .card-body h3{
+    width: fit-content;
+    margin: 0px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+}
+.list_products .card .img-block img {
+    border-radius: 10px 10px 0 0;
+    height: 22vh;
+}
+.rate-info{
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rate-info .purpose-sale{
+    text-transform: capitalize;
+    font-size: 12px;
+    background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
+    color: white !important;
+    text-align: center;
+    width: fit-content;
+    border-radius: 3px !important;
+}
+
+.cb-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.rate-info.p1{
+    width: auto;
+}
+
+.cf-div1{
+    display: contents;
+}
+
+.card .card-body ul li{
+    font-weight: 500 !important;
+
+}
+
+h5.blackalpenliebe{
+    color: darkgreen !important;
+    font-weight: 600;
+}
+
+
+
+.card .card-footer:hover svg:not(:root){
+    /* color: red; */
+    transition: color 0.2s ease-in-out;
+} 
+
+svg:not(:root) {
+    width: 20px;
+    color: grey;
+    height: auto;
+}
+
+.pull-right div{
+    display: flex;
+    align-items: center;
+    margin-top: -7px;
+}
+
+.card-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.agent-owner{
+    margin: 0 !important;
+    font-size: 13px;
+    color: #aeb4b6;
+    font-weight: 500;
+}
+
+#hearticon{
+    width: 16px;
+}
+#hearticon:hover{
+    color: #8a2e2e;
+}
+#peopleicon{
+    width: 19px;
 }

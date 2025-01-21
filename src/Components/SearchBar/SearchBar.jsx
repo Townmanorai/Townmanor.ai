@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './SearchBar.css'; // Import CSS file for styling
 import MultiRangeSlider from "multi-range-slider-react";
+import { useNavigate } from 'react-router-dom';
 const SearchBar = () => {
+  const navigate= useNavigate();
   const [city, setCity] = useState('noida');
   const [locality, setLocality] = useState('');
   const [configuration, setConfiguration] = useState('');
@@ -85,8 +87,7 @@ const SearchBar = () => {
             }
             }
           >
-            <img src="./rent.png" alt="" className='img' />
-            <br />Rent
+            {/* <img src="./rent.png" alt="" className='img' /> */}Rent
           </button>
           <button
             type="button"
@@ -106,8 +107,7 @@ const SearchBar = () => {
 
             }
           >
-            <img src='./buys.png' className='img' />
-            <br />Buy
+            {/* <img src='./buys.png' className='img' /> */}Buy
           </button>
           <button
             type="button"
@@ -126,8 +126,8 @@ const SearchBar = () => {
             }
             }
           >
-            <img src="./commercial.png" alt="" className='img' />
-            <br />Commercial
+            {/* <img src="./commercial.png" alt="" className='img' /> */}
+           Commercial
           </button>
           <button
             type="button"
@@ -147,8 +147,8 @@ const SearchBar = () => {
             }
             }
           >
-            <img src="./new.png" alt="" className='img' />
-            <br />New Projects
+            {/* <img src="./new.png" alt="" className='img' /> */}
+           New Projects
           </button>
           <button
             type="button"
@@ -167,8 +167,20 @@ const SearchBar = () => {
             }
             }
           >
-            <img src="./land.png" alt="" className='img' />
-            <br />Plot/Land
+            {/* <img src="./land.png" alt="" className='img' /> */}
+            Plot/Land
+          </button>
+          <button
+            type="button"
+            className={`btn btn-warning`}
+            onClick={()=>
+            {
+              navigate('/commercial')
+            }
+            }
+          >
+            {/* <img src="./land.png" alt="" className='img' /> */}
+            Commercial Inv.
           </button>
         </div>
         <br></br>
