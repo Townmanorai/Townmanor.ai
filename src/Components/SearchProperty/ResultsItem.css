@@ -32,12 +32,12 @@ h5.blackalpenliebe {
     color: black !important;
 }
 
-.card .card-body h3{
+/* .card .card-body h3{
     width: fit-content;
     margin: 0px !important;
     font-size: 15px !important;
     font-weight: 600 !important;
-}
+} */
 .list_products .card .img-block img {
     border-radius: 10px 10px 0 0;
     height: 22vh;
@@ -87,7 +87,7 @@ h5.blackalpenliebe{
 
 
 .card .card-footer:hover svg:not(:root){
-    /* color: red; */
+
     transition: color 0.2s ease-in-out;
 } 
 

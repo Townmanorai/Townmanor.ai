@@ -12,10 +12,12 @@ function Prices({ property }) {
   }
   const [mainimage,setmainimage]=useState(imageRepositoryArray[1]);
   const cleanImageUrl = (url) => {
+    if (typeof url !== 'string') {
+      return '';  // Return an empty string if URL is not a valid string
+    }
     return url
-      .trim() // Removes any extra whitespace from the front and back
-      .replace(/^[^a-zA-Z0-9]+/, '') // Remove non-alphanumeric characters from the start of the URL
-      .replace(/[^a-zA-Z0-9]+$/, ''); // Remove non-alphanumeric characters from the end of the URL
+      .replace(/^[^a-zA-Z0-9]+/, '')  // Remove non-alphanumeric characters from the start
+      .replace(/[^a-zA-Z0-9]+$/, '');  // Remove non-alphanumeric characters from the end
   };
   return (
     <div >
