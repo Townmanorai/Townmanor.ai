@@ -47,28 +47,28 @@ const Discovermore = () => {
 
         <Slider {...settings} className="banner-carousel" style={{height:"250px"}}>
           <div className="banner-slide">
-            <img src={'/600x600ad_space_available_4.jpg'} alt="ad_space_available_4.jpg" />
+            <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/ads-image/townmanor_discover_more8.jpg'} alt="ad_space_available_4.jpg" />
           </div>
           <div className="banner-slide">
-            <img src={'/600x600ad_space_available_2.jpg'} alt="ad_space_available_2.jpg" />
+            <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/ads-image/townmanor_discover_more4.jpeg'} alt="ad_space_available_2.jpg" />
           </div>
           <div className="banner-slide">
-            <img src={'/600x600ad_space_1.jpg'} alt="ad_space_1 (1).jpg" />
+            <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/ads-image/townmanor_discover_more5.jpg'} alt="ad_space_1 (1).jpg" />
           </div>
           <div className="banner-slide">
-            <img src={'/600x600ad_space_2.png'} alt="ad_space_2.png" />
+            <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/ads-image/townmanor_discover_more6.jpg'} alt="ad_space_2.png" />
           </div>
           <div className="banner-slide">
-            <img src={'/600x600ad_space_3.jpg'} alt="ad_space_3.jpg" />
+            <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/ads-image/townmanor_discover_more7.jpeg'} alt="ad_space_3.jpg" />
           </div>
           <div className="banner-slide">
-            <img src={'/600x600ad_space.jpg'} alt="ad_space.jpg" />
+            <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/ads-image/townmanor_discover_more1.png'} alt="ad_space.jpg" />
           </div>
           <div className="banner-slide">
-            <img src={'/600x600ad_space_1.jpg'} alt="ad_space_1.jpg" />
+            <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/ads-image/townmanor_discover_more2.jpg'} alt="ad_space_1.jpg" />
           </div>
           <div className="banner-slide">
-            <img src={'/600x600ad_space_available_3.jpg'} alt="ad_space_available_3.jpg" />
+            <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/ads-image/townmanor_discover_more3.jpeg'} alt="ad_space_available_3.jpg" />
           </div>
         </Slider>
       </div>
@@ -77,4 +77,3 @@ const Discovermore = () => {
 };
 
 export default Discovermore;
-
