@@ -1,12 +1,21 @@
 /* General styling for the form */
+.div-payment{
+  padding-top: 80px;
+  height: -webkit-fill-available;
+  position: relative;
+}
 .payment-form {
     background-color: #f9f9f9;
     max-width: 500px;
-    margin: 50px auto;
+    margin: 0 auto;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     font-family: 'Arial', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   
   .form-title {

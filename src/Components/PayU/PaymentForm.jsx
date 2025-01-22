@@ -61,7 +61,7 @@
 //   return (
 //     <form className="payment-form" onSubmit={initiatePayment}>
 //       <h2 className="form-title">Payment Information</h2>
-      
+
 //       <div className="form-group">
 //         <label htmlFor="firstname">First Name:</label>
 //         <input
@@ -142,7 +142,7 @@ const PaymentForm = () => {
     furl: 'http://localhost:3030/payu/failure',
   });
 
-  console.log("PaymentForm" ,paymentData)
+  console.log("PaymentForm", paymentData)
   const handleChange = (e) => {
     setPaymentData({ ...paymentData, [e.target.name]: e.target.value });
   };
@@ -182,59 +182,61 @@ const PaymentForm = () => {
   };
 
   return (
-    <form className="payment-form" onSubmit={initiatePayment}>
-      <h2 className="form-title">Payment Information</h2>
+    <div className='div-payment'>
+      <form className="payment-form" onSubmit={initiatePayment}>
+        <h2 className="form-title">Payment Information</h2>
 
-      <div className="form-group">
-        <label htmlFor="firstname">First Name:</label>
-        <input
-          type="text"
-          id="firstname"
-          name="firstname"
-          value={paymentData.firstname}
-          onChange={handleChange}
-          required
-        />
-      </div>
+        <div className="form-group">
+          <label htmlFor="firstname">First Name:</label>
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            value={paymentData.firstname}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-      <div className="form-group">
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={paymentData.email}
-          onChange={handleChange}
-          required
-        />
-      </div>
+        <div className="form-group">
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={paymentData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-      <div className="form-group">
-        <label htmlFor="phone">Phone:</label>
-        <input
-          type="text"
-          id="phone"
-          name="phone"
-          value={paymentData.phone}
-          onChange={handleChange}
-          required
-        />
-      </div>
+        <div className="form-group">
+          <label htmlFor="phone">Phone:</label>
+          <input
+            type="text"
+            id="phone"
+            name="phone"
+            value={paymentData.phone}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-      <div className="form-group">
-        <label htmlFor="amount">Amount:</label>
-        <input
-          type="number"
-          id="amount"
-          name="amount"
-          value={paymentData.amount}
-          onChange={handleChange}
-          required
-        />
-      </div>
+        <div className="form-group">
+          <label htmlFor="amount">Amount:</label>
+          <input
+            type="number"
+            id="amount"
+            name="amount"
+            value={paymentData.amount}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-      <button type="submit" className="submit-button">Pay Now</button>
-    </form>
+        <button type="submit" className="submit-button">Pay Now</button>
+      </form>
+    </div>
   );
 };
 

@@ -139,6 +139,9 @@ import LeaseProperty from './Components/Commercial/LeaseProperty';
 import Propertx from './Components/OwnerAgent/Property';
 import Commercialform2 from './Components/Commercial/Commercialform2';
 import UserListPropertyPage from './Components/SubComponent/UserListPropertyPage';
+import Transaction from './Components/PayU/Transaction';
+import Success2 from './Components/PayU/Success2';
+import Failure2 from './Components/PayU/Failure2';
 // import HomeShift from './HomeShift/HomeShift';
 
 function App() {
@@ -209,6 +212,9 @@ function App() {
         <Route path="/home/:id" element={<UserListPropertyPage />} />
         <Route path="/propertyOA" element={<Propertx />} />
         <Route path="/commercialform2" element={<Commercialform2 />} />
+        <Route path='/Success2' element={<Success2/>} />
+        <Route path='/Failure2' element={<Failure2/>} />
+        <Route path='/Transaction' element={<Transaction/>} />
         {/* You can also add dynamic routes for specific city or option pages */}
         {/* <Route path="/properties-for-sale-rent/:stateName" element={<PropertiesForSaleRent />} />
           <Route path="/pay-house-tax-online/:stateName" element={<PayHouseTaxOnline />} />

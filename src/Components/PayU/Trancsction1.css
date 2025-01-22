@@ -1,0 +1,191 @@
+#tr-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.tr-trans-main {
+    display: flex;
+    width: 38vw;
+    height: 54vh;
+    border: 2px solid #cfcccc;
+    padding: 63px 2vw;
+    flex-direction: column;
+    font-size: 18px;
+    font-family: monospace;
+    padding-left: 16vw;
+    line-height: 42px;
+    background: linear-gradient(90deg, rgba(246, 162, 162, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    border-radius: 15px;
+    margin-bottom: 14px;
+    position: relative;  
+    z-index: 1;  
+}
+
+
+.tr-trans-main h2 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.tr-trans-main p {
+    color: gray;
+}
+
+.tr-detail {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tr-detailx {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.tr-left {
+    font-weight: 550;
+}
+
+.tr-right {
+    color: gray;
+}
+
+.tr-right input {
+    width: 195px;
+    height: 35px;
+    background: transparent;
+    outline: none;
+    border: none;
+    box-shadow: 3px 3px 6px #e39999;
+    border-radius: 7px;
+}
+
+#pay {
+    width: 15vw;
+    font-weight: 550;
+    border-radius: 12px;
+    height: 4vh;
+    margin-top: 9px;
+    border-radius: 10px !important;
+}
+
+#pay2 {
+    border: 2px solid #bb1717;
+    color: #bb1717;
+    width: 10vw;
+    border-radius: 12px;
+    height: 4vh;
+    margin-top: 9px;
+    background-color: white;
+}
+
+#specialprice {
+    color: red;
+}
+
+
+.tr-planbox {
+    background: white;
+    padding: 16px 27px;
+    margin-right: -12vw;
+    width: 17vw;
+    border: 2px solid #d3d3d3;
+    height: 40vh;
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: monospace;
+    margin-top: 20px;
+    position: relative; 
+    z-index: 2;  
+}
+
+
+.plan {
+    margin-left: 2vw;
+    border-radius: 12px !important;
+    margin-top: 2vh;
+    font-weight: 550;
+    width: 12vw;
+}
+
+.tr-planbox h2 {
+    font-weight: 550;
+}
+
+#bullet {
+    font-size: 1.8rem;
+    color: rgb(116, 43, 43);
+}
+
+@media only screen and (max-width: 500px) {
+    .tr-trans-main {
+        width: 95vw;
+        height: 60vh;
+        padding: 3px 2vw;
+        padding-left: 7vw;
+        line-height: 44px;
+        background: linear-gradient(90deg, rgba(246, 162, 162, 1) 0%, rgba(255, 255, 255, 1) 100%);
+        border-radius: 15px;
+        margin-top: -32vh;
+    }
+
+    #tr-main {
+        display: flex;
+        justify-content: space-between;
+        height: 99vh;
+    }
+
+    .tr-planbox {
+        width: 80vw;
+        height: 41vh;
+        padding: 20px;
+        margin-left: 27px;
+    }
+
+    #pay {
+        width: 49vw;
+        font-weight: 550;
+        height: 5vh;
+    }
+
+    .plan {
+        width: 57vw;
+    }
+}
+
+@media only screen and (min-width: 501px) and (max-width: 1000px) {
+    .tr-trans-main {
+        width: 54vw;
+        height: 60vh;
+        padding: 63px 2vw;
+        padding-left: 19vw;
+        line-height: 35px;
+        background: linear-gradient(90deg, rgba(246, 162, 162, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    }
+
+    .tr-planbox {
+        width: 26vw;
+        height: 37vh;
+    }
+
+    .plan {
+        width: 19vw;
+    }
+}
+
+@media only screen and (min-width: 1001px) and (max-width: 1700px) {
+    .tr-trans-main {
+        width: 44vw;
+        height: 60vh;
+        padding: 63px 2vw;
+        padding-left: 16vw;
+        line-height: 35px;
+        background: linear-gradient(90deg, rgba(246, 162, 162, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    }
+
+    .tr-planbox {
+        width: 21vw;
+        height: 42vh;
+    }
+}

@@ -1,0 +1,165 @@
+#main2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.message2 {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+  text-align: center;
+  line-height: 25px;
+  box-shadow: 4px 5px 8px #c9c5c5;
+  border-radius: 7px;
+  position: absolute;
+  top: 15%;
+}
+.message2 h4 {
+  font-size: 16px;
+  color: gray;
+}
+.message2 h1 {
+  font-size: 30px;
+  color: red;
+  font-weight: 500;
+  margin-top: 4vh;
+  margin-left: -4vh;
+}
+.message2 h2 {
+  font-size: 20px;
+  font-weight: 550;
+}
+
+#paymentdata2 {
+  /* border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 7px 10px;
+  box-shadow: 3px 3px 4px #cb4a4a;
+  margin-top: 4vh;
+  margin-bottom: 1vh;
+  height: 17vh;
+  padding: 20px 2px; */
+  border-radius: 13px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 7px 10px;
+  box-shadow: 3px 3px 12px #ddd5d5;
+  box-shadow: 4px 4px 4px solid rgb(200, 146, 146);
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+#paymentdata2 p {
+  font-size: 16px;
+  line-height: 25px;
+}
+#sucess {
+  width: 30%;
+}
+.payment2 {
+  display: flex;
+  justify-content: center;
+}
+#lastline2 {
+  margin-top: 15px;
+  font-weight: 550;
+  color: rgb(103, 102, 102);
+}
+#lastline2 span {
+  color: green;
+}
+#paymentdata2 span {
+  color: red;
+  text-transform: uppercase;
+  font-weight: 550;
+  cursor: pointer;
+}
+
+@media (min-width: 786px) {
+  .message {
+    top: 15%;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 500px) {
+  .message h1 {
+    font-size: 18px;
+  }
+  .message h2 {
+    font-size: 14px;
+  }
+  #paymentdata p {
+    font-size: 12px;
+  }
+  .message h4 {
+    font-size: 12px;
+  }
+}
+
+/* }
+@media only screen and (min-width: 0px) and (max-width: 500px) {
+
+    .message2 {
+        width: 95vw;
+        height: 49vh;
+     }
+     .message2 h1{
+        font-size: 18px;
+     }
+     .message2 h2 {
+        font-size: 13px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+    }
+    #paymentdata2 p {
+        font-size: 12px;
+        line-height: 22px;
+    }
+
+}
+@media only screen and (min-width: 501px) and (max-width: 1000px){
+    .message2 {
+        width: 56vw;
+        height: 34vh;
+     }
+     .message2 h1{
+        font-size: 18px;
+     }
+     #paymentdata2{
+        margin-top: 2vh;
+     }
+     .message2 h2 {
+        font-size: 13px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+    }
+    #paymentdata2 p {
+        font-size: 12px;
+        line-height: 22px;
+    }
+}
+@media only screen and (min-width: 1001px) and (max-width: 1600px){
+    #paymentdata2 p {
+        font-size: 16px;
+        line-height: 28px;
+    }
+}
+@media only screen and (min-width: 1601px) and (max-width: 3000px){
+    .message2 {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid rgb(0, 0, 0);
+        padding: 30px 10px;
+        text-align: center;
+        height: 51vh;
+        line-height: 25px;
+        box-shadow: 4px 5px 8px #a7a5a5;
+        border-radius: 7px;
+        width: 32vw;
+    }
+} */

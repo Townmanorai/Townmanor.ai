@@ -1,0 +1,94 @@
+#main2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+  text-align: center;
+  line-height: 25px;
+  box-shadow: 4px 5px 8px #c9c5c5;
+  border-radius: 7px;
+  position: absolute;
+  top: 15%;
+}
+.message h4 {
+  font-size: 16px;
+  color: gray;
+}
+.message h1 {
+  font-size: 26px;
+  color: green;
+  font-weight: 500;
+  margin-top: 4vh;
+  margin-left: 30px;
+}
+.message h2 {
+  font-size: 20px;
+  font-weight: 550;
+}
+
+#paymentdata {
+  border-radius: 13px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 7px 10px;
+  box-shadow: 3px 3px 12px #ddd5d5;
+  box-shadow: 4px 4px 4px solid rgb(200, 146, 146);
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+#paymentdata p {
+  font-size: 16px;
+}
+#sucess {
+  width: 30%;
+}
+.payment {
+  display: flex;
+  justify-content: center;
+}
+#lastline {
+  margin-top: 15px;
+  font-weight: 550;
+  color: rgb(103, 102, 102);
+}
+#lastline span {
+  color: green;
+}
+#paymentdata span {
+  color: green;
+  text-transform: uppercase;
+  font-weight: 550;
+  cursor: pointer;
+}
+
+/* Responsive styles */
+
+@media (min-width: 786px) {
+  .message {
+    top: 15%;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 500px) {
+  .message h1 {
+    font-size: 18px;
+  }
+  .message h2 {
+    font-size: 14px;
+  }
+  #paymentdata p {
+    font-size: 12px;
+  }
+  .message h4 {
+    font-size: 12px;
+  }
+}
