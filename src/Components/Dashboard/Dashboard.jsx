@@ -59,7 +59,7 @@ function Dashboard() {
             const propertyDetailsPromises = propertyListingArray.map(async (propertyId) => {
               propertyId = propertyId.replace(/["[\]]/g, ''); // Remove quotes and brackets if it's stringified
     
-              const propertyResponse = await fetch(`https://www.townmanor.ai/api/property/${propertyId}`);
+              const propertyResponse = await fetch(`https://www.townmanor.ai/api/owner-property/${propertyId}`);
               const propertyData = await propertyResponse.json();
     
               if (propertyData.message === 'Property not found') {
