@@ -16,6 +16,7 @@ import 'swiper/css/autoplay';
 import 'swiper/css/effect-cards';
 import { FaCalendarAlt } from "react-icons/fa";
 import { PiMapPinAreaLight } from "react-icons/pi";
+import { FaLongArrowAltRight } from "react-icons/fa";
 function Commercial() {
 
   const [commercialdata, setcommercialdata] = useState([]);
@@ -51,9 +52,9 @@ function Commercial() {
         console.error('Error fetching data:', error);
       }
     };
-   
+
     fetchCommercialData();
-   
+
   }, []);
   const filterDataByCity = () => {
     return commercialdata.filter(item => item.city === city);
@@ -123,7 +124,7 @@ function Commercial() {
   const loadMore = () => {
     setVisibleCount(prevCount => prevCount + 3); // Load 3 more entries
   };
- 
+
   const formatCurrency = (amount) => {
     const crore = Math.floor(amount / 10000000);
     const lakh = Math.floor((amount % 10000000) / 100000);
@@ -139,8 +140,8 @@ function Commercial() {
     return formatted.join(' ');
   }
   const filteredData = commercialdata
-  .filter(item => item.city === city)  // Filter by city
-  .filter(item => JSON.parse(item.category).includes(category));
+    .filter(item => item.city === city)  // Filter by city
+    .filter(item => JSON.parse(item.category).includes(category));
   // console.log(filteredData);
   const trimPossessionDate = (dateString) => {
     // Ensure dateString is valid before slicing
@@ -151,10 +152,10 @@ function Commercial() {
   };
   const handleCompare = (index) => {
     const selectedItem = filteredData[index];
-  
+
     // Check if the selected property already exists in the compareData array
     const isDuplicate = compareData.some(item => item.id === selectedItem.id);  // Assuming 'id' is unique
-  
+
     if (isDuplicate) {
       console.log('This property is already in the compare list!');
     } else {
@@ -163,8 +164,8 @@ function Commercial() {
       console.log('Property added to compare list:', selectedItem);
     }
   };
-  
-  
+
+
   const filteredDatax = commercialdata.filter(item =>
     item.category && item.category.includes(category) && item.property_name // Ensure valid property name
   );
@@ -184,22 +185,22 @@ function Commercial() {
 
         </div>
         <div className='combanner combannerupdate'>
-      <form onSubmit={handleFormSubmit}>
-        <select value={city} onChange={handleCityChange}>
-          <option value="Noida">Noida</option>
-          <option value="Delhi">Delhi</option>
-          <option value="Gurgaon">Gurugram</option>
-          <option value="Faridabad">Faridabad</option>
-          <option value="Ghaziabad">Ghaziabad</option>
-        </select>
-        <input 
-          placeholder='Search project and locality'
-          value={searchQuery}
-          onChange={handleSearchQueryChange}
-        />
-        <button type="submit" className='combtn2'>Search</button>
-      </form>
-    </div>
+          <form onSubmit={handleFormSubmit}>
+            <select value={city} onChange={handleCityChange}>
+              <option value="Noida">Noida</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Gurgaon">Gurugram</option>
+              <option value="Faridabad">Faridabad</option>
+              <option value="Ghaziabad">Ghaziabad</option>
+            </select>
+            <input
+              placeholder='Search project and locality'
+              value={searchQuery}
+              onChange={handleSearchQueryChange}
+            />
+            <button type="submit" className='combtn2'>Search</button>
+          </form>
+        </div>
         <div className='fronthead'>
           <h1>Available <b>Property</b></h1>
         </div>
@@ -209,6 +210,39 @@ function Commercial() {
         <div className='fronthead'>
           <h1>Different <b>goal</b> Different <b>Option</b></h1>
         </div>
+        {/* <div id='newcommerciallisting'>
+          <div className='newcommercialleft'>
+            <img src='/apexmain.jpg' id='commerciallistingimg'></img>
+            <div id='listingbutton'>
+              <button className='btn btn-success' style={{
+                background:'green'
+              }}>
+                Compare
+              </button>
+              <button className='btn btn-secondary'>
+                Know More
+              </button>
+            </div>
+          </div>
+          <div className='newcommercialright'>
+            <div className='listingdataheading'>
+              <div id='listingmainhead'>
+                <span>Grandthum by 108</span>
+                <p>Noida Extension,Noida</p>
+              </div>
+              <span>Rating 4.5</span>
+            </div>
+            <div id='listingdatabox'>
+              <h1>Details</h1>
+              <div className='listingpoint'>
+              <li>Invest : 47 lakhs onwards</li>
+              <li>Invest : 47 lakhs onwards</li>
+              <li>Invest : 47 lakhs onwards</li>
+              <li>Invest : 47 lakhs onwards</li>
+              </div>
+            </div>
+          </div>
+        </div> */}
         <div className='investmentplan'>
           <div className='combuttonbox'>
             <button className={`combtn3 ${category === 'shop' ? 'activecom' : ''}`} onClick={() => {
@@ -223,26 +257,81 @@ function Commercial() {
               setcategroy('other');
             }}>Other</button>
           </div>
+
           <div className='investmentoptionbox'>
             {filteredData.length > 0 ? (
               filteredData.slice(0, visibleCount).map((item, index) => (
-                <div className='investmentoption' key={index}>
-                  <p id='investhead'>{item.project_name || "Unnamed Property"}</p>
-                  <div className='invdata'>
-                    <p id='add'>{item.address || "No Address Available"}</p>
-                    <button className='invbtn' onClick={() => {
-                      handleCompare(index)
-                    }}>Compare</button>
-                    <button className='invbtn invbtn2' onClick={() => {
-                      handleKnowMore(item.id)
-                    }}>Know More</button>
-                  </div>
-                  <div className='combuttonbox2'>
-                    <button className='combtn4'>Invest: {item.invest}</button>
-                    <button className='combtn4'>Return : {item.return_policy}</button>
-                    <button className='combtn4'>Possession Date: {trimPossessionDate(item.possession_date)}</button>
-                  </div>
-                </div>
+                // <div className='investmentoption' key={index}>
+                //   <p id='investhead'>{item.project_name || "Unnamed Property"}</p>
+                //   <div className='invdata'>
+                //     <p id='add'>{item.address || "No Address Available"}</p>
+                //     <button className='invbtn' onClick={() => {
+                //       handleCompare(index)
+                //     }}>Compare</button>
+                //     <button className='invbtn invbtn2' onClick={() => {
+                //       handleKnowMore(item.id)
+                //     }}>Know More</button>
+                //   </div>
+                //   <div className='combuttonbox2'>
+                //     <button className='combtn4'>Invest: {item.invest}</button>
+                //     <button className='combtn4'>Return : {item.return_policy}</button>
+                //     <button className='combtn4'>Possession Date: {trimPossessionDate(item.possession_date)}</button>
+                //   </div>
+                // </div>
+                <div id='newcommerciallisting' key={index}>
+          <div className='newcommercialleft'>
+            <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + item.face_image}  id='commerciallistingimg'></img>
+            <div id='listingbutton'>
+              <button className='btn btn-success' style={{
+                background:'black'
+              }}
+              onClick={()=>{handleCompare(item.id)}}
+              >
+                Compare
+              </button>
+              <button className='btn btn-secondary' onClick={()=>{handleKnowMore(item.id)}}>
+                Know More
+                
+              </button>
+            </div>
+          </div>
+          <div className='newcommercialright'>
+            <div className='listingdataheading'>
+              <div id='listingmainhead'>
+                <span>{item.project_name}</span>
+                <p>{item.address}</p>
+              </div>
+              {/* <span>
+                {item.builder}
+              </span> */}
+            </div>
+            <div id='listingdatabox'>
+              <h1>Details</h1>
+              <div className='listingpoint'>
+              <li><FaLongArrowAltRight style={{
+                color:'green',
+                margin:'2.5px 4px',
+                
+              }} />Invest : {item.invest}</li>
+              <li><FaLongArrowAltRight style={{
+                color:'green',
+                margin:'2.5px 4px',
+                
+              }}/>Return : {item.return_policy}</li>
+              <li><FaLongArrowAltRight style={{
+                color:'green',
+                margin:'2.5px 4px',
+                
+              }}/>Possession Date: {trimPossessionDate(item.possession_date)}</li>
+              <li><FaLongArrowAltRight style={{
+                color:'green',
+                margin:'2.5px 4px',
+                
+              }}/>Area : {item.project_area_range}</li>
+              </div>
+            </div>
+          </div>
+        </div>
               ))
             ) : (
               <p>No properties available for this category.</p>
@@ -261,7 +350,7 @@ function Commercial() {
                   <p id='investhead'>{item.property_name}</p>
                   <p id='add'>{item.address}</p>
                   <div className='invdata'>
-                  
+
                     <button className='invbtn' onClick={() => {
                       handleCompare(index)
                     }}>Compare</button>
@@ -279,7 +368,7 @@ function Commercial() {
             </Slider>
           </div>
         </div>
-        { compareData.length > 1 && (
+        {compareData.length > 1 && (
           <>
             <div className='fronthead leaseban'>
               <h1>Compare & <b>Choose</b></h1>
@@ -301,7 +390,7 @@ function Commercial() {
                 <div key={index} className='databox'>
                   <ul>
                     <li id='datahead'>{item.project_name}</li>
-                    <li id='imagebox'><img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/'+item.face_image} id='compareimg' /></li>
+                    <li id='imagebox'><img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + item.face_image} id='compareimg' /></li>
                     <li className='odd'> &#8377;{item.invest}</li>
                     <li>{item.address}</li>
                     <li className='odd'> &#8377;{item.return_policy} </li>
@@ -318,7 +407,7 @@ function Commercial() {
           </>
         )}
 
-        { compareData.length > 1 && (
+        {compareData.length > 1 && (
           <>
             <div className='comparebox2'>
               <Swiper
@@ -334,17 +423,17 @@ function Commercial() {
                   <SwiperSlide>
                     <div key={index} className='databox'>
                       <ul>
-                      <li id='datahead'>{item.project_name}</li>
-                    <li id='imagebox'><img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/'+item.face_image} id='compareimg' /></li>
-                    <li className='odd'> &#8377;{item.invest}</li>
-                    <li>{item.address}</li>
-                    <li className='odd'> &#8377;{item.return_policy} </li>
-                    <li >{item.construction_status}</li>
-                    <li className='odd'>{trimPossessionDate(item.possession_date)}</li>
-                    <li>{item.project_area_range}</li>
-                    <li className='odd'>{item.bank}</li>
-                    <button className='btn  btn-outline-success mt-3' onClick={() => handleKnowMore(item.id)}>Read more</button>
-                    <button className='btn btn-outline-dark mx-2 mt-3' onClick={() => handleDelete(index)}>Remove</button>
+                        <li id='datahead'>{item.project_name}</li>
+                        <li id='imagebox'><img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + item.face_image} id='compareimg' /></li>
+                        <li className='odd'> &#8377;{item.invest}</li>
+                        <li>{item.address}</li>
+                        <li className='odd'> &#8377;{item.return_policy} </li>
+                        <li >{item.construction_status}</li>
+                        <li className='odd'>{trimPossessionDate(item.possession_date)}</li>
+                        <li>{item.project_area_range}</li>
+                        <li className='odd'>{item.bank}</li>
+                        <button className='btn  btn-outline-success mt-3' onClick={() => handleKnowMore(item.id)}>Read more</button>
+                        <button className='btn btn-outline-dark mx-2 mt-3' onClick={() => handleDelete(index)}>Remove</button>
                       </ul>
                     </div>
                   </SwiperSlide>
@@ -362,28 +451,28 @@ function Commercial() {
             setleasetype('office_space');
             setVisible(!visible);
           }}>
-          <h1>OfficeSpace</h1>
-          <div>
-            <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/office-space.jpg" alt="" id='leaseimg' />
-          </div>
+            <h1>OfficeSpace</h1>
+            <div>
+              <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/office-space.jpg" alt="" id='leaseimg' />
+            </div>
           </div >
           <div className='lease-category' onClick={() => {
             setleasetype('shop');
             setVisible(!visible);
           }}>
-           <h1>Shop/Retail Space</h1>
-           <div>
-            <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/Shop.jpg" alt="" id='leaseimg' />
-          </div>
+            <h1>Shop/Retail Space</h1>
+            <div>
+              <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/Shop.jpg" alt="" id='leaseimg' />
+            </div>
           </div>
           <div className='lease-category' onClick={() => {
             setleasetype('shop');
             setVisible(!visible);
           }}>
-          <h1>Showroom</h1>
-          <div>
-            <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/showroom.jpg" alt="" id='leaseimg' />
-          </div>
+            <h1>Showroom</h1>
+            <div>
+              <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/showroom.jpg" alt="" id='leaseimg' />
+            </div>
           </div>
         </div>
         <div className='fronthead' style={{ display: visible ? 'block' : 'none' }}>
@@ -403,7 +492,7 @@ function Commercial() {
             {commercialdata.map((item, index) => (
 
               <SwiperSlide>
-                <div className='advbox2'><img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/'+item.image_banner} id='advertisment' alt={`Commercial image ${index + 1}`} /></div>
+                <div className='advbox2'><img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + item.image_banner} id='advertisment' alt={`Commercial image ${index + 1}`} /></div>
               </SwiperSlide>
             ))}
 
@@ -423,7 +512,7 @@ function Commercial() {
             {commercialdata.map((item, index) => (
 
               <SwiperSlide>
-                <div className='advbox2'><img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/'+item.image_banner} id='advertisment' alt={`Commercial image ${index + 1}`} /></div></SwiperSlide>
+                <div className='advbox2'><img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + item.image_banner} id='advertisment' alt={`Commercial image ${index + 1}`} /></div></SwiperSlide>
             ))}
 
             ...
@@ -466,7 +555,7 @@ function Commercial() {
 
               </input>
               <button type="button" class="prisubmit" style={{
-                background:'white !important'
+                background: 'white !important'
               }}>Submit</button>
             </form>
           </div>

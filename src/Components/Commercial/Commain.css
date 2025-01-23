@@ -863,9 +863,82 @@ h1,h2{
 .r2-vid iframe {
     border-radius: 10px;
 }
-  
+#commerciallistingimg{
+    height: 17vh;
+    width: 16vw;
+}  
+#newcommerciallisting{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    border: 1px solid grey;
+    margin: 2vh 8vw;
+    padding: 10px;
+    border-radius: 10px;
+    width: 80%;
+}
+.listingdataheading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.listingdataheading span{
+ font-size: 16px;
+ color: red;
+ font-weight: 500;
+}
+#listingmainhead span{
+    font-size: 18px;
+    color: black;
+    font-weight: 500;
+}
+#listingmainhead p{
+    font-size: 14px;
+    color: grey;
+    font-weight: 500;
+}
+.newcommercialright{
+    flex-basis: 70%;
+}
+.newcommercialleft{
+    padding: 15px;
+    border: 1px solid wheat;
+    box-shadow: 1px 1px 1px 1px gray;
+    border-radius: 8px;
+}
+.listingpoint{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 equal columns */
+    grid-template-rows: auto;
+    gap: 10px;
+}
+#listingdatabox {
+    margin: 2vh 0vw;
+    border: 1px solid #c0c1bd;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px #bbbbbb;
+}
+#listingdatabox h1{
+    font-size: 18px;
+}
+.listingpoint li{
 
-
+text-align: left;
+height: 4vh;
+padding: 10px;
+font-size: 16px;
+font-weight: 500;
+}
+#listingbutton{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#listingbutton button{
+    background: linear-gradient(to right, #ff4447, #8a2e2e);
+}
 
 @media only screen and (min-width: 0px) and (max-width: 500px) {
     #ban-img {
