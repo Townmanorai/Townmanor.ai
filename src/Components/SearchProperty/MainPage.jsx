@@ -36,12 +36,8 @@ const MainPage = ({ results, total_rows, view_grid_selected, view_list_selected 
       <section className="half-map-sec">
         <div className="container">
           <div className="row">
-            <div className="col-xl-6 col-lg-12">
-              <div id="map-container" className={`fullwidth-home-map ${window.innerWidth <= 768 ? 'map-hidden' : ''}`}>
-                <Map results={results} />
-              </div>
-            </div>
-            <div className="col-xl-6 col-lg-12">
+            
+            <div className="col-xl-7 col-lg-12">
              <SearchForm />
               <div className="listing-directs">
                 <div className="list-head">
@@ -92,6 +88,11 @@ const MainPage = ({ results, total_rows, view_grid_selected, view_list_selected 
                   />
                   <div className="result_preload_indic"></div>
                 </div>
+              </div>
+            </div>
+            <div className="col-xl-5 col-lg-12">
+              <div id="map-container" className={`fullwidth-home-map ${window.innerWidth <= 768 ? 'map-hidden' : ''}`}>
+                <Map results={results} />
               </div>
             </div>
           </div>
