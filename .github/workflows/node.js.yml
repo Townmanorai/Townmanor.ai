@@ -40,7 +40,7 @@ jobs:
         fi
 
     - name: Archive build artifacts (optional)
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: react-build
         path: ./dist  # Upload the build artifacts for further steps (e.g., for deployment)
