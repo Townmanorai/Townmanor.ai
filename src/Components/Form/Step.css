@@ -1,0 +1,108 @@
+.step {
+    text-align: center;
+    position: relative;
+    padding: 4px;
+    /* border-left: 4px dotted #C5393B; */
+    position: relative;
+    margin-left: 1em;
+    padding-left: 2em;
+    height: 10vh;
+  }
+  .step2{
+    border-left: 4px dotted #C5393B;
+  }
+  .step h2{
+      border-top-right-radius: 1em;
+      border-bottom-right-radius: 1em;
+      border: 1.5px solid #C5393B;
+    margin:0;
+    text-indent:1em;
+      color:#C5393B;
+    font-weight:normal;
+      font-size:1.3em;
+    margin-left:-1em;
+    height: 4vh;
+    padding: 3px;
+  }
+  /* The Balls*/
+  .step h2::before{
+    content: attr(data-step-id);
+    border-radius: 2em;
+    background-color: #ffffff;
+    border: 1px solid black;
+    color: black;
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+    position: absolute;
+    left: -1.1em;
+    top: 0;
+    text-align: center;
+    line-height: 2em;
+    font-size: 1.2em;
+    font-weight: normal;
+    color: #000000;
+    text-indent: 0;
+  }
+  /* Active step: */
+  .step.active h2{
+    background-color: #C5393B;
+    color:#FFFFFF;
+  }
+  .step.active h2::before{
+    border-right:3px solid #FFFFFF;
+  }
+  /* Arrow */
+ 
+  /* Inactive */
+  .step.inactive{ border-color:#bbbbbb; }
+  .step.inactive::before{ border-top-color:#bbbbbb; }
+  .step.inactive h2{ color:#aaaaaa;border-color:#bbbbbb; }
+  .step.inactive h2::before{background-color: #bbbbbb;}
+  
+  /* The last step: */
+  [class*='step']:last-of-type{border-color:transparent;}
+  [class*='step']:last-of-type::before{content:none;}
+  
+  /* ----------------------- */
+  /* The button*/
+  /* button{
+    background-color:#BBBBBB;
+    pointer-events: none;
+    border:none;
+    color:#FFFFFF;
+    border-radius:5px;
+    font-size:1.2em;
+    padding:5px 10px;
+    outline:none;
+  } */
+  .step.active .back,
+  .step.active .next{
+    background-color:rgb(122, 197, 228);
+    cursor:pointer;
+    pointer-events: auto;
+  }
+  .step.inactive button{
+    visibility:hidden;
+  }
+  button::-moz-focus-inner {border: 0;}
+  /* ----------------------- */
+  /* Basic page layout */
+  /* body {
+    max-width:600px;
+    margin:auto;
+    border:1px solid #aaa;
+    padding:1em;
+    font-size:1em;
+    font-family:Arial,Helvetica,sans-serif;
+  } */
+  @media all and (min-width: 400px){
+    .step h2 {font: size 1.1em;
+    }
+    
+  }
+  @media only screen and (min-width: 1000px) and (max-width: 1600px) {
+    .step h2 {font: size 1.1em;
+        height: 2vh !important;
+        }
+  }

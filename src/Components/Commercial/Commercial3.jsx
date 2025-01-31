@@ -220,6 +220,27 @@ const restuarant = comdata && comdata.restaurant
 const other = comdata && comdata.other
   ? JSON.parse(comdata.other)
   : [];
+  let categoryList = [];
+
+  try {
+    // Check if category exists and is a string
+    if (typeof comdata.category === 'string') {
+      // First parse the outer string to get the actual JSON string
+      const innerCategory = JSON.parse(comdata.category);
+
+      // Remove all special characters except for commas and split by commas
+      const cleanedCategory = innerCategory.replace(/[^a-zA-Z0-9,]/g, '');
+
+      // Convert the cleaned string into an array
+      categoryList = cleanedCategory.split(',').map(item => item.trim()); // Trim any extra spaces
+    }
+
+    // Log the category list to see if everything is parsed correctly
+    
+  } catch (e) {
+    console.error('Error parsing category:', e);
+    categoryList = []; // If there's an error, use an empty array
+  }
   return (
     <>
       <div style={{
@@ -514,7 +535,9 @@ const other = comdata && comdata.other
         </div>
         <div id='investment'>
           <h1>Project Having : </h1>
-          <span> {comdata.category ? JSON.parse(comdata.category).join(', ') : 'No categories available'} </span>
+          <span> 
+          {categoryList.length > 0 ? categoryList.join(', ') : 'No categories available'}
+          </span>
         </div>
         {/* <div id='paymentplan'>
           <h1>Payment Plan</h1>
@@ -538,7 +561,14 @@ const other = comdata && comdata.other
             <li> <span>Area: </span><div>{comdata.project_area_range}</div></li>
             <li><span>Construction :</span><div>{comdata.construction_status}</div></li>
             <li><span>Project Unit</span> <div>{comdata.project_unit}</div></li>
-            <li><span>Project having </span><div>{comdata.category ? JSON.parse(comdata.category).join(', ') : 'No categories available'}</div></li>
+            <li>
+              
+              <span>Project having </span><div>
+            
+              {categoryList.length > 0 ? categoryList.join(', ') : 'No categories available'}
+              </div>
+              
+              </li>
             <li><span>RERA ID: </span><div>{comdata.rera_id}</div></li>
 
           </div>
@@ -609,19 +639,17 @@ const other = comdata && comdata.other
       <div className='new'>
         <h1>Explore By Category</h1>
         <div className='category'>
-          {comdata.category && Array.isArray(JSON.parse(comdata.category)) ? (
-            JSON.parse(comdata.category).map((item, index) => {
-              return (
-                <span key={index} onClick={() => handleCategoryClick(item)} className='categorybox'>
-                  {item.icon}
-                  {/* <br /> */}
-                  {item}
-                </span>
-              );
-            })
-          ) : (
-            <p>No categories available</p> // Optional fallback message
-          )}
+        {categoryList.length > 0 ? (
+        categoryList.map((item, index) => {
+          return (
+            <span key={index} onClick={() => handleCategoryClick(item)} className='categorybox'>
+              {item}
+            </span>
+          );
+        })
+      ) : (
+        <p>No categories available</p> // Optional fallback message
+      )}
         </div>
         {(
           <div className='food-court'>

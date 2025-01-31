@@ -27,7 +27,7 @@ body,html{
 }
 .propertybtn{
     border: 1.5px solid #c7c3c3;
-    height: 4vh;
+    height: 35px !important;
     padding: 2px 4px;
     width: 22vw;
     border-radius: 7px;
@@ -39,7 +39,6 @@ body,html{
     border: none;
     background: linear-gradient(to right, #ff4447, #8a2e2e);
     color: white;
-    font-weight: 500;
     font-size: 14px; 
     width: 22vw;
     height: 4vh;
@@ -81,6 +80,7 @@ body,html{
 }
 .description{
   margin: 5px 0px !important;
+  font-size: 20px;
 }
 .formfield{
     width: 20vw;
@@ -227,7 +227,7 @@ button:hover{
     color: white;
     margin-bottom: 10px;
     width: 27vw;
-    height: 5vh;
+    height: 6vh;
 }
 .part3{
     display: flex;
@@ -373,7 +373,12 @@ button:hover{
   width: 25px;
   height: 25px;
 }
-
+#progressbar {
+  margin: 0vh 60px;
+  width: 25vw;
+  padding-top: 1vh;
+  height: 85vh;
+}
  @media only screen and (min-width: 0px) and (max-width: 450px) {
   .formfield-b{
     width: 24vw;
@@ -383,6 +388,9 @@ button:hover{
     font-weight: 600;
     box-shadow: 2px 3px 2px #e1dddd;
     text-align: center;
+}
+.progressbarphone{
+  display: none;
 }
 #floorplanname2, #filebox2 {
   font-size: 16px;
@@ -561,7 +569,7 @@ button:hover{
   border-radius: 12px;
   padding: 3px 4px;
   margin: 10px 7px;
-  height: 7vh;
+  height: 4vh;
 }
 .formbox {
   width: 31vw;
@@ -586,7 +594,7 @@ button:hover{
   cursor: pointer;
   text-align: center;
   margin-top: 0px;
-  height: 5vh;
+  height: 3vh;
   margin-right: 5px;
   font-family: arial;
   width: 13vw;
@@ -594,6 +602,7 @@ button:hover{
   color: white;
   border-radius: 10px;
 }
+
 #property {
   margin-left: 2vw;
   border: 2px solid rgb(192, 192, 192);
@@ -670,7 +679,7 @@ button:hover{
   background: linear-gradient(to right, #ff4447, #8a2e2e);
   color: white;
   width: 20vw;
-  height: 4vh;
+  height: 3vh;
 }
 .partition {
   padding: 12px 3px;
@@ -678,7 +687,9 @@ button:hover{
   justify-content: space-between;
   margin: 5px 5px;
 }
-
+.description{
+  font-size: 14px;
+}
 }
 @media only screen and (min-width: 1451px) and (max-width: 3000px){
   #upperview {
@@ -796,9 +807,10 @@ button:hover{
   border-radius: 12px;
   background: linear-gradient(to right, #ff4447, #8a2e2e);
   color: white;
-  width: 14vw;
-  height: 5vh;
+  width: 12vw;
+  height: 4vh;
 }
+
  input{
   width: 21px;
   height: 21px;
@@ -819,10 +831,10 @@ button:hover{
   cursor: pointer;
   text-align: center;
   margin-top: 0px;
-  height: 5vh;
+  height: 6vh;
   margin-right: 5px;
   font-family: arial;
-  width: 8vw;
+  width: fit-content;
   background: linear-gradient(to right, #ff4447, #8a2e2e);
   color: white;
   border-radius: 10px;
