@@ -13,7 +13,7 @@ import { BsShop } from "react-icons/bs";
 import { SlClose } from "react-icons/sl";
 import Map from '../SearchProperty/Map'
 import { useNavigate, useParams } from 'react-router-dom';
-
+import { Helmet } from 'react-helmet';
 function Commercial3() {
   const [comdata, setcomdata] = useState([]);
   const [price, setprice] = useState([]);
@@ -209,39 +209,44 @@ function Commercial3() {
     floorplanArray = []; // Default to an empty array if parsing fails
   }
   const officeImages = comdata && comdata.office_image
-  ? JSON.parse(comdata.office_image)
-  : [];
-const shopImages = comdata && comdata.retail_shop
-  ? JSON.parse(comdata.retail_shop)
-  : [];
-const restuarant = comdata && comdata.restaurant
-  ? JSON.parse(comdata.restaurant)
-  : [];
-const other = comdata && comdata.other
-  ? JSON.parse(comdata.other)
-  : [];
+    ? JSON.parse(comdata.office_image)
+    : [];
+  const shopImages = comdata && comdata.retail_shop
+    ? JSON.parse(comdata.retail_shop)
+    : [];
+  const restuarant = comdata && comdata.restaurant
+    ? JSON.parse(comdata.restaurant)
+    : [];
+  const other = comdata && comdata.other
+    ? JSON.parse(comdata.other)
+    : [];
   let categoryList = [];
   try {
     // Check if category exists and is a string
     if (typeof comdata.category === 'string') {
       // First parse the string to get the actual JSON array
       const innerCategory = JSON.parse(comdata.category);
-  
+
       // Ensure we have an array and not an object, then map it to trim any excess whitespace
       if (Array.isArray(innerCategory)) {
         categoryList = innerCategory.map(item => item.trim()); // Trimming any extra spaces
       }
     }
-  
+
     // Log the category list to see if everything is parsed correctly
     console.log('Category List:', categoryList);
   } catch (e) {
     console.error('Error parsing category:', e);
     categoryList = []; // If there's an error, use an empty array
   }
-  
+
   return (
     <>
+      <Helmet>
+  <title>{comdata?.project_name || "Commercial Property"} - Commercial Investment</title>
+  <meta name="description" content={truncatedText || "Explore the best commercial properties."} />
+  <meta name="keywords" content={`${comdata?.project_name || 'Commercial Property'}, ${comdata?.city || 'Unknown'}, ${comdata?.address || 'Unknown Address'}, ${comdata?.builder || 'Unknown Builder'}, Commercial property, Investment opportunity`} />
+</Helmet>
       <div style={{
         display: 'inline-block'
       }}>
@@ -384,9 +389,9 @@ const other = comdata && comdata.other
                   ? `url(${'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + other[0]})`
                   : 'url(/other.jpg)'
               }}
-              
+
             >
-            
+
               <span>other</span></div>
           </div>
           <div className='secondaryPhoto mobileview'>
@@ -396,11 +401,11 @@ const other = comdata && comdata.other
               setmodalimages('office_image');
               setmodalwork(`${comdata.office_image}`);
             }}
-            style={{
-              background: officeImages && officeImages.length > 0
-                ? `url(${'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + officeImages[0]})`
-                : 'url(/officespaceimg.jpg)'
-            }}
+              style={{
+                background: officeImages && officeImages.length > 0
+                  ? `url(${'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + officeImages[0]})`
+                  : 'url(/officespaceimg.jpg)'
+              }}
             >
               <span>Office Space</span>
             </div>
@@ -411,11 +416,11 @@ const other = comdata && comdata.other
               setmodalimages('retail_shop');
               setmodalwork(`${comdata.retail_shop}`);
             }}
-            style={{
-              background: shopImages && shopImages.length > 0
-                ? `url(${'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + shopImages[0]})`
-                : 'url(/retailspaceimg.png)'
-            }}
+              style={{
+                background: shopImages && shopImages.length > 0
+                  ? `url(${'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + shopImages[0]})`
+                  : 'url(/retailspaceimg.png)'
+              }}
             >
               <span>Retail Space/Shop</span>
             </div>
@@ -426,11 +431,11 @@ const other = comdata && comdata.other
               setmodalimages('restaurant');
               setmodalwork(`${comdata.restaurant}`);
             }}
-            style={{
-              background: restuarant && restuarant.length > 0
-                ? `url(${'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + restuarant[0]})`
-                : 'url(/restaurants.jpg)'
-            }}
+              style={{
+                background: restuarant && restuarant.length > 0
+                  ? `url(${'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + restuarant[0]})`
+                  : 'url(/restaurants.jpg)'
+              }}
             >
               <span>Restuarant</span>
             </div>
@@ -441,11 +446,11 @@ const other = comdata && comdata.other
               setmodalimages('other');
               setmodalwork(`${comdata.other}`);
             }}
-            style={{
-              background: other && other.length > 0
-                ? `url(${'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + other[0]})`
-                : 'url(/other.jpg)'
-            }}
+              style={{
+                background: other && other.length > 0
+                  ? `url(${'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + other[0]})`
+                  : 'url(/other.jpg)'
+              }}
             >
               <span>other</span>
 
@@ -534,9 +539,9 @@ const other = comdata && comdata.other
         </div>
         <div id='investment'>
           <h1>Project Having : </h1>
-          <span> 
-         {/* {JSON.parse(comdata.category)} */}
-         {categoryList.length>0 && categoryList + ' '}
+          <span>
+            {/* {JSON.parse(comdata.category)} */}
+            {categoryList.length > 0 && categoryList + ' '}
           </span>
         </div>
         {/* <div id='paymentplan'>
@@ -562,13 +567,13 @@ const other = comdata && comdata.other
             <li><span>Construction :</span><div>{comdata.construction_status}</div></li>
             <li><span>Project Unit</span> <div>{comdata.project_unit}</div></li>
             <li>
-              
+
               <span>Project having </span><div>
-            
-              {categoryList.length>0 && categoryList + ' '}
+
+                {categoryList.length > 0 && categoryList + ' '}
               </div>
-              
-              </li>
+
+            </li>
             <li><span>RERA ID: </span><div>{comdata.rera_id}</div></li>
 
           </div>
@@ -639,17 +644,17 @@ const other = comdata && comdata.other
       <div className='new'>
         <h1>Explore By Category</h1>
         <div className='category'>
-        {categoryList.length > 0 ? (
-        categoryList.map((item, index) => {
-          return (
-            <span key={index} onClick={() => handleCategoryClick(item)} className='categorybox'>
-              {item}
-            </span>
-          );
-        })
-      ) : (
-        <p>No categories available</p> // Optional fallback message
-      )}
+          {categoryList.length > 0 ? (
+            categoryList.map((item, index) => {
+              return (
+                <span key={index} onClick={() => handleCategoryClick(item)} className='categorybox'>
+                  {item}
+                </span>
+              );
+            })
+          ) : (
+            <p>No categories available</p> // Optional fallback message
+          )}
         </div>
         {(
           <div className='food-court'>
@@ -746,7 +751,7 @@ const other = comdata && comdata.other
 
               <h2 className='payment-plan-title'>Floor Plan</h2>
               <div id='buildingfpbox'>
-                <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images'+filteredFoodCourt.floorplan} id='buildingfloorplan' alt="Floor Plan" />
+                <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images' + filteredFoodCourt.floorplan} id='buildingfloorplan' alt="Floor Plan" />
               </div>
             </div>
           ) : (
@@ -864,7 +869,7 @@ const other = comdata && comdata.other
             id='lead2'
           >
             <div>
-              <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images'+imgpath} id='floorimg'></img>
+              <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images' + imgpath} id='floorimg'></img>
             </div>
           </Modal>
         </div>
@@ -891,7 +896,7 @@ const other = comdata && comdata.other
                 <li className='simimgbox'><img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + item.face_image} id='simimg1' alt="property"></img></li>
                 <li id='head'>{item.project_name}</li>
                 <ul>
-                  
+
                   <li><span>Location:</span>{item.address}</li>
                   <li><span>Invest:</span>&#8377;{item.invest}</li>
                   <li><span>Return:</span>{item.return_policy} </li>

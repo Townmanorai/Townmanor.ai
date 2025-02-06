@@ -17,6 +17,7 @@ import 'swiper/css/effect-cards';
 import { FaCalendarAlt } from "react-icons/fa";
 import { PiMapPinAreaLight } from "react-icons/pi";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { Helmet } from 'react-helmet';
 function Commercial() {
 
   const [commercialdata, setcommercialdata] = useState([]);
@@ -45,9 +46,9 @@ function Commercial() {
         const response = await axios.get('https://www.townmanor.ai/api/api/commercial/commercial-details');
         // Parse the category string to an array
         setcommercialdata(response.data);
-        console.log(response.data)
+        
         // setCity('Noida');
-        console.log(commercialdata);
+        
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -177,6 +178,18 @@ function Commercial() {
 
   return (
     < >
+       <Helmet>
+  <title>Commercial Investment platform</title>
+  <meta name="description" content="This is the platform which provides accurate data for commercial investment" />
+  <meta name="keywords" content="Commercial Investment, Protech platform, Commercial property in Noida, Commercial property in Gurugram" />
+  {commercialdata.map((property, index) => {
+    const propertyKeywords = `${property.project_name}, ${property.address}`;
+    return (
+      <meta key={index} name="keywords" content={propertyKeywords} />
+    );
+  })}
+</Helmet>
+
       <div className='containerbox'>
 
 
