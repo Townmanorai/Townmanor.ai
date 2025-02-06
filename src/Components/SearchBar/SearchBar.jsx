@@ -172,12 +172,15 @@ const SearchBar = () => {
           </button>
           <button
             type="button"
-            className={`btn btn-warning`}
+            className={`btn btn-warning btnr`}
             onClick={()=>
             {
               navigate('/commercial')
             }
             }
+            style={{
+              backgroundColor:'#FC9601'
+            }}
           >
             {/* <img src="./land.png" alt="" className='img' /> */}
             Commercial Inv.

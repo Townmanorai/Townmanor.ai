@@ -221,26 +221,25 @@ const other = comdata && comdata.other
   ? JSON.parse(comdata.other)
   : [];
   let categoryList = [];
-
   try {
     // Check if category exists and is a string
     if (typeof comdata.category === 'string') {
-      // First parse the outer string to get the actual JSON string
+      // First parse the string to get the actual JSON array
       const innerCategory = JSON.parse(comdata.category);
-
-      // Remove all special characters except for commas and split by commas
-      const cleanedCategory = innerCategory.replace(/[^a-zA-Z0-9,]/g, '');
-
-      // Convert the cleaned string into an array
-      categoryList = cleanedCategory.split(',').map(item => item.trim()); // Trim any extra spaces
+  
+      // Ensure we have an array and not an object, then map it to trim any excess whitespace
+      if (Array.isArray(innerCategory)) {
+        categoryList = innerCategory.map(item => item.trim()); // Trimming any extra spaces
+      }
     }
-
+  
     // Log the category list to see if everything is parsed correctly
-    
+    console.log('Category List:', categoryList);
   } catch (e) {
     console.error('Error parsing category:', e);
     categoryList = []; // If there's an error, use an empty array
   }
+  
   return (
     <>
       <div style={{
@@ -536,7 +535,8 @@ const other = comdata && comdata.other
         <div id='investment'>
           <h1>Project Having : </h1>
           <span> 
-          {categoryList.length > 0 ? categoryList.join(', ') : 'No categories available'}
+         {/* {JSON.parse(comdata.category)} */}
+         {categoryList.length>0 && categoryList + ' '}
           </span>
         </div>
         {/* <div id='paymentplan'>
@@ -565,7 +565,7 @@ const other = comdata && comdata.other
               
               <span>Project having </span><div>
             
-              {categoryList.length > 0 ? categoryList.join(', ') : 'No categories available'}
+              {categoryList.length>0 && categoryList + ' '}
               </div>
               
               </li>

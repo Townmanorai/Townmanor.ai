@@ -21,38 +21,42 @@ function PhoneSearchbar() {
     <div id='banner' style={{
       display: isVisible ? 'block' : 'none'
     }}>
-    <ul className="phone-searchbar">
-          <li className={`nav-item ${activeBtn === 'Buy' ? 'activep' : ''}`}
+        
+        <div className='searchbox' onClick={handleSearch}>
+         <h1 style={{
+          color:'white',
+          fontSize:'16px',
+          padding:'10px 2px'
+         }}>Discover best properties in one place</h1>
+        <input placeholder='Enter locality/property'  id='searchinput'  ></input>
+        <ul className="phone-searchbar">
+          <li className={`phonesearchbarbtn ${activeBtn === 'Buy' ? 'activep' : ''}`}
           onClick={()=>{
             setActiveBtn('Buy')
           }}
           >Buy</li>
-          <li className={`nav-item ${activeBtn === 'Rent' ? 'activep' : ''}`}
+          <li className={`phonesearchbarbtn ${activeBtn === 'Rent' ? 'activep' : ''}`}
           onClick={()=>{
             setActiveBtn('Rent')
           }}
           >Rent</li>
-          <li className={`nav-item ${activeBtn === 'Commercial' ? 'activep' : ''}`}
+          <li className={`phonesearchbarbtn ${activeBtn === 'Commercial' ? 'activep' : ''}`}
           onClick={()=>{
             setActiveBtn('Commercial')
           }}
           >Commercial</li>
-          <li className={`nav-item ${activeBtn === 'Newproperty' ? 'activep' : ''}`}
+          <li className={`phonesearchbarbtn ${activeBtn === 'Newproperty' ? 'activep' : ''}`}
           onClick={()=>{
             setActiveBtn('NewProperty')
           }}
           >New Property</li>
-          <li className={`nav-item ${activeBtn === 'Plot/land' ? 'activep' : ''}`}
+          <li className={`phonesearchbarbtn ${activeBtn === 'Plot/land' ? 'activep' : ''}`}
           onClick={()=>{
             setActiveBtn('Plot/land')
           }}
           >Plot/Land</li>
         </ul>
-        <div className='searchbox' onClick={handleSearch}>
-        <input placeholder='Enter locality/property'  id='searchinput'  ></input>
-        <span className='searchbutton '>
-          
-          <FaSearchLocation  id='search_icon'/></span>
+      
         </div>
         
     </div>

@@ -5,7 +5,7 @@
 
 .search-bar {
   margin: auto;
-  width: fit-content;
+  width: max-content;
   height: fit-content !important;
   margin-top: 0px;
   display: flex;
@@ -66,7 +66,7 @@
 .buttonbox {
   display: flex;
   /* background-color: white; */
-  width: 35%;
+  width: fit-content;
   border-radius: 15px;
   margin-bottom: -35px;
   position: relative;
@@ -91,14 +91,15 @@
   background-color: white;
   color: black;
   border: none;
-  width: 7vw;
+  width: fit-content;
   font-size: 15px;
   border: none !important;
         display: flex
 ;
         justify-content: space-around;
         align-items: center;
-        min-width: 7.5vw;
+        min-width: 8.5vw;
+        height: 34px;
 }
 
 .activebtn {
@@ -260,6 +261,7 @@ h3 {
 
   .total {
     display: block;
+    padding-bottom: 7vh;
   }
 
   .nav-item {
@@ -296,7 +298,7 @@ h3 {
 
   .multi-range-slider {
     display: flex !important;
-    /* position: fixed !important; */
+    position: relative !important;
     border: none !important;
     border-radius: 10px;
     padding: 20px 10px;
@@ -398,16 +400,16 @@ h3 {
   .buttonbox {
     display: flex;
     /* background-color: white; */
-    width: 52%;
+    width: fit-content;
     margin-top: 40px;
     gap: 20px;
   }
   .mysearchbar {
-    width: 77vw;
+    width: max-content;
     /* margin-left: -84px; */
   }
   .btnr{
-   min-width: 11vw;
+   min-width: 8.5vw;
   }
 }
 
@@ -439,7 +441,7 @@ h3 {
   .buttonbox {
     display: flex;
     /* background-color: white; */
-    width: 52%;
+    width: fit-content;
     margin-top: 40px;
     gap: 20px;
   }
@@ -449,7 +451,7 @@ h3 {
 ;
         justify-content: space-around;
         align-items: center;
-        min-width: 7.5vw;
+        min-width: 8.5vw;
     font-size: 15px;
     border: none !important;
     background-color: #ffffff;
@@ -463,7 +465,7 @@ h3 {
   margin-top: 6vh;
 }
 .btnr {
-  min-width: 10.5vw;
+  min-width: 8.5vw;
 }
 }
 
@@ -496,7 +498,7 @@ h3 {
     display: flex;
     margin-left: 22.5%;
     /* background-color: white; */
-    width: 42%;
+    width: fit-content;
     margin-top: 40px;
     gap: 20px;
   }
@@ -506,7 +508,8 @@ h3 {
     ;
             justify-content: space-around;
             align-items: center;
-            min-width: 7.5vw;
+            min-width: 8vw;
     font-size: 15px;
+    height: 34px;
   }
 }
