@@ -40,8 +40,8 @@ body {
 }
 
 .agent-card-new:hover {
-    transform: scale(1.02);
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+    /* transform: scale(1.02); */
+    /* box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2); */
 }
 
 .agent-image-new {
@@ -96,4 +96,17 @@ body {
 .agent-listings-new b {
     font-weight: bold;
     color: #343a40;
+}
+
+.btn-featured-agent{
+    border-radius: 8px;
+    background: linear-gradient(to right, #8a2e2e, #ff4447);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+}
+
+.list-featured-agent{
+    text-align: center;
+    margin: 20px 0px;
 }

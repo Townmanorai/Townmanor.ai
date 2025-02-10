@@ -200,7 +200,15 @@ const PopularListing = () => {
                     href={`https://townmanor.in/property/${property.id}/en/${property.title.replace(" ", "_")}`}
                     title={property.title}
                   >
-                    <h3>{property.title}</h3>
+                    <div className="cb-title">
+                      <h3>{property.title}</h3>
+                      <a href="#" data-id={property.id} className="add-to-favorites" style={{marginTop:'5px'}}>
+                        <i><FaHeart style={{
+                          height: '18px',
+                        }}
+                          id="hearticon" /></i>
+                      </a>
+                    </div>
                     <div className="rate-info">
                       <h5>{property.price}</h5>
                     </div>
@@ -218,14 +226,7 @@ const PopularListing = () => {
                 </div>
                 <div className="card-footer">
                   <span className="favorites-actions pull-left">
-                    <a href="#" data-id={property.id} className="add-to-favorites">
-                      {/* <i className="la la-heart-o"></i> */}
-                      <i><FaHeart style={{
-                        height:'18px',
-                        
-                      }}
-                      id="hearticon" /></i>
-                    </a>
+                    
                   </span>
                   <a
                     href="#"
@@ -240,7 +241,7 @@ const PopularListing = () => {
           ))}
 
           <div className="col-lg-12">
-    <div className="load-more-posts">
+    <div className="load-more-posts l-load">
       <a href="https://townmanor.in/en/145" title="" className="btn2">
         Load More
       </a>

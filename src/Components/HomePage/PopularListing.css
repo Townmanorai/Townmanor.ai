@@ -1,91 +1,90 @@
 /* Mobile specific styles */
 @media (max-width: 767px) {
-    /* Make the row containing the cards scrollable */
-    .popular-listing .scrollable-cards {
-      display: flex;
-      justify-content: flex-start !important;
-      flex-wrap: nowrap; /* Prevent wrapping */
-      overflow-x: auto; /* Enable horizontal scroll */
-      -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
-      scrollbar-width: none; /* Hide scrollbar in Firefox */
-    }
+  /* Make the row containing the cards scrollable */
+  .popular-listing .scrollable-cards {
+    display: flex;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow-x: auto; /* Enable horizontal scroll */
+    -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+  }
 
-    .popular-listing .scrollable-cards::-webkit-scrollbar {
-      display: none; /* Hide scrollbar in Chrome and Safari */
-    }
+  .popular-listing .scrollable-cards::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Chrome and Safari */
+  }
 
-    /* Ensure each column (card) takes proper width */
-    .popular-listing .scrollable-cards .col-lg-4,
-    .popular-listing .scrollable-cards .col-md-6 {
-      flex: 0 0 auto; /* Prevent shrinking */
-      width: 80%; /* Adjust the width of each card for mobile view */
-      margin-right: 15px; /* Add space between cards */
-    }
+  /* Ensure each column (card) takes proper width */
+  .popular-listing .scrollable-cards .col-lg-4,
+  .popular-listing .scrollable-cards .col-md-6 {
+    flex: 0 0 auto; /* Prevent shrinking */
+    width: 80%; /* Adjust the width of each card for mobile view */
+    margin-right: 15px; /* Add space between cards */
+  }
 
-    .popular-listing .scrollable-cards .card {
-      width: 100%; /* Ensure card takes up the full width of the column */
-    }
+  .popular-listing .scrollable-cards .card {
+    width: 100%; /* Ensure card takes up the full width of the column */
+  }
 
-    /* Ensure the "Load More" button is below the cards */
-    .popular-listing .load-more-posts {
-      margin-top: 20px; /* Add space above the button */
-      text-align: center; /* Center the button */
-      width: 100%;
-    }
+  /* Ensure the "Load More" button is below the cards */
+  .popular-listing .load-more-posts {
+    margin-top: 20px; /* Add space above the button */
+    text-align: center; /* Center the button */
+    width: 100%;
+  }
 
-    /* Remove default gutter styles to prevent overlapping */
-    .popular-listing .row {
-      margin-right: 0;
-      margin-left: 0;
-    }
+  /* Remove default gutter styles to prevent overlapping */
+  .popular-listing .row {
+    margin-right: 0;
+    margin-left: 0;
+  }
 
-    .popular-listing .col-lg-12 {
-      padding: 0;
-    }
+  .popular-listing .col-lg-12 {
+    padding: 0;
+  }
 }
 
 /* Hide this section on mobile */
 @media (max-width: 767px) {
-    .col-lg-12 .load-more-posts {
-      display: none;
-    }
-  
-    /* Show this section on mobile */
-    .load-more-posts-mobile {
-      display: block !important;
-      text-align: center;
-      margin: 20px 0;
-    }
-  }
-  
-  /* By default, hide the mobile version on larger screens */
-  .load-more-posts-mobile {
+  .col-lg-12 .load-more-posts {
     display: none;
   }
-  
 
-  .popular-listing .col-lg-4 {
-    -ms-flex: 0 0 33.333333%;
-    flex: 0 0 24.333333%;
-    max-width: 72.333333%;
+  /* Show this section on mobile */
+  .load-more-posts-mobile {
+    display: block !important;
+    text-align: center;
+    margin: 20px 0;
+  }
 }
-.popular-listing .card .card-body h3{
-font-size: 13px;
-font-weight: 600;
-margin-bottom: 0px;
+
+/* By default, hide the mobile version on larger screens */
+.load-more-posts-mobile {
+  display: none;
+}
+
+.popular-listing .col-lg-4 {
+  -ms-flex: 0 0 33.333333%;
+  flex: 0 0 24.333333%;
+  max-width: 72.333333%;
+}
+.popular-listing .card .card-body h3 {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 0px;
 }
 .popular-listing.hp2 .card {
-margin-bottom: 25px;
-height: 252px;
+  margin-bottom: 25px;
+  height: 252px;
 }
-.popular-listing .card .card-body h5{
-color: #242526;
-font-weight: 500;
-font-size: 13px;
+.popular-listing .card .card-body h5 {
+  color: #242526;
+  font-weight: 500;
+  font-size: 13px;
 }
 
-.popular-listing .card .card-body .rate-info{
-    position: relative;
+.popular-listing .card .card-body .rate-info {
+  position: relative;
   padding: 0 0 0px 0;
 }
 .popular-listing.hp2 .card.listing {
@@ -93,25 +92,40 @@ font-size: 13px;
   margin: 0px 0px 10px 0px;
   min-height: 300px;
 }
-@media only screen and (max-width: 767px) {
-    .popular-listing.row {
-        display: flex;
-        flex-wrap: nowrap;
-        margin-right: -15px;
-        overflow-x: scroll; /* Enable horizontal scrolling */
-        margin-left: -15px;
-    }
-    .popular-listing.card {
-        width: 300px; /* Set the width of cards for mobile view */
-        margin-right: 226px; /* Add margin between cards */
-    }
-.popular-listing.hp2 .card.listing {
-     height: 290px;
+
+.load-more-posts > .btn2 {
+  font-weight: 300;
 }
-    .load-more-posts {
-        text-align: center;
-        margin-top: 20px;
-    }
+
+.cb-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .popular-listing.row {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-right: -15px;
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    margin-left: -15px;
+  }
+  .popular-listing.card {
+    width: 300px; /* Set the width of cards for mobile view */
+    margin-right: 226px; /* Add margin between cards */
+  }
+  .popular-listing.hp2 .card.listing {
+    height: 290px;
+  }
+  .load-more-posts {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  svg:not(:root) {
+    width: fit-content;
+}
 }
 
 .popular-listing.hp2 .card .carousel-item img {
@@ -120,18 +134,17 @@ font-size: 13px;
   height: 150px;
 }
 
-  @media only screen and (max-width: 767px) {
-  
-  .property-box{
-    width: 250px
+@media only screen and (max-width: 767px) {
+  .property-box {
+    width: 250px;
   }
-      .card {
-          width: 250px; /* Set the width of cards for mobile view */
-          margin-right: 10px; /* Add margin between cards */
-      }
+  .card {
+    width: 250px; /* Set the width of cards for mobile view */
+    margin-right: 10px; /* Add margin between cards */
   }
+}
 
-  .popular-listing .card {
-    border: 1px solid rgba(0, 0, 0, .125);
-    border-radius: 22px 22px 20px 20px !important;
+.popular-listing .card {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 22px 22px 20px 20px !important;
 }
