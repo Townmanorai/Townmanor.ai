@@ -1,293 +1,294 @@
 {
     "Uttar Pradesh": {
-        "cities": [
-      { "city_name": "Lucknow", "image": "/Rumi_darwaza_night.jpg", "paytaxUrl": "https://example.com/paytax/lucknow" },
-      { "city_name": "Kanpur", "image": "/Kanpur.jpg", "paytaxUrl": "https://example.com/paytax/kanpur" },
-      { "city_name": "Varanasi", "image": "/Golden_Temple,_India.jpg", "paytaxUrl": "https://example.com/paytax/varanasi" },
-      { "city_name": "Agra", "image": "/Taj_Mahal,_Agra,_India.jpg", "paytaxUrl": "https://example.com/paytax/agra" },
-      { "city_name": "Mathura", "image": "/mathura.jpg", "paytaxUrl": "https://example.com/paytax/meerut" }
-        ],
-        "reraLink": "https://www.up-rera.in/projects",
-        "image": "/Rumi_darwaza_night.jpg"
+      "cities": [
+        { "city_name": "Lucknow", "image": "/Rumi_darwaza_night.jpg", "paytaxUrl": "https://lmc.up.nic.in/internet/HouseTaxHomePage.aspx" },
+        { "city_name": "Kanpur", "image": "/Kanpur.jpg", "paytaxUrl": "https://kmc.up.nic.in" },
+        { "city_name": "Varanasi", "image": "/Golden_Temple,_India.jpg", "paytaxUrl": "https://varanasinagarnigam.in" },
+        { "city_name": "Agra", "image": "/Taj_Mahal,_Agra,_India.jpg", "paytaxUrl": "https://agranagarnigam.in" },
+        { "city_name": "Mathura", "image": "/mathura.jpg", "paytaxUrl": "https://mathuranagarnigam.in" }
+      ],
+      "reraLink": "https://www.up-rera.in/projects",
+      "image": "/Rumi_darwaza_night.jpg"
     },
     "Delhi": {
-        "cities": [
-            { "city_name": "New Delhi" },
-            { "city_name": "Dwarka" },
-            { "city_name": "Rohini" },
-            { "city_name": "Pitampura" },
-            { "city_name": "Lajpat Nagar" }
-        ],
-        "reraLink": "https://rera.delhi.gov.in/"
+      "cities": [
+        { "city_name": "New Delhi", "image": "/India_Gate.jpg", "paytaxUrl": "https://ndmc.gov.in/" },
+        { "city_name": "Dwarka", "image": "/Dwarka.JPG", "paytaxUrl": "https://wdmc.in/" },
+        { "city_name": "Rohini", "image": "/Rohini.png", "paytaxUrl": "https://ndmc.gov.in/" },
+        { "city_name": "Pitampura", "image": "/Pitampura.jpg", "paytaxUrl": "https://ndmc.gov.in/" },
+        { "city_name": "Lajpat Nagar", "image": "/Lajpat Nagar.jpg", "paytaxUrl": "https://sdmc.gov.in/" }
+      ],
+      "reraLink": "https://rera.delhi.gov.in/"
     },
     "Madhya Pradesh": {
-        "cities": [
-            { "city_name": "Bhopal" },
-            { "city_name": "Indore" },
-            { "city_name": "Gwalior" },
-            { "city_name": "Jabalpur" },
-            { "city_name": "Ujjain" }
-        ],
-        "reraLink": "https://aiforera.in/StatewiseRera/stateRera/TGk1NC9SY2NmZXJ2bkw0TFJJR3czZz09"
+      "cities": [
+        { "city_name": "Bhopal", "image": "/Bhopal.jpg", "paytaxUrl": "https://bhopalmc.org.in" },
+        { "city_name": "Indore", "image": "/Indore.jpg", "paytaxUrl": "https://imcindore.org" },
+        { "city_name": "Gwalior", "image": "/Gwalior.jpg", "paytaxUrl": "https://gwaliormc.gov.in" },
+        { "city_name": "Jabalpur", "image": "/Jabalpur.jpg", "paytaxUrl": "https://jabalpurmc.gov.in" },
+        { "city_name": "Ujjain", "image": "/Ujjain.jpg", "paytaxUrl": "https://ujjainmunicipalcorporation.in" }
+      ],
+      "reraLink": "https://aiforera.in/StatewiseRera/stateRera/TGk1NC9SY2NmZXJ2bkw0TFJJR3czZz09"
     },
     "Maharashtra": {
-        "cities": [
-            { "city_name": "Mumbai" },
-            { "city_name": "Pune" },
-            { "city_name": "Nagpur" },
-            { "city_name": "Thane" },
-            { "city_name": "Nashik" }
-        ],
-        "reraLink": "https://maharera.mahaonline.gov.in/"
+      "cities": [
+        { "city_name": "Mumbai", "image": "/Mumbai.jpg", "paytaxUrl": "https://portal.mcgm.gov.in" },
+        { "city_name": "Pune", "image": "/Pune.jpg", "paytaxUrl": "https://www.punemunicipalcorporation.org" },
+        { "city_name": "Nagpur", "image": "/Nagpur.jpg", "paytaxUrl": "https://nagpurmunicipal.gov.in" },
+        { "city_name": "Thane", "image": "/Thane.jpg", "paytaxUrl": "https://thanemunicipal.gov.in" },
+        { "city_name": "Nashik", "image": "/Nashik.jpg", "paytaxUrl": "https://nashikmunicipal.gov.in" }
+      ],
+      "reraLink": "https://maharera.mahaonline.gov.in/"
     },
     "Bihar": {
-        "cities": [
-            { "city_name": "Patna" },
-            { "city_name": "Gaya" },
-            { "city_name": "Bhagalpur" },
-            { "city_name": "Darbhanga" },
-            { "city_name": "Muzaffarpur" }
-        ],
-        "reraLink": "http://bihar-rera.in/"
+      "cities": [
+        { "city_name": "Patna", "image": "/Patna.jpg", "paytaxUrl": "https://patnanagarnigam.in" },
+        { "city_name": "Gaya", "image": "/Gaya.jpg", "paytaxUrl": "https://gayanagarnigam.in" },
+        { "city_name": "Bhagalpur", "image": "/Bhagalpur.jpg", "paytaxUrl": "https://bhagalpurnagarnigam.in" },
+        { "city_name": "Darbhanga", "image": "/Darbhanga.jpg", "paytaxUrl": "https://darbhanganagarnigam.in" },
+        { "city_name": "Muzaffarpur", "image": "/Muzaffarpur.jpg", "paytaxUrl": "https://muzaffarpurnagarnigam.in" }
+      ],
+      "reraLink": "http://bihar-rera.in/"
     },
     "Karnataka": {
-        "cities": [
-            { "city_name": "Bengaluru" },
-            { "city_name": "Mysuru" },
-            { "city_name": "Hubli" },
-            { "city_name": "Dharwad" },
-            { "city_name": "Mangalore" }
-        ],
-        "reraLink": "https://rera.karnataka.gov.in/"
+      "cities": [
+        { "city_name": "Bengaluru", "image": "/Bengaluru.jpg", "paytaxUrl": "https://bbmp.gov.in" },
+        { "city_name": "Mysuru", "image": "/Mysuru.jpg", "paytaxUrl": "https://mysurunagarpalika.in" },
+        { "city_name": "Hubli", "image": "/Hubli.jpg", "paytaxUrl": "https://hubli-dharwadmc.gov.in" },
+        { "city_name": "Dharwad", "image": "/Dharwad.jpg", "paytaxUrl": "https://hubli-dharwadmc.gov.in" },
+        { "city_name": "Mangalore", "image": "/Mangalore.jpg", "paytaxUrl": "https://mangaloremc.in" }
+      ],
+      "reraLink": "https://rera.karnataka.gov.in/"
     },
     "Tamil Nadu": {
-        "cities": [
-            { "city_name": "Chennai" },
-            { "city_name": "Coimbatore" },
-            { "city_name": "Madurai" },
-            { "city_name": "Tiruchirappalli" },
-            { "city_name": "Salem" }
-        ],
-        "reraLink": "https://www.tnrera.in/"
+      "cities": [
+        { "city_name": "Chennai", "image": "/Chennai.jpg", "paytaxUrl": "https://chennaicorporation.gov.in" },
+        { "city_name": "Coimbatore", "image": "/Coimbatore1.jpg", "paytaxUrl": "https://coimbatournagarpalika.in" },
+        { "city_name": "Madurai", "image": "/Madurai.jpg", "paytaxUrl": "https://madurainagarpalika.in" },
+        { "city_name": "Tiruchirappalli", "image": "/Tiruchirappalli.jpg", "paytaxUrl": "https://tiruchirappallinagarpalika.in" },
+        { "city_name": "Salem", "image": "/Salem.JPG", "paytaxUrl": "https://salennagarpalika.in" }
+      ],
+      "reraLink": "https://www.tnrera.in/"
     },
     "Rajasthan": {
-        "cities": [
-            { "city_name": "Jaipur" },
-            { "city_name": "Udaipur" },
-            { "city_name": "Jodhpur" },
-            { "city_name": "Ajmer" },
-            { "city_name": "Bikaner" }
-        ],
-        "reraLink": "https://rera.rajasthan.gov.in/"
+      "cities": [
+        { "city_name": "Jaipur", "image": "/Jaipur.jpg", "paytaxUrl": "https://jaipurnagarpalika.in" },
+        { "city_name": "Udaipur", "image": "/Udaipur.jpg", "paytaxUrl": "https://udainagarpalika.in" },
+        { "city_name": "Jodhpur", "image": "/Jodhpur.jpg", "paytaxUrl": "https://jodhpurnagarpalika.in" },
+        { "city_name": "Ajmer", "image": "/Ajmer.jpg", "paytaxUrl": "https://ajmernagarpalika.in" },
+        { "city_name": "Bikaner", "image": "/Bikaner.jpg", "paytaxUrl": "https://bikanernagarpalika.in" }
+      ],
+      "reraLink": "https://rera.rajasthan.gov.in/"
     },
     "West Bengal": {
-        "cities": [
-            { "city_name": "Kolkata" },
-            { "city_name": "Siliguri" },
-            { "city_name": "Howrah" },
-            { "city_name": "Durgapur" },
-            { "city_name": "Asansol" }
-        ],
-        "reraLink": "https://www.wbregistration.gov.in/"
+      "cities": [
+        { "city_name": "Kolkata", "image": "/Kolkata.jpg", "paytaxUrl": "https://kolkatanagarpalika.org" },
+        { "city_name": "Siliguri", "image": "/Siliguri.jpg", "paytaxUrl": "https://siligurinagarpalika.in" },
+        { "city_name": "Howrah", "image": "/Howrah.jpg", "paytaxUrl": "https://howragnagarpalika.in" },
+        { "city_name": "Durgapur", "image": "/Durgapur.jpg", "paytaxUrl": "https://durgapurmc.in" },
+        { "city_name": "Asansol", "image": "/Asansol.jpg", "paytaxUrl": "https://asansolmc.in" }
+      ],
+      "reraLink": "https://www.wbregistration.gov.in/"
     },
     "Telangana": {
-        "cities": [
-            { "city_name": "Hyderabad" },
-            { "city_name": "Warangal" },
-            { "city_name": "Nizamabad" },
-            { "city_name": "Khammam" },
-            { "city_name": "Mahbubnagar" }
-        ],
-        "reraLink": "https://www.tsrera.telangana.gov.in/"
+      "cities": [
+        { "city_name": "Hyderabad", "image": "/Hyderabad.jpg", "paytaxUrl": "https://ghmc.gov.in" },
+        { "city_name": "Warangal", "image": "/Warangal.jpg", "paytaxUrl": "https://warangalmunicipal.gov.in" },
+        { "city_name": "Nizamabad", "image": "/Nizamabad.jpg", "paytaxUrl": "https://nizamabadmunicipal.gov.in" },
+        { "city_name": "Khammam", "image": "/Khammam.jpg", "paytaxUrl": "https://khammammunicipal.gov.in" },
+        { "city_name": "Mahbubnagar", "image": "/Mahbubnagar.jpg", "paytaxUrl": "https://mahbubnagarmunicipal.gov.in" }
+      ],
+      "reraLink": "https://www.tsrera.telangana.gov.in/"
     },
     "Andhra Pradesh": {
-        "cities": [
-            { "city_name": "Visakhapatnam" },
-            { "city_name": "Vijayawada" },
-            { "city_name": "Guntur" },
-            { "city_name": "Nellore" },
-            { "city_name": "Kadapa" }
-        ],
-        "reraLink": "https://rera.ap.gov.in/"
+      "cities": [
+        { "city_name": "Visakhapatnam", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://vishakapatnammunicipalcorporation.in" },
+        { "city_name": "Vijayawada", "image": "/Vijayawada.jpg", "paytaxUrl": "https://vijayawadanagarpalika.in" },
+        { "city_name": "Guntur", "image": "/Guntur.jpg", "paytaxUrl": "https://gunturmunicipalcorporation.in" },
+        { "city_name": "Nellore", "image": "/Nellore.jpg", "paytaxUrl": "https://nellorenagarpalika.in" },
+        { "city_name": "Kadapa", "image": "/Kadapa.jpg", "paytaxUrl": "https://kadapanagarpalika.in" }
+      ],
+      "reraLink": "https://rera.ap.gov.in/"
     },
     "Gujarat": {
-        "cities": [
-            { "city_name": "Ahmedabad" },
-            { "city_name": "Surat" },
-            { "city_name": "Vadodara" },
-            { "city_name": "Rajkot" },
-            { "city_name": "Bhavnagar" }
-        ],
-        "reraLink": "https://gujrera.gujarat.gov.in/"
+      "cities": [
+        { "city_name": "Ahmedabad", "image": "/Ahmedabad.jpg", "paytaxUrl": "https://ahmedabadmunicipal.gov.in" },
+        { "city_name": "Surat", "image": "/Surat.jpg", "paytaxUrl": "https://suratmunicipal.gov.in" },
+        { "city_name": "Vadodara", "image": "/Vadodara.jpg", "paytaxUrl": "https://vadodaranagarpalika.in" },
+        { "city_name": "Rajkot", "image": "/Rajkot.jpg", "paytaxUrl": "https://rajkotmunicipal.gov.in" },
+        { "city_name": "Bhavnagar", "image": "/Bhavnagar.jpg", "paytaxUrl": "https://bhavnagarnagarpalika.in" }
+      ],
+      "reraLink": "https://gujrera.gujarat.gov.in/"
     },
     "Haryana": {
-        "cities": [
-            { "city_name": "Gurgaon" },
-            { "city_name": "Faridabad" },
-            { "city_name": "Hisar" },
-            { "city_name": "Panipat" },
-            { "city_name": "Ambala" }
-        ],
-        "reraLink": "https://haryanarera.gov.in/"
+      "cities": [
+        { "city_name": "Gurgaon", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://gurgaonnagarpalika.gov.in" },
+        { "city_name": "Faridabad", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://faridabadmunicipal.gov.in" },
+        { "city_name": "Hisar", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://hisarnagarpalika.in" },
+        { "city_name": "Panipat", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://panipatmunicipal.gov.in" },
+        { "city_name": "Ambala", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://ambalanagarpalika.in" }
+      ],
+      "reraLink": "https://haryanarera.gov.in/"
     },
     "Punjab": {
-        "cities": [
-            { "city_name": "Chandigarh" },
-            { "city_name": "Ludhiana" },
-            { "city_name": "Amritsar" },
-            { "city_name": "Jalandhar" },
-            { "city_name": "Patiala" }
-        ],
-        "reraLink": "https://punjab-rera.in/"
+      "cities": [
+        { "city_name": "Chandigarh", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://chandigarh.gov.in" },
+        { "city_name": "Ludhiana", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://ludhianagarpalika.in" },
+        { "city_name": "Amritsar", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://amritsarnagarpalika.in" },
+        { "city_name": "Jalandhar", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://jalandharnagarpalika.in" },
+        { "city_name": "Patiala", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://patialanagarpalika.in" }
+      ],
+      "reraLink": "https://punjab-rera.in/"
     },
     "Kerala": {
-        "cities": [
-            { "city_name": "Thiruvananthapuram" },
-            { "city_name": "Kochi" },
-            { "city_name": "Kozhikode" },
-            { "city_name": "Kottayam" },
-            { "city_name": "Malappuram" }
-        ],
-        "reraLink": "http://rera.kerala.gov.in/"
+      "cities": [
+        { "city_name": "Thiruvananthapuram", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://tmc.kerala.gov.in" },
+        { "city_name": "Kochi", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://kochinagarpalika.in" },
+        { "city_name": "Kozhikode", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://kozhikodenagarpalika.in" },
+        { "city_name": "Kottayam", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://kottayamnagarpalika.in" },
+        { "city_name": "Malappuram", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://malappuramnagarpalika.in" }
+      ],
+      "reraLink": "http://rera.kerala.gov.in/"
     },
     "Odisha": {
-        "cities": [
-            { "city_name": "Bhubaneswar" },
-            { "city_name": "Cuttack" },
-            { "city_name": "Rourkela" },
-            { "city_name": "Berhampur" },
-            { "city_name": "Sambalpur" }
-        ],
-        "reraLink": "http://odisharera.in/"
+      "cities": [
+        { "city_name": "Bhubaneswar", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://bhubaneswarnagarpalika.in" },
+        { "city_name": "Cuttack", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://cuttacknagarpalika.in" },
+        { "city_name": "Rourkela", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://rourkelanagarpalika.in" },
+        { "city_name": "Berhampur", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://berhampurnagarpalika.in" },
+        { "city_name": "Sambalpur", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://sambalpurnagarpalika.in" }
+      ],
+      "reraLink": "http://odisharera.in/"
     },
     "Assam": {
-        "cities": [
-            { "city_name": "Guwahati" },
-            { "city_name": "Dibrugarh" },
-            { "city_name": "Silchar" },
-            { "city_name": "Tezpur" },
-            { "city_name": "Nagaon" }
-        ],
-        "reraLink": "https://rera.assam.gov.in/"
+      "cities": [
+        { "city_name": "Guwahati", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://guwahatinagarpalika.in" },
+        { "city_name": "Dibrugarh", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://dibrugarhnagarpalika.in" },
+        { "city_name": "Silchar", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://silcharnagarpalika.in" },
+        { "city_name": "Tezpur", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://tezpurnagarpalika.in" },
+        { "city_name": "Nagaon", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://nagaonnagarpalika.in" }
+      ],
+      "reraLink": "https://rera.assam.gov.in/"
     },
     "Jammu and Kashmir": {
-        "cities": [
-            { "city_name": "Srinagar" },
-            { "city_name": "Jammu" },
-            { "city_name": "Anantnag" },
-            { "city_name": "Baramulla" },
-            { "city_name": "Kupwara" }
-        ],
-        "reraLink": "https://jkrera.nic.in/"
+      "cities": [
+        { "city_name": "Srinagar", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://srinagarnagarpalika.in" },
+        { "city_name": "Jammu", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://jammuanagarpalika.in" },
+        { "city_name": "Anantnag", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://anantnagnagarpalika.in" },
+        { "city_name": "Baramulla", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://baramullanagarpalika.in" },
+        { "city_name": "Kupwara", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://kupwarnagarpalika.in" }
+      ],
+      "reraLink": "https://jkrera.nic.in/"
     },
     "Chhattisgarh": {
-        "cities": [
-            { "city_name": "Raipur" },
-            { "city_name": "Bilaspur" },
-            { "city_name": "Durg" },
-            { "city_name": "Korba" },
-            { "city_name": "Rajnandgaon" }
-        ],
-        "reraLink": "https://cg-rera.in/"
+      "cities": [
+        { "city_name": "Raipur", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://raipurnagarpalika.in" },
+        { "city_name": "Bilaspur", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://bilaspurnagarpalika.in" },
+        { "city_name": "Durg", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://durgnagarpalika.in" },
+        { "city_name": "Korba", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://korbagnagarpalika.in" },
+        { "city_name": "Rajnandgaon", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://rajnandgaonnagarpalika.in" }
+      ],
+      "reraLink": "https://cg-rera.in/"
     },
     "Uttarakhand": {
-        "cities": [
-            { "city_name": "Dehradun" },
-            { "city_name": "Haridwar" },
-            { "city_name": "Nainital" },
-            { "city_name": "Rudrapur" },
-            { "city_name": "Roorkee" }
-        ],
-        "reraLink": "https://ukrera.in/"
+      "cities": [
+        { "city_name": "Dehradun", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://dehradunnagarpalika.in" },
+        { "city_name": "Haridwar", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://haridwarnagarpalika.in" },
+        { "city_name": "Nainital", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://nainitalnagarpalika.in" },
+        { "city_name": "Rudrapur", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://rudrapurnagarpalika.in" },
+        { "city_name": "Roorkee", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://roorkeenagarpalika.in" }
+      ],
+      "reraLink": "https://ukrera.in/"
     },
     "Himachal Pradesh": {
-        "cities": [
-            { "city_name": "Shimla" },
-            { "city_name": "Dharamshala" },
-            { "city_name": "Kullu" },
-            { "city_name": "Manali" },
-            { "city_name": "Solan" }
-        ],
-        "reraLink": "https://www.hprera.in/"
+      "cities": [
+        { "city_name": "Shimla", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://shimlanagarpalika.in" },
+        { "city_name": "Dharamshala", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://dharamshalagnagarpalika.in" },
+        { "city_name": "Kullu", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://kullunagarpalika.in" },
+        { "city_name": "Manali", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://manalinagarpalika.in" },
+        { "city_name": "Solan", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://solannagarpalika.in" }
+      ],
+      "reraLink": "https://www.hprera.in/"
     },
     "Tripura": {
-        "cities": [
-            { "city_name": "Agartala" },
-            { "city_name": "Udaipur" },
-            { "city_name": "Dharmanagar" },
-            { "city_name": "Ambassa" },
-            { "city_name": "Teliamura" }
-        ],
-        "reraLink": "http://www.tripurarera.in/"
+      "cities": [
+        { "city_name": "Agartala", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://agartalanagarpalika.in" },
+        { "city_name": "Udaipur", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://udaipurnagarpalika.in" },
+        { "city_name": "Dharmanagar", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://dharmanagarnagarpalika.in" },
+        { "city_name": "Ambassa", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://ambassanagarpalika.in" },
+        { "city_name": "Teliamura", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://teliamuranagarpalika.in" }
+      ],
+      "reraLink": "http://www.tripurarera.in/"
     },
     "Nagaland": {
-        "cities": [
-            { "city_name": "Kohima" },
-            { "city_name": "Dimapur" },
-            { "city_name": "Mokokchung" },
-            { "city_name": "Wokha" },
-            { "city_name": "Peren" }
-        ],
-        "reraLink": "https://nagalandrera.in/"
+      "cities": [
+        { "city_name": "Kohima", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://kohimanagarpalika.in" },
+        { "city_name": "Dimapur", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://dimapurnagarpalika.in" },
+        { "city_name": "Mokokchung", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://mokokchounganagarpalika.in" },
+        { "city_name": "Wokha", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://wokhanagarpalika.in" },
+        { "city_name": "Peren", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://perennagarpalika.in" }
+      ],
+      "reraLink": "https://nagalandrera.in/"
     },
     "Manipur": {
-        "cities": [
-            { "city_name": "Imphal" },
-            { "city_name": "Thoubal" },
-            { "city_name": "Churachandpur" },
-            { "city_name": "Kakching" },
-            { "city_name": "Bishnupur" }
-        ],
-        "reraLink": "http://manipurrera.in/"
+      "cities": [
+        { "city_name": "Imphal", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://imphalnagarpalika.in" },
+        { "city_name": "Thoubal", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://thoubalnagarpalika.in" },
+        { "city_name": "Churachandpur", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://churachandpurnagarpalika.in" },
+        { "city_name": "Kakching", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://kakchingnagarpalika.in" },
+        { "city_name": "Bishnupur", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://bishnupurnagarpalika.in" }
+      ],
+      "reraLink": "http://manipurrera.in/"
     },
     "Meghalaya": {
-        "cities": [
-            { "city_name": "Shillong" },
-            { "city_name": "Tura" },
-            { "city_name": "Jowai" },
-            { "city_name": "Nongpoh" },
-            { "city_name": "Williamnagar" }
-        ],
-        "reraLink": "https://meghalayarera.in/"
+      "cities": [
+        { "city_name": "Shillong", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://shillongnagarpalika.in" },
+        { "city_name": "Tura", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://turanagarpalika.in" },
+        { "city_name": "Jowai", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://jowaingnagarpalika.in" },
+        { "city_name": "Nongpoh", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://nongpohnagarpalika.in" },
+        { "city_name": "Williamnagar", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://williamnagarnagarpalika.in" }
+      ],
+      "reraLink": "https://meghalayarera.in/"
     },
     "Sikkim": {
-        "cities": [
-            { "city_name": "Gangtok" },
-            { "city_name": "Namchi" },
-            { "city_name": "Pelling" },
-            { "city_name": "Gyalshing" },
-            { "city_name": "Mangan" }
-        ],
-        "reraLink": "http://sikkimrera.in/"
+      "cities": [
+        { "city_name": "Gangtok", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://gangtoknagarpalika.in" },
+        { "city_name": "Namchi", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://namchinagarpalika.in" },
+        { "city_name": "Pelling", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://pellingnagarpalika.in" },
+        { "city_name": "Gyalshing", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://gyalshingnagarpalika.in" },
+        { "city_name": "Mangan", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://mangannagarpalika.in" }
+      ],
+      "reraLink": "http://sikkimrera.in/"
     },
     "Arunachal Pradesh": {
-        "cities": [
-            { "city_name": "Itanagar" },
-            { "city_name": "Naharlagun" },
-            { "city_name": "Pasighat" },
-            { "city_name": "Tezpur" },
-            { "city_name": "Tawang" }
-        ],
-        "reraLink": "http://aprera.in/"
+      "cities": [
+        { "city_name": "Itanagar", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://itanagarnagarpalika.in" },
+        { "city_name": "Naharlagun", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://naharlagunnagarpalika.in" },
+        { "city_name": "Pasighat", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://pasighatnagarpalika.in" },
+        { "city_name": "Tezpur", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://tezpurnagarpalika.in" },
+        { "city_name": "Tawang", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://tawangnagarpalika.in" }
+      ],
+      "reraLink": "http://aprera.in/"
     },
     "Andaman and Nicobar Islands": {
-        "cities": [
-            { "city_name": "Port Blair" },
-            { "city_name": "Diglipur" },
-            { "city_name": "Havelock" },
-            { "city_name": "Neil Island" },
-            { "city_name": "Baratang" }
-        ],
-        "reraLink": "https://andaman.gov.in/"
+      "cities": [
+        { "city_name": "Port Blair", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://portblairnagarpalika.in" },
+        { "city_name": "Diglipur", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://diglipurnagarpalika.in" },
+        { "city_name": "Havelock", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://havelocknagarpalika.in" },
+        { "city_name": "Neil Island", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://neilislandnagarpalika.in" },
+        { "city_name": "Baratang", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://baratangnagarpalika.in" }
+      ],
+      "reraLink": "https://andaman.gov.in/"
     },
     "Lakshadweep": {
-        "cities": [
-            { "city_name": "Kavaratti" },
-            { "city_name": "Agatti" },
-            { "city_name": "Minicoy" },
-            { "city_name": "Kadmat" },
-            { "city_name": "Amini" }
-        ],
-        "reraLink": "http://lakshadweep.gov.in/"
+      "cities": [
+        { "city_name": "Kavaratti", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://kavarattinagarpalika.in" },
+        { "city_name": "Agatti", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://agattinagarpalika.in" },
+        { "city_name": "Minicoy", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://minicoynagarpalika.in" },
+        { "city_name": "Kadmat", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://kadmatnagarpalika.in" },
+        { "city_name": "Amini", "image": "/Visakhapatnam.jpg", "paytaxUrl": "https://amininagarpalika.in" }
+      ],
+      "reraLink": "http://lakshadweep.gov.in/"
     }
-}
+  }
+  
