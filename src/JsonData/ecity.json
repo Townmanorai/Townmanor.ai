@@ -3,9 +3,9 @@
       "cities": [
         { "city_name": "Lucknow", "image": "/Rumi_darwaza_night.jpg", "paytaxUrl": "https://lmc.up.nic.in/internet/HouseTaxHomePage.aspx" },
         { "city_name": "Kanpur", "image": "/Kanpur.jpg", "paytaxUrl": "https://kmc.up.nic.in" },
-        { "city_name": "Varanasi", "image": "/Golden_Temple,_India.jpg", "paytaxUrl": "https://varanasinagarnigam.in" },
-        { "city_name": "Agra", "image": "/Taj_Mahal,_Agra,_India.jpg", "paytaxUrl": "https://agranagarnigam.in" },
-        { "city_name": "Mathura", "image": "/mathura.jpg", "paytaxUrl": "https://mathuranagarnigam.in" }
+        { "city_name": "Varanasi", "image": "/Golden_Temple,_India.jpg", "paytaxUrl": "https://nnvns.org.in/PropertyPayment/Mutation_Citizen/ViewPropInvoice.aspx" },
+        { "city_name": "Agra", "image": "/Taj_Mahal,_Agra,_India.jpg", "paytaxUrl": "https://agrapropertytax.com/" },
+        { "city_name": "Mathura", "image": "/mathura.jpg", "paytaxUrl": "http://nnmvonline.in/" }
       ],
       "reraLink": "https://www.up-rera.in/projects",
       "image": "/Rumi_darwaza_night.jpg"

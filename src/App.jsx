@@ -143,6 +143,7 @@ import Transaction from './Components/PayU/Transaction';
 import Success2 from './Components/PayU/Success2';
 import Failure2 from './Components/PayU/Failure2';
 import HomeInterior from './Components/HomeInteriors/HomeInterior';
+import CityWise from './Components/Statewise/CityWise';
 // import HomeShift from './HomeShift/HomeShift';
 
 function App() {
@@ -150,7 +151,7 @@ function App() {
 
   const handleUserLogin = (user) => {
     setCurrentUser(user); // Set the current user when logging in
-    console.log(currentUser);
+    // console.log(currentUser);
   };
 
   return (
@@ -218,11 +219,11 @@ function App() {
         <Route path='/Transaction' element={<Transaction/>} />
         <Route path='/HomeInt' element={<HomeInterior/>} />
         {/* You can also add dynamic routes for specific city or option pages */}
-        {/* <Route path="/properties-for-sale-rent/:stateName" element={<PropertiesForSaleRent />} />
-          <Route path="/pay-house-tax-online/:stateName" element={<PayHouseTaxOnline />} />
-          <Route path="/land-record-verification/:stateName" element={<LandRecordVerification />} />
-          <Route path="/rera/:stateName" element={<RERA />} />
-          <Route path="/stateName/:stateName/city/:cityName" element={<CityWise />} />  Example for city route */}
+        {/* <Route path="/properties-for-sale-rent/:stateName" element={<PropertiesForSaleRent />} /> */}
+          {/* <Route path="/pay-house-tax-online/:stateName" element={<PayHouseTaxOnline />} /> */}
+          {/* <Route path="/land-record-verification/:stateName" element={<LandRecordVerification />} /> */}
+          {/* <Route path="/rera/:stateName" element={<RERA />} /> */}
+          <Route path="/stateName/:stateName/city/:cityName" element={<CityWise />} />  Example for city route
       </Routes>
       <Footer />
     </Router>
