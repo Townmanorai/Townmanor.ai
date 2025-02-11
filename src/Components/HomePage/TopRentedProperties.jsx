@@ -6,7 +6,7 @@ import './TopRentedProperties.css';  // Separate CSS for rented properties
 const propertiesData = [
   {
     id: 1,
-    imgSrc: "./770x483sobha_310_riverside_crescent1.webp",
+    imgSrc: "/770x483sobha_310_riverside_crescent1.webp",
     type: "3 BHK Flat",
     rent: "₹35,000/month",
     location: "Sector 62, Noida",
@@ -15,7 +15,7 @@ const propertiesData = [
   },
   {
     id: 2,
-    imgSrc: "./770x483sobha_310_riverside_crescent3.webp",
+    imgSrc: "/770x483sobha_310_riverside_crescent3.webp",
     type: "2 BHK Apartment",
     rent: "₹25,000/month",
     location: "Sector 18, Noida",
@@ -24,7 +24,7 @@ const propertiesData = [
   },
   {
     id: 3,
-    imgSrc: "./770x483sobha_310_riverside_crescent6.webp",
+    imgSrc: "/770x483sobha_310_riverside_crescent6.webp",
     type: "1 BHK Studio",
     rent: "₹15,000/month",
     location: "Sector 128, Noida",
@@ -33,7 +33,7 @@ const propertiesData = [
   },
   {
     id: 1,
-    imgSrc: "./770x483sobha_310_riverside_crescent5.webp",
+    imgSrc: "/770x483sobha_310_riverside_crescent5.webp",
     type: "3 BHK Flat",
     rent: "₹35,000/month",
     location: "Sector 62, Noida",
@@ -42,7 +42,7 @@ const propertiesData = [
   },
   {
     id: 2,
-    imgSrc: "./851x678bhutani_cyberthum101.jpg",
+    imgSrc: "/851x678bhutani_cyberthum101.jpg",
     type: "2 BHK Apartment",
     rent: "₹25,000/month",
     location: "Sector 18, Noida",
@@ -51,7 +51,7 @@ const propertiesData = [
   },
   {
     id: 3,
-    imgSrc: "./851x678bhutani_cyberthum103.jpg",
+    imgSrc: "/851x678bhutani_cyberthum103.jpg",
     type: "1 BHK Studio",
     rent: "₹15,000/month",
     location: "Sector 128, Noida",
@@ -60,7 +60,7 @@ const propertiesData = [
   },
   {
     id: 1,
-    imgSrc: "./851x678bhutani_cyberthum104.jpg",
+    imgSrc: "/851x678bhutani_cyberthum104.jpg",
     type: "3 BHK Flat",
     rent: "₹35,000/month",
     location: "Sector 62, Noida",
@@ -69,7 +69,7 @@ const propertiesData = [
   },
   {
     id: 2,
-    imgSrc: "./851x678bhutani_cyberthum101.jpg",
+    imgSrc: "/851x678bhutani_cyberthum101.jpg",
     type: "2 BHK Apartment",
     rent: "₹25,000/month",
     location: "Sector 18, Noida",
@@ -78,7 +78,7 @@ const propertiesData = [
   },
   {
     id: 3,
-    imgSrc: "./851x678bhutani_cyberthum101.jpg",
+    imgSrc: "/851x678bhutani_cyberthum101.jpg",
     type: "1 BHK Studio",
     rent: "₹15,000/month",
     location: "Sector 128, Noida",
