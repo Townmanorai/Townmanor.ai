@@ -29,7 +29,7 @@ const PopularListing = () => {
       id: 15, // Use unique IDs for each property
       title: "Bhutani Cyberthum",
       price: "₹ 2.5Cr-5.5Cr",
-      address: "Another address in Noida",
+      address: "140, Sector 137 Rd, Blossom County, Sector 137, Noida",
       images: [
         "./851x678bhutani_cyberthum101.jpg",
         "./851x678bhutani_cyberthum103.jpg",
@@ -43,7 +43,7 @@ const PopularListing = () => {
       id: 16,
       title: "Bhutani Alphathum",
       price: "₹ 1.74Cr-6.74Cr",
-      address: "Plot No. GH, 01 A, near, Noida-Greater Noida Expy, Sector 146, Noida",
+      address: "Blossom County, Sector 90, Noida",
       images: [
         "./851x67alphathum1.jpg",
         "./851x678alphathum3.jpg",
@@ -71,7 +71,7 @@ const PopularListing = () => {
       id: 18,
       title: "Godrej Palm Retreat",
       price: "₹ 1.74Cr-6.74Cr",
-      address: "Plot No. GH, 01 A, near, Noida-Greater Noida Expy, Sector 146, Noida",
+      address: "Sector 27 , Greater Noida, Noida",
       images: [
         "./851x678palm_retreat_gallery_w1200xh600_px_01.jpg",
         "./851x678palm_retreat_gallery_w1200xh600_px_08.jpg",
@@ -85,7 +85,7 @@ const PopularListing = () => {
       id: 19,
       title: "Godrej Woods",
       price: "₹ 1.74Cr-6.74Cr",
-      address: "Plot No. GH, 01 A, near, Noida-Greater Noida Expy, Sector 146, Noida",
+      address: "Block A, Sector 43, Noida",
       images: [
         "./851x678godrej_woods_1.jpg",
         "./851x678godrej_woods_2.jpg",
@@ -94,8 +94,36 @@ const PopularListing = () => {
       bhk: "2,3,4",
       area: "831-1714 sq.ft",
       years: 11
+    },
+    {
+      id: 1059,
+      title: "Danube Sportz",
+      price: "AED 0.5 M Onwards *",
+      address: "Dubai Sports City, Dubai",
+      images: [
+        "https://townmanor.in/files/strict_cache/1300x800danube_sportz_4.webp",
+        "https://townmanor.in/files/strict_cache/770x483danube_sportz_1.webp",
+        "https://townmanor.in/files/strict_cache/770x483danube_sportz_3.webp"
+      ],
+      bhk: "1,2,3",
+      area: "389 - 1212 sq.ft",
+      years: 1
+    },
+    {
+      id: 1063,
+      title: "Sobha 310 Riverside Crescent",
+      price: "AED 1.49 M Onwards *",
+      address: "Mohammed Bin Rashid City, Dubai",
+      images: [
+        "https://townmanor.in/files/strict_cache/1300x800sobha_310_riverside_crescent1.webp",
+        "https://townmanor.in/files/strict_cache/770x483sobha_310_riverside_crescent5.webp",
+        "https://townmanor.in/files/strict_cache/770x483sobha_310_riverside_crescent6.webp"
+      ],
+      bhk: "1, 1.5, 2.5",
+      area: "609 to 1,467 sq.ft",
+      years: 1
     }
-    // Add more properties as needed
+    
   ];
 
   return (
