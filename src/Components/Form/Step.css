@@ -103,6 +103,6 @@
   }
   @media only screen and (min-width: 1000px) and (max-width: 1600px) {
     .step h2 {font: size 1.1em;
-        height: 2vh !important;
+        height: 5vh !important;
         }
   }

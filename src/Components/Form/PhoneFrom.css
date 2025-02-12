@@ -594,10 +594,10 @@ button:hover{
   cursor: pointer;
   text-align: center;
   margin-top: 0px;
-  height: 3vh;
+  height: 5vh;
   margin-right: 5px;
   font-family: arial;
-  width: 13vw;
+  width: 14vw;
   background: linear-gradient(to right, #ff4447, #8a2e2e);
   color: white;
   border-radius: 10px;
@@ -646,7 +646,7 @@ button:hover{
 
 .propbtn {
   float: right;
-  margin-right: 39.5vw;
+  margin-right: 33.5vw;
   padding: 10px 0px;
 }
 .propertybtn {
@@ -659,7 +659,7 @@ button:hover{
 }
 .innerbuttonbox {
   float: right;
-  margin-right: 2vw;
+  margin-right: 3.5vw;
 }
 .btnx {
   display: block;
@@ -679,12 +679,12 @@ button:hover{
   background: linear-gradient(to right, #ff4447, #8a2e2e);
   color: white;
   width: 20vw;
-  height: 3vh;
+  height: 4.5vh;
 }
 .partition {
   padding: 12px 3px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 5px 5px;
 }
 .description{
