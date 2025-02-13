@@ -165,10 +165,11 @@ const PropertyDetails = ({ details }) => {
       <h3>Property Details</h3>
       <ul>
         {Object.keys(details).map((key, index) => (
-          <li key={index}>
+          details[key] &&
+          (<li key={index}>
             <h4>{key.replace(/_/g, " ")}:</h4>
             <span>{details[key]}</span>
-          </li>
+          </li>)
         ))}
       </ul>
     </div>

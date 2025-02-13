@@ -27,10 +27,10 @@ const Property_Desc = ({ description = estateData.option_17 }) => {
     <div className="descp-text">
       <h3>Description</h3>
       <div id="textHide" className={showFullText ? "hidden" : ""}>
-        {shortDescription}
+        <div dangerouslySetInnerHTML={{__html: shortDescription}}/>
       </div>
       <div id="text" className={showFullText ? "visible" : "hidden"}>
-        {description}
+        <div dangerouslySetInnerHTML={{ __html: description }} />
       </div>
       <br />
       {readMore && (

@@ -4,6 +4,8 @@ import React from "react";
 
 import "../common.css";
 import "../commonsecond.css";
+import { FaMapMarkerAlt } from 'react-icons/fa';
+import { CiLocationOn } from "react-icons/ci";
 
 const PropertyHeader = ({
   title,
@@ -51,7 +53,8 @@ const PropertyHeader = ({
               </ul>
             </h3>
             <p>
-              <i className="la la-map-marker"></i>
+              {/* <i className="la la-map-marker"></i> */}
+              <CiLocationOn size={20} color="#d81212" style={{ marginRight: "8px", marginBottom:'2px' }} />
               {address}
             </p>
           </a>
@@ -83,20 +86,20 @@ const PropertyHeader = ({
             )}
           </ul>
         </div>
-        <div className="rate-info">
+        <div className="rate-info" style={{display:'block'}}>
           <h5>
             {pricerange && area_detail && (
               <>
                 {purpose && purpose.toLowerCase().includes("rent") ? (
                   <>
                     {price && `Rs ${price}`} 
-                    {area_detail && " / "}
+                    {area_detail && "Sq.ft / "}
                     {area_detail}
                   </>
                 ) : (
                   <>
                     {area_detail}
-                    {pricerange && area_detail && " / "}
+                    {pricerange && area_detail && " Sq.ft / "}
                     {pricerange && `Rs ${pricerange}`}
                   </>
                 )}

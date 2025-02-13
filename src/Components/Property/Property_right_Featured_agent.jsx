@@ -92,7 +92,7 @@ const FeaturedRightAgents = ({ agentIds, title, titleid }) => {
           </div>
         </div>
 
-        <div className="paginated_agents_scroll">
+        <div className="paginated_agents_scroll page-scroll">
           {loading ? (
             <div>Loading agents...</div>
           ) : error ? (
@@ -133,7 +133,7 @@ const FeaturedRightAgents = ({ agentIds, title, titleid }) => {
               </div>
             ))
           ) : (
-            <div>No featured agents available.</div>
+            <div style={{height:'100px',textAlign:'center'}}>No featured agents available.</div>
           )}
 
           <div className="list-featured-agent">

@@ -3,3 +3,8 @@
   padding: 0 !important;
   display: block !important;
 }
+
+.paginated_agents_scroll.page-scroll{
+  height: fit-content;
+  max-height: 500px;
+}

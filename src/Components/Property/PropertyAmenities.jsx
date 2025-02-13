@@ -90,7 +90,7 @@
 //         <ul>
 //           {categoryOptions21.map((val, key) => (
 //             val.option_value && (
-//               <li className="input-field" key={key}>
+//               <li className="input-field in-field" key={key}>
 //                 <span className="float-left" id={`c21${key}`}>
 //                   {val.icon}
 //                 </span>
@@ -110,7 +110,7 @@
 //           <ul>
 //             {categoryOptions52.map((val, key) => (
 //               val.option_value && (
-//                 <li className="input-field" key={key}>
+//                 <li className="input-field in-field" key={key}>
 //                   <input
 //                     type="checkbox"
 //                     name="cc"
@@ -220,7 +220,7 @@
 //         <ul>
 //           {categoryOptions21.map((val, key) => (
 //             val.option_value && (
-//               <li className="input-field" key={key}>
+//               <li className="input-field in-field" key={key}>
 //                 <span className="float-left" id={`c21${key}`}>
 //                   <img src={val.icon} alt={val.option_name} />
 //                 </span>
@@ -240,7 +240,7 @@
 //           <ul>
 //             {categoryOptions52.map((val, key) => (
 //               val.option_value && (
-//                 <li className="input-field" key={key}>
+//                 <li className="input-field in-field" key={key}>
 //                   <input
 //                     type="checkbox"
 //                     name="cc"
@@ -268,6 +268,7 @@
 import React from "react";
 import "../common.css";
 import "../commonsecond.css";
+import "./PropertyAmenities.css"
 
 // Amenity data with icons
 const categoryOptions21 = [
@@ -351,7 +352,7 @@ const PropertyAmenities = ({ amenities }) => {
         <ul>
           {filteredAmenities.map((val, key) => (
             val.option_value && (
-              <li className="input-field" key={key}>
+              <li className="input-field in-field" key={key}>
                 <span className="float-left" id={`c21${key}`}>
                   <img src={val.icon} alt={val.option_name} />
                 </span>
