@@ -32,6 +32,16 @@
     }
 }
 
+.fci-icon svg:not(:root) {
+    color: rgb(0, 0, 0);
+    margin-bottom: 5px;
+    transition: ease-in.0.3s;
+}
+
+.fci-icon svg:not(:root):hover{
+    color: white;
+}
+
 .footer-list .fc-icon{
     left: -10px;
     top: -4px;

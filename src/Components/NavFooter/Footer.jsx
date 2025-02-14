@@ -15,7 +15,7 @@ import { LiaInstagram } from "react-icons/lia";
 
 const Footer = () => {
   return (
-    <section className="footer_area">
+    <section className="footer_area" style={{height:'max-content'}}>
       <section className="bottom section-padding">
         <div className="container placeholder-container">
           <div className="row wpart">
@@ -259,26 +259,26 @@ const Footer = () => {
                     href="https://www.facebook.com/share.php?u=https://townmanor.in/"
                     onClick={() => window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600')}
                   >
-                    <i className='.fc-icon'><BiLogoFacebook/></i>
+                    <i className='.fc-icon fci-icon'><BiLogoFacebook/></i>
                   </a>
                   <a
                     href="https://twitter.com/home?status=https://townmanor.in/"
                     onClick={() => window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600')}
                   >
-                    <i className='.fc-icon'><LiaTwitter/></i>
+                    <i className='.fc-icon fci-icon'><LiaTwitter/></i>
                   </a>
                   <a
                     target="_blank"
                     href="https://www.linkedin.com/company/townmanor/"
                     onClick={() => window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600')}
                   >
-                    <i className='.fc-icon'><TiSocialLinkedin/></i>
+                    <i className='.fc-icon fci-icon'><TiSocialLinkedin/></i>
                   </a>
                   <a
                     href="https://www.instagram.com"
                     onClick={() => window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600')}
                   >
-                    <i className='.fc-icon'><LiaInstagram/></i>
+                    <i className='.fc-icon fci-icon'><LiaInstagram/></i>
                   </a>
                 </div>
               </div>

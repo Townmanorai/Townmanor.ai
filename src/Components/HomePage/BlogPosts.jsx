@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { LuCalendarCheck } from "react-icons/lu";
 
 import './BlogPosts.css'
 import "../common.css";
@@ -77,7 +78,7 @@ const BlogPosts = () => {
                       </div>
                       <div className="post_info">
                         <ul className="post-nfo post_date">
-                          <li><i className="la la-calendar"></i> {post.date}</li>
+                          <li><LuCalendarCheck style={{width:'5px', marginBottom:'4px'}}/> {post.date}</li>
                         </ul>
                         <h3>
                           <Link to={`/article/${post.id}`} title={post.heading}>

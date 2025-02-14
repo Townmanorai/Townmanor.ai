@@ -180,6 +180,10 @@ body, html {
     .col-xl-12 {
       display: contents !important;
     }
+
+    .header .navbar-nav .nav-item.signin-btn .nav-link{
+      margin-right: 10px;
+    }
   }
 
   @media (max-width: 768px) {

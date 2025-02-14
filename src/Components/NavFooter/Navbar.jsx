@@ -8,6 +8,7 @@ import { jwtDecode } from 'jwt-decode';
 import '../common.css';
 import '../commonsecond.css';
 import './Navbar.css';
+import { RxCross2 } from "react-icons/rx";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -201,7 +202,7 @@ const Navbar = () => {
                       </ul>
                     </div>
                     <a href="#" title="" className="close-menu" onClick={handleMenuToggle}>
-                      <i className="la la-close"></i>
+                      <RxCross2/>
                     </a>
                   </div>
                 </nav>
