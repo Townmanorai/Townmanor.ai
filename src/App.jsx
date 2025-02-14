@@ -1,95 +1,12 @@
-// import { useState } from 'react'
-// import './App.css'
-// import AdminPropertyPage from './Components/AdminPropertyUI/AdminPropertyPage'
-// import SearchProperty from './Components/SearchProperty/SearchProperty'
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import SearchPropertyPage from './Components/SearchProperty/SearchPropertyPage'
-// import 'leaflet.markercluster/dist/MarkerCluster.css';
-// import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
-// import AuthContainer from './Components/Auth/AuthContainer';
-// import PricingPlans from './Components/PropertyPlans/PricingPlans';
-// import SubscriptionPricingPlan from './Components/PropertyPlans/WithoutMapSubscritionPlan';
-// import Dashboard from './Components/Dashboard/Dashboard';
 
-// function App() {
-
-
-//   return (
-//     <>
-//       {/* <AdminPropertyPage /> */}
-//       <SearchPropertyPage />
-//       {/* <AuthContainer /> */}
-//       {/* <PricingPlans /> */}
-//       {/* <SubscriptionPricingPlan /> */}
-//       {/* <Dashboard /> */}
-//     </>
-//   )
-// }
-
-// export default App
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import necessary modules from react-router-dom
-// import './App.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'leaflet.markercluster/dist/MarkerCluster.css';
-// import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
-
-// import AdminPropertyPage from './Components/AdminPropertyUI/AdminPropertyPage';
-// import SearchProperty from './Components/SearchProperty/SearchProperty';
-// import SearchPropertyPage from './Components/SearchProperty/SearchPropertyPage';
-// import AuthContainer from './Components/Auth/AuthContainer';
-// import SubscriptionPricingPlan from './Components/PropertyPlans/WithoutMapSubscritionPlan';
-// import Dashboard from './Components/Dashboard/Dashboard';
-
-// // Import the new payment-related components
-// import PaymentForm from './Components/PayU/PaymentForm';
-// import Success from './Components/PayU/Success';
-// import Failure from './Components/PayU/Failure';
-// import Property from './Components/Property/Property';
-// import FeaturedAgentForm from './Components/Form/FeaturedAgentForm';
-// import Home from './Components/HomePage/Home';
-// import Navbar from './Components/NavFooter/Navbar';
-// import PricingPlans from './Components/PropertyPlans/PricingPlans';
-
-// function App() {
-//   return (
-//     <Router> {/* Wrap the app in Router */}
-//     <Navbar />
-//       <Routes>
-//         <Route path="/" element={<Home />} /> {/* Set the default route */}
-//         <Route path="/admin-property" element={<AdminPropertyPage />} />
-//         <Route path="/search-property" element={<SearchPropertyPage />} />
-//         <Route path="/auth" element={<AuthContainer />} />
-//         <Route path="/pricing-plans" element={<PricingPlans />} />
-//         <Route path="/subscription-plans" element={<SubscriptionPricingPlan />} />
-//         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-//         <Route path="/dashboard/:username" element={<Dashboard />} />
-//         <Route path="/property/:id" element={<Property />} />
-//         <Route path="/featured-agent-form" element={<FeaturedAgentForm />} />
-
-//         {/* New routes for the PayU payment integration */}
-//         <Route path="/SubPlan" element={<PricingPlans />} /> {/* Payment form route */}
-//         <Route path="/payment" element={<PaymentForm />} /> {/* Payment form route */}
-//         <Route path="/success" element={<Success />} /> {/* Success page */}
-//         <Route path="/failure" element={<Failure />} /> {/* Failure page */}
-//       </Routes>
-//     </Router>
-//   );
-// }
-
-// export default App;
-
-
-//--------------------------------------------------------------------------------------------------------------------------------------
-
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
+import ReactGA from 'react-ga4';
+import { clarity } from 'react-microsoft-clarity';
 
 import AdminPropertyPage from './Components/AdminPropertyUI/AdminPropertyPage';
 import SearchProperty from './Components/SearchProperty/SearchProperty';
@@ -153,6 +70,19 @@ function App() {
     setCurrentUser(user); // Set the current user when logging in
     // console.log(currentUser);
   };
+
+  const TRACKING_ID = 'G-8BXTW1K1HT'; // YOUR_OWN_TRACKING_ID
+  const CLARITY_PROJECT_ID  = 'q9k1rf7eqb'; // YOUR_OWN_TRACKING_ID
+  useEffect(() => {
+    // Initialize GA
+    ReactGA.initialize(TRACKING_ID);
+    ReactGA.send({ hitType: 'pageview', page: window.location.pathname });
+    
+    // Initialize Clarity (typically only in production)
+    if (process.env.NODE_ENV === 'production') {
+      clarity.init(CLARITY_PROJECT_ID);
+    }
+  }, []);
 
   return (
     <Router>
