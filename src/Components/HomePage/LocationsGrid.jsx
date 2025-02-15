@@ -448,7 +448,7 @@ const LocationsGrid = () => {
                             ? `${childsData.count} Listing`
                             : `${childsData.count} Listings`}
                         </p>
-                        <i ><MdOutlineKeyboardArrowRight /></i>
+                        <i ><MdOutlineKeyboardArrowRight style={{color:'#e5181c'}} /></i>
                       </div>
                     </div>
                   </a>

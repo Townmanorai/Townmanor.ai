@@ -78,7 +78,7 @@ const BlogPosts = () => {
                       </div>
                       <div className="post_info">
                         <ul className="post-nfo post_date">
-                          <li><LuCalendarCheck style={{width:'5px', marginBottom:'4px'}}/> {post.date}</li>
+                          <li><LuCalendarCheck style={{width:'14px', marginBottom:'4px', color:'white'}}/> {post.date}</li>
                         </ul>
                         <h3>
                           <Link to={`/article/${post.id}`} title={post.heading}>

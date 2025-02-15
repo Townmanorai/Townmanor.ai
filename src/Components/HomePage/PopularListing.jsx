@@ -233,6 +233,7 @@ const PopularListing = () => {
                       <a href="#" data-id={property.id} className="add-to-favorites" style={{marginTop:'5px'}}>
                         <i><FaHeart style={{
                           height: '18px',
+                          // color:'#969090'
                         }}
                           id="hearticon" /></i>
                       </a>

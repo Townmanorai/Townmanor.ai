@@ -47,7 +47,7 @@ const Footer = () => {
                   className="img-fluid"
                 />
                 <div className="content">
-                  <p className="description">
+                  <p className="description" style={{color:'#c1b7b7'}}>
                     Townmanor Technologies Pvt Ltd, a comprehensive proptech aggregator platform, has been officially
                     recognized as a Startup by StartupIndia, DIIPT, under the auspices of the Government of India.
                   </p>

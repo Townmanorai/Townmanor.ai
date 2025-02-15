@@ -184,7 +184,7 @@ const Navbar = () => {
                         <Link to="/form" className="my-2 my-sm-0 nav-link sbmt-btn overflowVisible">
                             {/* <i className="icon-plus"></i> */}
                             <FaPlusCircle style={{
-                          
+                          color:'white',
                           height:'14px',
                           margin: '0px 0px 4px 0px'
                         }} />
