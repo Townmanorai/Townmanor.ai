@@ -22,8 +22,8 @@ const StateDetails = () => {
                             src={stateData.image}
                             alt={stateName}
                             style={{
-                                width: '50px',
-                                height: '50px',
+                                width: '40px',
+                                height: '40px',
                                 marginRight: '10px',
                                 borderRadius: '15px'
                             }}
@@ -33,36 +33,36 @@ const StateDetails = () => {
                 </h2>
                 
                 <div className="options-container">
-                    <Link to={`/properties-for-sale-rent/${stateName}`} style={{ display: 'flex', alignItems: 'center' }}>
-                        <img
+                    <Link to={`/properties-for-sale-rent/${stateName}`} style={{ display: 'flex', alignItems: 'center',justifyContent: 'center' }}>
+                        {/* <img
                             src="/property-images.png"
                             style={{ width: '50px', height: '50px', marginRight: '5px', borderRadius: '15px' }} 
                             alt="Properties For Sale/Rent"
-                        />
+                        /> */}
                         Properties For Sale/Rent
                     </Link>
-                    <Link to={`/pay-house-tax-online/${stateName}`} style={{ display: 'flex', alignItems: 'center' }}>
-                        <img
+                    <Link to={`/pay-house-tax-online/${stateName}`} style={{ display: 'flex', alignItems: 'center' ,justifyContent: 'center'}}>
+                        {/* <img
                             src="/house-tax.jpeg"
                             style={{ width: '50px', height: '50px', marginRight: '5px', borderRadius: '15px' }} 
                             alt="Pay House Tax Online"
-                        />
+                        /> */}
                         Pay House Tax Online
                     </Link> 
-                    <Link to={`/land-record-verification/${stateName}`} style={{ display: 'flex', alignItems: 'center' }}>
-                        <img
+                    <Link to={`/land-record-verification/${stateName}`} style={{ display: 'flex', alignItems: 'center',justifyContent: 'center' }}>
+                        {/* <img
                             src="/lang-veri-images.png"
                             style={{ width: '50px', height: '50px', marginRight: '5px', borderRadius: '15px' }} 
                             alt="Land Record Verification"
-                        />
+                        /> */}
                         Land Record Verification
                     </Link>
-                    <Link to={stateData?.reraLink} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
-                        <img
+                    <Link to={stateData?.reraLink} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center',justifyContent: 'center' }}>
+                        {/* <img
                             src="/rera-logo.png"
                             style={{ width: '50px', height: '50px', marginRight: '5px', borderRadius: '15px' }} 
                             alt="RERA"
-                        />
+                        /> */}
                         RERA
                     </Link>
                 </div>
@@ -77,8 +77,8 @@ const StateDetails = () => {
                                         src={city.image}
                                         alt={city.city_name}
                                         style={{
-                                            width: '50px',
-                                            height: '50px',
+                                            width: '30px',
+                                            height: '30px',
                                             marginRight: '10px',
                                             borderRadius: '15px'
                                         }}

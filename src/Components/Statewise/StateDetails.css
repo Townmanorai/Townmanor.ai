@@ -6,16 +6,14 @@
 
 .state-details-page h2 {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     margin-top: 40px;
-    font-size: 28px;
-    color: #333;
+    font-size: 20px ;
+    color: #000000;
     display: block;
-    padding: 20px;
+    padding: 5px;
     background-color: #ffffff1c;
     border-radius: 8px;
-    font-size: 30px;
-    font-weight: 700;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
 }
@@ -26,23 +24,25 @@
 
 .options-container {
     display: flex;
-    justify-content: space-around;
+    gap: 30px;
     margin-bottom: 40px;
+    justify-content: center;
 }
 
 .options-container a {
     display: block;
-    padding: 20px;
-    background-color: #ffffffb5;
-    border-radius: 8px;
+    padding: 10px 15px;
+    background: linear-gradient(to right, #d35052, #b13838);
+    line-height: normal;
+    border-radius: 5px;
     text-align: center;
-    width: 280px;
-    text-decoration: none;
-    color: #fe0000;
-    font-size: 20px;
-    font-weight: 600;
-    box-shadow: 15px 15px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
+    max-width: 218px;
+    /* text-decoration: dotted; */
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 400;
+    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3sease;
 }
 
 
@@ -55,8 +55,8 @@
 .cities-list h3 {
     text-align: center;
     margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
+    font-size: 18px;
+    color: #000000;
 }
 
 .cities-list ul {
@@ -72,10 +72,10 @@
 }
 
 .cities-list a {
-    padding: 10px 50px;
+    padding: 5px 20px;
     background-color: #fff;
     border-radius: 6px;
-    font-size: 20px;
+    font-size: 14px;
     text-decoration: none;
     color: #ff0000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -85,4 +85,79 @@
 .cities-list a:hover {
     background-color: #ff0000;
     color: #fff;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Small Devices (Mobile Phones) */
+@media (max-width: 600px) {
+    .state-details-page {
+        padding: 20px;
+        background-size: cover;
+    }
+    .state-details-page h2 {
+        font-size: 18px;
+        margin-top: 20px;
+    }
+    /* Use grid layout to show two buttons per row */
+    .options-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-bottom: 10px;
+    }
+    .options-container a {
+        width: 100%;
+        max-width: none; 
+        text-align: center;
+        padding: 5px 5px;
+        font-size: 13px;
+    }
+    .cities-list ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0px;
+        justify-items: start;
+        margin: -25px;
+    }
+    .cities-list a {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+}
+
+/* Medium Devices (Tablets) */
+@media (min-width: 601px) and (max-width: 992px) {
+    .state-details-page {
+        padding: 30px;
+    }
+    .state-details-page h2 {
+        font-size: 19px;
+    }
+    .options-container {
+        flex-wrap: wrap;
+    }
+    .options-container a {
+        max-width: 200px;
+        font-size: 14px;
+    }
+    .cities-list a {
+        font-size: 13px;
+    }
+}
+
+/* Large Devices (Desktops) */
+@media (min-width: 993px) {
+    .state-details-page {
+        padding: 40px;
+    }
+    .state-details-page h2 {
+        font-size: 20px;
+    }
+    .options-container a {
+        max-width: 218px;
+    }
+    .cities-list a {
+        font-size: 14px;
+    }
 }

@@ -124,7 +124,7 @@ const TopRentedProperties = ({stateName}) => {
         <section className="rented-section has-slider">
           <div className="rented-section-title">
             <div className="rented-title-text strip-blue">
-            {stateName ? `Top Rental Properties in ${stateName}` : 'Top Rental Properties in Noida'}
+            {stateName ? `Rental properties in ${stateName}` : 'Rental properties in Noida'}
             </div>
             <a href="javascript:void(0);" className="rented-anchor-see-all push-right">
               See all Rental Properties
