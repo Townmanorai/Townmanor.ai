@@ -27,12 +27,69 @@
     border: 2px solid rgb(170, 170, 170);
     /* background: url("/public/blue.png"); */
 }
-
+#combannerimg{
+    width: 70%;
+    height: 315px;
+    border-radius: 5px;
+}
 #ban-img {
     height: 56vh !important;
     width: 99%;
 }
+.newbannerright{
+    display: flex;
+    flex-basis: 60%;
+    justify-content: center;
+    align-items: center;
+}
+.newbannerleft{
+   
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    /* border: 1px solid black; */
+    align-items: start;
+    justify-content: center;
+}
+#commainbanner{
+    padding: 10px;
+   background: url("/public/ak.jpeg");
+   height: 400px;
+   background-size: cover;
+   background-position-y: -300px;
+   filter: grayscale(0%) brightness(97%);
+}
+#commainbanner h2{
+    font-size: 37px;
+  
+}
+#commainbanner h3{
+    font-size: 19px;
+  
+}
+#bannerselect {
+    width: 126px;
+    margin: 10px 10px;
+    height: 55px;
+    outline: none;
+    border: 0.5px solid gray;
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 10px;
+    color: gray;
+}
+#bannerinput{
+    width: 200px;
+    color: gray;
+    margin: 10px 10px;
+    height: 55px;
+    outline: none;
+    border: 0.5px solid gray;
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 10px;
 
+}
 .left {
     display: flex;
     align-items: center;
@@ -936,8 +993,46 @@ font-weight: 500;
     flex-direction: row;
     justify-content: space-between;
 }
-#listingbutton button{
-    background: linear-gradient(to right, #ff4447, #8a2e2e);
+
+/* General button styling */
+.custom-button {
+    display: flex
+    ;
+        align-items: center;
+        justify-content: center;
+        width: 130px;
+        height: 38px;
+        background-color: white !important;
+        border: 1px solid #9b9b9b;
+        border-radius: 13px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: all 0.3sease;
+        color: white;
+}
+
+.custom-button:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Darker shadow on hover */
+}
+
+/* Styling for the icon container */
+.custom-icon {
+    width: 3rem; /* 12px in Tailwind */
+    height: 100%;
+    background-color: #1f2937; /* Tailwind's gray-900 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* Styling for the text */
+.button-text {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: 500; /* Similar to Tailwind's font-medium */
+    color: #4b5563; /* Tailwind's gray-700 */
 }
 
 @media only screen and (min-width: 0px) and (max-width: 500px) {
@@ -1364,7 +1459,64 @@ font-weight: 500;
 .subfeature-box {
     flex-direction: column;
 }
-
+#commainbanner{
+    flex-direction: column !important;
+    margin: 10px 0px !important;
+    height: 417px;
+}
+#commainbanner h2 {
+    font-size: 18px;
+}
+#commainbanner h3 {
+    font-size: 9px;
+}
+.bannersearchbox{
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns in the first row */
+    grid-template-rows: auto auto; /* Allow rows to adjust based on content */
+    gap: 10px;
+}
+#bannerinput {
+    width: 144px;
+    color: gray;
+    margin: 10px 10px;
+    height: 35px;
+    outline: none;
+    border: 0.5px solid gray;
+    border-radius: 8px;
+    font-size: 12px;
+   
+}
+#bannerselect {
+    width: 86px;
+    margin: 10px 3px;
+    height: 35px;
+    outline: none;
+    border: 0.5px solid gray;
+    border-radius: 8px;
+    font-size: 11px;
+    /* padding: 10px; */
+    color: gray;
+}
+.bannersearchbox button{
+    height: 35px;
+    width: 91%;
+}
+#combannerimg {
+   
+    height: 162px;
+   
+}
+.diff{
+    height: 0px !important;
+}
+.containerbox {
+    display: block;
+}
+.img-fluid {
+    max-width: 100%;
+    height: 160px !important;
+}
 
 }
 

@@ -97,12 +97,14 @@
     font-family:Arial,Helvetica,sans-serif;
   } */
   @media all and (min-width: 400px){
-    .step h2 {font: size 1.1em;
+    .step h2 {
+    font-size: 16px;
     }
     
   }
   @media only screen and (min-width: 1000px) and (max-width: 1600px) {
-    .step h2 {font: size 1.1em;
-        height: 5vh !important;
+    .step h2 {
+      font-size: 16px;
+        height: 4vh !important;
         }
   }

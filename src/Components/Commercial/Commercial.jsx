@@ -18,6 +18,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { PiMapPinAreaLight } from "react-icons/pi";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { Helmet } from 'react-helmet';
+import { MdCompareArrows } from "react-icons/md";
 function Commercial() {
 
   const [commercialdata, setcommercialdata] = useState([]);
@@ -191,9 +192,9 @@ function Commercial() {
 </Helmet>
 
       <div className='containerbox'>
+     
 
-
-        <div className='combanner'>
+        {/* <div className='combanner'>
           <img src='https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/blue.png' id='ban-img'></img>
 
         </div>
@@ -213,6 +214,45 @@ function Commercial() {
             />
             <button type="submit" className='combtn2'>Search</button>
           </form>
+        </div> */}
+        <div style={{
+          height:'100px'
+        }} 
+        className='diff'></div>
+        <div style={{
+          display:'flex',
+          flexDirection:'row',
+          justifyContent:'space-between',
+          margin:'10px 40px'
+        }}
+        
+        id='commainbanner'>
+          <div className='newbannerleft'>
+            <h2>Start your Commercial Investment</h2>
+            <h3>Commercial investment is the key to unlocking lasting wealth.</h3>
+            <div className='bannersearchbox'>
+            <select value={city} onChange={handleCityChange} id='bannerselect'>
+              <option value="Noida">Noida</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Gurgaon">Gurugram</option>
+              <option value="Faridabad">Faridabad</option>
+              <option value="Ghaziabad">Ghaziabad</option>
+            </select>
+            <input
+              placeholder='Search project'
+              value={searchQuery}
+              onChange={handleSearchQueryChange}
+              id='bannerinput'
+            />
+             <button type="button" class="btn btn-dark" style={{
+              height:'40px',
+              width:'150px'
+             }}>Search</button>
+            </div>
+          </div>
+          <div className='newbannerright'>
+            <img src='/citymain6.jpg' id='combannerimg'></img>
+          </div>
         </div>
         <div className='fronthead'>
           <h1>Available <b>Property</b></h1>
@@ -295,14 +335,32 @@ function Commercial() {
           <div className='newcommercialleft'>
             <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + item.face_image}  id='commerciallistingimg'></img>
             <div id='listingbutton'>
-              <button className='btn btn-success' style={{
+              {/* <button className='btn btn-success' style={{
                 background:'black'
               }}
               onClick={()=>{handleCompare(item.id)}}
               >
                 Compare
-              </button>
-              <button className='btn btn-secondary' onClick={()=>{handleKnowMore(item.id)}}>
+              </button> */}
+              <button class="custom-button" 
+                onClick={()=>{handleCompare(item.id)}}
+              style={{
+                background:'white'
+              }}>
+    <div class="custom-icon"  >
+        <div class="inner-circle"><MdCompareArrows  style={{
+          color:'white'
+        }}
+        
+        /></div>
+    </div>
+    <span class="button-text">Compare</span>
+</button>
+              <button className='btn btn-secondary' onClick={()=>{handleKnowMore(item.id)}} style={{
+                border:'none',
+                borderRadius:'12px',
+                height:'35px'
+              }}>
                 Know More
                 
               </button>
@@ -393,7 +451,7 @@ function Commercial() {
                 <li >Construction Status:</li>
                 <li className='odd'>Possesion Date/Property Age</li>
                 <li>Area Detail</li>
-                <li className='odd'>PreApproved Bank</li>
+                
 
               </div>
 
@@ -456,9 +514,7 @@ function Commercial() {
             </div>
           </>
         )}
-        <div className='fronthead leaseban '>
-          <h1>Find <b>Perfect</b> Lease <b>Property</b></h1>
-        </div>
+        {/* 
         <div className='lease'>
           <div className='lease-category' onClick={() => {
             setleasetype('office_space');
@@ -490,6 +546,87 @@ function Commercial() {
         </div>
         <div className='fronthead' style={{ display: visible ? 'block' : 'none' }}>
           <h1 id='comingsoon'>Coming <b>Soon</b></h1>
+        </div> */}
+        <div className='fronthead leaseban '>
+          <h1>Find <b>Perfect</b> Lease <b>Property</b></h1>
+        </div>
+            <div className="container my-5">
+            <div className="row row-cols-1 row-cols-md-3 g-4" style={{
+              paddingLeft:'28px'
+            }}>
+                <div className="col">
+                    <div className="card" style={{
+                      height:"95%"
+                    }}>
+                        <div className="ratio ratio-16x9">
+                            <img
+                                src='https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/cityshop.jpg'
+                                alt="Shop"
+                                className="img-fluid"
+                                style={{
+                                  height:'210px'
+                                }}
+                            />
+                        </div>
+                        <div className="card-body text-center"
+                        style={{
+                          fontSize:'18px'
+                        }}
+                        >
+                            <h5 className="card-title">Shop</h5>
+                            <p className="card-text">Discover our retail spaces designed for modern businesses</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="col">
+                    <div className="card" style={{
+                      height:"95%"
+                    }}>
+                        <div className="ratio ratio-16x9">
+                            <img
+                                src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/cityoffice1.jpg"
+                                alt="Office Space"
+                                className="img-fluid"
+                                style={{
+                                  height:'210px'
+                                }}
+                            />
+                        </div>
+                        <div className="card-body text-center"
+                         style={{
+                          fontSize:'18px'
+                        }}>
+                            <h5 className="card-title">Office Space</h5>
+                            <p className="card-text">Professional workspaces tailored to your needs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="col">
+                    <div className="card" style={{
+                      height:"95%"
+                    }}>
+                        <div className="ratio ratio-16x9">
+                            <img
+                                src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/cityother.png"
+                                alt="Coworking Space"
+                                className="img-fluid"
+                                style={{
+                                  height:'210px'
+                                }}
+                            />
+                        </div>
+                        <div className="card-body text-center"
+                         style={{
+                          fontSize:'18px'
+                        }}>
+                            <h5 className="card-title">Coworking Space</h5>
+                            <p className="card-text">Flexible shared spaces for modern professionals</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div className='bigswipe'>
           <Swiper
