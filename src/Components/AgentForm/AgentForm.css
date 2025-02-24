@@ -1,0 +1,119 @@
+/* Base styles */
+.head {
+    font-family: system-ui;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.box {
+    border: 8px double grey;
+}
+
+#hello {
+    margin-left: 50px;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+
+.form-check-input:checked {
+    border-color: red;
+    background-color: red;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    box-shadow: var(--bs-box-shadow) !important;
+    border-radius: 25px;
+}
+
+.img-fluid:hover {
+    transition: .3s;
+    transform: scale(1.05);
+}
+
+
+
+/* Styles for mobile view */
+@media (max-width: 767.98px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .col-md-6 {
+        width: 100%;
+        padding: 0;
+    }
+
+    .img-fluid {
+        width: 100%;
+        height: auto;
+    }
+
+    .form-group {
+        margin-bottom: -1rem;
+        padding: 0.5rem;
+    }
+    label.form-label {
+        margin-left: 100px;
+    }
+
+    .form-group label {
+        font-size: 16px;
+    }
+
+    .form-control {
+        font-size: 14px;
+    }
+
+    .form-check {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        margin-bottom: 0.5rem;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+
+    .form-check-input {
+        margin-right: 0.5rem;
+        transform: scale(1.2); /* Slightly larger for better touch */
+    }
+
+    .form-check-label {
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 0.5rem;
+    }
+
+    label.form-label {
+        margin-left: 75px;
+    }
+    
+}
+
+@media (max-width: 767.98px) {
+    .form-check {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0.5rem;
+        flex-wrap: nowrap;
+        align-content: stretch;
+        justify-content: space-evenly;
+        align-items: baseline;
+    }
+    .popup-content {
+        margin: -67px;
+        background: #fff;
+        width: 75%;
+        padding: 0px;
+        border: 1px solid #d7d7d7;
+    }
+}

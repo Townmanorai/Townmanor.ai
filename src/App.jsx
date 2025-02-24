@@ -61,7 +61,16 @@ import Success2 from './Components/PayU/Success2';
 import Failure2 from './Components/PayU/Failure2';
 import HomeInterior from './Components/HomeInteriors/HomeInterior';
 import CityWise from './Components/Statewise/CityWise';
+import Services from './Components/HomePage/Services';
 // import HomeShift from './HomeShift/HomeShift';
+
+import AgentList from './Components/AgentList/AgentList';
+import AgentForm from './Components/AgentForm/AgentForm';
+import Profile from './Components/AgentProfile/Profile';
+import EditForm from './Components/AgentForm/EditForm';
+import SignUpForm from './Components/AgentForm/SignUpForm';
+
+
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null); // State to hold the current user
@@ -109,6 +118,7 @@ function App() {
         <Route path="/SubPlan" element={<PricingPlans />} />
         <Route path="/payment" element={<PaymentForm />} />
         <Route path="/success" element={<Success />} />
+        <Route path="/services" element={<Services />} />
         <Route path="/failure" element={<Failure />} />
 
         <Route path="/home-loan" element={<HomeLoan />} />
@@ -148,6 +158,11 @@ function App() {
         <Route path='/Failure2' element={<Failure2/>} />
         <Route path='/Transaction' element={<Transaction/>} />
         <Route path='/HomeInt' element={<HomeInterior/>} />
+        <Route path="/agents" element={<AgentForm />} />
+        <Route path="/agentlist" element={<AgentList />} />
+        <Route path="/agent/:id" element={<Profile />} />
+        <Route path="/agents/edit" element={<EditForm />} />
+        <Route path="/agents/form" element={<SignUpForm />} />
         {/* You can also add dynamic routes for specific city or option pages */}
         {/* <Route path="/properties-for-sale-rent/:stateName" element={<PropertiesForSaleRent />} /> */}
           {/* <Route path="/pay-house-tax-online/:stateName" element={<PayHouseTaxOnline />} /> */}

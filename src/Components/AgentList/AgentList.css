@@ -1,0 +1,62 @@
+.app {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.agent-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+}
+
+.agent-card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1590px;
+  padding: 10px;
+  margin-left: 10px;
+
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.page-button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  border: 1px solid #df8484;
+  background-color: #ffffff;
+  color: black;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.page-button.active {
+  background-color: #ad4748;
+  color: rgb(255, 255, 255);
+  /* border-color: #007bff; */
+}
+
+.page-button:hover {
+  background-color: #f88b83;
+}
+
+.pagination-button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  background: linear-gradient(to right, #dd9296, #9d0505);
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.pagination-button:hover {
+  background-color: #0e5206;
+}

@@ -1,0 +1,44 @@
+.feedback-container {
+  margin-top: 0px;
+  max-width: 600px;
+  padding: 15px;
+}
+
+.rating-stars {
+  display: flex;
+  align-items: center;
+}
+
+.form-check {
+  margin-bottom: 10px;
+}
+
+.review-textarea {
+  margin-bottom: 20px;
+}
+
+.submit-button {
+  margin-top: 0px;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .feedback-container {
+    padding: 10px;
+  }
+
+  .rating-stars {
+    display: flex;
+    justify-content: space-around;
+  }
+
+
+  .form-check {
+    text-align: center;
+  }
+
+  .submit-button {
+    width: 100%;
+
+  }
+}

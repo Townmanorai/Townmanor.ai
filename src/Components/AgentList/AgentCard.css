@@ -1,0 +1,295 @@
+.agent-card {
+  border: 1px solid #f1eeee;
+  padding: 6px;
+  margin: 5px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  justify-content: left;
+  box-shadow: 3px 3px 1.5px -1px rgb(219, 219, 219);
+  height: 85%;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.agent-card::before, 
+.agent-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 10px;
+  transition: all 0.5s;
+  pointer-events: none; /* Ensures the pseudo-elements don’t block interactions */
+  z-index: 0; /* Ensures the pseudo-elements are behind other content */
+}
+
+.agent-card::before {
+  border-top: 1px solid #bf1e2e;
+  border-bottom: 1px solid #bf1e2e;
+  transform: scale(0, 1);
+}
+
+.agent-card::after {
+  border-right: 1px solid #bf1e2e;
+  border-left: 1px solid #bf1e2e;
+  transform: scale(1, 0);
+}
+
+.agent-card:hover::before {
+  transform: scale(1, 1);
+}
+
+.agent-card:hover::after {
+  transform: scale(1, 1);
+}
+
+.agent-card:hover {
+  /* box-shadow: 2px 2px 2px 2px gray; */
+  transition: .3s;
+  transform: scale(1.02);
+}
+
+#hello3 {
+  float: right;
+  margin-left: 50px;
+  margin-right: 270px;
+  margin-top: -35px;
+}
+
+#hello2 {
+  float: right;
+  margin-left: 50px;
+  margin-right: 67px;
+  margin-top: -38px;
+}
+
+.image-wrapper {
+  position: relative;
+  height: 110px;
+  width: 110px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.image-wrapper:hover::before {
+  inset: -20px 0px;
+  border-radius: 50%;
+}
+
+.image-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.agent-images {
+  width: 110px;
+  height: 110px;
+  border-radius: 25%;
+  margin-right: 0%;
+  padding: 5px;
+  position: relative;
+  box-shadow: 2px 2px 0.5px 0px rgb(203 114 114);
+}
+
+.agent-images:hover {
+  transition: .3s;
+  transform: scale(1.05);
+}
+
+.head2 {
+  margin-left: 2vw;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: rgb(2, 2, 54);
+}
+
+#content {
+  font-family: serif;
+  margin-left: 7px;
+  margin-top: 5px;
+  padding: 7px 5px;
+  border-radius: 10%;
+  color: black;
+  font-weight: 550;
+  margin-top: -7px;
+}
+
+.button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+
+.button-app {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: rgb(49, 119, 146);
+  color: white;
+  cursor: pointer;
+}
+
+.whatsapp {
+  margin-top: 8px;
+  margin-right: 10px;
+}
+
+.data {
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 10px;
+  border: 1px solid #b3d6fb;
+  line-height: 30px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5.5px -1px rgb(219, 219, 219);
+}
+
+/* Media Queries for various viewport widths */
+@media (max-width: 1400px) {
+  .agent-card {
+    padding: 5px;
+  }
+  #hello3, #hello2 {
+    margin-right: 220px;
+  }
+  .agent-images {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 1281px) {
+  #hello3, #hello2 {
+    margin-right: 180px;
+  }
+  .agent-images {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 1366px) {
+  #hello2 {
+    margin-right: 20px;
+  }
+  #hello3{
+    margin-left: 0px;
+  }
+  .agent-images {
+    width: 95px;
+    height: 95px;
+  }
+}
+
+@media (max-width: 1024px) {
+  #hello3, #hello2 {
+    margin-right: 50px;
+  }
+  .agent-images {
+    width: 85px;
+    height: 85px;
+  }
+}
+
+@media (max-width: 860px) {
+  #hello3, #hello2 {
+    margin-right: 100px;
+  }
+  .agent-images {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+@media (max-width: 768px) {
+  .agent-card {
+    height: auto;
+  }
+
+  .agent-images {
+    width: 80px;
+    height: 80px;
+    margin-left: 20px;
+  }
+
+  .head2 {
+    font-size: 1.5rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .data {
+    text-align: center;
+    line-height: 40px;
+    padding: 15px;
+  }
+
+  #content {
+    display: block;
+    margin: -20px;
+    padding: 5px 45px;
+    border: none;
+  }
+
+  #hello3, #hello2 {
+    float: right;
+    margin-left: 50px;
+    margin-right: 6px;
+    margin-top: 0px;
+  }
+}
+
+@media (max-width: 680px) {
+  #hello3, #hello2 {
+    margin-right: 50px;
+  }
+  .agent-images {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (max-width: 500px) {
+  #hello3, #hello2 {
+    float: none;
+    margin: 4px 25px;
+    width: 35%;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .agent-images {
+    width: 60px;
+    height: 60px;
+  }
+  .head2 {
+    font-size: 1.8rem;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 340px) {
+  #hello3, #hello2 {
+    float: none;
+    margin: 2px 10px;
+    width: 40%;
+    font-size: 8px;
+  }
+  .agent-images {
+    width: 50px;
+    height: 50px;
+  }
+}

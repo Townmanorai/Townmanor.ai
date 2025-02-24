@@ -1,0 +1,252 @@
+/* Container styling */
+.container {
+    margin-top: 20px;
+}
+
+/* Card title and subtitle styling */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-subtitle {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+/* Card text styling */
+.card-text div {
+    margin-top: 10px;
+}
+
+/* Navigation pills styling */
+.nav-pills .nav-link {
+    border-radius: 0;
+    color: #000;
+    font-weight: bold;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #6199ce;
+}
+
+/* Tab content styling */
+.tab-content {
+    padding-top: 20px;
+}
+
+/* List group item styling */
+.list-group-item {
+    font-size: 1rem;
+}
+
+/* Card body text styling */
+.card-body p {
+    margin: 0;
+}
+
+/* Rating section styling */
+.ratecss {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rating-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.rating-section .rating-stars {
+    display: inline-block;
+}
+
+/* Deal card styling */
+.card-deal {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-deal img {
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-deal-title, .card-deal-text {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Profile card styling */
+.cardcss {
+    background-color: rgba(255,255,255);
+    box-shadow: 3px 3px 12.5px 0px rgb(219, 219, 219);
+
+}
+
+.card-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Agent image styling */
+.agent-image {
+    width: 300px !important;
+    height: 300px !important;
+    object-fit: cover;
+    margin-right: 20px !important;
+    flex-shrink: 0;
+    border-radius: 25% !important;
+}
+.agent-image:hover{
+    transition: .3s;
+    transform: scale(1.05);
+}
+
+.hello3 {
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}
+
+.hello2 {
+    float: right;
+    margin-left: 30px;
+    margin-right: 310px;
+    margin-top: 0px;
+}
+
+/* Share button styling */
+.sharecss {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    z-index: 10;
+    background-color: #fff;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Share options styling */
+.share-options {
+    position: absolute;
+    top: calc(40% - 65px);
+    right: 35px;
+    z-index: 10;
+    background-color: #f7fffd;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+}
+
+.share-options div {
+    padding: 0px 2px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.share-option:hover {
+    background-color: #e00f0f;
+    color: #fff;
+}
+
+.share-option .fab {
+    margin-right: 5px;
+    color: #000;
+}
+
+.share-option:hover .fab {
+    color: #f8f8f8; /* Change icon color on hover */
+}
+
+/* Responsive adjustments for mobile view */
+@media (max-width: 767px) {
+    .agent-image {
+        width: 100%;
+        height: 150px;
+        width: 160px;
+        margin-left: 40px;
+        margin-bottom: -20px;
+    }
+
+    .hello3, .hello2 {
+        float: none;
+        margin: 10px 5px;
+        width: 100%;
+    }
+
+    .card-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .card-body-contents {
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    .sharecss {
+        top: 5%;
+        right: 5%;
+        width: 40px;
+        height: 40px;
+    }
+
+    .share-options {
+        top: calc(40% - 170px);
+        right: 2px;
+    }
+
+    .share-option:hover {
+        background-color: #e00f0f;
+        color: #fff;
+    }
+      
+    .share-option .fab {
+        margin-right: 5px;
+        color: #000;
+    }
+      
+    .share-option:hover .fab {
+        color: #f8f8f8; /* Change icon color on hover */
+    }
+}
+
+.card-body-contents {
+    flex-grow: 1;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.contact-button {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+/* Other styling */
+.temp {
+    margin-top: 5vh;
+}
+
+.list-items-css {
+    border: none;
+}

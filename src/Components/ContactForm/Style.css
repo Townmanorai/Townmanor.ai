@@ -1,0 +1,120 @@
+.form-container-appointment, .form-container-chat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 96%;
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    position: relative;
+  }
+ .agent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+ }
+  .close-button {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 29px;
+    height: 28px;
+    opacity: 0.3;
+  }
+  .close-button:hover {
+    opacity: 1;
+  }
+  .close-button:before, .close-button:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    width: 29px;
+    height: 28px;
+    cursor: pointer ;
+    /* background-color: black; */
+  }
+
+  .close-button:before {
+    transform: rotate(45deg);
+  }
+  .close-button:after {
+    transform: rotate(-45deg);
+  }
+
+  .x-button{
+    position: absolute;
+    top: 3px;
+    left: 18px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+  }
+
+  .crosssign{
+    margin-bottom: 10px;
+  }
+  
+ 
+  .agent-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -30px;
+  }
+  
+  .agent-initial {
+    width: 40px;
+    height: 40px;
+    background-color: #007bff;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 15px;
+
+  }
+  
+  
+  .form-group {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+  .form-group input, .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .input-group-prepend .input-group-text {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  .input-group input {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  
