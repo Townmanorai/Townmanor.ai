@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import Map from './Map'; 
-import SearchForm from './SearchForm'; 
-import ResultsItem from './ResultsItem'; 
+import Map from './Map';
+import SearchForm from './SearchForm';
+import ResultsItem from './ResultsItem';
 
 import "../../common.css";
 import "../../commonsecond.css";
 import './MainPage.css';
 import Pagination from './Pagination';
+import ResultsItem1 from './ResultsItem1';
 
 const MainPage = ({ results, total_rows, view_grid_selected, view_list_selected }) => {
   // console.log({results, total_rows, view_grid_selected, view_list_selected});
@@ -36,11 +37,11 @@ const MainPage = ({ results, total_rows, view_grid_selected, view_list_selected 
       <section className="half-map-sec">
         <div className="container">
           <div className="row">
-            
-            <div className="col-xl-7 col-lg-12">
-             <SearchForm />
+
+            <div className="col-xl-7 col-lg-12 cx_xl">
+              <SearchForm />
               <div className="listing-directs">
-                <div className="list-head">
+                <div className="list-head" style={{ width: '98%' }}>
                   <div className="sortby">
                     <span>Sort by:</span>
                     <div className="drop-menu">
@@ -54,9 +55,11 @@ const MainPage = ({ results, total_rows, view_grid_selected, view_list_selected 
                       </ul>
                     </div>
                   </div>
+
                   <div className="view-count">
                     Results: <span className="total_rows">{results.length}</span>
                   </div>
+
                   <div className="view-change">
                     <ul className="nav nav-tabss grid-type">
                       <li className="nav-item">
@@ -75,11 +78,18 @@ const MainPage = ({ results, total_rows, view_grid_selected, view_list_selected 
                 <div className="results-container result_preload_box" id="results_conteiner">
                   <div className="list_products">
                     <div className="row">
-                      {/* Display only the currentItems */}
-                      {currentItems.map((item, key) => (
+
+                      {/* {currentItems.map((item, key) => (
                         <ResultsItem key={key} item={item} />
-                      ))}
+                      ))} */}
                     </div>
+
+                    <div className="row">
+                        {currentItems.map((item, key) => (
+                          <ResultsItem1 key={key} item={item} />
+                        ))}
+                    </div>
+
                   </div>
                   <Pagination
                     currentPage={currentPage}
@@ -90,11 +100,11 @@ const MainPage = ({ results, total_rows, view_grid_selected, view_list_selected 
                 </div>
               </div>
             </div>
-            <div className="col-xl-5 col-lg-12">
+            {/* <div className="col-xl-5 col-lg-12">
               <div id="map-container" className={`fullwidth-home-map ${window.innerWidth <= 768 ? 'map-hidden' : ''}`}>
                 <Map results={results} />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

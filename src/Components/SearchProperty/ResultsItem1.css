@@ -1,0 +1,38 @@
+.search-card-body {
+  display: flex;
+  margin: 0px auto 20px;
+  max-width: 1200px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 10px;
+}
+.col-md-6.cm6 {
+  max-width: 350px;
+  box-shadow: 0 0 20px rgb(0 0 0 / 6%);
+  /* box-shadow: 1px 1px 1px 1px gray; */
+  border-radius: 13px;
+  padding: 8px;
+}
+
+.card-info {
+  margin-top: 30px;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 0 20px rgb(0 0 0 / 6%);
+  display: flex;
+  flex-direction: column;
+}
+
+.ci-ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 equal-width columns */
+}
+
+.ci-li {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  color: #242526;
+  padding: 15px;
+  border-radius: 8px;
+}

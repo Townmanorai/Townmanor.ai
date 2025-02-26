@@ -23,6 +23,10 @@
   border-radius: 15px !important;
 }
 
+.form_field{
+  width: auto !important;
+}
+
 .nav-tabs .nav-item.show .nav-link, .nav-tabss .nav-link.active {
     color: #D81212;
 }
@@ -32,4 +36,11 @@
       display: none;
     }
   }
-  
+
+  @media (min-width: 1200px) {
+    .col-xl-7.col-lg-12.cx_xl {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}

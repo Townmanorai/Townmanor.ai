@@ -9,12 +9,14 @@ const SearchForm = () => {
   const [yourConfigurationValue, setYourConfigurationValue] = useState('');
   const [yourFurnishType, setYourFurnishType] = useState('');
   const [yourConstructionStatus, setYourConstructionStatus] = useState('');
+  const [yourBudgetStatus, setYourBudgetStatus] = useState('');
 
   // Dropdown visibility states
   const [cityDropdownVisible, setCityDropdownVisible] = useState(false);
   const [configurationDropdownVisible, setConfigurationDropdownVisible] = useState(false);
   const [furnishDropdownVisible, setFurnishDropdownVisible] = useState(false);
   const [constructionDropdownVisible, setConstructionDropdownVisible] = useState(false);
+  const [BudgetDropdownVisible, setBudgetDropdownVisible] = useState(false);
 
   // Search terms for filtering dropdowns
   const [citySearchTerm, setCitySearchTerm] = useState('');
@@ -27,6 +29,7 @@ const SearchForm = () => {
   const configurations = ['1BHK', '2BHK', '3BHK', '4BHK', '5BHK', '6BHK', '7BHK', '8BHK'];
   const furnishTypes = ['Furnished', 'Unfurnished'];
   const constructionStatuses = ['Ready To Move', 'Under Construction', 'New Launched'];
+  const BudgetValue = ['Between 5 - 10 Lakh', 'Between 10 - 20 Lakh', 'Between 20 - 50 Lakh','Between 50 Lakh - 1 Cr','Between 1 - 5 Cr','More Than 5 Cr'];
 
   // Filter cities based on search input
   const filteredCities = cities.filter(city =>
@@ -253,10 +256,46 @@ const SearchForm = () => {
             </div>
           </div>
         </div>
+       
+       {/* Budget Dropdown */}
+       <div className="form_field">
+          <div className="form-group">
+            <div className={`winter_dropdown_tree color-secondary ${BudgetDropdownVisible ? 'win_open' : ''}`}>
+              <div className="btn-group">
+                <button
+                  type="button"
+                  className="btn btn-default color-secondary"
+                  onClick={() => setBudgetDropdownVisible(!BudgetDropdownVisible)}
+                >
+                  {yourBudgetStatus || 'Budget'}
+                </button>
+              </div>
+              {BudgetDropdownVisible && (
+                <div className="list_container color-primary win_visible">
+                   <div className="list_scroll">
+                  <ul className="list_items">
+                    {BudgetValue.map(status => (
+                      <li
+                        key={status}
+                        onClick={() => {
+                          setYourBudgetStatus(status);
+                          setBudgetDropdownVisible(false);
+                        }}
+                      >
+                        {status}
+                      </li>
+                    ))}
+                  </ul>
+                  </div>   
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
 
         {/* Submit Button */}
         <div className="form_field form_field_save">
-          <button className="btn btn-outline-primary" type="submit">
+          <button className="btn btn-outline-primary" type="submit" style={{margin:'0px'}}>
             Search
           </button>
         </div>
