@@ -69,6 +69,8 @@ import AgentForm from './Components/AgentForm/AgentForm';
 import Profile from './Components/AgentProfile/Profile';
 import EditForm from './Components/AgentForm/EditForm';
 import SignUpForm from './Components/AgentForm/SignUpForm';
+import Livspace from './Components/HomeInterior/Livspace';
+import Coliving_space from './Components/HomePage/Coliving_space';
 
 
 
@@ -163,6 +165,8 @@ function App() {
         <Route path="/agent/:id" element={<Profile />} />
         <Route path="/agents/edit" element={<EditForm />} />
         <Route path="/agents/form" element={<SignUpForm />} />
+        <Route path="/Livspace" element={<Livspace/>}/>
+        <Route path="Coliving" element={<Coliving_space/>}/>
         {/* You can also add dynamic routes for specific city or option pages */}
         {/* <Route path="/properties-for-sale-rent/:stateName" element={<PropertiesForSaleRent />} /> */}
           {/* <Route path="/pay-house-tax-online/:stateName" element={<PayHouseTaxOnline />} /> */}

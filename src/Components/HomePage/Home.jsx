@@ -19,6 +19,7 @@ import TopRentedProperties from './TopRentedProperties'
 // import AdvertisementVideo from './AdvertisementVideo'
 import PropertyList from './PropertyList'
 import MainSearch from '../SearchBar/MainSearch'
+import Coliving_space from './Coliving_space'
 
 function Home() {
   return (
@@ -36,6 +37,7 @@ function Home() {
       <PropertyList />
       <TopRentedProperties />
       <StateHouseTax />
+      <Coliving_space/>
       <LocationsGrid />
       <ExploreFeatures />
       <ClientsSay />
