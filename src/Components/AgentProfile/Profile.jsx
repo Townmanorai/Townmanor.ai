@@ -86,7 +86,7 @@ const Profile = () => {
 
   useEffect(() => {
     // Fetch agent data by ID (mocked here, replace with actual data fetch)
-    fetch(`http://localhost:3030/agents/${id}`)
+    fetch(`https://www.townmanor.ai/api/agents/${id}`)
       .then((response) => response.json())
       .then((data) => setAgent(data))
       .catch((error) => console.error("Error fetching agent:", error));

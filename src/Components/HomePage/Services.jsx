@@ -1,6 +1,18 @@
 import React from "react";
 import "./Services.css";
 
+// Popup modal component
+const Popup = ({ message, onClose }) => {
+  return (
+    <div className="popup-overlay">
+      <div className="popup-content">
+        <span className="close-btn" onClick={onClose}>&times;</span>
+        <p>{message}</p>
+      </div>
+    </div>
+  );
+};
+
 const servicesData = [
   {
     title: "Check Credit Score",
@@ -108,8 +120,7 @@ const servicesData = [
   },
   {
     title: "Home Shift",
-    description:
-      "Professional relocation services for a hassle-free move",
+    description: "Professional relocation services for a hassle-free move",
     icon: (
       <svg
         width="20"
@@ -127,11 +138,11 @@ const servicesData = [
         <path d="M10 21v-5" />
       </svg>
     ),
+    link: "https://townmanor.ai/homeshift"
   },
   {
     title: "Home Interior",
-    description:
-      "Professional interior design and decoration solutions",
+    description: "Professional interior design and decoration solutions",
     icon: (
       <svg
         width="20"
@@ -150,6 +161,7 @@ const servicesData = [
         <path d="M12 2v2" />
       </svg>
     ),
+    link: "https://townmanor.ai/homelane"
   },
   {
     title: "Home Loan",
@@ -174,8 +186,7 @@ const servicesData = [
   },
   {
     title: "Listed Property",
-    description:
-      "Browse through our extensive list of verified properties",
+    description: "Browse through our extensive list of verified properties",
     icon: (
       <svg
         width="20"
@@ -218,8 +229,7 @@ const servicesData = [
   },
   {
     title: "Pay Property Tax",
-    description:
-      "Seamless online property tax payment and guidance",
+    description: "Seamless online property tax payment and guidance",
     icon: (
       <svg
         width="20"
@@ -240,8 +250,7 @@ const servicesData = [
   },
   {
     title: "Commercial Investment",
-    description:
-      "Expert guidance for commercial property investment",
+    description: "Expert guidance for commercial property investment",
     icon: (
       <svg
         width="20"
@@ -258,16 +267,28 @@ const servicesData = [
         <path d="M14 19V10a2 2 0 0 1 2-2h2v11" />
       </svg>
     ),
+    link: "https://townmanor.ai/commercial",
+    isNew: true,
   },
 ];
 
-// Reusable card component
-const ServiceCard = ({ title, description, icon }) => {
+// Reusable card component with click behavior
+const ServiceCard = ({ title, description, icon, link, isNew, showPopup }) => {
+  const handleClick = () => {
+    if (link) {
+      window.location.href = link;
+    } else {
+      showPopup("Coming Soon");
+    }
+  };
+
   return (
-    <div className="service-card">
-      <div className="icon-wrapper">{icon}</div>
-      <div className="service-text">
-        <h3>{title}</h3>
+    <div className="svc-service-card" onClick={handleClick}>
+      <div className="svc-icon-wrapper">{icon}</div>
+      <div className="svc-service-text">
+        <h3>
+          {title} {isNew && <span className="new-badge">New</span>}
+        </h3>
         <p>{description}</p>
       </div>
     </div>
@@ -275,23 +296,41 @@ const ServiceCard = ({ title, description, icon }) => {
 };
 
 const Services = () => {
-  return (
-    <section className="services-section">
-      <h2 className="services-heading">Our Services</h2>
-      <span className="heading-underline"></span>
-      <div className="services-grid">
-        {servicesData.map((service, idx) => (
-          <ServiceCard
-            key={idx}
-            title={service.title}
-            description={service.description}
-            icon={service.icon}
-          />
-        //   background: linear-gradient(to right, #d78687, #bf5656c2); 
+  const [popupMessage, setPopupMessage] = React.useState("");
+  const [isPopupOpen, setIsPopupOpen] = React.useState(false);
 
-        ))}
-      </div>
-    </section>
+  const showPopup = (message) => {
+    setPopupMessage(message);
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
+
+  return (
+    <div className="container">
+      <section className="svc-services-section">
+        <h3>
+          Our <b>Services</b>
+        </h3>
+        <span className="svc-heading-underline"></span>
+        <div className="svc-services-grid">
+          {servicesData.map((service, idx) => (
+            <ServiceCard
+              key={idx}
+              title={service.title}
+              description={service.description}
+              icon={service.icon}
+              link={service.link}
+              isNew={service.isNew}
+              showPopup={showPopup}
+            />
+          ))}
+        </div>
+      </section>
+      {isPopupOpen && <Popup message={popupMessage} onClose={closePopup} />}
+    </div>
   );
 };
 

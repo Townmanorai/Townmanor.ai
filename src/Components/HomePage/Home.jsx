@@ -20,6 +20,7 @@ import TopRentedProperties from './TopRentedProperties'
 import PropertyList from './PropertyList'
 import MainSearch from '../SearchBar/MainSearch'
 import Coliving_space from './Coliving_space'
+import Services from './Services'
 
 function Home() {
   return (
@@ -42,6 +43,7 @@ function Home() {
       <ExploreFeatures />
       <ClientsSay />
       <BlogPosts />
+      <Services />
 
     </div>
   )
