@@ -109,26 +109,7 @@ const SearchBar = () => {
           >
             {/* <img src='./buys.png' className='img' /> */}Buy
           </button>
-          <button
-            type="button"
-            className={`btn btn-outline-danger btnr ${activeBtn === 'Commercial' ? 'active' : ''}`}
-            onClick={() => {
-              handleBtnClick('Commercial')
-              setbtntype('commercial');
-              setIsVisible(true);
-              setnewproject(false);
-              setplot(false);
-              setpurpose('Sale');
-              setcategory('commercial')
-              setconstruction_status('');
-              setresidential('');
-              setConfiguration('');
-            }
-            }
-          >
-            {/* <img src="./commercial.png" alt="" className='img' /> */}
-           Commercial
-          </button>
+        
           <button
             type="button"
             className={`btn btn-outline-danger btnr ${activeBtn === 'NewProjects' ? 'active' : ''}`}
@@ -172,6 +153,26 @@ const SearchBar = () => {
           </button>
           <button
             type="button"
+            className={`btn btn-outline-danger btnr ${activeBtn === 'Commercial' ? 'active' : ''}`}
+            onClick={() => {
+              handleBtnClick('Commercial')
+              setbtntype('commercial');
+              setIsVisible(true);
+              setnewproject(false);
+              setplot(false);
+              setpurpose('Sale');
+              setcategory('commercial')
+              setconstruction_status('');
+              setresidential('');
+              setConfiguration('');
+            }
+            }
+          >
+            {/* <img src="./commercial.png" alt="" className='img' /> */}
+           Commercial
+          </button>
+          <button
+            type="button"
             className={`btn btn-warning btnr`}
             onClick={()=>
             {
@@ -183,7 +184,7 @@ const SearchBar = () => {
             }}
           >
             {/* <img src="./land.png" alt="" className='img' /> */}
-            Commercial Inv.
+            Commercial Investment
           </button>
         </div>
         <br></br>

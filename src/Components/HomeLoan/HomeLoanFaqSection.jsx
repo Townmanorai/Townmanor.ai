@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "../common.css";
 import "../commonsecond.css";
+import FaqComponent from '../HomePage/FaqComponent';
 
 // Dummy JSON data
 
@@ -66,7 +67,23 @@ const faqs = [
     answer: "Improve eligibility by increasing your income, reducing existing debt, improving your credit score, or opting for a longer tenure."
   }
 ];
-
+const faqs2 = [
+  {
+    question: "How do I create an account?",
+    answer:
+      "To create an account, click the 'Sign Up' button in the top right corner of our website. Fill in your email address, create a password, and follow the verification steps. Once completed, you'll have full access to your account.",
+  },
+  {
+    question: "How can I reset my password?",
+    answer:
+      "Click the 'Forgot Password' link on the login page. Enter your email address and we'll send you instructions to reset your password. Follow the link in the email to create a new password.",
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer:
+      "We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank transfers. All payments are processed securely through our payment gateway.",
+  },
+];
 const HomeLoanFaqSection = () => {
   const [activeIndex,setActiveIndex]= useState('');
   const toggleAnswer = (index) => {
@@ -83,49 +100,9 @@ const formatAnswer = (answer) => {
     });
 };
   return (
-    <section className="faq-section paddinngTB" id="faqs1">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <div className="faq-title text-center pb-3">
-              <h3>Frequently Asked Questions</h3>
-            </div>
-          </div>
-
-         
-           <div className="col-md-10 offset-md-1">
-                        <div className="faq">
-                            {faqs.map((faq, index) => (
-                                <div className="card" key={index}>
-                                    <div className="card-header" id={`faqHeading-${index}`}>
-                                        <div className="mb-0">
-                                            <h5
-                                                className="faq-title"
-                                                onClick={() => toggleAnswer(index)}
-                                            >
-                                                <span className="badge">{index + 1}</span>{" "}
-                                                {faq.question}
-                                            </h5>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        className={`collapse ${activeIndex === index ? "show" : ""}`}
-                                        id={`faqCollapse-${index}`}
-                                    >
-                                        <div className="card-body">
-                                            {/* Format the answer with <br /> */}
-                                            {formatAnswer(faq.answer)}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-
-                    </div>
-        </div>
-      </div>
-    </section>
+   <>
+   <FaqComponent faqs={faqs}/>
+   </>
   );
 };
 

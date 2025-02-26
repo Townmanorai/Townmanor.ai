@@ -8,6 +8,7 @@ import "../commonsecond.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css"; // Slick's styles
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import CityGrid from "./CityGrid";
 const LocationsGrid = () => {
   // Simulating the treefields data from an API call
   const treefields = [
@@ -428,7 +429,7 @@ const LocationsGrid = () => {
             </div>
           </div>
         </div>
-        <Slider {...settings} className="popularCitiesSliderAJ mt-5">
+        {/* <Slider {...settings} className="popularCitiesSliderAJ mt-5">
           {treefields.map((item, key) =>
             item.childs.map((childsData, index) =>
               childsData.count > 0 ? (
@@ -456,7 +457,8 @@ const LocationsGrid = () => {
               ) : null
             )
           )}
-        </Slider>
+        </Slider> */}
+        <CityGrid/>
       </div>
     </section>
   );
