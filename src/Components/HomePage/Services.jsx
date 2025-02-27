@@ -35,6 +35,7 @@ const servicesData = [
         <path d="M6 18h2" />
       </svg>
     ),
+    link: "https://townmanor.ai/credit-score"
   },
   {
     title: "RERA Verification",
