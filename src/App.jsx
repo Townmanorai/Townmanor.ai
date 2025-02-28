@@ -71,6 +71,7 @@ import EditForm from './Components/AgentForm/EditForm';
 import SignUpForm from './Components/AgentForm/SignUpForm';
 // import Livspace from './Components/HomeInterior/Livspace';
 import Coliving_space from './Components/HomePage/Coliving_space';
+import RentMainPage from './Components/Rent-Agreements/RentMainPage';
 
 
 
@@ -126,6 +127,7 @@ function App() {
         <Route path="/home-loan" element={<HomeLoan />} />
         <Route path="/credit-score" element={<CreditScore />} />
         <Route path="/insurance" element={<Insurance />} />
+        <Route path="/rentagreements" element={<RentMainPage />} />
 
         <Route path="/property-details/:property_name" element={<PropertyListedUserList />} />
         {/* sunny route */}
@@ -146,6 +148,7 @@ function App() {
         <Route path='/homelane/officeinterior' element={<Officeinterior />} />
         <Route path='/homelane/bedroom' element={<Bedroom />} />
         <Route path='/homelane/furniture' element={<Furniture />} />
+
         {/* Dynamic Route for State */}
         <Route path="/state/:stateName" element={<StateDetails />} />
         <Route path="/commercial3/:index" element={<Commercial3 />} />

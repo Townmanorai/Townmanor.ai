@@ -1,0 +1,123 @@
+/* RentSection.css - Modern Styling */
+.rent-hero-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 6rem 0 8rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.rent-hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    gap: 4rem;
+}
+
+.rent-hero-content {
+    flex: 1;
+    max-width: 680px;
+    position: relative;
+    z-index: 1;
+}
+
+.rent-hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    color: #2d3748;
+    font-weight: 700;
+}
+
+.rent-hero-content p {
+    font-size: 1.4rem;
+    margin-bottom: 3rem;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+.rent-cta-button {
+    background: #4f46e5;
+    color: white;
+    padding: 1.2rem 2.5rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+}
+
+.rent-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
+}
+
+.cta-arrow {
+    transition: transform 0.3s ease;
+}
+
+.rent-cta-button:hover .cta-arrow {
+    transform: translateX(4px);
+}
+
+.trust-badges {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.badge {
+    background: #e2e8f0;
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #4a5568;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.rent-hero-image {
+    flex: 1;
+    position: relative;
+}
+
+.image-container {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.floating-element {
+    position: absolute;
+    animation: float 3s ease-in-out infinite;
+}
+
+.doc-badge {
+    bottom: -20px;
+    right: -20px;
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}

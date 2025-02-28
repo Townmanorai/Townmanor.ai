@@ -1,0 +1,33 @@
+/* RentFeatures.css */
+.rent-features {
+    padding: 4rem 0;
+    background: #f9f9f9;
+  }
+  
+  .rent-features-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .rent-feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rent-feature-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .rent-feature-icon {
+    font-size: .5rem;
+    color: #ff4447;
+    margin-bottom: 1rem;
+  }

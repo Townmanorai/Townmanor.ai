@@ -1,0 +1,72 @@
+.rent-pricing {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.rent-pricing h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.rent-pricing-card {
+    background: white;
+    padding: .5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.rent-price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff4447;
+    margin-bottom: .5rem;
+}
+
+.rent-pricing-card ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.rent-pricing-card li {
+    margin: 1rem 0;
+    color: #666;
+}
+
+.rent-cta-button {
+    background-color: #ff4447;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+ul li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* RentPricing.css - Enhanced */
+.rent-pricing {
+    background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
+    text-align: center;
+    position: relative;
+  }
+  
+  .rent-pricing-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    max-width: 500px;
+    margin: 2rem auto;
+    transform-style: preserve-3d;
+  }
+  
+  .rent-pricing-card:hover {
+    transform: translateY(-5px) rotateX(5deg) rotateY(-2deg);
+  }

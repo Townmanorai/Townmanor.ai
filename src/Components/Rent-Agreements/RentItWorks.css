@@ -1,0 +1,41 @@
+.rent-how-it-works {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.rent-how-it-works h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.rent-steps-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 20px;
+}
+
+.rent-step {
+    flex: 1;
+    padding: 5px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rent-step-icon {
+    font-size: 2rem;
+    color: #ff4447;
+    margin-bottom: 5px;
+}
+
+.rent-step h3 {
+    font-size: 1rem;
+    margin-bottom: .5rem;
+}
+
+.rent-step p {
+    color: #666;
+}

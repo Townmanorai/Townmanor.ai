@@ -1,0 +1,35 @@
+.rent-footer {
+    background: #333;
+    color: white;
+    padding: 2rem 0;
+}
+
+.rent-footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.rent-footer-logo img {
+    height: 40px;
+    margin-bottom: 1rem;
+}
+
+.rent-footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.rent-footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.rent-footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #444;
+}
