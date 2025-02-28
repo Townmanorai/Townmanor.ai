@@ -50,7 +50,6 @@
   flex-direction: column;
   cursor: pointer;
   padding: 10px;
-  height: fit-content;
   width: 150px;
 }
 
@@ -82,6 +81,13 @@
 
 .co-left {
   margin-right: 20px;
+}
+
+.co-left h1{
+  font-size: 24px;
+  color: #222;
+  margin-top: 10px;
+  font-weight: 400;
 }
 
 .co-right .slick-dots {
@@ -164,14 +170,11 @@
     width: fit-content;
   }
   
-  .sign-up-link {
-    color: black;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .sign-up-link:hover {
-    color: #ff0000;
+  .co-sign-up {
+    font-weight: 500;
+    color: rgb(255 255 255);
+    padding: 5px 10px;
+    background: rgb(0 109 253);
   }
   
 

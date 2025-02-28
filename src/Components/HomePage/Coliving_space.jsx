@@ -58,7 +58,7 @@ function Coliving_space() {
         <div className='container'>
           <div className='coliving'>
             <div className='co-left'>
-              <h1> WE ARE COMING SOON !</h1>
+              <h1> We Are Coming Soon !</h1>
               <div>
                 <p>
                   {ShowContent ? trimmedContent : content} 
@@ -101,8 +101,8 @@ function Coliving_space() {
                   </div>
                 </div>
               </div>
-              <div style={{ margin: '20px 0px', fontSize: '16px', color: 'ff0000' }}>
-                If you want to know more <b onClick={openModal} className="sign-up-link">Sign up!</b>
+              <div style={{ margin: '20px 0px', fontSize: '16px', color: 'ff0000',textAlign:'center' }}>
+                If you want to know more <button onClick={openModal} className="co-sign-up">Sign up!</button>
               </div>
             </div>
             <div className='co-right'>
@@ -131,7 +131,7 @@ function Coliving_space() {
           <div className="modal-content">
             <div style={{display:'flex',justifyContent:'space-between'}}>
               <h2>Sign up</h2>
-              <button style={{border:'none',height:'fit-content',backgroundColor:'none'}} onClick={closeModal}> < RxCross2/></button>
+              <button style={{border:'none',height:'fit-content',backgroundColor:'white'}} onClick={closeModal}> < RxCross2/></button>
               
             </div>
             <form className='coliving-model' onSubmit={handleFormSubmit}>

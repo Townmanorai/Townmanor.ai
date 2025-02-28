@@ -123,7 +123,7 @@ const TopRentedProperties = ({stateName}) => {
       <div className="rented-container">
         <section className="rented-section has-slider">
           <div className="rented-section-title">
-            <div className="rented-title-text strip-blue">
+            <div className="rented-title-text strip-blue" style={{textTransform:'capitalize',color:'#333'}}>
             {stateName ? `Rental properties in ${stateName}` : 'Rental properties in Noida'}
             </div>
             <a href="javascript:void(0);" className="rented-anchor-see-all push-right">
