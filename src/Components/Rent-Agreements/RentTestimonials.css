@@ -42,3 +42,24 @@
     color: #333;
   }
   
+  /* Responsive Styles for RentTestimonials */
+
+/* Laptop view adjustments */
+@media only screen and (max-width: 1024px) {
+  .rent-testimonials-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+/* Mobile view adjustments */
+@media only screen and (max-width: 768px) {
+  .rent-testimonials h2 {
+    font-size: 2rem;
+  }
+  .rent-testimonial-card {
+    max-width: 90%;
+    padding: 1rem;
+  }
+}

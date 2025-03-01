@@ -32,4 +32,27 @@
     margin-top: 0.5rem;
     color: #555;
   }
+
+  /* Responsive Styles for RentFAQ */
+
+/* Laptop view adjustments */
+@media only screen and (max-width: 1024px) {
+  .rent-faq-container {
+    padding: 0 20px;
+  }
+}
+
+/* Mobile view adjustments */
+@media only screen and (max-width: 768px) {
+  .rent-faq {
+    padding: 2rem 10px;
+  }
+  .rent-faq h2 {
+    font-size: 2rem;
+  }
+  .rent-faq-item {
+    font-size: 1rem;
+  }
+}
+
   

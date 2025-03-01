@@ -70,3 +70,27 @@ ul li {
   .rent-pricing-card:hover {
     transform: translateY(-5px) rotateX(5deg) rotateY(-2deg);
   }
+
+  /* Responsive Styles for RentPricing */
+
+/* Laptop view adjustments */
+@media only screen and (max-width: 1024px) {
+    .rent-pricing-card {
+      margin: 2rem 20px;
+    }
+  }
+  
+  /* Mobile view adjustments */
+  @media only screen and (max-width: 768px) {
+    .rent-pricing {
+      padding: 2rem 10px;
+    }
+    .rent-pricing h2 {
+      font-size: 2rem;
+    }
+    .rent-pricing-card {
+      max-width: 90%;
+      padding: 1.5rem;
+    }
+  }
+  

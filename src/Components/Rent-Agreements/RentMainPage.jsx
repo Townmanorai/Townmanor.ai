@@ -10,6 +10,7 @@ import RentAbout from './RentAbout';
 import RentFeatures from './RentFeatures';
 
 import './RentMainPage.css';
+import RentUserDetailsForm from './RentUserDetailsForm';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -63,6 +64,15 @@ function RentMainPage() {
       >
         <RentTestimonials />
       </motion.section>
+      
+      <motion.section 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false }}
+        variants={sectionVariants}
+      >
+        <RentUserDetailsForm />
+      </motion.section>
 
       <motion.section 
         initial="hidden"
@@ -81,6 +91,8 @@ function RentMainPage() {
       >
         <RentAbout />
       </motion.section>
+
+      
     </div>
   );
 }

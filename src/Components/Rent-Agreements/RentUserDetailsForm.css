@@ -1,0 +1,105 @@
+/* Updated UserDetailsForm.css */
+.user-details-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #f6f9fc, #e9eff5);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 2rem auto; /* Centers the form horizontally */
+  }
+  
+  .user-details-form h2 {
+    font-size: 25px;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+  
+  .user-details-form form {
+    width: 100%;
+  }
+  
+  .rent-form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .rent-form-group label {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .rent-form-group input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .rent-form-group input:focus {
+    outline: none;
+    border: linear-gradient(to right, #ff4447, #8a2e2e);
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.2);
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    background: linear-gradient(to right, #ff4447, #8a2e2e);
+    color: #fff;
+    padding: 6px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3sease;
+}
+  
+  button[type="submit"]:hover {
+    background: linear-gradient(to right, #ff4447, #8a2e2e);
+  }
+  .rent-form-group {
+    margin-bottom: 2px;
+    position: relative;
+    padding: 5px;
+    }
+  /* Responsive adjustments */
+  
+  /* For devices with width up to 1024px (tablet/laptop) */
+  @media (max-width: 1024px) {
+    .user-details-form {
+      max-width: 80%;
+      padding: 2.5rem;
+      margin: 1.5rem auto;
+    }
+    .user-details-form h2 {
+      font-size: 2.2rem;
+    }
+  }
+  
+  /* For mobile devices with width up to 768px */
+  @media (max-width: 768px) {
+    .user-details-form {
+      max-width: 90%;
+      padding: 2rem;
+      margin: 1rem auto;
+    }
+    .user-details-form h2 {
+      font-size: 2rem;
+    }
+    .form-group input {
+      font-size: 0.9rem;
+      padding: 0.8rem;
+    }
+    button[type="submit"] {
+      font-size: 1rem;
+      padding: 0.8rem;
+    }
+  }
+  

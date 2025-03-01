@@ -39,3 +39,25 @@
 .rent-step p {
     color: #666;
 }
+
+/* Responsive Styles for RentItWorks */
+
+/* Laptop view adjustments */
+@media only screen and (max-width: 1024px) {
+    .rent-steps-container {
+      flex-direction: column;
+      gap: 20px;
+      padding: 0 20px;
+    }
+  }
+  
+  /* Mobile view adjustments */
+  @media only screen and (max-width: 768px) {
+    .rent-how-it-works h2 {
+      font-size: 2rem;
+    }
+    .rent-step {
+      padding: 10px;
+    }
+  }
+  

@@ -19,3 +19,21 @@
     color: #333;
   }
   
+  /* Responsive Styles for RentAbout */
+
+/* Laptop view adjustments */
+@media only screen and (max-width: 1024px) {
+  .rent-about-container {
+    padding: 0 20px;
+  }
+}
+
+/* Mobile view adjustments */
+@media only screen and (max-width: 768px) {
+  .rent-about h2 {
+    font-size: 2rem;
+  }
+  .rent-about p {
+    font-size: 1rem;
+  }
+}

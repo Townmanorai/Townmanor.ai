@@ -13,6 +13,14 @@ const faqs = [
   {
     question: 'How secure is my data?',
     answer: 'We use industry-standard encryption to ensure your data is protected at all times.'
+  },
+  {
+    question: 'How long does it take to create an agreement?',
+    answer: 'It typically takes less than 5 minutes to create and sign an agreement.'
+  },
+  {
+    question: 'What payment methods do you accept?',
+    answer: 'We accept all major credit cards, debit cards, and digital wallets.'
   }
 ];
 

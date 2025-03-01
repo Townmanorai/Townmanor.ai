@@ -121,3 +121,49 @@
     50% { transform: translateY(-15px); }
     100% { transform: translateY(0px); }
 }
+
+/* Responsive Styles for RentSection */
+
+/* Laptop view adjustments */
+@media only screen and (max-width: 1024px) {
+  .rent-hero-container {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 20px;
+  }
+  .rent-hero-content,
+  .rent-hero-image {
+    width: 100%;
+    text-align: center;
+  }
+  .rent-hero-content h1 {
+    font-size: 2.8rem; 
+  }
+  .rent-hero-content p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Mobile view adjustments */
+@media only screen and (max-width: 768px) {
+  .rent-hero-section {
+    padding: 4rem 0 6rem;
+  }
+  .rent-hero-container {
+    padding: 0 10px;
+  }
+  .rent-hero-content h1 {
+    font-size: 2.2rem;
+    font-weight: 500;
+  }
+  .rent-cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+  .trust-badges {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    }
+}

@@ -31,3 +31,24 @@
     color: #ff4447;
     margin-bottom: 1rem;
   }
+
+  /* Responsive Styles for RentFeatures */
+
+/* Laptop view adjustments */
+@media only screen and (max-width: 1024px) {
+  .rent-features-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 20px;
+  }
+}
+
+/* Mobile view adjustments */
+@media only screen and (max-width: 768px) {
+  .rent-features {
+    padding: 2rem 10px;
+  }
+  .rent-feature-card {
+    padding: 1.5rem;
+  }
+}
