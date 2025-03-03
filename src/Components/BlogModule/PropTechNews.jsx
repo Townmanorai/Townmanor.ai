@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./PropTech.css";
+import "./Proptech.css";
 import { useNavigate } from "react-router-dom";
 
 const PropTechNews = () => {
