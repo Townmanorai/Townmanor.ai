@@ -1,5 +1,5 @@
 import React from 'react';
-import "./HomePlatforms.css"
+import "./HOmePlatforms.css"
 import { FaStar } from 'react-icons/fa';  
 
 const Marketplace = () => {
