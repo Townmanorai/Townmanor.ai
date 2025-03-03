@@ -138,9 +138,9 @@
 
 .hp-icons {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
-    gap: 80px; /* Adjust the spacing between items */
-    justify-items: center; /* Center each item within its grid cell */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 80px;
+    justify-items: center; 
     padding: 50px 100px;
 }
 
@@ -177,13 +177,8 @@
 }
 
 
-.hp-icons > .hp-icon:nth-child(-n+3) {
-    grid-column: span 1;
-}
 
-.hp-icons > .hp-icon:nth-child(4) {
-    grid-column: span 2;
-}
+
 
 /* -------------------------------------------Interior--------------------------------- */
 
@@ -326,3 +321,79 @@ h2 {
     background-color: blue; /* Active dot color */
   }
   
+
+  /* Hover Effects */
+.hover-scale {
+    transition: transform 0.3s ease;
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+  
+  .hover-float {
+    transition: transform 0.3s ease, filter 0.3s ease;
+    /* filter: grayscale(100%); */
+  }
+  
+  .hover-float:hover {
+    transform: translateY(-5px);
+    /* filter: grayscale(0%); */
+  }
+  
+  /* Floating Animation */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .floating-image {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* Pulse Button Animation */
+  .pulse-animation {
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  /* Feature List Animation */
+  .feature-item {
+    transition: all 0.3s ease;
+    padding: 8px;
+    border-radius: 8px;
+  }
+  
+  .feature-item:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateX(10px);
+  }
+  
+  .animated-check {
+    color: #4CAF50;
+    margin-right: 10px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  .feature-item:hover .animated-check {
+    transform: rotate(360deg);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .floating-image {
+      animation: none;
+    }
+    
+    .ProductBanner_Img img {
+      width: 100%;
+    }
+  }
