@@ -8,7 +8,7 @@
         { "city_name": "Mathura", "image": "/mathura.jpg", "paytaxUrl": "http://nnmvonline.in/" }
       ],
       "reraLink": "https://www.up-rera.in/projects",
-      "image": "/Rumi_darwaza_night.jpg"
+      "image": "/up_lucknow_imambada.jpg"
     },
     "Delhi": {
       "cities": [
@@ -18,7 +18,8 @@
         { "city_name": "Pitampura", "image": "/Pitampura.jpg", "paytaxUrl": "https://ndmc.gov.in/" },
         { "city_name": "Lajpat Nagar", "image": "/Lajpat Nagar.jpg", "paytaxUrl": "https://sdmc.gov.in/" }
       ],
-      "reraLink": "https://rera.delhi.gov.in/"
+      "reraLink": "https://rera.delhi.gov.in/",
+      "image":"/"
     },
     "Madhya Pradesh": {
       "cities": [

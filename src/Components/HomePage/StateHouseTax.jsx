@@ -22,7 +22,7 @@ const StateHouseTax = () => {
         { image_url: './Seal_of_Maharashtra.png', state_name: 'Maharashtra' },
         { image_url: './Government_Of_Gujarat_Seal.png', state_name: 'Gujarat'},   
       ];
-
+ 
   const settings = {
     dots: true,
     infinite: true,

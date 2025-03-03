@@ -15,7 +15,7 @@ const StateDetails = () => {
 
     return (
         <>
-            <div className="state-details-page">
+            <div className="state-details-page " style={{background:`url(${stateData.image})`}}>
                 <h2 className="State-name" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     {stateData && stateData.image && (
                         <img
