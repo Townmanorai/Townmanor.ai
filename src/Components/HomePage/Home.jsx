@@ -28,7 +28,8 @@ function Home() {
       
       {/* <Banner /> */}
       <MainSearch/>
-      <InHouseServices />
+      <Services />
+      {/* <InHouseServices /> */}
       {/* <AdvertisementVideo /> */}
       <Discovermore />
       <PopularListing />
@@ -43,7 +44,6 @@ function Home() {
       <ExploreFeatures />
       <ClientsSay />
       <BlogPosts />
-      <Services />
 
     </div>
   )
