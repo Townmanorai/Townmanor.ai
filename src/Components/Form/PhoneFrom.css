@@ -33,6 +33,8 @@ body,html{
     border-radius: 7px;
     outline: none;
     font-size: 14px;
+    background: white;
+    color: black;
     box-shadow: 2px 2px 2px grey;
 }
 .activeb,.activeb2,.activeb3{

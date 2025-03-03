@@ -11,11 +11,19 @@ import "../commonsecond.css";
 import blog from './BlogPost.json'
 import { Link, useParams } from 'react-router-dom';
 import { FaArrowRight } from "react-icons/fa";
+import axios from 'axios';
 const BlogPosts = () => {
   const [blogdata, setblogdata] = useState([]);
 
   useEffect(() => {
-    setblogdata(blog);
+    axios.get('https://www.townmanor.ai/api/articles')
+    .then(response => {
+      // Assuming the data is in response.data
+      setblogdata(response.data);
+    })
+    .catch(error => {
+      console.error("There was an error fetching the blog data:", error);
+    });
   }, []); // Empty dependency array to ensure it runs only once on mount
   const {id}= useParams();
   const settings = {
@@ -46,7 +54,14 @@ const BlogPosts = () => {
       },
     ],
   };
-
+  const formatDate = (isoString) => {
+    const date = new Date(isoString);
+    return date.toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+    }); 
+};
   return (
     <section className="blog-grid hp6 section-padding pt-4">
       <div className="container">
@@ -70,7 +85,7 @@ const BlogPosts = () => {
                     <div className="blog-single-post">
                       <div className="blog-img">
                         <Link to={`/article/${post.id}`} title={post.heading}>
-                          <img src={post.img} alt={post.heading}  style={{height:'19vh'}}/>
+                          <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/blog-image'+post.img} alt={post.heading}  style={{height:'19vh'}}/>
                         </Link>
                         <div className="view-post">
                           <Link to={`/article/${post.id}`} className="view-posts">View Post</Link>
@@ -78,7 +93,7 @@ const BlogPosts = () => {
                       </div>
                       <div className="post_info">
                         <ul className="post-nfo post_date">
-                          <li><LuCalendarCheck style={{width:'14px', marginBottom:'4px', color:'white'}}/> {post.date}</li>
+                          <li><LuCalendarCheck style={{width:'14px', marginBottom:'4px', color:'white'}}/> {formatDate(post.date)}</li>
                         </ul>
                         <h3>
                           <Link to={`/article/${post.id}`} title={post.heading}>

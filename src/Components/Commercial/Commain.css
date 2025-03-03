@@ -29,8 +29,11 @@
 }
 #combannerimg{
     width: 70%;
-    height: 315px;
+    height: 320px;
     border-radius: 5px;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 1px whitesmoke;
+   
 }
 #ban-img {
     height: 56vh !important;
@@ -38,7 +41,7 @@
 }
 .newbannerright{
     display: flex;
-    flex-basis: 60%;
+    flex-basis: 44%;
     justify-content: center;
     align-items: center;
 }
@@ -53,12 +56,26 @@
 }
 #commainbanner{
     padding: 10px;
-   background: url("/public/ak.jpeg");
+   background: url("/public/ad.jpg");
    height: 400px;
    background-size: cover;
-   background-position-y: -300px;
-   filter: grayscale(0%) brightness(97%);
+   background-position-y: -250px;
+   backdrop-filter: contrast(-17.5);
 }
+#commainbanner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(/public/ad.jpg);
+    background-size: cover;
+    background-position-y: -300px;
+    filter: grayscale(100%) brightness(97%); /* Apply grayscale only to the background image */
+    z-index: -1; /* Ensure the background is behind the content */
+}
+
 #commainbanner h2{
     font-size: 37px;
   
@@ -1463,9 +1480,13 @@ font-weight: 500;
     flex-direction: column !important;
     margin: 10px 0px !important;
     height: 417px;
+    background-position-y: 284px;
 }
 #commainbanner h2 {
     font-size: 18px;
+}
+.newbannerleft{
+    color: white;
 }
 #commainbanner h3 {
     font-size: 9px;
@@ -1517,7 +1538,126 @@ font-weight: 500;
     max-width: 100%;
     height: 160px !important;
 }
-
+.grandthum-container {
+    max-width: 375px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .grandthum-header {
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .grandthum-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .grandthum-location {
+    font-size: 11px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+  
+  .grandthum-carousel {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .grandthum-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .grandthum-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+  }
+  
+  .grandthum-compare-button,
+  .grandthum-know-button {
+    padding: 10px;
+    font-size: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 44%;
+  }
+  
+  .grandthum-compare-button {
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  .row-cols-1{
+    margin-top: 40%;
+  }
+  .grandthum-know-button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .grandthum-details {
+    padding: 16px;
+    background-color: #fff;
+  }
+  
+  .grandthum-details-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+  }
+  
+  .grandthum-info {
+    display: grid;
+    gap: 12px;
+  }
+  
+  .grandthum-info-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .grandthum-info-item i {
+    color: #007bff;
+  }
+  .slick-list {
+   
+    padding: 12px !important;
+}
+  /* @media (max-width: 375px) {
+    .grandthum-container {
+      width: 100%;
+      border-radius: 0;
+    }
+  
+    .grandthum-header {
+      padding: 12px;
+    }
+  
+    .grandthum-buttons {
+      flex-direction: column;
+      gap: 8px;
+    }
+  } */
+  
 }
 
 

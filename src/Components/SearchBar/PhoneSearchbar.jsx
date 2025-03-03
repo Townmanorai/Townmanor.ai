@@ -40,11 +40,7 @@ function PhoneSearchbar() {
             setActiveBtn('Rent')
           }}
           >Rent</li>
-          <li className={`phonesearchbarbtn ${activeBtn === 'Commercial' ? 'activep' : ''}`}
-          onClick={()=>{
-            setActiveBtn('Commercial')
-          }}
-          >Commercial</li>
+          
           <li className={`phonesearchbarbtn ${activeBtn === 'Newproperty' ? 'activep' : ''}`}
           onClick={()=>{
             setActiveBtn('NewProperty')
@@ -55,6 +51,21 @@ function PhoneSearchbar() {
             setActiveBtn('Plot/land')
           }}
           >Plot/Land</li>
+          <li className={`phonesearchbarbtn ${activeBtn === 'Commercial' ? 'activep' : ''}`}
+          onClick={()=>{
+            setActiveBtn('Commercial')
+          }}
+          >Commercial</li>
+           <li className={`phonesearchbarbtn`}
+          onClick={()=>{
+           navigate('/commercial')
+          }}
+          style={{
+            width:'130px',
+            background:'orange',
+            color:'black'
+          }}
+          >Commercial Investment</li>
         </ul>
       
         </div>

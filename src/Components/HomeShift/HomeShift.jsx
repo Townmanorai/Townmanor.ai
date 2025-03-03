@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './HomeShift.css'
 import axios from 'axios';
+import FaqComponent from '../HomePage/FaqComponent';
 function HomeShift() {
     const [activeIndex, setActiveIndex] = useState(null);
     // const [floatbtn,setfloatbtn]
@@ -271,59 +272,7 @@ function HomeShift() {
                     }} />
                 </div>
 
-                <div class="faq-section">
-                    <h2 class="service-heading">Frequently Asked Questions</h2>
-                    {/* <div class="faq-question">What is Townmanor?</div>
-        <div class="faq-answer">Townmanor is an aggregator platform that partners with trusted logistics providers like Porter and Blowhorn to offer seamless home shifting services. We make moving easier by connecting you with the best service providers in the industry.</div>
-
-        <div class="faq-question">What types of vehicles can I choose for my home shifting?</div>
-        <div class="faq-answer">Townmanor offers a wide variety of vehicles through Porter and Blowhorn, including two-wheelers, mini-trucks, larger trucks, and packers &amp; movers for all your home shifting needs.</div>
-
-        <div class="faq-question">How does the pricing work?</div>
-        <div class="faq-answer">Pricing is based on the vehicle type, distance, and any additional services like labor or packaging. You can find detailed pricing information for each vehicle option on our partners' websites.</div>
-
-        <div class="faq-question">Do I have to deal directly with Porter or Blowhorn?</div>
-        <div class="faq-answer">Yes,But Townmanor handles all the coordination with our partners, making your home shifting process simple and hassle-free. </div>
-
-        <div class="faq-question">Are there any hidden charges?</div>
-        <div class="faq-answer">There are no hidden charges. All pricing is transparent, and any additional charges (such as parking fees or road tax) will be clearly communicated before booking.</div>
-
-        <div class="faq-question">How can I book my home shifting service?</div>
-        <div class="faq-answer">You can easily book your service by filling out the form below, and our team will help you schedule a time with the appropriate logistics provider based on your needs.</div>
-
-        <div class="faq-question">Can I cancel or reschedule my booking?</div>
-        <div class="faq-answer">Yes, cancellations and rescheduling are possible. Please refer to the terms and conditions for cancellation policies or contact our support team for assistance.</div> */}
-                    <div className="col-md-10 offset-md-1">
-                        <div className="faq">
-                            {faqs.map((faq, index) => (
-                                <div className="card" key={index}>
-                                    <div className="card-header" id={`faqHeading-${index}`}>
-                                        <div className="mb-0">
-                                            <h5
-                                                className="faq-title"
-                                                onClick={() => toggleAnswer(index)}
-                                            >
-                                                <span className="badge">{index + 1}</span>{" "}
-                                                {faq.question}
-                                            </h5>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        className={`collapse ${activeIndex === index ? "show" : ""}`}
-                                        id={`faqCollapse-${index}`}
-                                    >
-                                        <div className="card-body">
-                                            {/* Format the answer with <br /> */}
-                                            {formatAnswer(faq.answer)}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-
-                    </div>
-                </div>
+                <FaqComponent faqs={faqs}/>
 
 
 

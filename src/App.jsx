@@ -72,7 +72,8 @@ import SignUpForm from './Components/AgentForm/SignUpForm';
 // import Livspace from './Components/HomeInterior/Livspace';
 import Coliving_space from './Components/HomePage/Coliving_space';
 import RentMainPage from './Components/Rent-Agreements/RentMainPage';
-
+import PropTechNews from './Components/BlogModule/PropTechNews';
+import ArticleComponent from './Components/BlogModule/ArticleComponent';
 
 
 function App() {
@@ -176,6 +177,8 @@ function App() {
           {/* <Route path="/land-record-verification/:stateName" element={<LandRecordVerification />} /> */}
           {/* <Route path="/rera/:stateName" element={<RERA />} /> */}
           <Route path="/stateName/:stateName/city/:cityName" element={<CityWise />} />  Example for city route
+          <Route path='/proptech' element={<PropTechNews/>}/>
+          <Route path='/singleblog/:id' element={<ArticleComponent/>}/>
       </Routes>
       <Footer />
     </Router>

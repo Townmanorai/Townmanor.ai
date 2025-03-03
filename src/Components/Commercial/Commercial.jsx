@@ -19,6 +19,12 @@ import { PiMapPinAreaLight } from "react-icons/pi";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { Helmet } from 'react-helmet';
 import { MdCompareArrows } from "react-icons/md";
+import { CiLocationOn } from 'react-icons/ci';
+import { FaCodeCompare, FaLink } from 'react-icons/fa6';
+import { BsDatabaseFillUp } from 'react-icons/bs';
+import { VscGraphLine } from 'react-icons/vsc';
+import { IoCalendarOutline } from 'react-icons/io5';
+import { BiArea } from 'react-icons/bi';
 function Commercial() {
 
   const [commercialdata, setcommercialdata] = useState([]);
@@ -417,24 +423,61 @@ function Commercial() {
           <div className='investmentoptionbox2'>
             <Slider {...settings2}>
               {filteredData.map((item, index) => (
-                <div className='investmentoption' key={index}>
-                  <p id='investhead'>{item.property_name}</p>
-                  <p id='add'>{item.address}</p>
-                  <div className='invdata'>
-
-                    <button className='invbtn' onClick={() => {
-                      handleCompare(index)
-                    }}>Compare</button>
-                    <button className='invbtn invbtn2' onClick={() => {
-                      handleKnowMore(item.id)
-                    }}>Know More</button>
+              <div className="grandthum-container" key={index}>
+              <header className="grandthum-header">
+                <h1 className="grandthum-title">{item.project_name}</h1>
+                <p className="grandthum-location">
+                  <CiLocationOn size={15} color='black'/>{item.address}
+                </p>
+              </header>
+        
+              <div className="grandthum-carousel">
+                <img 
+                  src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/' + item.face_image}
+                  alt={item.face_image} 
+                  className="grandthum-image" 
+                />
+              </div>
+        
+              <div className="grandthum-buttons">
+                <button className="grandthum-compare-button" onClick={()=>{handleCompare(item.id)}}>
+                  <FaCodeCompare color='black'/>
+                  <span>Compare</span>
+                </button>
+                <button className="grandthum-know-button" onClick={()=>{handleKnowMore(item.id)}}  style={{
+                  background:'black'
+                }}>
+                  <FaLink color='black'/>
+                  <span>Know More</span>
+                </button>
+              </div>
+        
+              <div className="grandthum-details">
+                <h2 className="grandthum-details-title">Property Details</h2>
+                <div className="grandthum-info">
+                  <div className="grandthum-info-item">
+                  <BsDatabaseFillUp color='black' size={5}/>
+                    <span>Investment</span>
+                    <strong>{item.invest}</strong>
                   </div>
-                  <div className='combuttonbox2'>
-                    <button className='combtn4'>Invest: {item.invest}</button>
-                    <button className='combtn4'>Get Guaranteed lease {item.lease_amount}</button>
-                    <button className='combtn4'>Possession Date: {trimPossessionDate(item.possession_date)}</button>
+                  <div className="grandthum-info-item">
+                  <VscGraphLine color='black' size={5} />
+                    <span>Return</span>
+                    <strong>{item.return_policy}</strong>
+                  </div>
+                  <div className="grandthum-info-item">
+                  <IoCalendarOutline color='black' size={5} />
+                    <span>Possession Date</span>
+                    <strong>{trimPossessionDate(item.possession_date)}</strong>
+                  </div>
+                  <div className="grandthum-info-item">
+                  < BiArea  color='black' size={5}/>
+                    <span>Area</span>
+                    <strong>{item.project_area_range}</strong>
                   </div>
                 </div>
+              </div>
+            </div>
               ))}
             </Slider>
           </div>
@@ -564,7 +607,8 @@ function Commercial() {
                                 alt="Shop"
                                 className="img-fluid"
                                 style={{
-                                  height:'210px'
+                                  height:'210px',
+                                  borderRadius:'11px'
                                 }}
                             />
                         </div>
@@ -581,7 +625,8 @@ function Commercial() {
 
                 <div className="col">
                     <div className="card" style={{
-                      height:"95%"
+                      height:"95%",
+
                     }}>
                         <div className="ratio ratio-16x9">
                             <img
@@ -589,7 +634,8 @@ function Commercial() {
                                 alt="Office Space"
                                 className="img-fluid"
                                 style={{
-                                  height:'210px'
+                                  height:'210px',
+                                  borderRadius:'11px'
                                 }}
                             />
                         </div>
@@ -613,7 +659,8 @@ function Commercial() {
                                 alt="Coworking Space"
                                 className="img-fluid"
                                 style={{
-                                  height:'210px'
+                                  height:'210px',
+                                  borderRadius:'11px'
                                 }}
                             />
                         </div>
@@ -687,7 +734,7 @@ function Commercial() {
             <iframe
               width="560"
               height="315"
-              src={`https://www.youtube.com/embed/8H6TXy27XGM`}
+              src={`https://www.youtube.com/embed/jimGe_MXDNM`}
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted;"

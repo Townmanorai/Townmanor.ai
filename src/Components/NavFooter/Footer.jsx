@@ -12,8 +12,10 @@ import { LiaTwitter } from "react-icons/lia";
 import { CiLinkedin } from "react-icons/ci";
 import { TiSocialLinkedin } from "react-icons/ti";
 import { LiaInstagram } from "react-icons/lia";
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <section className="footer_area" style={{height:'max-content'}}>
       <section className="bottom section-padding">
@@ -224,7 +226,9 @@ const Footer = () => {
                 <h3>More About</h3>
                 <ul className="footer-list pl0">
                   <li>
-                    <a target="_blank" href="https://townmanor.in/blogs">
+                    <a target="_blank" onClick={()=>{
+                      navigate("/proptech")
+                    }}>
                       Blogs
                     </a>
                   </li>

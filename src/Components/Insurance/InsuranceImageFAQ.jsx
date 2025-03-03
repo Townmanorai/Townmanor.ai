@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import FaqComponent from '../HomePage/FaqComponent';
 
 // Dummy JSON data for insurance companies
 const faqs = [
@@ -222,7 +223,7 @@ const InsuranceSectionFAQ = () => {
                   </div>
                 ))}
               </div>
-              <section className="faq-section paddinngTB" id="faqs1" style={{
+              {/* <section className="faq-section paddinngTB" id="faqs1" style={{
                 marginLeft:'auto',
                 height:'62vh !important'
               }}> 
@@ -256,7 +257,7 @@ const InsuranceSectionFAQ = () => {
                                         id={`faqCollapse-${index}`}
                                     >
                                         <div className="card-body">
-                                            {/* Format the answer with <br /> */}
+                                        
                                             {formatAnswer(faq.answer)}
                                         </div>
                                     </div>
@@ -267,7 +268,8 @@ const InsuranceSectionFAQ = () => {
                     </div>
         </div>
       </div>
-    </section>
+    </section> */}
+    <FaqComponent faqs={faqs}/>
             </div>
             <div
               className={`tab-pane ${activeTab === 'ratings' ? 'fade show active' : 'fade'}`}
@@ -283,52 +285,7 @@ const InsuranceSectionFAQ = () => {
                   </div>
                 ))}
               </div>
-              <section className="faq-section paddinngTB" id="faqs1" style={{
-                marginLeft:'auto',
-                height:'62vh !important'
-              }}> 
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <div className="faq-title text-center pb-3">
-              <h3>Frequently Asked Questions</h3>
-            </div>
-          </div>
-
-         
-           <div className="col-md-10 offset-md-1">
-                        <div className="faq">
-                            {faqs2.map((faq, index) => (
-                                <div className="card" key={index}>
-                                    <div className="card-header" id={`faqHeading-${index}`}>
-                                        <div className="mb-0">
-                                            <h5
-                                                className="faq-title"
-                                                onClick={() => toggleAnswer(index)}
-                                            >
-                                                <span className="badge">{index + 1}</span>{" "}
-                                                {faq.question}
-                                            </h5>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        className={`collapse ${activeIndex === index ? "show" : ""}`}
-                                        id={`faqCollapse-${index}`}
-                                    >
-                                        <div className="card-body">
-                                            {/* Format the answer with <br /> */}
-                                            {formatAnswer(faq.answer)}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-
-                    </div>
-        </div>
-      </div>
-    </section>
+     <FaqComponent faqs={faqs2}/>
             </div>
             <div
               className={`tab-pane ${activeTab === 'plus' ? 'fade show active' : 'fade'}`}
@@ -344,52 +301,7 @@ const InsuranceSectionFAQ = () => {
                   </div>
                 ))}
               </div>
-              <section className="faq-section paddinngTB" id="faqs1" style={{
-                marginLeft:'auto',
-                height:'62vh !important'
-              }}> 
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <div className="faq-title text-center pb-3">
-              <h3>Frequently Asked Questions</h3>
-            </div>
-          </div>
-
-         
-           <div className="col-md-10 offset-md-1">
-                        <div className="faq">
-                            {motorInsuranceFaqs.map((faq, index) => (
-                                <div className="card" key={index}>
-                                    <div className="card-header" id={`faqHeading-${index}`}>
-                                        <div className="mb-0">
-                                            <h5
-                                                className="faq-title"
-                                                onClick={() => toggleAnswer(index)}
-                                            >
-                                                <span className="badge">{index + 1}</span>{" "}
-                                                {faq.question}
-                                            </h5>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        className={`collapse ${activeIndex === index ? "show" : ""}`}
-                                        id={`faqCollapse-${index}`}
-                                    >
-                                        <div className="card-body">
-                                            {/* Format the answer with <br /> */}
-                                            {formatAnswer(faq.answer)}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-
-                    </div>
-        </div>
-      </div>
-    </section>
+         <FaqComponent faqs={motorInsuranceFaqs}/>
             </div>
           </div>
         </div>
