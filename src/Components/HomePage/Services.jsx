@@ -6,7 +6,9 @@ const Popup = ({ message, onClose }) => {
   return (
     <div className="popup-overlay">
       <div className="popup-content">
-        <span className="close-btn" onClick={onClose}>&times;</span>
+        <span className="close-btn" onClick={onClose}>
+          &times;
+        </span>
         <p>{message}</p>
       </div>
     </div>
@@ -16,23 +18,24 @@ const Popup = ({ message, onClose }) => {
 const servicesData = [
   {
     title: "Check Credit Score",
-    description:
-      "Get instant access to your credit score and financial health report",
+    description: "Get instant access to your credit score and financial health report",
     icon: (
       <svg
         width="20"
         height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#000"
+        stroke="white"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <rect x="2" y="4" width="20" height="16" rx="2" ry="2" />
-        <path d="M2 10h20" />
-        <path d="M6 14h4" />
-        <path d="M6 18h2" />
+        {/* Credit card outline */}
+        <rect x="2" y="5" width="20" height="14" rx="2" ry="2" />
+        {/* Divider */}
+        <line x1="2" y1="10" x2="22" y2="10" />
+        {/* Simple bar graph element */}
+        <polyline points="6,16 9,13 12,16" />
       </svg>
     ),
     link: "https://townmanor.ai/credit-score"
@@ -46,33 +49,36 @@ const servicesData = [
         height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#000"
+        stroke="white"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z" />
-        <path d="M9 22V12h6v10" />
+        {/* Document with folded corner */}
+        <path d="M4 2h12l4 4v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
+        {/* Check mark overlay */}
+        <polyline points="9 12 11 14 15 10" />
       </svg>
     ),
   },
   {
     title: "Land Verification",
-    description:
-      "Comprehensive land title and ownership verification service",
+    description: "Comprehensive land title and ownership verification service",
     icon: (
       <svg
         width="20"
         height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#000"
+        stroke="white"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M2 22l10-5 10 5V2z" />
-        <path d="M12 2v15" />
+        {/* Land plot outline */}
+        <path d="M3 14l9-9 9 9v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        {/* Horizontal line to denote division */}
+        <line x1="3" y1="14" x2="21" y2="14" />
       </svg>
     ),
   },
@@ -85,15 +91,15 @@ const servicesData = [
         height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#000"
+        stroke="white"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <rect x="3" y="4" width="18" height="16" rx="2" ry="2" />
-        <path d="M16 2v4" />
-        <path d="M8 2v4" />
-        <path d="M3 10h18" />
+        {/* Circular stamp outline */}
+        <circle cx="12" cy="12" r="10" />
+        {/* Star in the center */}
+        <polygon points="12,7 13,10 16,10 14,12 15,15 12,13 9,15 10,12 8,10 11,10" />
       </svg>
     ),
   },
@@ -106,16 +112,17 @@ const servicesData = [
         height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#000"
+        stroke="white"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M13 2H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
-        <path d="M13 2v7h7" />
-        <path d="M9 15h6" />
-        <path d="M9 19h6" />
-        <path d="M9 11h6" />
+        {/* Document outline */}
+        <rect x="2" y="3" width="20" height="18" rx="2" ry="2" />
+        {/* Header line */}
+        <line x1="2" y1="8" x2="22" y2="8" />
+        {/* Signature line */}
+        <line x1="7" y1="16" x2="17" y2="16" />
       </svg>
     ),
   },
@@ -128,15 +135,18 @@ const servicesData = [
         height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#000"
+        stroke="white"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <rect x="1" y="3" width="15" height="13" rx="2" ry="2" />
-        <path d="M16 8l5 5" />
-        <path d="M8 21h4" />
-        <path d="M10 21v-5" />
+        {/* Truck cab */}
+        <rect x="1" y="10" width="12" height="8" rx="1" />
+        {/* Truck container with simplified outline */}
+        <path d="M13 14h6l2 2v-6l-2 2h-6" />
+        {/* Wheels */}
+        <circle cx="4" cy="19" r="2" />
+        <circle cx="10" cy="19" r="2" />
       </svg>
     ),
     link: "https://townmanor.ai/homeshift"
@@ -150,16 +160,14 @@ const servicesData = [
         height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#000"
+        stroke="white"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M2 14h20" />
-        <path d="M2 18h20" />
-        <path d="M6 14v-4a4 4 0 0 1 8 0v4" />
-        <path d="M10 14v4" />
-        <path d="M12 2v2" />
+        {/* Simplified sofa shape */}
+        <rect x="3" y="12" width="18" height="5" rx="2" />
+        <path d="M7 12V8h10v4" />
       </svg>
     ),
     link: "https://townmanor.ai/homelane"
@@ -173,15 +181,16 @@ const servicesData = [
         height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#000"
+        stroke="white"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M12 22V13" />
-        <path d="M6 9l6-6 6 6" />
-        <path d="M2 12h4v10h12V12h4" />
-        <path d="M12 17h.01" />
+        {/* House outline */}
+        <path d="M3 12l9-9 9 9v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8z" />
+        {/* Dollar symbol simplified (vertical line with a small circle) */}
+        <line x1="12" y1="16" x2="12" y2="12" />
+        <circle cx="12" cy="10" r="1" />
       </svg>
     ),
   },
@@ -194,15 +203,16 @@ const servicesData = [
         height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#000"
+        stroke="white"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-        <path d="M2 7l10-5 10 5" />
-        <path d="M6 10h4" />
-        <path d="M6 14h2" />
+        {/* Building outline */}
+        <rect x="3" y="7" width="18" height="14" rx="2" />
+        {/* Windows or floor divisions */}
+        <line x1="3" y1="11" x2="21" y2="11" />
+        <line x1="3" y1="15" x2="21" y2="15" />
       </svg>
     ),
   },
@@ -215,16 +225,17 @@ const servicesData = [
         height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#000"
+        stroke="white"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M13 2l-2 2l2 2" />
-        <path d="M11 2h-4a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h10a2 2 0 0 0 2-2v-4" />
-        <path d="M7 10h8" />
-        <path d="M7 14h6" />
-        <path d="M17 2v4" />
+        {/* Checklist document */}
+        <rect x="2" y="3" width="20" height="18" rx="2" ry="2" />
+        {/* Horizontal lines representing text */}
+        <line x1="6" y1="8" x2="18" y2="8" />
+        <line x1="6" y1="12" x2="18" y2="12" />
+        <line x1="6" y1="16" x2="18" y2="16" />
       </svg>
     ),
   },
@@ -237,15 +248,18 @@ const servicesData = [
         height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#000"
+        stroke="white"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M8 21h8a2 2 0 0 0 2-2v-7H6v7a2 2 0 0 0 2 2z" />
-        <path d="M8 3v5h8V3" />
-        <path d="M12 8v13" />
-        <path d="M9 12h6" />
+        {/* Tax form / building */}
+        <rect x="2" y="3" width="20" height="18" rx="2" ry="2" />
+        {/* Divider line */}
+        <line x1="2" y1="8" x2="22" y2="8" />
+        {/* Simplified money symbol */}
+        <line x1="12" y1="12" x2="12" y2="17" />
+        <circle cx="12" cy="10" r="1" />
       </svg>
     ),
   },
@@ -258,14 +272,15 @@ const servicesData = [
         height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#000"
+        stroke="white"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M3 19h18" />
-        <path d="M6 19V5a2 2 0 0 1 2-2h4v16" />
-        <path d="M14 19V10a2 2 0 0 1 2-2h2v11" />
+        {/* Skyscraper outline */}
+        <rect x="4" y="4" width="16" height="16" rx="2" />
+        {/* Upward trending arrow */}
+        <polyline points="8 16 12 12 16 16" />
       </svg>
     ),
     link: "https://townmanor.ai/commercial",
@@ -285,7 +300,9 @@ const ServiceCard = ({ title, description, icon, link, isNew, showPopup }) => {
 
   return (
     <div className="svc-service-card" onClick={handleClick}>
-      <div className="svc-icon-wrapper">{icon}</div>
+      <div className="svc-icon-wrapper">
+        <div className="icon-container">{icon}</div>
+      </div>
       <div className="svc-service-text">
         <h3>
           {title} {isNew && <span className="new-badge">New</span>}
