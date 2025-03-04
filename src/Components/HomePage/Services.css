@@ -5,6 +5,15 @@
   padding: 20px 20px;
   background-color: #ffffff00;
   text-align: center;
+  padding-top: 50px;
+}
+
+
+.svc-services-section h1{
+  font-size: 30px;
+  font-family: 'Gilroy' !important;
+  font-weight: 400 !important;
+  color: #0b1116;
 }
 
 /* Main heading */
@@ -34,6 +43,7 @@
   gap: 20px;
   justify-items: start;
   margin-top: 20px;
+  padding-top: 20px;
 }
 
 /* Each service card */

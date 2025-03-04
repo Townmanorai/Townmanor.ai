@@ -24,6 +24,7 @@
 .co-right {
   display: flex;
   align-items: center;
+  margin: auto;
 }
 
 .co-right img {
@@ -42,7 +43,6 @@
 }
 
 .co-box-div {
-  background-color: white;
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -51,6 +51,8 @@
   cursor: pointer;
   padding: 10px;
   width: 150px;
+  flex: 1 0 0;
+  text-align: center;
 }
 
 .cd-img{
@@ -186,5 +188,12 @@
   }
 
   @media screen and (max-width: 480px) {
-    
+    .coliving{
+      flex-direction: column;
+    }
+  }
+  @media screen and (max-width: 720px) {
+    .coliving{
+      flex-direction: column;
+    }
   }

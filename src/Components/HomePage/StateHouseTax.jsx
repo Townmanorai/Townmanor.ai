@@ -27,25 +27,34 @@ const StateHouseTax = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4, // Number of cards visible per row
+    slidesToShow: 6, // Number of cards visible per row
     slidesToScroll: 1,
-    rows: 2, // Creates 2 rows
-    slidesPerRow: 1, // Only show 1 slide per row, which will be duplicated in multiple rows
-    autoplaySpeed: 3000,
+    rows: 3, // Creates 2 rows
+    slidesPerRow: 1, 
+    // autoplay:true,
+    autoplaySpeed: 5000,
     arrows: true,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
-          rows: 2, // Retain two rows on medium screens
+          slidesToShow: 4,
+          rows: 2, 
           slidesPerRow: 1,
         },
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1, // For smaller screens show only 1 card per row
+          slidesToShow: 3, 
+          rows: 2,
+          slidesPerRow: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2, 
           rows: 2,
           slidesPerRow: 1,
         },
@@ -62,7 +71,7 @@ const StateHouseTax = () => {
           <div className="col-xl-8">
             <div className="state-house-tax-heading">
               {/* <span>Popular States</span> */}
-              <h3>Explore properties other services state wise </h3>
+              <h3>Explore properties & other services state wise </h3>
             </div>
           </div>
         </div>

@@ -329,9 +329,9 @@ const Services = () => {
   return (
     <div className="container">
       <section className="svc-services-section">
-        <h3>
-          Our <b>Services</b>
-        </h3>
+        <h1 style={{fontSize:'30px',color:'#0b1116',fontFamily:'Gilroy',fontWeight:'400'}}>
+          Our <b>services</b>
+        </h1>
         <span className="svc-heading-underline"></span>
         <div className="svc-services-grid">
           {servicesData.map((service, idx) => (

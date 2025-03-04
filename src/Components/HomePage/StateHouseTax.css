@@ -50,14 +50,14 @@
     justify-content: center;
     background: #fff;
     border-radius: 12px;
-    padding: 15px;
+    padding: 5px;
   }
   
   .state-image img {
     border-radius: 10px;
-    width: 80px;
-    height: 80px;
-    border: 2px solid #ff000087;
+    width: 35px;
+    height: 35px;
+    /* border: 2px solid #ff000087; */
   }
   
   .state-details {

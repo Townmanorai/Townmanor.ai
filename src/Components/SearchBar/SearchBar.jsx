@@ -68,7 +68,7 @@ const SearchBar = () => {
     <>
 
       <div className='container2'>
-        <h1 id='bannerhead'>Discover <b>best properties </b>in <b>one place</b></h1>
+        <h1 id='bannerhead' style={{fontWeight:'200'}}>Discover <b>best properties </b>in <b>one place</b></h1>
         <div className='buttonbox'>
           <button
             type="button"

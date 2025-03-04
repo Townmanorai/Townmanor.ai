@@ -18,7 +18,7 @@ function Coliving_space() {
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0, // Ensures the first slide is shown properly
-    autoplay: true, // Enables auto-scroll
+    // autoplay: true, // Enables auto-scroll
     autoplaySpeed: 2000, // Sets the interval time for auto-scrolling in milliseconds (2 seconds here)
   };
 
@@ -68,35 +68,35 @@ function Coliving_space() {
               <div className='co-box'>
                 <div className='co-box-div'>
                   <div className="cd-img">
-                    <FaHouse style={{ width: '40px', color: 'ff0000' }} />
+                    <FaHouse style={{ width: '25px', color: 'ff0000' }} />
                   </div>
-                  <div style={{ marginTop: '10px', color: 'red', fontWeight: '500' }}>
+                  <div style={{fontSize:'13px', marginTop: '10px', color: 'red', fontWeight: '500' }}>
                     Shared Space
                   </div>
                 </div>
                 <div className='co-box-div'>
                   <div className="cd-img">
-                    <MdBedroomChild style={{ width: '40px', color: 'ff0000' }} />
+                    <MdBedroomChild style={{ width: '25px', color: 'ff0000' }} />
                   </div>
-                  <div style={{ marginTop: '10px', color: 'red', fontWeight: '500' }}>
+                  <div style={{fontSize:'13px', marginTop: '10px', color: 'red', fontWeight: '500' }}>
                     Furnished Rooms
                   </div>
                 </div>
 
                 <div className='co-box-div'>
                   <div className="cd-img">
-                    <FaPeopleRoof style={{ width: '40px', color: 'ff0000' }} />
+                    <FaPeopleRoof style={{ width: '25px', color: 'ff0000' }} />
                   </div>
-                  <div style={{ marginTop: '10px', color: 'red', fontWeight: '500',textAlign:'center' }}>
+                  <div style={{fontSize:'13px', marginTop: '10px', color: 'red', fontWeight: '500',textAlign:'center' }}>
                     Vibrant Community
                   </div>
                 </div>
 
                 <div className='co-box-div'>
                   <div className="cd-img">
-                    <FaArrowsSplitUpAndLeft style={{ width: '40px', color: 'ff0000' }} />
+                    <FaArrowsSplitUpAndLeft style={{ width: '25px', color: 'ff0000' }} />
                   </div>
-                  <div style={{ marginTop: '10px', color: 'red', fontWeight: '500' }}>
+                  <div style={{fontSize:'13px', marginTop: '10px', color: 'red', fontWeight: '500' }}>
                     Flexibility
                   </div>
                 </div>
@@ -121,7 +121,7 @@ function Coliving_space() {
             </div>
           </div>
             <div style={{ margin: '20px 0px', fontSize: '16px', color: 'ff0000',textAlign:'center',display:'flex',flexDirection:'column' }}>
-                <span>If you want to know more </span>
+                <span style={{fontSize:'12px'}}>If you want to know more </span>
                 <button style={{width:'fit-content',textAlign:'center',marginLeft:'auto',marginRight:'auto',border:"none",borderRadius:'10px'}} onClick={openModal} className="co-sign-up">Sign up!</button>
               </div>
         </div>
