@@ -27,7 +27,7 @@ const Discovermore = () => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
         }
       }
@@ -45,7 +45,7 @@ const Discovermore = () => {
           </div>
         </div>
 
-        <Slider {...settings} className="banner-carousel" style={{height:"250px"}}>
+        <Slider {...settings} className="banner-carousel" style={{height:"75px"}}>
           <div className="banner-slide">
             <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/ads-image/townmanor_discover_more8.jpg'} alt="ad_space_available_4.jpg" />
           </div>

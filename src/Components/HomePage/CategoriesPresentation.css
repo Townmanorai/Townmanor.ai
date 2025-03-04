@@ -35,7 +35,6 @@ line-height: 58px;
 color: #fff;
 margin-bottom: 10px;
 background: -webkit-linear-gradient(45deg, #afafaf, #fff);
--webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 display: block;
 text-align: center;
@@ -146,5 +145,17 @@ margin-top: 5px;
 
     .description {
         font-size: 18px !important;
+    }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 500px) {
+    .active.carousel-item {
+        font-weight: bold;
+        border-bottom: none;
+    }
+}
+@media (max-width: 992px) {
+    .intro-content.bg-black {
+        padding: 0px 40px 0px;
     }
 }

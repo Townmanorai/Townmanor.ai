@@ -77,3 +77,16 @@
     color: #ff0000;
   }
   
+
+  @media (max-width: 767px) {
+    .state-house-tax-heading h3 {
+      font-size: 17px;
+  }
+  .state-details {
+    font-size: 8px;
+}
+    
+  }
+  @media (max-width: 450px) {
+    
+  }

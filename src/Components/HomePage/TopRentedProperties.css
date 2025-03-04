@@ -142,3 +142,21 @@
 .strip-blue {
 border-bottom: none;
 }
+
+@media (max-width: 767px) {
+  .rented-title-text {
+    font-size: 12px;
+    margin-left: 15px;
+
+  }
+  .rented-anchor-see-all {
+    font-size: 12px;
+  }
+  .rented-property-card {
+    margin-left: -5px;
+    width: 300px;
+}
+}
+@media (max-width: 450px) {
+  
+}

@@ -21,13 +21,14 @@
   }
   
   .exclusive-title-text {
-    font-size: 24px;
+    font-size: 14px;
     /* font-weight: bold; */
   }
   
   .exclusive-anchor-see-all {
     text-decoration: underline;
     color: #ff0000;
+    font-size: 12px;
   }
   
   .exclusive-property-slider {
@@ -66,6 +67,7 @@
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: -30px;
   }
   
   .exclusive-card-graphic img {
@@ -127,3 +129,12 @@
     color: white;
     font-weight: 600;
   }
+
+
+  @media (max-width: 767px) {
+    
+  }
+  @media (max-width: 450px) {
+    
+  }
+  

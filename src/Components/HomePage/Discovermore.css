@@ -7,10 +7,11 @@
   .banner-carousel .slick-slide .banner-slide,
   .banner-carousel .slick-slide > div:not(.banner_text),
   .banner-slide > img {
-    height: 200px !important;
+    height: 125px !important;
     -webkit-object-fit: cover;
     object-fit: cover;
-    margin-left: -15px;
+    margin-left: -10px;
+    width: 165px !important;
   }
 }
 @media (max-width: 450px) {

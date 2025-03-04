@@ -31,8 +31,8 @@ const StateHouseTax = () => {
     slidesToScroll: 1,
     rows: 3, // Creates 2 rows
     slidesPerRow: 1, 
-    // autoplay:true,
-    autoplaySpeed: 5000,
+    autoplay:true,
+    autoplaySpeed: 1000,
     arrows: true,
     responsive: [
       {
@@ -54,7 +54,7 @@ const StateHouseTax = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2, 
+          slidesToShow: 3, 
           rows: 2,
           slidesPerRow: 1,
         },
