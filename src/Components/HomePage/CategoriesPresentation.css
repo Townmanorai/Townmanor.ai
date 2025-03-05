@@ -34,8 +34,8 @@ text-transform: uppercase;
 line-height: 58px;
 color: #fff;
 margin-bottom: 10px;
-background: -webkit-linear-gradient(45deg, #afafaf, #fff);
--webkit-text-fill-color: transparent;
+/* background: -webkit-linear-gradient(45deg, #afafaf, #fff); */
+/* -webkit-text-fill-color: transparent; */
 display: block;
 text-align: center;
 margin: 0;

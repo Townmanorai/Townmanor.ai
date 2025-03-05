@@ -34,7 +34,7 @@ const CategoriesPresentation = () => {
     <section className="intro section-padding section-categories-presentation widget_edit_enabled">
       <div className="container">
         <div className="row">
-          <div className="col-xl-4 col-lg-4 p-0">
+          <div className="col-xl-6 col-lg-6 p-0">
             <div className="intro-content bg-black">
               <div className="AddOff_c">
                 {/* <span className="title-sub-top">Address of</span> */}
@@ -49,7 +49,7 @@ const CategoriesPresentation = () => {
             </div>
           </div>
 
-          <div className="col-xl-8 col-lg-8 p-0">
+          <div className="col-xl-6 col-lg-6 p-0">
             <div className="intro-img">
               {/* React Bootstrap Carousel */}
               <Carousel className="HomeInT_Slider_page">
