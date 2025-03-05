@@ -22,3 +22,14 @@
     display: none !important;
   }
 }
+
+
+.banner-carousel {
+  height: 250px;
+}
+
+@media (max-width: 768px) {
+  .banner-carousel {
+    height: 75px;
+  }
+}
