@@ -129,7 +129,7 @@ function Phone() {
         'floor_allowed': null,
         'modifyinterior': null,
         'lock_in_period': null,
-        'pricerange': 'Lakh',
+        'pricerange': '',
         'money_type': 'Rupees',
         amenities: [],
         'metro': null,
@@ -623,7 +623,8 @@ function Phone() {
 
                                             >
                                                 {formdata.country === 'india' && (
-                                                    <>
+                                                    <>  
+                                                        <option value=''>Select City</option>
                                                         <option value='noida'>Noida</option>
                                                         <option value='gurgaon'>Gurgaon
                                                         </option>
@@ -704,6 +705,7 @@ function Phone() {
                                                             required
 
                                                         >
+                                                            <option value=''>Choose Configuration</option>
                                                             <option value='1BHK'>1BHK</option>
                                                             <option value='1.5BHK'>1.5BHK</option>
                                                             <option value='2BHK'>2BHK</option>
@@ -724,6 +726,7 @@ function Phone() {
                                                             value={formdata.bathroom}
                                                             required
                                                         >
+                                                            <option value=''>Choose Bathroom</option>
                                                             <option value='1'>1</option>
                                                             <option value='2'>2</option>
                                                             <option value='3'>3</option>
@@ -741,6 +744,7 @@ function Phone() {
                                                             value={formdata.balcony}
                                                             required
                                                         >
+                                                            <option value=''>Choose Balcony</option>
                                                             <option value='1'>1</option>
                                                             <option value='2'>2</option>
                                                             <option value='3'>3</option>
@@ -778,6 +782,7 @@ function Phone() {
                                                             value={formdata.property_facing}
                                                             required
                                                         >
+                                                            <option value=''>Choose Direction</option>
                                                             <option value='North'>North</option>
                                                             <option value='South'>South</option>
                                                             <option value='East'>East</option>
@@ -796,7 +801,7 @@ function Phone() {
                                                             onChange={handleChange}
                                                             value={formdata.furnish_type}
                                                             required
-                                                        >
+                                                        > <option value=''>Select Furnish status</option>
                                                             <option value='Fully furnished'>Fully furnished</option>
                                                             <option value='Semi furnished'>Semi furnished</option>
                                                             <option value='Un furnished'>Un furnished</option>
@@ -870,7 +875,7 @@ function Phone() {
                                                 value={formdata.pricerange}
                                                 required
                                             >
-
+                                                 <option value=''>Choose format</option>
                                                 <option value='Lakh'>Lakhs</option>
                                                 <option value='Crore'>Crore</option>
                                                 <option value='million'>Million</option>
@@ -1297,6 +1302,7 @@ function Phone() {
                                                 required
 
                                             >
+
                                                 <option value='india'>India</option>
                                                 <option value='uae'>UAE
                                                 </option>
@@ -1313,6 +1319,7 @@ function Phone() {
                                             >
                                                 {formdata.country === 'india' && (
                                                     <>
+                                                    <option value=''>Select City</option>
                                                         <option value='noida'>Noida</option>
                                                         <option value='gurgaon'>Gurgaon
                                                         </option>
@@ -1389,7 +1396,8 @@ function Phone() {
                                                             value={formdata.configuration}
                                                             required
 
-                                                        >
+                                                        > 
+                                                        <option value=''>Select Configuration</option>
                                                             <option value='1BHK'>1BHK</option>
                                                             <option value='1.5BHK'>1.5BHK</option>
                                                             <option value='2BHK'>2BHK</option>
@@ -1410,6 +1418,7 @@ function Phone() {
                                                             value={formdata.bathroom}
                                                             required
                                                         >
+                                                            <option value=''>Select Bathroom</option>
                                                             <option value='1'>1</option>
                                                             <option value='2'>2</option>
                                                             <option value='3'>3</option>
@@ -1427,6 +1436,7 @@ function Phone() {
                                                             value={formdata.balcony}
                                                             required
                                                         >
+                                                            <option value=''>Select Balcomy</option>
                                                             <option value='1'>1</option>
                                                             <option value='2'>2</option>
                                                             <option value='3'>3</option>
@@ -1464,6 +1474,7 @@ function Phone() {
                                                             value={formdata.property_facing}
                                                             required
                                                         >
+                                                            <option value=''>Choose Facing</option>
                                                             <option value='North'>North</option>
                                                             <option value='South'>South</option>
                                                             <option value='East'>East</option>
@@ -1518,6 +1529,7 @@ function Phone() {
                                                 value={formdata.pricerange}
                                                 required
                                             >
+                                                <option value=''>Select Format</option>
                                                 <option value='Thousand'>Lakhs</option>
                                                 <option value='Lakh'>Lakhs</option>
                                                 <option value='Crore'>Crore</option>
@@ -1891,6 +1903,7 @@ function Phone() {
                                         >
                                             {formdata.country === 'india' && (
                                                 <>
+                                                <option value=''>Select City</option>
                                                     <option value='noida'>Noida</option>
                                                     <option value='gurgaon'>Gurgaon
                                                     </option>
@@ -1985,6 +1998,7 @@ function Phone() {
                                                         value={formdata.property_facing}
                                                         required
                                                     >
+                                                        <option value=''>Choose Facing</option>
                                                         <option value='North'>North</option>
                                                         <option value='South'>South</option>
                                                         <option value='East'>East</option>
@@ -2004,6 +2018,7 @@ function Phone() {
                                                         value={formdata.furnish_type}
                                                         required
                                                     >
+                                                        <option value=''>Select Furnish status</option>
                                                         <option value='Fully furnished'>Fully furnished</option>
                                                         <option value='Semi furnished'>Semi furnished</option>
                                                         <option value='Un furnished'>Un furnished</option>
@@ -2122,6 +2137,7 @@ function Phone() {
                                                             value={formdata.no_of_open_side}
                                                             onChange={handleChange}
                                                         >
+                                                            <option value=''>choose</option>
                                                             <option value='1'>1</option>
                                                             <option value='2'>2</option>
                                                             <option value='3'>3</option>
@@ -2136,6 +2152,7 @@ function Phone() {
                                                             onChange={handleChange}
                                                             value={formdata.floor_allowed}
                                                         >
+                                                            <option value=''>Select</option>
                                                             <option value='1'>1</option>
                                                             <option value='2'>2</option>
                                                             <option value='3'>3</option>
@@ -2211,7 +2228,7 @@ function Phone() {
                                             value={formdata.pricerange}
                                             required
                                         >
-
+                                               <option value=''>Choose Format</option>
                                             <option value='Lakh'>Lakhs</option>
                                             <option value='Crore'>Crore</option>
                                             <option value='million'>Million</option>
@@ -2651,6 +2668,7 @@ function Phone() {
                                         >
                                             {formdata.country === 'india' && (
                                                 <>
+                                                <option value=''>Select City</option>
                                                     <option value='noida'>Noida</option>
                                                     <option value='gurgaon'>Gurgaon
                                                     </option>
@@ -2744,6 +2762,7 @@ function Phone() {
                                                         value={formdata.property_facing}
                                                         required
                                                     >
+                                                        <option value=''>Choose Facing</option>
                                                         <option value='North'>North</option>
                                                         <option value='South'>South</option>
                                                         <option value='East'>East</option>
@@ -2763,6 +2782,7 @@ function Phone() {
                                                         value={formdata.furnish_type}
                                                         required
                                                     >
+                                                        <option value=''>Select Furnish status</option>
                                                         <option value='Fully furnished'>Fully furnished</option>
                                                         <option value='Semi furnished'>Semi furnished</option>
                                                         <option value='Un furnished'>Un furnished</option>
@@ -2875,6 +2895,7 @@ function Phone() {
                                                             onChange={handleChange}
                                                             value={formdata.floor_allowed}
                                                         >
+                                                            <option value=''>Choose</option>
                                                             <option value='1'>1</option>
                                                             <option value='2'>2</option>
                                                             <option value='3'>3</option>
@@ -2950,6 +2971,7 @@ function Phone() {
                                             value={formdata.pricerange}
                                             required
                                         >
+                                            <option value=''>Choose Format</option>
                                             <option value='thousand'>Thousand</option>
                                             <option value='Lakh'>Lakhs</option>
                                             <option value='Crore'>Crore</option>

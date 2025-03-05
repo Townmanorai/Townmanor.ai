@@ -91,11 +91,11 @@ h5.blackalpenliebe{
     transition: color 0.2s ease-in-out;
 } 
 
-svg:not(:root) {
+/* svg:not(:root) {
     width: 20px;
     color: #d2c8c8;
     height: auto;
-}
+} */
 
 .pull-right div{
     display: flex;

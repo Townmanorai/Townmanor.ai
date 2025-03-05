@@ -74,6 +74,7 @@ import Coliving_space from './Components/HomePage/Coliving_space';
 import RentMainPage from './Components/Rent-Agreements/RentMainPage';
 import PropTechNews from './Components/BlogModule/PropTechNews';
 import ArticleComponent from './Components/BlogModule/ArticleComponent';
+import PropertyListings from './Components/AdminPropertyUI/PropertyListings';
 
 
 function App() {
@@ -179,6 +180,7 @@ function App() {
           <Route path="/stateName/:stateName/city/:cityName" element={<CityWise />} />  Example for city route
           <Route path='/proptech' element={<PropTechNews/>}/>
           <Route path='/singleblog/:id' element={<ArticleComponent/>}/>
+          <Route path='/adminproperty' element={<PropertyListings/>}/>
       </Routes>
       <Footer />
     </Router>
