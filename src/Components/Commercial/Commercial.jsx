@@ -234,8 +234,8 @@ function Commercial() {
         
         id='commainbanner'>
           <div className='newbannerleft'>
-            <h2>Start your Commercial Investment</h2>
-            <h3>Commercial investment is the key to unlocking lasting wealth.</h3>
+            <h2>Start <b>your</b> Commercial <b>Investment</b></h2>
+            <h3>Commercial <b>investment</b> is the <b>key</b> to unlocking <b>lasting wealth.</b></h3>
             <div className='bannersearchbox'>
             <select value={city} onChange={handleCityChange} id='bannerselect'>
               <option value="Noida">Noida</option>
@@ -250,9 +250,10 @@ function Commercial() {
               onChange={handleSearchQueryChange}
               id='bannerinput'
             />
-             <button type="button" class="btn btn-dark" style={{
+             <button type="button" class="btn btn-dark commercialbtn" style={{
               height:'40px',
-              width:'150px'
+              width:'150px',
+              background:'linear-gradient(to right, #ff4447, #8a2e2e)'
              }}>Search</button>
             </div>
           </div>
@@ -388,22 +389,26 @@ function Commercial() {
               <li><FaLongArrowAltRight style={{
                 color:'green',
                 margin:'2.5px 4px',
-                
+                width:'15px',
+                height:'18px'
               }} />Invest : {item.invest}</li>
               <li><FaLongArrowAltRight style={{
                 color:'green',
                 margin:'2.5px 4px',
-                
+                width:'15px',
+                height:'18px'
               }}/>Return : {item.return_policy}</li>
               <li><FaLongArrowAltRight style={{
                 color:'green',
                 margin:'2.5px 4px',
-                
+                width:'15px',
+                height:'18px'
               }}/>Possession Date: {trimPossessionDate(item.possession_date)}</li>
               <li><FaLongArrowAltRight style={{
                 color:'green',
                 margin:'2.5px 4px',
-                
+                width:'15px',
+                height:'18px'
               }}/>Area : {item.project_area_range}</li>
               </div>
             </div>
@@ -615,6 +620,7 @@ function Commercial() {
                         <div className="card-body text-center"
                         style={{
                           fontSize:'18px'
+                          
                         }}
                         >
                             <h5 className="card-title">Shop</h5>
@@ -734,7 +740,7 @@ function Commercial() {
             <iframe
               width="560"
               height="315"
-              src={`https://www.youtube.com/embed/jimGe_MXDNM`}
+              src={`https://www.youtube.com/embed/Q_IPAUO5uxQ`}
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted;"

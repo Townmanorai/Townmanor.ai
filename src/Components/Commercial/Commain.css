@@ -77,17 +77,17 @@
 }
 
 #commainbanner h2{
-    font-size: 37px;
-  
+    font-size: 33px;
+    font-weight: 400;
 }
 #commainbanner h3{
-    font-size: 19px;
-  
+    font-size: 17px;
+    font-weight: 400;
 }
 #bannerselect {
     width: 126px;
     margin: 10px 10px;
-    height: 55px;
+    height: 45px;
     outline: none;
     border: 0.5px solid gray;
     border-radius: 8px;
@@ -99,7 +99,7 @@
     width: 200px;
     color: gray;
     margin: 10px 10px;
-    height: 55px;
+    height: 45px;
     outline: none;
     border: 0.5px solid gray;
     border-radius: 8px;
@@ -196,7 +196,11 @@
     background-color: #e9e8e8;
     font-weight: bold;
 }
-
+.card-title {
+    font-size: 18px !important;
+    /* font-weight: bold; */
+    font-weight: 400 !important;
+}
 .combannerupdate input {
     margin: 0vh 4vw;
     width: 40vw;
@@ -391,7 +395,8 @@
 }
 
 .contactbox h3 {
-    font-size: 1.3rem;
+    font-size: 18px;
+    font-weight: 400;
 }
 
 #contactform {
@@ -1495,7 +1500,7 @@ font-weight: 500;
     display: grid;
     grid-template-columns: 1fr 1fr; /* Two columns in the first row */
     grid-template-rows: auto auto; /* Allow rows to adjust based on content */
-    gap: 10px;
+  
 }
 #bannerinput {
     width: 144px;
@@ -1509,7 +1514,7 @@ font-weight: 500;
    
 }
 #bannerselect {
-    width: 86px;
+    width: 140px;
     margin: 10px 3px;
     height: 35px;
     outline: none;
@@ -1657,7 +1662,12 @@ font-weight: 500;
       gap: 8px;
     }
   } */
-  
+  .commercialbtn{
+    height: 35px;
+    width: 164% !important;
+    background: linear-gradient(to right, rgb(255, 68, 71), rgb(138, 46, 46));
+    margin: 0px 23px;
+  }
 }
 
 

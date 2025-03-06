@@ -439,7 +439,7 @@ function Phone() {
         console.log("Form Data to Submit:", formDataToSubmit);  // Debugging
 
         try {
-            // Send the form data to the server
+           
             const response = await axios.post('https://www.townmanor.ai/api/owner-property/', formDataToSubmit);
 
             // Handle the response from the server

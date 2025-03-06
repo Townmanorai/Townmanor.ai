@@ -1,6 +1,6 @@
 /* Container */
 .realty-container {
-    width: 90%;
+    width: 95%;
     margin: auto;
     display: flex
 ;
@@ -38,8 +38,8 @@
   }
   
   .realty-title {
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: 33px;
+    /* font-weight: 400; */
   }
   
   .realty-subtitle {
@@ -78,7 +78,7 @@
   }
   
   .realty-search-btn {
-    background-color: black;
+    background: linear-gradient(to right, #ff4447, #8a2e2e);
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
@@ -212,12 +212,15 @@
   .realty-location-icon {
     margin-right: 5px;
   }
-  
+  .activecategory{
+    background-color: #333;
+    color: #fff;
+  }
   .realty-features {
     display: flex
     ;
         /* gap: 9px; */
-        font-size: 14px;
+        font-size: 12px;
         color: gray;
         margin-top: 11px;
         justify-content: space-between;
@@ -304,7 +307,7 @@
   
   /* Pagination Button Styles */
   .realty-pagination-btn {
-    background-color: #007bff;
+    background: linear-gradient(to right, #ff4447, #8a2e2e);
     color: #fff;
     border: none;
     padding: 8px 20px;
@@ -317,7 +320,7 @@
   
   /* Disabled button styles */
   .realty-pagination-btn:disabled {
-    background-color: #ccc;
+    background: #949494;
     cursor: not-allowed;
   }
   

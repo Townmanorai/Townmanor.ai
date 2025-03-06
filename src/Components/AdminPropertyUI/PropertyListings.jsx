@@ -12,18 +12,14 @@ const PropertyListings = () => {
   const [loading, setLoading] = useState(true); // Loading state
   const [filters, setFilters] = useState({
     projectname: '',
-    city: '',
+    city: 'Noida',
     category: '',
-    propertytype: ''
+    construction_status: '',
+    configuration: '',
+    minPrice: 0, // Add minPrice
+    maxPrice: 200, // Add maxPrice
   });
-  const filteredProperties = properties.filter((item) => {
-    return (
-      (filters.projectname ? item.property_name.toLowerCase().includes(filters.projectname.toLowerCase()) : true) &&
-      (filters.city ? item.city.toLowerCase().includes(filters.city.toLowerCase()) : true) &&
-      (filters.category ? item.category.toLowerCase().includes(filters.category.toLowerCase()) : true) &&
-      (filters.propertytype ? item.area_type.toLowerCase().includes(filters.propertytype.toLowerCase()) : true)
-    );
-  });
+
 
   useEffect(() => {
     fetchProperties();
@@ -41,17 +37,71 @@ const PropertyListings = () => {
       setLoading(false);
     }
   };
+  const parsePrice = (price) => {
+    if (!price) return 0;
 
+    // Remove currency symbol and commas
+    price = price.replace(/[₹,]/g, '').trim();
+
+    // Check if the price is in Crores or Lakhs
+    if (price.includes('Cr')) {
+      return parseFloat(price.replace('Cr', '')) * 100; // Convert Crores to Lakhs
+    } else if (price.includes('Lac')) {
+      return parseFloat(price.replace('Lac', '')); // Already in Lakhs
+    }
+
+    return 0; // Default value if parsing fails
+  };
+  const filteredProperties = properties.filter((item) => {
+    const priceRange = item.price.split(' - '); // Split the price range
+    const minItemPrice = parsePrice(priceRange[0]); // Parse the minimum price
+    const maxItemPrice = parsePrice(priceRange[1] || priceRange[0]); // Parse the maximum price (if it exists)
+
+    return (
+      (filters.projectname
+        ? item.property_name &&
+        item.property_name.toLowerCase().includes(filters.projectname.toLowerCase())
+        : true) &&
+      (filters.city
+        ? item.city && item.city.toLowerCase().includes(filters.city.toLowerCase())
+        : true) &&
+      (filters.category
+        ? item.category &&
+        item.category.toLowerCase().includes(filters.category.toLowerCase())
+        : true) &&
+      (filters.construction_status
+        ? item.construction_status && item.construction_status.toLowerCase().includes(filters.construction_status.toLowerCase())
+        : true) &&
+      (filters.configuration
+        ? item.configuration && item.configuration.toLowerCase().includes(filters.configuration.toLowerCase())
+        : true) &&
+      (filters.minPrice
+        ? minItemPrice >= filters.minPrice
+        : true) &&
+      (filters.maxPrice
+        ? maxItemPrice <= filters.maxPrice
+        : true)
+    );
+  });
+
+
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: value
+    }));
+  };
   // Get current properties to display on the page
   const indexOfLastProperty = currentPage * propertiesPerPage;
   const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage;
-  const currentProperties = properties.slice(indexOfFirstProperty, indexOfLastProperty);
-
+  const currentProperties = filteredProperties.slice(indexOfFirstProperty, indexOfLastProperty);
+  console.log(currentProperties)
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   // Calculate total pages
-  const totalPages = Math.ceil(properties.length / propertiesPerPage);
+  const totalPages = Math.ceil(filteredProperties.length / propertiesPerPage);
   const cleanPrice = (price) => {
     // Check if it's a range (e.g., "44.80 Lac - 54.00 Lac")
     if (price.includes(" - ")) {
@@ -62,7 +112,18 @@ const PropertyListings = () => {
     // If it's a single price, just clean it up
     return price.replace("â‚¹", "₹");
   };
-  console.log(properties)
+  const clearFilters = () => {
+    setFilters({
+      projectname: '',
+      city: 'Noida',
+      category: '',
+      construction_status: '',
+      configuration: '',
+      minPrice: 0,
+      maxPrice: 200,
+    });
+  };
+ 
   return (
     <div className="realty-container">
       {/* Header Section */}
@@ -76,25 +137,57 @@ const PropertyListings = () => {
           <div className="realty-overlay"></div>
         </div>
         <div className="realty-header-content">
-          <h1 className="realty-title">Find Your Perfect Home</h1>
+          <h1 className="realty-title">Find <b>Your</b> Perfect <b>Home</b></h1>
           <p className="realty-subtitle">Discover thousands of properties that match your preferences</p>
           <div className="realty-search-bar">
             <div className="realty-input-group">
               <FaMapMarkerAlt className="realty-icon" />
-              <select className="realty-input">
-                <option>Noida</option>
-                <option>Delhi</option>
-                <option>Gurgoan</option>
-                <option>Faridabad</option>
+              <select
+                className="realty-input"
+                name="city"
+                onChange={handleFilterChange}
+                value={filters.city}
+              >
+                <option value="Noida">Noida</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Gurgaon">Gurgaon</option>
+                <option value="Faridabad">Faridabad</option>
+                <option value="chandigarh">Chandigarh</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Lucknow">Lucknow</option>
+                <option value="Sonipat">Sonipat</option>
+                <option value="Dehradun">Dehradun</option>
+                <option value="Patna">Patna</option>
+                <option value="Indore">Indore</option>
+                <option value="Agra">Agra</option>
+                <option value="Varanasi">Varanasi</option>
+                <option value="Guwahati">Guwahati</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Lucknow">Lucknow</option>
+                <option value="Goa">Goa</option>
               </select>
             </div>
             <div className="realty-input-group">
               <FaHome className="realty-icon" />
-              <select className="realty-input">
-                <option>Residential</option>
-                <option>Commercial</option>
-               
-              </select>
+              {/* <select
+                className="realty-input"
+                name="category"
+                onChange={handleFilterChange}
+                value={filters.category}
+              >
+                <option value="">Select Project</option>
+                <option value="Residential">Residential</option>
+                <option value="Commercial">Commercial</option>
+              </select> */}
+              <input
+                className="realty-input"
+                name="projectname"
+                onChange={handleFilterChange}
+                value={filters.projectname}
+                type="text"
+                placeholder="Search Project"
+              ></input>
+
             </div>
             <div className="realty-search-btn">Search Properties</div>
           </div>
@@ -109,40 +202,110 @@ const PropertyListings = () => {
             <div className="realty-filter-section">
               <h3>Construction Status</h3>
               <div className="realty-filter-options">
-                <span className="realty-filter-btn">Under Construction</span>
-                <span className="realty-filter-btn">Ready To Move</span>
-                
+                <button
+                  className={`realty-filter-btn ${filters.construction_status === "Under Construction" ? "activecategory" : ""}`}
+                  onClick={() => handleFilterChange({ target: { name: "construction_status", value: "Under Construction" } })}
+                >
+                  Under Construction
+                </button>
+                <button
+                  className={`realty-filter-btn ${filters.construction_status === "Ready To Move" ? "activecategory" : ""}`}
+                  onClick={() => handleFilterChange({ target: { name: "construction_status", value: "Ready To Move" } })}
+                >
+                  Ready To Move
+                </button>
               </div>
             </div>
             <div className="realty-filter-section">
-              <h3>Property Type</h3>
+              <h3>Project Type</h3>
               <div className="realty-filter-options">
-                <span className="realty-filter-btn">Residential</span>
-                <span className="realty-filter-btn">Commercial</span>
-               
+                <button
+                  className={`realty-filter-btn ${filters.category === "Residential" ? "activecategory" : ""}`}
+                  onClick={() => handleFilterChange({ target: { name: "category", value: "Residential" } })}
+                >
+                  Residential
+                </button>
+                <button
+                  className={`realty-filter-btn ${filters.category === "Commercial" ? "activecategory" : ""}`}
+                  onClick={() => handleFilterChange({ target: { name: "category", value: "Commercial" } })}
+                >
+                  Commercial
+                </button>
               </div>
             </div>
             <div className="realty-filter-section">
               <h3>Configuration</h3>
               <div className="realty-filter-options">
-                <span className="realty-filter-btn">1 BHK </span>
-                <span className="realty-filter-btn">2 BHK</span>
-                <span className="realty-filter-btn">3 BHK </span>
-                <span className="realty-filter-btn">4 BHK</span>
+                <button
+                  className={`realty-filter-btn ${filters.configuration === "1 BHK" ? "activecategory" : ""}`}
+                  onClick={() => handleFilterChange({ target: { name: "configuration", value: "1 BHK" } })}
+                >
+                  1 BHK
+                </button>
+                <button
+                  className={`realty-filter-btn ${filters.configuration === "2 BHK" ? "activecategory" : ""}`}
+                  onClick={() => handleFilterChange({ target: { name: "configuration", value: "2 BHK" } })}
+                >
+                  2 BHK
+                </button>
+                <button
+                  className={`realty-filter-btn ${filters.configuration === "3 BHK" ? "activecategory" : ""}`}
+                  onClick={() => handleFilterChange({ target: { name: "configuration", value: "3 BHK" } })}
+                >
+                  3 BHK
+                </button>
+                <button
+                  className={`realty-filter-btn ${filters.configuration === "4 BHK" ? "activecategory" : ""}`}
+                  onClick={() => handleFilterChange({ target: { name: "configuration", value: "4 BHK" } })}
+                >
+                  4 BHK
+                </button>
+                <button
+                  className="realty-filter-btn"
+                  onClick={() => handleFilterChange({ target: { name: "configuration", value: "" } })}
+                >
+                  Clear
+                </button>
               </div>
             </div>
-            <div className="realty-filter-section">
-              
+            {/* <div className="realty-filter-section">
+
               <label for="customRange1" class="form-label">Price filter</label>
               <input type="range" class="form-range" id="customRange1" />
+            </div> */}
+            <div className="realty-filter-section">
+              <h3>Price Range</h3>
+              <div className="realty-filter-options">
+                <input
+                  type="range"
+                  min={0}
+                  max={1000} // Adjust max value based on your data
+                  value={filters.maxPrice}
+                  onChange={(e) =>
+                    setFilters((prevFilters) => ({
+                      ...prevFilters,
+                      maxPrice: parseInt(e.target.value),
+                    }))
+                  }
+                  style={{
+                    width: '230px'
+                  }}
+                />
+                <span>Up to ₹ {filters.maxPrice} Lakh</span>
+              </div>
+            </div>
+            
+            <div className="realty-filter-section">
+              <h3>Clear Filter</h3>
+              <button className="btn btn-secondary" onClick={clearFilters}>remove filter</button>
             </div>
           </div>
-          
+
         </aside>
 
         {/* Listings */}
         <section className="realty-listings">
-          <h2 className="realty-listings-title">Featured Properties</h2>
+          {/* <h2 className="realty-listings-title">Featured Properties</h2> */}
           <div className="realty-grid">
             {loading ? (
               <p>Loading properties...</p>
@@ -155,55 +318,58 @@ const PropertyListings = () => {
                       alt={property.property_name}
                       className="realty-img"
                     /> */}
-                      {property.image_repository && property.image_repository.length > 0 ? (
-  <img 
-    src={property.image_repository.split(',')[0].trim()}  // Get the first image URL
-    className="realty-img"
-    alt={property.property_name} 
-  />
-) : (
-  <img 
-    src="/default-image.jpg" 
-    className="realty-img"
-    alt="Default property" 
-  />
-)}
+                    {property.image_repository && property.image_repository.length > 0 ? (
+                      <img
+                        src={property.image_repository.split(',')[0].trim()}  // Get the first image URL
+                        className="realty-img"
+                        alt={property.property_name}
+                        onError={(e) => {
+                          e.target.src = "/default.jpg"; // Fallback if the image fails to load
+                        }}
+                      />
+                    ) : (
+                      <img
+                        src="/ae.jpeg"
+                        className="realty-img"
+                        alt="Default property"
+                      />
+                    )}
                     <FaHeart className="realty-favorite-icon" style={{
-                        color:'grey',
-                        outline:'red'
+                      color: 'grey',
+                      outline: 'red'
                     }} />
                   </div>
                   <div className="realty-details">
                     <div style={{
-                        display:'flex',
-                        justifyContent:'space-between'
+                      display: 'flex',
+                      justifyContent: 'space-between'
                     }}><h3 className="realty-name">{property.property_name}</h3>
-                    <p className="realty-price">{cleanPrice(property.price)}</p></div>
-                    
+                      <p className="realty-price">{cleanPrice(property.price)}</p></div>
+
                     <p className="realty-location">
-                      <FaMapMarkerAlt className="realty-location-icon" color="black"/> {property.city}
+                      <FaMapMarkerAlt className="realty-location-icon" color="black" size={20} /> {property.city}
                     </p>
-                    <div className="realty-features">
-                      <span><GrStatusInfo color="grey" /><span style={{
-                        color:'black',
-                        margin:'2px 4px'
+                    <div className="realty-features" >
+                      <span><GrStatusInfo color="grey" size={10} /><span style={{
+                        color: 'black',
+                        margin: '2px 4px'
                       }}>Rera Id</span>{property.rera_id} </span>
                       <span><FaRulerCombined color="grey" /><span style={{
-                        color:'black',
-                        margin:'2px 4px'
+                        color: 'black',
+                        margin: '2px 4px'
                       }}>Area</span>{property.area_detail}</span>
                     </div>
                     <div className="realty-features">
                       <span><GrStatusGood color="grey" /><span style={{
-                        color:'black',
-                        margin:'2px 4px'
+                        color: 'black',
+                        margin: '2px 4px'
                       }}>Status</span>{property.construction_status} </span>
-                      
+
                       <span><IoBedOutline color="grey" /><span style={{
-                        color:'black',
-                        margin:'2px 4px'
+                        color: 'black',
+                        margin: '2px 4px'
                       }}>Configuration</span>{property.configuration}</span>
-                      
+
                     </div>
                     <div className="realty-explore-btn">Explore More</div>
                   </div>
