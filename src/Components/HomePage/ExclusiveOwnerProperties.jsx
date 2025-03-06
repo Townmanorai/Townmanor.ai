@@ -131,12 +131,18 @@ const ExclusiveOwnerProperties = ({stateName}) => {
       <div className="exclusive-container">
         <section className="exclusive-section has-slider">
           <div className="exclusive-section-title">
-            <div className="exclusive-title-text strip-orange">
-            {stateName ? `Resale properties in ${stateName}` : 'Resale properties in Noida'}
-            </div>
-            <a href="javascript:void(0);" className="exclusive-anchor-see-all push-right">
+          <div className="exclusive-title-text strip-orange" 
+     dangerouslySetInnerHTML={{
+        __html: stateName 
+          ? `Resale <span>properties</span> in <span>${stateName}</span>`
+          : 'Resale <span>properties</span> in <span>noida</span>'
+     }}>
+      </div>
+
+
+            {/* <a href="javascript:void(0);" className="exclusive-anchor-see-all push-right">
               See all Properties
-            </a>
+            </a> */}
           </div>
           <div className="exclusive-property-slider">
             <Slider {...sliderSettings}>

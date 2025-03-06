@@ -123,12 +123,16 @@ const TopRentedProperties = ({stateName}) => {
       <div className="rented-container">
         <section className="rented-section has-slider">
           <div className="rented-section-title">
-            <div className="rented-title-text strip-blue" style={{textTransform:'capitalize',color:'#333'}}>
-            {stateName ? `Rental properties in ${stateName}` : 'Rental properties in Noida'}
-            </div>
-            <a href="javascript:void(0);" className="rented-anchor-see-all push-right">
+          <div className="exclusive-title-text strip-orange" 
+     dangerouslySetInnerHTML={{
+        __html: stateName 
+          ? `Rental <span>properties</span> in <span>${stateName}</span>`
+          : 'Rental <span>properties</span> in <span>noida</span>'
+     }}>
+      </div>
+            {/* <a href="javascript:void(0);" className="rented-anchor-see-all push-right">
               See all Rental Properties
-            </a>
+            </a> */}
           </div>
           <div className="rented-property-slider">
             <Slider {...sliderSettings}>

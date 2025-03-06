@@ -1,68 +1,131 @@
-.explore-feature .card .card-body.choose{
-    padding: 5px 11px 5px 15px;
-    border-radius: 10px;
-    height: 259px;
-}
-
-.card-body.choose {
-    border-radius: 20px;
-}
-
-	.explore-feature .card .card-body i {
-    height: 65px;
-    width: 65px;
-}
-	.icon-FEATURES img {
-    filter: invert(1);
-    max-width: 35px;
-}
-	.explore-feature .card .card-body h3 {
-    font-size: 16px;
-    margin: 10px auto 10px auto;
-    line-height: 18px;
-}
-	.explore-feature .card .card-body p {
-    font-size: 12px;
-    padding: 0;
-    min-height: 90px;
-}
-	.explore-feature .card .card-body p {
-    font-size: 13px;
-    line-height: 22px;
-    margin-top: 0;
-    margin-bottom: 0;
-    color: #67686c;
-    line-height: 21px;
-    padding: 0 10px;
-    font-family: raleway, sans-serif;
-}
-	
-	.explore-features-section-details {
-    margin-bottom: 0px;
-	height: 240px;
-}
-
-@media (max-width: 767px) {
-    .row.justify-content-center.choose {
-        display: flex;
-        justify-content: flex-start !important;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+/* Container for the ExploreFeatures section */
+.explore-feature {
+    padding: 50px 0;
+  }
+  
+  /* Grid layout for the feature cards with unique class names */
+  .ef-services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-items: start;
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+  
+  /* Each feature card */
+  .ef-service-card {
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    transition: box-shadow 0.2s ease;
+    width: 100%;
+    max-width: 100%;
+    cursor: pointer;
+  }
+  
+  .ef-service-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Icon wrapper for the card */
+  .ef-icon-wrapper {
+    min-width: 32px;
+    min-height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Text container inside the card */
+  .ef-service-text {
+    text-align: left;
+  }
+  
+  .ef-service-text h3 {
+    font-size: 0.9rem;
+    margin: 0 0 4px;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .ef-service-text p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.3;
+  }
+  
+  /* Icon container styling */
+  .ef-icon-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 3px;
+    border-radius: 5px;
+  }
+  
+  /* Responsive adjustments for tablets */
+  @media (max-width: 992px) {
+    .ef-services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: center;
     }
-}
-
-/* @media (max-width: 767px) {
-    .explore-feature.row.choose {
-        display: flex;
-        flex-wrap: nowrap;
-        margin-right: -15px;
-        overflow-x: scroll; 
-        margin-left: -15px;
+  }
+  
+  /* Responsive adjustments for mobile devices */
+  @media (max-width: 576px) {
+    .ef-services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
     }
-} */
-
-/* @media only screen and (max-width: 767px) {
-    
-} */
+  
+    .ef-service-card {
+      padding: 8px;
+      gap: 6px;
+    }
+  
+    .ef-icon-wrapper {
+      min-width: 28px;
+      min-height: 28px;
+    }
+  
+    .ef-service-text h3 {
+      font-size: 0.8rem;
+    }
+  
+    .ef-service-text p {
+      font-size: 0.7rem;
+    }
+  }
+  
+  /* Responsive adjustments for extra small mobile devices */
+  @media (max-width: 375px) {
+    .ef-services-grid {
+      gap: 6px;
+    }
+  
+    .ef-service-card {
+      padding: 6px;
+    }
+  
+    .ef-icon-wrapper {
+      min-width: 24px;
+      min-height: 24px;
+    }
+  
+    .ef-service-text h3 {
+      font-size: 0.75rem;
+    }
+  
+    .ef-service-text p {
+      font-size: 0.65rem;
+    }
+  }
+  
