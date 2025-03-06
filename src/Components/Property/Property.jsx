@@ -40,6 +40,7 @@ function Property() {
           throw new Error('Property not found');
         }
         const data = await response.json();
+       
         setProperty(data);
       } catch (err) {
         setError(err.message);
@@ -72,7 +73,7 @@ function Property() {
     fetchProperty();
     fetchUser();
   }, [id]);
-
+ 
   // Use a separate useEffect to handle saving the lead
   useEffect(() => {
     const handleSaveLead = async () => {
@@ -130,24 +131,29 @@ function Property() {
   //   url: img.trim(),
   //   alt: `Property Image`,
   // }));
-
+  
   // Parse image repository or fallback to dummy image
   const getImages = () => {
     // Check if image_repository is null or empty
     if (!property?.image_repository || property.image_repository === "null") {
       return [{ url: dummyImage, alt: 'No images available' }];
     }
-    
+  
     try {
-      const images = JSON.parse(property.image_repository);
-      return images.length > 0 ? images.map((img) => ({
-        url: `https://townmanor.homes/files/${img.trim()}`,
-        alt: `Property Image`,
-      })) : [{ url: dummyImage, alt: 'No images available' }];
+      // Split the comma-separated list into an array of URLs
+      const images = property.image_repository.split(',').map((img) => ({
+        url: img.trim(), // Remove any extra spaces
+        alt: 'Property Image',
+      }));
+      return images.length > 0 ? images : [{ url: dummyImage, alt: 'No images available' }];
     } catch (error) {
-      console.error('Error parsing image_repository:', error);
+      console.error('Error processing image repository:', error);
       return [{ url: dummyImage, alt: 'Error loading images' }];
     }
+  };
+  const fixCurrencySymbol = (price) => {
+    // Replace incorrect encoding for the Indian Rupee symbol (â‚¹) with the correct symbol (₹)
+    return price.replace('â‚¹', '₹');
   };
 
   let images = getImages();
@@ -212,7 +218,7 @@ function Property() {
                       cinema: property.cinema
                     }} 
                   />
-                  <PropertyFloorPlan />
+                  <PropertyFloorPlan floorplan={property.floorplan} />
                   <PropertyLocation lat={property.lat} lng={property.lng} />
                   <PropertyReviewSection reviews={[]} />
                 </div>

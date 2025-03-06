@@ -37,10 +37,12 @@
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid #ddd;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3sease-in-out;
   background-color: #fff;
   text-align: center;
   margin: 2px;
+  width: 183px;
+  height: 148px;
 }
 
 .city-card:hover {
@@ -49,7 +51,7 @@
 
 .city-image {
   width: 100%;
-  height: 150px;
+  height: 106px;
   object-fit: cover;
 }
 
@@ -58,7 +60,8 @@
 }
 
 .city-name {
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 15px;
 
 }
 @media only screen and (min-width: 0px) and (max-width: 500px) {

@@ -46,7 +46,8 @@ const Footer = () => {
                   width="220"
                   src="./footer-logo.png"
                   alt="Townmanor Technologies Pvt Ltd."
-                  className="img-fluid"
+                  className="footer_logo"
+                  
                 />
                 <div className="content">
                   <p className="description" style={{color:'#c1b7b7'}}>

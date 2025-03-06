@@ -114,17 +114,9 @@ const SearchBar = () => {
             type="button"
             className={`btn btn-outline-danger btnr ${activeBtn === 'NewProjects' ? 'active' : ''}`}
             onClick={() => {
-              handleBtnClick('NewProjects')
-              setbtntype('newproject')
-              setIsVisible(false);
-              setnewproject(true);
-              setplot(false);
-              setpurpose('Sale');
-              setcategory('')
-              setconstruction_status('newlaunch');
-              setresidential('');
-              setcommercial('');
-              setConfiguration('');
+           
+              navigate('/adminproperty')
+            
             }
             }
           >

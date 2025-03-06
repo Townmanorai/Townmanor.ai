@@ -75,6 +75,11 @@
   .post_info h3 a {
     padding-top: 0px;
 }
+.blog-grid-posts .post_info>h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  line-height: 18px;
+}
   .blog-grid-posts .post_info {
     padding: 25px 20px 5px;
 }
