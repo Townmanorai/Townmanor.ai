@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick'; // Import the slider
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -18,7 +18,7 @@ function Coliving_space() {
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0, // Ensures the first slide is shown properly
-    // autoplay: true, // Enables auto-scroll
+    autoplay: true, // Enables auto-scroll
     autoplaySpeed: 2000, // Sets the interval time for auto-scrolling in milliseconds (2 seconds here)
   };
 
@@ -49,8 +49,30 @@ function Coliving_space() {
   
   const content= "Experience a new way of living with our premium co-living spaces, designed for comfort and convenience in prime locations near major hubs. Enjoy fully furnished rooms with modern interiors, high-speed WiFi, and regular housekeeping services. Connect with like-minded individuals through vibrant community events and networking opportunities. Live, work, and unwind with access to yoga and studio spaces—all under one roof."
 
-  let trimmedContent = content.length > 180 ? content.substring(0, 180) + '...' : content;
-  const[ShowContent, SetShowContent] = useState(false);
+  const [ShowContent, SetShowContent] = useState(false);
+  const [trimmedContent, setTrimmedContent] = useState('');
+  
+  // Function to handle trimming based on screen size
+  const updateTrimmedContent = () => {
+    const screenWidth = window.innerWidth;
+    let newTrimmedContent;
+
+    if (screenWidth < 480) {
+      newTrimmedContent = content.length > 60 ? content.substring(0, 60) + '...' : content;
+    } else {
+      newTrimmedContent = content.length > 180 ? content.substring(0, 180) + '...' : content;
+    }
+
+    setTrimmedContent(newTrimmedContent);
+  };
+
+  useEffect(() => {
+    updateTrimmedContent();
+    window.addEventListener('resize', updateTrimmedContent);
+    
+    // Clean up event listener on component unmount
+    return () => window.removeEventListener('resize', updateTrimmedContent);
+  }, []);
 
   return (
     <>
@@ -59,12 +81,21 @@ function Coliving_space() {
           <div className='coliving'>
             <div className='co-left'>
               <h1> We Are Coming Soon !</h1>
-              <div>
+              {/* <div>
                 <p>
                   {ShowContent ? trimmedContent : content} 
                 </p>
                 <div className='Co-toggle' onClick={() => SetShowContent(!ShowContent)}>{ShowContent ? "Read More": "Read Less"}</div>
+              </div> */}
+              <div>
+                <p>
+                  {ShowContent ? content : trimmedContent}
+                </p>
+                <div className='Co-toggle' onClick={() => SetShowContent(!ShowContent)}>
+                  {ShowContent ? "Read Less" : "Read More"} {/* Toggle between Read More and Read Less */}
+                </div>
               </div>
+
               <div className='co-box'>
                 <div className='co-box-div'>
                   <div className="cd-img">

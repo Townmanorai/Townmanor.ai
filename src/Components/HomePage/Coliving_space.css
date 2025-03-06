@@ -11,8 +11,10 @@
 
 .co-left p {
   font-size: 14px;
-  line-height: 25px;
   color: black;
+  line-height: 30px;
+  text-align: justify;
+  word-spacing: -1px;
 }
 
 .co-left h1 {
@@ -28,8 +30,8 @@
 }
 
 .co-right img {
-  max-width: 400px;
-  height: auto;
+  width: 400px !important;
+  height: 269px;
   border-radius: 5px;
   object-fit: contain;
   flex-shrink: 0;
@@ -187,10 +189,33 @@
 
   }
 
+
+
   @media screen and (max-width: 480px) {
     .coliving{
       flex-direction: column;
     }
+
+    .co-box{
+      gap: 0px;
+      padding: 0px;
+      flex-wrap: nowrap;
+    }
+
+    .co-right{
+      margin-left: -75px;
+    }
+
+    .co-right .slick-dots{
+      bottom: 25px;
+    }
+
+    .co-right img{
+      width: 300px !important;
+      height: 200px;
+      margin-left: 75px;
+    }
+
   }
   @media screen and (max-width: 720px) {
     .coliving{
