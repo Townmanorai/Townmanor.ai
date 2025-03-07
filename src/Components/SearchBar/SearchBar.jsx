@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './SearchBar.css'; // Import CSS file for styling
 import MultiRangeSlider from "multi-range-slider-react";
 import { useNavigate } from 'react-router-dom';
+import PropertyFilters from './PropertyFilter';
 const SearchBar = () => {
   const navigate= useNavigate();
   const [city, setCity] = useState('noida');
@@ -179,8 +180,8 @@ const SearchBar = () => {
             Commercial Investment
           </button>
         </div>
-        <br></br>
-        <div className='homeBlackBox'>
+      
+        {/* <div className='homeBlackBox'>
           <div className="search-bar mysearchbar" style={{
             gap:plot ? '56px':'15px'
           }}>
@@ -196,7 +197,7 @@ const SearchBar = () => {
                 <option value="doha">Doha</option>
                 <option value="dubai">Dubai</option>
 
-                {/* Add more options as needed */}
+            
               </select>
             </div>
             <div className="search-bar-item" style={{
@@ -335,7 +336,8 @@ const SearchBar = () => {
             </div>
 
           </div>
-        </div>
+        </div> */}
+        <PropertyFilters filter={btntype}/>
       </div>
 
     </>

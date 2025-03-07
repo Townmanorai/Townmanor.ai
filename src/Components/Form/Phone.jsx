@@ -185,8 +185,8 @@ function Phone() {
         'cinema': null,
         'country': 'india'
     })
-    const gpskey = import.meta.env.VITE_GPS_KEY
-    const aikey = import.meta.env.VITE_OPEN_API_KEY
+    const gpskey = 'AlzaSyrmzWPt966TnQME5naZ_37JTMW9hNBNPVI'
+    const aikey = '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'
     const getCoordinates = async () => {
         setCoordinates(null); // Reset coordinates on new request
         try {
