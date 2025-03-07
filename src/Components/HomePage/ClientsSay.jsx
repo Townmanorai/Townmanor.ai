@@ -37,14 +37,8 @@ const ClientSay = () => {
         <h3 className="cs-testi_title">Testimonials</h3>
       </div>
       <div className="cs-testimonial-gb cs-client-say">
-        <div className="cs-container">
-          <div className="row justify-content-center">
-            <div className="col-xl-6">
-              <div className="cs-section-heading">
-                {/* Optional Heading */}
-              </div>
-            </div>
-          </div>
+        <div className="container">
+          <div className="cs-container">
           <div className="cs-testimonial-grid">
             {testimonials.map((testimonial, index) => (
               <div className="cs-comment-info" key={index}>
@@ -64,6 +58,7 @@ const ClientSay = () => {
                 </div>
               </div>
             ))}
+          </div>
           </div>
         </div>
       </div>
