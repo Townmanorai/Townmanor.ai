@@ -145,18 +145,38 @@ border-bottom: none;
 
 @media (max-width: 767px) {
   .rented-title-text {
-    font-size: 12px;
-    margin-left: 15px;
+    font-size: 22px;
+    margin-left: 0px;
 
   }
   .rented-anchor-see-all {
     font-size: 12px;
   }
   .rented-property-card {
-    margin-left: -5px;
-    width: 300px;
+    margin-left: 0px;
+    width: 325px;
 }
 }
 @media (max-width: 450px) {
   
+}
+@media (max-width: 767px) {
+  .exclusive-section-title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  .exclusive-title-text {
+  font-size: 22px;
+  /* font-weight: bold; */
+  }
+}
+@media (max-width: 450px) {
+  .rented-section-title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 5px;
+}
 }

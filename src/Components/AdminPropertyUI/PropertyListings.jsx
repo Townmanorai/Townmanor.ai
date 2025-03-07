@@ -4,12 +4,14 @@ import { FaMapMarkerAlt, FaHome, FaBed, FaRulerCombined, FaHeart } from "react-i
 import "./PropertyListings.css";
 import { GrStatusGood, GrStatusInfo } from "react-icons/gr";
 import { IoBedOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 const PropertyListings = () => {
   const [properties, setProperties] = useState([]); // Store all properties from API
   const [currentPage, setCurrentPage] = useState(1); // Current page
   const [propertiesPerPage] = useState(21); // Number of properties per page
-  const [loading, setLoading] = useState(true); // Loading state
+  const [loading, setLoading] = useState(true); 
+  const navigate = useNavigate();// Loading state
   const [filters, setFilters] = useState({
     projectname: '',
     city: 'Noida',
@@ -311,7 +313,9 @@ const PropertyListings = () => {
               <p>Loading properties...</p>
             ) : currentProperties.length > 0 ? (
               currentProperties.map((property) => (
-                <div key={property.id} className="realty-card">
+                <div key={property.id} className="realty-card" onClick={()=>{
+                  navigate(`/property/${property.id}`)
+                }}>
                   <div className="realty-img-container">
                     {/* <img
                       src={property.image || "https://via.placeholder.com/400"}

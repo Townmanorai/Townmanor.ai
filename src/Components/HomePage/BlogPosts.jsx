@@ -100,7 +100,7 @@ const BlogPosts = () => {
                             {post.heading}
                           </Link>
                         </h3>
-                        <p>{post.data.substring(0, 150)}...</p> {/* Show the first 150 characters as a preview */}
+                        <p>{post.data.substring(0, 75)}...</p> {/* Show the first 150 characters as a preview */}
                         <Link className="read_more_blog" to={`/article/${post.id}`}>
                           Read More <i ><FaArrowRight style={{
                             height:'15px',

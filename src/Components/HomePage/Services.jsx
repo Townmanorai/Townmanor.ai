@@ -332,7 +332,7 @@ const Services = () => {
         <h1 style={{fontSize:'30px',color:'#0b1116',fontFamily:'Gilroy',fontWeight:'400'}}>
           Our <b>services</b>
         </h1>
-        <span className="svc-heading-underline"></span>
+        {/* <span className="svc-heading-underline"></span> */}
         <div className="svc-services-grid">
           {servicesData.map((service, idx) => (
             <ServiceCard

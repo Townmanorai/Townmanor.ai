@@ -1,20 +1,54 @@
-
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import "../common.css";  // Ensure you have these styles in your CSS files
 import "../commonsecond.css";
 
-const optionsName65 = 'Floor Plan'; // Dummy option name
+const PropertyFloorPlan = ({ floorplan }) => {
+  // Check if floorplan is available, and parse the floorplan string into an array
+  const floorplanImages = floorplan ? floorplan.split(',').map(image => image.trim()) : [];
 
-const PropertyFloorPlan = () => {
   return (
     <div className="floorplan">
-      <h3>{optionsName65}</h3>
-      <p>Coming Soon</p>
+      <h3>Floor Plan</h3>
+
+      {floorplanImages.length > 0 ? (
+        <div id="floorPlanCarousel" className="carousel slide" data-ride="carousel">
+          <div className="carousel-inner">
+            {/* Iterate over each image and create a carousel item */}
+            {floorplanImages.map((image, index) => (
+              <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
+                <img
+                  src={`https://townmanor.in/files/${image}`}
+                  alt={`Property Floor Plan ${index + 1}`}
+                  className="d-block w-75 floorplan-image"
+                  style={{
+                    height:'500px',
+                    
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Carousel controls */}
+          <a className="carousel-control-prev" href="#floorPlanCarousel" role="button" data-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="sr-only">Previous</span>
+          </a>
+          <a className="carousel-control-next" href="#floorPlanCarousel" role="button" data-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="sr-only">Next</span>
+          </a>
+        </div>
+      ) : (
+        <p>Coming Soon</p>
+      )}
     </div>
   );
 };
 
 export default PropertyFloorPlan;
+
 
 
 

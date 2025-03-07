@@ -71,8 +71,8 @@ margin-top: 5px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-left: 50px;
     text-align: center;
+    margin: auto;
 }
 .intro.section-padding {
     padding: 10px 0px 6px;
@@ -102,15 +102,15 @@ margin-top: 5px;
 /* Extra small devices (phones, 576px and below) */
 @media (max-width: 576px) {
 .project-spotlight {
-    font-size: 24px;
+    font-size: 18px;
     line-height: 30px;
 }
 .project-spotlight-on {
-    font-size: 22px;
+    font-size: 18px;
     margin-top: -4px;
 }
 .project-spotlight-spotlight {
-    font-size: 28px;
+    font-size: 18px;
     margin-top: -1px;
 }
 }
@@ -127,6 +127,12 @@ margin-top: 5px;
 
     .description {
         font-size: 24px !important;
+    }
+    .carousel-item img{
+        height: 240px;
+    }
+    .intro .intro-img img.img-fluid {
+        height: 240px !important;
     }
 }
 

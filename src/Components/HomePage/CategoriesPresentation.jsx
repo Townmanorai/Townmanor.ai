@@ -36,7 +36,7 @@ const CategoriesPresentation = () => {
         <div className="row">
           <div className="col-xl-6 col-lg-6 p-0">
             <div className="intro-content bg-black">
-              <div className="AddOff_c">
+              <div className="AddOff_c" style={{margin: "auto"}}>
                 {/* <span className="title-sub-top">Address of</span> */}
                 {/* <h3>Limitless Luxury at Townmanor</h3> */}
 

@@ -116,6 +116,11 @@
     padding: 2px 2px;
     padding-top: 5px;
   }
+  .new-badge {
+    
+    margin-left: -145px !important;
+    
+}
 }
 
 /* Adjust columns for mobile */
@@ -142,6 +147,7 @@
   .svc-service-text p {
     font-size: 0.7rem;
   }
+  
 }
 
 /* Extra small mobile devices (up to 375px) */
@@ -166,6 +172,7 @@
   .svc-service-text p {
     font-size: 0.65rem;
   }
+  
 }
 
 
