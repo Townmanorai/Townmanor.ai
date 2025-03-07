@@ -28,7 +28,7 @@ function PhoneSearchbar() {
           fontSize:'16px',
           padding:'10px 2px'
          }}>Discover best properties in one place</h1>
-        <input placeholder='Enter locality/property'  id='searchinput'  ></input>
+        <input placeholder='Enter locality/property'  id='searchinput' style={{marginTop:"7vh"}} ></input>
         <ul className="phone-searchbar">
           <li className={`phonesearchbarbtn ${activeBtn === 'Buy' ? 'activep' : ''}`}
           onClick={()=>{

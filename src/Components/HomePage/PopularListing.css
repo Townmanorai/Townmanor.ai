@@ -54,7 +54,7 @@
   .load-more-posts-mobile {
     display: block !important;
     text-align: center;
-    margin: 20px 0;
+    margin: 5px 0;
   }
 }
 
@@ -122,6 +122,24 @@
     text-align: center;
     margin-top: 20px;
   }
+
+  .load-more-posts-mobile-inner .btn2 {
+    border-radius: 8px;
+    background: linear-gradient(to right, #8a2e2e, #ff4447);
+    width: 50%;
+    color: #ffffff;
+    font-size: 14px;
+    height: 51px;
+    text-align: center;
+    border: 0;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.load-more-posts-mobile-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
   svg:not(:root) {
     width: fit-content;

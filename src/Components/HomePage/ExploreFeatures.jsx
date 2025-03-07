@@ -56,7 +56,7 @@ const ExploreFeatures = () => {
   return (
     <section className="explore-feature hp7 section-padding widget_edit_enabled">
       <div className="container">
-        <div className="section-heading text-center">
+        <div className="section-heading abc text-center">
           <span>Explore Features</span>
           <h3>
             Why choose <b>Townmanor</b>

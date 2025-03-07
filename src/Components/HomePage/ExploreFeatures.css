@@ -77,6 +77,9 @@
       grid-template-columns: repeat(2, 1fr);
       justify-items: center;
     }
+    .section-heading.abc {
+      margin-bottom: 0px;
+  }
   }
   
   /* Responsive adjustments for mobile devices */
@@ -84,6 +87,7 @@
     .ef-services-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 8px;
+      padding-top: 1px;
     }
   
     .ef-service-card {

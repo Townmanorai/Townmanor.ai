@@ -278,9 +278,11 @@ const PopularListing = () => {
   </div>
         </div>
         <div className="load-more-posts-mobile">
+          <div className="load-more-posts-mobile-inner">
   <a href="https://townmanor.in/en/145" title="" className="btn2">
     Load More
   </a>
+  </div>
 </div> 
       </div>
     </section>
