@@ -57,8 +57,8 @@ function Coliving_space() {
     const screenWidth = window.innerWidth;
     let newTrimmedContent;
 
-    if (screenWidth < 480) {
-      newTrimmedContent = content.length > 60 ? content.substring(0, 60) + '...' : content;
+    if (screenWidth < 720) {
+      newTrimmedContent = content.length > 80 ? content.substring(0, 80) + '...' : content;
     } else {
       newTrimmedContent = content.length > 180 ? content.substring(0, 180) + '...' : content;
     }
