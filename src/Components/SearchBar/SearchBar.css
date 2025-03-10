@@ -42,7 +42,7 @@
 
 .container2 {
   background: url('/public/search.jpg');
-  height: 65vh;
+  height: fit-content;
   padding: 20px 2px;
   padding-top: 150px;
   background-size: cover;
@@ -439,7 +439,7 @@ h3 {
   }
   .container2 {
     background: url('/public/search.jpg');
-    height: 72vh;
+    height: fit-content;
   
     
   }
