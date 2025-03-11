@@ -32,3 +32,9 @@
 #faq-title h3{
     color: #242526;
 }
+
+@media (min-width: 0px) and (max-width: 550px) {
+  .inso_img img{
+    width: 100%;
+  }
+}

@@ -7,6 +7,17 @@ import { CiCalendarDate } from "react-icons/ci";
 import { MdPeople } from "react-icons/md";
 import { FaAngleLeft } from "react-icons/fa";
 import { FaAngleRight } from "react-icons/fa";
+import { MdVerified } from "react-icons/md";
+import { BiBuildingHouse } from "react-icons/bi";
+import { MdOutlineHomeWork } from "react-icons/md";
+import { IoDocumentTextOutline } from "react-icons/io5";
+import { IoMdSquare } from "react-icons/io";
+import { FaBath } from "react-icons/fa";
+import { MdBalcony } from "react-icons/md";
+import { MdOutlineChair } from "react-icons/md";
+import { FaCompass } from "react-icons/fa";
+import { LuIndianRupee } from "react-icons/lu";
+import { MdGridView } from "react-icons/md";
 import "../../common.css";
 import "../../commonsecond.css";
 import "./ResultsItem1.css";
@@ -15,28 +26,32 @@ const ResultsItem1 = ({item}) => {
 
     const slideshowImages = item.image_repository ? 
     JSON.parse(item.image_repository.replace(/&quot;/g, '"')).map(img => `https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/${img}`) : [];
-    console.log(item)
+    
   return (
     <>
       <div className='search-card-body'>
-
         <div className="col-md-6 cm6">
-          
           <div className='card search-page'>
-            <Link to={`/home/${item.id}`} title={item.option_10}>
+            <Link to={`/home/${item.id}`} title={item.option_10 || item.property_name}>
               <div className={`img-block ${item.option_1 ? 'video-block' : ''}`}>
-                <span className="verifiedBadge">Verified</span>
+                <span className="verifiedBadge"><MdVerified style={{marginRight: '3px'}} /> Verified</span>
                 <div className="overlay"></div>
                 {item.is_featured && <div className="budget"><i className="fa fa-star"></i></div>}
-                {item.option_38 && item.option_38 !== 'empty' && (
-                  <span className={`listing_badge badge-${item.option_38.toLowerCase().replace(' ', '_')}`}>
-                    <span className="lab">{item.option_38}</span>
+                {item.purpose && (
+                  <span className={`listing_badge badge-${item.purpose.toLowerCase().replace(' ', '_')}`}>
+                    <span className="lab">{item.purpose === 'sale' ? 'For Sale' : item.purpose}</span>
                   </span>
                 )}
                 {item.option_1 ? (
                   <div dangerouslySetInnerHTML={{ __html: generateIframeMultimedia(item.option_1) }} />
                 ) : slideshowImages.length > 1 ? (
-                  <Carousel id={`listing_carousel_${item.id}`} className="carousel-listing" indicators={false}>
+                  <Carousel 
+                    id={`listing_carousel_${item.id}`} 
+                    className="carousel-listing" 
+                    indicators={true}
+                    prevIcon={<FaAngleLeft />}
+                    nextIcon={<FaAngleRight />}
+                  >
                     {slideshowImages.slice(0, 3).map((img, index) => (
                       <Carousel.Item key={index}>
                         <img src={img} alt={`Image ${index + 1} for ${item.option_10 || item.property_name}`} className="d-block w-100 img-fluid" />
@@ -44,85 +59,123 @@ const ResultsItem1 = ({item}) => {
                     ))}
                   </Carousel>
                 ) : (
-                  <img src={slideshowImages[0]} alt={item.option_10 || item.property_name} className="img-fluid" />
-                )}
-                {slideshowImages.length > 1 && (
-                  <>
-                    <span className="carousel-control-prev" href={`#listing_carousel_${item.id}`} role="button" data-slide="prev">
-                      {/* <i className="fa fa-angle-left"></i> */}
-                      <FaAngleLeft/>
-                    </span>
-                    <span className="carousel-control-next" href={`#listing_carousel_${item.id}`} role="button" data-slide="next">
-                      <FaAngleRight/>
-                    </span>
-                  </>
+                  <img src={slideshowImages[0] || 'https://via.placeholder.com/320x220?text=Property+Image'} alt={item.option_10 || item.property_name} className="img-fluid" />
                 )}
               </div>
             </Link>
           </div>
-          <div>
-            <div className="card-footer" style={{padding:'5px 10px'}}>
-            {/* <a href="#" title={swInDateFormat(item.property_date)} className="pull-right">
-                  <div>
-                    <CiCalendarDate id='calendericon' />
-                    {humanTimeDiff(new Date(item.property_date))}
-                  </div>
-                </a> */}
+          
+          <div className="card-footer">
+            <span>
+              <MdPeople id='peopleicon' />
+              <span className='agent-owner'>{item.Listed_By || 'Owner'}</span>
+            </span>
 
-                <span>
-                <MdPeople id='peopleicon' />
-                <span className='agent-owner'>   {item.Listed_By}</span>
-                </span>
-
-                <span className="favorites-actions pull-left">
-                  <a href="#" data-id={item.id} className="add-to-favorites" style={{ display: item.is_favorite ? 'none' : '' }}>
-                    <FaHeart  id='hearticon' />
-                  </a>
-                  <a href="#" data-id={item.id} className="remove-from-favorites" style={{ display: !item.is_favorite ? 'none' : '' }}>
-                    
-                  </a>
-                  <i className="fa fa-spinner fa-spin fa-custom-ajax-indicator"></i>
-                </span>
-                
-      
-                
-              </div>
+            <span className="favorites-actions">
+              <a href="#" data-id={item.id} className="add-to-favorites" style={{ display: item.is_favorite ? 'none' : '' }}>
+                <FaHeart id='hearticon' />
+              </a>
+            </span>
           </div>
         </div>
 
-        <div style={{width:'100%',paddingLeft:'20px'}}>
-          <div style={{display:'flex',justifyContent:'space-between'}}>
-            <div style={{width:'250px'}}>
-            <h3 style={{ margin: '0px', color: 'black', fontSize: '18px', fontWeight: '500' }}>{item.option_10 || item.property_name}</h3>
-            <p style={{ fontWeight: '500' }}>{item.address}</p>
-            </div>
+        <div className="property-details-section">
+          <div className="property-header">
             <div>
-            <h5 className='blackalpenliebe'>
-                &#8377; {item.option_37 || item.price} {item.pricerange}
-              </h5>
-
-            
-            </div>
-          </div>
-
-          <div className='card-info'>
-            <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
-              <h3 style={{marginTop:'0px',fontWeight:'500',color:'black'}}>Details</h3>
-              <div className='rate-info' style={{width:'auto',alignItems:'baseline',marginLeft:'10px'}}>
-              {item.purpose && (
-                  <span className={`rate-info purpose-${item.purpose.toLowerCase().replace(/ /g, '_')}`}>
-                    {item.purpose}
+              <h3 className="property-title">{item.option_10 || item.property_name}</h3>
+              <p className="property-address">
+                <FaLocationDot /> {item.address || 'Location not available'}
+              </p>
+              
+              <div className="property-meta">
+                {item.bathroom && (
+                  <span className="meta-item">
+                    <FaBath /> {item.bathroom} {item.bathroom > 1 ? 'Baths' : 'Bath'}
+                  </span>
+                )}
+                {item.balcony && (
+                  <span className="meta-item">
+                    <MdBalcony /> {item.balcony} {item.balcony > 1 ? 'Balconies' : 'Balcony'}
+                  </span>
+                )}
+                {item.furnish_type && (
+                  <span className="meta-item">
+                    <MdOutlineChair /> {item.furnish_type}
+                  </span>
+                )}
+                {item.property_facing && (
+                  <span className="meta-item">
+                    <FaCompass /> {item.property_facing}
+                  </span>
+                )}
+                {item.floor_no && (
+                  <span className="meta-item">
+                    <MdGridView /> Floor: {item.floor_no}/{item.total_floor || '?'}
                   </span>
                 )}
               </div>
             </div>
-            <div class="ci-ul">
-              <div class="ci-li"><li>Configuration: {item.configuration || 'Not Available'}</li></div>
-              <div class="ci-li">{item.area_detail && <li>{item.area_type || 'Area'}: {item.area_detail} sq.ft</li>}</div>
-              <div class="ci-li"><li>Status: {item.construction_status || 'Not Available'}</li></div>
-              <div class="ci-li"><li>Rera Id: {item.rera_id || 'Not Available'}</li></div>
-
+            <div>
+              <h3 className="property-price">
+                <LuIndianRupee /> {item.option_37 || item.price || '??'} {item.pricerange}
+              </h3>
+              {item.purpose && (
+                <span className={`purpose-${item.purpose.toLowerCase().replace(/ /g, '_')}`}>
+                  {item.purpose === 'sale' ? 'For Sale' : item.purpose}
+                </span>
+              )}
             </div>
+          </div>
+
+          <div className='card-info'>
+            <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', width: '100%'}}>
+              <h3 className="details-title">Property Details</h3>
+              {item.construction_status && (
+                <span className="purpose-for_sale">
+                  {item.construction_status}
+                </span>
+              )}
+            </div>
+            
+            <div className="ci-ul">
+              {item.configuration && (
+                <div className="ci-li">
+                  <li><BiBuildingHouse /> {item.configuration}</li>
+                </div>
+              )}
+              {item.area_detail && (
+                <div className="ci-li">
+                  <li><IoMdSquare /> {item.area_detail} sq.ft</li>
+                </div>
+              )}
+              {item.category && (
+                <div className="ci-li">
+                  <li><MdOutlineHomeWork /> {item.category}</li>
+                </div>
+              )}
+              {item.rera_id && (
+                <div className="ci-li">
+                  <li><IoDocumentTextOutline /> Rera: {item.rera_id}</li>
+                </div>
+              )}
+              {item.token_amount && (
+                <div className="ci-li">
+                  <li><LuIndianRupee /> Token: {item.token_amount}</li>
+                </div>
+              )}
+              {item.residential && item.residential !== 'apartment' && (
+                <div className="ci-li">
+                  <li><MdOutlineHomeWork /> {item.residential}</li>
+                </div>
+              )}
+            </div>
+            
+            {item.property_date && (
+              <div style={{marginTop: '8px', fontSize: '12px', color: '#777'}}>
+                <CiCalendarDate id='calendericon' />
+                Listed {humanTimeDiff(new Date(item.property_date))}
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -179,3 +232,4 @@ const swInDateFormat = (date) => {
   };
 
 export default ResultsItem1
+
