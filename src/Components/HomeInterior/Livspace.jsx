@@ -106,7 +106,7 @@ function Livspace() {
         "HomeLane offers a hassle-free design process with two consultation options: online or in-person at any of our Experience Centres.",
     },
     {
-      question: "Can I visit a HomeLane showroom to see your products and designs in person?",
+      question: "Can I visit a HomeLane showroom to see your products ?",
       answer:
         "Yes, absolutely! Our Experience Centres are exactly what you'd expect from a showroom – a place to see and interact with our products and designs in person.",
     },

@@ -4,6 +4,7 @@ import { ImCross } from "react-icons/im";
 import axios from 'axios';
 import FaqComponent from '../HomePage/FaqComponent';
 import { LuLogIn } from "react-icons/lu";
+import "./Homelane.css"
 function HomeLane() {
 
   const [activeIndex, setActiveIndex] = useState(null);
@@ -106,11 +107,7 @@ function HomeLane() {
       answer:
         "HomeLane offers a hassle-free design process with two consultation options: online or in-person at any of our Experience Centres.",
     },
-    {
-      question: "Can I visit a HomeLane showroom to see your products and designs in person?",
-      answer:
-        "Yes, absolutely! Our Experience Centres are exactly what you'd expect from a showroom – a place to see and interact with our products and designs in person.",
-    },
+   
     {
       question: "What are the end-to-end services offered by HomeLane?",
       answer:
@@ -173,6 +170,9 @@ function HomeLane() {
         id="carouselExampleIndicators"
         className="carousel slide HomeInT_Slider_page"
         data-ride="carousel"
+        style={{
+          paddingTop:"60px"
+        }}
       >
         <ol className="carousel-indicators">
           {[...Array(totalSlides)].map((_, index) => (
@@ -449,7 +449,7 @@ function HomeLane() {
                 </a>
               </li>
               <li class="tab tab_services">
-                <a href="http://townmanor.ai/homelane/warddrobe">
+                <a href="http:///townmanor.ai/warddrobe">
                 <img src="https://townmanor.in/templates/selio/assets/selfImages/homeInteriorCategory/wardrobes.png" />
 
                 <h3>Wardrobes</h3>

@@ -4,8 +4,9 @@
     width: 61vw;
     background-color: white !important;
 }
-.maincontainer{
-    margin: 2vh 17vw;
+.maincontainer {
+    margin: 0vh 17vw;
+    padding-top: 89px;
 }
 .header-address {
     display: flex;
@@ -40,8 +41,66 @@
     position: relative;
     color: #151515;
 }
+
 @media only screen and (min-width: 0px) and (max-width: 500px){
     .maincontainer{
-        margin: 2vh 1vw;
+        margin: 0vh 1vw;
+    }
+    .DesignCategory_WidgetGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .header-address.d-none a  h3{
+      font-size: 13px;
+    }
+    .ProductTile_Col figure {
+        width: 100%;
+        height: fit-content;
+    }
+    .ProductTile_Col figure img {
+      
+        height: fit-content;
+    
+    }
+    .BFC_bTN{
+        height: 40px;
+        width: 136px;
+        font-size: 10px;
+        padding: 0px;
+      
+    }
+    .header-address.d-none {
+        display: flex !important
+    ;
+        flex-wrap: wrap;
+        width: 100%;
+        background-color: white !important;
+        margin: 2px 2px;
+    }
+    .header-address.d-none a {
+    
+        width: 146px;
+        height: 51px;
+        padding: 0px;
+        padding-left: 10px;
+       
+    }
+    .HomeInT_Slider_page .carousel-caption button {
+        text-decoration: none;
+        padding: 4px 6px;
+        line-height: 28px;
+        font-size: 11px;
+        position: relative;
+        z-index: 2;
+        background-image: linear-gradient(to right, #d7d7d7, #fff);
+        color: #000;
+        border-radius: 10px;
+        cursor: pointer;
+        border: none;
+        margin-top: 10px;
+        width: 215px;
+    }
+    .HomeInT_Slider_page .carousel-caption p {
+        font-size: 9px;
     }
 }
+

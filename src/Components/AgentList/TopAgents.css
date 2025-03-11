@@ -88,13 +88,13 @@
 .mb-4 {
   margin-bottom: 1.5rem !important;
 }
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+/* .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: .5rem;
   font-weight: 550;
   line-height: 1.2;
   color: var(--bs-heading-color);
-}
+} */
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .top-agents {
@@ -113,7 +113,7 @@
   }
 }
 @media (min-width: 1200px) {
-  .h3, h3 {
+  /* .h3, h3 {
       font-size: 20px;
-  }
+  } */
 }
