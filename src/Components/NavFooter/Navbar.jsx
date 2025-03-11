@@ -82,7 +82,7 @@ const Navbar = () => {
   };
 
   return (
-    <header>
+    <header style={{position:'fixed',width:'100%',zIndex:'1000'}}>
       <div className="wpart">
         <div className="top-header widget_edit_enabled">
           <div className="container">
