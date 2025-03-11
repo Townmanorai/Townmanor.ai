@@ -126,8 +126,8 @@ const TopRentedProperties = ({stateName}) => {
           <div className="exclusive-title-text strip-orange" 
      dangerouslySetInnerHTML={{
         __html: stateName 
-          ? `Rental <span>properties</span> in <span>${stateName}</span>`
-          : 'Rental <span>properties</span> in <span>noida</span>'
+          ? `<h3>Rental <b>properties</b> in <b>${stateName}</b></h3>`
+          : '<h3>Rental <b>properties</b> in <b>noida</b><h3>'
      }}>
       </div>
             {/* <a href="javascript:void(0);" className="rented-anchor-see-all push-right">

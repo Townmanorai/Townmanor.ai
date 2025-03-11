@@ -15,9 +15,8 @@
   
   .exclusive-section-title {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
   }
   
   .exclusive-title-text {
@@ -128,6 +127,11 @@
     background-color: #ff0000;
     color: white;
     font-weight: 600;
+  }
+
+  .exclusive-title-text.strip-orange h3{
+    font-size: 30px;
+    font-weight: 400;
   }
 
 

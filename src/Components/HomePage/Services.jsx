@@ -1,12 +1,12 @@
 import React from "react";
 import "./Services.css";
 
-// Popup modal component
+// Popup Modal Component
 const Popup = ({ message, onClose }) => {
   return (
     <div className="popup-overlay">
       <div className="popup-content">
-        <span className="close-btn" onClick={onClose}>
+        <span className="close-btn" onClick={onClose} aria-label="Close popup">
           &times;
         </span>
         <p>{message}</p>
@@ -15,49 +15,44 @@ const Popup = ({ message, onClose }) => {
   );
 };
 
+// Service Data
 const servicesData = [
   {
     title: "Check Credit Score",
     description: "Get instant access to your credit score and financial health report",
     icon: (
       <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
         fill="none"
-        stroke="white"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        aria-label="Credit Score Icon"
+        role="img"
       >
-        {/* Credit card outline */}
-        <rect x="2" y="5" width="20" height="14" rx="2" ry="2" />
-        {/* Divider */}
-        <line x1="2" y1="10" x2="22" y2="10" />
-        {/* Simple bar graph element */}
-        <polyline points="6,16 9,13 12,16" />
+        <rect x="4" y="8" width="32" height="24" rx="4" fill="#3B82F6" />
+        <path d="M4 16H36V20H4V16Z" fill="#ffffff" />
+        <circle cx="14" cy="26" r="4" fill="#10B981" />
+        <circle cx="26" cy="26" r="4" fill="#EF4444" />
       </svg>
     ),
-    link: "https://townmanor.ai/credit-score"
+    link: "https://townmanor.ai/credit-score",
   },
   {
     title: "RERA Verification",
     description: "Verify property registration status under RERA regulations",
     icon: (
       <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
         fill="none"
-        stroke="white"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        aria-label="RERA Verification Icon"
+        role="img"
       >
-        {/* Document with folded corner */}
-        <path d="M4 2h12l4 4v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
-        {/* Check mark overlay */}
-        <polyline points="9 12 11 14 15 10" />
+        <path d="M8 6H28V14L32 18V34H8V6Z" fill="#6EE7B7" />
+        <path d="M28 14H32L28 10V14Z" fill="#34D399" />
+        <path d="M12 18H24V22H12V18Z" fill="#ffffff" />
+        <path d="M12 26H24V30H12V26Z" fill="#ffffff" />
       </svg>
     ),
   },
@@ -66,19 +61,16 @@ const servicesData = [
     description: "Comprehensive land title and ownership verification service",
     icon: (
       <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
         fill="none"
-        stroke="white"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        aria-label="Land Verification Icon"
+        role="img"
       >
-        {/* Land plot outline */}
-        <path d="M3 14l9-9 9 9v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-        {/* Horizontal line to denote division */}
-        <line x1="3" y1="14" x2="21" y2="14" />
+        <path d="M20 4L4 16V36H36V16L20 4Z" fill="#FDE68A" />
+        <path d="M16 20L20 24L28 16" stroke="#ffffff" strokeWidth="2" />
+        <circle cx="20" cy="20" r="4" fill="#F59E0B" />
       </svg>
     ),
   },
@@ -87,19 +79,15 @@ const servicesData = [
     description: "Expert and secure electronic stamp paper processing",
     icon: (
       <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
         fill="none"
-        stroke="white"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        aria-label="eStamp Icon"
+        role="img"
       >
-        {/* Circular stamp outline */}
-        <circle cx="12" cy="12" r="10" />
-        {/* Star in the center */}
-        <polygon points="12,7 13,10 16,10 14,12 15,15 12,13 9,15 10,12 8,10 11,10" />
+        <circle cx="20" cy="20" r="16" fill="#EF4444" />
+        <path d="M16 20L20 24L24 16" stroke="#ffffff" strokeWidth="2" />
       </svg>
     ),
   },
@@ -108,179 +96,156 @@ const servicesData = [
     description: "Digital rental agreement creation and registration",
     icon: (
       <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
         fill="none"
-        stroke="white"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        aria-label="Rent Agreement Icon"
+        role="img"
       >
-        {/* Document outline */}
-        <rect x="2" y="3" width="20" height="18" rx="2" ry="2" />
-        {/* Header line */}
-        <line x1="2" y1="8" x2="22" y2="8" />
-        {/* Signature line */}
-        <line x1="7" y1="16" x2="17" y2="16" />
+        <rect x="8" y="6" width="24" height="28" rx="2" fill="#3B82F6" />
+        <path d="M8 12H32V16H8V12Z" fill="#ffffff" />
+        <path d="M12 20H28V24H12V20Z" fill="#ffffff" />
+        <path d="M12 26H20V30H12V26Z" fill="#ffffff" />
       </svg>
     ),
+    link: "https://townmanor.ai/rentagreements",
   },
   {
     title: "Home Shift",
     description: "Professional relocation services for a hassle-free move",
     icon: (
       <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
         fill="none"
-        stroke="white"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        aria-label="Home Shift Icon"
+        role="img"
       >
-        {/* Truck cab */}
-        <rect x="1" y="10" width="12" height="8" rx="1" />
-        {/* Truck container with simplified outline */}
-        <path d="M13 14h6l2 2v-6l-2 2h-6" />
-        {/* Wheels */}
-        <circle cx="4" cy="19" r="2" />
-        <circle cx="10" cy="19" r="2" />
+        <rect x="6" y="14" width="24" height="12" rx="2" fill="#6B7280" />
+        <path d="M30 18H34V26H30V18Z" fill="#4B5563" />
+        <circle cx="14" cy="30" r="4" fill="#9CA3AF" />
+        <circle cx="26" cy="30" r="4" fill="#9CA3AF" />
       </svg>
     ),
-    link: "https://townmanor.ai/homeshift"
+    link: "https://townmanor.ai/homeshift",
   },
   {
     title: "Home Interior",
     description: "Professional interior design and decoration solutions",
     icon: (
       <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
         fill="none"
-        stroke="white"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        aria-label="Home Interior Icon"
+        role="img"
       >
-        {/* Simplified sofa shape */}
-        <rect x="3" y="12" width="18" height="5" rx="2" />
-        <path d="M7 12V8h10v4" />
+        <rect x="10" y="16" width="20" height="8" rx="2" fill="#8B5CF6" />
+        <path d="M14 12H26V16H14V12Z" fill="#7C3AED" />
+        <rect x="16" y="24" width="8" height="8" rx="2" fill="#A78BFA" />
       </svg>
     ),
-    link: "https://townmanor.ai/homelane"
+    link: "https://townmanor.ai/homelane",
   },
   {
     title: "Home Loan",
     description: "Complete home loan solutions with quick processing",
     icon: (
       <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
         fill="none"
-        stroke="white"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        aria-label="Home Loan Icon"
+        role="img"
       >
-        {/* House outline */}
-        <path d="M3 12l9-9 9 9v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8z" />
-        {/* Dollar symbol simplified (vertical line with a small circle) */}
-        <line x1="12" y1="16" x2="12" y2="12" />
-        <circle cx="12" cy="10" r="1" />
+        <path d="M20 8L8 20V32H32V20L20 8Z" fill="#10B981" />
+        <path d="M20 16V24" stroke="#ffffff" strokeWidth="2" />
+        <circle cx="20" cy="28" r="2" fill="#ffffff" />
       </svg>
     ),
+    link: "https://townmanor.ai/home-loan",
   },
   {
     title: "Listed Property",
     description: "Browse through our extensive list of verified properties",
     icon: (
       <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
         fill="none"
-        stroke="white"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        aria-label="Listed Property Icon"
+        role="img"
       >
-        {/* Building outline */}
-        <rect x="3" y="7" width="18" height="14" rx="2" />
-        {/* Windows or floor divisions */}
-        <line x1="3" y1="11" x2="21" y2="11" />
-        <line x1="3" y1="15" x2="21" y2="15" />
+        <rect x="8" y="8" width="24" height="24" rx="2" fill="#F59E0B" />
+        <rect x="12" y="12" width="4" height="4" fill="#ffffff" />
+        <rect x="20" y="12" width="4" height="4" fill="#ffffff" />
+        <rect x="28" y="12" width="4" height="4" fill="#ffffff" />
+        <rect x="12" y="20" width="4" height="4" fill="#ffffff" />
+        <rect x="20" y="20" width="4" height="4" fill="#ffffff" />
+        <rect x="28" y="20" width="4" height="4" fill="#ffffff" />
       </svg>
     ),
+    link: "https://townmanor.ai/form",
   },
   {
     title: "Choose Plan",
     description: "Select your own tailored property investment plan",
     icon: (
       <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
         fill="none"
-        stroke="white"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        aria-label="Choose Plan Icon"
+        role="img"
       >
-        {/* Checklist document */}
-        <rect x="2" y="3" width="20" height="18" rx="2" ry="2" />
-        {/* Horizontal lines representing text */}
-        <line x1="6" y1="8" x2="18" y2="8" />
-        <line x1="6" y1="12" x2="18" y2="12" />
-        <line x1="6" y1="16" x2="18" y2="16" />
+        <rect x="8" y="8" width="24" height="24" rx="2" fill="#3B82F6" />
+        <path d="M12 16H28V20H12V16Z" fill="#ffffff" />
+        <path d="M12 22H28V26H12V22Z" fill="#ffffff" />
+        <path d="M12 28H28V32H12V28Z" fill="#ffffff" />
       </svg>
     ),
+    link: "https://townmanor.ai/pricing-plans",
   },
   {
     title: "Pay Property Tax",
     description: "Seamless online property tax payment and guidance",
     icon: (
       <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
         fill="none"
-        stroke="white"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        aria-label="Pay Property Tax Icon"
+        role="img"
       >
-        {/* Tax form / building */}
-        <rect x="2" y="3" width="20" height="18" rx="2" ry="2" />
-        {/* Divider line */}
-        <line x1="2" y1="8" x2="22" y2="8" />
-        {/* Simplified money symbol */}
-        <line x1="12" y1="12" x2="12" y2="17" />
-        <circle cx="12" cy="10" r="1" />
+        <rect x="8" y="8" width="24" height="24" rx="2" fill="#EF4444" />
+        <path d="M20 16V24" stroke="#ffffff" strokeWidth="2" />
+        <circle cx="20" cy="28" r="2" fill="#ffffff" />
       </svg>
     ),
+    link: "https://townmanor.ai/",
   },
   {
     title: "Commercial Investment",
     description: "Expert guidance for commercial property investment",
     icon: (
       <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
         fill="none"
-        stroke="white"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        aria-label="Commercial Investment Icon"
+        role="img"
       >
-        {/* Skyscraper outline */}
-        <rect x="4" y="4" width="16" height="16" rx="2" />
-        {/* Upward trending arrow */}
-        <polyline points="8 16 12 12 16 16" />
+        <rect x="12" y="12" width="16" height="16" rx="2" fill="#10B981" />
+        <path d="M16 16L20 12L24 16" stroke="#ffffff" strokeWidth="2" />
+        <path d="M24 24L20 28L16 24" stroke="#ffffff" strokeWidth="2" />
       </svg>
     ),
     link: "https://townmanor.ai/commercial",
@@ -288,21 +253,19 @@ const servicesData = [
   },
 ];
 
-// Reusable card component with click behavior
+// Service Card Component
 const ServiceCard = ({ title, description, icon, link, isNew, showPopup }) => {
   const handleClick = () => {
     if (link) {
-      window.location.href = link;
+      window.open(link, "_blank");
     } else {
       showPopup("Coming Soon");
     }
   };
 
   return (
-    <div className="svc-service-card" onClick={handleClick}>
-      <div className="svc-icon-wrapper">
-        <div className="icon-container">{icon}</div>
-      </div>
+    <div className="svc-service-card" onClick={handleClick} role="button" tabIndex={0}>
+      <div className="svc-icon-wrapper">{icon}</div>
       <div className="svc-service-text">
         <h3>
           {title} {isNew && <span className="new-badge">New</span>}
@@ -313,6 +276,7 @@ const ServiceCard = ({ title, description, icon, link, isNew, showPopup }) => {
   );
 };
 
+// Main Services Component
 const Services = () => {
   const [popupMessage, setPopupMessage] = React.useState("");
   const [isPopupOpen, setIsPopupOpen] = React.useState(false);
@@ -329,10 +293,9 @@ const Services = () => {
   return (
     <div className="container">
       <section className="svc-services-section">
-        <h1 style={{fontSize:'30px',color:'#0b1116',fontFamily:'Gilroy',fontWeight:'400'}}>
+        <h1>
           Our <b>services</b>
         </h1>
-        {/* <span className="svc-heading-underline"></span> */}
         <div className="svc-services-grid">
           {servicesData.map((service, idx) => (
             <ServiceCard

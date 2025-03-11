@@ -29,7 +29,7 @@ const StateHouseTax = () => {
     speed: 500,
     slidesToShow: 6, // Number of cards visible per row
     slidesToScroll: 1,
-    rows: 3, // Creates 2 rows
+    rows: 2, // Creates 2 rows
     slidesPerRow: 1, 
     autoplay:true,
     autoplaySpeed: 1000,
@@ -85,7 +85,7 @@ const StateHouseTax = () => {
                        <img src={item.image_url} alt={item.state_name} />
                    </div>
                    <div className="state-details">
-                       <h4>{item.state_name}</h4>
+                       <span>{item.state_name}</span>
                    </div>
                </div>
            </Link>

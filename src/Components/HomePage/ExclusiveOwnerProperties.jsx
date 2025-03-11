@@ -134,8 +134,8 @@ const ExclusiveOwnerProperties = ({stateName}) => {
           <div className="exclusive-title-text strip-orange" 
      dangerouslySetInnerHTML={{
         __html: stateName 
-          ? `Resale <span>properties</span> in <span>${stateName}</span>`
-          : 'Resale <span>properties</span> in <span>noida</span>'
+          ? `<h3>Resale <b>properties</b> in <b>${stateName}</b></h3>`
+          : '<h3>Resale <b>properties</b> in <b>noida</b></h3>'
      }}>
       </div>
 

@@ -65,6 +65,13 @@
     text-align: center;
     margin-top: 10px;
   }
+
+  .state-details span {
+    font-size: 12px;
+    color: #000;
+    margin: 0;
+    font-weight: 400;
+  }
   
   .state-name-title {
     font-size: 18px;

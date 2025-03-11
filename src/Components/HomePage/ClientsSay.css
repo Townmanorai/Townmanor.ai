@@ -78,10 +78,11 @@
     color: #777;
   }
   .cs-testi_title {
-    font-size: 2rem;
+    font-size: 27px;
     color: #333;
     /* margin-bottom: 20px; */
     text-align: center;
+    font-weight: 400;
 }
   
   /* Responsive adjustments: single column on smaller screens */
