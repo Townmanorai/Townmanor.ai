@@ -42,7 +42,7 @@ function Home() {
       <Coliving_space/>
       <LocationsGrid />
       <ExploreFeatures />
-      <ClientsSay />
+      {/* <ClientsSay /> */}
       <BlogPosts />
 
     </div>
