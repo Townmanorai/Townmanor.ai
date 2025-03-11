@@ -146,6 +146,10 @@
     font-size: 22px;
     /* font-weight: bold; */
     }
+    .exclusive-title-text.strip-orange h3 {
+      font-size: 24px;
+      font-weight: 400;
+  }
   }
   @media (max-width: 450px) {
     

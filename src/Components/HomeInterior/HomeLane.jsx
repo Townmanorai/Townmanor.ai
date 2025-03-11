@@ -4,7 +4,7 @@ import { ImCross } from "react-icons/im";
 import axios from 'axios';
 import FaqComponent from '../HomePage/FaqComponent';
 import { LuLogIn } from "react-icons/lu";
-import "./Homelane.css"
+import "./HomeLane.css"
 function HomeLane() {
 
   const [activeIndex, setActiveIndex] = useState(null);
