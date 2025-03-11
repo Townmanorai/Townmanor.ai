@@ -1225,9 +1225,9 @@ const pricingPlans = [
       hash: "b1be88ffd1350460394fa8d03049a67cb0e08192c3aa3e907cf1b5d4be14d3d1f5e0a28ef03f8326c693a335b56afa9b3130dd5ddefcb607c8363feccde98673",
     }
   },
-  
 
-  
+
+
 ];
 
 
@@ -1243,38 +1243,38 @@ const PricingPlans = () => {
 
   return (
     <>
-
-<div 
-      className="diwali-offer-banner text-center" 
-      style={{
-        backgroundColor: '#fdd835', 
-        color: '#333', 
-        padding: '20px', 
-        marginBottom: '20px', 
-        borderRadius: '12px'
-      }}
-    >
-      <h2>🎉 Season Offer 🎉</h2>
-      <p>
-        List <strong>Unlimited Properties</strong> during this season and earn <strong>₹100</strong> for each property listed!  
-        Fill out the form to claim your reward today. Offer valid for a limited period only.
-      </p>
-      
-      <button 
-        className="btn btn-primary" 
-        data-toggle="modal" 
-        data-target="#claimOfferModal" 
+      <div style={{paddingTop:'55px'}}>&nbsp;</div>
+      <div
+        className="diwali-offer-banner text-center"
         style={{
-          background: 'linear-gradient(to right, #ff4447, #8a2e2e)', 
-          border: 'none', 
-          padding: '10px 20px', 
-          fontSize: '16px', 
-          cursor: 'pointer'
+          backgroundColor: '#fdd835',
+          color: '#333',
+          padding: '20px',
+          marginBottom: '20px',
+          borderRadius: '12px'
         }}
       >
-        Claim Your Reward
-      </button>
-    </div>
+        <h2>🎉 Season Offer 🎉</h2>
+        <p>
+          List <strong>Unlimited Properties</strong> during this season and earn <strong>₹100</strong> for each property listed!
+          Fill out the form to claim your reward today. Offer valid for a limited period only.
+        </p>
+
+        <button
+          className="btn btn-primary"
+          data-toggle="modal"
+          data-target="#claimOfferModal"
+          style={{
+            background: 'linear-gradient(to right, #ff4447, #8a2e2e)',
+            border: 'none',
+            padding: '10px 20px',
+            fontSize: '16px',
+            cursor: 'pointer'
+          }}
+        >
+          Claim Your Reward
+        </button>
+      </div>
       <div className="wpart">
         <section className="Pricing_palns">
           <div className="container">
@@ -1302,14 +1302,14 @@ const PricingPlans = () => {
                                 {plan.oldPrice && (
                                   <li style={{ fontSize: "17px" }}>
                                     <del>
-                                      <i  aria-hidden="true"><MdCurrencyRupee /></i> {plan.oldPrice}
+                                      <i aria-hidden="true"><MdCurrencyRupee /></i> {plan.oldPrice}
                                     </del>
                                     <span>/{plan.duration}</span>
                                   </li>
                                 )}
                                 <li className="price_plans">
-                                  <i  aria-hidden="true"><FaRupeeSign style={{
-                                    marginBottom:'7px'
+                                  <i aria-hidden="true"><FaRupeeSign style={{
+                                    marginBottom: '7px'
                                   }} /></i> {plan.price}
                                   <span>/{plan.duration}</span>
                                 </li>

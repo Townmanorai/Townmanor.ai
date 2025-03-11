@@ -8,7 +8,7 @@ import LoanForm from './LoanForm';
 const HomeLoan = () => {
   return (
     <div className='wpart'>
-      <section className='HomeLoan_area'>
+      <section className='HomeLoan_area' style={{paddingTop:'30px'}}>
         <ProductSection />
         <LoanForm />
       </section>

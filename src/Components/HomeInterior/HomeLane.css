@@ -42,6 +42,10 @@
     color: #151515;
 }
 
+.HomeInT_Slider_page .carousel-caption h5 {
+    font-size: 45px;
+}
+
 @media only screen and (min-width: 0px) and (max-width: 500px){
     .maincontainer{
         margin: 0vh 1vw;
@@ -100,7 +104,12 @@
         width: 215px;
     }
     .HomeInT_Slider_page .carousel-caption p {
-        font-size: 9px;
+        font-size: 13px;
+        font-weight: 300;
+    }
+
+    .HomeInT_Slider_page .carousel-caption h5 {
+        font-size: 35px;
     }
 }
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "./SubscriptionFAQSection.css"
+import FaqComponent from '../HomePage/FaqComponent';
 
 // Dummy JSON data for FAQs
 const faqData = [
@@ -74,31 +75,11 @@ const faqData = [
       </p>
     )
   },
-  {
-    id: 4,
-    question: "What if I need more listings or featured listings than my current plan allows?",
-    answer: (
-      <p>
-        You can upgrade your plan to one with higher limits. Alternatively, you can contact support to discuss custom solutions that meet your needs.
-        <br />
-        If you exceed the allowed number, your listings may not be displayed or featured until you upgrade your plan or purchase additional credits.
-      </p>
-    )
-  },
-  {
-    id: 5,
-    question: "What are the key differences between the Premium and Business plans?",
-    answer: (
-      <p>
-        Premium Plan: Ideal for individuals or small businesses needing up to 5 listings and 3 featured listings for 30 days.
-        <br />
-        Business Plan: Best suited for larger businesses or real estate operations needing extensive coverage with up to 25 listings and 18 featured listings over 90 days.
-      </p>
-    )
-  },
+
+  
   {
     id: 6,
-    question: "How can I track my usage of listings and featured listings, and access my invoice?",
+    question: "How can I track my usage of listings and featured listings?",
     answer: (
       <p>
         You can track your usage of listings and featured listings through your account dashboard, which provides real-time updates on your remaining quotas. To access and download your invoice, click on your profile, select "My Properties," then choose "Subscription Plan," and download the invoice from there. This allows you to keep detailed records of your usage and billing.
@@ -124,52 +105,9 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="faq-section paddinngTB" id="faqs1">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <div className="faq-title text-center pb-3">
-              <h3>Frequently Asked Questions</h3>
-            </div>
-          </div>
-
-          <div className="col-md-10 offset-md-1">
-            <div className="faq" id="accordion">
-              {faqData.map(faq => (
-                <div className="card" key={faq.id}>
-                  <div className="card-header" id={`faqHeading-${faq.id}`}>
-                    <div className="mb-0">
-                      <h5
-                        className="faq-title"
-                        onClick={() => toggleCollapse(faq.id)}
-                        aria-controls={`faqCollapse-${faq.id}`}
-                        aria-expanded={activeId === faq.id}
-                        data-target={`#faqCollapse-${faq.id}`}
-                        data-toggle="collapse"
-                      >
-                        <span className="badge">{faq.id}</span>
-                        {faq.question}
-                      </h5>
-                    </div>
-                  </div>
-
-                  <div
-                    aria-labelledby={`faqHeading-${faq.id}`}
-                    className={`collapse ${activeId === faq.id ? 'show' : ''}`}
-                    id={`faqCollapse-${faq.id}`}
-                    data-parent="#accordion"
-                  >
-                    <div className="card-body">
-                      {faq.answer}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+   <>
+   <FaqComponent faqs={faqData}/>
+   </>
   );
 };
 

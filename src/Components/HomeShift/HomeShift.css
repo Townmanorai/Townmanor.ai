@@ -3,6 +3,7 @@
         .shiftbox {
             max-width: 1180px;
             margin-left: 120px;
+            padding-top: 75px !important;
         }
         .partner-card {
         background-color: #fff;
