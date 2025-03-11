@@ -103,3 +103,31 @@
     color: #333;
   }
   
+@media only screen and (min-width: 0px) and (max-width: 550px){
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 9px;
+    font-weight: 300 !important;
+    text-align: left;
+    display: flex
+;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px 0;
+    color: #333;
+}
+.faq-answer {
+  font-size: 10px;
+}
+.faq-button {
+
+  width: 56px;
+}
+.faq-feedback-text {
+  font-size: 13px;
+  /* flex-basis: 50%; */
+}
+}

@@ -117,8 +117,10 @@ function Commercial() {
   };
   const settings2 = {
     dots: true,
-    infinite: false,
-    speed: 500,
+    infinite: true,
+    speed: 1000,
+    autoplay: true,         
+    autoplaySpeed: 1000,    
     slidesToShow: 1,
     slidesToScroll: 1
   };

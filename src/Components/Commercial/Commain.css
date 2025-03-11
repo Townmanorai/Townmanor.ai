@@ -1084,7 +1084,7 @@ font-weight: 500;
         float: left;
     }
     .leaseban{
-        margin-top: 15vh !important;
+        margin-top: 47vh !important;
     }
     .agent {
         display: none;
@@ -1163,7 +1163,7 @@ font-weight: 500;
     }
     .containerbox {
         display: block;
-        margin-top: 22px;
+   
     }
    
     #compareimg {
@@ -1483,7 +1483,7 @@ font-weight: 500;
 }
 #commainbanner{
     flex-direction: column !important;
-    margin: 10px 0px !important;
+    margin: 0px 0px !important;
     height: 417px;
     background-position-y: 284px;
 }
@@ -1537,7 +1537,13 @@ font-weight: 500;
     height: 0px !important;
 }
 .containerbox {
-    display: block;
+    display: flex
+;
+    flex-direction: column;
+    justify-content: center;
+    /* background: wheat; */
+    /* align-items: center; */
+    text-align: center;
 }
 .img-fluid {
     max-width: 100%;
@@ -1607,9 +1613,7 @@ font-weight: 500;
     background-color: #f8f9fa;
     color: #333;
   }
-  .row-cols-1{
-    margin-top: 40%;
-  }
+  
   .grandthum-know-button {
     background-color: #007bff;
     color: white;
@@ -1643,10 +1647,7 @@ font-weight: 500;
   .grandthum-info-item i {
     color: #007bff;
   }
-  .slick-list {
-   
-    padding: 12px !important;
-}
+ 
   /* @media (max-width: 375px) {
     .grandthum-container {
       width: 100%;

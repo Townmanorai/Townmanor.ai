@@ -1,0 +1,8 @@
+@media only screen and (min-width: 0px) and (max-width: 550px){
+    .DesignCategory_WidgetGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .header-address.d-none a  h3{
+      font-size: 13px;
+    }
+}

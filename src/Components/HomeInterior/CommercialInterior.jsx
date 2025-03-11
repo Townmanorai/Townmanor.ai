@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "./HomeLane.css"
 import { Link} from 'react-router-dom';
+import FaqComponent from '../HomePage/FaqComponent';
 function CommercialInterior() {
     const [activeIndex, setActiveIndex] = useState(null);
     const services = [
@@ -73,7 +74,7 @@ function CommercialInterior() {
                 \n Step 4: Move In! Once the HomeLane interior project is complete (typically 45 days after finalising the design),you can make the final payment and move into your dream home!`,
         },
         {
-            question: "Can I visit a HomeLane showroom to see your products and designs in person?",
+            question: "Can I visit a HomeLane showroom to see your products ?",
             answer:
                 `Yes, absolutely! Our Experience Centres are exactly what you'd expect from a showroom – a place to see and interact with our products and designs in person.We actually call them Experience Center because they offer more than a just static Display . Come vist one to: 
                 \n See and feel materials: Our Experience Centres have displays that allow you to get up close and personal with HomeLane kitchen designs, wardrobes, and other design elements. 
@@ -145,49 +146,7 @@ function CommercialInterior() {
                    </div>
                     ))}
                 </div>
-                <div className="faq-section padd_bottom_85" id="faqs1" style={{
-                    background:'transparent'
-                }}>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="faq-title text-center pb-5">
-                            <h3>Frequently Asked Questions</h3>
-                        </div>
-                    </div>
-
-                    <div className="col-md-10 offset-md-1">
-                        <div className="faq">
-                            {faqs.map((faq, index) => (
-                                <div className="card" key={index}>
-                                    <div className="card-header" id={`faqHeading-${index}`}>
-                                        <div className="mb-0">
-                                            <h5
-                                                className="faq-title"
-                                                onClick={() => toggleAnswer(index)}
-                                            >
-                                                <span className="badge">{index + 1}</span>{" "}
-                                                {faq.question}
-                                            </h5>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        className={`collapse ${activeIndex === index ? "show" : ""}`}
-                                        id={`faqCollapse-${index}`}
-                                    >
-                                        <div className="card-body">
-                                            {/* Format the answer with <br /> */}
-                                            {formatAnswer(faq.answer)}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+         <FaqComponent faqs={faqs}/>
         </div>
         </>
     );
