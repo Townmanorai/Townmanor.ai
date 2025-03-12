@@ -44,3 +44,7 @@
         max-width: 100%;
     }
 }
+
+.nav-link:hover .search-icon{
+  color:#D81212
+}

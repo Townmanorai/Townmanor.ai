@@ -89,7 +89,7 @@ const SearchForm = () => {
   }, [location.search]);
 
   return (
-    <div className="widget-property-search">
+    <div className="widget-property-search search-page abc">
       <form onSubmit={handleSubmit} className="row banner-search search-form">
         
         {/* Project/Property Name Input */}

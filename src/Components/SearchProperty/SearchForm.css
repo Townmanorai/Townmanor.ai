@@ -11,6 +11,11 @@ button.btn.btn-outline-primary {
     background: linear-gradient(to right, #ff4447, #8a2e2e) !important;
 }
 
+.widget-property-search.search-page.abc{
+    padding-top: 55px !important;
+    display: flex;
+    justify-content: center;
+}
 
 @media (max-width: 767px) {
     .half-map-sec .widget-property-search {

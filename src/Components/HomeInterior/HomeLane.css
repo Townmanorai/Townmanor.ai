@@ -61,14 +61,24 @@
     }
     .ProductTile_Col figure {
         width: 100%;
-        height: fit-content;
+        height: 100%;
     }
     .ProductTile_Col figure img {
       
-        height: fit-content;
+        height: 100%;
     
     }
-   
+    .ProductTile_tileTxt {
+        /* min-height: 40px; */
+        width: 100%;
+      
+        font-size: 12px;
+        /* line-height: 24px; */
+        color: #333;
+    }
+    .ProductTile_tileDesc {
+        padding: 4px 5px;
+    }
     .BFC_bTN{
         height: 40px;
         width: 136px;
@@ -290,6 +300,6 @@
 }
 @media only screen and (min-width: 900px) and (max-width: 1350px){
     .ProductTile_Col figure {
-     height: auto;
+     height: 100%;
     }
 }

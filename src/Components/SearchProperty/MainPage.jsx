@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import Map from './Map';
 import SearchForm from './SearchForm';
 import ResultsItem from './ResultsItem';
+import { CiBoxList } from "react-icons/ci";
 
 import "../../common.css";
 import "../../commonsecond.css";
 import './MainPage.css';
 import Pagination from './Pagination';
 import ResultsItem1 from './ResultsItem1';
+import { MdGridView } from 'react-icons/md';
 
 const MainPage = ({ results, total_rows, view_grid_selected, view_list_selected }) => {
   // console.log({results, total_rows, view_grid_selected, view_list_selected});
@@ -44,10 +46,10 @@ const MainPage = ({ results, total_rows, view_grid_selected, view_list_selected 
                 <div className="list-head" style={{ width: '98%' }}>
                   <div className="sortby">
                     <span>Sort by:</span>
-                    <div className="drop-menu">
+                    <div className="drop-menu" style={{background:"none"}}>
                       <div className="select">
                         <span>Relevant</span>
-                        <i className="la la-caret-down"></i>
+                        <i className="bi bi-caret-down"></i>
                       </div>
                       <input type="hidden" name="search_order" id="search_order" />
                       <ul className="dropeddown">
@@ -64,12 +66,12 @@ const MainPage = ({ results, total_rows, view_grid_selected, view_list_selected 
                     <ul className="nav nav-tabss grid-type">
                       <li className="nav-item">
                         <a href="#" className={`nav-link grid view-type ${view_grid_selected ? 'active' : ''}`} data-ref="grid">
-                          <i className="la la-th-large"></i>
+                          <MdGridView className='search-icon'/>
                         </a>
                       </li>
                       <li className="nav-item">
                         <a href="#" className={`nav-link list view-type ${view_list_selected ? 'active' : ''}`} data-ref="list">
-                          <i className="la la-th-list"></i>
+                          < CiBoxList className='search-icon'/>
                         </a>
                       </li>
                     </ul>

@@ -279,6 +279,7 @@ const BankLoanSection = () => {
                   data-target="#exampleModal"
                   className="btn-calc InterestRateNew_instantApply"
                   onClick={openModal}
+                  
                 >
                   Apply Now
                 </button>
