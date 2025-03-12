@@ -75,6 +75,8 @@ import RentMainPage from './Components/Rent-Agreements/RentMainPage';
 import PropTechNews from './Components/BlogModule/PropTechNews';
 import ArticleComponent from './Components/BlogModule/ArticleComponent';
 import PropertyListings from './Components/AdminPropertyUI/PropertyListings';
+import LandVerification from './Components/LandVerification/LandVerification';
+import LandRecords from './Components/LandVerification/LandRecords';
 
 
 function App() {
@@ -130,6 +132,8 @@ function App() {
         <Route path="/credit-score" element={<CreditScore />} />
         <Route path="/insurance" element={<Insurance />} />
         <Route path="/rentagreements" element={<RentMainPage />} />
+        <Route path="/landverification" element={<LandVerification />} />
+        <Route path="/landrecord" element={<LandRecords />} />
 
         <Route path="/property-details/:property_name" element={<PropertyListedUserList />} />
         {/* sunny route */}
