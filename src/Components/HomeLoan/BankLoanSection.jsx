@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "../common.css";
 import "../commonsecond.css";
 import Modal from 'react-modal'
+import "./HomeLoan.css"
 import { SlClose } from "react-icons/sl";
 // Dummy JSON data
 const dummyData = [

@@ -11,9 +11,9 @@ const FaqComponent = ({ faqs }) => {
   return (
     <div className="faq-container">
       <h1 className="faq-title">Frequently Asked Questions</h1>
-      <p className="faq-subtitle">
+      {/* <p className="faq-subtitle">
         Find answers to common questions about our products and services
-      </p>
+      </p> */}
       <div className="faq-list">
         {faqs.map((faq, index) => (
           <div className="faq-item" key={index}>

@@ -38,3 +38,115 @@
     width: 100%;
   }
 }
+@media only screen and (max-width: 550px) {
+    .Insurance_fill_form {
+      width: 100%;
+      max-width: 400px;
+      margin: 10px auto;
+      padding: 40px 15px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .form .form-control {
+        margin-bottom: 30px;
+    }
+    .form-group {
+      position: relative;
+      margin-bottom: 15px;
+    }
+  
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  
+    .label_up {
+      position: absolute;
+      top: 8px;
+      left: 12px;
+      font-size: 12px;
+      background: #fff;
+      padding: 0 5px;
+      color: #666;
+    }
+  
+    .custom_radio {
+      display: flex;
+      align-items: flex-start;
+      font-size: 12px;
+    }
+  
+    .form-check {
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+  
+    .form-check + label {
+      font-size: 12px;
+      line-height: 1.4;
+      padding-left: 5px;
+    }
+  
+    .text-trm-condition {
+      font-size: 12px;
+      text-align: center;
+      margin-top: 10px;
+    }
+  
+    .text-trm-condition a {
+      color: #007bff;
+      text-decoration: none;
+    }
+  
+    .btn-submit {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .Insurance_radio{
+        width: 10%;
+    }
+    .Insurance_fill_form label.form-check.font-bold {
+        
+        top: 6px;
+        flex: 1;
+        /* margin-bottom: 32px; */
+        padding-bottom: 10px;
+    }
+    #partners-section {
+        padding: 11px 0px 100px;
+    }
+    .nav-item:hover {
+        font-weight: bold;
+        border: none;
+        /* border-bottom: 2px solid red; */
+    }
+    #exampleCheck1{
+        width: 10%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .active {
+        font-weight: bold;
+        border: none !important;
+        /* border-bottom: 2px solid red; */
+    }
+    #partners-section .insurance-companies-section {
+        margin: 0px 0px;
+    }
+    #partners-section .nav-pills {
+        display: contents;
+    }
+  }
+  
