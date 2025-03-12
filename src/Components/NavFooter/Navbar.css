@@ -24,8 +24,9 @@ body, html {
   }
   
   .header .navbar-brand {
-    margin-right: -100px;
+    margin-right: 0;
     margin-top: 10px;
+    flex-shrink: 0;
   }
     
   .top-header {
@@ -65,9 +66,9 @@ body, html {
     margin-right: 5px;
   }
   
-  .navbar-expand-lg .navbar-collapse ul#main-menu {
-    margin-left: 160px !important;
-}
+  /* .navbar-expand-lg .navbar-collapse ul#main-menu {
+    margin-left: 20px !important;
+} */
 
   .top-header .header-social {
     display: flex;
@@ -87,7 +88,8 @@ body, html {
   .header .container-fluid {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 15px;
   }
   
   .header .navbar {
@@ -103,7 +105,7 @@ body, html {
   
   header .header {
     min-height: auto;
-    padding: 0px  5px;
+    padding: 0px 5px;
   }
   
   .header .menu-button {
@@ -123,6 +125,7 @@ body, html {
   .header .navbar-collapse {
     display: flex;
     justify-content: center;
+    flex: 1;
   }
   
   .header .navbar-collapse.show {
@@ -135,7 +138,6 @@ body, html {
   }
   
   .header .navbar-nav .nav-item {
-    /* margin-left: 15px; */
     margin-left: 0px;
   }
   
@@ -145,9 +147,7 @@ body, html {
   }
   
   .header .navbar-nav .submit-btn {
-    /* background-color: #007bff; */
     color: #fff;
-    /* padding: 5px 10px; */
     border-radius: 3px;
   }
   
@@ -172,6 +172,7 @@ body, html {
     font-size: 15px;
     position: relative;
     font-weight: normal;
+    padding: 8px 10px;
   }
   
   /* Responsive styles */
@@ -183,6 +184,39 @@ body, html {
 
     .header .navbar-nav .nav-item.signin-btn .nav-link{
       margin-right: 10px;
+    }
+  }
+
+  /* New styles for 1200px-1500px */
+  @media (min-width: 1200px) and (max-width: 1500px) {
+    .header .navbar-brand {
+      margin-right: 0;
+      width: 180px;
+    }
+
+    .header .navbar-brand img {
+      width: 180px;
+    }
+
+    .navbar-expand-lg .navbar-collapse ul#main-menu {
+      margin-left: 10px !important;
+    }
+
+    .header .navbar-nav .nav-item .nav-link {
+      padding: 8px 8px;
+      font-size: 14px;
+    }
+
+    .header .container-fluid {
+      padding: 0 10px;
+    }
+
+    .header .navbar-collapse {
+      justify-content: flex-start;
+    }
+
+    .header .navbar {
+      flex-wrap: nowrap;
     }
   }
 
