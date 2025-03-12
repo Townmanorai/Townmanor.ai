@@ -21,7 +21,7 @@ const FaqComponent = ({ faqs }) => {
               className="faq-question"
               onClick={() => toggleFaq(index)}
             >
-              {faq.question}
+              <p id="faq_ques">{faq.question}</p>
               <IoIosArrowDown
               style={{
                 color:'black'

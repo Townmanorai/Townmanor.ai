@@ -45,7 +45,10 @@
 .HomeInT_Slider_page .carousel-caption h5 {
     font-size: 45px;
 }
-
+.tab.tab_services {
+      
+    justify-content: center;
+}
 @media only screen and (min-width: 0px) and (max-width: 500px){
     .maincontainer{
         margin: 0vh 1vw;
@@ -65,6 +68,7 @@
         height: fit-content;
     
     }
+   
     .BFC_bTN{
         height: 40px;
         width: 136px;
@@ -101,7 +105,9 @@
         cursor: pointer;
         border: none;
         margin-top: 10px;
-        width: 215px;
+        width: 61%;
+        text-align: center;
+        justify-content: center;
     }
     .HomeInT_Slider_page .carousel-caption p {
         font-size: 13px;
@@ -111,5 +117,179 @@
     .HomeInT_Slider_page .carousel-caption h5 {
         font-size: 35px;
     }
+    .tab.tab_services {
+        margin: 0;
+        width: 46%;
+        padding: 20px;
+        justify-content: center !important;
+    }
+    .interior-heading-box h5 {
+        font-size: 18px;
+        width: 100%;
+        color: #0b1116;
+        font-weight: 300 !important;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .interior-heading-box p {
+        font-size: 14px;
+        line-height: 30px;
+        color: #0b0b0b;
+        margin-top: 5px;
+        text-align: center;
+        font-weight: 300;
+    }
+    .ref_contact_img img{
+        width: 100%;
+    }
+    .ref_contact_banner {
+ 
+        padding: 3px 0 18px;
+     
+    }
+    .ref_contact_banner p {
+        
+        font-size: 15px;
+        text-align: center;
+     
+        padding: 1px 0 18px;
+    }
+    .ref_contact_banner h2 {
+        color: #222;
+        font-size: 26px !important;
+        font-weight: 400;
+        text-align: center;
+    }
+    button.btn-calc {
+        justify-content: center;
+    }
+    .interior-CallTo .icon {
+        background: #f29999;
+        padding: 34px;
+    }
+    .homeintcard{
+        gap: 10px;
+    }
+    #interior-tabs-container {
+        padding: 6px 0 80px 0;
+    }
+    #interiormodal{
+        position: absolute;
+        inset: 80px 6px;
+        border: 1px solid rgb(204, 204, 204);
+        background: rgb(255, 255, 255);
+        overflow: auto;
+        border-radius: 4px;
+        outline: none;
+       
+        width: 326px !important;
+        margin: -10px !important;
+       
+        
+    }
+    .ReactModal__Content {
+        width: 90% !important;
+        max-width: 400px;
+        padding: 15px;
+        margin: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+    
+      .modal-body {
+        padding: 10px;
+      }
+    
+      .LeadPopup_headingBox {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+      }
+    
+      .LeadPopup_headingBox h2 {
+        font-size: 16px;
+        flex: 1;
+      }
+    
+      .LeadPopup_headingBox span {
+        font-size: 18px;
+      }
+    
+      .form_item {
+        position: relative;
+        margin-bottom: 12px;
+      }
+    
+      .formInput {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+    
+      .formLabel {
+        font-size: 12px;
+        position: absolute;
+        top: 5px;
+        left: 12px;
+        background: white;
+        padding: 0 5px;
+        color: #666;
+      }
+    
+      .contBox {
+        display: flex;
+        align-items: center;
+      }
+    
+      .contCode {
+        padding: 10px;
+        background: #f5f5f5;
+        border-radius: 5px 0 0 5px;
+      }
+    
+      .form_item select {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+    
+      .LeadPopup_rangecalc {
+        text-align: center;
+      }
+    
+      /* .btn-calc {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        background: black;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      } */
+    
+      .btn-calc span {
+        font-weight: bold;
+      }
+    
+      .mt-4 p {
+        font-size: 12px;
+        text-align: center;
+      }
+    
+      .mt-4 a {
+        color: #007bff;
+        text-decoration: none;
+      }
+ 
 }
-
+@media only screen and (min-width: 900px) and (max-width: 1350px){
+    .ProductTile_Col figure {
+     height: auto;
+    }
+}
