@@ -201,7 +201,7 @@ function HomeShift() {
                                 <h3>2 Wheeler</h3>
                                 <p>Capacity: <strong>20 kg</strong></p>
                                 <p>Starting from: <strong>?60</strong></p>
-                                <p class="fare-details">Base fare includes 1 km &amp; 25 minutes. Additional charges may apply for parking and road tax.</p>
+                                <p class="fare-details" >Base fare includes 1 km &amp; 25 minutes. Additional charges may apply for parking and road tax.</p>
                                 <a href="#" class="know-more">Know more</a>
                             </div>
                         </div>
@@ -259,17 +259,18 @@ function HomeShift() {
                 </section>
 
 
-                <div class="partners-card">
+                <div class="partners-card hello_card">
                     <div class="partner-content">
                         <h2 class="partner-title">Blowhorn</h2>
                         <p>Blowhorn provides efficient logistics solutions with a wide variety of vehicle options for home shifts and more. <span>B to B Services</span></p>
-                        <a href="https://blowhorn.com/" target="_blank" class="btn-visit">Visit Blowhorn</a>
+                       
 
                     </div>
 
                     <img src="https://blowhorn.com/_nuxt/img/7c6c684.png" alt="Blowhorn Logo" style={{
                         width: '150px'
                     }} />
+                     <a href="https://blowhorn.com/" target="_blank" class="btn-visit">Visit Blowhorn</a>
                 </div>
 
                 <FaqComponent faqs={faqs}/>

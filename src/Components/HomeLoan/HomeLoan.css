@@ -3,4 +3,24 @@
        
         width: 32%;
     }
+    .mt-4 p {
+        font-size: 12px;
+        /* text-align: center; */
+        text-align: left !important;
+    }
+    .InterestRateNew_bankDetails__Pcbs_ li{
+        display: flex
+        ;
+            align-items: flex-start;
+            gap: 0px;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: left;
+    }
+    .InterestRateNew_bankDetails__Pcbs_ {
+      
+        gap: 4px 0;
+       
+    }
+
 }

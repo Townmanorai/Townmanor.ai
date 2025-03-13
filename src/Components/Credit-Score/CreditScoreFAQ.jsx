@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 import "../common.css";
 import "../commonsecond.css";
+import FaqComponent from '../HomePage/FaqComponent';
 
 const faqData = [
   { id: 1, question: "What is a Credit Score?", answer: "Credit score is a 3-digit number that shows how likely you are to get credit. When you need a loan, a bank or any lender looks at this score to understand how likely you are to pay the money back. Credit scores range from 300 to 900." },
@@ -22,44 +23,47 @@ const CreditScoreFAQ = () => {
   };
 
   return (
-    <section className="faq-section paddinngTB" id="faqs1">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <div className="faq-title text-center pb-3">
-              <h3>Frequently Asked Questions</h3>
-            </div>
-          </div>
+    // <section className="faq-section paddinngTB" id="faqs1">
+    //   <div className="container">
+    //     <div className="row">
+    //       <div className="col-md-12">
+    //         <div className="faq-title text-center pb-3">
+    //           <h3>Frequently Asked Questions</h3>
+    //         </div>
+    //       </div>
 
-          <div className="col-md-10 offset-md-1">
-            <div className="faq" id="accordion">
-              {faqData.map(faq => (
-                <div key={faq.id} className="card">
-                  <div className="card-header" id={`faqHeading-${faq.id}`}>
-                    <div className="mb-0">
-                      <h5 className="faq-title" onClick={() => toggleFAQ(faq.id)}>
-                        <span className="badge">{faq.id}</span>
-                        {faq.question}
-                        <span className="float-right">{openId === faq.id ? '-' : '+'}</span>
-                      </h5>
-                    </div>
-                  </div>
-                  <div
-                    aria-labelledby={`faqHeading-${faq.id}`}
-                    className={`collapse ${openId === faq.id ? "show" : ""}`}
-                    id={`faqCollapse-${faq.id}`}
-                  >
-                    <div className="card-body">
-                      <p>{faq.answer}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    //       <div className="col-md-10 offset-md-1">
+    //         <div className="faq" id="accordion">
+    //           {faqData.map(faq => (
+    //             <div key={faq.id} className="card">
+    //               <div className="card-header" id={`faqHeading-${faq.id}`}>
+    //                 <div className="mb-0">
+    //                   <h5 className="faq-title" onClick={() => toggleFAQ(faq.id)}>
+    //                     <span className="badge">{faq.id}</span>
+    //                     {faq.question}
+    //                     <span className="float-right">{openId === faq.id ? '-' : '+'}</span>
+    //                   </h5>
+    //                 </div>
+    //               </div>
+    //               <div
+    //                 aria-labelledby={`faqHeading-${faq.id}`}
+    //                 className={`collapse ${openId === faq.id ? "show" : ""}`}
+    //                 id={`faqCollapse-${faq.id}`}
+    //               >
+    //                 <div className="card-body">
+    //                   <p>{faq.answer}</p>
+    //                 </div>
+    //               </div>
+    //             </div>
+    //           ))}
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </section>
+    <>
+    <FaqComponent faqs={faqData}/>
+    </>
   );
 };
 

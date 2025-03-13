@@ -5,8 +5,6 @@
     font-family: "Inter", sans-serif;
     background-color: #f9f9f9;
     border-radius: 8px;
-  }
-  
   .faq-title {
     font-size: 24px;
    
@@ -27,8 +25,6 @@
     gap: 10px;
   }
   
-  .faq-item {
-    background: white;
     border-radius: 6px;
     padding: 12px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

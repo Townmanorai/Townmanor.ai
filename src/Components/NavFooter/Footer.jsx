@@ -16,6 +16,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
   const navigate = useNavigate();
+  
   return (
     <section className="footer_area" style={{height:'max-content'}}>
       <section className="bottom section-padding">

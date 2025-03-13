@@ -308,8 +308,24 @@ img.home-shift-logo-img {
     .service-step p {
         font-size: 16px;
         color: #555;
+        line-height: 15px;
     }
-
+    .steps-container {
+        display: flex
+    ;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+    }
+    .service-step {
+        /* margin-bottom: 20px; */
+        padding: 5px 9px;
+        border-radius: 8px;
+        height: 262px;
+        /* line-height: 2px; */
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
     /* Hover effect for .service-step */
 .service-step:hover {
     color: black;
@@ -438,9 +454,85 @@ img.home-shift-logo-img {
     width: 32px;
     cursor: pointer;
 }
+.service-step p {
+    font-size: 18px;
+    color: #555;
+    line-height: 35px;
+}
 /* Media Queries for Responsiveness */
 
 /* Responsive styles */
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+    .service-step {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        height: 180px;
+    }
+    .service-step p {
+        font-size: 14px;
+        color: #555;
+        line-height: 25px;
+    }
+    .btn-visit {
+        background: linear-gradient(to right, #ff4447, #8a2e2e);
+        color: #fff;
+        text-decoration: none;
+        padding: 9px 30px;
+        border-radius: 5px;
+        margin-top: 25px;
+        display: inline-block;
+        width: 20%;
+        text-align: center;
+    }
+    .hello_card {
+        background-color: #fff;
+        margin: 20px 0;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex
+    ;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .partner-title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #007bff;
+        text-align: center;
+    }
+}
+.hello_card{
+    background-color: #fff;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.btn-visit {
+    background: linear-gradient(to right, #ff4447, #8a2e2e);
+    color: #fff;
+    text-decoration: none;
+    padding: 9px 30px;
+    border-radius: 5px;
+    margin-top: 25px;
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+}
+.partner-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+}
 @media (max-width: 1024px) {
     .partners-card {
         flex-direction: column;
@@ -528,7 +620,7 @@ img.home-shift-logo-img {
 
 }
 
-@media (max-width: 480px) {
+@media (max-width: 550px) {
     .floating-form-footer {
         flex-direction: column;
         align-items: center;
@@ -571,6 +663,123 @@ img.home-shift-logo-img {
         z-index: 1000;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
+    }
+    .home-shift-partner-logo img {
+        height: 28px;
+        margin-top: 10px;
+        width: 70px;
+    }
+    .bold-loan {
+        font-weight: 600;
+     
+    }
+    img.home-shift-logo-img {
+        width: 78%;
+        height: 100%;
+        /* border: 1px solid grey; */
+        margin-top: 15px;
+        box-shadow: 0.5px 0.5px 2.5px 0.5px grey;
+    }
+    .steps-heading {
+        font-size: 15px;
+        color: #ff0000;
+        /* margin-bottom: 20px; */
+        text-align: center;
+        font-weight: 400;
+    }
+    .steps-container {
+        display: flex
+    ;
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-between;
+    }
+    .service-step h3 {
+        color: #0c0707;
+        font-size: 14px;
+        /* margin-bottom: 10px; */
+    }
+    .service-step p {
+        font-size: 13px;
+        color: #555;
+        line-height: 15px;
+    }
+    .service-step {
+        margin-bottom: 20px;
+        padding: 2px 6px;
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+    .service-card {
+        background-color: #e8f0fe;
+        border-radius: 8px;
+        text-align: center;
+        padding: 5px 3px;
+        flex: 1;
+        min-width: 120px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .service-card img {
+       margin-bottom: 0px;
+        /* margin-bottom: 10px; */
+    }
+    .partner-content .btn-visit {
+        background: linear-gradient(to right, #ff4447, #8a2e2e);
+        color: #fff;
+        text-decoration: none;
+        padding: 9px 9px;
+        border-radius: 5px;
+        margin-top: 25px;
+        height: 39px;
+        display: inline-block;
+    }
+    .vehicle-fleet {
+        flex-direction: row;
+    }
+    .vehicle-card {
+        display: flex
+    ;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        overflow: hidden;
+        flex-direction: column;
+        width: 132px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* width: 100%; */
+        /* max-width: 418px; */
+        transition: all 0.3s ease;
+    }
+    .vehicle-image {
+        width: 117px;
+        height: 86px;
+       object-fit: none;
+        padding: 5px;
+    }
+    .btn-visit {
+        background: linear-gradient(to right, #ff4447, #8a2e2e);
+        color: #fff;
+        text-decoration: none;
+        padding: 5px 30px;
+        border-radius: 5px;
+        margin-top: 25px;
+        width: 60%;
+        display: inline-block;
+    }
+    .fare-details{
+        display: none;
+    }
+    .home-shift-partner-logo img {
+        height: 28px;
+        margin-top: 10px;
+    }
+    .home-shift-partner-logo {
+        display: flex
+    ;
+      
+    }
+    .LeadPopup_popUpWindow {
+        display: none;
     }
 }
 
