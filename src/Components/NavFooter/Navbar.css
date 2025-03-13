@@ -173,6 +173,7 @@ body, html {
     position: relative;
     font-weight: normal;
     padding: 8px 10px;
+    width: 100%;
   }
   
   /* Responsive styles */
@@ -252,6 +253,7 @@ body, html {
 
     .navbar-expand-lg .navbar-collapse ul#main-menu {
       margin-left: 5px !important;
+      margin-right: 0px !important;
   }
   
     .header .close-menu {

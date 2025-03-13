@@ -67,7 +67,7 @@ const CreditScoreForm = () => {
   return (
     <div className="container">
       <div id="Description_loandetails" className="mb-0 pb-0">
-        <div className="homeLoanForm mb-0 pb-5">
+        <div className="homeLoanForm mb-0 pb-5" style={{padding: '0px 10px'}}>
           <p className="home-loan-heading text-left">
             Get Instant Detailed <b>Credit Score</b> Report for <b>Free</b>
           </p>
@@ -140,6 +140,7 @@ const CreditScoreForm = () => {
                   id="termService"
                   defaultChecked
                   required
+                  style={{maxWidth:"fit-content",borderRadius:"4px",transform:'scale(1)'}}
                 />
                 <label className="form-check-label ajChnageD" htmlFor="termService">
                   I hereby appoint TownManor as my authorised representative to receive my credit information from Experian(bureau). I hereby accept terms & conditions.

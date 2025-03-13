@@ -26,3 +26,25 @@
   .credit-score-colour{
     color: red;
   }
+
+  /* Fix for checkbox and label positioning */
+  .form-group.m-0 {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+
+  .form-group.m-0 .form-check-input {
+    margin-top: 3px;
+    margin-right: 10px;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .form-group.m-0 .form-check-label {
+    display: inline-block;
+    position: relative;
+    margin-left: 5px;
+    font-size: 14px;
+    line-height: 1.5;
+  }

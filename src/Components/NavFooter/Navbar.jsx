@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react'; 
 import { Link } from 'react-router-dom';
 import { FaSignInAlt } from 'react-icons/fa';
@@ -80,6 +79,11 @@ const Navbar = () => {
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  
+  // Function to close the menu
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <header style={{position:'fixed',width:'100%',zIndex:'1000'}}>
@@ -149,13 +153,13 @@ const Navbar = () => {
                   </button>
                   <div className={`navbar-collapse ${isMenuOpen ? 'show' : ''}`} id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto" id="main-menu">
-                      <li className="nav-item"><Link to="/" className="nav-link">Home</Link></li>
-                      <li className="nav-item"><Link to="/search-property" className="nav-link">Search Property</Link></li>
-                      <li className="nav-item"><Link to="/home-loan" className="nav-link">Home Loan</Link></li>
-                      <li className="nav-item"><Link to="/insurance" className="nav-link">Insurance</Link></li>
-                      <li className="nav-item"><Link to="/homelane" className="nav-link">Home Interior</Link></li>
-                      <li className="nav-item"><Link to="/homeshift" className="nav-link">Home Shift</Link></li>
-                      <li className="nav-item"><Link to="/pricing-plans" className="nav-link">Subscription Plan</Link></li>
+                      <li className="nav-item"><Link to="/" className="nav-link" onClick={closeMenu}>Home</Link></li>
+                      <li className="nav-item"><Link to="/search-property" className="nav-link" onClick={closeMenu}>Search Property</Link></li>
+                      <li className="nav-item"><Link to="/home-loan" className="nav-link" onClick={closeMenu}>Home Loan</Link></li>
+                      <li className="nav-item"><Link to="/insurance" className="nav-link" onClick={closeMenu}>Insurance</Link></li>
+                      <li className="nav-item"><Link to="/homelane" className="nav-link" onClick={closeMenu}>Home Interior</Link></li>
+                      <li className="nav-item"><Link to="/homeshift" className="nav-link" onClick={closeMenu}>Home Shift</Link></li>
+                      <li className="nav-item"><Link to="/pricing-plans" className="nav-link" onClick={closeMenu}>Subscription Plan</Link></li>
                     </ul>
                     <div className="d-inline my-2 my-lg-0">
                       <ul className="navbar-nav">
@@ -169,11 +173,11 @@ const Navbar = () => {
                         }}/>
                             <span>
                               {username ? (
-                                <Link to="/dashboard" className="login_popup_enabled">
+                                <Link to="/dashboard" className="login_popup_enabled" onClick={closeMenu}>
                                   <b className="signin-op">{username}</b>
                                 </Link>
                               ) : (
-                                <Link to="/auth" className="login_popup_enabled">
+                                <Link to="/auth" className="login_popup_enabled" onClick={closeMenu}>
                                   <b className="signin-op">Sign in </b>
                                 </Link>
                               )}
@@ -181,7 +185,7 @@ const Navbar = () => {
                           </span>
                         </li>
                         <li className="nav-item submit-btn">
-                        <Link to="/form" className="my-2 my-sm-0 nav-link sbmt-btn overflowVisible">
+                        <Link to="/form" className="my-2 my-sm-0 nav-link sbmt-btn overflowVisible" onClick={closeMenu}>
                             {/* <i className="icon-plus"></i> */}
                             <FaPlusCircle style={{
                           color:'white',

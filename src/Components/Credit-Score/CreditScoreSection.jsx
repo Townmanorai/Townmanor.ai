@@ -8,7 +8,7 @@ const CreditScoreSection = () => {
   return (
     <>
     <section className="HomeLoan_area">
-    <div id="Product_Section">
+    <div id="Product_Section" style={{paddingTop: '60px'}}>
           <div className="container">
             <div className="ProductBanner_bannerFlex align-items-center">
               <div className="ProductBanner_Text">
