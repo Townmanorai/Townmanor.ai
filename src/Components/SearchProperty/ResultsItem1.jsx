@@ -30,8 +30,8 @@ const ResultsItem1 = ({item}) => {
   return (
     <>
       <div className='search-card-body'>
-        <div className="col-md-6 cm6">
-          <div className='card search-page'>
+        <div className="col-md-6 cm6 img-card">
+          <div className='card sp search-page'>
             <Link to={`/home/${item.id}`} title={item.option_10 || item.property_name}>
               <div className={`img-block ${item.option_1 ? 'video-block' : ''}`}>
                 <span className="verifiedBadge"><MdVerified style={{marginRight: '3px'}} /> Verified</span>
@@ -65,7 +65,7 @@ const ResultsItem1 = ({item}) => {
             </Link>
           </div>
           
-          <div className="card-footer">
+          <div className="card-footer" style={{padding:'10px 20px'}}>
             <span>
               <MdPeople id='peopleicon' />
               <span className='agent-owner'>{item.Listed_By || 'Owner'}</span>
@@ -83,6 +83,7 @@ const ResultsItem1 = ({item}) => {
           <div className="property-header">
             <div>
               <h3 className="property-title">{item.option_10 || item.property_name}</h3>
+
               <p className="property-address">
                 <FaLocationDot /> {item.address || 'Location not available'}
               </p>
@@ -115,7 +116,7 @@ const ResultsItem1 = ({item}) => {
                 )}
               </div>
             </div>
-            <div>
+            <div style={{textAlign:'end'}}>
               <h3 className="property-price">
                 <LuIndianRupee /> {item.option_37 || item.price || '??'} {item.pricerange}
               </h3>

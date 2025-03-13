@@ -15,12 +15,18 @@
 }
 
 .card-info {
-  margin-top: 30px;
+  margin-top: 15px;
   border-radius: 8px;
   padding: 10px;
   box-shadow: 0 0 20px rgb(0 0 0 / 6%);
   display: flex;
   flex-direction: column;
+}
+
+.col-md-6.cm6.img-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .ci-ul {
@@ -35,4 +41,18 @@
   color: #242526;
   padding: 15px;
   border-radius: 8px;
+}
+
+.property-details-section{
+  width: -webkit-fill-available;
+  margin-left: 10px;
+}
+
+.property-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card.sp{
+  margin: 0px !important;
 }
