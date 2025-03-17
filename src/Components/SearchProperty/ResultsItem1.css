@@ -56,3 +56,32 @@
 .card.sp{
   margin: 0px !important;
 }
+
+@media screen and (max-width:720px) {
+  .search-card-body{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-card-body .col-md-6{
+    max-width:500px;
+  }
+
+  .card.sp.search-page {
+    width: auto;
+  }
+
+  .card.sp.search-page a.carousel-control-prev  {
+    width: 15px !important;
+  }
+  .card.sp.search-page a.carousel-control-next  {
+    width: 15px !important;
+  }
+}
+
+@media screen and (max-width:500px){
+  .card-info .ci-li{
+    padding: 5px;
+    padding-left: 0px;
+  }
+}
