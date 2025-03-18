@@ -170,8 +170,8 @@ const servicesData = [
     link: "https://townmanor.ai/home-loan",
   },
   {
-    title: "Listed Property",
-    description: "Browse through our extensive list of verified properties",
+    title: "List & Sell Your Property",
+    description: "Boost your property's visibility and attract quality leads by listing it for sale.",
     icon: (
       <svg
         width="40"

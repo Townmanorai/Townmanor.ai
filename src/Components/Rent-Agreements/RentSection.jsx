@@ -2,8 +2,16 @@
 import React from 'react';
 import './RentSection.css';
 import { motion } from 'framer-motion';
+import { useNavigate } from "react-router-dom";
 
 const RentSection = () => {
+
+  const navigate = useNavigate(); // Hook for navigation
+
+  const handleNavigation = () => {
+    navigate("/rent-agreement");
+  };
+
   return (
     <section className="rent-hero-section">
       <div className="rent-hero-container">
@@ -15,7 +23,7 @@ const RentSection = () => {
         >
           <h1>Create Legal Rent Agreements Online</h1>
           <p>Generate legally valid rental agreements instantly. No physical visits required.</p>
-          <button className="rent-cta-button">
+          <button className="rent-cta-button" onClick={handleNavigation}>
             Create Agreement Now
             <span className="cta-arrow">→</span>
           </button>

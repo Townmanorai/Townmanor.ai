@@ -26,7 +26,7 @@ const LandVerificationSearchForm = () => {
   return (
     <div className="card land-verification-search-form">
       <form onSubmit={handleSubmit} className="card-header">
-        <div className="form-group">
+        <div className="townmanor-form-group">
           <div>
             <label className="form-label">State</label>
             <select

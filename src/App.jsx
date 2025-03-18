@@ -73,10 +73,13 @@ import Coliving_space from './Components/HomePage/Coliving_space';
 import RentMainPage from './Components/Rent-Agreements/RentMainPage';
 import PropTechNews from './Components/BlogModule/PropTechNews';
 import ArticleComponent from './Components/BlogModule/ArticleComponent';
+import RentAgreementForm from './Components/Rent-Agreements/RentAgreementForm';
 import PropertyListings from './Components/AdminPropertyUI/PropertyListings';
 import LandVerification from './Components/LandVerification/LandVerification';
 import LandRecords from './Components/LandVerification/LandRecords';
 import ScrollToTop from './ScrollToTop';
+import ExploreStates from './Components/Statewise/ExploreStates';
+import StateDistricts from './Components/Statewise/StateDistricts';
 
 // Scroll restoration component
 const ScrollRestoration = () => {
@@ -151,6 +154,10 @@ function App() {
             <Route path="/rentagreements" element={<RentMainPage />} />
             <Route path="/landverification" element={<LandVerification />} />
             <Route path="/landrecord" element={<LandRecords />} />
+            <Route path="/rent-agreement" element={<RentAgreementForm/>} />
+            <Route path="/explorestate" element={<ExploreStates/>} />
+            <Route path="/state/:stateName" element={<StateDistricts />} />
+            <Route path="/ut/:stateName" element={<StateDistricts />} />
 
             <Route path="/property-details/:property_name" element={<PropertyListedUserList />} />
             {/* sunny route */}
@@ -202,6 +209,7 @@ function App() {
             <Route path='/proptech' element={<PropTechNews/>}/>
             <Route path='/singleblog/:id' element={<ArticleComponent/>}/>
             <Route path='/adminproperty' element={<PropertyListings/>}/>
+            
           </Routes>
         </main>
         <Footer />
