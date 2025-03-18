@@ -191,11 +191,15 @@
         overflow: auto;
         border-radius: 4px;
         outline: none;
-       
+        max-height: 600px;
         width: 326px !important;
         margin: -10px !important;
-       
-        
+        padding: 3px !important;
+    }
+    .modalhoembtn{
+        width: fit-content;
+        font-size: 13px;
+        padding: 3px;
     }
     .ReactModal__Content {
         width: 90% !important;

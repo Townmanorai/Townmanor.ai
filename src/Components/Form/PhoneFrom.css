@@ -448,7 +448,7 @@ button:hover{
 }
 
 .part1, .part2, .part4,.part3, .part5 {
-   margin: 2vh 2vw;
+   margin: 2vh 0px;
    }
    .icon {
     font-size: 1.7rem;

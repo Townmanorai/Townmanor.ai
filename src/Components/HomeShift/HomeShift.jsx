@@ -146,7 +146,7 @@ function HomeShift() {
                         </div>
                         <div class="service-step">
                             <h3>2. Choose Your Service</h3>
-                            <p>Based on your requirements, you can choose from a variety of vehicles including two-wheelers, mini-trucks, or larger trucks. Our platform helps you select the best service option based on your needs.</p>
+                            <p>Choose from two-wheelers, mini-trucks, or larger trucks based on your needs. Our platform helps you find the best option for you.</p>
                         </div>
                     </div>
 

@@ -736,6 +736,7 @@ img.home-shift-logo-img {
     }
     .vehicle-fleet {
         flex-direction: row;
+        gap: 5px;
     }
     .vehicle-card {
         display: flex
@@ -778,9 +779,9 @@ img.home-shift-logo-img {
     ;
       
     }
-    .LeadPopup_popUpWindow {
+    /* .LeadPopup_popUpWindow {
         display: none;
-    }
+    } */
 }
 
    

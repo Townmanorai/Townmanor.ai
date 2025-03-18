@@ -306,7 +306,7 @@ function HomeLane() {
 
                 {/* Submit Button */}
                 <div className="LeadPopup_rangecalc">
-                  <button type="submit" className="btn-calc">
+                  <button type="submit" className="btn-calc modalhomebtn">
                     Book 3D Design Session <span>Free</span>
                   </button>
                 </div>
