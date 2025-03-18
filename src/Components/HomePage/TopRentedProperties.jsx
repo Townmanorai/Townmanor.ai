@@ -6,7 +6,7 @@ import './TopRentedProperties.css';  // Separate CSS for rented properties
 const propertiesData = [
   {
     id: 1,
-    imgSrc: "/770x483sobha_310_riverside_crescent1.webp",
+    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283730104-770x483sobha_310_riverside_crescent1.webp",
     type: "3 BHK Flat",
     rent: "₹35,000/month",
     location: "Sector 62, Noida",
@@ -15,7 +15,7 @@ const propertiesData = [
   },
   {
     id: 2,
-    imgSrc: "/770x483sobha_310_riverside_crescent3.webp",
+    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283730107-770x483sobha_310_riverside_crescent3.webp",
     type: "2 BHK Apartment",
     rent: "₹25,000/month",
     location: "Sector 18, Noida",
@@ -24,7 +24,7 @@ const propertiesData = [
   },
   {
     id: 3,
-    imgSrc: "/770x483sobha_310_riverside_crescent6.webp",
+    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283730119-770x483sobha_310_riverside_crescent6.webp",
     type: "1 BHK Studio",
     rent: "₹15,000/month",
     location: "Sector 128, Noida",
@@ -32,8 +32,8 @@ const propertiesData = [
     picCount: 4
   },
   {
-    id: 1,
-    imgSrc: "/770x483sobha_310_riverside_crescent5.webp",
+    id: 4,
+    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283730111-770x483sobha_310_riverside_crescent5.webp",
     type: "3 BHK Flat",
     rent: "₹35,000/month",
     location: "Sector 62, Noida",
@@ -41,26 +41,8 @@ const propertiesData = [
     picCount: 12
   },
   {
-    id: 2,
-    imgSrc: "/851x678bhutani_cyberthum101.jpg",
-    type: "2 BHK Apartment",
-    rent: "₹25,000/month",
-    location: "Sector 18, Noida",
-    status: "Available for Rent",
-    picCount: 8
-  },
-  {
-    id: 3,
-    imgSrc: "/851x678bhutani_cyberthum103.jpg",
-    type: "1 BHK Studio",
-    rent: "₹15,000/month",
-    location: "Sector 128, Noida",
-    status: "Available for Rent",
-    picCount: 4
-  },
-  {
-    id: 1,
-    imgSrc: "/851x678bhutani_cyberthum104.jpg",
+    id: 5,
+    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283730104-770x483sobha_310_riverside_crescent1.webp",
     type: "3 BHK Flat",
     rent: "₹35,000/month",
     location: "Sector 62, Noida",
@@ -68,8 +50,8 @@ const propertiesData = [
     picCount: 12
   },
   {
-    id: 2,
-    imgSrc: "/851x678bhutani_cyberthum101.jpg",
+    id: 6,
+    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283730107-770x483sobha_310_riverside_crescent3.webp",
     type: "2 BHK Apartment",
     rent: "₹25,000/month",
     location: "Sector 18, Noida",
@@ -77,14 +59,23 @@ const propertiesData = [
     picCount: 8
   },
   {
-    id: 3,
-    imgSrc: "/851x678bhutani_cyberthum101.jpg",
+    id: 7,
+    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283730119-770x483sobha_310_riverside_crescent6.webp",
     type: "1 BHK Studio",
     rent: "₹15,000/month",
     location: "Sector 128, Noida",
     status: "Available for Rent",
     picCount: 4
   },
+  {
+    id: 8,
+    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283730111-770x483sobha_310_riverside_crescent5.webp",
+    type: "3 BHK Flat",
+    rent: "₹35,000/month",
+    location: "Sector 62, Noida",
+    status: "Available for Rent",
+    picCount: 12
+  }
   // Add more rental properties as needed
 ];
 

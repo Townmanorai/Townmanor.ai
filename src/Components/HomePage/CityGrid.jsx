@@ -3,41 +3,41 @@ import "./CityGrid.css";
 import { useNavigate } from "react-router-dom";
 
 const cities = [
-  { name: "Noida", country: "Noida", img: "./dfb6b5128e.jpg", url: "https://townmanor.in/treefield/en/88577/noida" },
-  { name: "Gurgoan", country: "China", img: "./gurgoan.jpeg", url: "https://townmanor.in/treefield/en/88580/gurgaon" },
-  { name: "Delhi", country: "South Korea", img: "./delhi.jpg", url: "https://townmanor.in/treefield/en/88585/delhi" },
-  { name: "Faridabad", country: "Japan", img: "./faridabad.png", url: "https://townmanor.in/treefield/en/88586/faridabad" },
-  { name: "Dubai", country: "USA", img: "./dubai.jpg", url: "https://townmanor.in/treefield/en/88589/dubai" },
-  { name: "GreaterNoida", country: "France", img: "./faridabad.png", url: "/location/dubai" }
+  { name: "Noida", country: "Noida", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742293128038-noida.jpg", url: "https://townmanor.in/treefield/en/88577/noida" },
+  { name: "Gurgoan", country: "China", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742293128019-gurgoan.jpeg", url: "https://townmanor.in/treefield/en/88580/gurgaon" },
+  { name: "Delhi", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742293127990-delhi.jpg", url: "https://townmanor.in/treefield/en/88585/delhi" },
+  { name: "Faridabad", country: "Japan", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742293128008-faridabad.png", url: "https://townmanor.in/treefield/en/88586/faridabad" },
+  { name: "Dubai", country: "USA", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742292762457-dubai.jpg", url: "https://townmanor.in/treefield/en/88589/dubai" },
+  { name: "GreaterNoida", country: "France", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742293128025-Nizamabad.jpg", url: "/location/dubai" }
 ];
 const uppercities = [
-  { name: "Doha", country: "Qatar", img: "./doha.jpeg", url: "https://townmanor.in/treefield/en/88590/doha" },
-  { name: "Ghaziabad", country: "India", img: "./ghaziabad.jpeg", url: "https://townmanor.in/treefield/en/88579/ghaziabad" },
-  { name: "Goa", country: "India", img: "./goa.jpg", url: "https://townmanor.in/treefield/en/88616/goa" },
-  { name: "Bengaluru", country: "India", img: "./bangulore.jpg", url: "https://townmanor.in/treefield/en/88615/bengaluru" },
-  { name: "Ahmedabad", country: "India", img: "./Ahmedabad.jpg", url: "https://townmanor.in/treefield/en/88613/ahmedabad" },
-  { name: "Jaipur", country: "India", img: "./Jaipur.jpg", url: "https://townmanor.in/treefield/en/88614/jaipur" },
-  { name: "Lucknow", country: "India", img: "./lucknow.jpg", url: "https://townmanor.in/treefield/en/88612/lucknow" },
-  { name: "Chennai", country: "India", img: "./Chennai.jpg" }, // No URL found for Chennai
-  { name: "Chandigarh", country: "India", img: "./chandighad2.jpg" }, // No URL found for Chandigarh
-  { name: "Mumbai", country: "India", img: "./mummbai.jpg" }, // No URL found for Mumbai
-  { name: "Kolkata", country: "India", img: "./kalkata.jpg" }, // No URL found for Kolkata
-  { name: "Dehradun", country: "India", img: "./dehradun.jpg" }, // No URL found for Dehradun
-  { name: "Hyderabad", country: "India", img: "./Hyderabad.jpg" } // No URL found for Hyderabad
+  { name: "Doha", country: "Qatar", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742292762445-doha.jpeg", url: "https://townmanor.in/treefield/en/88590/doha" },
+  { name: "Ghaziabad", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742293128013-ghaziabad.jpeg", url: "https://townmanor.in/treefield/en/88579/ghaziabad" },
+  { name: "Goa", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742293128016-goa.jpg", url: "https://townmanor.in/treefield/en/88616/goa" },
+  { name: "Bengaluru", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742291330701-bangulore.jpg", url: "https://townmanor.in/treefield/en/88615/bengaluru" },
+  { name: "Ahmedabad", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742291330688-Ahmedabad.jpg", url: "https://townmanor.in/treefield/en/88613/ahmedabad" },
+  { name: "Jaipur", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742292762462-Jaipur.jpg", url: "https://townmanor.in/treefield/en/88614/jaipur" },
+  { name: "Lucknow", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742292762467-lucknow.jpg", url: "https://townmanor.in/treefield/en/88612/lucknow" },
+  { name: "Chennai", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742291330755-Chennai.jpg" }, // No URL found for Chennai
+  { name: "Chandigarh", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742291330751-chandighad2.jpg" }, // No URL found for Chandigarh
+  { name: "Mumbai", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742292762469-Mumbai.jpg" }, // No URL found for Mumbai
+  { name: "Kolkata", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742292762465-kalkata.jpg" }, // No URL found for Kolkata
+  { name: "Dehradun", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742292762440-dehradun.jpg" }, // No URL found for Dehradun
+  { name: "Hyderabad", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742292762460-Hyderabad.jpg" } // No URL found for Hyderabad
 ];
 const lowercities = [
-  { name: "Bhopal", country: "India", img: "./Bhopal.jpg", url: "https://townmanor.in/treefield/en/88612/bhopal" },
-  { name: "Nagpur", country: "India", img: "./Nagpur.jpg", url: "https://townmanor.in/treefield/en/88612/Nagpur" },
-  { name: "Varanasi", country: "India", img: "./varanasi.jpg", url: "https://townmanor.in/treefield/en/88612/varanasi" },
-  { name: "Patna", country: "India", img: "./Patna.jpg", url: "https://townmanor.in/treefield/en/88612/patna" },
-  { name: "Sonipat", country: "India", img: "./Patna.jpg", url: "https://townmanor.in/treefield/en/88612/sonipat" },
-  { name: "Indore", country: "India", img: "./Indore.jpg", url: "https://townmanor.in/treefield/en/88612/indore" },
-  { name: "Tiravanathpuram", country: "India", img: "./thiruvananthapuram.jpg", url: "https://townmanor.in/treefield/en/88612/tiravanathpuram" },
-  { name: "Guwahati", country: "India", img: "./guwahati.jpg", url: "https://townmanor.in/treefield/en/88612/guwahati" },
-  { name: "Pune", country: "India", img: "./Pune.jpg", url: "https://townmanor.in/treefield/en/88612/pune" },
-  { name: "Navi Mumbai", country: "India", img: "./navi mumbai.jpg", url: "https://townmanor.in/treefield/en/88612/mumbai" },
-  { name: "VijayWada", country: "India", img: "./Vijayawada.jpg", url: "https://townmanor.in/treefield/en/88612/vijaywada" },
-  { name: "Agra", country: "India", img: "./agra.jpg", url: "https://townmanor.in/treefield/en/88612/agra" },
+  { name: "Bhopal", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742291330743-Bhopal.jpg", url: "https://townmanor.in/treefield/en/88612/bhopal" },
+  { name: "Nagpur", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742293128022-Nagpur.jpg", url: "https://townmanor.in/treefield/en/88612/Nagpur" },
+  { name: "Varanasi", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742293128046-varanasi.jpg", url: "https://townmanor.in/treefield/en/88612/varanasi" },
+  { name: "Patna", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742293128041-Patna.jpg", url: "https://townmanor.in/treefield/en/88612/patna" },
+  { name: "Sonipat", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742292762474-sonipat.jpg", url: "https://townmanor.in/treefield/en/88612/sonipat" },
+  { name: "Indore", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742293463800-Indore.jpg", url: "https://townmanor.in/treefield/en/88612/indore" },
+  { name: "Tiravanathpuram", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742293463807-thiruvananthapuram.jpg", url: "https://townmanor.in/treefield/en/88612/tiravanathpuram" },
+  { name: "Guwahati", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742293463798-guwahati.jpg", url: "https://townmanor.in/treefield/en/88612/guwahati" },
+  { name: "Pune", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742293463803-Pune.jpg", url: "https://townmanor.in/treefield/en/88612/pune" },
+  { name: "Navi Mumbai", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742293463801-navi%20mumbai.jpg", url: "https://townmanor.in/treefield/en/88612/mumbai" },
+  { name: "VijayWada", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742293606386-Vijayawada.jpg", url: "https://townmanor.in/treefield/en/88612/vijaywada" },
+  { name: "Agra", country: "India", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742291330684-agra.jpg", url: "https://townmanor.in/treefield/en/88612/agra" },
 ];
 
 const scrollSpeed = 2;

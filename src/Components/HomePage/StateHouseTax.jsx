@@ -5,22 +5,22 @@ import "./StateHouseTax.css"; // Import your custom CSS
 
 const StateHouseTax = () => {
     const dummyStatesData = [
-        { image_url: './Seal_of_Uttar_Pradesh.png', state_name: 'Uttar Pradesh'},
-        { image_url: './Seal_of_the_National_Capital_Territory_of_Delhi.png', state_name: 'Delhi'},
-        { image_url: './Madhya_Pradesh_Flag.png', state_name: 'Madhya Pradesh'},
-        { image_url: './Haryana_Flag(INDIA).png', state_name: 'Haryana'},
-        { image_url: './Seal_of_Punjab.png', state_name: 'Punjab' },
-        { image_url: './Seal_of_Uttarakhand.png', state_name: 'Uttarakhand' },
-        { image_url: './Himachal_Pradesh_seal.png', state_name: 'Himachal Pradesh' },
-        { image_url: './Emblem_of_Chandigarh.png', state_name: 'Chandigarh' },
-        { image_url: './Seal_of_Ladakh.png', state_name: 'Ladakh' },
-        { image_url: './Government_of_Jammu_and_Kashmir.png', state_name: 'Jammu & Kashmir'},
-        { image_url: './Seal_of_Uttarakhand.png', state_name: 'Bihar' },
-        { image_url: './Himachal_Pradesh_seal.png', state_name: 'Jharkhand'},
-        { image_url: './Emblem_of_Chandigarh.png', state_name: 'Rajasthan' },
-        { image_url: './Seal_of_Uttarakhand.png', state_name: 'Odisha' },
-        { image_url: './Seal_of_Maharashtra.png', state_name: 'Maharashtra' },
-        { image_url: './Government_Of_Gujarat_Seal.png', state_name: 'Gujarat'},   
+        { image_url: 'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742285849593-Seal_of_Uttar_Pradesh.png', state_name: 'Uttar Pradesh'},
+        { image_url: 'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742285849589-Seal_of_the_National_Capital_Territory_of_Delhi.png', state_name: 'Delhi'},
+        { image_url: 'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742286347730-Madhya_Pradesh_Flag.png', state_name: 'Madhya Pradesh'},
+        { image_url: 'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742286347724-Haryana_Flag%28INDIA%29.png', state_name: 'Haryana'},
+        { image_url: 'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742285849585-Seal_of_Punjab.png', state_name: 'Punjab' },
+        { image_url: 'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742285849596-Seal_of_Uttarakhand.png', state_name: 'Uttarakhand' },
+        { image_url: 'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742286546042-Himachal_Pradesh_seal.png', state_name: 'Himachal Pradesh' },
+        { image_url: 'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742286347722-Emblem_of_Chandigarh.png', state_name: 'Chandigarh' },
+        { image_url: 'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742285849551-Seal_of_Ladakh.png', state_name: 'Ladakh' },
+        { image_url: 'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742285849531-Government_of_Jammu_and_Kashmir.png', state_name: 'Jammu & Kashmir'},
+        { image_url: 'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742285849535-Seal_of_Bihar.png', state_name: 'Bihar' },
+        { image_url: 'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742286347727-Jharkhand_Rajakiya_Chihna.png', state_name: 'Jharkhand'},
+        { image_url: 'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742286347722-Emblem_of_Chandigarh.png', state_name: 'Rajasthan' },
+        { image_url: 'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742285849596-Seal_of_Uttarakhand.png', state_name: 'Odisha' },
+        { image_url: 'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742285849559-Seal_of_Maharashtra.png', state_name: 'Maharashtra' },
+        { image_url: 'https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742285849527-Government_Of_Gujarat_Seal.png', state_name: 'Gujarat'},   
       ];
  
   const settings = {

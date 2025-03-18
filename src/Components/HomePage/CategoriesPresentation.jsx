@@ -10,17 +10,17 @@ const CategoriesPresentation = () => {
     {
       url: "/category/1",
       title: "Luxury Villas",
-      thumbnail_url: "./TMb1.webp",
+      thumbnail_url: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283470648-TMb1.webp",
     },
     {
       url: "/category/2",
       title: "Modern Apartments",
-      thumbnail_url: "./TMb2.webp",
+      thumbnail_url: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283470662-TMb2.webp",
     },
     {
       url: "/category/3",
       title: "Cozy Cottages",
-      thumbnail_url: "./TMb3.webp",
+      thumbnail_url: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283470675-TMb3.webp",
     },
   ];
 
@@ -56,21 +56,21 @@ const CategoriesPresentation = () => {
                 <Carousel.Item>
                   <img
                     className="d-block w-100 img-fluid"
-                    src="./TMb1.webp"
+                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283470648-TMb1.webp"
                     alt="View for rent"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100 img-fluid"
-                    src="./TMb2.webp"
+                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283470662-TMb2.webp"
                     alt="View for rent"
                   />
                 </Carousel.Item>
                 <Carousel.Item>
                   <img
                     className="d-block w-100 img-fluid"
-                    src="./TMb3.webp"
+                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283470675-TMb3.webp"
                     alt="View for rent"
                   />
                 </Carousel.Item>

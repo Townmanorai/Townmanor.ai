@@ -167,6 +167,7 @@ const PropertyListings = () => {
                 <option value="Ahmedabad">Ahmedabad</option>
                 <option value="Lucknow">Lucknow</option>
                 <option value="Goa">Goa</option>
+                <option value="Dubai">Dubai</option>
               </select>
             </div>
             <div className="realty-input-group">
