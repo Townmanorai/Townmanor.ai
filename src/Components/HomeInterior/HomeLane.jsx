@@ -5,6 +5,7 @@ import axios from 'axios';
 import FaqComponent from '../HomePage/FaqComponent';
 import { LuLogIn } from "react-icons/lu";
 import "./HomeLane.css"
+import { Helmet } from 'react-helmet';
 function HomeLane() {
 
   const [activeIndex, setActiveIndex] = useState(null);
@@ -121,6 +122,24 @@ function HomeLane() {
   ];
   return (
     < >
+         <Helmet>
+        <meta charset="UTF-8" />
+        <title>Home Interior | Top interior design companies | Modular kitchen - Townmanor Technologies</title>
+        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+        <meta name="description" content="Looking for the best interior design companies? Discover creative home decor ideas and modular kitchen designs tailored to your style" />
+        <meta name="keywords" content="Top interior design companies, best interior design, creative home decor, modular kitchen designs, home interior design" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="author" content="Townmanor Technologies" />
+        <meta name="google-site-verification" content="Q-5FmOg3ddHnSHuLt6XNkTvC4ErGOqCZfGh-EGKfmt4" />
+        <meta name="google-site-verification" content="TVNuSD_VDF35c6Yyj__SNVQ75tjk--Jt6sZc4doZNBk" />
+        <meta property="og:site_name" content="Townmanor Technologies Pvt Ltd." />
+        <meta property="og:title" content="Townmanor Technologies Pvt Ltd. - Home Interior | Top interior design companies | Modular kitchen - Townmanor Technologies" />
+        <meta property="og:url" content="https://townmanor.ai/homelane" />
+        <meta property="og:description" content="Looking for the best interior design companies? Discover creative home decor ideas and modular kitchen designs tailored to your style" />
+        <meta property="og:image" content="https://townmanor.in/templates/selio/assets/img/share-img-logo.png" />
+        <link rel="shortcut icon" href="https://townmanor.in/files/logo_9.png" type="image/png" />
+        <link rel="canonical" href="https://townmanor.in/en/193/home_interior" />
+      </Helmet>
     <div style={{
       background:'white'
     }}>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './HomeShift.css'
+import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import FaqComponent from '../HomePage/FaqComponent';
 function HomeShift() {
@@ -96,7 +97,11 @@ function HomeShift() {
     };
     return (
         <>
-
+             <Helmet>
+        <title>Home Shifting Services | Trusted Relocation with Townmanor</title>
+        <meta name="description" content="Townmanor offers seamless home shifting services through trusted logistics providers like Porter and Blowhorn. Get hassle-free, reliable relocation with transparent pricing, flexible options, and expert service." />
+        <meta name="keywords" content="home shifting, relocation services, moving services, shifting services, home relocation, trusted movers, Townmanor, Porter, Blowhorn, logistics services, packers and movers" />
+      </Helmet>
             <div class="shiftbox homeshift" style={{
                     fontFamily: 'Poppins, Helvetica, Arial, Lucida, sans-serif !important'
             }}>

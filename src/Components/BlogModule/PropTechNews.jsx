@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Proptech.css";
 import { useNavigate } from "react-router-dom";
-
+import { Helmet } from "react-helmet";
 const PropTechNews = () => {
   const [posts, setPosts] = useState([]); // Initialize posts as an empty array
   const [currentPage, setCurrentPage] = useState(1);
@@ -46,7 +46,24 @@ const PropTechNews = () => {
  const gotoblog = (id)=>{
   navigate(`/singleblog/${id}`)
  }
+ const pageTitle = "PropTech News - Latest Trends in Real Estate & AI";
+ const pageDescription = "Stay updated with the latest trends, insights, and innovations in the PropTech industry, from AI-driven solutions to smart homes.";
+
   return (
+    <>
+     <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content="PropTech, RealEstate, AI, SmartHomes, Technology, Innovation" />
+        
+        {/* Dynamically creating meta tags for each post */}
+        {posts.map((post, index) => {
+          const propertyKeywords = `${post.heading}, ${post.data.substring(0, 50)}`;
+          return (
+            <meta key={index} name="keywords" content={propertyKeywords} />
+          );
+        })}
+      </Helmet>
     <div className="proptech-container">
       <div>
         {/* Main Featured Post */}
@@ -134,6 +151,7 @@ const PropTechNews = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
