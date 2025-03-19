@@ -75,7 +75,7 @@ const StateDistricts = () => {
         <div className="explore-states__header">
           <h1>{key.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} Districts</h1>
           <p className="explore-states__subtitle">
-            Explore all districts and their famous places
+            Select Your districts 
           </p>
         </div>
 

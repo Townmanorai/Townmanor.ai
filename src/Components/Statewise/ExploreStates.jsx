@@ -50,9 +50,9 @@ const ExploreStates = () => {
 
       <main className="explore-states__main">
         <div className="explore-states__header">
-          <h1>Explore States & Union Territories</h1>
+          <h1>Indian State Property Tax Rates</h1>
           <p className="explore-states__subtitle">
-            Discover information about all states and union territories of India
+             Comprehensive guide to residential property taxes across Indian states
           </p>
           <div className="explore-states__toggle">
             <button

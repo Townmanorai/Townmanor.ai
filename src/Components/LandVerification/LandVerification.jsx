@@ -31,14 +31,20 @@ const LandVerification = () => {
   const fetchDistricts = async (state) => {
     try {
       setLoading(true);
+      console.log("fetching districts", `${BASE_URL}/${state}/meta/district-list`);
       const response = await fetch(`${BASE_URL}/${state}/meta/district-list`, {
         headers: {
-          'Authorization': `Bearer ${BEARER_TOKEN}`,
-          'Content-Type': 'application/json'
-        }
+          "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg",
+          "Content-Type": "application/json"
+        },
       });
       const data = await response.json();
-      setDistricts(data.districts || []);
+      console.log("data", data);
+      if (data.success && data.data) {
+        setDistricts(data.data);
+      } else {
+        setError('Failed to fetch districts');
+      }
     } catch (err) {
       setError('Failed to fetch districts');
     } finally {
@@ -52,13 +58,17 @@ const LandVerification = () => {
       const response = await fetch(`${BASE_URL}/${formData.state}/meta/taluka-list`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${BEARER_TOKEN}`,
-          'Content-Type': 'application/json'
+          "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({ district })
       });
       const data = await response.json();
-      setTalukas(data.taluka_list || []);
+      if (data.success && data.data && data.data.taluka_list) {
+        setTalukas(data.data.taluka_list);
+      } else {
+        setError('Failed to fetch talukas');
+      }
     } catch (err) {
       setError('Failed to fetch talukas');
     } finally {
@@ -72,13 +82,17 @@ const LandVerification = () => {
       const response = await fetch(`${BASE_URL}/${formData.state}/meta/village-list`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${BEARER_TOKEN}`,
-          'Content-Type': 'application/json'
+          "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({ district, taluka })
       });
       const data = await response.json();
-      setVillages(data.village_list || []);
+      if (data.success && data.data && data.data.village_list) {
+        setVillages(data.data.village_list);
+      } else {
+        setError('Failed to fetch villages');
+      }
     } catch (err) {
       setError('Failed to fetch villages');
     } finally {
@@ -92,13 +106,17 @@ const LandVerification = () => {
       const response = await fetch(`${BASE_URL}/${formData.state}/meta/block-list`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${BEARER_TOKEN}`,
-          'Content-Type': 'application/json'
+          "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({ district, taluka, village })
       });
       const data = await response.json();
-      setBlocks(data.block_list || []);
+      if (data.success && data.data && data.data.block_list) {
+        setBlocks(data.data.block_list);
+      } else {
+        setError('Failed to fetch blocks');
+      }
     } catch (err) {
       setError('Failed to fetch blocks');
     } finally {
@@ -148,13 +166,23 @@ const LandVerification = () => {
       const response = await fetch(`${BASE_URL}/${formData.state}`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${BEARER_TOKEN}`,
-          'Content-Type': 'application/json'
+          "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg",
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          district: formData.district,
+          taluka: formData.taluka,
+          village: formData.village,
+          block: formData.block,
+          owner_name: formData.ownerName
+        })
       });
       const data = await response.json();
-      setVerificationResult(data);
+      if (data.success && data.data) {
+        setVerificationResult(data.data);
+      } else {
+        setError('Verification failed');
+      }
     } catch (err) {
       setError('Verification failed');
     } finally {
@@ -277,22 +305,35 @@ const LandVerification = () => {
                 <FaFileAlt className="card-icon" />
                 <h3>Land Details</h3>
                 <div className="details-grid">
-                  <div>
-                    <label>Owner Name:</label>
-                    <p>{verificationResult.owner_name}</p>
-                  </div>
-                  <div>
-                    <label>Khata Number:</label>
-                    <p>{verificationResult.khata_number}</p>
-                  </div>
-                  <div>
-                    <label>Total Area:</label>
-                    <p>{verificationResult.total_area}</p>
-                  </div>
-                  <div>
-                    <label>Assessment Amount:</label>
-                    <p>{verificationResult.assessment_amount}</p>
-                  </div>
+                  {verificationResult.land_details && verificationResult.land_details.map((detail, index) => (
+                    <div key={index} className="land-detail-item">
+                      <h4>Owner {index + 1}</h4>
+                      <div>
+                        <label>Owner Name:</label>
+                        <p>{detail.owner_name}</p>
+                      </div>
+                      <div>
+                        <label>Khata Number:</label>
+                        <p>{detail.khata_number}</p>
+                      </div>
+                      <div>
+                        <label>Name Match Score:</label>
+                        <p>{detail.name_match_score}%</p>
+                      </div>
+                    </div>
+                  ))}
+                  {verificationResult.total_summary && (
+                    <>
+                      <div>
+                        <label>Total Area:</label>
+                        <p>{verificationResult.total_summary.total_area}</p>
+                      </div>
+                      <div>
+                        <label>Assessment Amount:</label>
+                        <p>₹{verificationResult.total_summary.assessment_amount}</p>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
 

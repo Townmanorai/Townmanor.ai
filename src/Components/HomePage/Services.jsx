@@ -73,6 +73,7 @@ const servicesData = [
         <circle cx="20" cy="20" r="4" fill="#F59E0B" />
       </svg>
     ),
+    link: "https://townmanor.ai/landverification",
   },
   {
     title: "eStamp",
@@ -294,7 +295,7 @@ const Services = () => {
     <div className="container">
       <section className="svc-services-section">
         <h1>
-          Our <b>services</b>
+          <b>services</b>
         </h1>
         <div className="svc-services-grid">
           {servicesData.map((service, idx) => (
