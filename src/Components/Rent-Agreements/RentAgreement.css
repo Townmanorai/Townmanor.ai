@@ -367,6 +367,7 @@
   .townmanor-progress-bar {
     margin: 1rem 0;
     padding: 0;
+    height: 170px;
   }
 
   .townmanor-progress-track {
@@ -375,8 +376,8 @@
 
   .townmanor-progress-steps {
     position: relative;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.5rem;
     padding: 0.5rem;
     background: #fff;
@@ -387,7 +388,7 @@
   .townmanor-progress-step {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 5px;
     padding: 1rem;
     background: #f8f9fa;
     border-radius: 10px;
@@ -518,6 +519,7 @@
   .townmanor-rent-form {
     margin: 0;
     padding: 1rem;
+    padding-top: 4rem;
     border-radius: 0;
   }
 
@@ -527,7 +529,7 @@
   }
 
   .townmanor-progress-step {
-    padding: 0.875rem;
+    padding: 5px;
   }
 
   .townmanor-step-number {
