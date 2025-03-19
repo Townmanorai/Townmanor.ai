@@ -3,9 +3,7 @@ import InHouseServices from "../../../HomePage/InHouseServices";
 
 function InhouseOwner() {
     return (
-        <div style= {{
-            backgroundColor:'white !important'
-        }}>
+        <div className='inhouse' style= {{backgroundColor:'white !important'}}>
             <InHouseServices />
         </div>
     )

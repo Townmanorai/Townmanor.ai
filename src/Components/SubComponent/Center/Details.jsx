@@ -11,6 +11,7 @@ import Floorplan from "./Floorplan/Floorplan";
 import Propnav from "./Propnav/Propnav";
 import Empty from "./Empty/Empty";
 import Description from "./Description/Description";
+import WriteReview from "./WriteReview/writereview";
 
 // const property = {
 //   "id": 1,
@@ -80,6 +81,7 @@ function Details({property}) {
             <Description property={property}/>
             <Distance property={property}/>
             <Floorplan property={property}/>
+            <WriteReview property={property}/>
           </div>
 
           <div className="contact">

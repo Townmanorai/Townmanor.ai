@@ -272,7 +272,7 @@ function Floorplan({ property }) {
           <h3>Floorplan</h3>
         </div>
         <div className="floor-content" >
-          <div className="floor-image">
+          <div className="floor-image" style={{minHeight:"250px"}}>
             {/* Render the first image as the main floor plan */}
             {floorplans.length > 0 ? (
               <img src={"https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/" + cleanImageUrl(mainimage)} alt="Main Floor Plan" />

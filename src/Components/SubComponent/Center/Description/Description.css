@@ -1,7 +1,6 @@
 #descdata{
     display: flex;
     font-size: 16px;
-    letter-spacing: 1.1px;
     line-height: 23px;
 }
 .descbutton{
@@ -12,3 +11,4 @@
 .descbutton:hover{
     color: black !important;
 }
+

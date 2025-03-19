@@ -97,7 +97,7 @@ const InHouseServices = () => {
               </div>
             </a>
           </div>
-          <div className="col-lg-2 col-md-3 col-6">
+          {/* <div className="col-lg-2 col-md-3 col-6">
             <a href="#" title="" data-toggle="modal" data-target="#exampleModal">
               <div className="card card_services">
                 <div className="card-body">
@@ -111,7 +111,7 @@ const InHouseServices = () => {
                 </div>
               </div>
             </a>
-          </div>
+          </div> */}
           <div className="col-lg-2 col-md-3 col-6" >
             <a href="/commercial" title="" data-toggle="modal" data-target="#exampleModal" >
               <div className="card card_services" style={{
