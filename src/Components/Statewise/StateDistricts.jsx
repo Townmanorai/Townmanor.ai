@@ -1,19 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { districtsData, utDistrictsData } from './statesData';
 import './ExploreStates.css';
+import { FaSearch, FaUsers, FaArrowUp, FaThLarge, FaFilter } from 'react-icons/fa';
+
+const fallbackImage = 'https://s7ap1.scene7.com/is/image/incredibleindia/1-chota-imambara-lucknow-uttar-pradesh-attr-hero?qlt=82&ts=1726648528039';
 
 const StateDistricts = () => {
   const { stateName } = useParams();
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredDistricts, setFilteredDistricts] = useState([]);
 
-  // Determine if it's a state or UT and get the appropriate data
-  const isUT = stateName.startsWith('ut/');
-  const key = isUT ? stateName.replace('ut/', '') : stateName;
+  // Determine if it's a state or UT – here we use a URL prefix "ut-" for UTs.
+  const isUT = stateName.startsWith('ut-');
+  // Remove the prefix (if any) to get the key to lookup in our data
+  const key = isUT ? stateName.replace('ut-', '') : stateName;
   const districts = isUT ? utDistrictsData[key] : districtsData[key];
 
-  React.useEffect(() => {
+  useEffect(() => {
     setFilteredDistricts(districts || []);
   }, [districts]);
 
@@ -62,7 +66,7 @@ const StateDistricts = () => {
               value={searchQuery}
               onChange={handleSearch}
             />
-            <i className="fas fa-search"></i>
+            <FaSearch />
           </div>
         </div>
       </nav>
@@ -83,13 +87,20 @@ const StateDistricts = () => {
               onClick={() => handleDistrictClick(district.link)}
             >
               <div className="explore-states__card-image">
-                <img src={district.image} alt={district.name} />
+                <img
+                  src={district.image}
+                  alt={district.name}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = fallbackImage;
+                  }}
+                />
               </div>
               <div className="explore-states__card-body">
                 <h3>{district.name}</h3>
                 <div className="explore-states__card-info">
                   <span>
-                    <i className="fas fa-users"></i> Population: {district.population}
+                    <FaUsers /> Population: {district.population}
                   </span>
                   <div className="explore-states__famous-places">
                     <h4>Famous Places:</h4>
@@ -106,26 +117,11 @@ const StateDistricts = () => {
         </div>
       </main>
 
-      <div className="explore-states__bottom-bar">
-        <button className="explore-states__bottom-btn" onClick={scrollToTop}>
-          <i className="fas fa-arrow-up"></i> Back to Top
-        </button>
-        <div className="explore-states__bottom-actions">
-          <button className="explore-states__bottom-btn">
-            <i className="fas fa-grid-2"></i> Grid View
-          </button>
-          <button className="explore-states__bottom-btn">
-            <i className="fas fa-filter"></i> Filter
-          </button>
-        </div>
-      </div>
 
-      <footer className="explore-states__footer">
-        <p>© 2024 Government of India. All rights reserved.</p>
-        <p>This is an official website of the Government of India</p>
-      </footer>
+
+      
     </div>
   );
 };
 
-export default StateDistricts; 
+export default StateDistricts;

@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { statesData, unionTerritoriesData } from './statesData';
 import './ExploreStates.css';
+import { FaSearch, FaBuilding, FaUsers, FaArrowUp, FaThLarge, FaFilter } from 'react-icons/fa';
+
+const fallbackImage = 'https://s7ap1.scene7.com/is/image/incredibleindia/1-chota-imambara-lucknow-uttar-pradesh-attr-hero?qlt=82&ts=1726648528039';
 
 const ExploreStates = () => {
   const [view, setView] = useState('states'); // 'states' or 'ut'
@@ -31,11 +34,8 @@ const ExploreStates = () => {
 
   return (
     <div className="explore-states">
-      <nav className="explore-states__nav">
+      <div className="explore-states__nav">
         <div className="explore-states__nav-container">
-          <Link to="/" className="explore-states__logo">
-            <img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="Logo" />
-          </Link>
           <div className="explore-states__search">
             <input
               type="text"
@@ -43,10 +43,10 @@ const ExploreStates = () => {
               value={searchQuery}
               onChange={handleSearch}
             />
-            <i className="fas fa-search"></i>
+            <FaSearch />
           </div>
         </div>
-      </nav>
+      </div>
 
       <main className="explore-states__main">
         <div className="explore-states__header">
@@ -78,16 +78,23 @@ const ExploreStates = () => {
               className="explore-states__card"
             >
               <div className="explore-states__card-image">
-                <img src={item.image} alt={item.name} />
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = fallbackImage;
+                  }}
+                />
               </div>
               <div className="explore-states__card-body">
                 <h3>{item.name}</h3>
                 <div className="explore-states__card-info">
                   <span>
-                    <i className="fas fa-building"></i> Capital: {item.capital}
+                    <FaBuilding /> Capital: {item.capital}
                   </span>
                   <span>
-                    <i className="fas fa-users"></i> Population: {item.population}
+                    <FaUsers /> Population: {item.population}
                   </span>
                 </div>
               </div>
@@ -96,26 +103,9 @@ const ExploreStates = () => {
         </div>
       </main>
 
-      <div className="explore-states__bottom-bar">
-        <button className="explore-states__bottom-btn" onClick={scrollToTop}>
-          <i className="fas fa-arrow-up"></i> Back to Top
-        </button>
-        <div className="explore-states__bottom-actions">
-          <button className="explore-states__bottom-btn">
-            <i className="fas fa-grid-2"></i> Grid View
-          </button>
-          <button className="explore-states__bottom-btn">
-            <i className="fas fa-filter"></i> Filter
-          </button>
-        </div>
-      </div>
-
-      <footer className="explore-states__footer">
-        <p>© 2024 Government of India. All rights reserved.</p>
-        <p>This is an official website of the Government of India</p>
-      </footer>
+      
     </div>
   );
 };
 
-export default ExploreStates; 
+export default ExploreStates;
