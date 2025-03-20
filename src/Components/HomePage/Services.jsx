@@ -55,7 +55,7 @@ const servicesData = [
         <path d="M12 26H24V30H12V26Z" fill="#ffffff" />
       </svg>
     ),
-    link: "https://townmanor.ai/credit-score",
+    link: "https://townmanor.ai/reraverification",
   },
   {
     title: "Land Verification",
