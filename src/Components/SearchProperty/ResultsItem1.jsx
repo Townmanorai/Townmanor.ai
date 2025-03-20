@@ -29,6 +29,7 @@ const ResultsItem1 = ({item}) => {
     
   return (
     <>
+    {/* <Link to={`/home/${item.id}`} title={item.option_10 || item.property_name}> */}
       <div className='search-card-body'>
         <div className="col-md-6 cm6 img-card">
           <div className='card sp search-page'>
@@ -80,11 +81,12 @@ const ResultsItem1 = ({item}) => {
         </div>
 
         <div className="property-details-section">
+        <Link to={`/home/${item.id}`} title={item.option_10 || item.property_name}>
           <div className="property-header">
             <div>
               <h3 className="property-title">{item.option_10 || item.property_name}</h3>
 
-              <p className="property-address">
+              <p className="property-address" >
                 <FaLocationDot /> {item.address || 'Location not available'}
               </p>
               
@@ -111,7 +113,7 @@ const ResultsItem1 = ({item}) => {
                 )}
                 {item.floor_no && (
                   <span className="meta-item">
-                    <MdGridView /> Floor: {item.floor_no}/{item.total_floor || '?'}
+                    <MdGridView /> Floor: {item.floor_no}/{item.total_floor || ''}
                   </span>
                 )}
               </div>
@@ -121,7 +123,7 @@ const ResultsItem1 = ({item}) => {
                 <LuIndianRupee /> {item.option_37 || item.price || '??'} {item.pricerange}
               </h3>
               {item.purpose && (
-                <span className={`purpose-${item.purpose.toLowerCase().replace(/ /g, '_')}`}>
+                <span className={`purpose-${item.purpose.toLowerCase().replace(/ /g, '_')}`} style={{color:'#333'}}>
                   {item.purpose === 'sale' ? 'For Sale' : item.purpose}
                 </span>
               )}
@@ -178,6 +180,7 @@ const ResultsItem1 = ({item}) => {
               </div>
             )}
           </div>
+      </Link>
         </div>
       </div>
     </>

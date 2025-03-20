@@ -57,6 +57,18 @@
   margin: 0px !important;
 }
 
+.property-address{
+  color: #333;
+}
+
+.property-address:hover{
+  color: #333;
+}
+
+.meta-item{
+  color: #333;
+}
+
 @media screen and (max-width:720px) {
   .search-card-body{
     flex-direction: column;
