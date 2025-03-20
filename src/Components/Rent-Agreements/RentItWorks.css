@@ -54,7 +54,8 @@
   /* Mobile view adjustments */
   @media only screen and (max-width: 768px) {
     .rent-how-it-works h2 {
-      font-size: 2rem;
+      font-size: 24px;
+      font-weight: 400;
     }
     .rent-step {
       padding: 10px;

@@ -91,7 +91,8 @@
       margin: 1rem auto;
     }
     .user-details-form h2 {
-      font-size: 2rem;
+      font-size: 24px;
+      font-weight: 400;
     }
     .form-group input {
       font-size: 0.9rem;

@@ -143,7 +143,8 @@
     font-size: 2.8rem; 
   }
   .rent-hero-content p {
-    font-size: 1.2rem;
+    font-size: 14px;
+    line-height: 15px;
   }
 }
 
@@ -156,8 +157,9 @@
     padding: 0 10px;
   }
   .rent-hero-content h1 {
-    font-size: 2.2rem;
-    font-weight: 500;
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 15px;
   }
   .rent-cta-button {
     padding: 0.8rem 1.5rem;
@@ -165,8 +167,8 @@
   }
   .trust-badges {
     display: flex;
-    gap: 1rem;
+    gap: 0px;
     margin-top: 2rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     }
 }

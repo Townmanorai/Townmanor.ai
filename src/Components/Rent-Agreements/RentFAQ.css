@@ -48,7 +48,8 @@
     padding: 2rem 10px;
   }
   .rent-faq h2 {
-    font-size: 2rem;
+    font-size: 24px;
+    font-weight: 400;
   }
   .rent-faq-item {
     font-size: 1rem;

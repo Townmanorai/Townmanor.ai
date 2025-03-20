@@ -55,6 +55,7 @@ const servicesData = [
         <path d="M12 26H24V30H12V26Z" fill="#ffffff" />
       </svg>
     ),
+    link: "https://townmanor.ai/credit-score",
   },
   {
     title: "Land Verification",
@@ -230,7 +231,7 @@ const servicesData = [
         <circle cx="20" cy="28" r="2" fill="#ffffff" />
       </svg>
     ),
-    link: "https://townmanor.ai/",
+    link: "https://www.townmanor.ai/explorestate",
   },
   {
     title: "Commercial Investment",
