@@ -24,39 +24,39 @@
 }
 
 .rent-hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 30px;
     line-height: 1.2;
     margin-bottom: 2rem;
     color: #2d3748;
-    font-weight: 700;
+    font-weight: 300;
 }
 
 .rent-hero-content p {
-    font-size: 1.4rem;
-    margin-bottom: 3rem;
+    font-size: 14px;
+    margin-bottom: 2rem;
     color: #4a5568;
-    line-height: 1.6;
+    line-height: 0.6;
 }
 
 .rent-cta-button {
-    background: #4f46e5;
+    background: #e54646;
     color: white;
     padding: 1.2rem 2.5rem;
     border-radius: 8px;
     border: none;
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 400;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+    box-shadow: 0 4px 6px -1px rgba(229, 70, 70, 0.2);
 }
 
 .rent-cta-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
+    box-shadow: 0 10px 15px -3px rgba(229, 70, 70, 0.3);
 }
 
 .cta-arrow {
@@ -82,7 +82,10 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-weight: 400 !important;
 }
+
+
 
 .rent-hero-image {
     flex: 1;

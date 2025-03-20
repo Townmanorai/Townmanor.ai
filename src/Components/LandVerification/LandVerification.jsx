@@ -210,6 +210,7 @@ const LandVerification = () => {
               >
                 <option value="gujarat">Gujarat</option>
                 <option value="madhya-pradesh">Madhya Pradesh</option>
+                <option value="karnataka">karnataka</option>
               </select>
             </div>
 

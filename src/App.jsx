@@ -80,6 +80,7 @@ import LandRecords from './Components/LandVerification/LandRecords';
 import ScrollToTop from './ScrollToTop';
 import ExploreStates from './Components/Statewise/ExploreStates';
 import StateDistricts from './Components/Statewise/StateDistricts';
+import ReraVerificationForm from './Components/Rera-Verification/ReraVerification';
 
 // Scroll restoration component
 const ScrollRestoration = () => {
@@ -158,6 +159,7 @@ function App() {
             <Route path="/explorestate" element={<ExploreStates/>} />
             <Route path="/state/:stateName" element={<StateDistricts />} />
             <Route path="/ut/:stateName" element={<StateDistricts />} />
+            <Route path="/reraverification" element={<ReraVerificationForm/>} />
 
             <Route path="/property-details/:property_name" element={<PropertyListedUserList />} />
             {/* sunny route */}

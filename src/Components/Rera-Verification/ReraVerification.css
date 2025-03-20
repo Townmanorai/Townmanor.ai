@@ -1,0 +1,458 @@
+/* File: ReraVerification.css */
+.rera-container {
+    max-width: 800px;
+    margin: 5rem auto;
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .rera-header {
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+    
+  }
+  
+  .rera-description {
+    text-align: center;
+    color: #666666;
+    margin-bottom: 2rem;
+    font-size: 14px;
+    line-height: 0.6;
+    
+  }
+  
+  .rera-form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .rera-form-group label {
+    display: block;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    color: #333333;
+    font-size: 1rem;
+    
+  }
+  
+  .rera-form-group input,
+  .rera-form-group select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    height: auto;
+    font-size: 11px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    
+    color: #333333;
+    background-color: #ffffff;
+  }
+  
+  .rera-form-group input:focus,
+  .rera-form-group select:focus {
+    outline: none;
+    border-color: #000000;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rera-form-group input::placeholder {
+    color: #999999;
+  }
+  
+  .rera-submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+    
+  }
+  
+  .rera-submit-btn:hover {
+    background-color: #333333;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .rera-submit-btn:active {
+    transform: translateY(0);
+  }
+  
+  .rera-error {
+    color: #dc3545;
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 500;
+    padding: 1rem;
+    background-color: #fff5f5;
+    border-radius: 8px;
+    border: 1px solid #ffebeb;
+    
+  }
+  
+  .rera-result {
+    margin-top: 2rem;
+    border: 2px solid #f0f0f0;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .rera-result h3 {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+    font-size: 1.5rem;
+    
+  }
+  
+  .rera-result p {
+    margin: 1rem 0;
+    color: #444444;
+    font-size: 1rem;
+    line-height: 1.6;
+    
+  }
+  
+  .rera-result strong {
+    color: #333333;
+    font-weight: 600;
+  }
+  
+  .rera-result a {
+    color: #fffcfc;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    
+  }
+  
+  .rera-result a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+  
+  .rera-detail-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .rera-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .rera-detail-header h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+  }
+  
+  .rera-registration-number {
+    font-size: 0.9rem;
+    color: #666666;
+    font-weight: 500;
+    background-color: #f5f5f5;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+  }
+  
+  .rera-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem;
+  }
+  
+  .rera-detail-item {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .rera-detail-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rera-detail-item label {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    display: block;
+    text-transform: capitalize;
+  }
+  
+  .rera-detail-item p {
+    font-size: 1rem;
+    color: #212529;
+    margin: 0;
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+  
+  .rera-certificate-section {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .rera-certificate-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background-color: #000000;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .rera-certificate-link:hover {
+    background-color: #333333;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .rera-actions-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .rera-qr-code {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rera-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .rera-action-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(to right, #ff4447, #8a2e2e);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    
+    font-size: 0.95rem;
+  }
+  
+  .rera-action-button:hover {
+    background-color: #333333;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .rera-action-button:active {
+    transform: translateY(0);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .rera-container {
+      margin: 1rem;
+      padding: 1.5rem;
+    }
+  
+    .rera-header {
+      font-size: 2rem;
+    }
+  
+    .rera-description {
+      font-size: 1rem;
+    }
+  
+    .rera-form-group input,
+    .rera-form-group select {
+      padding: 0.75rem;
+    }
+  
+    .rera-submit-btn {
+      padding: 0.875rem;
+      font-size: 1rem;
+    }
+  
+    .rera-result {
+      padding: 1.5rem;
+    }
+  
+    .rera-result h3 {
+      font-size: 1.25rem;
+    }
+  
+    .rera-detail-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 0.25rem;
+    }
+  
+    .rera-detail-item {
+      padding: 0.875rem;
+    }
+  
+    .rera-detail-item label {
+      font-size: 0.8rem;
+    }
+  
+    .rera-detail-item p {
+      font-size: 0.95rem;
+    }
+  
+    .rera-detail-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+  
+    .rera-registration-number {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .rera-certificate-section {
+      justify-content: center;
+    }
+  
+    .rera-certificate-link {
+      width: 100%;
+      justify-content: center;
+    }
+  
+    .rera-actions-section {
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+    }
+  
+    .rera-buttons {
+      width: 100%;
+      justify-content: center;
+    }
+  
+    .rera-action-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .rera-container {
+      padding: 1rem;
+    }
+  
+    .rera-header {
+      font-size: 1.75rem;
+    }
+  
+    .rera-form-group label {
+      font-size: 0.95rem;
+    }
+  
+    .rera-form-group input,
+    .rera-form-group select {
+      font-size: 0.95rem;
+    }
+  
+    .rera-submit-btn {
+      font-size: 0.95rem;
+    }
+  
+    .rera-result {
+      padding: 1rem;
+    }
+  
+    .rera-detail-card {
+      padding: 1rem;
+    }
+  
+    .rera-detail-header h4 {
+      font-size: 1.1rem;
+    }
+  
+    .rera-registration-number {
+      font-size: 0.85rem;
+      padding: 0.4rem 0.75rem;
+    }
+  
+    .rera-detail-item label {
+      font-size: 0.8rem;
+    }
+  
+    .rera-detail-item p {
+      font-size: 0.9rem;
+    }
+  
+    .rera-certificate-link {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+    }
+  
+    .rera-qr-code {
+      padding: 0.75rem;
+    }
+  
+    .rera-action-button {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+    }
+  
+    .rera-detail-grid {
+      gap: 0.75rem;
+      padding: 0;
+    }
+  
+    .rera-detail-item {
+      padding: 0.75rem;
+    }
+  }
+  

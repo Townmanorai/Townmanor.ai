@@ -5,9 +5,9 @@ import { MdGppGood, MdSupportAgent, MdEditDocument } from "react-icons/md";
 
 const RentFeatures = () => {
   const features = [
-    { icon: <MdGppGood />, title: '100% Legal Compliance', text: 'Draft agreements adhering to latest rent control laws' },
-    { icon: <MdEditDocument />, title: 'Customizable Templates', text: 'Modify clauses as per your specific requirements' },
-    { icon: <MdSupportAgent />, title: 'Expert Support', text: '24/7 legal assistance for agreement creation' }
+    { icon: <MdGppGood  size={24}/>, title: '100% Legal Compliance', text: 'Draft agreements adhering to latest rent control laws' },
+    { icon: <MdEditDocument size={24} />, title: 'Customizable Templates', text: 'Modify clauses as per your specific requirements' },
+    { icon: <MdSupportAgent size={24}/>, title: 'Expert Support', text: '24/7 legal assistance for agreement creation' }
   ];
 
   return (
