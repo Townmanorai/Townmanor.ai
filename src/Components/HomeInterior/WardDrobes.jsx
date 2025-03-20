@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import "./HomeLane.css"
 import FaqComponent from '../HomePage/FaqComponent';
+import axios from 'axios';
+import BookingModal from './BookingModal';
 function WardDrobes() {
     const [activeIndex, setActiveIndex] = useState(null);
     const services = [
@@ -399,9 +401,33 @@ const formatAnswer = (answer) => {
         );
     });
 };
-console.log(services[0].title)
+ const [isModalOpen, setIsModalOpen] = useState(false);
+              
+           const openModal = () => {
+              setIsModalOpen(true);
+            };
+          
+            // Close the modal
+            const closeModal = () => {
+              setIsModalOpen(false);
+            };
   return (
     <>
+       <BookingModal
+  isOpen={isModalOpen}
+  onRequestClose={closeModal}
+  onSubmit={async (formData) => {
+    try {
+      const response = await axios.post(
+        'https://www.townmanor.ai/api/api/home-interior',
+        formData
+      );
+      alert("Request Sent Successfully");
+    } catch (error) {
+      alert(error.message);
+    }
+  }}
+ />
     <div className='maincontainer'>
       <div className="header-address d-none">
         {services.map((service, index) => (

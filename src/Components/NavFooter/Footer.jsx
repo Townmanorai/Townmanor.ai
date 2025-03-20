@@ -45,7 +45,7 @@ const Footer = () => {
               <div className="bottom-logo">
                 <img
                   width="220"
-                  src="./footer-logo.png"
+                  src="/footer-logo.png"
                   alt="Townmanor Technologies Pvt Ltd."
                   className="footer_logo"
                   

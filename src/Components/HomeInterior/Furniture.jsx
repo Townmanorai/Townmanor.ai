@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import "./HomeLane.css"
 import { Link} from 'react-router-dom';
 import FaqComponent from '../HomePage/FaqComponent';
+import BookingModal from './BookingModal';
+import axios from 'axios';
 function Furniture() {
     const [activeIndex, setActiveIndex] = useState(null);
     const services = [
@@ -138,8 +140,33 @@ function Furniture() {
             );
         });
     };
+        const [isModalOpen, setIsModalOpen] = useState(false);
+                     
+                  const openModal = () => {
+                     setIsModalOpen(true);
+                   };
+                 
+                   // Close the modal
+                   const closeModal = () => {
+                     setIsModalOpen(false);
+                   };
     return (
         <>
+              <BookingModal
+  isOpen={isModalOpen}
+  onRequestClose={closeModal}
+  onSubmit={async (formData) => {
+    try {
+      const response = await axios.post(
+        'https://www.townmanor.ai/api/api/home-interior',
+        formData
+      );
+      alert("Request Sent Successfully");
+    } catch (error) {
+      alert(error.message);
+    }
+  }}
+ />
             <div className='maincontainer'>
                 <div className="header-address d-none">
                   {services.map((service, index) => (
@@ -172,7 +199,9 @@ function Furniture() {
                            </figure>
                            <div class="ProductTile_tileDesc">
                                <h3 class="ProductTile_tileTxt">{service.title}</h3>
-                               <button class="BFC_bTN" data-toggle="modal" data-target="#exampleModal">Book Free
+                               <button class="BFC_bTN" data-toggle="modal" data-target="#exampleModal" onClick={()=>{
+                                openModal();
+                               }}>Book Free
                                    Consultation</button>
                            </div>
                        </div>

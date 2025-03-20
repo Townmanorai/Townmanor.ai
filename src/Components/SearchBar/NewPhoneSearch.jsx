@@ -91,7 +91,7 @@ const NewPhoneSearch = () => {
     if (construction_status) searchData.construction_status = construction_status;
     if (category) searchData.category = category;
 
-    console.log(searchData);
+    
 
     // API call
     try {
@@ -258,7 +258,9 @@ const NewPhoneSearch = () => {
 
           <button 
             className="new-phone-search-button"
-            onClick={handleSearch}
+            onClick={()=>{
+              navigate('/search-property')
+            }}
           >
             Search Properties
           </button>

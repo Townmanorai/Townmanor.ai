@@ -8,7 +8,8 @@ import { useNavigate } from "react-router-dom";
 
 const PropertyListings = () => {
   const [properties, setProperties] = useState([]); // Store all properties from API
-  const [currentPage, setCurrentPage] = useState(1); // Current page
+  const [currentPage, setCurrentPage] = useState(1);
+  const [filter, setfilter] = useState(false);  // Current page
   const [propertiesPerPage] = useState(21); // Number of properties per page
   const [loading, setLoading] = useState(true); 
   const navigate = useNavigate();// Loading state
@@ -122,7 +123,7 @@ const PropertyListings = () => {
       construction_status: '',
       configuration: '',
       minPrice: 0,
-      maxPrice: 200,
+      maxPrice: 100000,
     });
   };
  
@@ -196,10 +197,15 @@ const PropertyListings = () => {
           </div>
         </div>
       </header>
-
+      <button className="btn btn-dark realty-filter-mob" onClick={()=>{
+        setfilter(!filter)
+      }}>Apply Filter</button>
       {/* Main Content */}
+      
       <main className="realty-main">
-        <aside className="realty-filters">
+      {filter && (
+        <>
+         <aside className="realty-filters realty-mob">
           <div className="realty-filters-box">
             <h2 className="realty-filters-title">Filters</h2>
             <div className="realty-filter-section">
@@ -276,13 +282,13 @@ const PropertyListings = () => {
               <label for="customRange1" class="form-label">Price filter</label>
               <input type="range" class="form-range" id="customRange1" />
             </div> */}
-            <div className="realty-filter-section">
+            <div className="realty-filter-section realty-price-range">
               <h3>Price Range</h3>
               <div className="realty-filter-options">
                 <input
                   type="range"
                   min={0}
-                  max={1000} // Adjust max value based on your data
+                  max={100000} // Adjust max value based on your data
                   value={filters.maxPrice}
                   onChange={(e) =>
                     setFilters((prevFilters) => ({
@@ -291,7 +297,8 @@ const PropertyListings = () => {
                     }))
                   }
                   style={{
-                    width: '230px'
+                    width: '210px',
+                    
                   }}
                 />
                 <span>Up to ₹ {filters.maxPrice} Lakh</span>
@@ -300,7 +307,116 @@ const PropertyListings = () => {
             
             <div className="realty-filter-section">
               <h3>Clear Filter</h3>
-              <button className="btn btn-secondary" onClick={clearFilters}>remove filter</button>
+              <button className="btn btn-secondary realty-clear" onClick={clearFilters}> Filter</button>
+            </div>
+          </div>
+
+        </aside>
+        </>
+      )}
+        <aside className="realty-filters realty-desk">
+          <div className="realty-filters-box">
+            <h2 className="realty-filters-title">Filters</h2>
+            <div className="realty-filter-section">
+              <h3>Construction Status</h3>
+              <div className="realty-filter-options">
+                <button
+                  className={`realty-filter-btn ${filters.construction_status === "Under Construction" ? "activecategory" : ""}`}
+                  onClick={() => handleFilterChange({ target: { name: "construction_status", value: "Under Construction" } })}
+                >
+                  Under Construction
+                </button>
+                <button
+                  className={`realty-filter-btn ${filters.construction_status === "Ready To Move" ? "activecategory" : ""}`}
+                  onClick={() => handleFilterChange({ target: { name: "construction_status", value: "Ready To Move" } })}
+                >
+                  Ready To Move
+                </button>
+              </div>
+            </div>
+            <div className="realty-filter-section">
+              <h3>Project Type</h3>
+              <div className="realty-filter-options">
+                <button
+                  className={`realty-filter-btn ${filters.category === "Residential" ? "activecategory" : ""}`}
+                  onClick={() => handleFilterChange({ target: { name: "category", value: "Residential" } })}
+                >
+                  Residential
+                </button>
+                <button
+                  className={`realty-filter-btn ${filters.category === "Commercial" ? "activecategory" : ""}`}
+                  onClick={() => handleFilterChange({ target: { name: "category", value: "Commercial" } })}
+                >
+                  Commercial
+                </button>
+              </div>
+            </div>
+            <div className="realty-filter-section">
+              <h3>Configuration</h3>
+              <div className="realty-filter-options">
+                <button
+                  className={`realty-filter-btn ${filters.configuration === "1 BHK" ? "activecategory" : ""}`}
+                  onClick={() => handleFilterChange({ target: { name: "configuration", value: "1 BHK" } })}
+                >
+                  1 BHK
+                </button>
+                <button
+                  className={`realty-filter-btn ${filters.configuration === "2 BHK" ? "activecategory" : ""}`}
+                  onClick={() => handleFilterChange({ target: { name: "configuration", value: "2 BHK" } })}
+                >
+                  2 BHK
+                </button>
+                <button
+                  className={`realty-filter-btn ${filters.configuration === "3 BHK" ? "activecategory" : ""}`}
+                  onClick={() => handleFilterChange({ target: { name: "configuration", value: "3 BHK" } })}
+                >
+                  3 BHK
+                </button>
+                <button
+                  className={`realty-filter-btn ${filters.configuration === "4 BHK" ? "activecategory" : ""}`}
+                  onClick={() => handleFilterChange({ target: { name: "configuration", value: "4 BHK" } })}
+                >
+                  4 BHK
+                </button>
+                <button
+                  className="realty-filter-btn"
+                  onClick={() => handleFilterChange({ target: { name: "configuration", value: "" } })}
+                >
+                  Clear
+                </button>
+              </div>
+            </div>
+            {/* <div className="realty-filter-section">
+
+              <label for="customRange1" class="form-label">Price filter</label>
+              <input type="range" class="form-range" id="customRange1" />
+            </div> */}
+            <div className="realty-filter-section realty-price-range">
+              <h3>Price Range</h3>
+              <div className="realty-filter-options">
+                <input
+                  type="range"
+                  min={0}
+                  max={100000} // Adjust max value based on your data
+                  value={filters.maxPrice}
+                  onChange={(e) =>
+                    setFilters((prevFilters) => ({
+                      ...prevFilters,
+                      maxPrice: parseInt(e.target.value),
+                    }))
+                  }
+                  style={{
+                    width: '210px',
+                    
+                  }}
+                />
+                <span>Up to ₹ {filters.maxPrice} Lakh</span>
+              </div>
+            </div>
+            
+            <div className="realty-filter-section">
+              <h3>Clear Filter</h3>
+              <button className="btn btn-secondary realty-clear" onClick={clearFilters}>Remove Filter</button>
             </div>
           </div>
 
@@ -365,7 +481,7 @@ const PropertyListings = () => {
                       }}>Area</span>{property.area_detail}</span>
                     </div>
                     <div className="realty-features">
-                      <span><GrStatusGood color="grey" /><span style={{
+                      <span className="realty-line"><GrStatusGood color="grey" /><span style={{
                         color: 'black',
                         margin: '2px 4px'
                       }}>Status</span>{property.construction_status} </span>

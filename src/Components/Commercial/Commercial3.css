@@ -99,7 +99,7 @@ font-family: Poppins, Helvetica, Arial, Lucida, sans-serif !important;
 }
 #photos{
     display: flex;
-    margin: 2vh 5vw;
+    margin: 9vh 5vw;
     gap: 10px;
 }
 .main-photo{
@@ -122,7 +122,7 @@ flex-wrap: wrap;
     margin: 1vh 1vw;
     justify-content: center;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 19px;
     letter-spacing: 1px;
     border-radius: 10px;
 }
@@ -134,7 +134,7 @@ flex-wrap: wrap;
     background-size: 100% 100% !important;
     background-position: center;
     background-repeat: no-repeat;
-    width: 22vw;
+    width: 21vw;
     height: 23vh;
     background-color: aquamarine;
     margin: 1vh 1vw;
@@ -144,7 +144,10 @@ flex-wrap: wrap;
     letter-spacing: 1px;
     border-radius: 10px;  /* Make sure the border radius is consistent */
   }
-  
+  .callicon{
+    width: 31px !important;
+    height: 30px !important;
+  }
   #sideimagebox::before {
     content: ''; /* Creates the pseudo-element */
     position: absolute;
@@ -709,7 +712,10 @@ button.ls-submit {
         cursor: pointer;
         box-shadow: 1px 0px 2px 1px gray;
     }
-
+    .callicon{
+        width: 20px !important;
+        height: 20px !important;
+    }
     .advimgx {
         margin: 0vh 0vw;
         margin-left: 15px;
@@ -735,7 +741,7 @@ button.ls-submit {
         padding: 0 10px;
         background-color: rgb(121 119 119 / 70%);
         border-radius: 5px;
-        font-size: 14px;
+        font-size: 12px;
     }
     .main-photo img {
         width: 87vw;

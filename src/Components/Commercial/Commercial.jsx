@@ -231,7 +231,7 @@ function Commercial() {
           display:'flex',
           flexDirection:'row',
           justifyContent:'space-between',
-          margin:'10px 40px'
+          // margin:'10px 40px'
         }}
         
         id='commainbanner'>

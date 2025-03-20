@@ -1483,9 +1483,10 @@ font-weight: 500;
 }
 #commainbanner{
     flex-direction: column !important;
-    margin: 0px 0px !important;
+    /* margin: 0px 0px !important; */
     height: 417px;
     background-position-y: 284px;
+    margin-top: 57px;
 }
 #commainbanner h2 {
     font-size: 18px;

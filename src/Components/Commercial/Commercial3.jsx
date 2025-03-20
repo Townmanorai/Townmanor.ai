@@ -14,6 +14,8 @@ import { SlClose } from "react-icons/sl";
 import Map from '../SearchProperty/Map'
 import { useNavigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { IoMailUnreadOutline } from 'react-icons/io5';
+import { FaPhoneVolume } from 'react-icons/fa6';
 function Commercial3() {
   const [comdata, setcomdata] = useState([]);
   const [price, setprice] = useState([]);
@@ -612,8 +614,16 @@ function Commercial3() {
           </div>
 
           <li>Townmanor Infratech LLP</li>
-          <li>Support@townmanor.ai</li>
-          <li>7042888903</li>
+          <li><a href="mailto:support@townmanor.ai" style={{
+            color:'black'
+          }}><IoMailUnreadOutline className='callicon' style={{
+            padding:'4px'
+          }}/>Support@townmanor.ai</a></li>
+          <li><a href="tel:+917042888903" style={{
+            color:'black'
+          }}><FaPhoneVolume className='callicon' style={{
+            padding:'4px'
+          }}/>7042888903</a></li>
 
         </div>
       </div>

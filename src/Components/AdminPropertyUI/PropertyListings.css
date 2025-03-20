@@ -39,6 +39,7 @@
   
   .realty-title {
     font-size: 33px;
+    color: white;
     /* font-weight: 400; */
   }
   
@@ -328,7 +329,9 @@
   .realty-pagination-btn:hover:not(:disabled) {
     background-color: #0056b3;
   }
-  
+  .realty-filter-mob{
+    display: none;
+  }
   /* Responsive Design for Mobile */
   @media (max-width: 768px) {
     .realty-pagination-btn {
@@ -341,4 +344,195 @@
       margin: 0 10px;
     }
   }
+  /* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .realty-container {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  /* Header Adjustments */
+  .realty-header {
+    height: 400px;
+  }
+
+  .realty-header-content {
+    padding-top: 100px;
+  }
+
+  .realty-title {
+    font-size: 24px;
+    padding: 0 15px;
+  }
+
+  .realty-subtitle {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+
+  /* Search Bar Adjustments */
+  .realty-search-bar {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 15px;
+  }
+
+  .realty-input-group {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .realty-input {
+    width: 100%;
+  }
+
+  .realty-search-btn {
+    width: 100%;
+    padding: 12px;
+  }
+
+  /* Main Content Layout */
+  .realty-main {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .realty-filters {
+    flex-basis: auto;
+    margin-bottom: 20px;
+  }
+
+  /* Grid Layout Adjustments */
+  .realty-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Property Card Adjustments */
+  .realty-card {
+    margin: 0 10px;
+  }
+
+  .realty-img {
+    height: 250px;
+  }
+
+  /* Filter Section Adjustments */
+  .realty-filter-options {
+    flex-wrap: wrap;
+  }
+
+  .realty-filter-btn {
+    flex: 1 0 40%;
+    margin: 5px;
+    text-align: center;
+  }
+
+  /* Price Range Adjustments */
+  .realty-filter-section input[type="range"] {
+    width: 100%;
+  }
+
+  /* Pagination Adjustments */
+  .realty-pagination {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .realty-page-info {
+    order: -1;
+  }
+}
+.realty-desk{
+  display: block;
+}
+.realty-mob{
+  display: none;
+}
+@media (max-width: 480px) {
+  .realty-header {
+    height: 350px;
+  }
+  .realty-mob{
+    display: block;
+  }
+  .realty-title {
+    font-size: 22px;
+  }
+
+  .realty-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .realty-features {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .realty-filter-section {
+    margin: 4px 4px;
+}
+  .realty-explore-btn {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .realty-favorite-icon{
+    width: 23px !important;
+    height: 23px !important;
+    color: #df0707 !important;
+  }
+  .realty-icon{
+    width: 23px !important;
+    height: 23px !important;
+    color: #df0707 !important;
+  }
+  .realty-banner {
+ 
+    height: 387px;
+  }
+  .realty-price-range{
+    width: 100%;
+  }
+  .realty-clear{
+    width: 100%;
+    background: linear-gradient(to right, #ff4447, #8a2e2e);
+  }
+  .realty-input {
+    width: 100%;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+.realty-filters-title{
+  display: none;
+}
+
+.realty-filter-mob{
+  display: block;
+  width: 53%;
+   
+    margin-top: 50px;
+    float: left;
+    margin-left: 10px;
+}
+.realty-desk{
+  display: none;
+}
+}
+
+/* Additional Tweaks for Tablet Screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .realty-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .realty-filters {
+    flex-basis: 40%;
+  }
+
+  .realty-header-content {
+    padding-top: 120px;
+  }
+}
   

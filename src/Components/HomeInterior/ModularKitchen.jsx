@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import "./HomeLane.css"
 import FaqComponent from '../HomePage/FaqComponent';
+import axios from 'axios';
+import BookingModal from './BookingModal';
 function ModularKitchen() {
     const [activeIndex, setActiveIndex] = useState(null);
     const services = [
@@ -389,9 +391,33 @@ function ModularKitchen() {
                 `While we do have hundreds of stylish designs in our catalogue, you need not opt for any of them! HomeLane services and designs are completely customisable to suit your style and needs.We’ll get into the nitty gritty of your lifestyle, your tastes and your budget, and will custom design a home interior that is just perfect for you and your family!`,
         },
     ];
-    console.log(services[0].title)
+   const [isModalOpen, setIsModalOpen] = useState(false);
+      
+   const openModal = () => {
+      setIsModalOpen(true);
+    };
+  
+    // Close the modal
+    const closeModal = () => {
+      setIsModalOpen(false);
+    };
     return (
         <>
+            <BookingModal
+  isOpen={isModalOpen}
+  onRequestClose={closeModal}
+  onSubmit={async (formData) => {
+    try {
+      const response = await axios.post(
+        'https://www.townmanor.ai/api/api/home-interior',
+        formData
+      );
+      alert("Request Sent Successfully");
+    } catch (error) {
+      alert(error.message);
+    }
+  }}
+ />
             <div className='maincontainer'>
                 <div className="header-address d-none">
                     {services.map((service, index) => (
@@ -423,7 +449,9 @@ function ModularKitchen() {
                            </figure>
                            <div class="ProductTile_tileDesc">
                                <h3 class="ProductTile_tileTxt">{service.title}</h3>
-                               <button class="BFC_bTN" data-toggle="modal" data-target="#exampleModal">Book Free
+                               <button class="BFC_bTN" data-toggle="modal" data-target="#exampleModal" onClick={()=>{
+                                openModal();
+                               }}>Book Free
                                    Consultation</button>
                            </div>
                        </div>
