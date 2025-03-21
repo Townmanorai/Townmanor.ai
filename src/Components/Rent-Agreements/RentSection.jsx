@@ -21,15 +21,15 @@ const RentSection = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <h1>Create Legal Rent Agreements Online</h1>
-          <p>Generate legally valid rental agreements instantly. No physical visits required.</p>
+          <h1>Create Rent Agreements Online</h1>
+          <p>Generate trusted rental agreements instantly. doorstep Delivery.</p>
           <button className="rent-cta-button" onClick={handleNavigation}>
             Create Agreement Now
             <span className="cta-arrow">→</span>
           </button>
           <div className="trust-badges">
-            <div className="badge">✓ Legal Compliance</div>
-            <div className="badge">🔒 Bank-Level Security</div>
+            <div className="badge">✓ Verified Process</div>
+            <div className="badge">🔒 E-Sign Agreement</div>
           </div>
         </motion.div>
 
@@ -42,7 +42,7 @@ const RentSection = () => {
           <div className="image-container">
             <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/extra-images/f0c31e61-8b1f-4da8-b30f-bcc5c956eda1.jpg" alt="Digital Agreement" />
             <div className="floating-element doc-badge">
-              <span>📄 5000+ Agreements Created</span>
+              <span>📄 500+ Agreements Created</span>
             </div>
           </div>
         </motion.div>

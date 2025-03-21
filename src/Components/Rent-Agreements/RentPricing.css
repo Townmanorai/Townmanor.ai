@@ -19,9 +19,13 @@
 
 .rent-price {
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 400;
     color: #ff4447;
     margin-bottom: .5rem;
+}
+
+.rent-price-started{
+  margin: auto;
 }
 
 .rent-pricing-card ul {
@@ -40,7 +44,6 @@
     background-color: #ff4447;
     color: white;
     padding: 10px 20px;
-    margin: auto;
     border: none;
     cursor: pointer;
 }

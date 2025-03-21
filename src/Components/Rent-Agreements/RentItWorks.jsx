@@ -5,6 +5,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './RentItWorks.css';
 import { IoDocumentTextOutline, IoCloudUploadOutline, IoCreateOutline, IoDownloadOutline } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 
 const stepVariants = {
   hidden: { opacity: 0, x: -50 },
@@ -14,11 +15,15 @@ const stepVariants = {
 const RentItWorks = () => {
     const steps = [
         { icon: <IoDocumentTextOutline />, title: 'Fill Details', description: 'Enter property and party information in our simple form' },
-        { icon: <IoCloudUploadOutline />, title: 'Upload Documents', description: 'Submit required documents for verification' },
-        { icon: <IoCreateOutline />, title: 'Digital Signatures', description: 'Sign agreement electronically using secure digital signatures' },
+        // { icon: <IoCloudUploadOutline />, title: 'Upload Documents', description: 'Submit required documents for verification' },
+        { icon: <IoCreateOutline />, title: 'Digital e-Signatures', description: 'Sign agreement electronically using secure digital signatures' },
         { icon: <IoDownloadOutline />, title: 'Download Agreement', description: 'Get your legally valid agreement instantly' },
       ];
+const navigate = useNavigate(); // Hook for navigation
 
+  const handleNavigation = () => {
+    navigate("/rent-agreement");
+  };
   return (
     <section className="rent-how-it-works">
       <h2>Simple 4-Step Process</h2>
@@ -30,7 +35,7 @@ const RentItWorks = () => {
             variants={stepVariants}
             viewport={{ once: false }}
           >
-            <div key={index} className="rent-step">
+            <div key={index} className="rent-step" onClick={handleNavigation}>
             <div className="rent-step-icon">
               {step.icon}
             </div>

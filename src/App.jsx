@@ -182,7 +182,7 @@ function App() {
             <Route path='/homelane/furniture' element={<Furniture />} />
 
             {/* Dynamic Route for State */}
-            <Route path="/state/:stateName" element={<StateDetails />} />
+            <Route path="/states/:stateName" element={<StateDetails />} />
             <Route path="/commercial3/:index" element={<Commercial3 />} />
             <Route path='/homeShift' element={<HomeShift />}></Route>
             <Route path="/commercial" element={<Commercial />} />

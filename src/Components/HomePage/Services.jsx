@@ -95,7 +95,7 @@ const servicesData = [
   },
   {
     title: "Rent Agreement",
-    description: "Digital rental agreement creation and registration",
+    description: "Digital rental agreement creation and aadhar e-Sign",
     icon: (
       <svg
         width="40"
@@ -172,8 +172,8 @@ const servicesData = [
     link: "https://townmanor.ai/home-loan",
   },
   {
-    title: "List & Sell Your Property",
-    description: "Boost your property's visibility and attract quality leads by listing it for sale.",
+    title: "Sell & Rent Your Property",
+    description: "Boost your property's visibility and attract quality leads by listing your property.",
     icon: (
       <svg
         width="40"

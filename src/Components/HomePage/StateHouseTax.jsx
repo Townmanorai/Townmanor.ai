@@ -79,7 +79,7 @@ const StateHouseTax = () => {
         <Slider {...settings}>
           {dummyStatesData.map((item, index) => (
            <div key={index} className="state-house-tax-card">
-           <Link to={`/state/${item.state_name}`}>
+           <Link to={`/states/${item.state_name}`}>
                <div className="card-body">
                    <div className="state-image">
                        <img src={item.image_url} alt={item.state_name} />

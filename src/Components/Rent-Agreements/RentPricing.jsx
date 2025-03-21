@@ -5,6 +5,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './RentPricing.css';
 import { FaCheck } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 const pricingVariants = {
   hidden: { scale: 0.9, opacity: 0 },
@@ -16,6 +17,11 @@ const pricingVariants = {
 };
 
 const RentPricing = () => {
+  const navigate = useNavigate(); // Hook for navigation
+  
+    const handleNavigation = () => {
+      navigate("/rent-agreement");
+    };
   return (
     <section className="rent-pricing">
       <h2>Simple & Transparent Pricing</h2>
@@ -31,15 +37,15 @@ const RentPricing = () => {
     </div>
   </div>
   <ul>
-          <li><FaCheck /> Legally Valid Document</li>
+          <li><FaCheck /> Verified Document</li>
           <li><FaCheck /> Digital Signatures</li>
           <li><FaCheck /> Instant Download</li>
         </ul>
   <div className="price-benefits">
-    <p>✅ Free Notarization Guide</p>
+    <p>✅ Free Guide for Document Certification</p>
     <p>✅ Free Lifetime Storage</p>
   </div>
-  <button className="rent-cta-button">Get Started</button>
+  <button className="rent-cta-button rent-price-started" onClick={handleNavigation}>Get Started</button>
       </motion.div>
     </section>
   );

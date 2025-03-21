@@ -3,8 +3,8 @@ import './RentFAQ.css';
 
 const faqs = [
   {
-    question: 'Is this agreement legally binding?',
-    answer: 'Yes, our agreements follow legal standards and become binding once signed digitally.'
+    question: 'Is this agreement official?',
+    answer: 'Yes, our agreements meet all required standards and become recognized once signed online.'
   },
   {
     question: 'Can I customize my agreement?',
@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     question: 'How long does it take to create an agreement?',
-    answer: 'It typically takes less than 5 minutes to create and sign an agreement.'
+    answer: 'Just a few minutes from start to finish.'
   },
   {
     question: 'What payment methods do you accept?',

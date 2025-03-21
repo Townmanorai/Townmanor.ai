@@ -1,7 +1,7 @@
 /* RentSection.css - Modern Styling */
 .rent-hero-section {
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    padding: 6rem 0 8rem;
+    padding: 6rem 0 2rem;
     position: relative;
     overflow: hidden;
 }
@@ -151,7 +151,7 @@
 /* Mobile view adjustments */
 @media only screen and (max-width: 768px) {
   .rent-hero-section {
-    padding: 4rem 0 6rem;
+    padding: 4rem 0 2rem;
   }
   .rent-hero-container {
     padding: 0 10px;
@@ -171,4 +171,9 @@
     margin-top: 2rem;
     flex-wrap: nowrap;
     }
+    .rent-cta-button {
+      
+      margin: 0 auto;
+      
+  }
 }
