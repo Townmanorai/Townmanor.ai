@@ -89,15 +89,15 @@ const ReraVerificationForm = () => {
     setVerificationResult(null);
     setLoading(true);
 
-    // const payload = {
-    //     registration_number: formData.registration_number,
-    //     registration_type: formData.registration_type,
-    //     state_name: formData.state_name
-    // };
+    const payload = {
+        registration_number: formData.registration_number,
+        registration_type: formData.registration_type,
+        state_name: formData.state_name
+    };
 
 
-    // console.log("Form data:", formData);
-    // console.log("Request Body:", JSON.stringify(payload, null, 2));
+    console.log("Form data:", formData);
+    console.log("Request Body:", JSON.stringify(payload, null, 2));
     try {
       const response = await fetch("https://kyc-api.surepass.io/api/v1/rera/rera-v2", {
         method: "POST",
@@ -111,8 +111,10 @@ const ReraVerificationForm = () => {
           state_name: formData.state_name
         })
       });
-    //   const data = await response.json();
-    //   console.log("Verification response:", data);
+
+      const data = await response.json();
+      console.log("Verification response:", data);
+      
       if (response.status === 422) {
         console.error("Validation error:", data);
         setError("Verification failed: " + (data.message || "Invalid data"));
