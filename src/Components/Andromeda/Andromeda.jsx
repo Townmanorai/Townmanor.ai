@@ -3,10 +3,10 @@ import Banner from './Banner'
 import HomeLoanBanner from './HomeLoanBanner'
 import FeatureGrid from './FeaturesGrid'
 import TrustedBrands from './TrustBrands'
-import Testimonials from './TestiMonials'
 import EMICalculator from './EmiCalculator'
 import FaqComponent from '../HomePage/FaqComponent'
 import FAQSection from './FAQSection'
+import Testimonials from './Testimonials'
 
 
 function Andromeda() {
