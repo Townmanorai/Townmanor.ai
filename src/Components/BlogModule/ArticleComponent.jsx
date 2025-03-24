@@ -88,8 +88,8 @@ const ArticleComponent = () => {
     return (
         <>
         <div style={{
-            height:'100px'
-        }}></div>
+            height:'70px'
+        }} className="articleupperdiv"></div>
         <div className="article-container">
             <div className="similarbox">
                 {previousBlog && (

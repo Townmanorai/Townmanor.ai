@@ -16,7 +16,7 @@ const BlogPosts = () => {
   const [blogdata, setblogdata] = useState([]);
 
   useEffect(() => {
-    axios.get('https://www.townmanor.ai/api/articles')
+    axios.get('https://www.townmanor.ai/api/blogs')
     .then(response => {
       // Assuming the data is in response.data
       setblogdata(response.data);
@@ -84,11 +84,13 @@ const BlogPosts = () => {
                   <div key={post.id} className="product-wrap">
                     <div className="blog-single-post">
                       <div className="blog-img">
-                        <Link to={`/article/${post.id}`} title={post.heading}>
-                          <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/blog-image'+post.img} alt={post.heading}  style={{height:'19vh'}}/>
+                        <div id='postimg'>
+                        <Link to={`/singleblog/${post.id}`} title={post.heading}>
+                          <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/blog-image'+post.img} alt={post.heading} />
                         </Link>
+                        </div>
                         <div className="view-post">
-                          <Link to={`/article/${post.id}`} className="view-posts">View Post</Link>
+                          <Link to={`/singleblog/${post.id}`} className="view-posts">View Post</Link>
                         </div>
                       </div>
                       <div className="post_info">
@@ -96,7 +98,7 @@ const BlogPosts = () => {
                           <li><LuCalendarCheck style={{width:'14px', marginBottom:'4px', color:'white'}}/> {formatDate(post.date)}</li>
                         </ul>
                         <h3>
-                          <Link to={`/article/${post.id}`} title={post.heading}>
+                          <Link to={`/singleblog/${post.id}`} title={post.heading}>
                             {post.heading}
                           </Link>
                         </h3>

@@ -81,6 +81,7 @@ import ScrollToTop from './ScrollToTop';
 import ExploreStates from './Components/Statewise/ExploreStates';
 import StateDistricts from './Components/Statewise/StateDistricts';
 import ReraVerificationForm from './Components/Rera-Verification/ReraVerification';
+import Andromeda from './Components/Andromeda/Andromeda';
 
 // Scroll restoration component
 const ScrollRestoration = () => {
@@ -211,7 +212,7 @@ function App() {
             <Route path='/proptech' element={<PropTechNews/>}/>
             <Route path='/singleblog/:id' element={<ArticleComponent/>}/>
             <Route path='/adminproperty' element={<PropertyListings/>}/>
-            
+            <Route path='/andromeda' element={<Andromeda/>}/>
           </Routes>
         </main>
         <Footer />

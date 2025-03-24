@@ -48,6 +48,7 @@
     "react-to-pdf": "^1.0.1",
     "react-toastify": "^10.0.5",
     "reactjs-popup": "^2.0.6",
+    "recharts": "^2.15.1",
     "slick-carousel": "^1.8.1",
     "swiper": "^11.2.2"
   },

@@ -98,6 +98,13 @@
   .section-heading h3, .section-heading h1 {
     font-size: 30px;
 }
+#postimg img{
+  height: 230px;
+  width: 315px;
+  padding: 10px;
+  border-radius: 6px;
+  
+}
     @media only screen and (max-width: 767px) {
        
     }
