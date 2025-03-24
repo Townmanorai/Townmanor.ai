@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ArticleCompoent.css";
 import { FaShareAlt, FaTwitter, FaLinkedin, FaFacebook } from "react-icons/fa";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ArticleComponent = () => {
     const [data, setData] = useState(null);
@@ -12,7 +12,7 @@ const ArticleComponent = () => {
     const [nextBlog, setNextBlog] = useState(null);  
     const {id} = useParams();        // State for next blog
     const [currentBlogId, setCurrentBlogId] = useState(id);  // Current blog ID
-
+    const navigate = useNavigate();
     const arr = ['/blogimg1.jpg', '/blogimg2.jpg', '/blogimg3.jpg'];
 
     const fetchPost = async (blogId) => {
@@ -93,7 +93,7 @@ const ArticleComponent = () => {
         <div className="article-container">
             <div className="similarbox">
                 {previousBlog && (
-                    <div className="articlesimilar">
+                    <div className="articlesimilar" >
                         <div style={{ height: '276px' }}>
                             <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/blog-image' + previousBlog.img} alt="Previous Blog" className="proptech-card-image" />
                         </div>
@@ -104,7 +104,7 @@ const ArticleComponent = () => {
                 )}
 
                 {nextBlog && (
-                    <div className="articlesimilar">
+                    <div className="articlesimilar" >
                         <div style={{ height: '276px' }}>
                             <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/blog-image' + nextBlog.img}alt="Next Blog" className="proptech-card-image" />
                         </div>

@@ -7,8 +7,14 @@ import { FiPercent } from "react-icons/fi";
 const Banner = () => {
   return (
     <>
-   
+    {/* <div className="andromeda-logo-container">
+      <img src="/logo.png"></img>
+      <img src="https://www.andromedaloans.com/wp-content/uploads/2022/08/andromeda-logo-new.svg" className="logo-img"></img>
+    </div> */}
     <div className="banner-container">
+    <div className="banner-logos">
+    <img src="/logo.png" className="logo-img"></img>
+      </div>
       <div className="banner-contentx">
         <h2 className="banner-title">Your <b>Dream </b>Home, Now <b>Within Reach</b></h2>
         <p className="banner-description">
@@ -21,7 +27,8 @@ const Banner = () => {
         </div>
       </div>
       <div className="banner-logos">
-        <img src="/andromedabanner.jpg" alt="TownManor" className="logo-img"/>
+        {/* <img src="/andromedabanner.jpg" alt="TownManor" className="logo-img"/> */}
+        <img src="https://www.andromedaloans.com/wp-content/uploads/2022/08/andromeda-logo-new.svg" className="logo-img"></img>
       </div>
      
     </div>

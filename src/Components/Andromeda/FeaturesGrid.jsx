@@ -2,21 +2,76 @@ import React from "react";
 import { FaClock, FaCheckCircle, FaUsers, FaShieldAlt, FaGift, FaMoneyCheckAlt, FaUserPlus, FaHeadset, FaChartPie, FaPercentage } from "react-icons/fa";
 import "./Andromeda.css";
 
+const data = [
+  {
+    "id": 1,
+    "image": "/andro9.jpg",
+    "text": "Fast Approval in 24 hours"
+  },
+  {
+    "id": 2,
+    "image": "/andro7.jpg",
+    "text": "Instant Approval"
+  },
+  {
+    "id": 3,
+    "image": "/andro8.jpg",
+    "text": "Training Program"
+  },
+  {
+    "id": 4,
+    "image": "/andro3.jpg",
+    "text": "Secure Data"
+  },
+  {
+    "id": 5,
+    "image": "/andro2.jpg",
+    "text": "Rewards and Loyalty"
+  },
+  {
+    "id": 6,
+    "image": "/andro5.jpg",
+    "text": "Best in Class & Prompt Payout"
+  },
+  {
+    "id": 7,
+    "image": "/andro11.jpg",
+    "text": "Easy On Boarding"
+  },
+  {
+    "id": 8,
+    "image": "/andro4.jpg",
+    "text": "Customer Support"
+  },
+  {
+    "id": 9,
+    "image": "/andro6.jpg",
+    "text": "Unified DashBoard"
+  },
+  {
+    "id": 10,
+    "image": "/zero.jpg",
+    "text": "Zero Investment"
+  }
+]
 
 
 const FeatureGrid = () => {
   return (
     <>
-    <div className="feature-grid-container">
-      {/* {features.map((feature) => (
+     <div className="feature-grid-mobile">
+      {data.map((feature) => (
         <div key={feature.id} className="feature-card">
-          <div className=""><img src={feature.icon} style={{
+          <div className=""><img src={feature.image} style={{
             width:'100%',
             height:'100px'
           }}></img></div>
           <p className="feature-text">{feature.text}</p>
         </div>
-      ))} */}
+      ))}
+      </div>
+    <div className="feature-grid-container">
+   
       <div className="fetures-card">
         <img src="/andro9.jpg" style={{
             width:'42%',

@@ -813,10 +813,10 @@ button:hover{
   height: 4vh;
 }
 
- input{
+ /* input{
   width: 21px;
   height: 21px;
-}
+} */
 .checkbox-true {
   display: flex;
   flex-wrap: wrap;

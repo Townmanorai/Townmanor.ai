@@ -35,6 +35,7 @@ const EMICalculator = () => {
       
       <div className="emi-content">
         <div className="emi-form">
+          <div className="emi-input2">
           <input
             type="number"
             className="emi-input"
@@ -56,6 +57,7 @@ const EMICalculator = () => {
             value={interestRate}
             onChange={(e) => setInterestRate(e.target.value)}
           />
+          </div>
           <button className="emi-button" onClick={calculateEMI}>
             <FaCalculator className="emi-icon" /> Calculate EMI
           </button>
