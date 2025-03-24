@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Map from './Map';
 import SearchForm from './SearchForm';
-import ResultsItem from './ResultsItem';
+import ResultsItem from './ResultsItem_deleted';
 import { CiBoxList } from "react-icons/ci";
 
 import "../../common.css";

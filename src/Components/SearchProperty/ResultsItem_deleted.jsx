@@ -8,7 +8,7 @@ import { CiCalendarDate } from "react-icons/ci";
 import { MdPeople } from "react-icons/md";
 import "../../common.css";
 import "../../commonsecond.css";
-import "./ResultsItem.css";
+import "./ResultsItem_deleted.css";
 
 const ResultsItem = ({ item }) => {
   // Safely parse the image repository JSON string and prepend base URL

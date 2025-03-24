@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ResultsItem from './ResultsItem';
+import ResultsItem1 from './ResultsItem1';
 
 const SearchProperty = () => {
   const [searchOrder, setSearchOrder] = useState('id DESC');
@@ -152,7 +152,7 @@ const SearchProperty = () => {
                     <div className="list_products">
                       <div className="row">
                         {results.map((item, key) => (
-                          <ResultsItem key={key} item={item} />
+                          <ResultsItem1 key={key} item={item} />
                         ))}
                       </div>
                     </div>
