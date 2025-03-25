@@ -120,7 +120,7 @@ const ResultsItem1 = ({item}) => {
             </div>
             <div style={{textAlign:'end'}}>
               <h3 className="property-price">
-                <LuIndianRupee /> {item.option_37 || item.price || '??'} {item.pricerange}
+                {item.price?(<><LuIndianRupee /> {item.option_37 || item.price} {item.pricerange} </>):("Price On Request")}
               </h3>
               {item.purpose && (
                 <span className={`purpose-${item.purpose.toLowerCase().replace(/ /g, '_')}`} style={{color:'#333'}}>

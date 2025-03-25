@@ -6,93 +6,75 @@ import './ExclusiveOwnerProperties.css';
 const propertiesData = [
   {
     id: 1,
-    imgSrc: "https://www.asenseinterior.com/assets/uploads//94e315b9c1ef2c76e217253180cb7868.jpg",
-    type: "2 BHK Flat",
-    price: "₹3.60 Cr",
-    location: "Mindspace, Mumbai",
+    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1739617664620-PrateekGrand2.jpg",
+    type: "2 BHK Builder Floor",
+    price: "₹52 Lakh",
+    location: "Prateek Grand Paeonia, Noida",
     status: "Ready to Move",
     picCount: 19
   },
   {
     id: 2,
-    imgSrc: "https://media.designcafe.com/wp-content/uploads/2022/07/15170350/luxury-home-design-on-budget.jpg",
-    type: "1 BHK Flat",
-    price: "₹30 Lac",
-    location: "Virar East, Mumbai",
+    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1739621894650-eldecoUtopia1.jpg",
+    type: "3 BHK Flat",
+    price: "₹18 Crore",
+    location: "ATS Knightsbridge, Noida",
+    status: "Under-Construction",
+    picCount: 5
+  },
+  {
+    id: 4,
+    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1741165402582-max%20estate%201283.jpg",
+    type: "3 BHK Flat",
+    price: "1.2 Crore",
+    location: "Max Estates 128, Noida",
     status: "Ready to Move",
     picCount: 5
   },
   {
-    id: 1,
-    imgSrc: "https://media.designcafe.com/wp-content/uploads/2019/12/23111709/interior-companies-in-bangalore-946x662.jpg",
-    type: "2 BHK Flat",
-    price: "₹3.60 Cr",
-    location: "Mindspace, Mumbai",
+    id: 5,
+    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1741783645276-himalaya2.jpg",
+    type: "1 BHK Flat",
+    price: "₹10 Lakh",
+    location: "HIMALAYA PRIDES, Noida",
     status: "Ready to Move",
     picCount: 19
   },
   {
-    id: 2,
-    imgSrc: "https://media.designcafe.com/wp-content/uploads/2020/09/26174201/3bhk-house-interior-design.jpg",
-    type: "1 BHK Flat",
-    price: "₹30 Lac",
-    location: "Virar East, Mumbai",
+    id: 6,
+    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1741783715521-experion1.jpg",
+    type: "3 BHK Flat",
+    price: "₹5.95 Cr",
+    location: "Experion Element, Noida",
     status: "Ready to Move",
     picCount: 5
   },
   {
-    id: 1,
-    imgSrc: "https://media.designcafe.com/wp-content/uploads/2021/04/26145859/home-office-design-by-best-interior-designers-in-bengalore-mumbai-hyderabad.jpg",
-    type: "2 BHK Flat",
-    price: "₹3.60 Cr",
-    location: "Mindspace, Mumbai",
+    id: 7,
+    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1742214290198-express_Zenith1.jpg",
+    type: "4 BHK Flat",
+    price: "₹2.65 Cr",
+    location: "Express Zenith, Noida",
     status: "Ready to Move",
     picCount: 19
   },
   {
-    id: 2,
-    imgSrc: "https://media.designcafe.com/wp-content/uploads/2020/07/23154645/best-interior-designers-living-room-designs.jpg",
-    type: "1 BHK Flat",
-    price: "₹30 Lac",
-    location: "Virar East, Mumbai",
+    id: 8,
+    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1742801095277-Titania_residency.png",
+    type: "4 BHK Flat",
+    price: "Price On Request",
+    location: "Titenia Residency, Greaternoida",
     status: "Ready to Move",
     picCount: 5
   },
   {
-    id: 1,
-    imgSrc: "https://media.designcafe.com/wp-content/uploads/2020/07/23171403/best-home-interiors-space-saving-designs.jpg",
-    type: "2 BHK Flat",
-    price: "₹3.60 Cr",
-    location: "Mindspace, Mumbai",
+    id: 3,
+    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1737461234604-Ow_arora_img6.jpg",
+    type: "3 BHK Flat",
+    price: "₹73 Lakh",
+    location: "Ajnara Le Garden, Greater Noida",
     status: "Ready to Move",
-    picCount: 19
-  },
-  {
-    id: 2,
-    imgSrc: "https://media.designcafe.com/wp-content/uploads/2022/06/29150132/modern-minimalist-living-room-with-bookshelf-and-sofa.jpg",
-    type: "1 BHK Flat",
-    price: "₹30 Lac",
-    location: "Virar East, Mumbai",
-    status: "Ready to Move",
-    picCount: 5
-  },
-  {
-    id: 1,
-    imgSrc: "https://media.designcafe.com/wp-content/uploads/2020/05/15151655/industrial-style-living-room-interior-with-furniture-sofa.jpg",
-    type: "2 BHK Flat",
-    price: "₹3.60 Cr",
-    location: "Mindspace, Mumbai",
-    status: "Ready to Move",
-    picCount: 19
-  },
-  {
-    id: 2,
-    imgSrc: "https://media.designcafe.com/wp-content/uploads/2023/08/25160343/living-room-red-couch-with-recliner-lounge.jpg",
-    type: "1 BHK Flat",
-    price: "₹30 Lac",
-    location: "Virar East, Mumbai",
-    status: "Ready to Move",
-    picCount: 5
+    picCount: 1
   },
   // Add more properties as needed
 ];
