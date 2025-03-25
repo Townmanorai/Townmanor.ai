@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'; // To get access to location
 import MainPage from './MainPage'; 
 import "../../common.css";
 import "../../commonsecond.css";
+import { Helmet } from 'react-helmet';
 
 // Helper function to extract query parameters
 const getQueryParams = (query) => {
@@ -43,8 +44,23 @@ const SearchPropertyPage = () => {
       })
       .catch(error => console.error('Error fetching property data:', error));
   },[location.search]); // Dependencies include location.search and currentPage
+  const generateMetaKeywords = (properties) => {
+    const keywords = properties.map(property => {
+      const configuration = property.configuration || 'Apartment';
+      const city = property.city || '';
+      const price = property.pricerange || 'Price not available';
+      return `${configuration} in ${city} at ${price}`;
+    });
 
+    return keywords.join(', ');
+  };
   return (
+    <>
+    <Helmet>
+        <meta name="keywords" content={generateMetaKeywords(results)} />
+        <meta name="description" content="Find your dream property in Noida and Greater Noida. Explore a wide variety of apartments, villas, and homes for sale or rent. Get the best deals with Town Manor." />
+        <title>Search Properties</title>
+      </Helmet>
     <div>
       {/* Render the MainPage component, passing the necessary props */}
       <MainPage
@@ -54,6 +70,7 @@ const SearchPropertyPage = () => {
         setCurrentPage={setCurrentPage} // For handling pagination
       />
     </div>
+    </>
   );
 };
 

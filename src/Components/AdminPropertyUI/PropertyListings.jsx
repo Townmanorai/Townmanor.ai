@@ -5,6 +5,7 @@ import "./PropertyListings.css";
 import { GrStatusGood, GrStatusInfo } from "react-icons/gr";
 import { IoBedOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const PropertyListings = () => {
   const [properties, setProperties] = useState([]); // Store all properties from API
@@ -56,6 +57,9 @@ const PropertyListings = () => {
     return 0; // Default value if parsing fails
   };
   const filteredProperties = properties.filter((item) => {
+    if (!item.price || typeof item.price !== 'string') {
+      return false; // Skip this item if the price is invalid
+    }
     const priceRange = item.price.split(' - '); // Split the price range
     const minItemPrice = parsePrice(priceRange[0]); // Parse the minimum price
     const maxItemPrice = parsePrice(priceRange[1] || priceRange[0]); // Parse the maximum price (if it exists)
@@ -126,8 +130,24 @@ const PropertyListings = () => {
       maxPrice: 100000,
     });
   };
- 
+  const pageTitle = `Property Listings in ${filters.city}`;
+  const pageDescription = `Explore the best properties in ${filters.city}. Filter by price, configuration, and more to find your dream home.`;
+
   return (
+    <>
+       <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content="PropTech, RealEstate, AI, SmartHomes, Technology, Innovation" />
+        
+        {/* Dynamically creating meta tags for properties */}
+        {currentProperties.length > 0 && currentProperties.map((property, index) => {
+          const propertyKeywords = `${property.property_name}, ${property.city}, ${property.price}, ${property.category}`;
+          return (
+            <meta key={index} name="keywords" content={propertyKeywords} />
+          );
+        })}
+      </Helmet>
     <div className="realty-container">
       {/* Header Section */}
       <header className="realty-header">
@@ -205,6 +225,7 @@ const PropertyListings = () => {
       <main className="realty-main">
       {filter && (
         <>
+        
          <aside className="realty-filters realty-mob">
           <div className="realty-filters-box">
             <h2 className="realty-filters-title">Filters</h2>
@@ -524,6 +545,7 @@ const PropertyListings = () => {
         </section>
       </main>
     </div>
+    </>
   );
 };
 

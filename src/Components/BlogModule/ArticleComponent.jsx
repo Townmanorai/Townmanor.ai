@@ -85,6 +85,9 @@ const ArticleComponent = () => {
 
         return formattedText.join("\n");
     };
+    const handleNavigate = (url) => {
+        window.location.href = url;  // Will navigate directly to the given URL
+    };
     return (
         <>
         <div style={{
@@ -93,7 +96,9 @@ const ArticleComponent = () => {
         <div className="article-container">
             <div className="similarbox">
                 {previousBlog && (
-                    <div className="articlesimilar" >
+                    <div className="articlesimilar" onClick={()=>{
+                        handleNavigate(`https://townmanor.ai/singleblog/${previousBlog.id}`)
+                    }}>
                         <div style={{ height: '276px' }}>
                             <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/blog-image' + previousBlog.img} alt="Previous Blog" className="proptech-card-image" />
                         </div>
@@ -104,7 +109,9 @@ const ArticleComponent = () => {
                 )}
 
                 {nextBlog && (
-                    <div className="articlesimilar" >
+                    <div className="articlesimilar" onClick={()=>{
+                        handleNavigate(`https://townmanor.ai/singleblog/${nextBlog.id}`)
+                    }}>
                         <div style={{ height: '276px' }}>
                             <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/blog-image' + nextBlog.img}alt="Next Blog" className="proptech-card-image" />
                         </div>
