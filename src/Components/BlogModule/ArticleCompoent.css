@@ -124,7 +124,7 @@ img.article-dashboard-image {
       }
     .similarbox{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
     }
     .article-main {
       max-width: 100%;

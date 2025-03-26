@@ -3,8 +3,9 @@
     width: 100%;
     max-width: 420px;
   
-    margin: 62px auto;
+    margin: 0px auto;
     background-color: #f9fafb;
+    margin-top: 62px;
   }
   
   /* HEADER */

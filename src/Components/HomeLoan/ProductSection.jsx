@@ -28,16 +28,10 @@ const ProductSection = () => {
       <div className="container">
         <div className="ProductBanner_bannerFlex">
           <div className="ProductBanner_Text">
-            <p className="ProductBanner_Heading">
-              {dummyData.heading.split('<span class="bold-loan">').map((part, index) =>
-                index === 1 ? (
-                  <span key={index} className="bold-loan">{part.split('</span>')[0]}</span>
-                ) : (
-                  part
-                )
-              )}
+            <p className="ProductBanner_Heading homeloan_heading">
+            Turn your dream home into a reality with our home loans! <span className='townmanor-andromeda-highlight-text'>Townmanor</span>
             </p>
-            <ul className="ProductBanner_features">
+            <ul className="ProductBanner_features homeloan_feature">
               {dummyData.features.map((feature, index) => (
                 <li key={index}>
                   <img
@@ -49,7 +43,7 @@ const ProductSection = () => {
                 </li>
               ))}
             </ul>
-            <div className="ProductBanner_BanksList">
+            <div className="ProductBanner_BanksList homeloan_feature">
               {dummyData.bankImages.map((imageSrc, index) => (
                 <img
                   key={index}
@@ -59,7 +53,7 @@ const ProductSection = () => {
                 />
               ))}
             </div>
-            <div className="CIBIL_score">
+            <div className="CIBIL_score homeloancibilbutton">
               {/* Commented out the Link component */}
               <Link to={dummyData.cibilLink} className="check_CIBIL_score_btn">
                 Get Your Credit Score
@@ -69,7 +63,7 @@ const ProductSection = () => {
               </a> */}
             </div>
           </div>
-          <div className="ProductBanner_Img">
+          <div className="ProductBanner_Img homeloanimg">
             <img
               width="400"
               src={dummyData.mainImage}

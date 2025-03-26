@@ -20,7 +20,8 @@ function Andromeda() {
     <FeatureGrid/>
     <TrustedBrands/>
     <Testimonials/>
-   <EMICalculator/>
+    <div id='andromedaemi'><EMICalculator/></div>
+   
    {/* <FaqComponent faqs={faqs}/> */}
    <FAQSection/>
     </div>

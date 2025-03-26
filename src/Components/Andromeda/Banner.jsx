@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaCheckCircle, FaPercent } from "react-icons/fa";
 import "./Andromeda.css";
 import { TbPigMoney } from "react-icons/tb";
 import { LiaChalkboardTeacherSolid } from "react-icons/lia";
 import { FiPercent } from "react-icons/fi";
 const Banner = () => {
+  const [showRequestPopup, setShowRequestPopup] = useState(false);
+  const [requestFormData, setRequestFormData] = useState({ name: "", phone: "", amount: "" });
+
+  const handleRequestInputChange = (e) => {
+    setRequestFormData({ ...requestFormData, [e.target.name]: e.target.value });
+  };
   return (
     <>
     {/* <div className="andromeda-logo-container">
@@ -22,8 +28,10 @@ const Banner = () => {
           And <b>Flexible Repayment</b> Options.
         </p>
         <div className="banner-buttons">
-          <button className="btn-primary">Check Your Eligibility</button>
-          <button className="btn-secondary">Calculate EMI</button>
+          <button className="btn-primary" onClick={()=>{
+            setShowRequestPopup(true);
+          }}>Make Request</button>
+         <a href="#andromedaemi"> <button className="btn-secondary">Calculate EMI</button></a>
         </div>
       </div>
       <div className="banner-logos">
@@ -49,7 +57,43 @@ const Banner = () => {
        <span>Low-Interest Rates</span>
      </div>
    </div>
- 
+   {showRequestPopup && (
+        <div className="andromeda-modal-overlay">
+          <div className="andromeda-modal-content">
+            <h3 className="andromeda-modal-title">Request Home Loan</h3>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              className="andromeda-modal-input"
+              value={requestFormData.name}
+              onChange={handleRequestInputChange}
+            />
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone Number"
+              className="andromeda-modal-input"
+              value={requestFormData.phone}
+              onChange={handleRequestInputChange}
+            />
+            <input
+              type="text"
+              name="amount"
+              placeholder="Loan Amount"
+              className="andromeda-modal-input"
+              value={requestFormData.amount}
+              onChange={handleRequestInputChange}
+            />
+            <div className="andromeda-modal-buttons">
+              <button className="andromeda-btn-primary">Submit</button>
+              <button className="andromeda-btn-secondary" onClick={() => setShowRequestPopup(false)}>
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
    </>
   );
 };

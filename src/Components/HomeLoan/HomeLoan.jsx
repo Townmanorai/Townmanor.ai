@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet'
 import "../common.css";
 import "../commonsecond.css";
 import LoanForm from './LoanForm';
+import TownManorAndromeda from './TownManorAndromeda';
 
 const HomeLoan = () => {
   return (
@@ -19,7 +20,9 @@ const HomeLoan = () => {
         <meta property="og:url" content="https://townmanor.ai/home-loan" /> {/* Optional: Replace with your site URL */}
       </Helmet>
     <div className='wpart'>
+    <TownManorAndromeda/>
       <section className='HomeLoan_area' style={{paddingTop:'30px'}}>
+       
         <ProductSection />
         <LoanForm />
       </section>
