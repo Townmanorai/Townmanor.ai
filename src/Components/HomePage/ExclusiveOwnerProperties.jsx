@@ -11,6 +11,7 @@ const propertiesData = [
     price: "₹52 Lakh",
     location: "Prateek Grand Paeonia, Noida",
     status: "Ready to Move",
+    link:'https://townmanor.ai/home/8',
     picCount: 19
   },
   {
@@ -20,6 +21,7 @@ const propertiesData = [
     price: "₹18 Crore",
     location: "ATS Knightsbridge, Noida",
     status: "Under-Construction",
+    link:'http://localhost:5173/home/54',
     picCount: 5
   },
   {
@@ -29,6 +31,7 @@ const propertiesData = [
     price: "1.2 Crore",
     location: "Max Estates 128, Noida",
     status: "Ready to Move",
+    link:'https://townmanor.ai/home/33',
     picCount: 5
   },
   {
@@ -38,6 +41,7 @@ const propertiesData = [
     price: "₹10 Lakh",
     location: "HIMALAYA PRIDES, Noida",
     status: "Ready to Move",
+    link:'https://townmanor.ai/home/36',
     picCount: 19
   },
   {
@@ -47,6 +51,7 @@ const propertiesData = [
     price: "₹5.95 Cr",
     location: "Experion Element, Noida",
     status: "Ready to Move",
+    link:'https://townmanor.ai/home/37',
     picCount: 5
   },
   {
@@ -56,6 +61,7 @@ const propertiesData = [
     price: "₹2.65 Cr",
     location: "Express Zenith, Noida",
     status: "Ready to Move",
+    link:'https://townmanor.ai/home/40',
     picCount: 19
   },
   {
@@ -65,6 +71,7 @@ const propertiesData = [
     price: "Price On Request",
     location: "Titenia Residency, Greaternoida",
     status: "Ready to Move",
+    link:'https://townmanor.ai/home/61',
     picCount: 5
   },
   {
@@ -74,6 +81,7 @@ const propertiesData = [
     price: "₹73 Lakh",
     location: "Ajnara Le Garden, Greater Noida",
     status: "Ready to Move",
+    link:'',
     picCount: 1
   },
   // Add more properties as needed
@@ -142,7 +150,9 @@ const ExclusiveOwnerProperties = ({stateName}) => {
                         <div className="property-location">{property.location}</div>
                         <div className="property-status">{property.status}</div>
                         <div className="action-btn">
-                          <span className="btn-red medium">View Details</span>
+                          <a href={property.link}>
+                            <span className="btn-red medium">View Details</span>
+                          </a>
                         </div>
                       </div>
                     </a>

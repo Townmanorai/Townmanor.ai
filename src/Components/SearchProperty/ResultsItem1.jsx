@@ -202,7 +202,13 @@ const swInDateFormat = (date) => {
   
   const humanTimeDiff = (date) => {
     const now = new Date();
-    const diffInMs = now - date;
+    
+    // Check if the provided date is valid
+    if (isNaN(new Date(date))) {
+      return "Invalid date";
+    }
+  
+    const diffInMs = now - new Date(date);
   
     // If the date is in the future, return a custom message
     if (diffInMs < 0) {

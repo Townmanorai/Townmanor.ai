@@ -1530,7 +1530,7 @@ function Phone() {
                                                 required
                                             >
                                                 <option value=''>Select Format</option>
-                                                <option value='Thousand'>Lakhs</option>
+                                                <option value='Thousand'>Thousand</option>
                                                 <option value='Lakh'>Lakhs</option>
                                                 <option value='Crore'>Crore</option>
                                                 <option value='million'>Million</option>
