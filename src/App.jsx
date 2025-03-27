@@ -82,6 +82,7 @@ import ExploreStates from './Components/Statewise/ExploreStates';
 import StateDistricts from './Components/Statewise/StateDistricts';
 import ReraVerificationForm from './Components/Rera-Verification/ReraVerification';
 import Andromeda from './Components/Andromeda/Andromeda';
+import PropertyListingForm from './Components/Form/PropertyListingForm';
 
 // Scroll restoration component
 const ScrollRestoration = () => {
@@ -165,6 +166,7 @@ function App() {
             <Route path="/property-details/:property_name" element={<PropertyListedUserList />} />
             {/* sunny route */}
             <Route path="/form" element={<Phone />} />
+            <Route path="/newform" element={<PropertyListingForm />} />
             <Route path="/search/:name" element={<PhoneSearch />} />
             <Route path="/Searchbar" element={<MainSearch />} />
             <Route path='/homelane' element={<HomeLane />} />
