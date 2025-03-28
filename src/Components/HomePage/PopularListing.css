@@ -1,4 +1,9 @@
-/* Mobile specific styles */
+
+.row .srollable-cards{
+  justify-content: center;
+}
+
+
 @media (max-width: 767px) {
   /* Make the row containing the cards scrollable */
   .popular-listing .scrollable-cards {
@@ -172,9 +177,10 @@
     margin-top: 80px !important;
   }
 }
-
-@media only screen and (min-width:920){
-  .popular-listing.hp2.section-padding.widget_edit_enabled.mt-4.nps.bps{
-    padding-top: 0px !important;
+@media only screen and (min-width:920px){
+  
+  .popular-listing .hp2 .section-padding .widget_edit_enabled .mt-4 .nps .bps{
+    padding-top: 10px !important;
   }
+
 }

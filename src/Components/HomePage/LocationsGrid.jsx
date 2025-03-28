@@ -419,13 +419,13 @@ const LocationsGrid = () => {
   }
 
   return (
-    <section className="popular-cities hp_s1 section-padding widget_edit_enabled">
+    <section className="popular-cities hp_s1 section-padding widget_edit_enabled pch">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-xl-6">
             <div className="section-heading mb-0 pb-0">
               {/* <span>Popular Cities</span> */}
-              <h3>Explore properties cities wise</h3>
+              <h3>Explore <b>properties</b> cities <b>wise</b></h3>
             </div>
           </div>
         </div>

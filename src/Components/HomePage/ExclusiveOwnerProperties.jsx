@@ -119,11 +119,9 @@ const ExclusiveOwnerProperties = ({stateName}) => {
   return (
     <div className="exclusive-owner-properties" id="exclusive-ownerProperties">
       <div className="exclusive-container">
-        <section className="exclusive-section has-slider">
+        <section className="exclusive-section has-slider" style={{paddingBottom:'10px'}}>
           <div className="exclusive-section-title">
-          <div className="exclusive-title-text strip-orange" 
-     dangerouslySetInnerHTML={{
-        __html: stateName 
+          <div className="exclusive-title-text strip-orange section-heading" style={{marginBottom:'0px'}} dangerouslySetInnerHTML={{__html: stateName 
           ? `<h3>Resale <b>properties</b> in <b>${stateName}</b></h3>`
           : '<h3>Resale <b>properties</b> in <b>noida</b></h3>'
      }}>

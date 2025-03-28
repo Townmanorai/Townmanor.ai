@@ -296,7 +296,7 @@ const Services = () => {
     <div className="container">
       <section className="svc-services-section">
         <h1>
-          <b className="svc-h1">services</b>
+          <b className="svc-h1">Services</b>
         </h1>
         <div className="svc-services-grid">
           {servicesData.map((service, idx) => (

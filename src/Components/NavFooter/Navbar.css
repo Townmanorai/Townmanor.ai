@@ -135,6 +135,8 @@ body, html {
   .header .navbar-nav {
     display: flex;
     align-items: center;
+    /* width: 315px; */
+    justify-content: space-between;
   }
   
   .header .navbar-nav .nav-item {
@@ -183,9 +185,6 @@ body, html {
       display: contents !important;
     }
 
-    .header .navbar-nav .nav-item.signin-btn .nav-link{
-      margin-right: 10px;
-    }
   }
 
   /* New styles for 1200px-1500px */

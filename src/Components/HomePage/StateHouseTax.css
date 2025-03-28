@@ -1,6 +1,6 @@
 /* Section Styles */
 .state-house-tax-section {
-    padding: 40px 0;
+    padding-top: 10px;
     background-color: #f8f9fa;
   }
   
@@ -15,7 +15,7 @@
   }
   
   .state-house-tax-heading h3 {
-    font-size: 24px;
+    font-size: 28px;
     color: #222;
     margin-top: 10px;
     font-weight: 400;

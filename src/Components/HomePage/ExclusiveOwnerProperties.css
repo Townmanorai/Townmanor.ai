@@ -10,7 +10,7 @@
   }
   
   .exclusive-section {
-    padding: 20px 0;
+    padding: 30px 0 20px;
   }
   
   .exclusive-section-title {
@@ -33,7 +33,15 @@
   .exclusive-property-slider {
     position: relative;
   }
-  
+
+  .exclusive-property-slider ul{
+    display: none !important;
+  }
+
+ .exclusive-property-slider .slick-list{
+  padding: 10px 30px !important;
+ }
+
   .exclusive-swiper {
     position: relative;
   }

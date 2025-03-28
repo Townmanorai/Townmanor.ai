@@ -8,7 +8,6 @@ import { IoLocationOutline } from "react-icons/io5";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 const PopularListing = () => {
  
 
@@ -170,13 +169,13 @@ const PopularListing = () => {
   //   }
     
   // ];
-  const navigate= useNavigate();
+  
   return (
-    <section className="popular-listing hp2 section-padding widget_edit_enabled mt-4 nps bps">
+    <section className="popular-listing hp2 section-padding widget_edit_enabled mt-4 nps bps" style={{paddingBottom:"20px"}}>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-xl-12">
-            <div className="section-heading">
+            <div className="section-heading" style={{marginBottom:'30px'}}>
               <span>Discover</span>
               <h3>
                 Newly launched <b>properties</b>
@@ -185,7 +184,7 @@ const PopularListing = () => {
           </div>
         </div>
 
-        <div className="row scrollable-cards">
+        <div className="row scrollable-cards" style={{}}>
           {data && data.map((property) => (
             <div className="col-lg-4 col-md-6" key={property.id}>
               <div className="card listing">
@@ -314,11 +313,7 @@ const PopularListing = () => {
 
           <div className="col-lg-12">
     <div className="load-more-posts l-load">
-      <a onClick={()=>{
-    navigate('/adminproperty/Noida')
-  }} title="" className="btn2" style={{
-    color:'white'
-  }}>
+      <a href="https://townmanor.in/en/145" title="" className="btn2">
         Load More
       </a>
     </div>
@@ -326,11 +321,7 @@ const PopularListing = () => {
         </div>
         <div className="load-more-posts-mobile">
           <div className="load-more-posts-mobile-inner">
-  <a onClick={()=>{
-    navigate('/adminproperty/Noida')
-  }} title="" className="btn2" style={{
-    color:'white'
-  }}>
+  <a href="https://townmanor.in/en/145" title="" className="btn2">
     Load More
   </a>
   </div>

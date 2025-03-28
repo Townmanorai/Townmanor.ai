@@ -162,7 +162,7 @@ const Navbar = () => {
                       <li className="nav-item"><Link to="/pricing-plans" className="nav-link" onClick={closeMenu}>Subscription Plan</Link></li>
                     </ul>
                     <div className="d-inline my-2 my-lg-0">
-                      <ul className="navbar-nav">
+                      <ul className="navbar-nav nn-nav">
                         <li className="nav-item signin-btn">
                           <span className="nav-link">
                             {/* <i className="la la-sign-in"></i> */}

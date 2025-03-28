@@ -151,9 +151,9 @@ function Coliving_space() {
               </Slider>
             </div>
           </div>
-            <div style={{ margin: '20px 0px', fontSize: '16px', color: 'ff0000',textAlign:'center',display:'flex',flexDirection:'column' }}>
-                <span style={{fontSize:'12px'}}>If you want to know more </span>
-                <button style={{width:'fit-content',textAlign:'center',marginLeft:'auto',marginRight:'auto',border:"none",borderRadius:'10px'}} onClick={openModal} className="co-sign-up">Sign up!</button>
+            <div style={{ margin: '0px', fontSize: '16px', color: 'ff0000',textAlign:'center',display:'flex',flexDirection:'column' }}>
+                {/* <span style={{fontSize:'12px'}}>If you want to know more </span> */}
+                <button style={{width:'fit-content',textAlign:'center',marginLeft:'auto',marginRight:'auto',border:"none",borderRadius:'10px'}} onClick={openModal} className="co-sign-up">Show Intrest!</button>
               </div>
         </div>
       </div>

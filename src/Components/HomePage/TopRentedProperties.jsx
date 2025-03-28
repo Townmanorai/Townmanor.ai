@@ -114,7 +114,7 @@ const TopRentedProperties = ({stateName}) => {
       <div className="rented-container">
         <section className="rented-section has-slider">
           <div className="rented-section-title">
-          <div className="exclusive-title-text strip-orange" 
+          <div className="exclusive-title-text strip-orange section-heading" style={{marginBottom:'0px'}} 
      dangerouslySetInnerHTML={{
         __html: stateName 
           ? `<h3>Rental <b>properties</b> in <b>${stateName}</b></h3>`
@@ -125,7 +125,7 @@ const TopRentedProperties = ({stateName}) => {
               See all Rental Properties
             </a> */}
           </div>
-          <div className="rented-property-slider">
+          <div className="rented-property-slider rps">
             <Slider {...sliderSettings}>
               {propertiesData.map((property) => (
                 <div className="swiper-slide" key={property.id}>

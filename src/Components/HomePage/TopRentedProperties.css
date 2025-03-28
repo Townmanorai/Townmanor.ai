@@ -34,8 +34,13 @@
   text-decoration: none;
 }
 
-.rented-property-slider {
-  margin-top: 20px;
+.rented-property-slider .slick-list {
+  padding-top: 10px !important;
+  padding-bottom: 25px !important;
+}
+
+.rented-property-slider ul{
+  display: none !important;
 }
 
 .swiper-slide {

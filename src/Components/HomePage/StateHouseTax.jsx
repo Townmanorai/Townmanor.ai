@@ -69,9 +69,9 @@ const StateHouseTax = () => {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-xl-8">
-            <div className="state-house-tax-heading">
+            <div className="state-house-tax-heading section-heading" style={{marginBottom:'0px'}}>
               {/* <span>Popular States</span> */}
-              <h3>Explore properties & other services state wise </h3>
+              <h3>Explore<b>  properties</b> and other <b>services state</b>  wise</h3>
             </div>
           </div>
         </div>

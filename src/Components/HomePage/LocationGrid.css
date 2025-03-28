@@ -1,15 +1,6 @@
-/* Add padding to the slick-list */
-.slick-list {
-    padding: 40px !important;
-    /* Add padding of 40px */
-}
-
-/* Add padding inside the product-wrap */
 .product-wrap {
     padding: 20px !important;
-    /* Add padding of 20px inside product-wrap */
     display: inline-block;
-    /* Ensure inline-block is maintained */
 }
 
 section.popular-cities.hp_s1.section-padding.widget_edit_enabled {
@@ -17,12 +8,14 @@ section.popular-cities.hp_s1.section-padding.widget_edit_enabled {
     margin: 19px 0;
 }
 
-
-
 @media (max-width: 767px) {
     .product-wrap {
         padding: 20px !important;
         display: inline-block;
         margin-left: -30px;
+    }
+
+    .popular-cities.hp_s1.pch{
+        margin-top:'20px' !important;
     }
 }

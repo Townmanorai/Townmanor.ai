@@ -1,7 +1,7 @@
 .coliving {
   height: 100%;
   display: flex;
-  padding-top: 100px;
+  padding-top: 35px;
   margin-left: -1px;
 }
 
@@ -194,6 +194,7 @@
   @media screen and (max-width: 480px) {
     .coliving{
       flex-direction: column;
+      padding-top:20px
     }
 
     .co-box{
