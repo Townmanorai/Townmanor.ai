@@ -116,7 +116,7 @@ const SearchBar = () => {
             className={`btn btn-outline-danger btnr ${activeBtn === 'NewProjects' ? 'active' : ''}`}
             onClick={() => {
            
-              navigate('/adminproperty')
+              navigate('/adminproperty/Noida')
             
             }
             }

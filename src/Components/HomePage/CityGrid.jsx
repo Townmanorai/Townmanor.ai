@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./CityGrid.css";
 import { useNavigate } from "react-router-dom";
+import PropertyListings from "../AdminPropertyUI/PropertyListings";
 
 const cities = [
   { name: "Noida", country: "Noida", img: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742293128038-noida.jpg", url: "https://townmanor.in/treefield/en/88577/noida" },
@@ -65,7 +66,7 @@ const moveCarouselLeft = (carousel) => {
 const CityGrid = () => {
   const carouselRefs = [useRef(null), useRef(null), useRef(null)];
   const [isHovered, setIsHovered] = useState(false);  // To track mouse hover state
-
+  const navigate = useNavigate();
   useEffect(() => {
     const cleanups = [];
 
@@ -102,7 +103,7 @@ const CityGrid = () => {
             <li
               className="carousel-slide city-slide"
               key={index}
-              onClick={() => handleCityClick(city.url)} // Redirect on city click
+              onClick={() => handlecity(city.name)} // Redirect on city click
             >
               <div className="city-card">
                 <img src={city.img} alt={city.name} className="city-image" />
@@ -117,7 +118,9 @@ const CityGrid = () => {
       </div>
     </div>
   );
-
+  const handlecity = (cityname) =>{ 
+   navigate(`/adminproperty/${cityname}`)
+  }
   return (
     <div className="city-grid-container">
       {renderCarousel("carousel-1", carouselRefs[0], uppercities)}
@@ -128,12 +131,14 @@ const CityGrid = () => {
               <li
                 className="carousel-slide city-slide"
                 key={index}
-                onClick={() => handleCityClick(city.url)}
+                
                 style={{
                   cursor:'pointer'
                 }} // Redirect on city click
               >
-                <div className="city-card">
+                <div className="city-card" onClick={()=>{
+                  handlecity(city.name);
+                }}>
                   <img src={city.img} alt={city.name} className="city-image" />
                   <div className="city-info">
                     <h3 className="city-name">{city.name}</h3>

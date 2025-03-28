@@ -83,6 +83,8 @@ import StateDistricts from './Components/Statewise/StateDistricts';
 import ReraVerificationForm from './Components/Rera-Verification/ReraVerification';
 import Andromeda from './Components/Andromeda/Andromeda';
 import PropertyListingForm from './Components/Form/PropertyListingForm';
+import NewSearchListingPage from './Components/listingform/NewSearchListingPage';
+
 
 // Scroll restoration component
 const ScrollRestoration = () => {
@@ -213,8 +215,9 @@ function App() {
             <Route path="/stateName/:stateName/city/:cityName" element={<CityWise />} />  Example for city route
             <Route path='/proptech' element={<PropTechNews/>}/>
             <Route path='/singleblog/:id' element={<ArticleComponent/>}/>
-            <Route path='/adminproperty' element={<PropertyListings/>}/>
+            <Route path='/adminproperty/:id' element={<PropertyListings/>}/>
             <Route path='/andromeda' element={<Andromeda/>}/>
+            <Route path='/newsearch' element={<NewSearchListingPage/>}/>
           </Routes>
         </main>
         <Footer />

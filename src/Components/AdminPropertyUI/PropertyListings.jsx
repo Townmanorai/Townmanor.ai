@@ -4,19 +4,21 @@ import { FaMapMarkerAlt, FaHome, FaBed, FaRulerCombined, FaHeart } from "react-i
 import "./PropertyListings.css";
 import { GrStatusGood, GrStatusInfo } from "react-icons/gr";
 import { IoBedOutline } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 const PropertyListings = () => {
+  const { id } = useParams(); 
   const [properties, setProperties] = useState([]); // Store all properties from API
   const [currentPage, setCurrentPage] = useState(1);
-  const [filter, setfilter] = useState(false);  // Current page
+  const [filter, setfilter] = useState(true);  // Current page
   const [propertiesPerPage] = useState(21); // Number of properties per page
   const [loading, setLoading] = useState(true); 
   const navigate = useNavigate();// Loading state
+ 
   const [filters, setFilters] = useState({
     projectname: '',
-    city: 'Noida',
+    city: id,
     category: '',
     construction_status: '',
     configuration: '',

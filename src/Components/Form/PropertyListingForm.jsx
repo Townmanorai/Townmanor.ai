@@ -526,7 +526,7 @@ const PropertyListingForm = () => {
         <>
            <div className="realty-banner-container">
       {/* Banner */}
-      <div className="realty-banner">
+      <div className="realty-bannerx">
         <img src="/search.jpg" className="realty-banner-img" alt="Banner" />
         <div className="realty-banner-overlay"></div>
         <div className="realty-banner-content">
@@ -548,7 +548,7 @@ const PropertyListingForm = () => {
       </div>
 
       {/* Features */}
-      <div className="realty-features">
+      <div className="realty-featuresx">
         <div className="realty-feature-card">
           <FaClipboardList className="realty-feature-icon" />
           <h3 className="realty-feature-title">Easy Listing Process</h3>

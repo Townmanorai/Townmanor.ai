@@ -8,6 +8,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const PopularListing = () => {
  
 
@@ -169,7 +170,7 @@ const PopularListing = () => {
   //   }
     
   // ];
-  
+  const navigate= useNavigate();
   return (
     <section className="popular-listing hp2 section-padding widget_edit_enabled mt-4 nps bps">
       <div className="container">
@@ -313,7 +314,11 @@ const PopularListing = () => {
 
           <div className="col-lg-12">
     <div className="load-more-posts l-load">
-      <a href="https://townmanor.in/en/145" title="" className="btn2">
+      <a onClick={()=>{
+    navigate('/adminproperty/Noida')
+  }} title="" className="btn2" style={{
+    color:'white'
+  }}>
         Load More
       </a>
     </div>
@@ -321,7 +326,11 @@ const PopularListing = () => {
         </div>
         <div className="load-more-posts-mobile">
           <div className="load-more-posts-mobile-inner">
-  <a href="https://townmanor.in/en/145" title="" className="btn2">
+  <a onClick={()=>{
+    navigate('/adminproperty/Noida')
+  }} title="" className="btn2" style={{
+    color:'white'
+  }}>
     Load More
   </a>
   </div>
