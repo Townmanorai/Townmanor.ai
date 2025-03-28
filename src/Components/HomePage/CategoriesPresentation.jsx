@@ -31,7 +31,7 @@ const CategoriesPresentation = () => {
   ];
 
   return (
-    <section className="intro section-padding section-categories-presentation widget_edit_enabled">
+    <section className="intro section-padding section-categories-presentation widget_edit_enabled" >
       <div className="container">
         <div className="row">
           <div className="col-xl-6 col-lg-6 p-0">

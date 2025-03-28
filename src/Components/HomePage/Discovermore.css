@@ -3,6 +3,10 @@
   object-fit: fill;
 }
 
+.remove-dots .slick-dots{
+  display: none !important;
+}
+
 @media (max-width: 767px) {
   .banner-carousel .slick-slide .banner-slide,
   .banner-carousel .slick-slide > div:not(.banner_text),

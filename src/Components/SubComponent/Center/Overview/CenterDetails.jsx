@@ -134,7 +134,7 @@ const CenterDetails = ({ property }) => {
   return (
     <div className='subdetail'>
       <h3>Details</h3>
-      <div className="details-grid">
+      <div className="details-grids">
         {details.slice(0, visibleDetails).map((detail, index) =>
           detail.value && (
             <div key={index}>
