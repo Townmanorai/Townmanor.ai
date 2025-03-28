@@ -100,7 +100,7 @@
 }
 #postimg img{
   height: 230px;
-  width: 315px;
+  width: 100%;
   padding: 10px;
   border-radius: 6px;
   

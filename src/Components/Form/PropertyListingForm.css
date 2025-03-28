@@ -95,8 +95,13 @@
         padding: 10px;
     }
     .realty-feature-icon {
-        width: 25px;
-        height: 25px;
+        width: 25px !important;
+        height: 25px !important;
+    }
+    .realty-feature-title {
+        font-size: 14px !important;
+        /* font-weight: bold; */
+        margin-top: 10px;
     }
   }
   /* Features Section */

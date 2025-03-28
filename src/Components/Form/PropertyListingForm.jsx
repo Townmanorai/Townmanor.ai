@@ -36,6 +36,16 @@ const PropertyListingForm = () => {
         preview: false
     });
 
+    // Add new state variables for better control
+    const [visibleSections, setVisibleSections] = useState({
+        part1: true,
+        part2: false,
+        part3: false,
+        part4: false,
+        part5: false,
+        part6: false
+    });
+
     // Form data states
     const [propertyData, setPropertyData] = useState({
         category: 'residential',
@@ -134,27 +144,15 @@ const PropertyListingForm = () => {
     const handleStepChange = (step) => {
         setActiveStep(step);
         
-        // Get the section name from step number
-        const sectionNames = [
-            'basicDetails', 
-            'propertyDetails', 
-            'amenities', 
-            'locationDetails', 
-            'media', 
-            'preview'
-        ];
-        
-        // Create a new form sections state with all sections set to false
-        const newSections = {};
-        sectionNames.forEach(section => {
-            newSections[section] = false;
+        // Update section visibility
+        setVisibleSections({
+            part1: step === 0,
+            part2: step === 1,
+            part3: step === 2,
+            part4: step === 3,
+            part5: step === 4,
+            part6: step === 5
         });
-        
-        // Set the active section to true
-        newSections[sectionNames[step]] = true;
-        
-        // Update form sections
-        setFormSections(newSections);
     };
 
     const handleNextClick = () => {
@@ -597,7 +595,7 @@ const PropertyListingForm = () => {
             <form onSubmit={handleSubmit} className="property-listing__form" >
                 {/* Form sections will be conditionally rendered based on activeStep */}
                 {/* Basic Details Section */}
-                {formSections.basicDetails && (
+                {visibleSections.part1 && (
                     <div className="property-listing__section" id='realty_property'>
                         <div className="property-listing__purpose-selector">
                             <button 
@@ -832,8 +830,9 @@ const PropertyListingForm = () => {
                 )}
 
                 {/* Property Details Section */}
-                {formSections.propertyDetails && (
+                {visibleSections.part2 && (
                     <div className="property-listing__section">
+                        {/* Common fields for all types */}
                         <div className="property-listing__field-group">
                             <label className="property-listing__label">RERA ID</label>
                             <input 
@@ -846,7 +845,36 @@ const PropertyListingForm = () => {
                             />
                         </div>
 
-                        {propertyData.propertyType.residential !== 'plot' && (
+                        {/* Area Details - Show for all except residential plots */}
+                        {!(propertyData.category === 'residential' && propertyData.propertyType.residential === 'plot') && (
+                            <div className="property-listing__field-group">
+                                <label className="property-listing__label">Area Details (in sq.ft)</label>
+                                <div className="property-listing__input-group">
+                                    <input 
+                                        type="number"
+                                        className="property-listing__input"
+                                        name="areaDetail"
+                                        value={propertyData.details.areaDetail}
+                                        onChange={handleInputChange}
+                                        required
+                                    />
+                                    <select 
+                                        className="property-listing__input"
+                                        name="areaType"
+                                        value={propertyData.details.areaType}
+                                        onChange={handleInputChange}
+                                        required
+                                    >
+                                        <option value="Super Built-up Area">Super Built Up Area</option>
+                                        <option value="Built-up area">Built-up Area</option>
+                                        <option value="Carpet Area">Carpet Area</option>
+                                    </select>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Residential Property Fields */}
+                        {propertyData.category === 'residential' && propertyData.propertyType.residential !== 'plot' && (
                             <>
                                 <div className="property-listing__field-group">
                                     <label className="property-listing__label">Configuration</label>
@@ -909,52 +937,6 @@ const PropertyListingForm = () => {
                                 </div>
 
                                 <div className="property-listing__field-group">
-                                    <label className="property-listing__label">Area Details (in sq.ft)</label>
-                                    <div className="property-listing__input-group">
-                                        <input 
-                                            type="number"
-                                            className="property-listing__input"
-                                            name="areaDetail"
-                                            value={propertyData.details.areaDetail}
-                                            onChange={handleInputChange}
-                                            required
-                                        />
-                                        <select 
-                                            className="property-listing__input"
-                                            name="areaType"
-                                            value={propertyData.details.areaType}
-                                            onChange={handleInputChange}
-                                            required
-                                        >
-                                            <option value="Super Built-up Area">Super Built Up Area</option>
-                                            <option value="Built-up area">Built-up Area</option>
-                                            <option value="Carpet Area">Carpet Area</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div className="property-listing__field-group">
-                                    <label className="property-listing__label">Property Facing</label>
-                                    <select 
-                                        className="property-listing__input"
-                                        name="propertyFacing"
-                                        value={propertyData.details.propertyFacing}
-                                        onChange={handleInputChange}
-                                        required
-                                    >
-                                        <option value="">Choose Direction</option>
-                                        <option value="North">North</option>
-                                        <option value="South">South</option>
-                                        <option value="East">East</option>
-                                        <option value="West">West</option>
-                                        <option value="North-East">North-East</option>
-                                        <option value="North-West">North-West</option>
-                                        <option value="South-East">South-East</option>
-                                        <option value="South-West">South-West</option>
-                                    </select>
-                                </div>
-
-                                <div className="property-listing__field-group">
                                     <label className="property-listing__label">Furnish Type</label>
                                     <select 
                                         className="property-listing__input"
@@ -968,32 +950,6 @@ const PropertyListingForm = () => {
                                         <option value="Semi furnished">Semi Furnished</option>
                                         <option value="Un furnished">Unfurnished</option>
                                     </select>
-                                </div>
-
-                                <div className="property-listing__field-group">
-                                    <label className="property-listing__label">Construction Status</label>
-                                    <select 
-                                        className="property-listing__input"
-                                        name="constructionStatus"
-                                        value={propertyData.details.constructionStatus}
-                                        onChange={handleInputChange}
-                                        required
-                                    >
-                                        <option value="Ready to Move">Ready to Move</option>
-                                        <option value="Under-Construction">Under Construction</option>
-                                        <option value="NewLaunch">New Launch</option>
-                                    </select>
-                                </div>
-
-                                <div className="property-listing__field-group">
-                                    <label className="property-listing__label">Possession Date</label>
-                                    <input 
-                                        type="date"
-                                        className="property-listing__input"
-                                        name="propertyDate"
-                                        value={propertyData.details.propertyDate}
-                                        onChange={handleInputChange}
-                                    />
                                 </div>
 
                                 <div className="property-listing__field-group">
@@ -1017,365 +973,605 @@ const PropertyListingForm = () => {
                                         />
                                     </div>
                                 </div>
-
-                                <div className="property-listing__field-group">
-                                    <label className="property-listing__label">Maintenance Charge (per month)</label>
-                                    <input 
-                                        type="number"
-                                        className="property-listing__input"
-                                        name="maintenanceCharge"
-                                        placeholder="e.g., 1500"
-                                        value={propertyData.details.maintenanceCharge}
-                                        onChange={handleInputChange}
-                                    />
-                                </div>
                             </>
                         )}
 
-                {propertyData.propertyType.residential === 'plot' && (
-                    <div className="property-listing__field-group">
-                        <label className="property-listing__label">Plot Dimensions</label>
-                        <div className="property-listing__input-group">
-                            <input 
-                                type="number"
-                                className="property-listing__input"
-                                name="length"
-                                placeholder="Length"
-                                value={propertyData.details.dimensions.length}
-                                onChange={handleInputChange}
-                                required
-                            />
-                            <span className="property-listing__input-separator">×</span>
-                            <input 
-                                type="number"
-                                className="property-listing__input"
-                                name="width"
-                                placeholder="Width"
-                                value={propertyData.details.dimensions.width}
-                                onChange={handleInputChange}
-                                required
-                            />
-                        </div>
-                    </div>
-                )}
+                        {/* Commercial Property Fields */}
+                        {propertyData.category === 'commercial' && (
+                            <>
+                                {propertyData.propertyType.commercial !== 'land' && (
+                                    <>
+                                        <div className="property-listing__field-group">
+                                            <label className="property-listing__label">Floor Details</label>
+                                            <div className="property-listing__input-group">
+                                                <input 
+                                                    type="number"
+                                                    className="property-listing__input"
+                                                    name="floorNo"
+                                                    placeholder="Floor Number"
+                                                    value={propertyData.details.floorNo}
+                                                    onChange={handleInputChange}
+                                                />
+                                                <input 
+                                                    type="number"
+                                                    className="property-listing__input"
+                                                    name="totalFloor"
+                                                    placeholder="Total Floors"
+                                                    value={propertyData.details.totalFloor}
+                                                    onChange={handleInputChange}
+                                                />
+                                            </div>
+                                        </div>
 
-                <div className="property-listing__field-group">
-                    <label className="property-listing__label">Price Details</label>
-                    <div className="property-listing__input-group">
-                        <input 
-                            type="number"
-                            className="property-listing__input"
-                            name="price"
-                            placeholder="e.g., 2.10"
-                            value={propertyData.details.price}
-                            onChange={handleInputChange}
-                            required
-                        />
-                        <select 
-                            className="property-listing__input"
-                            name="priceRange"
-                            value={propertyData.details.priceRange}
-                            onChange={handleInputChange}
-                            required
-                        >
-                            <option value="">Choose Format</option>
-                            <option value="Lakh">Lakhs</option>
-                            <option value="Crore">Crore</option>
-                            <option value="million">Million</option>
-                            <option value="billion">Billion</option>
-                        </select>
-                        <select 
-                            className="property-listing__input"
-                            name="moneyType"
-                            value={propertyData.details.moneyType}
-                            onChange={handleInputChange}
-                            required
-                        >
-                            <option value="Rupees">IND-Rupees</option>
-                            <option value="AED">Dubai-AED</option>
-                            <option value="Riyal">Qatar-Riyal</option>
-                        </select>
-                    </div>
-                </div>
+                                        <div className="property-listing__field-group">
+                                            <label className="property-listing__label">Furnish Type</label>
+                                            <select 
+                                                className="property-listing__input"
+                                                name="furnishType"
+                                                value={propertyData.details.furnishType}
+                                                onChange={handleInputChange}
+                                                required
+                                            >
+                                                <option value="">Select Furnish Status</option>
+                                                <option value="Fully furnished">Fully Furnished</option>
+                                                <option value="Semi furnished">Semi Furnished</option>
+                                                <option value="Un furnished">Unfurnished</option>
+                                            </select>
+                                        </div>
+                                    </>
+                                )}
 
-                <div className="property-listing__field-group">
-                    <label className="property-listing__label">Token Amount</label>
-                    <input 
-                        type="number"
-                        className="property-listing__input"
-                        name="tokenAmount"
-                        placeholder="e.g., 50000"
-                        value={propertyData.details.tokenAmount}
-                        onChange={handleInputChange}
-                    />
-                </div>
-            </div>
-        )}
+                                {propertyData.purpose === 'rent' && (
+                                    <>
+                                        <div className="property-listing__field-group">
+                                            <label className="property-listing__label">Lock-in Period (months)</label>
+                                            <input 
+                                                type="number"
+                                                className="property-listing__input"
+                                                name="lockInPeriod"
+                                                placeholder="e.g., 12"
+                                                value={propertyData.details.lockInPeriod}
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
 
-        {/* Amenities Section */}
-        {formSections.amenities && (
-            <div className="property-listing__section">
-                <div className="property-listing__amenities-grid">
-                    {(propertyData.propertyType.residential !== 'plot' ? [
-                        { name: 'Air Conditioner', icon: <TbAirConditioning /> },
-                        { name: 'Cable Tv', icon: <FaSatelliteDish /> },
-                        { name: 'Wifi', icon: <FaWifi /> },
-                        { name: 'Dishwasher', icon: <LuUtensilsCrossed /> },
-                        { name: 'Heating', icon: <PiThermometerHotBold /> },
-                        { name: 'Lift', icon: <GrElevator /> },
-                        { name: 'Intercomm Facility', icon: <LiaIntercom /> },
-                        { name: 'Microwave', icon: <MdMicrowave /> },
-                        { name: 'Park', icon: <PiPark /> },
-                        { name: 'Parking', icon: <LuParkingCircle /> },
-                        { name: 'Guest Parking', icon: <RiParkingBoxLine /> },
-                        { name: 'Security', icon: <MdSecurity /> },
-                        { name: 'Play Area', icon: <GiKidSlide /> },
-                        { name: 'CCTV', icon: <BiCctv /> },
-                        { name: 'Power Backup', icon: <ImPower /> },
-                        { name: 'Gas Pipeline', icon: <GiGasStove /> },
-                        { name: 'Gym', icon: <GiWeightLiftingUp /> },
-                        { name: 'Swimming Pool', icon: <FaPersonSwimming /> },
-                        { name: 'Multipurpose Court', icon: <PiCourtBasketball /> },
-                        { name: 'Multipurpose Hall', icon: <TbBuildingBank /> },
-                        { name: 'Chimney', icon: <GiChimney /> },
-                        { name: 'Modular Kitchen', icon: <FaKitchenSet /> },
-                        { name: 'Refrigerator', icon: <TbFridge /> },
-                        { name: 'Rear Lawn', icon: <GiGrassMushroom /> },
-                        { name: 'Front Lawn', icon: <GiGrass /> },
-                        { name: 'EV Charge', icon: <FaChargingStation /> },
-                        { name: 'Club House', icon: <PiWarehouseLight /> }
-                    ] : [
-                        { name: 'Park', icon: <PiPark /> },
-                        { name: 'Parking', icon: <LuParkingCircle /> },
-                        { name: 'Security', icon: <MdSecurity /> },
-                        { name: 'Play Area', icon: <GiKidSlide /> },
-                        { name: 'CCTV', icon: <BiCctv /> },
-                        { name: 'Power Backup', icon: <ImPower /> },
-                        { name: 'Gas Pipeline', icon: <GiGasStove /> }
-                    ]).map((amenity, index) => (
-                        <label key={index} className="property-listing__checkbox-label">
-                            <input
-                                type="checkbox"
-                                name="amenities"
-                                value={amenity.name}
-                                onChange={handleInputChange}
-                                checked={propertyData.details.amenities.includes(amenity.name)}
-                                className="property-listing__checkbox"
-                            />
-                            <span className="property-listing__amenity-icon">{amenity.icon}</span>
-                            <span className="property-listing__amenity-name">{amenity.name}</span>
-                        </label>
-                    ))}
-                </div>
-            </div>
-        )}
+                                        <div className="property-listing__field-group">
+                                            <label className="property-listing__label">Security Deposit</label>
+                                            <input 
+                                                type="number"
+                                                className="property-listing__input"
+                                                name="securityDeposit"
+                                                placeholder="e.g., 50000"
+                                                value={propertyData.details.securityDeposit}
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
 
-        {/* Location Details Section */}
-        {formSections.locationDetails && (
-            <div className="property-listing__section">
-                <div className="property-listing__nearby-grid">
-                    {[
-                        { name: 'metro', label: 'Metro Station' },
-                        { name: 'bus', label: 'Bus Stop' },
-                        { name: 'school', label: 'School' },
-                        { name: 'hospital', label: 'Hospital' },
-                        { name: 'mall', label: 'Mall' },
-                        { name: 'restaurant', label: 'Restaurant' },
-                        { name: 'cinema', label: 'Cinema' }
-                    ].map((location, index) => (
-                        <div key={index} className="property-listing__field-group">
-                            <label className="property-listing__label">{location.label}</label>
-                            <input
-                                type="number"
-                                className="property-listing__input"
-                                name={location.name}
-                                placeholder="Distance in km"
-                                value={propertyData.details.nearbyLocations[location.name]}
-                                onChange={handleInputChange}
-                            />
-                        </div>
-                    ))}
-                </div>
-            </div>
-        )}
+                                        <div className="property-listing__field-group">
+                                            <label className="property-listing__label">Monthly Rent</label>
+                                            <input 
+                                                type="number"
+                                                className="property-listing__input"
+                                                name="monthlyRent"
+                                                placeholder="e.g., 25000"
+                                                value={propertyData.details.monthlyRent}
+                                                onChange={handleInputChange}
+                                                required
+                                            />
+                                        </div>
+                                    </>
+                                )}
+                            </>
+                        )}
 
-        {/* Media Section */}
-        {formSections.media && (
-            <div className="property-listing__section">
-                {propertyData.propertyType.residential !== 'plot' && (
-                    <div className="property-listing__upload-section">
-                        <div className="property-listing__upload-container">
-                            <input
-                                type="file"
-                                id="floorplan"
-                                className="property-listing__file-input"
-                                onChange={(e) => handleMediaUpload(e, 'floorplans')}
-                                multiple
-                                accept=".jpg,.png,.pdf"
-                            />
-                            <label htmlFor="floorplan" className="property-listing__upload-label">
-                                <span className="property-listing__upload-text">Choose Floor Plans</span>
-                                <small className="property-listing__upload-hint">(Up to 4 files)</small>
-                            </label>
-                        </div>
-
-                        {propertyData.floorplans.length > 0 && (
-                            <div className="property-listing__preview">
-                                {propertyData.floorplans.map((file, index) => (
-                                    <div key={index} className="property-listing__preview-item">
-                                        <span className="property-listing__preview-name">{file}</span>
-                                        <button
-                                            className="property-listing__remove-btn"
-                                            onClick={() => removeMedia(file, 'floorplans')}
-                                        >
-                                            <MdDelete />
-                                        </button>
+                        {/* Plot/Land Specific Fields */}
+                        {(propertyData.category === 'residential' && propertyData.propertyType.residential === 'plot') || 
+                         (propertyData.category === 'commercial' && propertyData.propertyType.commercial === 'land') ? (
+                            <>
+                                <div className="property-listing__field-group">
+                                    <label className="property-listing__label">Plot Dimensions</label>
+                                    <div className="property-listing__input-group">
+                                        <input 
+                                            type="number"
+                                            className="property-listing__input"
+                                            name="dimensions.length"
+                                            placeholder="Length"
+                                            value={propertyData.details.dimensions.length}
+                                            onChange={handleInputChange}
+                                            required
+                                        />
+                                        <span className="property-listing__input-separator">×</span>
+                                        <input 
+                                            type="number"
+                                            className="property-listing__input"
+                                            name="dimensions.width"
+                                            placeholder="Width"
+                                            value={propertyData.details.dimensions.width}
+                                            onChange={handleInputChange}
+                                            required
+                                        />
                                     </div>
-                                ))}
+                                </div>
+
+                                <div className="property-listing__field-group">
+                                    <label className="property-listing__label">Number of Open Sides</label>
+                                    <input 
+                                        type="number"
+                                        className="property-listing__input"
+                                        name="openSides"
+                                        placeholder="e.g., 2"
+                                        value={propertyData.details.openSides}
+                                        onChange={handleInputChange}
+                                    />
+                                </div>
+
+                                <div className="property-listing__field-group">
+                                    <label className="property-listing__label">Boundary Wall</label>
+                                    <select 
+                                        className="property-listing__input"
+                                        name="boundaryWall"
+                                        value={propertyData.details.boundaryWall}
+                                        onChange={handleInputChange}
+                                    >
+                                        <option value="">Select Status</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+                            </>
+                        ) : null}
+
+                        {/* Common fields for all property types */}
+                        <div className="property-listing__field-group">
+                            <label className="property-listing__label">Property Facing</label>
+                            <select 
+                                className="property-listing__input"
+                                name="propertyFacing"
+                                value={propertyData.details.propertyFacing}
+                                onChange={handleInputChange}
+                                required
+                            >
+                                <option value="">Choose Direction</option>
+                                <option value="North">North</option>
+                                <option value="South">South</option>
+                                <option value="East">East</option>
+                                <option value="West">West</option>
+                                <option value="North-East">North-East</option>
+                                <option value="North-West">North-West</option>
+                                <option value="South-East">South-East</option>
+                                <option value="South-West">South-West</option>
+                            </select>
+                        </div>
+
+                        <div className="property-listing__field-group">
+                            <label className="property-listing__label">Construction Status</label>
+                            <select 
+                                className="property-listing__input"
+                                name="constructionStatus"
+                                value={propertyData.details.constructionStatus}
+                                onChange={handleInputChange}
+                                required
+                            >
+                                <option value="Ready to Move">Ready to Move</option>
+                                <option value="Under-Construction">Under Construction</option>
+                                <option value="NewLaunch">New Launch</option>
+                            </select>
+                        </div>
+
+                        {propertyData.details.constructionStatus === 'Under-Construction' && (
+                            <div className="property-listing__field-group">
+                                <label className="property-listing__label">Possession Date</label>
+                                <input 
+                                    type="date"
+                                    className="property-listing__input"
+                                    name="propertyDate"
+                                    value={propertyData.details.propertyDate}
+                                    onChange={handleInputChange}
+                                />
                             </div>
                         )}
+
+                        {/* Price Details Section */}
+                        <div className="property-listing__field-group">
+                            <label className="property-listing__label">
+                                {propertyData.purpose === 'rent' ? 'Monthly Rent' : 'Price Details'}
+                            </label>
+                            <div className="property-listing__input-group">
+                                <input 
+                                    type="number"
+                                    className="property-listing__input"
+                                    name="price"
+                                    placeholder="e.g., 2.10"
+                                    value={propertyData.details.price}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                                <select 
+                                    className="property-listing__input"
+                                    name="priceRange"
+                                    value={propertyData.details.priceRange}
+                                    onChange={handleInputChange}
+                                    required
+                                >
+                                    <option value="">Choose Format</option>
+                                    {propertyData.purpose === 'rent' ? (
+                                        <>
+                                            <option value="Thousand">Thousand</option>
+                                            <option value="Lakh">Lakhs</option>
+                                           
+                                        </>
+                                    ) : (
+                                        <>
+                                            <option value="Lakh">Lakhs</option>
+                                            <option value="Crore">Crore</option>
+                                            <option value="million">Million</option>
+                                            <option value="billion">Billion</option>
+                                        </>
+                                    )}
+                                </select>
+                                <select 
+                                    className="property-listing__input"
+                                    name="moneyType"
+                                    value={propertyData.details.moneyType}
+                                    onChange={handleInputChange}
+                                    required
+                                >
+                                    <option value="Rupees">IND-Rupees</option>
+                                    <option value="AED">Dubai-AED</option>
+                                    <option value="Riyal">Qatar-Riyal</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        {propertyData.purpose === 'sale' && (
+                            <div className="property-listing__field-group">
+                                <label className="property-listing__label">Token Amount</label>
+                                <input 
+                                    type="number"
+                                    className="property-listing__input"
+                                    name="tokenAmount"
+                                    placeholder="e.g., 50000"
+                                    value={propertyData.details.tokenAmount}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                        )}
+
+                        {propertyData.purpose === 'rent' && (
+                            <>
+                                <div className="property-listing__field-group">
+                                    <label className="property-listing__label">Security Deposit</label>
+                                    <input 
+                                        type="number"
+                                        className="property-listing__input"
+                                        name="securityDeposit"
+                                        placeholder="e.g., 50000"
+                                        value={propertyData.details.securityDeposit}
+                                        onChange={handleInputChange}
+                                    />
+                                </div>
+
+                                <div className="property-listing__field-group">
+                                    <label className="property-listing__label">Currently Leased?</label>
+                                    <select 
+                                        className="property-listing__input"
+                                        name="leaseStatus"
+                                        value={propertyData.leaseStatus}
+                                        onChange={handleInputChange}
+                                    >
+                                        <option value="no">No</option>
+                                        <option value="yes">Yes</option>
+                                    </select>
+                                </div>
+
+                                {propertyData.leaseStatus === 'yes' && (
+                                    <>
+                                        <div className="property-listing__field-group">
+                                            <label className="property-listing__label">Current Lease Amount</label>
+                                            <input 
+                                                type="number"
+                                                className="property-listing__input"
+                                                name="currentLease"
+                                                placeholder="e.g., 25000"
+                                                value={propertyData.details.currentLease}
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
+
+                                        <div className="property-listing__field-group">
+                                            <label className="property-listing__label">Remaining Lease Time (months)</label>
+                                            <input 
+                                                type="number"
+                                                className="property-listing__input"
+                                                name="remainingTime"
+                                                placeholder="e.g., 6"
+                                                value={propertyData.details.remainingTime}
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
+                                    </>
+                                )}
+                            </>
+                        )}
+
+                        <div className="property-listing__field-group">
+                            <label className="property-listing__label">Maintenance Charge (per month)</label>
+                            <input 
+                                type="number"
+                                className="property-listing__input"
+                                name="maintenanceCharge"
+                                placeholder="e.g., 1500"
+                                value={propertyData.details.maintenanceCharge}
+                                onChange={handleInputChange}
+                            />
+                        </div>
                     </div>
                 )}
 
-                <div className="property-listing__upload-section">
-                    <div className="property-listing__upload-container">
-                        <input
-                            type="file"
-                            id="photos"
-                            className="property-listing__file-input"
-                            onChange={(e) => handleMediaUpload(e, 'photos')}
-                            multiple
-                            accept=".jpg,.png"
-                        />
-                        <label htmlFor="photos" className="property-listing__upload-label">
-                            <span className="property-listing__upload-text">Choose Property Photos</span>
-                            <small className="property-listing__upload-hint">(Up to 10 files)</small>
-                        </label>
+                {/* Amenities Section */}
+                {visibleSections.part4 && (
+                    <div className="property-listing__section">
+                        <div className="property-listing__amenities-grid">
+                            {(propertyData.propertyType.residential !== 'plot' ? [
+                                { name: 'Air Conditioner', icon: <TbAirConditioning /> },
+                                { name: 'Cable Tv', icon: <FaSatelliteDish /> },
+                                { name: 'Wifi', icon: <FaWifi /> },
+                                { name: 'Dishwasher', icon: <LuUtensilsCrossed /> },
+                                { name: 'Heating', icon: <PiThermometerHotBold /> },
+                                { name: 'Lift', icon: <GrElevator /> },
+                                { name: 'Intercomm Facility', icon: <LiaIntercom /> },
+                                { name: 'Microwave', icon: <MdMicrowave /> },
+                                { name: 'Park', icon: <PiPark /> },
+                                { name: 'Parking', icon: <LuParkingCircle /> },
+                                { name: 'Guest Parking', icon: <RiParkingBoxLine /> },
+                                { name: 'Security', icon: <MdSecurity /> },
+                                { name: 'Play Area', icon: <GiKidSlide /> },
+                                { name: 'CCTV', icon: <BiCctv /> },
+                                { name: 'Power Backup', icon: <ImPower /> },
+                                { name: 'Gas Pipeline', icon: <GiGasStove /> },
+                                { name: 'Gym', icon: <GiWeightLiftingUp /> },
+                                { name: 'Swimming Pool', icon: <FaPersonSwimming /> },
+                                { name: 'Multipurpose Court', icon: <PiCourtBasketball /> },
+                                { name: 'Multipurpose Hall', icon: <TbBuildingBank /> },
+                                { name: 'Chimney', icon: <GiChimney /> },
+                                { name: 'Modular Kitchen', icon: <FaKitchenSet /> },
+                                { name: 'Refrigerator', icon: <TbFridge /> },
+                                { name: 'Rear Lawn', icon: <GiGrassMushroom /> },
+                                { name: 'Front Lawn', icon: <GiGrass /> },
+                                { name: 'EV Charge', icon: <FaChargingStation /> },
+                                { name: 'Club House', icon: <PiWarehouseLight /> }
+                            ] : [
+                                { name: 'Park', icon: <PiPark /> },
+                                { name: 'Parking', icon: <LuParkingCircle /> },
+                                { name: 'Security', icon: <MdSecurity /> },
+                                { name: 'Play Area', icon: <GiKidSlide /> },
+                                { name: 'CCTV', icon: <BiCctv /> },
+                                { name: 'Power Backup', icon: <ImPower /> },
+                                { name: 'Gas Pipeline', icon: <GiGasStove /> }
+                            ]).map((amenity, index) => (
+                                <label key={index} className="property-listing__checkbox-label">
+                                    <input
+                                        type="checkbox"
+                                        name="amenities"
+                                        value={amenity.name}
+                                        onChange={handleInputChange}
+                                        checked={propertyData.details.amenities.includes(amenity.name)}
+                                        className="property-listing__checkbox"
+                                    />
+                                    <span className="property-listing__amenity-icon">{amenity.icon}</span>
+                                    <span className="property-listing__amenity-name">{amenity.name}</span>
+                                </label>
+                            ))}
+                        </div>
                     </div>
+                )}
 
-                    {propertyData.photos.length > 0 && (
-                        <div className="property-listing__preview">
-                            {propertyData.photos.map((file, index) => (
-                                <div key={index} className="property-listing__preview-item">
-                                    <span className="property-listing__preview-name">{file}</span>
-                                    <button
-                                        className="property-listing__remove-btn"
-                                        onClick={() => removeMedia(file, 'photos')}
-                                    >
-                                        <MdDelete />
-                                    </button>
+                {/* Location Details Section */}
+                {visibleSections.part3 && (
+                    <div className="property-listing__section">
+                        <div className="property-listing__nearby-grid">
+                            {[
+                                { name: 'metro', label: 'Metro Station' },
+                                { name: 'bus', label: 'Bus Stop' },
+                                { name: 'school', label: 'School' },
+                                { name: 'hospital', label: 'Hospital' },
+                                { name: 'mall', label: 'Mall' },
+                                { name: 'restaurant', label: 'Restaurant' },
+                                { name: 'cinema', label: 'Cinema' }
+                            ].map((location, index) => (
+                                <div key={index} className="property-listing__field-group">
+                                    <label className="property-listing__label">{location.label}</label>
+                                    <input
+                                        type="number"
+                                        className="property-listing__input"
+                                        name={location.name}
+                                        placeholder="Distance in km"
+                                        value={propertyData.details.nearbyLocations[location.name]}
+                                        onChange={handleInputChange}
+                                    />
                                 </div>
                             ))}
                         </div>
+                    </div>
+                )}
+
+                {/* Media Section */}
+                {visibleSections.part5 && (
+                    <div className="property-listing__section">
+                        {propertyData.propertyType.residential !== 'plot' && (
+                            <div className="property-listing__upload-section">
+                                <div className="property-listing__upload-container">
+                                    <input
+                                        type="file"
+                                        id="floorplan"
+                                        className="property-listing__file-input"
+                                        onChange={(e) => handleMediaUpload(e, 'floorplans')}
+                                        multiple
+                                        accept=".jpg,.png,.pdf"
+                                    />
+                                    <label htmlFor="floorplan" className="property-listing__upload-label">
+                                        <span className="property-listing__upload-text">Choose Floor Plans</span>
+                                        <small className="property-listing__upload-hint">(Up to 4 files)</small>
+                                    </label>
+                                </div>
+
+                                {propertyData.floorplans.length > 0 && (
+                                    <div className="property-listing__preview">
+                                        {propertyData.floorplans.map((file, index) => (
+                                            <div key={index} className="property-listing__preview-item">
+                                                <span className="property-listing__preview-name">{file}</span>
+                                                <button
+                                                    className="property-listing__remove-btn"
+                                                    onClick={() => removeMedia(file, 'floorplans')}
+                                                >
+                                                    <MdDelete />
+                                                </button>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        )}
+
+                        <div className="property-listing__upload-section">
+                            <div className="property-listing__upload-container">
+                                <input
+                                    type="file"
+                                    id="photos"
+                                    className="property-listing__file-input"
+                                    onChange={(e) => handleMediaUpload(e, 'photos')}
+                                    multiple
+                                    accept=".jpg,.png"
+                                />
+                                <label htmlFor="photos" className="property-listing__upload-label">
+                                    <span className="property-listing__upload-text">Choose Property Photos</span>
+                                    <small className="property-listing__upload-hint">(Up to 10 files)</small>
+                                </label>
+                            </div>
+
+                            {propertyData.photos.length > 0 && (
+                                <div className="property-listing__preview">
+                                    {propertyData.photos.map((file, index) => (
+                                        <div key={index} className="property-listing__preview-item">
+                                            <span className="property-listing__preview-name">{file}</span>
+                                            <button
+                                                className="property-listing__remove-btn"
+                                                onClick={() => removeMedia(file, 'photos')}
+                                            >
+                                                <MdDelete />
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                )}
+
+                {/* Preview Section */}
+                {visibleSections.part6 && (
+                    <div className="property-listing__section">
+                        <button 
+                            type="button"
+                            className="property-listing__btn property-listing__btn--primary"
+                            onClick={generateDescription}
+                            disabled={propertyData.isLoading}
+                        >
+                            {propertyData.isLoading ? "Generating..." : "Generate AI Description"}
+                        </button>
+
+                        <div className="property-listing__field-group">
+                            <label className="property-listing__label">Property Description</label>
+                            <textarea
+                                className="property-listing__input property-listing__input--textarea"
+                                value={propertyData.description}
+                                onChange={(e) => setPropertyData(prev => ({ ...prev, description: e.target.value }))}
+                                rows={7}
+                                placeholder="Property description will be generated here..."
+                                required
+                            />
+                        </div>
+
+                        <div className="property-listing__preview-details">
+                            <h3 className="property-listing__preview-title">Property Summary</h3>
+                            <div className="property-listing__summary">
+                                <div className="property-listing__summary-item">
+                                    <span className="property-listing__summary-label">Purpose:</span>
+                                    <span className="property-listing__summary-value">{propertyData.purpose}</span>
+                                </div>
+                                <div className="property-listing__summary-item">
+                                    <span className="property-listing__summary-label">Category:</span>
+                                    <span className="property-listing__summary-value">{propertyData.category}</span>
+                                </div>
+                                <div className="property-listing__summary-item">
+                                    <span className="property-listing__summary-label">Type:</span>
+                                    <span className="property-listing__summary-value">
+                                        {propertyData.propertyType.residential || propertyData.propertyType.commercial}
+                                    </span>
+                                </div>
+                                <div className="property-listing__summary-item">
+                                    <span className="property-listing__summary-label">Property Name:</span>
+                                    <span className="property-listing__summary-value">{propertyData.details.propertyName}</span>
+                                </div>
+                                <div className="property-listing__summary-item">
+                                    <span className="property-listing__summary-label">Location:</span>
+                                    <span className="property-listing__summary-value">
+                                        {propertyData.details.locality}, {propertyData.details.city}, {propertyData.details.country}
+                                    </span>
+                                </div>
+                                {propertyData.details.areaDetail && (
+                                    <div className="property-listing__summary-item">
+                                        <span className="property-listing__summary-label">Area:</span>
+                                        <span className="property-listing__summary-value">
+                                            {propertyData.details.areaDetail} sq.ft ({propertyData.details.areaType})
+                                        </span>
+                                    </div>
+                                )}
+                                {propertyData.details.price && (
+                                    <div className="property-listing__summary-item">
+                                        <span className="property-listing__summary-label">Price:</span>
+                                        <span className="property-listing__summary-value">
+                                            {propertyData.details.price} {propertyData.details.priceRange} {propertyData.details.moneyType}
+                                        </span>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                <div className="property-listing__navigation">
+                    {activeStep > 0 && (
+                        <button
+                            type="button"
+                            className="property-listing__btn property-listing__btn--secondary"
+                            onClick={handlePrevClick}
+                        >
+                            Previous
+                        </button>
+                    )}
+                    {activeStep < 5 && (
+                        <button
+                            type="button"
+                            className="property-listing__btn property-listing__btn--primary"
+                            onClick={handleNextClick}
+                        >
+                            Next
+                        </button>
+                    )}
+                    {activeStep === 5 && (
+                        <button
+                            type="submit"
+                            className="property-listing__btn property-listing__btn--primary"
+                            disabled={propertyData.isLoading}
+                        >
+                            {propertyData.isLoading ? 'Submitting...' : 'Submit Listing'}
+                        </button>
                     )}
                 </div>
-            </div>
-        )}
-
-        {/* Preview Section */}
-        {formSections.preview && (
-            <div className="property-listing__section">
-                <button 
-                    type="button"
-                    className="property-listing__btn property-listing__btn--primary"
-                    onClick={generateDescription}
-                    disabled={propertyData.isLoading}
-                >
-                    {propertyData.isLoading ? "Generating..." : "Generate AI Description"}
-                </button>
-
-                <div className="property-listing__field-group">
-                    <label className="property-listing__label">Property Description</label>
-                    <textarea
-                        className="property-listing__input property-listing__input--textarea"
-                        value={propertyData.description}
-                        onChange={(e) => setPropertyData(prev => ({ ...prev, description: e.target.value }))}
-                        rows={7}
-                        placeholder="Property description will be generated here..."
-                        required
-                    />
-                </div>
-
-                <div className="property-listing__preview-details">
-                    <h3 className="property-listing__preview-title">Property Summary</h3>
-                    <div className="property-listing__summary">
-                        <div className="property-listing__summary-item">
-                            <span className="property-listing__summary-label">Purpose:</span>
-                            <span className="property-listing__summary-value">{propertyData.purpose}</span>
-                        </div>
-                        <div className="property-listing__summary-item">
-                            <span className="property-listing__summary-label">Category:</span>
-                            <span className="property-listing__summary-value">{propertyData.category}</span>
-                        </div>
-                        <div className="property-listing__summary-item">
-                            <span className="property-listing__summary-label">Type:</span>
-                            <span className="property-listing__summary-value">
-                                {propertyData.propertyType.residential || propertyData.propertyType.commercial}
-                            </span>
-                        </div>
-                        <div className="property-listing__summary-item">
-                            <span className="property-listing__summary-label">Property Name:</span>
-                            <span className="property-listing__summary-value">{propertyData.details.propertyName}</span>
-                        </div>
-                        <div className="property-listing__summary-item">
-                            <span className="property-listing__summary-label">Location:</span>
-                            <span className="property-listing__summary-value">
-                                {propertyData.details.locality}, {propertyData.details.city}, {propertyData.details.country}
-                            </span>
-                        </div>
-                        {propertyData.details.areaDetail && (
-                            <div className="property-listing__summary-item">
-                                <span className="property-listing__summary-label">Area:</span>
-                                <span className="property-listing__summary-value">
-                                    {propertyData.details.areaDetail} sq.ft ({propertyData.details.areaType})
-                                </span>
-                            </div>
-                        )}
-                        {propertyData.details.price && (
-                            <div className="property-listing__summary-item">
-                                <span className="property-listing__summary-label">Price:</span>
-                                <span className="property-listing__summary-value">
-                                    {propertyData.details.price} {propertyData.details.priceRange} {propertyData.details.moneyType}
-                                </span>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </div>
-        )}
-
-        <div className="property-listing__navigation">
-            {activeStep > 0 && (
-                <button
-                    type="button"
-                    className="property-listing__btn property-listing__btn--secondary"
-                    onClick={handlePrevClick}
-                >
-                    Previous
-                </button>
-            )}
-            {activeStep < 5 && (
-                <button
-                    type="button"
-                    className="property-listing__btn property-listing__btn--primary"
-                    onClick={handleNextClick}
-                >
-                    Next
-                </button>
-            )}
-            {activeStep === 5 && (
-                <button
-                    type="submit"
-                    className="property-listing__btn property-listing__btn--primary"
-                    disabled={propertyData.isLoading}
-                >
-                    {propertyData.isLoading ? 'Submitting...' : 'Submit Listing'}
-                </button>
-            )}
+            </form>
         </div>
-    </form>
-</div>
-</>
+    </>
 );
 };
 
