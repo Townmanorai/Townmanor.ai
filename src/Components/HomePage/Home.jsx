@@ -106,7 +106,7 @@ function Home() {
       {/* <RightAgents /> */}
       <CategoriesPresentation />
       <ExclusiveOwnerProperties />
-      <PropertyList />
+      {/* <PropertyList /> */}
       <TopRentedProperties />
       <StateHouseTax />
       <Coliving_space/>
