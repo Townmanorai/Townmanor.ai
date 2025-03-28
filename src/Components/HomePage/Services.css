@@ -5,7 +5,7 @@
   padding: 20px;
   background-color: transparent;
   text-align: center;
-  padding-top: 50px;
+  padding-top: 25px;
 }
 
 .svc-services-section h1 {
@@ -22,7 +22,7 @@
   gap: 20px;
   justify-items: start;
   margin-top: 20px;
-  padding-top: 20px;
+  /* padding-top: 20px; */
 }
 
 /* Each service card */
@@ -88,10 +88,16 @@
     justify-items: center;
   }
   .svc-services-section {
-    padding-top: 0px;
+    padding-top: 10px;
   }
   .new-badge {
     margin-left: 5px !important;
+  }
+}
+
+@media (max-width: 767px){
+  .svc-h1{
+    font-size: 21px !important;
   }
 }
 
@@ -118,14 +124,6 @@
   .svc-service-text p {
     font-size: 0.7rem;
   }
-  
-  .svc-services-grid{
-    margin-top: 0px;
-    padding-top: 0px;
-  }
-  .svc-services-section h1 b {
-    font-weight: 400 !important;
-}
 }
 
 @media (max-width: 375px) {
@@ -149,16 +147,6 @@
   .svc-service-text p {
     font-size: 0.65rem;
   }
-
-  .svc-services-grid{
-    margin-top: 0px;
-    padding-top: 0px;
-  }
-
-  .svc-services-section h1 b {
-    font-weight: 400 !important;
-}
-
 }
 
 /* Popup styles */

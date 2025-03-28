@@ -15,13 +15,13 @@
   padding-bottom: 25px;
 }
 
-.details-grid {
+.details-grids {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
 
-.details-grid div {
+.details-grids div {
   display: flex;
   align-items: center;
   font-size: 14px;
@@ -30,23 +30,23 @@
   margin-bottom: 30px;
 }
 
-.details-grid span {
+.details-grids span {
   color: #242526;
   margin-right: 10px;
 }
 
 @media (max-width: 768px) {
-  .details-grid {
+  .details-grids {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .details-grid div {
+  .details-grids div {
     margin-bottom: 10px;
   }
 }
 
 @media (max-width: 480px) {
-  .details-grid {
+  .details-grids {
     grid-template-columns: repeat(1, 1fr);
   }
 
@@ -55,7 +55,7 @@
     padding: 15px;
   }
 
-  .details-grid div {
+  .details-grids div {
     font-size: 12px;
     margin-bottom: 5px;
   }

@@ -171,7 +171,7 @@ const PopularListing = () => {
   // ];
   
   return (
-    <section className="popular-listing hp2 section-padding widget_edit_enabled mt-4">
+    <section className="popular-listing hp2 section-padding widget_edit_enabled mt-4 nps bps">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-xl-12">

@@ -52,7 +52,7 @@ const Discovermore = () => {
   }, []);
 
   return (
-    <section className="main-banner-sec widget_edit_enabled mb-0 pb-0 Advertisment">
+    <section className="main-banner-sec widget_edit_enabled mb-0 pb-0 Advertisment" style={{paddingTop:"20px"}}>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-xl-8">
@@ -61,7 +61,7 @@ const Discovermore = () => {
             </div>
           </div>
         </div>
-
+        <div className='remove-dots'>
         <Slider {...settings} className="banner-carousel" style={{ height: sliderHeight }}>
           <div className="banner-slide">
             <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/ads-image/townmanor_discover_more8.jpg" alt="ad_space_available_4.jpg" />
@@ -88,6 +88,7 @@ const Discovermore = () => {
             <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/ads-image/townmanor_discover_more3.jpeg" alt="ad_space_available_3.jpg" />
           </div>
         </Slider>
+        </div>
       </div>
     </section>
   );
