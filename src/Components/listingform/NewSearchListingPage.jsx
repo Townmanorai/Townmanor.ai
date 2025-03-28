@@ -1,6 +1,6 @@
 import React from "react";
 import { FaSearch, FaMapMarkerAlt, FaBed, FaMoneyBillWave, FaUserCircle } from "react-icons/fa";
-import "./newsearchlistingpage.css";
+import "./NewSearchListingPage.css";
 
 const NewSearchListingPage = () => {
     return (
