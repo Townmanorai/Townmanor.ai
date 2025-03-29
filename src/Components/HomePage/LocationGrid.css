@@ -1,21 +1,25 @@
-.product-wrap {
+/* .product-wrap {
     padding: 20px !important;
     display: inline-block;
-}
+} */
 
 section.popular-cities.hp_s1.section-padding.widget_edit_enabled {
     padding: 25px 0 0px;
-    margin: 19px 0;
+    margin: 0;
 }
 
 @media (max-width: 767px) {
     .product-wrap {
-        padding: 20px !important;
+        padding: 0px 20px !important;
         display: inline-block;
-        margin-left: -30px;
+        /* margin-left: -30px; */
     }
 
     .popular-cities.hp_s1.pch{
         margin-top:'20px' !important;
+    }
+
+    .popular-cities.hp_s1.section-padding.widget_edit_enabled.pch{
+        padding-top: 25px !important;
     }
 }

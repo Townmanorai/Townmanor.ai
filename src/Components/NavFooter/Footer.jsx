@@ -366,13 +366,13 @@ const Footer = () => {
       {/* Footer Copyright */}
       <footer className="footer">
             <div className="container">
-              <div className="row justify-content-between">
+              <div className="row justify-content-between rjcb">
                 <div className="col-md-6">
                   <div className="copyright text-left footer-content">
                     <p>© Townmanor Technologies Pvt Ltd. All Rights Reserved.</p>
                   </div>
                 </div>
-                <div className="col-md-6">
+                {/* <div className="col-md-6">
                   <div className="Digipanda_Consulting footer-content">
                     <p>
                       <small>
@@ -383,7 +383,7 @@ const Footer = () => {
                       </small>
                     </p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </footer>

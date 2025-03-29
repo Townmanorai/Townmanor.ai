@@ -63,14 +63,14 @@ const BlogPosts = () => {
     }); 
 };
   return (
-    <section className="blog-grid hp6 section-padding pt-4">
+    <section className="blog-grid hp6 section-padding pt-4 bphp6">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-4">
-            <div className="section-heading text-left">
+            <div className="section-heading text-left" style={{marginBottom:'10px'}}>
               <span>Our Blog Posts</span>
               <h3>LATEST NEWS &amp; ARTICLES</h3>
-              <p>&nbsp;</p>
+              {/* <p>&nbsp;</p> */}
               <p className="blog_news_peh">
                 Your Real Estate Resource Center: Explore market trends, insightful guides, and more—all in one place.
               </p>

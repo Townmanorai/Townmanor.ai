@@ -52,7 +52,7 @@ const Discovermore = () => {
   }, []);
 
   return (
-    <section className="main-banner-sec widget_edit_enabled mb-0 pb-0 Advertisment" style={{paddingTop:"20px"}}>
+    <section className="main-banner-sec widget_edit_enabled mb-0 pb-0 Advertisment" style={{paddingTop:"5px"}}>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-xl-8">

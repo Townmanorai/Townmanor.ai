@@ -75,23 +75,24 @@ const StateHouseTax = () => {
             </div>
           </div>
         </div>
-
-        <Slider {...settings}>
-          {dummyStatesData.map((item, index) => (
-           <div key={index} className="state-house-tax-card">
-           <Link to={`/states/${item.state_name}`}>
-               <div className="card-body">
-                   <div className="state-image">
-                       <img src={item.image_url} alt={item.state_name} />
-                   </div>
-                   <div className="state-details">
-                       <span>{item.state_name}</span>
-                   </div>
-               </div>
-           </Link>
-       </div>
-          ))}
-        </Slider>
+        <div className='sh-card'>
+          <Slider {...settings}>
+            {dummyStatesData.map((item, index) => (
+            <div key={index} className="state-house-tax-card">
+            <Link to={`/states/${item.state_name}`}>
+                <div className="card-body">
+                    <div className="state-image">
+                        <img src={item.image_url} alt={item.state_name} />
+                    </div>
+                    <div className="state-details">
+                        <span>{item.state_name}</span>
+                    </div>
+                </div>
+            </Link>
+        </div>
+            ))}
+          </Slider>
+        </div>
       </div>
     </section>
   );

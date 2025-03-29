@@ -79,8 +79,8 @@ function Coliving_space() {
       <div className=''>
         <div className='container'>
           <div className='coliving'>
-            <div className='co-left'>
-              <h1> We Are Coming Soon !</h1>
+            <div className='co-left section-heading'>
+              <h3> We <b>Are</b> Coming <b>Soon !</b></h3>
               {/* <div>
                 <p>
                   {ShowContent ? trimmedContent : content} 

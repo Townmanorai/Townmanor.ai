@@ -171,11 +171,11 @@ const PopularListing = () => {
   // ];
   
   return (
-    <section className="popular-listing hp2 section-padding widget_edit_enabled mt-4 nps bps" style={{paddingBottom:"20px"}}>
+    <section className="popular-listing hp2 section-padding widget_edit_enabled mt-4 nps bps" style={{paddingBottom:"0px"}}>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-xl-12">
-            <div className="section-heading" style={{marginBottom:'30px'}}>
+            <div className="section-heading" style={{marginBottom:'20px'}}>
               <span>Discover</span>
               <h3>
                 Newly launched <b>properties</b>
@@ -313,7 +313,7 @@ const PopularListing = () => {
 
           <div className="col-lg-12">
     <div className="load-more-posts l-load">
-      <a href="https://townmanor.in/en/145" title="" className="btn2">
+      <a href="https://townmanor.in/en/145" title="" className="btn2 lmbtn">
         Load More
       </a>
     </div>
@@ -321,7 +321,7 @@ const PopularListing = () => {
         </div>
         <div className="load-more-posts-mobile">
           <div className="load-more-posts-mobile-inner">
-  <a href="https://townmanor.in/en/145" title="" className="btn2">
+  <a href="https://townmanor.in/en/145" title="" className="btn2 lmbtn">
     Load More
   </a>
   </div>

@@ -54,9 +54,9 @@ const FeatureCard = ({ title, description, image, link }) => {
 
 const ExploreFeatures = () => {
   return (
-    <section className="explore-feature hp7 section-padding widget_edit_enabled">
+    <section className="explore-feature hp7 section-padding widget_edit_enabled efhp7">
       <div className="container">
-        <div className="section-heading abc text-center">
+        <div className="section-heading abc text-center" style={{marginBottom:'0px'}}>
           <span>Explore Features</span>
           <h3>
             Why choose <b>Townmanor</b>

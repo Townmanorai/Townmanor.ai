@@ -209,17 +209,21 @@
 
     .co-right .slick-dots{
       bottom: 25px;
+      right: -3%;
     }
 
     .co-right img{
       width: 300px !important;
       height: 200px;
-      margin-left: 75px;
+      margin-left: 20%;
     }
 
   }
   @media screen and (max-width: 720px) {
     .coliving{
       flex-direction: column;
+    }
+    .co-left{
+      margin-bottom: 0px;
     }
   }

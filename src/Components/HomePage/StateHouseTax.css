@@ -83,17 +83,17 @@
   .state-house-tax-card:hover .state-name-title {
     color: #ff0000;
   }
+
+  .sh-card .slick-dots{
+    display: none !important;
+  }
   
 
-  @media (max-width: 767px) {
-    .state-house-tax-heading h3 {
-      font-size: 17px;
+@media (max-width: 767px) {
+  .state-house-tax-heading h3 {
+    font-size: 17px;
   }
   .state-details {
     font-size: 8px;
+  }
 }
-    
-  }
-  @media (max-width: 450px) {
-    
-  }

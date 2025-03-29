@@ -157,6 +157,15 @@
   height: 150px;
 }
 
+.popular-listing .card {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 22px 22px 20px 20px !important;
+}
+
+.btn2.lmbtn{
+  margin-top: 0px;
+}
+
 @media only screen and (max-width: 767px) {
   .property-box {
     width: 250px;
@@ -167,20 +176,18 @@
   }
 }
 
-.popular-listing .card {
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 22px 22px 20px 20px !important;
-}
-
 @media only screen and (max-width:920px){
   .popular-listing.hp2{
     margin-top: 80px !important;
   }
+  .popular-listing.hp2.section-padding.widget_edit_enabled.mt-4.nps.bps{
+    padding-top: 25px !important;
+  }
 }
 @media only screen and (min-width:920px){
   
-  .popular-listing .hp2 .section-padding .widget_edit_enabled .mt-4 .nps .bps{
-    padding-top: 10px !important;
+  .popular-listing.hp2.section-padding.widget_edit_enabled.mt-4.nps.bps{
+    padding-top: 10px ;
   }
 
 }
