@@ -131,7 +131,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/admin-property" element={<AdminPropertyPage />} />
-            <Route path="/search-property" element={<SearchPropertyPage />} />
+            <Route path="/oldsearch" element={<SearchPropertyPage />} />
             <Route path="/auth" element={<AuthContainer onUserLogin={handleUserLogin} />} />
             <Route path="/forgot-password" element={<ForgotPassword />} /> {/* Forgot Password Route */}
             <Route path="/sign-up" element={<Signup />} /> {/* Sign Up Route */}
@@ -217,7 +217,7 @@ function App() {
             <Route path='/singleblog/:id' element={<ArticleComponent/>}/>
             <Route path='/adminproperty/:id' element={<PropertyListings/>}/>
             <Route path='/andromeda' element={<Andromeda/>}/>
-            <Route path='/newsearch' element={<NewSearchListingPage/>}/>
+            <Route path='/search-property' element={<NewSearchListingPage/>}/>
           </Routes>
         </main>
         <Footer />
