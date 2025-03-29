@@ -251,26 +251,57 @@ const NewSearchListingPage = () => {
     };
 
     const renderPropertyCard = (property) => {
-        const images = JSON.parse(property.image_repository || '[]');
-        const amenities = JSON.parse(property.amenities || '[]');
+        let images = [];
+        try {
+            // Handle both string and array inputs
+            if (typeof property.image_repository === 'string') {
+                images = JSON.parse(property.image_repository || '[]');
+            } else if (Array.isArray(property.image_repository)) {
+                images = property.image_repository;
+            }
+        } catch (error) {
+            console.warn('Error parsing image repository:', error);
+            images = [];
+        }
+
+        let amenities = [];
+        try {
+            // Handle both string and array inputs
+            if (typeof property.amenities === 'string') {
+                amenities = JSON.parse(property.amenities || '[]');
+            } else if (Array.isArray(property.amenities)) {
+                amenities = property.amenities;
+            }
+        } catch (error) {
+            console.warn('Error parsing amenities:', error);
+            amenities = [];
+        }
+        
+        const imageUrl = images && images.length > 0 
+            ? `https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/${images[0]}`
+            : "/dummyproperty.jpg";
         
         return (
             <div key={property.id} className="card-listing-wrapper">
                 <div className="image-box-container">
                     <span className="badge-highlighted">Featured</span>
                     <img
-                        src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/'+images[0] || "/dummyproperty.jpg"}
-                        alt={property.property_name}
+                        src={imageUrl}
+                        alt={property.property_name || 'Property Image'}
                         className="image-box-main"
+                        onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = "/dummyproperty.jpg";
+                        }}
                     />
                 </div>
                 <div className="content-card-details">
                     <div className="card-price">
-                        <h3 className="text-title-card">{property.configuration} Flat for {property.purpose} in {property.property_name}</h3>
+                        <h3 className="text-title-card">{property.configuration} Flat for {property.purpose} in {property.property_name || 'Property'}</h3>
                         <h2 className="text-title-card">{formatPrice(property.price, property.pricerange, property.money_type)}</h2>
                     </div>
                     <p className="text-location">
-                        <FaMapMarkerAlt className="icon-map-marker" /> {property.address}
+                        <FaMapMarkerAlt className="icon-map-marker" /> {property.address || 'Address not available'}
                     </p>
                     <div className="content-spec">
                         <p className="text-land-area">
@@ -279,12 +310,10 @@ const NewSearchListingPage = () => {
                         <p className="text-land-area">
                             <IoConstruct className="icon-measurement" /> {property.construction_status || "Not Available"}
                         </p>
-                        {property.furnish_type &&(
-                            <>
-                             <p className="text-land-area">
-                             <PiPaintBrushHousehold className="icon-measurement" /> {property.furnish_type || "Not Available"}
-                        </p>
-                            </>
+                        {property.furnish_type && (
+                            <p className="text-land-area">
+                                <PiPaintBrushHousehold className="icon-measurement" /> {property.furnish_type}
+                            </p>
                         )}
                        
                         {property.area_detail && (
@@ -294,14 +323,22 @@ const NewSearchListingPage = () => {
                         )}
                     </div>
                     <p className="text-short-description">
-                        {property.description?.substring(0, 150)}...
+                        {property.description?.substring(0, 150) || 'No description available'}...
                     </p>
                     <div className="agent-information-section">
-                        <img src="/useragent.png" alt={property.username || 'Admin'} className="agent-photo-profile" />
+                        <img 
+                            src="/useragent.png" 
+                            alt={property.username || 'Admin'} 
+                            className="agent-photo-profile"
+                            onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = "/useragent.png";
+                            }}
+                        />
                         <span className="agent-name-role">{property.username || 'Admin'}</span>
                     </div>
                     <div className="button-actions-container">
-                        <button className="btn-view-info" onClick={()=>{
+                        <button className="btn-view-info" onClick={() => {
                             navigate(`/home/${property.id}`)
                         }}>View Details</button>
                         <button className="btn-contact-agent">Connect Now</button>
