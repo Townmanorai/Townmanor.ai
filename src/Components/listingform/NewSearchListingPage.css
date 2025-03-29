@@ -221,8 +221,8 @@
   
   .text-title-card {
     font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 5px;
+    font-weight: 500;
+
   }
   .card-price{
     display: flex;
@@ -896,7 +896,7 @@ display: none;
   display: grid
 ;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0px;
+  gap: 7px;
   align-items: center;
 }
 .container-main-wrapper {
@@ -904,7 +904,7 @@ display: none;
 }
 .custom-pagination-button {
   border: 1px solid #ccc;
-  padding: 6px 12px;
+  padding: 6px 8px;
   margin: 0 5px;
   cursor: pointer;
   font-size: 14px;
@@ -914,5 +914,19 @@ display: none;
 .unique-dropdown-icon {
   width: 14px !important;
   height: 14px !important;
+}
+.card-price {
+  display: flex
+;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.text-title-card {
+  font-size: 16px;
+  font-weight: 500;
+
+}
+.btn-contact-agent {
+  background: linear-gradient(to right, #ff4447, #8a2e2e);
 }
 }

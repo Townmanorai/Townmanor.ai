@@ -122,6 +122,13 @@ const NewSearchListingPage = () => {
             );
         }
 
+        // Purpose filter (rent/sale)
+        if (filters.purpose) {
+            filtered = filtered.filter(prop => 
+                (prop.purpose || '').toLowerCase() === filters.purpose.toLowerCase()
+            );
+        }
+
         // Upload date filter
         if (filters.uploadDate) {
             const now = new Date();
@@ -171,7 +178,7 @@ const NewSearchListingPage = () => {
         if (filters.furnishType) {
             filtered = filtered.filter(prop => prop.furnish_type?.toLowerCase() === filters.furnishType.toLowerCase());
         }
-
+       
         // Construction status filter
         if (filters.constructionStatus) {
             filtered = filtered.filter(prop => prop.construction_status?.toLowerCase() === filters.constructionStatus.toLowerCase());
