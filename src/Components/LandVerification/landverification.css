@@ -51,13 +51,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom: 0.5rem;
   transition: all 0.3s ease;
 }
 
 .land-verification-progress-step.active .land-verification-step-number {
-  background-color: #0e0e0e;
+  background-color: #ac1515;
   color: white;
 }
 

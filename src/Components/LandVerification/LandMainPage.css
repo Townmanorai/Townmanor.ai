@@ -583,12 +583,12 @@
 }
 
 .townmanor-land-main-cta-content h2 {
-  font-size: 2.5rem;
+  font-size: 14px;
   margin-bottom: 1rem;
 }
 
 .townmanor-land-main-cta-content p {
-  font-size: 1.2rem;
+  font-size: 12px;
   margin-bottom: 2rem;
   max-width: 700px;
   margin-left: auto;
@@ -611,12 +611,26 @@
     flex-direction: column;
     min-height: auto;
     text-align: center;
+    margin: 0 0;
+  }
+
+  .townmanor-land-main-cta-button{
+    padding: 10px 35px;
+    font-size: 15px;
   }
 
   .townmanor-land-main-hero-content {
     padding-right: 0;
     margin-bottom: 3rem;
   }
+
+  .townmanor-land-how-it-works-feature-icon {
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 5px;
+    max-width :20px;
+    max-height: 20px;
+}
 
   .townmanor-land-main-steps-container {
     flex-direction: column;
@@ -652,7 +666,8 @@
   }
 
   .townmanor-land-main-hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 27px;
+    margin-bottom: 10px;
   }
 
   .townmanor-land-main-values-grid {
