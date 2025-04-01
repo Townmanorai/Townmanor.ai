@@ -185,7 +185,7 @@ const Navbar = () => {
                           </span>
                         </li>
                         <li className="nav-item submit-btn">
-                        <Link to="/form" className="my-2 my-sm-0 nav-link sbmt-btn overflowVisible" onClick={closeMenu}>
+                        <Link to="/newform" className="my-2 my-sm-0 nav-link sbmt-btn overflowVisible" onClick={closeMenu}>
                             {/* <i className="icon-plus"></i> */}
                             <FaPlusCircle style={{
                           color:'white',

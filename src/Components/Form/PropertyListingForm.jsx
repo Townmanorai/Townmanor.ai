@@ -126,19 +126,19 @@ const PropertyListingForm = () => {
     }, []);
 
     const fetchUserAuth = () => {
-        // const token = Cookies.get('jwttoken');
-        // if (token) {
-        //     try {
-        //         const decodedToken = jwtDecode(token);
-        //         setUsername(decodedToken.username);
-        //         setAuthToken(token);
-        //     } catch (error) {
-        //         console.error('Auth token decode error:', error);
-        //         navigate('/login');
-        //     }
-        // } else {
-        //     navigate('/login');
-        // }
+        const token = Cookies.get('jwttoken');
+        if (token) {
+            try {
+                const decodedToken = jwtDecode(token);
+                setUsername(decodedToken.username);
+                setAuthToken(token);
+            } catch (error) {
+                console.error('Auth token decode error:', error);
+                navigate('/');
+            }
+        } else {
+            navigate('/');
+        }
     };
 
     const handleStepChange = (step) => {

@@ -10,6 +10,7 @@ import { PiPaintBrushHousehold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 
 const NewSearchListingPage = () => {
+ 
     const [properties, setProperties] = useState([]);
     const [filteredProperties, setFilteredProperties] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -282,6 +283,8 @@ const NewSearchListingPage = () => {
             : "/dummyproperty.jpg";
         
         return (
+            <>
+         
             <div key={property.id} className="card-listing-wrapper">
                 <div className="image-box-container">
                     <span className="badge-highlighted">Featured</span>
@@ -298,17 +301,20 @@ const NewSearchListingPage = () => {
                 <div className="content-card-details">
                     <div className="card-price">
                         <h3 className="text-title-card">{property.configuration} Flat for {property.purpose} in {property.property_name || 'Property'}</h3>
-                        <h2 className="text-title-card">{formatPrice(property.price, property.pricerange, property.money_type)}</h2>
+                        <div  className="rent-position">
+                        <h2 className="text-title-card">{formatPrice(property.price, property.pricerange, property.money_type)} </h2>
+                        <span className="rent-specifier">{property.purpose}</span>
+                        </div>
                     </div>
                     <p className="text-location">
                         <FaMapMarkerAlt className="icon-map-marker" /> {property.address || 'Address not available'}
                     </p>
                     <div className="content-spec">
                         <p className="text-land-area">
-                            <MdVerified className="icon-measurement" /> {property.rera_id || "Not Available"}
+                            <MdVerified className="icon-measurement" /> {property.rera_id || "Rera Id Not Available"}
                         </p>
                         <p className="text-land-area">
-                            <IoConstruct className="icon-measurement" /> {property.construction_status || "Not Available"}
+                            <IoConstruct className="icon-measurement" /> {property.construction_status || "Status Not Available"}
                         </p>
                         {property.furnish_type && (
                             <p className="text-land-area">
@@ -338,13 +344,17 @@ const NewSearchListingPage = () => {
                         <span className="agent-name-role">{property.username || 'Admin'}</span>
                     </div>
                     <div className="button-actions-container">
+                       
                         <button className="btn-view-info" onClick={() => {
                             navigate(`/home/${property.id}`)
                         }}>View Details</button>
-                        <button className="btn-contact-agent">Connect Now</button>
+                        <button className="btn-contact-agent" onClick={() => setShowModal(true)}>Connect Now</button>
+                       
+                       
                     </div>
                 </div>
             </div>
+            </>
         );
     };
 
@@ -443,6 +453,8 @@ const NewSearchListingPage = () => {
     }
   
     return (
+        <>
+      
         <div className="container-main-wrapper">
             {/* Header Section */}
             <div className="header-container">
@@ -721,6 +733,7 @@ const NewSearchListingPage = () => {
             {/* Pagination */}
             {renderPagination()}
         </div>
+        </>
     );
 };
 

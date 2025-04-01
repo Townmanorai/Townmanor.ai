@@ -22,27 +22,59 @@ const PropertyListings = () => {
     category: '',
     construction_status: '',
     configuration: '',
-    minPrice: 0, // Add minPrice
-    maxPrice: 200, // Add maxPrice
+    minPrice: 0,
+    maxPrice: Number.MAX_SAFE_INTEGER, // Set to maximum possible value initially
   });
 
+  // Add new state to track if filters have been applied
+  const [filtersApplied, setFiltersApplied] = useState(false);
+  const [maxPossiblePrice, setMaxPossiblePrice] = useState(10000); // 10000 lakhs = 100 crores
 
   useEffect(() => {
-    fetchProperties();
-  }, []);
+    fetchProperties(filters.city);
+  }, [filters.city]); // Re-fetch when city changes
 
-  // Fetch all properties from API
-  const fetchProperties = async () => {
+  const formatPriceDisplay = (price) => {
+    if (price >= 100) {
+      return `₹ ${(price/100).toFixed(2)} Cr`;
+    }
+    return `₹ ${price} Lac`;
+  };
+
+  // Fetch properties by city from API
+  const fetchProperties = async (city) => {
     setLoading(true);
     try {
-      const response = await axios.get("https://www.townmanor.ai/api/property");
+      const response = await axios.get(`https://www.townmanor.ai/api/properties?city=${city.toLowerCase()}`);
       setProperties(response.data);
+      
+      // Calculate the maximum price from the fetched properties
+      const maxPrice = response.data.reduce((max, property) => {
+        if (!property.price || typeof property.price !== 'string') return max;
+        const priceRange = property.price.split(' - ');
+        const maxItemPrice = parsePrice(priceRange[1] || priceRange[0]);
+        return Math.max(max, maxItemPrice);
+      }, 0);
+
+      // Set max possible price to 10000 lakhs (100 crores)
+      setMaxPossiblePrice(10000);
+      
+      // Reset filters when changing city
+      setFilters(prev => ({
+        ...prev,
+        city,
+        minPrice: 0,
+        maxPrice: 10000 // Set to 100 crores (10000 lakhs)
+      }));
+      setFiltersApplied(false);
     } catch (error) {
       console.error("Error fetching properties:", error);
+      setProperties([]);
     } finally {
       setLoading(false);
     }
   };
+
   const parsePrice = (price) => {
     if (!price) return 0;
 
@@ -58,13 +90,34 @@ const PropertyListings = () => {
 
     return 0; // Default value if parsing fails
   };
-  const filteredProperties = properties.filter((item) => {
-    if (!item.price || typeof item.price !== 'string') {
-      return false; // Skip this item if the price is invalid
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFiltersApplied(true);
+    
+    // Special handling for price range
+    if (name === 'maxPrice') {
+      const numericValue = parseInt(value) || 0;
+      // Ensure the price doesn't exceed 100 crores (10000 lakhs)
+      const cappedValue = Math.min(numericValue, 10000);
+      setFilters(prev => ({
+        ...prev,
+        [name]: cappedValue
+      }));
+    } else {
+      setFilters(prev => ({
+        ...prev,
+        [name]: value
+      }));
     }
-    const priceRange = item.price.split(' - '); // Split the price range
-    const minItemPrice = parsePrice(priceRange[0]); // Parse the minimum price
-    const maxItemPrice = parsePrice(priceRange[1] || priceRange[0]); // Parse the maximum price (if it exists)
+  };
+
+  const filteredProperties = filtersApplied ? properties.filter((item) => {
+    if (!item.price || typeof item.price !== 'string') {
+      return false;
+    }
+    const priceRange = item.price.split(' - ');
+    const minItemPrice = parsePrice(priceRange[0]);
+    const maxItemPrice = parsePrice(priceRange[1] || priceRange[0]);
 
     return (
       (filters.projectname
@@ -91,16 +144,8 @@ const PropertyListings = () => {
         ? maxItemPrice <= filters.maxPrice
         : true)
     );
-  });
+  }) : properties; // If filters haven't been applied, return all properties
 
-
-  const handleFilterChange = (e) => {
-    const { name, value } = e.target;
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [name]: value
-    }));
-  };
   // Get current properties to display on the page
   const indexOfLastProperty = currentPage * propertiesPerPage;
   const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage;
@@ -124,13 +169,14 @@ const PropertyListings = () => {
   const clearFilters = () => {
     setFilters({
       projectname: '',
-      city: 'Noida',
+      city: id,
       category: '',
       construction_status: '',
       configuration: '',
       minPrice: 0,
-      maxPrice: 100000,
+      maxPrice: Number.MAX_SAFE_INTEGER
     });
+    setFiltersApplied(false);
   };
   const pageTitle = `Property Listings in ${filters.city}`;
   const pageDescription = `Explore the best properties in ${filters.city}. Filter by price, configuration, and more to find your dream home.`;
@@ -300,31 +346,23 @@ const PropertyListings = () => {
                 </button>
               </div>
             </div>
-            {/* <div className="realty-filter-section">
-
-              <label for="customRange1" class="form-label">Price filter</label>
-              <input type="range" class="form-range" id="customRange1" />
-            </div> */}
             <div className="realty-filter-section realty-price-range">
               <h3>Price Range</h3>
               <div className="realty-filter-options">
                 <input
                   type="range"
                   min={0}
-                  max={100000} // Adjust max value based on your data
-                  value={filters.maxPrice}
-                  onChange={(e) =>
-                    setFilters((prevFilters) => ({
-                      ...prevFilters,
-                      maxPrice: parseInt(e.target.value),
-                    }))
-                  }
-                  style={{
-                    width: '210px',
-                    
-                  }}
+                  max={maxPossiblePrice}
+                  value={filtersApplied ? filters.maxPrice : maxPossiblePrice}
+                  onChange={(e) => handleFilterChange({
+                    target: {
+                      name: 'maxPrice',
+                      value: e.target.value
+                    }
+                  })}
+                  style={{ width: '210px' }}
                 />
-                <span>Up to ₹ {filters.maxPrice} Lakh</span>
+                <span>Up to {formatPriceDisplay(filtersApplied ? filters.maxPrice : maxPossiblePrice)}</span>
               </div>
             </div>
             
@@ -409,31 +447,23 @@ const PropertyListings = () => {
                 </button>
               </div>
             </div>
-            {/* <div className="realty-filter-section">
-
-              <label for="customRange1" class="form-label">Price filter</label>
-              <input type="range" class="form-range" id="customRange1" />
-            </div> */}
             <div className="realty-filter-section realty-price-range">
               <h3>Price Range</h3>
               <div className="realty-filter-options">
                 <input
                   type="range"
                   min={0}
-                  max={100000} // Adjust max value based on your data
-                  value={filters.maxPrice}
-                  onChange={(e) =>
-                    setFilters((prevFilters) => ({
-                      ...prevFilters,
-                      maxPrice: parseInt(e.target.value),
-                    }))
-                  }
-                  style={{
-                    width: '210px',
-                    
-                  }}
+                  max={maxPossiblePrice}
+                  value={filtersApplied ? filters.maxPrice : maxPossiblePrice}
+                  onChange={(e) => handleFilterChange({
+                    target: {
+                      name: 'maxPrice',
+                      value: e.target.value
+                    }
+                  })}
+                  style={{ width: '210px' }}
                 />
-                <span>Up to ₹ {filters.maxPrice} Lakh</span>
+                <span>Up to {formatPriceDisplay(filtersApplied ? filters.maxPrice : maxPossiblePrice)}</span>
               </div>
             </div>
             

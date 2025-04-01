@@ -29,7 +29,9 @@ const CategoriesPresentation = () => {
     "./TMb2.webp",
     "./TMb2.webp",
   ];
-
+  const handleNavigate = (url) => {
+    window.location.href = url;  // Will navigate directly to the given URL
+};
   return (
     <section className="intro section-padding section-categories-presentation widget_edit_enabled" >
       <div className="container">
@@ -53,21 +55,41 @@ const CategoriesPresentation = () => {
             <div className="intro-img">
               {/* React Bootstrap Carousel */}
               <Carousel className="HomeInT_Slider_page">
-                <Carousel.Item>
+                <Carousel.Item onClick={()=>{
+                  handleNavigate('https://www.ats.ind.in/projects-in-noida/ats-pristine-golf-villas-sector-150-noida-expressway/');
+                }}
+                style={{
+                  cursor:'pointer'
+                }}
+                >
                   <img
                     className="d-block w-100 img-fluid"
                     src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283470648-TMb1.webp"
                     alt="View for rent"
                   />
                 </Carousel.Item>
-                <Carousel.Item>
+                <Carousel.Item
+                onClick={()=>{
+                  handleNavigate('https://www.kalpataru.com/noida/kalpataru-vista');
+                }}
+                style={{
+                  cursor:'pointer'
+                }}
+                >
                   <img
                     className="d-block w-100 img-fluid"
                     src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283470662-TMb2.webp"
                     alt="View for rent"
                   />
                 </Carousel.Item>
-                <Carousel.Item>
+                <Carousel.Item
+                 onClick={()=>{
+                  handleNavigate('https://www.mahagunindia.com/project/mahagun-manorialle/');
+                }}
+                style={{
+                  cursor:'pointer'
+                }}
+                >
                   <img
                     className="d-block w-100 img-fluid"
                     src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283470675-TMb3.webp"

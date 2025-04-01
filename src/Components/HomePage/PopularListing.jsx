@@ -8,6 +8,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const PopularListing = () => {
  
 
@@ -22,7 +23,7 @@ const PopularListing = () => {
     "https://www.townmanor.ai/api/property/1136"
   ];
   const [data, setdata] = useState([]);
-
+  const navigate = useNavigate();
   // Function to format price correctly
   const formatPrice = (price) => {
     if (!price) return 'Price on Request';
@@ -313,7 +314,13 @@ const PopularListing = () => {
 
           <div className="col-lg-12">
     <div className="load-more-posts l-load">
-      <a href="https://townmanor.in/en/145" title="" className="btn2 lmbtn">
+      <a onClick={()=>{
+        navigate(`/adminproperty/Noida`)
+      }}
+      style={{
+        color:'white'
+      }}
+      title="" className="btn2 lmbtn">
         Load More
       </a>
     </div>
@@ -321,7 +328,13 @@ const PopularListing = () => {
         </div>
         <div className="load-more-posts-mobile">
           <div className="load-more-posts-mobile-inner">
-  <a href="https://townmanor.in/en/145" title="" className="btn2 lmbtn">
+  <a onClick={()=>{
+        navigate(`/adminproperty/Noida`)
+      }}
+      style={{
+        color:'white'
+      }}
+      title="" className="btn2 lmbtn">
     Load More
   </a>
   </div>

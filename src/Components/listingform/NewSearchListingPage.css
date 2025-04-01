@@ -877,6 +877,21 @@
   background: #333;
   color: white;
 }
+.rent-position{
+  display: flex;
+  flex-direction: row;
+  gap: 0px 10px;
+}
+.rent-specifier{
+  border-radius: 7px;
+  width: 46px;
+  height: 30px;
+  background: linear-gradient(to right, #ff4447, #8a2e2e);
+  color: white;
+  padding: 5px;
+  text-align: center;
+  text-transform: capitalize;
+}
 @media only screen and (min-width: 0px) and (max-width: 800px){
   .header-container {
     display: grid;
