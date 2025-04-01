@@ -196,7 +196,7 @@ const servicesData = [
   },
   {
     title: "Choose Plan",
-    description: "Select your own tailored property investment plan",
+    description: "Select your own tailored property Listing plan",
     icon: (
       <svg
         width="40"
@@ -294,9 +294,9 @@ const Services = () => {
 
   return (
     <div className="container">
-      <section className="svc-services-section">
+      <section className="svc-services-section ">
         <h1>
-          <b className="svc-h1">Services</b>
+           Explore <b className="svc-h1">Services</b>
         </h1>
         <div className="svc-services-grid">
           {servicesData.map((service, idx) => (

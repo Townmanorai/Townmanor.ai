@@ -76,6 +76,7 @@ import ArticleComponent from './Components/BlogModule/ArticleComponent';
 import RentAgreementForm from './Components/Rent-Agreements/RentAgreementForm';
 import PropertyListings from './Components/AdminPropertyUI/PropertyListings';
 import LandVerification from './Components/LandVerification/LandVerification';
+import LandMainPage from './Components/LandVerification/LandMainPage';
 import LandRecords from './Components/LandVerification/LandRecords';
 import ScrollToTop from './ScrollToTop';
 import ExploreStates from './Components/Statewise/ExploreStates';
@@ -157,7 +158,8 @@ function App() {
             <Route path="/credit-score" element={<CreditScore />} />
             <Route path="/insurance" element={<Insurance />} />
             <Route path="/rentagreements" element={<RentMainPage />} />
-            <Route path="/landverification" element={<LandVerification />} />
+            <Route path="/landverification" element={<LandMainPage />} />
+            <Route path="/landverification/verify" element={<LandVerification />} />
             <Route path="/landrecord" element={<LandRecords />} />
             <Route path="/rent-agreement" element={<RentAgreementForm/>} />
             <Route path="/explorestate" element={<ExploreStates/>} />

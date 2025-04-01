@@ -1,0 +1,172 @@
+.townmanor-land-testimonials-section {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+.townmanor-land-testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.townmanor-land-testimonials-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.townmanor-land-testimonials-header h2 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.townmanor-land-testimonials-header p {
+  font-size: 14px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.townmanor-land-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.townmanor-land-testimonial-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.townmanor-land-testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.townmanor-land-testimonial-content {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.townmanor-land-testimonial-quote-icon {
+  font-size: 2rem;
+  color: #4CAF50;
+  opacity: 0.2;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+
+.townmanor-land-testimonial-text {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.1;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.townmanor-land-testimonial-rating {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.townmanor-land-testimonial-star {
+  color: #ffc107;
+  font-size: 1.1rem;
+}
+
+.townmanor-land-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.townmanor-land-testimonial-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.townmanor-land-testimonial-author-info h4 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 0 0 0.25rem;
+}
+
+.townmanor-land-testimonial-author-info p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.townmanor-land-testimonials-cta {
+  text-align: center;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.townmanor-land-testimonials-cta h3 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.townmanor-land-testimonials-cta p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.townmanor-land-testimonials-button {
+  padding: 0.8rem 2rem;
+  background: #e54646;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.townmanor-land-testimonials-button:hover {
+  background-color: #43a047;
+}
+
+@media (max-width: 768px) {
+  .townmanor-land-testimonials-section {
+    padding: 3rem 0;
+  }
+
+  .townmanor-land-testimonials-container {
+    padding: 0 1rem;
+  }
+
+  .townmanor-land-testimonials-header h2 {
+    font-size: 2rem;
+  }
+
+  .townmanor-land-testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .townmanor-land-testimonial-card {
+    padding: 1.5rem;
+  }
+
+  .townmanor-land-testimonials-cta h3 {
+    font-size: 1.5rem;
+  }
+} 

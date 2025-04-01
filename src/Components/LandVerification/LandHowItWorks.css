@@ -1,0 +1,137 @@
+.townmanor-land-how-it-works-section {
+  padding: 0rem 0;
+  background-color: #f8f9fa;
+}
+
+.townmanor-land-how-it-works-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.townmanor-land-how-it-works-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.townmanor-land-how-it-works-header h2 {
+  font-size: 20px;
+  font-weight: 300;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.townmanor-land-how-it-works-header p {
+  font-size: 14px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.townmanor-land-how-it-works-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.townmanor-land-how-it-works-step {
+  text-align: center;
+  padding: 10px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.townmanor-land-how-it-works-step:hover {
+  transform: translateY(-5px);
+}
+
+.townmanor-land-how-it-works-step-icon {
+  width: 20px;
+  height: 20px;
+  background-color: #e8f5e9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1px;
+}
+
+.townmanor-land-how-it-works-step-icon svg {
+  font-size: 20px;
+  color: #000000;
+}
+
+.townmanor-land-how-it-works-step h3 {
+  font-size: 14px;
+  font-weight: 300;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.townmanor-land-how-it-works-step p {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.1;
+}
+
+.townmanor-land-how-it-works-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.townmanor-land-how-it-works-feature {
+  text-align: center;
+  padding: 5px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.townmanor-land-how-it-works-feature-icon {
+  font-size: 20px;
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+.townmanor-land-how-it-works-feature h4 {
+  font-size: 14px;
+  font-weight: 300;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.townmanor-land-how-it-works-feature p {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.1;
+}
+
+@media (max-width: 768px) {
+  .townmanor-land-how-it-works-section {
+    padding: 3rem 0;
+  }
+
+  .townmanor-land-how-it-works-container {
+    padding: 0 1rem;
+  }
+
+  .townmanor-land-how-it-works-header h2 {
+    font-size: 2rem;
+  }
+
+  .townmanor-land-how-it-works-steps,
+  .townmanor-land-how-it-works-features {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .townmanor-land-how-it-works-step,
+  .townmanor-land-how-it-works-feature {
+    padding: 1.5rem;
+  }
+} 

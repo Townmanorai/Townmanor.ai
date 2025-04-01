@@ -138,8 +138,8 @@ const PaymentForm = () => {
     phone: '935415623',
     amount: plan ? plan.price : '100',
     productinfo: plan ? plan.name : 'Product Name',
-    surl: 'http://localhost:3030/payu/success',
-    furl: 'http://localhost:3030/payu/failure',
+    surl: 'https://townmanor.ai/api/payu/success',
+    furl: 'https://townmanor.ai/api/payu/failure',
   });
 
   console.log("PaymentForm", paymentData)
@@ -151,7 +151,7 @@ const PaymentForm = () => {
     e.preventDefault();
     try {
       console.log(paymentData);
-      const res = await axios.post('http://localhost:3030/payu/payment', paymentData);
+      const res = await axios.post('https://townmanor.ai/api/payu/payment', paymentData);
       const { paymentUrl, params } = res.data;
 
       // Create a form element

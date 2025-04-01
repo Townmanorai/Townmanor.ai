@@ -3,6 +3,7 @@
   padding-top: 80px;
   height: -webkit-fill-available;
   position: relative;
+  min-height: 50rem;
 }
 .payment-form {
     background-color: #f9f9f9;

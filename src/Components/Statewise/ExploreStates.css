@@ -81,15 +81,22 @@
 }
 
 .explore-states__header h1 {
-  font-size: 2.5rem;
+  font-size: 30px;
   margin-bottom: 16px;
   color: #1f2937;
+  font-weight: 400;
 }
 
 .explore-states__subtitle {
-  font-size: 1.1rem;
+  font-size: 14px;
   color: #6b7280;
-  margin-bottom: 24px;
+  margin-bottom: 5px;
+}
+
+.explore-states__subtitle_info {
+  font-size: 14px;
+  color: #ff4141;
+  margin-bottom: 15px;
 }
 
 .explore-states__toggle {
@@ -263,7 +270,7 @@
   }
 
   .explore-states__header h1 {
-    font-size: 2rem;
+    font-size: 16px;
   }
 
   .explore-states__grid {

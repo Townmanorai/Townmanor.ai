@@ -1,0 +1,102 @@
+.townmanor-land-about-section {
+  padding: 80px 0;
+  background: #fafafa;
+}
+
+.townmanor-land-about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.townmanor-land-about-header {
+  text-align: center;
+  margin-bottom: 60px;
+}   
+
+.townmanor-land-about-header h2 {
+  font-size: 20px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.townmanor-land-about-header p {    
+  font-size: 14px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.townmanor-land-about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.townmanor-land-about-text {
+  color: #333;
+  line-height: 1.8;
+}
+
+.townmanor-land-about-text p {
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.townmanor-land-about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.townmanor-land-about-stat {
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.townmanor-land-about-stat h3 {
+  font-size: 20px;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.townmanor-land-about-stat p {
+  color: #666;
+  font-size: 14px;
+}
+
+.townmanor-land-about-image {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.townmanor-land-about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .townmanor-land-about-section {
+    padding: 60px 0;
+  }
+
+  .townmanor-land-about-header h2 {
+    font-size: 18px;
+  }
+
+  .townmanor-land-about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .townmanor-land-about-stats {
+    grid-template-columns: 1fr;
+  }
+} 

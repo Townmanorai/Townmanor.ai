@@ -3,9 +3,9 @@ import './AdvertisementVideo.css';
 
 const AdvertisementVideo = () => {
   const videoSources = [
-    `/AdsVideo1.mp4`,
-    `${process.env.PUBLIC_URL}/AdsVideo2.mp4`,
-    `${process.env.PUBLIC_URL}/AdsVideo3.mp4`
+    'https://s3.ap-south-1.amazonaws.com/townamnor.ai/video/WhatsApp+Video+2024-10-23+at+11.22.03+AM.mp4',
+    'https://s3.ap-south-1.amazonaws.com/townamnor.ai/video/WhatsApp+Video+2024-10-23+at+11.18.49+AM.mp4',
+    'https://s3.ap-south-1.amazonaws.com/townamnor.ai/video/WhatsApp+Video+2024-10-23+at+11.22.03+AM.mp4',
   ];
 
   return (
@@ -13,7 +13,7 @@ const AdvertisementVideo = () => {
       {videoSources.map((videoSrc, index) => (
         <div className="video-ad-container" key={index}>
           <video className="responsive-ad-video" controls autoPlay muted loop>
-            <source src={`${process.env.PUBLIC_URL}/AdsVideo.mp4`} type="video/mp4" />
+            <source src={videoSrc} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>

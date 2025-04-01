@@ -54,6 +54,9 @@ const ExploreStates = () => {
           <p className="explore-states__subtitle">
              Comprehensive guide to residential property taxes across Indian states
           </p>
+          <p className="explore-states__subtitle_info">
+            Currently, we provide detailed information on property taxes in Uttar Pradesh and NCT Delhi. Data for other states is being curated and will be added soon—stay tuned for updates!
+          </p>
           <div className="explore-states__toggle">
             <button
               className={`explore-states__toggle-btn ${view === 'states' ? 'active' : ''}`}
