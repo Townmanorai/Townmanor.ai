@@ -1238,7 +1238,7 @@ const PricingPlans = () => {
   const handleChoosePlan = (plan) => {
     console.log(plan);
     // Navigate to /payment with the selected plan details
-    navigate("/payment", { state: { plan } });
+    navigate("/transaction", { state: { plan } });
   };
 
   return (

@@ -1,96 +1,130 @@
-import React, { useEffect, useState } from 'react'
-// import './Transaction.css'
-import './Trancsction1.css'
-function Transaction() {
-  const [transdata,settransdata] = useState([]);
-  const dummytransjson = {
-    "name": "Starter",
-    "price": "200.00",
-    "oldPrice": "1000.00",
-    "duration": "one time",
-    "benefits": [
-      "One Time",
-      "1 : Number of Listing",
-      "1 : Featured Listing Limit"
-    ],
-    "claimed": false,
-    "formAction": "https://secure.payu.in/_payment",
-    "hiddenInputs": {
-      "key": "UvTrjC",
-      "txnid": "a60bbf658dbf00611316",
-      "productinfo": "Starter",
-      "amount": "236",
-      "currency_code": "INR",
-      "email": "rnjha2001@gmail.com",
-      "firstname": "Ravindra",
-      "lastname": "Ravindra",
-      "surl": "https://townmanor.in/customform/payUSuccess",
-      "furl": "https://townmanor.in/customform/payUFail",
-      "phone": "",
-      "hash": "19b233afd917d6f7cbcdb5e76447b334c36f3485ece9967f436cf8098e47a312e7df42bcd05d52550170b90d56723fd8fc69f7ddb960c20a26d49d30d382912b"
-    }
-  }
-  useEffect(() => {
-  settransdata(dummytransjson)
-}, []);
-const orginalprice =(price)=>{
-  return price*(100/20);
-}
-const gstprice =(price,price2)=>{
-  return price-price2;
-}
+import React from "react";
+import { useLocation } from "react-router-dom";
+import { FaCheck, FaLock, FaCcVisa, FaCcMastercard, FaCcAmex } from "react-icons/fa";
+import "./Transaction.css";
+
+const Transaction = () => {
+  const location = useLocation();
+  const plan = location.state?.plan;
+
+  // Calculate GST amount (18% of base price)
+  const basePrice = parseFloat(plan?.price || 0);
+  const gstAmount = basePrice * 0.18;
+  const totalPrice = basePrice + gstAmount;
+  
+  // Calculate discount percentage if oldPrice exists
+  const discountPercentage = plan?.oldPrice 
+    ? Math.round(((parseFloat(plan.oldPrice) - basePrice) / parseFloat(plan.oldPrice)) * 100) 
+    : 0;
+
   return (
-    <>
-      <div>&nbsp;</div>
-      <div id='tr-main' style={{
-        // position:"relative"
-      }}>
-        <div className='tr-planbox'>
-          <h2>{dummytransjson.name}</h2>
-          <div className='tr-right'><del>&#8377;{orginalprice(dummytransjson.price)}</del></div>
-          <div className='tr-detailx'>
-            &#8377;{dummytransjson.price}/{dummytransjson.duration}
+    <div className="transaction_full_screen">
+      <div className="transaction_outer_container">
+        <div className="transaction_inner_content">
+          {/* Header Section */}
+          <div className="transaction_header_section">
+            <p className="transaction_header_title">Order Summary</p>
+            <p className="transaction_header_subtitle">
+              Review your plan selection and complete payment
+            </p>
           </div>
-          <div className='tr-detail2'> 
-            <li><span id='bullet'>&#9679;</span>  {dummytransjson.duration}</li>
-            <li><span id='bullet'>&#9679;</span> {dummytransjson.benefits[1]}</li>
-            <li><span id='bullet'>&#9679;</span> {dummytransjson.benefits[2]}</li>
-          </div>
-          <div>
-            <button type="button" class="btn btn-outline-danger plan">Plan Selected</button>
-          </div>
-        </div>
-        <div
-          className='tr-trans-main'>
-          <h2>What we offer</h2>
-          <p>The Service is offered as an one time option allowing for listing,with featured Listing limit of 3</p>
-          <div className='tr-detail'>
-            <span className='tr-left'>Transaction No:</span>
-            <span className='tr-right'>{dummytransjson.hiddenInputs.txnid}</span>
-          </div>
-          <div className='tr-detail'>
-            <span className='tr-left'>GST Number:</span>
-            <span className='tr-right'><input type="text" placeholder='e.g 29GGGGG1314R9Z6' /></span>
-          </div>
-          <div className='tr-detail'>
-            <span className='tr-left'>Special Offer</span>
-            <span className='tr-right '><del>&#8377;1000</del> <span id='specialprice'>&#8377;{dummytransjson.price}(80% off)</span></span>
-          </div>
-          <div className='tr-detail'>
-            <span className='tr-left'>Additional & Tax:</span>
-            <span className='tr-right'> {gstprice((dummytransjson.price),(dummytransjson.hiddenInputs.amount))} (18% GST)</span>
-          </div>
-          <div className='tr-detail'>
-            <span className='tr-left'>Total Price</span>
-            <span className='tr-right'><span id='specialprice'>{dummytransjson.hiddenInputs.amount}/-</span> incl GST</span>
-          </div>
-          <div className='tr-detail'>
-            <button type="button" class="btn btn-outline-success" id='pay'>Pay Now</button>
+
+          <div className="transaction_main_layout">
+            {/* Plan Box */}
+            <div className="transaction_plan_box">
+              <div className="transaction_plan_details">
+                <p className="transaction_plan_title">{plan?.name || 'Selected Plan'}</p>
+                <div className="transaction_plan_price_section">
+                  {plan?.oldPrice && (
+                    <span className="transaction_old_price">₹{plan.oldPrice}</span>
+                  )}
+                  <p className="transaction_new_price">₹{plan?.price || '0.00'}</p>
+                  <span className="transaction_price_info">{plan?.duration || 'one-time'} payment</span>
+                </div>
+              </div>
+              <div className="transaction_plan_features">
+                {plan?.benefits.map((benefit, index) => (
+                  <div key={index} className="transaction_feature_item">
+                    <FaCheck className="transaction_feature_icon" />
+                    <span className="transaction_feature_text">{benefit}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="transaction_plan_status">
+                <div className="transaction_status_box">
+                  <FaCheck className="transaction_status_icon" />
+                  Plan Selected
+                </div>
+              </div>
+            </div>
+
+            {/* Payment Section */}
+            <div className="transaction_payment_box">
+              <div className="transaction_input_group">
+                <label className="transaction_input_label">Transaction No:</label>
+                <input
+                  type="text"
+                  value={plan?.hiddenInputs?.txnid || ''}
+                  readOnly
+                  className="transaction_input_field"
+                />
+              </div>
+
+              <div className="transaction_input_group">
+                <label className="transaction_input_label">GST Number:</label>
+                <input
+                  type="text"
+                  placeholder="e.g 29GGGG1314R9Z6"
+                  className="transaction_input_field"
+                />
+              </div>
+
+              <div className="transaction_summary_section">
+                <div className="transaction_summary_item">
+                  <span className="transaction_summary_label">Special Offer</span>
+                  <div className="transaction_summary_value">
+                    {plan?.oldPrice && (
+                      <span className="transaction_old_price">₹{plan.oldPrice}</span>
+                    )}
+                    <span className="transaction_new_price">₹{plan?.price || '0.00'}</span>
+                    {discountPercentage > 0 && (
+                      <span className="transaction_discount_tag">({discountPercentage}% off)</span>
+                    )}
+                  </div>
+                </div>
+                <div className="transaction_summary_item">
+                  <span className="transaction_summary_label">Additional & Tax:</span>
+                  <span className="transaction_summary_value">+{gstAmount.toFixed(2)} (18% GST)</span>
+                </div>
+                <div className="transaction_summary_total">
+                  <span className="transaction_total_label">Total Price</span>
+                  <div className="transaction_total_value">
+                    <span className="transaction_total_price">₹{totalPrice.toFixed(2)}/-</span>
+                    <span className="transaction_total_note">incl GST</span>
+                  </div>
+                </div>
+              </div>
+
+              <form action={plan?.formAction} method="post">
+                {plan?.hiddenInputs && Object.entries(plan.hiddenInputs).map(([key, value]) => (
+                  <input key={key} type="hidden" name={key} value={value} />
+                ))}
+                <button type="submit" className="transaction_payment_button">Pay Now</button>
+              </form>
+
+              <div className="transaction_secure_section">
+                <FaLock className="transaction_secure_icon" />
+                <span className="transaction_secure_text">Secure Payment</span>
+                <FaCcVisa className="transaction_secure_icon" />
+                <FaCcMastercard className="transaction_secure_icon" />
+                <FaCcAmex className="transaction_secure_icon" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default Transaction
+export default Transaction;

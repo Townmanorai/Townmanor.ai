@@ -1,458 +1,213 @@
-#tr-main {
+.transaction_full_screen {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    position: relative; /* Added this to ensure both divs are within the flow */
-}
-
-.tr-trans-main {
+    min-height: 100vh;
+    background-color: #f9fafb;
+    font-family: "Inter", sans-serif;
+  }
+  
+  .transaction_outer_container {
+    width: 100%;
+    max-width: 900px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+  }
+  
+  .transaction_inner_content {
+    padding: 16px;
+  }
+  
+  .transaction_header_section {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  
+  .transaction_header_title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1f2937;
+  }
+  
+  .transaction_header_subtitle {
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  .transaction_main_layout {
     display: flex;
-    width: 38vw;
-    height: 54vh;
-    border: 2px solid #cfcccc;
-    padding: 63px 2vw;
-    flex-direction: column;
-    flex-wrap: wrap;
-    font-size: 18px;
-    font-family: monospace;
-    padding-left: 16vw;
-    line-height: 42px;
-    background: linear-gradient(90deg, rgba(246, 162, 162, 1) 0%, rgba(255, 255, 255, 1) 100%);
-    border-radius: 15px;
-    margin-bottom: 14px;
-    position: relative;
-    z-index: 1; /* Fix for stacking order */
-}
-
-.tr-trans-main h2 {
+    flex-direction: row;
+    gap: 24px;
+  }
+  
+  .transaction_plan_box {
+    background-color: #f3f4f6;
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+  .transaction_plan_title {
     font-size: 20px;
     font-weight: 600;
-}
-
-.tr-trans-main p {
-    color: gray;
-}
-
-.tr-detail {
+    color: #1f2937;
+  }
+  
+  .transaction_plan_price_section {
+    margin-top: 10px;
+  }
+  
+  .transaction_old_price {
+    text-decoration: line-through;
+    color: #9ca3af;
+    font-size: 14px;
+  }
+  
+  .transaction_new_price {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff4447;
+    margin-top: 5px;
+  }
+  
+  .transaction_price_info {
+    font-size: 12px;
+    color: #6b7280;
+  }
+  
+  .transaction_plan_features {
+    margin-top: 16px;
+  }
+  
+  .transaction_feature_item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #374151;
+  }
+  
+  .transaction_feature_icon {
+    color: black;
+  }
+  
+  .transaction_plan_status {
+    margin-top: 16px;
+  }
+  
+  .transaction_status_box {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: rgba(37, 99, 235, 0.1);
+    color: black;
+    border-radius: 8px;
+  }
+  
+  .transaction_status_icon {
+    margin-right: 8px;
+  }
+  
+  .transaction_payment_box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    flex-basis: 70%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .transaction_input_group {
+    margin-bottom: 16px;
+  }
+  
+  .transaction_input_label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 6px;
+  }
+  
+  .transaction_input_field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #374151;
+    background-color: #f9fafb;
+  }
+  
+  .transaction_summary_section {
+    margin-top: 16px;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 16px;
+  }
+  
+  .transaction_summary_item {
     display: flex;
     justify-content: space-between;
-}
-
-.tr-detailx {
-    font-size: 26px;
+    font-size: 14px;
+    color: #374151;
+    margin-bottom: 8px;
+  }
+  
+  .transaction_summary_total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
     font-weight: 600;
-}
-
-.tr-left {
-    font-weight: 550;
-}
-
-.tr-right {
-    color: gray;
-}
-
-.tr-right input {
-    width: 195px;
-    height: 35px;
-    background: transparent;
-    outline: none;
-    border: none;
-    box-shadow: 3px 3px 6px #e39999;
-    border-radius: 7px;
-}
-
-#pay {
-    width: 15vw;
-    font-weight: 550;
-    border-radius: 12px;
-    height: 4vh;
-    margin-top: 9px;
-    border-radius: 10px !important;
-}
-
-#pay2 {
-    border: 2px solid #bb1717;
-    color: #bb1717;
-    width: 10vw;
-    border-radius: 12px;
-    height: 4vh;
-    margin-top: 9px;
-    background-color: white;
-}
-
-#specialprice {
-    color: red;
-}
-
-.tr-planbox {
-    background: white;
-    padding: 16px 27px;
-    margin-right: 25vw;
-    width: 17vw;
-    border: 2px solid #d3d3d3;
-    position: relative;
-    z-index: 2; /* Fix for stacking order */
-    height: 39vh;
-    line-height: 39px;
-    border-radius: 12px;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 12px;
+    margin-top: 12px;
+  }
+  
+  .transaction_total_price {
+    color: #ff4447;
+  }
+  
+  .transaction_payment_button {
+    width: 100%;
+    background: linear-gradient(to right, #ff4447, #8a2e2e);
+    color: #ffffff;
     font-size: 16px;
-    font-family: monospace;
-}
-
-.plan {
-    margin-left: 2vw;
-    border-radius: 12px !important;
-    margin-top: 2vh;
-    font-weight: 550;
-    width: 12vw;
-}
-
-.tr-planbox h2 {
-    font-weight: 550;
-}
-
-#bullet {
-    font-size: 1.8rem;
-    color: rgb(116, 43, 43);
-}
-
-@media only screen and (min-width: 0px) and (max-width: 500px) {
-    .tr-trans-main {
-        width: 95vw;
-        height: 60vh;
-        padding: 3px 2vw;
-        font-size: 14px;
-        padding-left: 7vw;
-        line-height: 44px;
-        background: linear-gradient(90deg, rgba(246, 162, 162, 1) 0%, rgba(255, 255, 255, 1) 100%);
-        border-radius: 15px;
-        position: relative; /* Fix scrolling issue */
-        z-index: 1;
-        margin-top: -32vh;
-    }
-
-    #tr-main {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 99vh;
-        position: relative; /* Ensures both divs scroll together */
-    }
-
-    .tr-planbox {
-        padding: 20px 20px;
-        width: 80vw;
-        height: 41vh;
-        margin-top: 382px;
-        margin-left: 27px;
-        font-size: 14px;
-        z-index: 0;
-    }
-
-    #pay {
-        width: 49vw;
-        height: 5vh;
-        margin-top: 9px;
-    }
-
-    .plan {
-        width: 57vw;
-    }
-}
-
-@media only screen and (min-width: 501px) and (max-width: 1000px) {
-    .tr-planbox {
-        padding: 16px 27px;
-        margin-right: 43vw;
-        width: 26vw;
-        height: 37vh;
-    }
-
-    .tr-trans-main {
-        width: 54vw;
-        height: 60vh;
-        padding: 63px 2vw;
-        padding-left: 19vw;
-        line-height: 35px;
-        background: linear-gradient(90deg, rgba(246, 162, 162, 1) 0%, rgba(255, 255, 255, 1) 100%);
-        border-radius: 15px;
-        position: relative;
-        z-index: 1;
-        margin-bottom: 14px;
-    }
-
-    .plan {
-        width: 19vw;
-    }
-}
-
-@media only screen and (min-width: 1000px) and (max-width: 1700px) {
-    .tr-planbox {
-        padding: 16px 27px;
-        margin-right: 36vw;
-        width: 21vw;
-        height: 42vh;
-    }
-
-    .tr-trans-main {
-        width: 44vw;
-        height: 60vh;
-        padding: 63px 2vw;
-        padding-left: 16vw;
-        line-height: 35px;
-        background: linear-gradient(90deg, rgba(246, 162, 162, 1) 0%, rgba(255, 255, 255, 1) 100%);
-        border-radius: 15px;
-        position: relative;
-        z-index: 1;
-        margin-bottom: 14px;
-    }
-}
-
-
-/* #tr-main{
+    font-weight: 500;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    margin-top: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .transaction_payment_button:hover {
+    background-color: #1e40af;
+  }
+  
+  .transaction_secure_section {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-}
-.tr-trans-main {
-    display: flex;
-    width: 38vw;
-    height: 54vh;
-    border: 2px solid #cfcccc;
-    padding: 63px 2vw;
-    flex-direction: column;
-    flex-wrap: wrap;
+    font-size: 14px;
+    color: #6b7280;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  
+  .transaction_secure_icon {
     font-size: 18px;
-    font-family: monospace;
-    padding-left: 16vw;
-    line-height: 42px;
-    background: linear-gradient(90deg, rgba(246, 162, 162, 1) 0%, rgba(255, 255, 255, 1) 100%);
-    border-radius: 15px;
-    position: relative;
-    z-index: 0;
-    margin-bottom: 14px;
-}
-.tr-trans-main h2{
-    font-size: 20px;
-    font-weight:600;
-}
-.tr-trans-main p{
-    color: gray;
-}
-.tr-detail{
-    display: flex;
-    justify-content: space-between;
-}
-.tr-detailx{
-    font-size: 26px;
-    font-weight: 600;
-}
-.tr-left{
-    font-weight: 550;
-}
-.tr-right{
-    color: gray;
-}
-.tr-right input{
-    width: 195px;
-    height: 35px;
-    background: transparent;
-    outline: none;
-    border: none;
-    box-shadow: 3px 3px 6px #e39999;
-    border-radius: 7px;
-}
-#pay {
-    width: 15vw;
-    font-weight: 550;
-    border-radius: 12px;
-    height: 4vh;
-    border-spacing: none;
-    margin-top: 9px;
-    border-radius: 10px !important;
-}
-#pay2 {
-    border: 2px solid #bb1717;
-    color: #bb1717;
-    width: 10vw;
-    border-radius: 12px;
-    height: 4vh;
-    border-spacing: none;
-    margin-top: 9px;
-    background-color: white;
-}
-#specialprice{
-    color: red;
-}
-.tr-planbox{
-    background: white;
-    padding: 16px 27px;
-    margin-right: 25vw;
-    width: 17vw;
-    border: 2px solid #d3d3d3;
-    position: relative;
-    z-index: 1;
-    height: 39vh;
-    line-height: 39px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-family: monospace;
-}
-.plan{
-    margin-left: 2vw;
-    border-radius: 12px !important;
-    margin-top: 2vh;
-    font-weight: 550;
-    width: 12vw;
-}
-.tr-planbox h2{
-    font-weight: 550;
-}
-#bullet{
-    font-size: 1.8rem;
-    color: rgb(116, 43, 43);
-}
-@media only screen and (min-width: 0px) and (max-width: 500px) {
-    .tr-trans-main {
+  }
+  @media (max-width: 768px) {
+    .transaction_main_layout {
         display: flex;
-        width: 95vw;
-        height: 60vh;
-        border: 2px solid #cfcccc;
-        padding: 3px 2vw;
         flex-direction: column;
-        font-size: 14px;
-        font-family: monospace;
-        padding-left: 7vw;
-        line-height: 44px;
-        background: linear-gradient(90deg, rgba(246, 162, 162, 1) 0%, rgba(255, 255, 255, 1) 100%);
-        border-radius: 15px;
-        position: fixed;
-        z-index: 0;
-        margin-bottom: 14px;
-        margin-top: -32vh;
+        gap: 24px;
+      }
+      .transaction_full_screen {
+      
+        margin-top: 4rem;
     }
-    #tr-main {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 99vh;
-    }
-    .tr-planbox {
-        background: white;
-        padding: 20px 20px;
-        width: 80vw;
-        border: 2px solid #d3d3d3;
-        z-index: 1;
-        height: 41vh;
-        line-height: 30px;
-        border-radius: 12px;
-        font-size: 14px;
-        font-family: monospace;
-        margin-top: 382px;
-        margin-right: 0px;
-        margin-left: 27px;
-    }
-    .tr-detailx {
-        font-size: 18px;
-        font-weight: 400;
-    }
-    .tr-detailx {
-        font-size: 18px;
-        font-weight: 400;
-    }
-    .tr-trans-main h2 {
-        font-size: 18px;
-    }
-    #pay {
-        width: 49vw;
-        font-weight: 550;
-        border-radius: 12px;
-        height: 5vh;
-        border-spacing: none;
-        margin-top: 9px;
-        border-radius: 10px !important;
-    }
-    .plan {
-        margin-left: 2vw;
-        border-radius: 12px !important;
-        margin-top: 2vh;
-        font-weight: 550;
-        width: 57vw;
-    }
-}
-@media only screen and (min-width: 501px) and (max-width: 1000px){
-    .tr-planbox {
-        background: white;
-        padding: 16px 27px;
-        margin-right: 43vw;
-        width: 26vw;
-        border: 2px solid #d3d3d3;
-        z-index: 1;
-        height: 37vh;
-        line-height: 35px;
-        border-radius: 12px;
-        font-size: 16px;
-        font-family: monospace;
-    }
-    .tr-trans-main {
-        display: flex;
-        width: 54vw;
-        height: 60vh;
-        border: 2px solid #cfcccc;
-        padding: 63px 2vw;
-        flex-direction: column;
-        flex-wrap: wrap;
-        font-size: 18px;
-        font-family: monospace;
-        padding-left: 19vw;
-        line-height: 35px;
-        background: linear-gradient(90deg, rgba(246, 162, 162, 1) 0%, rgba(255, 255, 255, 1) 100%);
-        border-radius: 15px;
-        position: fixed;
-        z-index: 0;
-        margin-bottom: 14px;
-    }
-    .plan {
-        margin-left: 1vw;
-        border-radius: 12px !important;
-        margin-top: 2vh;
-        font-weight: 550;
-        width: 19vw;
-    }
-}
-@media only screen and (min-width: 1000px) and (max-width: 1700px){
-    .tr-planbox {
-        background: white;
-        padding: 16px 27px;
-        margin-right: 36vw;
-        width: 21vw;
-        border: 2px solid #d3d3d3;
-        z-index: 1;
-        height: 42vh;
-        line-height: 31px;
-        border-radius: 12px;
-        font-size: 16px;
-        font-family: monospace;
-    }
-    .tr-trans-main {
-        display: flex;
-        width: 44vw;
-        height: 60vh;
-        border: 2px solid #cfcccc;
-        padding: 63px 2vw;
-        flex-direction: column;
-        flex-wrap: wrap;
-        font-size: 18px;
-        font-family: monospace;
-        padding-left: 16vw;
-        line-height: 35px;
-        background: linear-gradient(90deg, rgba(246, 162, 162, 1) 0%, rgba(255, 255, 255, 1) 100%);
-        border-radius: 15px;
-        position: fixed;
-        z-index: 0;
-        margin-bottom: 14px;
-    }
-}
- */
+  }
+  

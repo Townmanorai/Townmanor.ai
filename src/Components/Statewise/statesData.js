@@ -196,7 +196,8 @@ export const statesData = [
     population: '99.1M',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Howrah_bridge_betwixt_Lights.jpg/275px-Howrah_bridge_betwixt_Lights.jpg',
     link: '/state/west-bengal'
-  }
+  },
+  
 ];
 
 export const unionTerritoriesData = [
@@ -448,7 +449,116 @@ export const districtsData = {
       "link": "https://online.ndmc.gov.in/ptis_dues/",
       "famousPlaces": ["Mughal Garden", "Raja Garden", "Tihar Jail"]
     }
-  ]
+  ],
+    'haryana': [
+      {
+        "name": "Ambala",
+        "population": "1.1M",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/85/Mansa_Devi_temple_main_shrine.jpg",
+        "link": "https://mcambala.gov.in/property/PropertySelfAssessment_New.aspx",
+        "famousPlaces": ["Ambala Cantt", "Ambala City", "Mata Mansa Devi Temple"]
+      },
+      {
+        "name": "Sonipat",
+        "population": "1.5M",
+        "image": "https://staticimg.amarujala.com/assets/images/2018/11/19/kmp-expressway_1542603428.jpeg?w=750&dpr=1.0",
+        "link": "https://property.ulbharyana.gov.in/",
+        "famousPlaces": ["KMP Expressway", "Devi Temple", "Khwaja Khizr Tomb"]
+      },
+      {
+        "name": "Faridabad",
+        "population": "1.9M",
+        "image": "https://www.delhibn.com/wp-content/uploads/2022/11/badkal-lake-1024x768.jpg",
+        "link": "https://property.ulbharyana.gov.in/",
+        "famousPlaces": ["Surajkund Mela", "Badkhal Lake", "ISKCON Temple"]
+      },
+      {
+        "name": "Gurugram",
+        "population": "1.5M",
+        "image": "https://www.dlf.in/offices/gurugram/dlfcybercity/images/cyberprojects/Bldg-9A-and-9B.jpg",
+        "link": "https://property.ulbharyana.gov.in/",
+        "famousPlaces": ["Cyber City", "Kingdom of Dreams", "Sheetla Mata Mandir"]
+      },
+      {
+        "name": "Panipat",
+        "population": "1.2M",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStxQCWRKIlxBO6oQFGZ--WWZDpR543iBcTKQ&s",
+        "link": "https://property.ulbharyana.gov.in/",
+        "famousPlaces": ["Panipat Refinery", "Kabuli Bagh Mosque", "Panipat Museum"]
+      },
+      {
+        "name": "Karnal",
+        "population": "1.5M",
+        "image": "https://cdnbbsr.s3waas.gov.in/s37b7a53e239400a13bd6be6c91c4f6c4e/uploads/2020/05/2020051466.jpg",
+        "link": "https://property.ulbharyana.gov.in/",
+        "famousPlaces": ["Karna Lake", "Karnal Fort", "Kalander Shah's Tomb"]
+      },
+      {
+        "name": "Kurukshetra",
+        "population": "1.0M",
+        "image": "https://48koskurukshetra.com/wp-content/uploads/2019/06/015419809d4cd30f58612941488213df.png",
+        "link": "https://property.ulbharyana.gov.in/",
+        "famousPlaces": ["Brahma Sarovar", "Kurukshetra Panorama and Science Centre", "Sannihit Sarovar"]
+      },
+      {
+        "name": "Hisar",
+        "population": "1.7M",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/1/19/Agroha_Dhaam_Hindu_Temple.jpg",
+        "link": "https://property.ulbharyana.gov.in/",
+        "famousPlaces": ["Hisar Fort", "Agroha Dham", "Blue Bird Lake"]
+      },
+      {
+        "name": "Rohtak",
+        "population": "1.2M",
+        "image": "https://haryanatourism.gov.in/wp-content/uploads/2024/07/asthal_pic5.jpg",
+        "link": "https://property.ulbharyana.gov.in/",
+        "famousPlaces": ["Tilyar Lake", "Asthal Bohar", "Sai Mandir"]
+      },
+      {
+        "name": "Yamunanagar",
+        "population": "1.2M",
+        "image": "https://static.toiimg.com/img/71098679/Master.jpg",
+        "link": "https://property.ulbharyana.gov.in/",
+        "famousPlaces": ["Kalesar National Park", "Hathni Kund Barrage", "Chhachhrauli Fort"]
+      },
+      {
+        "name": "Panchkula",
+        "population": "0.6M",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/58/ae/62/morni-hills.jpg?w=1200&h=-1&s=1",
+        "link": "https://property.ulbharyana.gov.in/",
+        "famousPlaces": ["Cactus Garden", "Morni Hills", "Nada Sahib Gurudwara"]
+      },
+      {
+        "name": "Bhiwani",
+        "population": "1.6M",
+        "image": "https://haryanatourism.gov.in/wp-content/uploads/2024/07/Starmonument_pic-1.jpg",
+        "link": "https://property.ulbharyana.gov.in/",
+        "famousPlaces": ["Bhiwani Railway Station", "Star Monument", "Devsar Dham"]
+      },
+      {
+        "name": "Jind",
+        "population": "1.3M",
+        "image": "https://images.bhaskarassets.com/thumb/1200x900/web2images/521/2016/09/18/jind1_1474226648.jpg",
+        "link": "https://property.ulbharyana.gov.in/",
+        "famousPlaces": ["Rani Talab", "Pandava Temple", "Hansdehar"]
+      },
+      {
+        "name": "Kaithal",
+        "population": "1.1M",
+        "image": "https://internationalgitamahotsav.in/wp-content/uploads/2019/05/81-scaled.jpg",
+        "link": "https://property.ulbharyana.gov.in/",
+        "famousPlaces": ["Ancient Bricks Temple", "Kapil Muni Tirth", "Phelgu Tank"]
+      },
+      {
+        "name": "Rewari",
+        "population": "0.9M",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn_pzle9OrDm6xh3dXj2N4VVtPePpPFwfc7w&s",
+        "link": "https://property.ulbharyana.gov.in/",
+        "famousPlaces": ["Rewari Railway Heritage Museum", "Bada Talab", "Ghanteshwar Mandir"]
+      }
+    ]
+ 
+  
 };
 
 export const utDistrictsData = {
