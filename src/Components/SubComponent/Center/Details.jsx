@@ -80,7 +80,7 @@ function Details({property}) {
             <Amenities property={property}/>
             <Description property={property}/>
             <Distance property={property}/>
-            <Floorplan property={property}/>
+            {/* <Floorplan property={property}/> */}
             <WriteReview property={property}/>
           </div>
 
