@@ -13,17 +13,17 @@ const Subdetails = ({ property }) => {
 
   // Array of subdetail items for both the upper and lower sections
   const upperDetails = [
-    { label: "Bedroom", value: property.bedroom || "NA" },
-    { label: "Bathroom", value: property.bathroom || "NA" },
-    { label: "Ownership", value: property.ownership || "NA" },
-    { label: "Possession", value: property.possession || "NA" },
+    { label: "Bedroom", value: property.bedroom || (property.configuration ? property.configuration.match(/\d+/)?.[0] : "NA") || "NA" },
+    // { label: "Bathroom", value: property.bathroom || "NA" },
     { label: "Rera Id", value: property.rera_id || "NA" },
+    { label: "Ownership", value: property.ownership || "NA" },
+    { label: "Configuration", value: property.configuration || "NA" },
   ];
 
   const lowerDetails = [
     { label: "Furnishing", value: property.furnish_type || "NA" },
     { label: "Status", value: property.construction_status || "NA" },
-    { label: "Facing", value: property.property_facing || "NA" },
+    // { label: "Facing", value: property.property_facing || "NA" },
     { label: "Area", value: property.area_detail || "NA" },
     {
       label: "Floor",

@@ -3,10 +3,6 @@
   object-fit: fill;
 }
 
-.remove-dots .slick-dots{
-  display: none !important;
-}
-
 .remove-dots .slick-list{
   padding-top: 30px !important;
   padding-bottom: 0% !important;

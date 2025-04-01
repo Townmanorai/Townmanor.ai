@@ -3,19 +3,8 @@ import jsPDF from "jspdf";
 import "jspdf-autotable";
 
 const PropertyPDF = ({ property }) => {
-  const generatePDF = () => {
+  const generatePDF = async () => {
     const doc = new jsPDF();
-
-    // Load logo image (replace with correct path or URL of your logo)
-    const logoPath = "logo.Townmanorr.png"; // If local or a URL
-
-    // Add Logo at the top center
-    const logoWidth = 40;
-    const logoHeight = 8;
-    const pageWidth = doc.internal.pageSize.getWidth();
-    const centerX = (pageWidth - logoWidth) / 2;
-
-    doc.addImage(logoPath, "PNG", centerX, 10, logoWidth, logoHeight);
 
     let currentY = 35;
 
@@ -38,22 +27,66 @@ const PropertyPDF = ({ property }) => {
     currentY += 10;
 
     // Add three images horizontally
-    const imageWidth = 50; // Width of each image
-    const imageHeight = 35; // Height of each image
-    const gap = 10; // Gap between images
-    const imagePaths = ["image1.jpg", "image2.jpg", "image3.jpg"];
+    const loadAndAddImages = async () => {
+      const imageWidth = 50;
+      const imageHeight = 35;
+      const gap = 10;
+      const startX = 20;
 
-    // Calculate positions for the images
-    let imageX = 20;
-    for (let i = 0; i < imagePaths.length; i++) {
-      doc.addImage(imagePaths[i],"JPEG",imageX,currentY,imageWidth,imageHeight);
-      imageX += imageWidth + gap; // Move X position for the next image
-    }
+      // Get first three images from repository
+      const imagesToShow = property.image_repository ? property.image_repository.slice(0, 3) : [];
+      
+      if (imagesToShow.length > 0) {
+        try {
+          for (let i = 0; i < imagesToShow.length; i++) {
+            const imageUrl = imagesToShow[i];
+            const xPosition = startX + (i * (imageWidth + gap));
+            
+            // Create new image object
+            const img = new Image();
+            img.crossOrigin = "Anonymous";  // Handle CORS
+            
+            // Convert the image to base64 and add to PDF
+            await new Promise((resolve, reject) => {
+              img.onload = () => {
+                try {
+                  const canvas = document.createElement('canvas');
+                  canvas.width = img.width;
+                  canvas.height = img.height;
+                  const ctx = canvas.getContext('2d');
+                  ctx.drawImage(img, 0, 0);
+                  
+                  const imageData = canvas.toDataURL('image/jpeg');
+                  doc.addImage(imageData, 'JPEG', xPosition, currentY, imageWidth, imageHeight);
+                  resolve();
+                } catch (err) {
+                  console.warn(`Failed to process image ${i + 1}:`, err);
+                  resolve(); // Continue with next image even if this one fails
+                }
+              };
+              
+              img.onerror = () => {
+                console.warn(`Failed to load image ${i + 1}`);
+                resolve(); // Continue with next image even if this one fails
+              };
+              
+              img.src = imageUrl;
+            });
+          }
+        } catch (error) {
+          console.warn('Error processing images:', error);
+        }
+        
+        // Update currentY position after images
+        currentY += imageHeight + 10;
+      }
+    };
 
-    currentY += imageHeight + 5; // Move Y position after the images
+    // Call the async function to load images
+    await loadAndAddImages();
 
     // Short Introduction
-    const shortIntro = `Discover ${property.property_name} in ${property.locality}, ${property.city}, an exciting new housing society currently under construction. Jointly developed by Godrej Properties and ACE Group, this project features apartments for sale and is set for possession in June 2025. ${property.property_name} offers 430 exclusive ‘Resort Residences,’ providing a lifestyle that feels like a continuous vacation. Designed by Godrej Properties, a highly trusted real estate name, this development aims to deliver low-rise, resort-style homes for a tranquil and low-density living experience. The property is currently ${property.construction_status}.`;
+    const shortIntro = `Discover ${property.property_name} in ${property.locality}, ${property.city}, an exciting new housing society currently under construction. Jointly developed by Godrej Properties and ACE Group, this project features apartments for sale and is set for possession in June 2025. ${property.property_name} offers 430 exclusive 'Resort Residences,' providing a lifestyle that feels like a continuous vacation. Designed by Godrej Properties, a highly trusted real estate name, this development aims to deliver low-rise, resort-style homes for a tranquil and low-density living experience. The property is currently ${property.construction_status}.`;
 
     doc.setFontSize(12);
     doc.setTextColor(80, 80, 80);
@@ -138,41 +171,87 @@ const PropertyPDF = ({ property }) => {
 
     // Amenities Section
     const drawAmenitiesSection = () => {
-      const requiredSpace = 18 + Math.ceil(property.amenities.length / 3) * 10;
-      if (currentY + requiredSpace > doc.internal.pageSize.getHeight() - 20) {
+      // Check if we need a new page
+      if (currentY + 40 > doc.internal.pageSize.getHeight() - 20) {
         doc.addPage();
         currentY = 35;
       }
 
+      // Add Amenities header
       doc.setFontSize(18);
       doc.setTextColor(0, 102, 204);
       doc.text("Amenities", 20, currentY);
-      currentY += 10;
+      currentY += 15;
 
-      const amenities = property.amenities || [];
-      const columns = 3;
-      const columnWidth = 60;
-      const lineHeight = 10;
-
-      for (let i = 0; i < amenities.length; i++) {
-        const colIndex = i % columns;
-        const rowIndex = Math.floor(i / columns);
-        const xPosition = 20 + colIndex * columnWidth;
-
-        if (
-          currentY + rowIndex * lineHeight >
-          doc.internal.pageSize.getHeight() - 20
-        ) {
-          doc.addPage();
-          currentY = 20;
+      // Set up amenities display configuration
+      let amenities = [];
+      // Ensure amenities is properly formatted as an array of strings
+      if (Array.isArray(property.amenities)) {
+        amenities = property.amenities;
+      } else if (typeof property.amenities === 'string') {
+        try {
+          // If it's a JSON string, parse it
+          amenities = JSON.parse(property.amenities);
+        } catch (e) {
+          // If parsing fails, split by comma as fallback
+          amenities = property.amenities.split(',').map(item => item.trim());
         }
-
-        doc.setFontSize(12);
-        doc.setTextColor(80, 80, 80);
-        doc.text(amenities[i], xPosition, currentY + rowIndex * lineHeight);
       }
 
-      currentY += Math.ceil(amenities.length / columns) * lineHeight + 20;
+      // Skip if no amenities
+      if (!amenities || amenities.length === 0) {
+        currentY += 10;
+        return;
+      }
+
+      const columns = 3;
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const margin = 20;
+      const usableWidth = pageWidth - (2 * margin);
+      const columnWidth = usableWidth / columns;
+      const lineHeight = 8;
+      const itemsPerColumn = Math.ceil(amenities.length / columns);
+
+      // Set font for amenities
+      doc.setFontSize(10);
+      doc.setTextColor(80, 80, 80);
+
+      // Draw amenities in columns
+      for (let i = 0; i < amenities.length; i++) {
+        if (!amenities[i] || typeof amenities[i] !== 'string') continue;
+        
+        const column = Math.floor(i / itemsPerColumn);
+        const row = i % itemsPerColumn;
+        
+        const x = margin + (column * columnWidth);
+        const y = currentY + (row * lineHeight);
+
+        // Check if we need a new page
+        if (y > doc.internal.pageSize.getHeight() - 20) {
+          doc.addPage();
+          currentY = 35;
+          // Redraw the header on the new page
+          doc.setFontSize(18);
+          doc.setTextColor(0, 102, 204);
+          doc.text("Amenities (continued)", 20, currentY);
+          currentY += 15;
+          
+          // Reset for amenities text
+          doc.setFontSize(10);
+          doc.setTextColor(80, 80, 80);
+          
+          // Adjust y position for the current item
+          const newRow = 0;
+          const newY = currentY + (newRow * lineHeight);
+          doc.text("• " + amenities[i].trim(), x, newY);
+        } else {
+          doc.text("• " + amenities[i].trim(), x, y);
+        }
+      }
+
+      // Update currentY to after the amenities section
+      const totalRows = Math.ceil(amenities.length / columns);
+      currentY += (totalRows * lineHeight) + 20;
     };
 
     drawAmenitiesSection();
@@ -231,8 +310,7 @@ const PropertyPDF = ({ property }) => {
     const pageCount = doc.internal.getNumberOfPages();
     for (let i = 1; i <= pageCount; i++) {
       doc.setPage(i);
-      // doc.addImage(logoPath, "PNG", centerX, 10, logoWidth, logoHeight);
-      // Add logo at the top of every page
+      // Add company name instead of logo at the top of every page
       doc.setFontSize(10);
       doc.setTextColor(150, 150, 150);
       doc.text(
@@ -247,34 +325,35 @@ const PropertyPDF = ({ property }) => {
     const footerYPosition = doc.internal.pageSize.getHeight() - 20;
 
     // Contact details on the left
-    doc.setFontSize(12); // Increase font size
-    doc.setFont("helvetica", "bold"); // Set font to bold for "Contact Details"
-    doc.setTextColor(0, 0, 0); // Set text color to black
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "bold");
+    doc.setTextColor(0, 0, 0);
     doc.text("Contact Details", 20, footerYPosition - 20);
 
     // Reset font weight for email and phone numbers
-    doc.setFontSize(12); // Maintain font size
-    doc.setFont("helvetica", "normal"); // Set font to normal for email and phone numbers
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "normal");
     doc.text("sales@townmanor.in", 20, footerYPosition - 10);
     doc.text("+91-0120-4420450, 7042888903", 20, footerYPosition);
 
-    // Reset font for company name
-    doc.setFontSize(12); // Increase font size
-    doc.setFont("helvetica", "bold"); // Set font to bold for company name
+    // Company name on the right
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "bold");
+    
+    // Company Name - aligned to right
+    const companyName = "Townmanor Technologies Pvt Ltd";
+    const companyNameWidth = doc.getStringUnitWidth(companyName) * 12 / doc.internal.scaleFactor;
+    const rightMargin = 20;
+    const companyNameX = doc.internal.pageSize.getWidth() - companyNameWidth - rightMargin;
+    
+    doc.text(companyName, companyNameX, footerYPosition - 15);
+    
+    // Add a styled tagline
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "italic");
+    doc.text("Your Trusted Property Partner", companyNameX, footerYPosition - 5);
 
-    // Company and Logo name on the right
-    const footerLogoWidth = 60;
-    const footerLogoHeight = 12;
-    const footerLogoX = doc.internal.pageSize.getWidth() - footerLogoWidth - 20; // Align to right
-
-    // Company Name
-    doc.text("Townmanor Technologies Pvt Ltd",footerLogoX,footerYPosition - 18);
-
-    // Company Image
-    doc.addImage(
-      logoPath,"PNG",footerLogoX,footerYPosition - 13,footerLogoWidth,footerLogoHeight);
-
-    // Reset font back to normal if needed for other text
+    // Reset font back to normal
     doc.setFont("helvetica", "normal");
 
     // Save the PDF
@@ -282,7 +361,16 @@ const PropertyPDF = ({ property }) => {
   };
 
   return (
-    <button className="download-btn" onClick={generatePDF}>
+    <button 
+      className="download-btn" 
+      onClick={async () => {
+        try {
+          await generatePDF();
+        } catch (error) {
+          console.error('Error generating PDF:', error);
+        }
+      }}
+    >
       Download PDF
     </button>
   );

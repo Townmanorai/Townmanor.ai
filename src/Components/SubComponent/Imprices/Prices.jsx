@@ -31,7 +31,7 @@ function Prices({ property }) {
           </div>
         </div>
         <div className="subprice2">
-          <p className="price-add"><i ><IoLocationSharp /></i>{property.address}, {property.locality}, {property.city}</p>
+          <p className="price-add"><i ><IoLocationSharp /></i>{property.address} {property.locality}</p>
 
           <div class="fav1">
             <button className="fav1-fav">
@@ -39,8 +39,9 @@ function Prices({ property }) {
               <FaHeart style={{
                     width: '14px',
                     height:'26px',
-                    margin: '0 2px',
-                    marginBottom: '-5px'
+                    marginRight: '4px',
+                    position:'relative',
+                    top:'-1px'
               }} />
               </i>
               Add to favorites

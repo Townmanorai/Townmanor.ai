@@ -1,101 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import Slider from 'react-slick';
-import './ExclusiveOwnerProperties.css';
-
-// Dummy JSON data for properties
-const propertiesData = [
-  {
-    id: 1,
-    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1739617664620-PrateekGrand2.jpg",
-    type: "2 BHK Builder Floor",
-    price: "₹52 Lakh",
-    location: "Prateek Grand Paeonia, Noida",
-    status: "Ready to Move",
-    link:'https://townmanor.ai/home/8',
-    picCount: 19
-  },
-  {
-    id: 2,
-    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1739621894650-eldecoUtopia1.jpg",
-    type: "3 BHK Flat",
-    price: "₹18 Crore",
-    location: "ATS Knightsbridge, Noida",
-    status: "Under-Construction",
-    link:'http://localhost:5173/home/54',
-    picCount: 5
-  },
-  {
-    id: 4,
-    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1741165402582-max%20estate%201283.jpg",
-    type: "3 BHK Flat",
-    price: "1.2 Crore",
-    location: "Max Estates 128, Noida",
-    status: "Ready to Move",
-    link:'https://townmanor.ai/home/33',
-    picCount: 5
-  },
-  {
-    id: 5,
-    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1741783645276-himalaya2.jpg",
-    type: "1 BHK Flat",
-    price: "₹10 Lakh",
-    location: "HIMALAYA PRIDES, Noida",
-    status: "Ready to Move",
-    link:'https://townmanor.ai/home/36',
-    picCount: 19
-  },
-  {
-    id: 6,
-    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1741783715521-experion1.jpg",
-    type: "3 BHK Flat",
-    price: "₹5.95 Cr",
-    location: "Experion Element, Noida",
-    status: "Ready to Move",
-    link:'https://townmanor.ai/home/37',
-    picCount: 5
-  },
-  {
-    id: 7,
-    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1742214290198-express_Zenith1.jpg",
-    type: "4 BHK Flat",
-    price: "₹2.65 Cr",
-    location: "Express Zenith, Noida",
-    status: "Ready to Move",
-    link:'https://townmanor.ai/home/40',
-    picCount: 19
-  },
-  {
-    id: 8,
-    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1742801095277-Titania_residency.png",
-    type: "4 BHK Flat",
-    price: "Price On Request",
-    location: "Titenia Residency, Greaternoida",
-    status: "Ready to Move",
-    link:'https://townmanor.ai/home/61',
-    picCount: 5
-  },
-  {
-    id: 3,
-    imgSrc: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1737461234604-Ow_arora_img6.jpg",
-    type: "3 BHK Flat",
-    price: "₹73 Lakh",
-    location: "Ajnara Le Garden, Greater Noida",
-    status: "Ready to Move",
-    link:'',
-    picCount: 1
-  },
-  // Add more properties as needed
-];
+import './ExclusiveOwnerProperties.css';  // Separate CSS for rented properties
 
 const ExclusiveOwnerProperties = ({stateName}) => {
   const sliderSettings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <div className="swiper-button-next"><a href="javascript:void(0)"></a></div>,
     prevArrow: <div className="swiper-button-prev"><a href="javascript:void(0)"></a></div>,
+    autoplay: true, // Enable autoplay
+    autoplaySpeed: 3000, // Slide interval in milliseconds (3 seconds)
+    pauseOnHover: true, // Pause autoplay when hovering over the carousel
+
     responsive: [
       {
         breakpoint: 1024,
@@ -116,41 +37,69 @@ const ExclusiveOwnerProperties = ({stateName}) => {
     ],
   };
 
+  const [data,usedata]= useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`https://www.townmanor.ai/api/owner-property/filter/sale`);
+        usedata(response.data);
+        console.log(data);
+      }
+      catch (error) {
+        console.error('Error Fetching Data', error);
+      }
+    };
+    fetchData();
+  },[]);
+
+  
+  
   return (
-    <div className="exclusive-owner-properties" id="exclusive-ownerProperties">
-      <div className="exclusive-container">
-        <section className="exclusive-section has-slider" style={{paddingBottom:'10px'}}>
-          <div className="exclusive-section-title">
-          <div className="exclusive-title-text strip-orange section-heading" style={{marginBottom:'0px'}} dangerouslySetInnerHTML={{__html: stateName 
+    
+    <div className="top-rented-properties" id="top-rentedProperties">
+      <div className="rented-container">
+        <section className="rented-section has-slider">
+          <div className="rented-section-title" style={{marginTop:'25px'}}>
+          <div className="exclusive-title-text strip-orange section-heading" style={{marginBottom:'0px'}} 
+     dangerouslySetInnerHTML={{
+        __html: stateName 
           ? `<h3>Resale <b>properties</b> in <b>${stateName}</b></h3>`
-          : '<h3>Resale <b>properties</b> in <b>noida</b></h3>'
+          : '<h3>Resale <b>properties</b> in <b>noida</b><h3>'
      }}>
       </div>
-
-
-            {/* <a href="javascript:void(0);" className="exclusive-anchor-see-all push-right">
-              See all Properties
-            </a> */}
           </div>
-          <div className="exclusive-property-slider">
+          <div className="rented-property-slider rps">
             <Slider {...sliderSettings}>
-              {propertiesData.map((property) => (
-                <div className="swiper-slide" key={property.id}>
-                  <div className="exclusive-property-card card-shadow">
+              {data.map((property,index) => (
+                <div className="swiper-slide" key={index}>
+                  <div className="rented-property-card card-shadow">
                     <a href="javascript:void(0);">
-                      <div className="exclusive-card-graphic">
-                        <img src={property.imgSrc} alt="" />
-                        <span className="pic-count">{property.picCount}</span>
+                      <div className="rented-card-graphic">
+                        {property.image_repository && (() => {
+                            try {
+                              const images = JSON.parse(property.image_repository);
+                              return images && Array.isArray(images) && images.length > 0
+                                ? <img src={`https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/${images[0]}`} alt="Property" />
+                                : <img src='/dummyproperty.jpg' alt="Property" />;
+                            } catch (e) {
+                              console.error('Error parsing image repository:', e);
+                              return <img src='/dummyproperty.jpg' alt="Property" />;
+                            }
+                          })()
+                        }
+
+                          
                       </div>
-                      <div className="exclusive-card-content">
-                        <div className="property-type">{property.type}</div>
-                        <div className="property-price">{property.price}</div>
-                        <div className="property-location">{property.location}</div>
-                        <div className="property-status">{property.status}</div>
+                      <div className="rented-card-content">
+                        <div className="property-type">{property.configuration} {property.residential}</div>
+                        <div className="property-rent">{property.price} {property.pricerange}</div>
+                        <div className="property-location">{property.address}</div>
+                        <div className="property-status" style={{color:'#333'}}>Available for {property.purpose}</div>
                         <div className="action-btn">
-                          <a href={property.link}>
-                            <span className="btn-red medium">View Details</span>
-                          </a>
+                          <Link to={`https://townmanor.ai/home/${property.id}`}>
+                            <span className="btn-blue medium">View Details</span>
+                          </Link>
                         </div>
                       </div>
                     </a>

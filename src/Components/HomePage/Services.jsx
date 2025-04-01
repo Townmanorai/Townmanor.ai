@@ -293,27 +293,29 @@ const Services = () => {
   };
 
   return (
-    <div className="container">
-      <section className="svc-services-section ">
-        <h1>
-           Explore <b className="svc-h1">Services</b>
-        </h1>
-        <div className="svc-services-grid">
-          {servicesData.map((service, idx) => (
-            <ServiceCard
-              key={idx}
-              title={service.title}
-              description={service.description}
-              icon={service.icon}
-              link={service.link}
-              isNew={service.isNew}
-              showPopup={showPopup}
-            />
-          ))}
+    <section style={{marginTop:'25px'}}>
+      <div className="container">
+        <div className="section-heading mb-4 h4" style={{fontFamily:'Gilroy'}}>
+          <h1>Explore <b>services</b></h1>
         </div>
-      </section>
-      {isPopupOpen && <Popup message={popupMessage} onClose={closePopup} />}
-    </div>
+        <section className="svc-services-section ">
+          <div className="svc-services-grid">
+            {servicesData.map((service, idx) => (
+              <ServiceCard
+                key={idx}
+                title={service.title}
+                description={service.description}
+                icon={service.icon}
+                link={service.link}
+                isNew={service.isNew}
+                showPopup={showPopup}
+              />
+            ))}
+          </div>
+        </section>
+        {isPopupOpen && <Popup message={popupMessage} onClose={closePopup} />}
+      </div>
+    </section>
   );
 };
 
