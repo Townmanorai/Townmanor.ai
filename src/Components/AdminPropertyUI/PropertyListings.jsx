@@ -11,7 +11,7 @@ const PropertyListings = () => {
   const { id } = useParams(); 
   const [properties, setProperties] = useState([]); // Store all properties from API
   const [currentPage, setCurrentPage] = useState(1);
-  const [filter, setfilter] = useState(true);  // Current page
+  const [filter, setfilter] = useState(false);  // Current page
   const [propertiesPerPage] = useState(21); // Number of properties per page
   const [loading, setLoading] = useState(true); 
   const navigate = useNavigate();// Loading state

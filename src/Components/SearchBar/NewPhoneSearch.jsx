@@ -43,7 +43,7 @@ const NewPhoneSearch = () => {
         setCommercial('');
         break;
       case "New Projects":
-        navigate('/adminproperty');
+        navigate('/adminproperty/Noida');
         break;
       case "Plot/Land":
         setPurpose('Sale');
