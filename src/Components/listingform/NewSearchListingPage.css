@@ -377,7 +377,7 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     flex-basis: 30%;
-    height: 473px;
+    height: fit-content;
   }
   
   .promo-image {
@@ -892,12 +892,134 @@
   text-align: center;
   text-transform: capitalize;
 }
+/* Custom Container Style */
+.custom-container {
+  background-color: #f8f9fa;
+  
+  font-family: 'Inter', sans-serif;
+}
+
+/* Main Section Styling */
+.custom-main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Card Container */
+.custom-card {
+  max-width: 800px;
+  margin: 0px auto;
+  text-align: center;
+  padding: 3.8rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon Container
+.custom-icon-container {
+  margin-bottom: 1.5rem;
+} */
+
+.custom-iconx {
+  font-size: 4rem;
+  color: #d1d5db;
+}
+
+/* Title Styling */
+.custom-title {
+
+    font-size: 19px;
+    font-weight: 500;
+    color: #1f2937;
+    margin-bottom: 1rem;
+
+}
+
+/* Description Styling */
+.custom-description {
+  font-size: 16px;
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+/* Filter Section */
+.custom-filter-section {
+  margin-bottom: 3rem;
+}
+
+.custom-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+/* Reset Filters Button */
+.custom-reset-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+  border: 1px solid #d1d5db;
+  background-color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.custom-reset-button:hover {
+  background-color: #f9fafb;
+}
+
+.custom-reset-icon {
+  margin-right: 0.5rem;
+}
+
+/* Search Section */
+.custom-search-section {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom-start-search-text {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+/* View All Properties Button */
+.custom-view-all-button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  background: linear-gradient(to right, #ff4447, #8a2e2e);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.custom-view-all-button:hover {
+  background-color: #45a049;
+}
+
 @media only screen and (min-width: 0px) and (max-width: 800px){
   .header-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: 10px 20px;
     gap: 5px;
+}
+.custom-card {
+
+  padding: 1rem;
+
 }
 .search-bar-listing {
   width: fit-content;
