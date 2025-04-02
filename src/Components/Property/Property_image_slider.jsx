@@ -41,7 +41,9 @@ function Property_image_slider({ images }) {
   return (
     <>
       {images.length > 0 && (
-        <div className="property-imgs">
+        <div className="property-imgs" style={{
+          marginTop:'5rem'
+        }}>
           <div className="row">
             <div className="col-lg-6">
               <div className="property-main-img">
@@ -51,6 +53,9 @@ function Property_image_slider({ images }) {
                       data-fullsrc={file.url}
                       src={file.url}
                       alt={file.alt}
+                      style={{
+                        maxHeight:'500px'
+                      }}
                     />
                   </div>
                 ))}

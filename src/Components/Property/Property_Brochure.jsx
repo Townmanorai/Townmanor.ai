@@ -16,7 +16,7 @@ const DownloadBrochure = () => {
     <div className="widget widget-posts text-left">
       <h3 className="widget-title">Download Brochure</h3>
       <a className="text-center block" href={pdfDownloadUrl}>
-        <img src="assets/img/icons/filetype/pdf.png" alt="Pdf Export" />
+        <img src="/pdf.png" alt="Pdf Export" />
       </a>
       <a href={pdfDownloadUrl} download="" className="download-brochure">
         Download

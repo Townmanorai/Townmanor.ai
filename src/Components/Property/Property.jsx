@@ -20,6 +20,8 @@ import SellProperties_By_Project from './SellProperties_By_Project';
 import RentProperties_By_Project from './RentProperties_By_Project';
 import Cookies from 'js-cookie';
 import {jwtDecode} from 'jwt-decode'; // Corrected import for jwtDecode
+import TopRentedProperties from '../HomePage/TopRentedProperties';
+import ExclusiveOwnerProperties from '../HomePage/ExclusiveOwnerProperties';
 
 function Property() {
   const { id } = useParams(); // Get the property ID from the URL
@@ -160,7 +162,9 @@ function Property() {
 
   return (
     <div>
-      <section className="property-single-pg">
+      <section className="property-single-pg" style={{
+        marginTop:'4rem !important'
+      }}>
         <div className="container-fluid px-5">
           <div className="property-single-page-content">
             <div className="row prop-spacing-left-right">
@@ -205,8 +209,8 @@ function Property() {
                     }} 
                   />
                   <PropertyAmenities amenities={JSON.parse(property.amenities)} />
-                  <SellProperties_By_Project project_name={property.property_name} />
-                  <RentProperties_By_Project project_name={property.property_name} />
+                  <ExclusiveOwnerProperties/>
+                  <TopRentedProperties/>
                   <PropertyDistanceDetails 
                     distances={{
                       metro: property.metro,
