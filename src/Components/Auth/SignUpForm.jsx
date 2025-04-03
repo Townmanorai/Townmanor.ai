@@ -432,9 +432,9 @@ const Signup = () => {
               {loading ? 'Creating Account...' : 'Sign Up'}
             </button>
             
-            <p className="loginToAct">
+            {/* <p className="loginToAct">
               Already have an account? <a href="#">Sign In</a>
-            </p>
+            </p> */}
           </form>
         </div>
       </div>

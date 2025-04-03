@@ -167,9 +167,9 @@ const Login = ({ onLogin }) => {
                 {loading ? 'Signing In...' : 'Sign In'}
               </button>
               
-              <p className="loginToAct">
+              {/* <p className="loginToAct">
                 Don't have an account? <a href="#">Sign Up</a>
-              </p>
+              </p> */}
             </form>
           </div>
         </div>
