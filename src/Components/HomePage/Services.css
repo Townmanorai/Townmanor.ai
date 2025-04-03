@@ -86,7 +86,7 @@
     justify-items: center;
   }
   .svc-services-section {
-    padding-top: 10px;
+    padding: 10px 0;
   }
   .new-badge {
     margin-left: 5px !important;

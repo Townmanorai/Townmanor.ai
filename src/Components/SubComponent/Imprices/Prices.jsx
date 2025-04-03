@@ -31,7 +31,7 @@ function Prices({ property }) {
           </div>
         </div>
         <div className="subprice2">
-          <p className="price-add"><i ><IoLocationSharp /></i>{property.address} {property.locality}</p>
+          <p className="price-add"><i ><IoLocationSharp /></i>{property.address}</p>
 
           <div class="fav1">
             <button className="fav1-fav">
