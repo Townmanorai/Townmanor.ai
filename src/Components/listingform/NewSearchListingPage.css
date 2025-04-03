@@ -206,7 +206,7 @@
   .image-box-main {
     width: 100%;
     height: 280px;
-    object-fit: cover;
+    object-fit: fill;
   }
   svg.icon-measurement {
     color: black;

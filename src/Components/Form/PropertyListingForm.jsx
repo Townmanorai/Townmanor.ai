@@ -134,10 +134,10 @@ const PropertyListingForm = () => {
                 setAuthToken(token);
             } catch (error) {
                 console.error('Auth token decode error:', error);
-                navigate('/');
+                navigate('/auth');
             }
         } else {
-            navigate('/');
+            navigate('/auth');
         }
     };
 
@@ -343,7 +343,7 @@ const PropertyListingForm = () => {
                     const geoResponse = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
                         params: {
                             address: address,
-                            key: import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+                            key: 'AlzaSyrmzWPt966TnQME5naZ_37JTMW9hNBNPVI'
                         }
                     });
 
@@ -574,8 +574,8 @@ const PropertyListingForm = () => {
                     {[
                         'Basic Details',
                         'Property Details',
-                        'Amenities',
                         'Location Details',
+                        'Amenities',
                         'Media',
                         'Preview'
                     ].map((step, index) => (
