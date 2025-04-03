@@ -276,6 +276,171 @@ export const districtsData = {
       famousPlaces: ['Shaniwar Wada', 'Aga Khan Palace', 'Sinhagad Fort']
     }
   ],
+
+  'andhra-pradesh': [
+    {
+      name: "Anantapur",
+      population: "2.2M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Anantapur_Clock_tower_at_night.jpg/800px-Anantapur_Clock_tower_at_night.jpg",
+      link: "https://ananthapuramu.ap.gov.in/https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Lepakshi Temple", "Puttaparthi", "Gooty Fort"]
+    },
+    {
+      name: "Anakapalli",
+      population: "1.7M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Anakapalle_Montage.png/250px-Anakapalle_Montage.png",
+      link: "https://anakapalli.ap.gov.in/",
+      famousPlaces: ["Bojjannakonda", "Panchadarla Temple", "Kondakarla Ava"]
+    },
+    {
+      name: "Annamayya",
+      population: "1.5M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Annamacharya.jpg/250px-Annamacharya.jpg",
+      link: "https://annamayya.ap.gov.in/",
+      famousPlaces: ["Tallapaka", "Rajampet", "Chandragiri Fort"]
+    },
+    {
+      name: "Bapatla",
+      population: "1.2M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Bapatla_junction_at_night.jpg/1280px-Bapatla_junction_at_night.jpg",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Suryalanka Beach", "Bapatla Agricultural College", "Vodarevu Beach"]
+    },
+    {
+      name: "Chittoor",
+      population: "2.8M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Cto_railway_station.jpg/1920px-Cto_railway_station.jpg",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Tirumala Venkateswara Temple", "Kanipakam Vinayaka Temple", "Horsley Hills"]
+    },
+    {
+      name: "East Godavari",
+      population: "5.1M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Kovvur_shivalayam_02.jpg/1280px-Kovvur_shivalayam_02.jpg",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Coringa Wildlife Sanctuary", "Draksharamam Temple", "Rajahmundry"]
+    },
+    {
+      name: "Eluru",
+      population: "2.1M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/District_Collectorate_of_West_Godavari_%28May_2019%29_3.jpg/330px-District_Collectorate_of_West_Godavari_%28May_2019%29_3.jpg",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Kolleru Lake", "Guntupalli Caves", "Dwaraka Tirumala"]
+    },
+    {
+      name: "Guntur",
+      population: "3.5M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/GunturCollage06022017.jpg/1280px-GunturCollage06022017.jpg",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Amaravati Stupa", "Undavalli Caves", "Mangalagiri Temple"]
+    },
+    {
+      name: "Krishna",
+      population: "4.5M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Ghantasala_stupa.jpg/288px-Ghantasala_stupa.jpg",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Kanaka Durga Temple", "Kondapalli Fort", "Machilipatnam Beach"]
+    },
+    {
+      name: "Kurnool",
+      population: "4.1M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Kurnool_Railway_station_board.jpg/1280px-Kurnool_Railway_station_board.jpg",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Belum Caves", "Yaganti Temple", "Oravakallu Rock Garden"]
+    },
+    {
+      name: "Nandyal",
+      population: "2.0M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Lower_Ahobilam_temple_view.jpg/1280px-Lower_Ahobilam_temple_view.jpg",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Mahanandi Temple", "Ahobilam", "Yaganti Temple"]
+    },
+    {
+      name: "Nellore",
+      population: "2.9M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Sri_Ranganathaswamy_Temple%2C_Galigopuram%2C_Nellore_%284%29.jpg/800px-Sri_Ranganathaswamy_Temple%2C_Galigopuram%2C_Nellore_%284%29.jpg",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Narasimha Swamy Temple", "Pulicat Lake", "Penchalakona Temple"]
+    },
+    {
+      name: "NTR",
+      population: "2.6M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Kanakadurga_Temple_gopuram.jpg/1280px-Kanakadurga_Temple_gopuram.jpg",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Kanaka Durga Temple", "Prakasam Barrage", "Bhavani Island"]
+    },
+    {
+      name: "Palnadu",
+      population: "2.4M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Dhyana_Buddha_Project.jpg/1280px-Dhyana_Buddha_Project.jpg",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Kotappakonda", "Narasaraopeta", "Guttikonda Caves"]
+    },
+    {
+      name: "Parvathipuram Manyam",
+      population: "1.6M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Kamalingeswara_Temple%2C_Gallavilli%2C_Andhra_Pradesh_-_01.jpg/1280px-Kamalingeswara_Temple%2C_Gallavilli%2C_Andhra_Pradesh_-_01.jpg",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Janjhavathi Reservoir", "Pydithalli Ammavari Temple"]
+    },
+    {
+      name: "Prakasam",
+      population: "3.4M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/7th_to_8th_century_Bhairavakona_rock_cut_cave_temples%2C_Ambavaram_Nallamala_Hills%2C_Andhra_Pradesh_-_14.jpg/1280px-7th_to_8th_century_Bhairavakona_rock_cut_cave_temples%2C_Ambavaram_Nallamala_Hills%2C_Andhra_Pradesh_-_14.jpg",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Bhavanasi Lake", "Chandavaram Buddhist Site", "Kothapatnam Beach"]
+    },
+    {
+      name: "Sri Sathya Sai",
+      population: "1.9M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Shiva%27s_Bull_at_Lepakshi_%28Lepakshi_Nandi%29.jpg/250px-Shiva%27s_Bull_at_Lepakshi_%28Lepakshi_Nandi%29.jpg",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Puttaparthi", "Penukonda Fort"]
+    },
+    {
+      name: "Srikakulam",
+      population: "2.7M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Srikakulam.bhudda_statue_in_nagavali_rever.jpg/250px-Srikakulam.bhudda_statue_in_nagavali_rever.jpg",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Arasavalli Sun Temple", "Kalingapatnam Beach", "Sangam Temple"]
+    },
+    {
+      name: "Tirupati",
+      population: "2.2M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Tirumala_090615.jpg/1280px-Tirumala_090615.jpg",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Tirumala Temple", "Sri Kalahasti Temple", "Kapila Theertham"]
+    },
+    {
+      name: "Visakhapatnam",
+      population: "4.3M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Vizag_View_from_Kailasagiri.jpg/1920px-Vizag_View_from_Kailasagiri.jpg",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["RK Beach", "Kailasagiri", "INS Kursura Submarine Museum"]
+    },
+    {
+      name: "Vizianagaram",
+      population: "2.3M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Vizianagaram_Montage.png/800px-Vizianagaram_Montage.png",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Vizianagaram Fort", "Tatipudi Reservoir", "Ganta Stambham"]
+    },
+    {
+      name: "West Godavari",
+      population: "3.9M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/SomeswaraSwamy-5.JPG/1280px-SomeswaraSwamy-5.JPG",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Dwaraka Tirumala", "Perupalem Beach", "Kolleru Lake"]
+    },
+    {
+      name: "YSR Kadapa",
+      population: "2.9M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/16th_century_Kodandarama_temple%2C_Vontimitta%2C_Andhra_Pradesh_India_-_25.jpg/1280px-16th_century_Kodandarama_temple%2C_Vontimitta%2C_Andhra_Pradesh_India_-_25.jpg",
+      link: "https://cdma.ap.gov.in/en/ptpayments",
+      famousPlaces: ["Gandikota Fort", "Ameen Peer Dargah", "Sri Venkateswara Wildlife Sanctuary"]
+    }
+  ],  
+
   'uttar-pradesh': [
     {
       "name": 'Lucknow',
