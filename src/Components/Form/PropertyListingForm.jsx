@@ -99,17 +99,21 @@ const PropertyListingForm = () => {
             moneyType: 'Rupees',
             amenities: [],
             nearbyLocations: {
-                metro: null,
-                school: null,
-                hospital: null,
-                mall: null,
-                restaurant: null,
-                bus: null,
-                cinema: null
+                metro: { name: '', distance: null },
+                school: { name: '', distance: null },
+                hospital: { name: '', distance: null },
+                mall: { name: '', distance: null },
+                restaurant: { name: '', distance: null },
+                bus: { name: '', distance: null },
+                cinema: { name: '', distance: null },
+                park: { name: '', distance: null }
             },
             country: 'india'
         }
     });
+
+    // Add new state for loading
+    const [isGeneratingDistances, setIsGeneratingDistances] = useState(false);
 
     // Progress bar steps
     const formSteps = [
@@ -475,13 +479,14 @@ const PropertyListingForm = () => {
                         moneyType: 'Rupees',
                         amenities: [],
                         nearbyLocations: {
-                            metro: null,
-                            school: null,
-                            hospital: null,
-                            mall: null,
-                            restaurant: null,
-                            bus: null,
-                            cinema: null
+                            metro: { name: '', distance: null },
+                            school: { name: '', distance: null },
+                            hospital: { name: '', distance: null },
+                            mall: { name: '', distance: null },
+                            restaurant: { name: '', distance: null },
+                            bus: { name: '', distance: null },
+                            cinema: { name: '', distance: null },
+                            park: { name: '', distance: null }
                         },
                         country: 'india'
                     }
@@ -519,6 +524,146 @@ const PropertyListingForm = () => {
         } catch (error) {
             console.error('Error generating description:', error);
             setPropertyData(prev => ({ ...prev, isLoading: false }));
+        }
+    };
+
+    // Add these new functions after the existing state declarations
+    const getCoordinates = async (address) => {
+        try {
+            const response = await axios.get(`https://maps.gomaps.pro/maps/api/geocode/json`, {
+                params: {
+                    address: address,
+                    key: 'AlzaSyrmzWPt966TnQME5naZ_37JTMW9hNBNPVI'
+                }
+            });
+
+            if (response.data.status === 'OK') {
+                const { lat, lng } = response.data.results[0].geometry.location;
+                return { lat, lng };
+            }
+            return null;
+        } catch (error) {
+            console.error('Error getting coordinates:', error);
+            return null;
+        }
+    };
+
+    // Add handler for manual distance updates
+    const handleNearbyLocationChange = (e, locationKey) => {
+        const { value } = e.target;
+        setPropertyData(prev => ({
+            ...prev,
+            details: {
+                ...prev.details,
+                nearbyLocations: {
+                    ...prev.details.nearbyLocations,
+                    [locationKey]: {
+                        ...prev.details.nearbyLocations[locationKey],
+                        displayText: value
+                    }
+                }
+            }
+        }));
+    };
+
+    const getNearbyPlaceAndDistance = async (origin_lat, origin_lng, place_type) => {
+        try {
+            const nearbyResponse = await axios.get(`https://maps.gomaps.pro/maps/api/place/nearbysearch/json`, {
+                params: {
+                    keyword: place_type,
+                    location: `${origin_lat},${origin_lng}`,
+                    radius: 10000,
+                    key: 'AlzaSyrmzWPt966TnQME5naZ_37JTMW9hNBNPVI'
+                }
+            });
+
+            if (nearbyResponse.data.results && nearbyResponse.data.results.length > 0) {
+                const place = nearbyResponse.data.results[0];
+                const placeName = place.name;
+                const { lat, lng } = place.geometry.location;
+
+                const distanceResponse = await axios.get(`https://maps.gomaps.pro/maps/api/directions/json`, {
+                    params: {
+                        mode: 'driving',
+                        origin: `${origin_lat},${origin_lng}`,
+                        destination: `${lat},${lng}`,
+                        key: 'AlzaSyrmzWPt966TnQME5naZ_37JTMW9hNBNPVI'
+                    }
+                });
+
+                if (distanceResponse.data.status === 'OK') {
+                    const distance = distanceResponse.data.routes[0].legs[0].distance.text;
+                    const distanceNum = parseFloat(distance.replace(' km', ''));
+                    return {
+                        name: placeName,
+                        distance: distanceNum,
+                        displayText: `${placeName} (${distanceNum} km)`
+                    };
+                }
+            }
+            return null;
+        } catch (error) {
+            console.error('Error getting nearby place and distance:', error);
+            return null;
+        }
+    };
+
+    const handleAutoGenerateDistances = async () => {
+        if (!propertyData.details.propertyName || !propertyData.details.address) {
+            alert('Please enter property name and address first');
+            return;
+        }
+
+        setIsGeneratingDistances(true);
+
+        try {
+            const address = `${propertyData.details.propertyName}, ${propertyData.details.locality}, ${propertyData.details.city}, ${propertyData.details.country}`;
+            const coordinates = await getCoordinates(address);
+
+            if (coordinates) {
+                const { lat, lng } = coordinates;
+                
+                setPropertyData(prev => ({
+                    ...prev,
+                    coordinates: { lat, lng }
+                }));
+
+                const placeTypes = {
+                    metro: 'metro station',
+                    school: 'school',
+                    hospital: 'hospital',
+                    mall: 'Mall',
+                    restaurant: 'Restuarant',
+                    bus: 'bus station',
+                    cinema: 'cinema',
+                    park: 'Park'
+                };
+
+                const distances = {};
+                for (const [key, placeType] of Object.entries(placeTypes)) {
+                    const result = await getNearbyPlaceAndDistance(lat, lng, placeType);
+                    if (result !== null) {
+                        distances[key] = {
+                            name: result.name,
+                            distance: result.distance,
+                            displayText: result.displayText
+                        };
+                    }
+                }
+
+                setPropertyData(prev => ({
+                    ...prev,
+                    details: {
+                        ...prev.details,
+                        nearbyLocations: distances
+                    }
+                }));
+            }
+        } catch (error) {
+            console.error('Error generating distances:', error);
+            alert('Failed to generate distances. Please try again.');
+        } finally {
+            setIsGeneratingDistances(false);
         }
     };
 
@@ -1369,6 +1514,15 @@ const PropertyListingForm = () => {
                 {/* Location Details Section */}
                 {visibleSections.part3 && (
                     <div className="property-listing__section">
+                        <button 
+                            type="button"
+                            className="property-listing__btn property-listing__btn--primary"
+                            onClick={handleAutoGenerateDistances}
+                            disabled={isGeneratingDistances}
+                            style={{ marginBottom: '20px' }}
+                        >
+                            {isGeneratingDistances ? 'Generating Distances...' : 'Auto Generate Distances'}
+                        </button>
                         <div className="property-listing__nearby-grid">
                             {[
                                 { name: 'metro', label: 'Metro Station' },
@@ -1377,17 +1531,18 @@ const PropertyListingForm = () => {
                                 { name: 'hospital', label: 'Hospital' },
                                 { name: 'mall', label: 'Mall' },
                                 { name: 'restaurant', label: 'Restaurant' },
-                                { name: 'cinema', label: 'Cinema' }
+                                { name: 'cinema', label: 'Cinema' },
+                                { name: 'park', label: 'Park' }
                             ].map((location, index) => (
                                 <div key={index} className="property-listing__field-group">
                                     <label className="property-listing__label">{location.label}</label>
                                     <input
-                                        type="number"
+                                        type="text"
                                         className="property-listing__input"
                                         name={location.name}
                                         placeholder="Distance in km"
-                                        value={propertyData.details.nearbyLocations[location.name]}
-                                        onChange={handleInputChange}
+                                        value={propertyData.details.nearbyLocations[location.name]?.displayText || ''}
+                                        onChange={(e) => handleNearbyLocationChange(e, location.name)}
                                     />
                                 </div>
                             ))}
