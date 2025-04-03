@@ -24,10 +24,10 @@ const Subdetails = ({ property }) => {
     { label: "Furnishing", value: property.furnish_type || "NA" },
     { label: "Status", value: property.construction_status || "NA" },
     // { label: "Facing", value: property.property_facing || "NA" },
-    { label: "Area", value: property.area_detail || "NA" },
+    { label: "Area (sq.ft)", value: property.area_detail || "NA" },
     {
-      label: "Floor",
-      value: `${property.floor_no} out of ${property.total_floor} ` || "NA",
+      label: "Floor No",
+      value: `${property.floor_no}` || "NA",
     },
     { label: "Project", value: property.property_name || "NA" },
   ];

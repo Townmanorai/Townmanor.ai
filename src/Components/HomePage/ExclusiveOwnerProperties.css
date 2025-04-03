@@ -31,9 +31,9 @@
   padding-bottom: 25px !important;
 }
 
-.swiper-slide {
+/* .swiper-slide {
   padding: 10px;
-}
+} */
 
 .rented-property-card {
   background-color: #fff;
@@ -158,8 +158,6 @@
   }
 }
 
-@media (max-width: 450px) {}
-
 @media (max-width: 767px) {
   .exclusive-section-title {
     display: flex;
@@ -186,4 +184,5 @@
     align-items: center;
     padding-bottom: 5px;
   }
+
 }

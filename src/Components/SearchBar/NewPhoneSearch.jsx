@@ -43,7 +43,7 @@ const NewPhoneSearch = () => {
         setCommercial('');
         break;
       case "New Projects":
-        navigate('/adminproperty');
+        navigate('/adminproperty/Noida');
         break;
       case "Plot/Land":
         setPurpose('Sale');
@@ -75,39 +75,68 @@ const NewPhoneSearch = () => {
   };
 
   // Handle search functionality
-  const handleSearch = async () => {
-    // Create search data object with selected filters
-    const searchData = {};
+  const handleSearch = () => {
+    // Format city
+    let formattedCity = city ? city.toLowerCase() : 'all';
+    formattedCity = formattedCity.replace(/\s+/g, '-');
 
-    // Include only the parameters that are selected
-    if (city) searchData.city = city;
-    if (locality) searchData.locality = locality;
-    if (configuration) searchData.configuration = configuration;
-    if (residential) searchData.residential = residential;
-    if (commercial) searchData.commercial = commercial;
-    if (purpose) searchData.purpose = purpose;
-    if (minValue) searchData.minValue = minValue;
-    if (maxValue) searchData.maxValue = maxValue;
-    if (construction_status) searchData.construction_status = construction_status;
-    if (category) searchData.category = category;
-
-    
-
-    // API call
-    try {
-      const response = await fetch(`http://localhost:3030/searchproperties?${new URLSearchParams(searchData).toString()}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      console.log(response);
-      const result = await response.json();
-      console.log('Search results:', result);
-      // Handle navigation or results display
-    } catch (error) {
-      console.error('Error fetching data:', error);
+    // Format configuration for residential properties
+    let formattedConfig = configuration;
+    if (configuration) {
+      formattedConfig = configuration.toUpperCase();
+    } else {
+      formattedConfig = 'all';
     }
+
+    // Format purpose (rent/sale)
+    let formattedPurpose = purpose ? purpose.toLowerCase() : 'all';
+
+    // Format price range
+    let priceValue;
+    if (purpose === 'rent') {
+      // Convert rent ranges to actual values
+      const priceMap = {
+        '5-10': '10000',
+        '10-20': '20000',
+        '20-30': '30000',
+        '30-500': '50000'
+      };
+      const priceKey = `${minValue}-${maxValue}`;
+      priceValue = priceMap[priceKey] || '10000';
+    } else {
+      // Convert sale ranges to actual values
+      const priceMap = {
+        '5-100': '10000000',    // 5L - 1Cr (100L)
+        '100-500': '50000000',  // 1Cr - 5Cr
+        '500-1000': '100000000', // 5Cr - 10Cr
+        '1000-20000': '200000000' // 10Cr+
+      };
+      const priceKey = `${minValue}-${maxValue}`;
+      priceValue = priceMap[priceKey] || '10000000';
+    }
+
+    // Determine URL format based on active tab
+    let searchUrl;
+    
+    if (activeTab === "Plot/Land") {
+      // Format for plot/land: /search-property/city/purpose/plot/price
+      searchUrl = `/search-property/${formattedCity}/${formattedPurpose}/plot/${priceValue}`;
+    } 
+    else if (activeTab === "Commercial Project") {
+      // Format for commercial: /search-property/city/purpose/type/price
+      const commercialType = commercial.toLowerCase().replace(/\s+/g, '');
+      searchUrl = `/search-property/${formattedCity}/${formattedPurpose}/${commercialType}/${priceValue}`;
+    } 
+    else {
+      // Format for residential (rent/buy): /search-property/city/configuration/purpose/type/price
+      const propertyType = residential.toLowerCase().replace(/\s+/g, '');
+      // Replace 'house/villa' with just 'villa'
+      const formattedType = propertyType === 'housevilla' ? 'villa' : propertyType;
+      searchUrl = `/search-property/${formattedCity}/${formattedConfig}/${formattedPurpose}/${formattedType}/${priceValue}`;
+    }
+
+    // Navigate to search results page
+    navigate(searchUrl);
   };
 
   return (
@@ -246,10 +275,10 @@ const NewPhoneSearch = () => {
                 </>
               ) : (
                 <>
-                  <option value="5-20">5L - 20L</option>
-                  <option value="20-50">20L - 50L</option>
-                  <option value="50-100">50L - 1Cr</option>
-                  <option value="100-2000">1Cr+</option>
+                  <option value="5-100">5L - 1 Cr</option>
+                  <option value="100-500">1 Cr - 5 Cr</option>
+                  <option value="500-1000">5 Cr - 10 Cr</option>
+                  <option value="1000-20000">10 Cr+</option>
                 </>
               )}
             </select>
@@ -258,9 +287,7 @@ const NewPhoneSearch = () => {
 
           <button 
             className="new-phone-search-button"
-            onClick={()=>{
-              navigate('/search-property')
-            }}
+            onClick={handleSearch}
           >
             Search Properties
           </button>

@@ -36,15 +36,15 @@
 .contact-box input {
   border: none;
   border-radius: 5px;
-  color: #000000;
+  color: #c5c5c5;
   font-size: 14px;
   outline: none;
   width: auto;
-  padding: 18px 2px;
-  text-align: center;
+  padding: 5px 2px;
+  /* text-align: center; */
   margin: 1vh 2vw;
   margin-bottom: 0px;
-  box-shadow: 1px 1px 3px 1px #c9bfbf;
+  /* box-shadow: 1px 1px 3px 1px #c9bfbf; */
 }
 
 .contact-btn,
@@ -72,8 +72,6 @@
 .contact-btn:hover {
   opacity: 0.9;
 }
-
-/* //  */
 
 .input {
   border: none;

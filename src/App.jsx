@@ -219,7 +219,10 @@ function App() {
             <Route path='/singleblog/:id' element={<ArticleComponent/>}/>
             <Route path='/adminproperty/:id' element={<PropertyListings/>}/>
             <Route path='/andromeda' element={<Andromeda/>}/>
-            <Route path='/search-property' element={<NewSearchListingPage/>}/>
+            {/* Route for residential properties */}
+            <Route path='/search-property/:city/:configuration/:purpose/:buytype/:price' element={<NewSearchListingPage/>}/>
+            {/* Route for plot/land and commercial properties */}
+            <Route path='/search-property/:city/:purpose/:buytype/:price' element={<NewSearchListingPage/>}/>
           </Routes>
         </main>
         <Footer />

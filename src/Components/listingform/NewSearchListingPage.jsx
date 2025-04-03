@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import {FaMapMarkerAlt, FaBed, FaMoneyBillWave, FaUserCircle, FaFilter, FaChevronLeft, FaChevronRight, FaSearch, FaTimes, FaChevronDown  } from "react-icons/fa";
+import {FaMapMarkerAlt, FaBed, FaMoneyBillWave, FaUserCircle, FaFilter, FaChevronLeft, FaChevronRight, FaSearch, FaTimes, FaChevronDown ,FaRedo } from "react-icons/fa";
 import "./NewSearchListingPage.css";
 import { MdVerified } from "react-icons/md";
 import { IoConstruct } from "react-icons/io5";
@@ -7,9 +7,10 @@ import { BiArea } from "react-icons/bi";
 import { LuIndianRupee } from "react-icons/lu";
 import { PiPaintBrushHousehold } from "react-icons/pi";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const NewSearchListingPage = () => {
+    const { city, configuration, purpose, buytype, price } = useParams();
  
     const [properties, setProperties] = useState([]);
     const [filteredProperties, setFilteredProperties] = useState([]);
@@ -18,7 +19,7 @@ const NewSearchListingPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [showFilter, setShowFilter] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
-    const [selectedCity, setSelectedCity] = useState('');
+    const [selectedCity, setSelectedCity] = useState(city || '');
     const [showCityDropdown, setShowCityDropdown] = useState(false);
     const propertiesPerPage = 8;
     const navigate = useNavigate();
@@ -31,18 +32,64 @@ const NewSearchListingPage = () => {
             .filter(Boolean)
     )].sort().map(city => city.charAt(0).toUpperCase() + city.slice(1));
 
-    // Filter states
+    // Filter states with URL parameters
     const [filters, setFilters] = useState({
-        purpose: '',
+        purpose: purpose || '',
         uploadDate: '',
-        bedrooms: '',
-        residential: '',
+        bedrooms: configuration || '',
+        residential: buytype || '',
         minBudget: '',
-        maxBudget: '',
+        maxBudget: price || '',
         furnishType: '',
         constructionStatus: '',
         isReraCertified: false
     });
+
+    // Function to apply filters based on URL parameters
+    const applyUrlFilters = (data) => {
+        let filtered = [...data];
+
+        // City filter
+        if (city && city !== 'all') {
+            filtered = filtered.filter(prop => 
+                prop.city?.toLowerCase() === city.toLowerCase()
+            );
+        }
+
+        // Configuration/Bedrooms filter
+        if (configuration && configuration !== 'all') {
+            const configPattern = new RegExp(configuration.replace(/bhk/i, '').trim(), 'i');
+            filtered = filtered.filter(prop => {
+                const bedrooms = prop.configuration?.replace(/[^0-9]/g, '');
+                return configPattern.test(bedrooms);
+            });
+        }
+
+        // Purpose filter (rent/sale)
+        if (purpose && purpose !== 'all') {
+            filtered = filtered.filter(prop => 
+                prop.purpose?.toLowerCase() === purpose.toLowerCase()
+            );
+        }
+
+        // Property type filter
+        if (buytype && buytype !== 'all') {
+            filtered = filtered.filter(prop => 
+                prop.residential?.toLowerCase() === buytype.toLowerCase()
+            );
+        }
+
+        // Price filter
+        if (price && price !== 'all') {
+            const maxPrice = parseInt(price);
+            filtered = filtered.filter(prop => {
+                const propertyPrice = convertPriceToNumber(prop.price, prop.pricerange);
+                return propertyPrice <= maxPrice;
+            });
+        }
+
+        return filtered;
+    };
 
     useEffect(() => {
         const fetchProperties = async () => {
@@ -56,7 +103,10 @@ const NewSearchListingPage = () => {
                     return new Date(b.created_at) - new Date(a.created_at);
                 });
                 setProperties(sortedProperties);
-                setFilteredProperties(sortedProperties);
+                
+                // Apply filters from URL parameters
+                const filteredResults = applyUrlFilters(sortedProperties);
+                setFilteredProperties(filteredResults);
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -65,7 +115,28 @@ const NewSearchListingPage = () => {
         };
 
         fetchProperties();
-    }, []);
+    }, [city, configuration, purpose, buytype, price]);
+
+    // Update filters when URL parameters change - only on initial load
+    useEffect(() => {
+        setFilters(prev => ({
+            ...prev,
+            purpose: purpose || '',
+            bedrooms: configuration || '',
+            residential: buytype || '',
+            maxBudget: price || ''
+        }));
+        
+        if (city) {
+            setSelectedCity(city);
+        }
+
+        // Apply initial filters from URL parameters
+        if (properties.length > 0) {
+            const initialFiltered = applyUrlFilters(properties);
+            setFilteredProperties(initialFiltered);
+        }
+    }, [city, configuration, purpose, buytype, price]); // This effect runs only when URL params change
 
     useEffect(() => {
         // Handle click outside of city dropdown
@@ -101,36 +172,110 @@ const NewSearchListingPage = () => {
         }));
     };
 
-    // Apply all filters including search and city
+    // Handle city selection
+    const handleCitySelect = (city) => {
+        setSelectedCity(city);
+        setShowCityDropdown(false);
+        applyAllFilters(properties);
+    };
+
+    // Clear city selection
+    const clearCity = () => {
+        setSelectedCity('');
+        applyAllFilters(properties);
+    };
+
+    const clearFilters = () => {
+        // Clear all filters including URL parameters
+        setFilters({
+            purpose: '',
+            uploadDate: '',
+            bedrooms: '',
+            residential: '',
+            minBudget: '',
+            maxBudget: '',
+            furnishType: '',
+            constructionStatus: '',
+            isReraCertified: false
+        });
+        setSelectedCity('');
+        setSearchTerm('');
+        
+        
+        
+        // Reset to original properties
+        setFilteredProperties(properties);
+        setCurrentPage(1);
+        
+        // Reset URL parameters by navigating to base route
+        navigate('/search-property/noida/3BHK/sale/apartment/100000000', { replace: true });
+        
+        // Force a re-filter of the properties
+        setTimeout(() => {
+            applyAllFilters(properties);
+        }, 0);
+    };
+
+    // Modified applyAllFilters function to handle both URL and local filters
     const applyAllFilters = (props = properties) => {
         let filtered = [...props];
 
-        // Apply city filter
-        if (selectedCity) {
-            filtered = filtered.filter(prop => prop.city?.toLowerCase() === selectedCity.toLowerCase());
-        }
-
-        // Apply search filter - case insensitive
+        // Apply search term filter
         if (searchTerm) {
             const search = searchTerm.toLowerCase().trim();
             filtered = filtered.filter(prop => 
                 (prop.property_name || '').toLowerCase().includes(search) ||
                 (prop.address || '').toLowerCase().includes(search) ||
                 (prop.locality || '').toLowerCase().includes(search) ||
-                (prop.city || '').toLowerCase().includes(search) ||
-                (prop.configuration || '').toLowerCase().includes(search) ||
-                (prop.residential || '').toLowerCase().includes(search)
+                (prop.city || '').toLowerCase().includes(search)
             );
         }
 
-        // Purpose filter (rent/sale)
+        // Apply city filter
+        if (selectedCity) {
+            filtered = filtered.filter(prop => 
+                prop.city?.toLowerCase() === selectedCity.toLowerCase()
+            );
+        }
+
+        // Apply purpose filter
         if (filters.purpose) {
             filtered = filtered.filter(prop => 
-                (prop.purpose || '').toLowerCase() === filters.purpose.toLowerCase()
+                prop.purpose?.toLowerCase() === filters.purpose.toLowerCase()
             );
         }
 
-        // Upload date filter
+        // Apply bedroom/configuration filter
+        if (filters.bedrooms) {
+            filtered = filtered.filter(prop => {
+                const bedrooms = prop.configuration?.replace(/[^0-9]/g, '');
+                return bedrooms === filters.bedrooms;
+            });
+        }
+
+        // Apply residential type filter
+        if (filters.residential) {
+            filtered = filtered.filter(prop => 
+                prop.residential?.toLowerCase() === filters.residential.toLowerCase()
+            );
+        }
+
+        // Apply budget filters
+        if (filters.minBudget) {
+            filtered = filtered.filter(prop => {
+                const propertyPrice = convertPriceToNumber(prop.price, prop.pricerange);
+                return propertyPrice >= parseFloat(filters.minBudget);
+            });
+        }
+
+        if (filters.maxBudget) {
+            filtered = filtered.filter(prop => {
+                const propertyPrice = convertPriceToNumber(prop.price, prop.pricerange);
+                return propertyPrice <= parseFloat(filters.maxBudget);
+            });
+        }
+
+        // Apply additional filters
         if (filters.uploadDate) {
             const now = new Date();
             const filterDate = new Date();
@@ -151,41 +296,18 @@ const NewSearchListingPage = () => {
             filtered = filtered.filter(prop => new Date(prop.created_at) >= filterDate);
         }
 
-        // Bedrooms filter
-        if (filters.bedrooms) {
-            const bedroomCount = filters.bedrooms === 'Studio' ? '1' : filters.bedrooms;
-            filtered = filtered.filter(prop => {
-                const config = prop.configuration?.replace(/[^0-9]/g, '');
-                return bedroomCount === '4+' ? parseInt(config) >= 4 : config === bedroomCount;
-            });
-        }
-
-        // Property type filter
-        if (filters.residential) {
-            filtered = filtered.filter(prop => prop.residential?.toLowerCase() === filters.residential.toLowerCase());
-        }
-
-        // Budget filter
-        if (filters.minBudget || filters.maxBudget) {
-            filtered = filtered.filter(prop => {
-                const propertyPrice = convertPriceToNumber(prop.price, prop.pricerange);
-                const minBudget = filters.minBudget ? parseInt(filters.minBudget.replace(/,/g, '')) : 0;
-                const maxBudget = filters.maxBudget ? parseInt(filters.maxBudget.replace(/,/g, '')) : Infinity;
-                return propertyPrice >= minBudget && propertyPrice <= maxBudget;
-            });
-        }
-
-        // Furnishing filter
         if (filters.furnishType) {
-            filtered = filtered.filter(prop => prop.furnish_type?.toLowerCase() === filters.furnishType.toLowerCase());
-        }
-       
-        // Construction status filter
-        if (filters.constructionStatus) {
-            filtered = filtered.filter(prop => prop.construction_status?.toLowerCase() === filters.constructionStatus.toLowerCase());
+            filtered = filtered.filter(prop => 
+                prop.furnish_type?.toLowerCase() === filters.furnishType.toLowerCase()
+            );
         }
 
-        // RERA certified filter
+        if (filters.constructionStatus) {
+            filtered = filtered.filter(prop => 
+                prop.construction_status?.toLowerCase() === filters.constructionStatus.toLowerCase()
+            );
+        }
+
         if (filters.isReraCertified) {
             filtered = filtered.filter(prop => prop.rera_id !== null && prop.rera_id !== '');
         }
@@ -201,42 +323,16 @@ const NewSearchListingPage = () => {
         applyAllFilters(properties);
     };
 
-    // Handle city selection
-    const handleCitySelect = (city) => {
-        setSelectedCity(city);
-        setShowCityDropdown(false);
-        applyAllFilters(properties);
-    };
-
-    // Clear city selection
-    const clearCity = () => {
-        setSelectedCity('');
-        applyAllFilters(properties);
-    };
-
-    const clearFilters = () => {
-        setFilters({
-            purpose: '',
-            uploadDate: '',
-            bedrooms: '',
-            residential: '',
-            minBudget: '',
-            maxBudget: '',
-            furnishType: '',
-            constructionStatus: '',
-            isReraCertified: false
-        });
-        setFilteredProperties(properties);
-        setCurrentPage(1);
-    };
-
     const formatPrice = (price, pricerange, money_type) => {
         if (!price) return 'Price on request';
         
-        // If price range is not null, use Indian Rupee (₹) symbol, else use the provided money_type
+        // If price range is not null and not 'thousane', use Indian Rupee (₹) symbol, else use the provided money_type
         const displayMoneyType = price ? '₹' : money_type;
         
-        return `${displayMoneyType} ${price} ${pricerange ? `${pricerange}` : ''}`;
+        // If pricerange is 'thousane', return an empty string for the pricerange
+        const formattedPriceRange = pricerange === 'Thousand' ? '' : pricerange;
+        
+        return `${displayMoneyType} ${price} ${formattedPriceRange ? `${formattedPriceRange}` : ''}`;
     };
 
     // Calculate pagination values
@@ -542,7 +638,51 @@ const NewSearchListingPage = () => {
                     display: 'flex',
                     flexDirection: 'column'
                 }}>
-                    {currentProperties.map(renderPropertyCard)}
+                    {currentProperties.length === 0 ? (
+                        <div className="custom-container">
+                            <main className="custom-main">
+                                <div className="custom-card">
+                                    <div className="custom-icon-container">
+                                        <FaSearch className="custom-iconx" />
+                                    </div>
+                                    <h1 className="custom-title">No Properties Found</h1>
+                                    <p className="custom-description">
+                                        Sorry, we currently don't have any properties matching your search
+                                        criteria.
+                                    </p>
+                                    <div className="custom-filter-section">
+                                        <h2 className="custom-subtitle">
+                                            Try adjusting your filters to see more properties:
+                                        </h2>
+                                        <button 
+                                            className="custom-reset-button" 
+                                            onClick={() => {
+                                                clearFilters();
+                                                setShowFilter(false); // Close filter panel if open
+                                            }}
+                                        >
+                                            <FaRedo className="custom-reset-icon" />
+                                            Reset All Filters
+                                        </button>
+                                    </div>
+                                    <div className="custom-search-section">
+                                        <p className="custom-start-search-text">Or start a new search</p>
+                                        <button 
+                                            className="custom-view-all-button" 
+                                            onClick={() => {
+                                                clearFilters();
+                                                setShowFilter(false); // Close filter panel if open
+                                            }}
+                                        >
+                                            View All Properties
+                                        </button>
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
+                    ) : (
+                        currentProperties.map(renderPropertyCard)
+                    )}
                 </div>
                 <div className="promo-card">
                     <img
@@ -651,9 +791,10 @@ const NewSearchListingPage = () => {
                                     onChange={handleFilterChange}
                                 >
                                     <option value="">Min Budget</option>
-                                    <option>1,000,000</option>
-                                    <option>3,000,000</option>
-                                    <option>5,000,000</option>
+                                    <option value="100000">1 Lakh</option>
+                                    <option value="5000000">50 Lakh</option>
+                                    <option value="10000000">1 Crore</option>
+                                    <option value="50000000">5 Crore</option>
                                 </select>
                                 <FaChevronDown className="unique-dropdown-icon" />
                             </div>

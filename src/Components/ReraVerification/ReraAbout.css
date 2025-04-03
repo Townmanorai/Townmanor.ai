@@ -1,0 +1,105 @@
+.townmanor-rera-about-section {
+  padding: 30px 0;
+  background: #f8f9fa;
+}
+
+.townmanor-rera-about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.townmanor-rera-about-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.townmanor-rera-about-header h2 {
+  font-size: 20px;
+  color: #000000;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.townmanor-rera-about-header p {
+  font-size: 14px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.townmanor-rera-about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.townmanor-rera-about-text p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.townmanor-rera-about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.townmanor-rera-about-stat {
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.townmanor-rera-about-stat:hover {
+  transform: translateY(-5px);
+}
+
+.townmanor-rera-about-stat h3 {
+  font-size: 24px;
+  color: #3B82F6;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+.townmanor-rera-about-stat p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .townmanor-rera-about-section {
+    padding: 30px 0;
+  }
+
+  .townmanor-rera-about-header h2 {
+    font-size: 12px;
+  }
+
+  .townmanor-rera-about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .townmanor-rera-about-text p {
+    font-size: 12px;
+  }
+
+  .townmanor-rera-about-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .townmanor-rera-about-stat h3 {
+    font-size: 20px;
+  }
+
+  .townmanor-rera-about-stat p {
+    font-size: 12px;
+  }
+} 

@@ -9,15 +9,17 @@ const AdvertisementVideo = () => {
   ];
 
   return (
-    <div className="ad-video-section">
-      {videoSources.map((videoSrc, index) => (
-        <div className="video-ad-container" key={index}>
-          <video className="responsive-ad-video" controls autoPlay muted loop>
-            <source src={videoSrc} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      ))}
+    <div className='container'>
+      <div className="ad-video-section">
+        {videoSources.map((videoSrc, index) => (
+          <div className="video-ad-container" key={index}>
+            <video className="responsive-ad-video" controls autoPlay muted loop>
+              <source src={videoSrc} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

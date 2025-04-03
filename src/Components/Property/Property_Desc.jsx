@@ -39,6 +39,11 @@ const Property_Desc = ({ description = estateData.option_17 }) => {
             id="toggle"
             className="btn-default submit btn-spc float-left"
             onClick={toggleText}
+            style={{
+              // textAlign:'center',
+              // color:'white'
+              backgroundColor:'white'
+            }}
           >
             {showFullText ? "Read Less" : "Read More"}
           </button>

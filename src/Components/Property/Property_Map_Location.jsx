@@ -107,7 +107,9 @@ const PropertyLocation = ({ lat, lng }) => { // Accept lat and lng as props
         ) : (
           <p className="alert alert-success">Location data not available</p>
         )}
-        <form className="route_suggestion local-form form-inline" onSubmit={handleSuggestRoute}>
+        <form className="route_suggestion local-form form-inline" onSubmit={handleSuggestRoute} style={{
+          display:'none'
+        }}>
           <input
             id="route_from"
             className="inputtext w360 form-spc"

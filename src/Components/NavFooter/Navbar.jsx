@@ -154,7 +154,7 @@ const Navbar = () => {
                   <div className={`navbar-collapse ${isMenuOpen ? 'show' : ''}`} id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto" id="main-menu">
                       <li className="nav-item"><Link to="/" className="nav-link" onClick={closeMenu}>Home</Link></li>
-                      <li className="nav-item"><Link to="/search-property" className="nav-link" onClick={closeMenu}>Search Property</Link></li>
+                      <li className="nav-item"><Link to="/search-property/noida/sale/apartment/100000000" className="nav-link" onClick={closeMenu}>Search Property</Link></li>
                       <li className="nav-item"><Link to="/home-loan" className="nav-link" onClick={closeMenu}>Home Loan</Link></li>
                       <li className="nav-item"><Link to="/insurance" className="nav-link" onClick={closeMenu}>Insurance</Link></li>
                       <li className="nav-item"><Link to="/homelane" className="nav-link" onClick={closeMenu}>Home Interior</Link></li>

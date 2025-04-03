@@ -3,71 +3,69 @@ import './SearchBar.css'; // Import CSS file for styling
 import MultiRangeSlider from "multi-range-slider-react";
 import { useNavigate } from 'react-router-dom';
 import PropertyFilters from './PropertyFilter';
+
 const SearchBar = () => {
-  const navigate= useNavigate();
+  const navigate = useNavigate();
   const [city, setCity] = useState('noida');
   const [locality, setLocality] = useState('');
   const [configuration, setConfiguration] = useState('');
   const [unitType, setUnitType] = useState('');
   const [saleType, setsaleType] = useState('buy');
   const [btntype, setbtntype] = useState('buy');
-  const [resitype,setresitype] = useState('');
+  const [resitype, setresitype] = useState('');
   const [activeBtn, setActiveBtn] = useState('Buy');
   const [minValue, set_minValue] = useState(5);
   const [maxValue, set_maxValue] = useState(2000);
-  const [isVisible, setIsVisible] = useState(true); 
-  const [plot,setplot] = useState(false);
-  const [newproject,setnewproject] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [plot, setplot] = useState(false);
+  const [newproject, setnewproject] = useState(false);
+  const [purpose, setpurpose] = useState('Sale');
+  const [category, setcategory] = useState('');
+  const [residential, setresidential] = useState('apartment');
+  const [commercial, setcommercial] = useState('');
+  const [construction_status, setconstruction_status] = useState('');
+
   const handleInput = (e) => {
     set_minValue(e.minValue);
     set_maxValue(e.maxValue);
   };
-  const [purpose,setpurpose] = useState('');
-  const [category,setcategory] = useState('');
-  const [residential,setresidential] = useState('');
-  const [commercial,setcommercial]=useState('');
-  const [construction_status,setconstruction_status]=useState('');
-  const handleSearch = async () => {
-    // Dynamically create searchData object
-    const searchData = {};
 
-    // Include only the parameters that are selected (not empty or undefined)
-    if (city) searchData.city = city;
-    if (locality) searchData.locality = locality;
-    if (configuration) searchData.configuration = configuration;
-    if (residential) searchData.residential = residential;
-    if (commercial) searchData.commercial = commercial;
-    if (purpose) searchData.purpose = purpose;
-    if (minValue) searchData.minValue = minValue;
-    if (maxValue) searchData.maxValue = maxValue;
-    if (construction_status) searchData.construction_status = construction_status;
-    if (category) searchData.category = category;
-
-    // Log searchData to confirm the structure
-    console.log(searchData);
-
-    // Make the API call using fetch or axios
-    try {
-      const response = await fetch(`http://localhost:3030/searchproperties?${new URLSearchParams(searchData).toString()}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      console.log(response)
-      const result = await response.json();
-      console.log('Search results:', result);
-      // Handle result (e.g., update state with search results)
-    } catch (error) {
-      console.error('Error fetching data:', error);
+  const handleSearch = () => {
+    // Format the configuration value
+    let formattedConfig = configuration;
+    if (configuration) {
+      formattedConfig = configuration.toUpperCase();
+    } else {
+      formattedConfig = 'all';
     }
+
+    // Determine the buytype based on category and residential/commercial selection
+    let buytype = residential || commercial || 'all';
+
+    // Format the purpose (rent/sale)
+    let formattedPurpose = purpose ? purpose.toLowerCase() : 'all';
+
+    // Format price range
+    let priceRange = maxValue;
+    if (purpose === 'rent') {
+      priceRange = maxValue * 1000; // Convert to actual value for rent
+    } else {
+      priceRange = maxValue * 100000; // Convert to actual value for sale (in lakhs)
+    }
+
+    // Format city
+    let formattedCity = city ? city.toLowerCase() : 'all';
+
+    // Navigate to the search results page with formatted parameters
+    navigate(`/search-property/${formattedCity}/${formattedConfig}/${formattedPurpose}/${buytype}/${priceRange}`);
   };
+
   const handleBtnClick = (type) => {
     setActiveBtn(type);
   };
+
   return (
     <>
-
       <div className='container2'>
         <h1 id='bannerhead' style={{fontWeight:'200'}}>Discover <b>best properties </b>in <b>one place</b></h1>
         <div className='buttonbox'>
@@ -105,7 +103,6 @@ const SearchBar = () => {
               setresidential('apartment');
               setcommercial('');
             }
-
             }
           >
             {/* <img src='./buys.png' className='img' /> */}Buy
@@ -339,7 +336,6 @@ const SearchBar = () => {
         </div> */}
         <PropertyFilters filter={btntype}/>
       </div>
-
     </>
   );
 };
