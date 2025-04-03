@@ -1,61 +1,59 @@
 import React from 'react';
 import './ReraTestimonials.css';
 
-const testimonials = [
-  {
-    content: "The RERA verification service helped me confirm the legal status of my property. Very reliable!",
-    author: "Amit Patel",
-    location: "Mumbai",
-    image: "/testimonials/user1.jpg"
-  },
-  {
-    content: "Quick and accurate verification. Saved me from investing in a non-compliant project.",
-    author: "Priya Sharma",
-    location: "Delhi",
-    image: "/testimonials/user2.jpg"
-  },
-  {
-    content: "The support team was very helpful in explaining the verification process. Highly recommended!",
-    author: "Rajesh Kumar",
-    location: "Bangalore",
-    image: "/testimonials/user3.jpg"
-  }
-];
+const ReraTestimonials = () => {
+  const testimonials = [
+    {
+      name: 'Rajesh Kumar',
+      role: 'Home Buyer',
+      image: 'https://randomuser.me/api/portraits/men/1.jpg',
+      quote: 'The RERA verification process was quick and easy. I was able to verify my property\'s registration status within minutes, giving me peace of mind about my investment.'
+    },
+    {
+      name: 'Priya Sharma',
+      role: 'Real Estate Agent',
+      image: 'https://randomuser.me/api/portraits/women/2.jpg',
+      quote: 'As a real estate agent, I use this service regularly to verify properties for my clients. It\'s reliable and helps build trust with potential buyers.'
+    },
+    {
+      name: 'Amit Patel',
+      role: 'Property Developer',
+      image: 'https://randomuser.me/api/portraits/men/3.jpg',
+      quote: 'The verification service has helped us maintain transparency with our customers. It\'s an essential tool for any property developer who values compliance and customer trust.'
+    }
+  ];
 
-function ReraTestimonials() {
   return (
     <section className="townmanor-rera-testimonials-section">
       <div className="townmanor-rera-testimonials-container">
         <div className="townmanor-rera-testimonials-header">
           <h2>What Our Users Say</h2>
-          <p>Trusted by thousands of property buyers across India</p>
+          <p>Real experiences from people who have used our RERA verification service</p>
         </div>
+
         <div className="townmanor-rera-testimonials-grid">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="townmanor-rera-testimonial-card">
               <div className="townmanor-rera-testimonial-content">
-                <p>{testimonial.content}</p>
+                <p className="townmanor-rera-testimonial-quote">"{testimonial.quote}"</p>
               </div>
               <div className="townmanor-rera-testimonial-author">
-                <img src={testimonial.image} alt={testimonial.author} />
-                <div>
-                  <h4>{testimonial.author}</h4>
-                  <p>{testimonial.location}</p>
+                {/* <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  className="townmanor-rera-testimonial-image"
+                /> */}
+                <div className="townmanor-rera-testimonial-info">
+                  <h3>{testimonial.name}</h3>
+                  <p>{testimonial.role}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
-        <div className="townmanor-rera-testimonials-cta">
-          <h3>Ready to Verify Your Property?</h3>
-          <p>Join thousands of satisfied users who have verified their properties with us</p>
-          <button className="townmanor-rera-testimonials-button">
-            Start Verification
-          </button>
-        </div>
       </div>
     </section>
   );
-}
+};
 
 export default ReraTestimonials; 

@@ -1,7 +1,13 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import ReraHowItWorks from './ReraHowItWorks';
+import ReraFAQ from './ReraFAQ';
+import ReraTestimonials from './ReraTestimonials';
+import ReraAbout from './ReraAbout';
+import ReraBenefits from './ReraBenefits';
 import { QRCodeSVG } from "qrcode.react";
 import { PDFDownloadLink, Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
-import "./ReraVerification.css";
+import './ReraVerificationForm.css';
 
 // PDF styles
 const styles = StyleSheet.create({
@@ -90,11 +96,10 @@ const ReraVerificationForm = () => {
     setLoading(true);
 
     const payload = {
-        registration_number: formData.registration_number,
-        registration_type: formData.registration_type,
-        state_name: formData.state_name
+      registration_number: formData.registration_number,
+      registration_type: formData.registration_type,
+      state_name: formData.state_name
     };
-
 
     console.log("Form data:", formData);
     console.log("Request Body:", JSON.stringify(payload, null, 2));
@@ -102,14 +107,10 @@ const ReraVerificationForm = () => {
       const response = await fetch("https://kyc-api.surepass.io/api/v1/rera/rera-v2", {
         method: "POST",
         headers: {
-            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg",
-            "Content-Type": "application/json"
-          },
-        body: JSON.stringify({
-          registration_number: formData.registration_number,
-          registration_type: formData.registration_type,
-          state_name: formData.state_name
-        })
+          "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
       });
 
       const data = await response.json();
@@ -130,7 +131,7 @@ const ReraVerificationForm = () => {
       setLoading(false);
     }
   };
-  
+
   // Function to get non-null fields
   const getNonNullFields = (detail) => {
     return Object.entries(detail).reduce((acc, [key, value]) => {
@@ -152,7 +153,6 @@ const ReraVerificationForm = () => {
   // Function to prepare QR code data
   const prepareQRData = (data) => {
     try {
-      // Filter out any circular references or complex objects
       const sanitizedData = Object.entries(data).reduce((acc, [key, value]) => {
         if (value && typeof value !== 'object' && value !== '') {
           acc[key] = value;
@@ -168,12 +168,13 @@ const ReraVerificationForm = () => {
   };
 
   return (
-    <div className="rera-container">
-      <h2 className="rera-header">RERA Verification Form</h2>
-      <p className="rera-description">
-        Please fill in the required details to verify your RERA registration.
-      </p>
-      <form onSubmit={handleSubmit}>
+    <div className="rera-verification-container">
+      <div className="rera-banner-head">
+        <h1>RERA Verification</h1>
+        <p>Verify your property's RERA registration status</p>
+      </div>
+
+      <form onSubmit={handleSubmit} className="rera-search-box">
         <div className="rera-form-group">
           <label>RERA Registration Number *</label>
           <input
@@ -217,9 +218,11 @@ const ReraVerificationForm = () => {
           </select>
         </div>
 
+        <div className="rera-form-group">
         <button type="submit" className="rera-submit-btn" disabled={loading}>
           {loading ? "Verifying..." : "Verify RERA Details"}
         </button>
+        </div>
       </form>
 
       {error && <p className="rera-error">{error}</p>}
@@ -246,12 +249,10 @@ const ReraVerificationForm = () => {
 
                 <div className="rera-detail-grid">
                   {Object.entries(nonNullFields).map(([key, value]) => {
-                    // Skip rendering if value is null, undefined, empty string, or an object
                     if (!value || typeof value === 'object' || value.toString().trim() === '') {
                       return null;
                     }
                     
-                    // Format the value for display
                     const displayValue = typeof value === 'boolean' 
                       ? value.toString() 
                       : value;
@@ -312,8 +313,14 @@ const ReraVerificationForm = () => {
           })}
         </div>
       )}
+
+      <ReraHowItWorks />
+      <ReraBenefits />
+      <ReraAbout />
+      <ReraFAQ />
+      <ReraTestimonials />
     </div>
   );
 };
 
-export default ReraVerificationForm;
+export default ReraVerificationForm; 

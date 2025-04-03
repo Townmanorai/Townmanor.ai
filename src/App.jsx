@@ -81,7 +81,7 @@ import LandRecords from './Components/LandVerification/LandRecords';
 import ScrollToTop from './ScrollToTop';
 import ExploreStates from './Components/Statewise/ExploreStates';
 import StateDistricts from './Components/Statewise/StateDistricts';
-import ReraVerificationForm from './Components/Rera-Verification/ReraVerification';
+import ReraVerificationForm from './Components/ReraVerification/ReraVerificationForm';
 import Andromeda from './Components/Andromeda/Andromeda';
 import PropertyListingForm from './Components/Form/PropertyListingForm';
 import NewSearchListingPage from './Components/listingform/NewSearchListingPage';

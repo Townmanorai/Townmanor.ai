@@ -1,38 +1,34 @@
 import React, { useState } from 'react';
 import './ReraFAQ.css';
 
-const faqs = [
-  {
-    question: 'What is RERA verification?',
-    answer: 'RERA verification confirms if a property project is registered under the Real Estate Regulatory Authority (RERA) Act, ensuring legal compliance and buyer protection.'
-  },
-  {
-    question: 'Why is RERA verification important?',
-    answer: 'RERA verification ensures that your property investment is legally compliant and protected under the RERA Act, preventing potential legal issues in the future.'
-  },
-  {
-    question: 'What information do I need for verification?',
-    answer: 'You need basic project details like project name, location, and RERA registration number (if available). Our system will verify these against official RERA records.'
-  },
-  {
-    question: 'How long does the verification process take?',
-    answer: 'Most verifications are completed within 2-3 minutes, depending on the server response time from RERA databases.'
-  },
-  {
-    question: 'Is the verification report legally valid?',
-    answer: 'Yes, our verification reports can be used for preliminary legal purposes. For court proceedings, you may need to obtain certified copies from RERA offices.'
-  },
-  {
-    question: 'Which states are currently supported?',
-    answer: 'We currently support all major states with active RERA authorities. The list is regularly updated as new states implement RERA regulations.'
-  }
-];
+const ReraFAQ = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
 
-function ReraFAQ() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const faqs = [
+    {
+      question: 'What is RERA verification?',
+      answer: 'RERA verification is the process of checking if a real estate project is registered with the Real Estate Regulatory Authority (RERA). This verification helps ensure that the project is legally compliant and provides protection to homebuyers.'
+    },
+    {
+      question: 'Why is RERA verification important?',
+      answer: 'RERA verification is crucial because it ensures that the project is legally registered, the developer is authorized to sell the property, and all necessary approvals are in place. It protects buyers from fraudulent projects and ensures transparency in real estate transactions.'
+    },
+    {
+      question: 'What information do I need for RERA verification?',
+      answer: 'You need either the project name or the RERA registration number to verify a property. The RERA registration number is a unique identifier assigned to each registered project.'
+    },
+    {
+      question: 'How long does RERA verification take?',
+      answer: 'RERA verification is typically completed within minutes. Our system checks the RERA database in real-time to provide you with instant results about the project\'s registration status.'
+    },
+    {
+      question: 'Is RERA verification mandatory?',
+      answer: 'Yes, RERA verification is mandatory for all real estate projects that meet the specified criteria. It ensures compliance with the Real Estate (Regulation and Development) Act, 2016, and protects the interests of homebuyers.'
+    }
+  ];
 
   const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
@@ -42,36 +38,33 @@ function ReraFAQ() {
           <h2>Frequently Asked Questions</h2>
           <p>Find answers to common questions about RERA verification</p>
         </div>
+
         <div className="townmanor-rera-faq-list">
           {faqs.map((faq, index) => (
-            <div key={index} className="townmanor-rera-faq-item">
-              <button
-                className={`townmanor-rera-faq-question ${openIndex === index ? 'active' : ''}`}
+            <div
+              key={index}
+              className={`townmanor-rera-faq-item ${activeIndex === index ? 'active' : ''}`}
+            >
+              <div
+                className="townmanor-rera-faq-question"
                 onClick={() => toggleFAQ(index)}
-                aria-expanded={openIndex === index}
               >
                 <h3>{faq.question}</h3>
                 <span className="townmanor-rera-faq-icon">
-                  {openIndex === index ? '−' : '+'}
+                  {activeIndex === index ? '−' : '+'}
                 </span>
-              </button>
-              <div
-                className={`townmanor-rera-faq-answer ${openIndex === index ? 'active' : ''}`}
-              >
-                <p>{faq.answer}</p>
               </div>
+              {activeIndex === index && (
+                <div className="townmanor-rera-faq-answer">
+                  <p>{faq.answer}</p>
+                </div>
+              )}
             </div>
           ))}
-        </div>
-        <div className="townmanor-rera-faq-support">
-          <p>Still have questions?</p>
-          <button className="townmanor-rera-faq-contact-button">
-            Contact Support
-          </button>
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default ReraFAQ; 

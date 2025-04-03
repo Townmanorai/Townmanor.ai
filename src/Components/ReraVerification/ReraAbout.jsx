@@ -1,42 +1,57 @@
 import React from 'react';
 import './ReraAbout.css';
 
-function ReraAbout() {
+const ReraAbout = () => {
+  const stats = [
+    {
+      number: '50,000+',
+      label: 'Verifications Completed'
+    },
+    {
+      number: '98%',
+      label: 'Customer Satisfaction'
+    },
+    {
+      number: '28',
+      label: 'States Covered'
+    },
+    {
+      number: '24/7',
+      label: 'Customer Support'
+    }
+  ];
+
   return (
     <section className="townmanor-rera-about-section">
       <div className="townmanor-rera-about-container">
         <div className="townmanor-rera-about-header">
-          <h2>About Our RERA Verification Service</h2>
-          <p>Trusted partner for property verification across India</p>
+          <h2>About RERA Verification</h2>
+          <p>Your trusted partner for property verification under RERA regulations</p>
         </div>
+
         <div className="townmanor-rera-about-content">
           <div className="townmanor-rera-about-text">
-            <p>Our RERA verification service provides a comprehensive solution for verifying property registration status under RERA regulations. With direct integration to RERA databases, we ensure that you receive accurate and up-to-date information about any property project.</p>
-            <p>We understand the importance of due diligence in property transactions, which is why we've created a simple, efficient platform that anyone can use to verify RERA compliance within minutes.</p>
-            <p>Our team of experts in real estate law and technology work together to provide a seamless verification experience. Whether you're a property buyer, seller, or investor, our service helps you make informed decisions with confidence.</p>
+            <h3>Why Choose Our RERA Verification Service?</h3>
+            <p>
+              Our RERA verification service provides a quick and reliable way to check if a real estate project is registered with the Real Estate Regulatory Authority. We help you make informed decisions about your property investments by ensuring compliance with RERA regulations.
+            </p>
+            <p>
+              With our advanced verification system, you can easily check the registration status of any project across India. Our service is trusted by thousands of homebuyers, real estate agents, and property developers.
+            </p>
           </div>
+
           <div className="townmanor-rera-about-stats">
-            <div className="townmanor-rera-about-stat">
-              <h3>50,000+</h3>
-              <p>Verifications Completed</p>
-            </div>
-            <div className="townmanor-rera-about-stat">
-              <h3>98%</h3>
-              <p>Customer Satisfaction</p>
-            </div>
-            <div className="townmanor-rera-about-stat">
-              <h3>28</h3>
-              <p>States Covered</p>
-            </div>
-            <div className="townmanor-rera-about-stat">
-              <h3>24/7</h3>
-              <p>Customer Support</p>
-            </div>
+            {stats.map((stat, index) => (
+              <div key={index} className="townmanor-rera-about-stat">
+                <h3>{stat.number}</h3>
+                <p>{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default ReraAbout; 

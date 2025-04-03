@@ -3,6 +3,7 @@ import './SearchBar.css'; // Import CSS file for styling
 import MultiRangeSlider from "multi-range-slider-react";
 import { useNavigate } from 'react-router-dom';
 import PropertyFilters from './PropertyFilter';
+import ReraVerificationForm from '../ReraVerification/ReraVerificationForm';
 
 const SearchBar = () => {
   const navigate = useNavigate();
