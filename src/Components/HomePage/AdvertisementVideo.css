@@ -7,6 +7,7 @@
     align-items: center;
     padding: 20px;
     background-color: #f9f9f9;
+    gap: 20px;
   }
   
   .video-ad-container {
@@ -16,7 +17,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     background-color: #fff;
-    margin: 10px; /* Add margin to create space between videos */
   }
   
   .responsive-ad-video {
@@ -26,7 +26,7 @@
     outline: none;
   }
   
-  /* Responsive styles for mobile */
+  /* Mobile styles */
   @media (max-width: 768px) {
     .ad-video-section {
       padding: 10px;
@@ -39,6 +39,11 @@
   
     .responsive-ad-video {
       width: 100%;
+    }
+  
+    /* Hide all videos except the first one on mobile */
+    .video-ad-container:not(:first-child) {
+      display: none;
     }
   }
   

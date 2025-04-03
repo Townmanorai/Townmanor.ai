@@ -205,8 +205,8 @@ function Property() {
                     }} 
                   />
                   <PropertyAmenities amenities={JSON.parse(property.amenities)} />
-                  <SellProperties_By_Project project_name={property.property_name} />
-                  <RentProperties_By_Project project_name={property.property_name} />
+                  {/* <SellProperties_By_Project project_name={property.property_name} /> */}
+                  {/* <RentProperties_By_Project project_name={property.property_name} /> */}
                   <PropertyDistanceDetails 
                     distances={{
                       metro: property.metro,
