@@ -1,4 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { 
+  MdList, 
+  MdSubscriptions, 
+  MdFilterList, 
+  MdStar, 
+  MdEmail, 
+  MdPerson,
+  MdLeaderboard
+} from 'react-icons/md';
 import MyProperties from './MyProperties';
 import MySubscription from './MySubscription';
 import ResearchContent from './ResearchContent';
@@ -51,27 +60,50 @@ import Propertylead from './Propertylead';
 const DashboardNavbar = ({propertyData ,packageData,subscriptionData,profileData}) => {
   const [activeTab, setActiveTab] = useState('properties'); 
 
-  // console.log("ProfileData User" , profileData);
+  // Debug logs for props
+  useEffect(() => {
+    console.log('DashboardNavbar Props:', {
+      propertyData,
+      packageData,
+      subscriptionData,
+      profileData
+    });
+  }, [propertyData, packageData, subscriptionData, profileData]);
+
+  const handleTabChange = (tab) => {
+    console.log('Tab changed to:', tab);
+    setActiveTab(tab);
+  };
 
   const renderContent = () => {
+    console.log('Rendering content for tab:', activeTab);
     switch (activeTab) {
       case 'properties':
+        console.log('Rendering MyProperties with data:', { propertyData, packageData });
         return <MyProperties propertyData={propertyData} packageData={packageData}/>;
       case 'subscription':
-        return <MySubscription  subscriptionData={subscriptionData} />;
+        console.log('Rendering MySubscription with data:', subscriptionData);
+        return <MySubscription subscriptionData={subscriptionData} />;
       case 'research':
+        console.log('Rendering ResearchContent');
         return <ResearchContent />;
       case 'favorites':
+        console.log('Rendering FavoritesContent');
         return <FavoritesContent />;
       case 'inquiries':
+        console.log('Rendering InquiriesContent');
         return <InquiriesContent />;
       case 'profile':
+        console.log('Rendering ProfileContent with data:', profileData);
         return <ProfileContent profileData={profileData}/>;
       case 'lead':
+        console.log('Rendering Propertylead with data:', propertyData);
         return <Propertylead propertyData={propertyData}/>;
       case 'bank':
+        console.log('Rendering Bank Payment Details');
         return <div className="content-box"><p>Bank Payment Details go here.</p></div>;
       default:
+        console.log('No content to render for tab:', activeTab);
         return null;
     }
   };
@@ -81,26 +113,26 @@ const DashboardNavbar = ({propertyData ,packageData,subscriptionData,profileData
       <div className="widget-header header-styles py-5">
         <div className="col-xl-12 col-12 d-block">
           <div className="header-address">
-            <a href="#" onClick={() => setActiveTab('properties')}>
-              <i className="fa fa-list"></i> <span>My properties</span>
+            <a href="#" onClick={() => handleTabChange('properties')}>
+              <MdList size={20} /> <span>My properties</span>
             </a>
-            <a href="#" onClick={() => setActiveTab('subscription')}>
-              <i className="fa fa-list"></i> <span>My Subscription</span>
+            <a href="#" onClick={() => handleTabChange('subscription')}>
+              <MdSubscriptions size={20} /> <span>My Subscription</span>
             </a>
-            <a href="#" onClick={() => setActiveTab('research')}>
-              <i className="fa fa-filter"></i> <span>My research</span>
+            <a href="#" onClick={() => handleTabChange('research')}>
+              <MdFilterList size={20} /> <span>My research</span>
             </a>
-            <a href="#" onClick={() => setActiveTab('favorites')}>
-              <i className="fa fa-star"></i> <span>My favorites</span>
+            <a href="#" onClick={() => handleTabChange('favorites')}>
+              <MdStar size={20} /> <span>My favorites</span>
             </a>
-            <a href="#" onClick={() => setActiveTab('inquiries')}>
-              <i className="fa fa-envelope"></i> <span>My inquiries</span>
+            <a href="#" onClick={() => handleTabChange('inquiries')}>
+              <MdEmail size={20} /> <span>My inquiries</span>
             </a>
-            <a href="#" onClick={() => setActiveTab('profile')}>
-              <i className="fa fa-user"></i> <span>My profile</span>
+            <a href="#" onClick={() => handleTabChange('profile')}>
+              <MdPerson size={20} /> <span>My profile</span>
             </a>
-            <a href="#" onClick={() => setActiveTab('lead')}>
-              <i className="fa fa-user"></i> <span>My proprty lead</span>
+            <a href="#" onClick={() => handleTabChange('lead')}>
+              <MdLeaderboard size={20} /> <span>My proprty lead</span>
             </a>
             {/* <a href="#" onClick={() => setActiveTab('bank')}>
               <i className="fa fa-bank"></i> <span>Bank payment details</span>
