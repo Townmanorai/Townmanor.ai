@@ -198,11 +198,29 @@ const Signup = () => {
         captcha: formData.captchaInput,
       });
 
-      console.log(response);
+      console.log('Signup Response:', response);
       
-      // Handle success
-      toast.success('User registered successfully. Please check your email to verify your account.');
-      setSuccessMessage('Account created successfully! Please check your email to verify your account.');
+      if (response.status === 200 || response.status === 201) {
+        // Create package for the user after successful signup
+        try {
+          console.log('Creating package for user:', formData.username);
+          const packageResponse = await axios.post(`https://www.townmanor.ai/api/userpackage/${formData.username}`);
+          console.log('Package Creation Response:', packageResponse);
+          
+          if (packageResponse.status === 201) {
+            toast.success('User registered successfully and package created. Please check your email to verify your account.');
+            setSuccessMessage('Account created successfully! Please check your email to verify your account.');
+          } else {
+            console.warn('Package creation response status:', packageResponse.status);
+            toast.warning('User registered but package creation had issues. Please contact support.');
+          }
+        } catch (packageError) {
+          console.error('Error creating package:', packageError);
+          toast.warning('User registered but package creation failed. Please contact support.');
+        }
+      } else {
+        throw new Error('Signup failed with status: ' + response.status);
+      }
       
       // Reset form after successful submission
       setFormData({
