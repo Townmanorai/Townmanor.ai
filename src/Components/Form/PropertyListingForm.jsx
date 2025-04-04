@@ -408,13 +408,14 @@ const PropertyListingForm = () => {
                 floor_allowed: propertyData.details.floorsAllowed || null,
                 modifyinterior: propertyData.details.modifyInterior || null,
                 lock_in_period: propertyData.details.lockInPeriod || null,
-                metro: propertyData.details.nearbyLocations.metro || null,
-                school: propertyData.details.nearbyLocations.school || null,
-                hospital: propertyData.details.nearbyLocations.hospital || null,
-                mall: propertyData.details.nearbyLocations.mall || null,
-                restaurant: propertyData.details.nearbyLocations.restaurant || null,
-                bus: propertyData.details.nearbyLocations.bus || null,
-                cinema: propertyData.details.nearbyLocations.cinema || null,
+                // Send just the distance values for nearby locations
+                metro: propertyData.details.nearbyLocations.metro?.distance?.toString() || null,
+                school: propertyData.details.nearbyLocations.school?.distance?.toString() || null,
+                hospital: propertyData.details.nearbyLocations.hospital?.distance?.toString() || null,
+                mall: propertyData.details.nearbyLocations.mall?.distance?.toString() || null,
+                restaurant: propertyData.details.nearbyLocations.restaurant?.distance?.toString() || null,
+                bus: propertyData.details.nearbyLocations.bus?.distance?.toString() || null,
+                cinema: propertyData.details.nearbyLocations.cinema?.distance?.toString() || null,
                 leased: propertyData.leaseStatus || null,
                 floorplan: propertyData.floorplans.length > 0 ? propertyData.floorplans : null,
                 image_repository: propertyData.photos.length > 0 ? propertyData.photos : null
@@ -479,14 +480,13 @@ const PropertyListingForm = () => {
                         moneyType: 'Rupees',
                         amenities: [],
                         nearbyLocations: {
-                            metro: { name: '', distance: null },
-                            school: { name: '', distance: null },
-                            hospital: { name: '', distance: null },
-                            mall: { name: '', distance: null },
-                            restaurant: { name: '', distance: null },
-                            bus: { name: '', distance: null },
-                            cinema: { name: '', distance: null },
-                            park: { name: '', distance: null }
+                            metro: null,
+                            school: null,
+                            hospital: null,
+                            mall: null,
+                            restaurant: null,
+                            bus: null,
+                            cinema: null
                         },
                         country: 'india'
                     }
