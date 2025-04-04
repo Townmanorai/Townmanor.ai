@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Slider from 'react-slick';
-import './ExclusiveOwnerProperties.css';  // Separate CSS for rented properties
+import './ExclusiveOwnerProperties.css'; // Separate CSS for rented properties
 
-const ExclusiveOwnerProperties = ({stateName}) => {
+const ExclusiveOwnerProperties = () => {
+  // Initialize city state with a default value (e.g., "noida")
+  const [city, setCity] = useState('noida');
+  const [data, setData] = useState([]);
+
   const sliderSettings = {
     dots: false,
     infinite: true,
@@ -13,23 +17,22 @@ const ExclusiveOwnerProperties = ({stateName}) => {
     slidesToScroll: 1,
     nextArrow: <div className="swiper-button-next"><a href="javascript:void(0)"></a></div>,
     prevArrow: <div className="swiper-button-prev"><a href="javascript:void(0)"></a></div>,
-    autoplay: true, // Enable autoplay
+    autoplay: true, 
     autoplaySpeed: 3000, 
-    pauseOnHover: true, // Pause autoplay when hovering over the carousel
-
+    pauseOnHover: true,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          rows: 1, // Retain two rows on medium screens
+          rows: 1,
           slidesPerRow: 1,
         },
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1.7, // For smaller screens show only 1 card per row
+          slidesToShow: 1.7,
           rows: 1,
           slidesPerRow: 1,
         },
@@ -53,65 +56,76 @@ const ExclusiveOwnerProperties = ({stateName}) => {
     ],
   };
 
-  const [data,usedata]= useState([]);
+  // Function to fetch data filtered by the selected city
+  const fetchData = async (selectedCity) => {
+    try {
+      const response = await axios.get(`https://www.townmanor.ai/api/owner-property/filter/sale?city=${selectedCity}`);
+      setData(response.data);
+    } catch (error) {
+      console.error('Error Fetching Data', error);
+    }
+  };
 
+  // Fetch data whenever the selected city changes
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`https://www.townmanor.ai/api/owner-property/filter/sale`);
-        usedata(response.data);
-        console.log(data);
-      }
-      catch (error) {
-        console.error('Error Fetching Data', error);
-      }
-    };
-    fetchData();
-  },[]);
+    fetchData(city);
+  }, [city]);
 
-  
-  
   return (
     <div className='container'>
       <div className="top-rented-properties" id="top-rentedProperties">
         <div className="rented-container">
           <section className="rented-section has-slider">
-            <div className="rented-section-title" style={{marginTop:'25px'}}>
-            <div className="exclusive-title-text strip-orange section-heading" style={{marginBottom:'0px'}} 
-      dangerouslySetInnerHTML={{
-          __html: stateName 
-            ? `<h3>Resale <b>properties</b> in <b>${stateName}</b></h3>`
-            : '<h3>Resale <b>properties</b> in <b>noida</b><h3>'
-      }}>
-        </div>
+            <div className="rented-section-title" style={{ marginTop: '25px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+            <div className="rental-owner-search-box">
+                <select 
+                  value={city} 
+                  onChange={(e) => setCity(e.target.value)} 
+                  style={{ 
+                    padding: '8px 12px', 
+                    borderRadius: '4px', 
+                    border: '1px solid #e0e0e0',
+                    backgroundColor: '#fff',
+                    fontSize: '14px',
+                    cursor: 'pointer',
+                    outline: 'none'
+                  }}
+                >
+                  <option value="noida">Noida</option>
+                  <option value="delhi">Delhi</option>
+                  <option value="gurgaon">Gurgaon</option>
+                </select>
+              </div>
+              <div 
+                className="exclusive-title-text strip-orange section-heading" 
+                style={{ marginBottom: '0px' }}
+                dangerouslySetInnerHTML={{ __html: `<h3>Resale <b>properties</b> in <b>${city}</b></h3>` }}
+              /> 
             </div>
             <div className="rented-property-slider rps">
               <Slider {...sliderSettings}>
-                {data.map((property,index) => (
+                {data.map((property, index) => (
                   <div className="swiper-slide" key={index}>
                     <div className="rented-property-card card-shadow">
                       <a href="javascript:void(0);">
                         <div className="rented-card-graphic">
                           {property.image_repository && (() => {
-                              try {
-                                const images = JSON.parse(property.image_repository);
-                                return images && Array.isArray(images) && images.length > 0
-                                  ? <img src={`https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/${images[0]}`} alt="Property" />
-                                  : <img src='/dummyproperty.jpg' alt="Property" />;
-                              } catch (e) {
-                                console.error('Error parsing image repository:', e);
-                                return <img src='/dummyproperty.jpg' alt="Property" />;
-                              }
-                            })()
-                          }
-
-                            
+                            try {
+                              const images = JSON.parse(property.image_repository);
+                              return images && Array.isArray(images) && images.length > 0
+                                ? <img src={`https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/${images[0]}`} alt="Property" />
+                                : <img src='/dummyproperty.jpg' alt="Property" />;
+                            } catch (e) {
+                              console.error('Error parsing image repository:', e);
+                              return <img src='/dummyproperty.jpg' alt="Property" />;
+                            }
+                          })()}
                         </div>
                         <div className="rented-card-content">
                           <div className="property-type">{property.configuration} {property.residential}</div>
                           <div className="property-rent">{property.price} {property.pricerange}</div>
                           <div className="property-location">{property.address}</div>
-                          <div className="property-status" style={{color:'#333'}}>Available for {property.purpose}</div>
+                          <div className="property-status" style={{ color: '#333' }}>Available for {property.purpose}</div>
                           <div className="action-btn">
                             <Link to={`https://townmanor.ai/home/${property.id}`}>
                               <span className="btn-blue medium">View Details</span>
