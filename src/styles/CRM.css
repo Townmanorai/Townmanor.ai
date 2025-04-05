@@ -1,0 +1,127 @@
+/* TaskForm Styles */
+.TaskForm_container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+.TaskForm_field {
+    margin-bottom: 15px;
+}
+
+.TaskForm_label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.TaskForm_input,
+.TaskForm_textarea,
+.TaskForm_select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.TaskForm_textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.TaskForm_button {
+    background: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.TaskForm_button:hover {
+    background: #45a049;
+}
+
+/* KanbanBoard Styles */
+.KanbanBoard_container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.KanbanBoard_column {
+    min-width: 300px;
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.KanbanBoard_columnTitle {
+    margin-bottom: 15px;
+    text-align: center;
+    color: #333;
+}
+
+.KanbanBoard_card {
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.KanbanBoard_cardTitle {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+}
+
+.KanbanBoard_cardDescription {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.KanbanBoard_cardStatus {
+    display: flex;
+    gap: 5px;
+}
+
+.KanbanBoard_statusButton {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    background: #e0e0e0;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.KanbanBoard_statusButton.active {
+    background: #4CAF50;
+    color: white;
+}
+
+/* CRM Page Styles */
+.CRM_container {
+    padding: 20px;
+}
+
+.CRM_title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.CRM_content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.CRM_sectionTitle {
+    margin-bottom: 15px;
+    color: #333;
+} 
