@@ -3,6 +3,8 @@ import axios from 'axios';
 
 const KanbanBoard = () => {
     const [tasks, setTasks] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const assignees = ['ravindra', 'sunny', 'ayush'];
     const statuses = ['todo', 'doing', 'completed'];
 
@@ -12,10 +14,16 @@ const KanbanBoard = () => {
 
     const fetchTasks = async () => {
         try {
+            setLoading(true);
             const response = await axios.get('/api/crm/tasks');
-            setTasks(response.data);
+            setTasks(response.data || []);
+            setError(null);
         } catch (error) {
             console.error('Error fetching tasks:', error);
+            setError('Failed to fetch tasks');
+            setTasks([]);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -46,6 +54,14 @@ const KanbanBoard = () => {
         </div>
     );
 
+    if (loading) {
+        return <div className="KanbanBoard_loading">Loading tasks...</div>;
+    }
+
+    if (error) {
+        return <div className="KanbanBoard_error">{error}</div>;
+    }
+
     return (
         <div className="KanbanBoard_container">
             {assignees.map((assignee) => (
@@ -54,7 +70,7 @@ const KanbanBoard = () => {
                         {assignee.charAt(0).toUpperCase() + assignee.slice(1)}
                     </h2>
                     <div className="KanbanBoard_tasks">
-                        {tasks
+                        {Array.isArray(tasks) && tasks
                             .filter((task) => task.assignee === assignee)
                             .map(renderTaskCard)}
                     </div>
