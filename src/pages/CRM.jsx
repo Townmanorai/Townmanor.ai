@@ -1,6 +1,6 @@
 import React from 'react';
-import TaskForm from '../components/crm/TaskForm.jsx';
-import KanbanBoard from '../components/crm/KanbanBoard.jsx';
+import TaskForm from '../Components/crm/TaskForm';
+import KanbanBoard from '../Components/crm/KanbanBoard';
 import '../styles/CRM.css';
 
 const CRM = () => {
