@@ -76,14 +76,18 @@ const TopRentedProperties = () => {
       <div className="top-rented-properties" id="top-rentedProperties">
         <div className="rented-container">
           <section className="rented-section has-slider">
-            <div className="rented-section-title" style={{ marginTop: '25px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-              
-            <div className="rental-owner-search-box">
+            <div className="rented-section-title" style={{ marginTop: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>  
+              <div 
+                className="exclusive-title-text strip-orange section-heading" 
+                style={{ marginBottom: '0px' }}
+                dangerouslySetInnerHTML={{ __html: `<h3>Rental <b>properties</b> in <b>${city}</b></h3>` }}
+              />
+              <div className="rental-owner-search-box">
                 <select 
                   value={city} 
                   onChange={(e) => setCity(e.target.value)} 
                   style={{ 
-                    padding: '2px 0px', 
+                    padding: '5px 2px', 
                     borderRadius: '5px', 
                     border: '1px solid #e0e0e0',
                     backgroundColor: '#fff',
@@ -97,13 +101,6 @@ const TopRentedProperties = () => {
                   <option value="gurgaon">Gurgaon</option>
                 </select>
               </div>
-              
-              <div 
-                className="exclusive-title-text strip-orange section-heading" 
-                style={{ marginBottom: '0px' }}
-                dangerouslySetInnerHTML={{ __html: `<h3>Rental <b>properties</b> in <b>${city}</b></h3>` }}
-              />
-              
             </div>
             <div className="rented-property-slider rps">
               <Slider {...sliderSettings}>
