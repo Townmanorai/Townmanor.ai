@@ -24,7 +24,7 @@ const PropertyListingForm = () => {
     // Authentication states
     const [authToken, setAuthToken] = useState('');
     const [username, setUsername] = useState('');
-
+    const [propertyid,setpropertyid] = useState();
     // Form visibility states
     const [activeStep, setActiveStep] = useState(0);
     const [formSections, setFormSections] = useState({
@@ -426,7 +426,7 @@ const PropertyListingForm = () => {
             
             if (response.status === 201 || response.status === 200) {
                 alert('Property listed successfully!');
-                
+                setpropertyid(response.id);
                 // Reset form to initial state
                 setPropertyData({
                     category: 'residential',
@@ -495,6 +495,7 @@ const PropertyListingForm = () => {
                 // Reset to first step
                 setActiveStep(0);
                 handleStepChange(0);
+                setuserlisting();
             }
 
         } catch (error) {
@@ -504,7 +505,19 @@ const PropertyListingForm = () => {
             setPropertyData(prev => ({ ...prev, isLoading: false }));
         }
     };
-
+    const setuserlisting = async ()=>{
+        const url = `https://www.townmanor.ai/api/userpackage/${username}`;
+        const requestBody = {
+            propertylisting: propertyid, // This could be a number, string, or array
+          };
+        try{
+            const response = await axios.put(url, requestBody);
+            console.log('Property listing updated:', response.data);
+        }
+        catch(error){
+           console.log(error)
+        }
+    }
     const generateDescription = async () => {
         setPropertyData(prev => ({ ...prev, isLoading: true }));
         try {

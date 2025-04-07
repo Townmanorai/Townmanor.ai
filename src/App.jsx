@@ -86,6 +86,11 @@ import Andromeda from './Components/Andromeda/Andromeda';
 import PropertyListingForm from './Components/Form/PropertyListingForm';
 import NewSearchListingPage from './Components/listingform/NewSearchListingPage';
 import CRM from './pages/CRM';
+import MainProperty from './Components/admindashboard/property/MainProperty';
+import PropertyTable from './Components/admindashboard/property/PropertyTable';
+import PropertyControl from './Components/admindashboard/property/PropertyControl';
+import PropertyEditForm from './Components/admindashboard/property/PropertyEditForm';
+import LoginAdmin from './Components/admindashboard/LoginAdmin';
 
 // Scroll restoration component
 const ScrollRestoration = () => {
@@ -224,6 +229,12 @@ function App() {
             {/* Route for plot/land and commercial properties */}
             <Route path='/search-property/:city/:purpose/:buytype/:price' element={<NewSearchListingPage/>}/>
             <Route path="/crm" element={<CRM />} />
+            <Route path='/adminpropertyacess' element={<MainProperty/>}/>
+            <Route path='/adminpropertycontrol' element={<MainProperty/>}/>
+            <Route path='/ownerProperty' element={<PropertyTable/>}/>
+            <Route path='/adminproperty' element={<PropertyControl/>}/>
+            <Route path='/editform/:index' element={<PropertyEditForm/>}/>
+            <Route path='/adminlogin' element={<LoginAdmin/>}/>
           </Routes>
         </main>
         <Footer />
