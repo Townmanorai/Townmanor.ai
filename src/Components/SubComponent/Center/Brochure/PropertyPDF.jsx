@@ -8,95 +8,108 @@ const PropertyPDF = ({ property }) => {
 
     let currentY = 35;
 
-    // Property Title
+    // Property Title and Address Section
     doc.setFontSize(22);
     doc.setTextColor(40, 40, 40);
     doc.text(property.property_name, 20, currentY);
 
+    currentY += 5; // Add space between title and address
+
     // Property Address
     doc.setFontSize(14);
     doc.setTextColor(60, 60, 60);
-    const addressX = 190;
-    doc.text(property.address, addressX, currentY, { align: "right" });
+    doc.text(property.address, 20, currentY); // Changed from right alignment to left alignment
 
-    currentY += 5;
+    currentY += 3;
     doc.setDrawColor(0, 0, 0);
     doc.setLineWidth(0.5);
     doc.line(20, currentY, 190, currentY);
 
-    currentY += 10;
+    currentY += 15;
 
-    // Add three images horizontally
-    const loadAndAddImages = async () => {
+    // Add Images Section
+    const cleanImageUrl = (url) => {
+      if (typeof url !== 'string') return '';
+      return url.replace(/^[^a-zA-Z0-9]+/, '').replace(/[^a-zA-Z0-9]+$/, '');
+    };
+
+    // Convert image_repository string into an array if it's a string
+    let imageRepositoryArray = property.image_repository;
+    if (typeof imageRepositoryArray === 'string') {
+      imageRepositoryArray = imageRepositoryArray.split(',').map(image => image.trim());
+    }
+
+    // Get first three images
+    const imagesToShow = imageRepositoryArray ? imageRepositoryArray.slice(0, 3) : [];
+    
+    if (imagesToShow.length > 0) {
       const imageWidth = 50;
       const imageHeight = 35;
       const gap = 10;
       const startX = 20;
 
-      // Get first three images from repository
-      const imagesToShow = property.image_repository ? property.image_repository.slice(0, 3) : [];
-      
-      if (imagesToShow.length > 0) {
-        try {
-          for (let i = 0; i < imagesToShow.length; i++) {
-            const imageUrl = imagesToShow[i];
-            const xPosition = startX + (i * (imageWidth + gap));
-            
-            // Create new image object
-            const img = new Image();
-            img.crossOrigin = "Anonymous";  // Handle CORS
-            
-            // Convert the image to base64 and add to PDF
-            await new Promise((resolve, reject) => {
-              img.onload = () => {
-                try {
-                  const canvas = document.createElement('canvas');
-                  canvas.width = img.width;
-                  canvas.height = img.height;
-                  const ctx = canvas.getContext('2d');
-                  ctx.drawImage(img, 0, 0);
-                  
-                  const imageData = canvas.toDataURL('image/jpeg');
-                  doc.addImage(imageData, 'JPEG', xPosition, currentY, imageWidth, imageHeight);
-                  resolve();
-                } catch (err) {
-                  console.warn(`Failed to process image ${i + 1}:`, err);
-                  resolve(); // Continue with next image even if this one fails
-                }
-              };
-              
-              img.onerror = () => {
-                console.warn(`Failed to load image ${i + 1}`);
-                resolve(); // Continue with next image even if this one fails
-              };
-              
-              img.src = imageUrl;
-            });
-          }
-        } catch (error) {
-          console.warn('Error processing images:', error);
-        }
+      for (let i = 0; i < imagesToShow.length; i++) {
+        const imageUrl = 'https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/' + cleanImageUrl(imagesToShow[i]);
         
-        // Update currentY position after images
-        currentY += imageHeight + 10;
+        try {
+          const response = await fetch(imageUrl);
+          const blob = await response.blob();
+          
+          const reader = new FileReader();
+          const base64data = await new Promise((resolve, reject) => {
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = reject;
+            reader.readAsDataURL(blob);
+          });
+
+          const img = await new Promise((resolve, reject) => {
+            const image = new Image();
+            image.onload = () => resolve(image);
+            image.onerror = reject;
+            image.src = base64data;
+          });
+
+          const canvas = document.createElement('canvas');
+          canvas.width = imageWidth;
+          canvas.height = imageHeight;
+          const ctx = canvas.getContext('2d');
+          
+          const scale = Math.min(imageWidth / img.width, imageHeight / img.height);
+          const x = (imageWidth - img.width * scale) / 2;
+          const y = (imageHeight - img.height * scale) / 2;
+          
+          ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
+          
+          const imageData = canvas.toDataURL('image/jpeg', 0.8);
+          const xPosition = startX + (i * (imageWidth + gap));
+          
+          doc.addImage(imageData, 'JPEG', xPosition, currentY, imageWidth, imageHeight);
+        } catch (error) {
+          console.error(`Failed to load image ${i + 1}:`, error);
+          doc.setDrawColor(200, 200, 200);
+          doc.setFillColor(240, 240, 240);
+          const xPosition = startX + (i * (imageWidth + gap));
+          doc.rect(xPosition, currentY, imageWidth, imageHeight, 'F');
+          doc.setTextColor(150, 150, 150);
+          doc.setFontSize(8);
+          doc.text('Image not available', xPosition + imageWidth/2, currentY + imageHeight/2, { align: 'center' });
+        }
       }
-    };
+      
+      currentY += imageHeight + 10;
+    }
 
-    // Call the async function to load images
-    await loadAndAddImages();
-
-    // Short Introduction
-    const shortIntro = `Discover ${property.property_name} in ${property.locality}, ${property.city}, an exciting new housing society currently under construction. Jointly developed by Godrej Properties and ACE Group, this project features apartments for sale and is set for possession in June 2025. ${property.property_name} offers 430 exclusive 'Resort Residences,' providing a lifestyle that feels like a continuous vacation. Designed by Godrej Properties, a highly trusted real estate name, this development aims to deliver low-rise, resort-style homes for a tranquil and low-density living experience. The property is currently ${property.construction_status}.`;
-
+    // Description Section
+    const description = property.description || 'No description available';
     doc.setFontSize(12);
     doc.setTextColor(80, 80, 80);
-    const shortIntroLines = doc.splitTextToSize(shortIntro, 170);
-    doc.text(shortIntroLines, 20, currentY + 10, {
+    const descriptionLines = doc.splitTextToSize(description, 170);
+    doc.text(descriptionLines, 20, currentY, {
       maxWidth: 170,
       align: "left",
     });
 
-    currentY += shortIntroLines.length * 6 + 10;
+    currentY += (descriptionLines.length * 6) + 5;
 
     // Overview Section
     doc.setFontSize(18);
@@ -164,7 +177,7 @@ const PropertyPDF = ({ property }) => {
       alternateRowStyles: {
         fillColor: [240, 240, 240],
       },
-      margin: { top: 10 },
+      margin: { top: 5 },
     });
 
     currentY = doc.lastAutoTable.finalY + 10;

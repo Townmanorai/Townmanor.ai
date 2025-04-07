@@ -26,7 +26,7 @@ function Prices({ property }) {
           <p className="price-detail">{property.configuration} Builder Floor For {property.purpose}</p>
           <div className="price-tag">
             <p className="">
-              <span className="price-price">₹ {property.price} {property.pricerange} </span>
+              <span className="price-price">₹ {property.price > 100 ? property.price : `${property.price} ${property.pricerange}`} </span>
             </p>
           </div>
         </div>
