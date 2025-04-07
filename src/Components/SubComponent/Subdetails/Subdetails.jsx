@@ -14,23 +14,21 @@ const Subdetails = ({ property }) => {
   // Array of subdetail items for both the upper and lower sections
   const upperDetails = [
     { label: "Bedroom", value: property.bedroom || (property.configuration ? property.configuration.match(/\d+/)?.[0] : "NA") || "NA" },
-    // { label: "Bathroom", value: property.bathroom || "NA" },
-    { label: "Rera Id", value: property.rera_id || "NA" },
-    { label: "Ownership", value: property.ownership || "NA" },
-    { label: "Configuration", value: property.configuration || "NA" },
-  ];
+    { label: "Bathroom", value: property.bathroom },
+    { label: "Rera Id", value: property.rera_id},
+    { label: "Ownership", value: property.ownership },
+    { label: "Floor No", value: `${property.floor_no}`},
+    { label: "Status", value: property.construction_status}
+  ].filter((detail) => detail.value).slice(0,5); ;
 
   const lowerDetails = [
-    { label: "Furnishing", value: property.furnish_type || "NA" },
-    { label: "Status", value: property.construction_status || "NA" },
+    { label: "Furnishing", value: property.furnish_type },
+    { label: "Category", value: property.category.charAt(0).toUpperCase()+property.category.slice(1) || "NA" },
     // { label: "Facing", value: property.property_facing || "NA" },
-    { label: "Area (sq.ft)", value: property.area_detail || "NA" },
-    {
-      label: "Floor No",
-      value: `${property.floor_no}` || "NA",
-    },
-    { label: "Project", value: property.property_name || "NA" },
-  ];
+    { label: "Area (sq.ft)", value: property.area_detail  },
+    { label: "Status", value: property.construction_status},
+    { label: "Project", value: property.property_name },
+  ].filter((detail) => detail.value).slice(0,5); ;
 
   return (
     <>

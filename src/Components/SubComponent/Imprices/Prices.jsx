@@ -10,7 +10,7 @@ function Prices({ property }) {
   if (typeof imageRepositoryArray === 'string') {
     imageRepositoryArray = imageRepositoryArray.split(',').map(image => image.trim());
   }
-  const [mainimage,setmainimage]=useState(imageRepositoryArray[1]);
+  const [mainimage,setmainimage]=useState(imageRepositoryArray[0]);
   const cleanImageUrl = (url) => {
     if (typeof url !== 'string') {
       return '';  // Return an empty string if URL is not a valid string

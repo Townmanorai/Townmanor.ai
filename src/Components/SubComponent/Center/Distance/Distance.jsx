@@ -77,7 +77,7 @@ const Distance = ({ property }) => {
             item.value && (  // Check if the distance value exists
               <div key={index}>
                 <span className="icon-amenities">{item.icon}</span>
-                <span>{item.label}:</span> {item.value}
+                <span>{item.label}:</span> {item.value} km
               </div>
             )
           ))}
