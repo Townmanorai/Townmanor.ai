@@ -5,9 +5,9 @@ import "../commonsecond.css";
 
 const InHouseServices = () => {
   return (
-    <section className="explore-feature hp7 max_width_con section-padding widget_edit_enabled pb-0 mt-4">
+    <section className="explore-feature hp7 max_width_con section-padding widget_edit_enabled pb-0 mt-4" style={{paddingTop:'0px'}}>
       <div className="container">
-        <div className="row justify-content-center">
+        <div className="row justify-content-center" style={{marginBottom:'15px'}}>
           <div className="col-xl-8">
             <div className="section-heading mb-4 h4">
               <span>In-House Services</span>

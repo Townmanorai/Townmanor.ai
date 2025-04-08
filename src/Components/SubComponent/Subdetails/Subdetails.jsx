@@ -24,7 +24,7 @@ const Subdetails = ({ property }) => {
   const lowerDetails = [
     { label: "Furnishing", value: property.furnish_type },
     { label: "Category", value: property.category.charAt(0).toUpperCase()+property.category.slice(1) || "NA" },
-    // { label: "Facing", value: property.property_facing || "NA" },
+    { label: "Ownership", value: property.current_lease  },
     { label: "Area (sq.ft)", value: property.area_detail  },
     { label: "Status", value: property.construction_status},
     { label: "Project", value: property.property_name },
@@ -54,7 +54,7 @@ const Subdetails = ({ property }) => {
               <div className="subdetail-item" key={index}>
                 <span>{detail.label}:</span>
                 <div>
-                  <strong>{detail.value}</strong>
+                  <strong>{detail.value.charAt(0).toUpperCase() + detail.value.slice(1)}</strong>
                 </div>
               </div>
             ))}

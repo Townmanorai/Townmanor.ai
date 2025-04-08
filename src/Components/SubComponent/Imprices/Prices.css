@@ -61,9 +61,7 @@
     height: 45px;
 }
 
-
-
-/* image  */
+/* Image Gallery */
 .imgcontainer {
     width: 100vw;
     height: 34vw;
@@ -74,13 +72,17 @@
 
 .sideimgcontainer {
     height: 100%;
-    overflow-y: scroll;
+    overflow: hidden; /* Remove scrollbar */
 }
 
 .mainimage {
     width: 55%;
     height: 100%;
     margin-right: 10px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .mainimage img {
@@ -88,26 +90,186 @@
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.mainimage:hover img {
+    transform: scale(1.05);
 }
 
 .sideimages {
-    width: 17.6%;
+    /* width: 17.6%; */
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.sideimages img {
-    max-width: 250px;
-    max-height: 180px;
+.side-image-wrapper {
+    position: relative;
+    width: 100%;
     height: 180px;
-    width: 250px;
-    object-fit: cover;
     border-radius: 10px;
+    overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.sideimages img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.sideimages img:hover {
+    transform: scale(1.05);
+}
+
+/* Image count overlay */
+.image-count-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.image-count-overlay:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.image-count-overlay span {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Image Modal */
+.image-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.image-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+.modal-close-btn:hover {
+    transform: scale(1.2);
+}
+
+.modal-image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.modal-navigation {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.modal-nav-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.modal-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.modal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-dot.active {
+    background-color: white;
+    transform: scale(1.2);
+}
+
+.modal-image-counter {
+    position: absolute;
+    bottom: 80px;
+    color: white;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
 /* Media Queries */
 
@@ -153,7 +315,15 @@
     .price-detail {
         font-size: 12px;
     }
-
+    
+    .modal-image-content {
+        width: 95%;
+    }
+    
+    .modal-nav-btn {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 /* For medium devices (max-width: 860px) */

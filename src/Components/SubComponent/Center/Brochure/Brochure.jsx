@@ -6,10 +6,10 @@ import PropertyPDF from "./PropertyPDF";
 function Brochure({ property }) {
   // State for EMI calculator inputs
   const [emiData, setEmiData] = useState({
-    loanAmount: 1.47, // in Crores
-    interestRate: 8.5, // percentage
-    downPayment: 1.18, // in Crores
-    loanTerm: 20 // years
+    loanAmount: '', // in Crores
+    interestRate: '', // percentage
+    downPayment: '', // in Crores
+    loanTerm: '' // years
   });
 
   // State for calculation results
@@ -99,7 +99,7 @@ function Brochure({ property }) {
               type="text"
               value={emiData.loanAmount}
               onChange={handleInputChange}
-              placeholder="Property price (in Crores)*"
+              placeholder="Property price*"
             />
           </li>
           <li>
@@ -119,7 +119,7 @@ function Brochure({ property }) {
               type="text"
               value={emiData.downPayment}
               onChange={handleInputChange}
-              placeholder="Down payment (in Crores)"
+              placeholder="Down payment"
             />
           </li>
           <li>

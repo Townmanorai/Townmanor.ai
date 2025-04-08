@@ -15,6 +15,14 @@ import { MdSecurity } from "react-icons/md";
 import { GiWeightLiftingUp } from "react-icons/gi";
 import { FaPersonSwimming } from "react-icons/fa6";
 import { PiCourtBasketball } from "react-icons/pi";
+import { LiaCcDinersClub } from "react-icons/lia";
+import { PiPipeLight } from "react-icons/pi";
+import { MdBackup } from "react-icons/md";
+import { CgDisplayGrid } from "react-icons/cg";
+import { FaSwimmingPool } from "react-icons/fa";
+import { MdMultipleStop } from "react-icons/md";
+import { PiParkDuotone } from "react-icons/pi";
+
 
 
 const Amenities = ({ property }) => {
@@ -38,7 +46,7 @@ const Amenities = ({ property }) => {
   const amenitiesList = {
     "Air Conditioning": <TbAirConditioning size={20} />,
     "Cable TV": <FaSatelliteDish size={20} />,
-    "Internet": <FaWifi size={20} />,
+    "Wifi": <FaWifi size={20} />,
     "Court": <PiCourtBasketball size={20} />,
     "Dishwasher": <LuUtensilsCrossed size={20} />,
     "Heating": <PiThermometerHotBold size={20} />,
@@ -46,12 +54,18 @@ const Amenities = ({ property }) => {
     "Microwave": <MdMicrowave size={20} />,
     "Lift": <GrElevator size={20} />,
     "CCTV": <BiCctv size={20} />,
-    "Intercom Facility": <LiaIntercom size={20} />,
+    "Intercomm Facility": <LiaIntercom size={20} />,
     "Security": <MdSecurity size={20} />,
     "Parking": <LuParkingCircle size={20} />,
-    "Park/Garden": <PiPark size={20} />,
+    "Park": <PiPark size={20} />,
     "Pool": <FaPersonSwimming size={20} />,
-    "Club House": <FaWifi size={20} />, // Ensure to include Club House if needed
+    "Club House": <LiaCcDinersClub size={20} />, // Ensure to include Club House if needed
+    "Gas Pipeline": <PiPipeLight size={20} />,
+    "Power Backup": <MdBackup size={20} />,
+    "Play Area": <CgDisplayGrid size={20} />,
+    "Swimming Pool": <FaSwimmingPool size={20} />,
+    "Multipurpose Hall": <MdMultipleStop size={20} />,
+    "Garden": <PiParkDuotone size={20} />,
   };
 
   return (

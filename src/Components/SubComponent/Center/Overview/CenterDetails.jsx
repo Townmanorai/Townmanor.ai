@@ -27,13 +27,15 @@ const CenterDetails = ({ property }) => {
     { label: 'Construction Status', value: property.construction_status },
     { label: 'Rera Id', value: property.rera_id },
     { label: 'Balcony', value: property.balcony },
-    { label: 'Area (sq.ft)', value: property.area_detail },
+    { label: 'Area (sq.ft)', value: property.area_detail},
     { label: 'Dimension', value: (property.length && property.width) ? `${property.length} x ${property.width} sq/ft` : '' },
     { label: 'Furnishing', value: property.furnish_type },
     { label: 'Facing', value: property.property_facing },
     { label: 'Country', value: property.country },
     { label: 'City', value: property.city },
     { label: 'Pincode', value: property.pincode  },
+    { label: 'Area', value: property.pincode  },
+    { label: 'Ownership', value: property.current_lease  },
   ];
 
   const toggleDetails = () => {

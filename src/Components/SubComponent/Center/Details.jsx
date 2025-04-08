@@ -85,7 +85,7 @@ function Details({property}) {
           </div>
 
           <div className="contact">
-            <ContactForm />
+            <ContactForm  username={property.username}/>
             <Brochure property={property} /> 
           </div>
         </div>
