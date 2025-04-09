@@ -18,25 +18,29 @@ const Popup = ({ message, onClose }) => {
 // Service Data
 const servicesData = [
   {
-    title: "Check Credit Score",
-    description: "Get instant access to your credit score and financial health report",
+    title: "Sell & Rent Your Property",
+    description: "Boost your property's visibility and attract quality leads by listing your property.",
     icon: (
       <svg
         width="40"
         height="40"
         viewBox="0 0 40 40"
         fill="none"
-        aria-label="Credit Score Icon"
+        aria-label="Listed Property Icon"
         role="img"
       >
-        <rect x="4" y="8" width="32" height="24" rx="4" fill="#3B82F6" />
-        <path d="M4 16H36V20H4V16Z" fill="#ffffff" />
-        <circle cx="14" cy="26" r="4" fill="#10B981" />
-        <circle cx="26" cy="26" r="4" fill="#EF4444" />
+        <rect x="8" y="8" width="24" height="24" rx="2" fill="#F59E0B" />
+        <rect x="12" y="12" width="4" height="4" fill="#ffffff" />
+        <rect x="20" y="12" width="4" height="4" fill="#ffffff" />
+        <rect x="28" y="12" width="4" height="4" fill="#ffffff" />
+        <rect x="12" y="20" width="4" height="4" fill="#ffffff" />
+        <rect x="20" y="20" width="4" height="4" fill="#ffffff" />
+        <rect x="28" y="20" width="4" height="4" fill="#ffffff" />
       </svg>
     ),
-    link: "https://townmanor.ai/credit-score",
+    link: "https://townmanor.ai/form",
   },
+
   {
     title: "RERA Verification",
     description: "Verify property registration status under RERA regulations",
@@ -77,41 +81,83 @@ const servicesData = [
     link: "https://townmanor.ai/landverification",
   },
   {
-    title: "eStamp",
-    description: "Expert and secure electronic stamp paper processing",
+    title: "Pay Property Tax",
+    description: "Seamless online property tax payment and guidance",
     icon: (
       <svg
         width="40"
         height="40"
         viewBox="0 0 40 40"
         fill="none"
-        aria-label="eStamp Icon"
+        aria-label="Pay Property Tax Icon"
         role="img"
       >
-        <circle cx="20" cy="20" r="16" fill="#EF4444" />
-        <path d="M16 20L20 24L24 16" stroke="#ffffff" strokeWidth="2" />
+        <rect x="8" y="8" width="24" height="24" rx="2" fill="#EF4444" />
+        <path d="M20 16V24" stroke="#ffffff" strokeWidth="2" />
+        <circle cx="20" cy="28" r="2" fill="#ffffff" />
       </svg>
     ),
+    link: "https://www.townmanor.ai/explorestate",
+  },
+
+  {
+    title: "Check Credit Score",
+    description: "Get instant access to your credit score and financial health report",
+    icon: (
+      <svg
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
+        fill="none"
+        aria-label="Credit Score Icon"
+        role="img"
+      >
+        <rect x="4" y="8" width="32" height="24" rx="4" fill="#3B82F6" />
+        <path d="M4 16H36V20H4V16Z" fill="#ffffff" />
+        <circle cx="14" cy="26" r="4" fill="#10B981" />
+        <circle cx="26" cy="26" r="4" fill="#EF4444" />
+      </svg>
+    ),
+    link: "https://townmanor.ai/credit-score",
   },
   {
-    title: "Rent Agreement",
-    description: "Digital rental agreement creation and aadhar e-Sign",
+    title: "Home Loan",
+    description: "Complete home loan solutions with quick processing",
     icon: (
       <svg
         width="40"
         height="40"
         viewBox="0 0 40 40"
         fill="none"
-        aria-label="Rent Agreement Icon"
+        aria-label="Home Loan Icon"
         role="img"
       >
-        <rect x="8" y="6" width="24" height="28" rx="2" fill="#3B82F6" />
-        <path d="M8 12H32V16H8V12Z" fill="#ffffff" />
-        <path d="M12 20H28V24H12V20Z" fill="#ffffff" />
-        <path d="M12 26H20V30H12V26Z" fill="#ffffff" />
+        <path d="M20 8L8 20V32H32V20L20 8Z" fill="#10B981" />
+        <path d="M20 16V24" stroke="#ffffff" strokeWidth="2" />
+        <circle cx="20" cy="28" r="2" fill="#ffffff" />
       </svg>
     ),
-    link: "https://townmanor.ai/rentagreements",
+    link: "https://townmanor.ai/home-loan",
+  },
+
+  {
+    title: "Home Interior",
+    description: "Professional interior design and decoration solutions",
+    icon: (
+      <svg
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
+        fill="none"
+        aria-label="Home Interior Icon"
+        role="img"
+      >
+        <rect x="10" y="16" width="20" height="8" rx="2" fill="#8B5CF6" />
+        <path d="M14 12H26V16H14V12Z" fill="#7C3AED" />
+        <rect x="16" y="24" width="8" height="8" rx="2" fill="#A78BFA" />
+      </svg>
+    ),
+    link: "https://townmanor.ai/homelane",
   },
   {
     title: "Home Shift",
@@ -133,77 +179,55 @@ const servicesData = [
     ),
     link: "https://townmanor.ai/homeshift",
   },
+
   {
-    title: "Home Interior",
-    description: "Professional interior design and decoration solutions",
+    title: "Rent Agreement",
+    description: "Digital rental agreement creation and aadhar e-Sign",
     icon: (
       <svg
         width="40"
         height="40"
         viewBox="0 0 40 40"
         fill="none"
-        aria-label="Home Interior Icon"
+        aria-label="Rent Agreement Icon"
         role="img"
       >
-        <rect x="10" y="16" width="20" height="8" rx="2" fill="#8B5CF6" />
-        <path d="M14 12H26V16H14V12Z" fill="#7C3AED" />
-        <rect x="16" y="24" width="8" height="8" rx="2" fill="#A78BFA" />
+        <rect x="8" y="6" width="24" height="28" rx="2" fill="#3B82F6" />
+        <path d="M8 12H32V16H8V12Z" fill="#ffffff" />
+        <path d="M12 20H28V24H12V20Z" fill="#ffffff" />
+        <path d="M12 26H20V30H12V26Z" fill="#ffffff" />
       </svg>
     ),
-    link: "https://townmanor.ai/homelane",
+    link: "https://townmanor.ai/rentagreements",
   },
   {
-    title: "Home Loan",
-    description: "Complete home loan solutions with quick processing",
+    title: "eStamp",
+    description: "Expert and secure electronic stamp paper processing",
     icon: (
       <svg
         width="40"
         height="40"
         viewBox="0 0 40 40"
         fill="none"
-        aria-label="Home Loan Icon"
+        aria-label="eStamp Icon"
         role="img"
       >
-        <path d="M20 8L8 20V32H32V20L20 8Z" fill="#10B981" />
-        <path d="M20 16V24" stroke="#ffffff" strokeWidth="2" />
-        <circle cx="20" cy="28" r="2" fill="#ffffff" />
+        <circle cx="20" cy="20" r="16" fill="#EF4444" />
+        <path d="M16 20L20 24L24 16" stroke="#ffffff" strokeWidth="2" />
       </svg>
     ),
-    link: "https://townmanor.ai/home-loan",
   },
+
   {
-    title: "Sell & Rent Your Property",
-    description: "Boost your property's visibility and attract quality leads by listing your property.",
+    title: "eSign",
+    description: "Secure electronic signature and document verification",
     icon: (
       <svg
         width="40"
         height="40"
         viewBox="0 0 40 40"
         fill="none"
-        aria-label="Listed Property Icon"
-        role="img"
-      >
-        <rect x="8" y="8" width="24" height="24" rx="2" fill="#F59E0B" />
-        <rect x="12" y="12" width="4" height="4" fill="#ffffff" />
-        <rect x="20" y="12" width="4" height="4" fill="#ffffff" />
-        <rect x="28" y="12" width="4" height="4" fill="#ffffff" />
-        <rect x="12" y="20" width="4" height="4" fill="#ffffff" />
-        <rect x="20" y="20" width="4" height="4" fill="#ffffff" />
-        <rect x="28" y="20" width="4" height="4" fill="#ffffff" />
-      </svg>
-    ),
-    link: "https://townmanor.ai/form",
-  },
-  {
-    title: "Choose Plan",
-    description: "Select your own tailored property Listing plan",
-    icon: (
-      <svg
-        width="40"
-        height="40"
-        viewBox="0 0 40 40"
-        fill="none"
-        aria-label="Choose Plan Icon"
+        aria-label="eSign Icon"
         role="img"
       >
         <rect x="8" y="8" width="24" height="24" rx="2" fill="#3B82F6" />
@@ -214,25 +238,7 @@ const servicesData = [
     ),
     link: "https://townmanor.ai/pricing-plans",
   },
-  {
-    title: "Pay Property Tax",
-    description: "Seamless online property tax payment and guidance",
-    icon: (
-      <svg
-        width="40"
-        height="40"
-        viewBox="0 0 40 40"
-        fill="none"
-        aria-label="Pay Property Tax Icon"
-        role="img"
-      >
-        <rect x="8" y="8" width="24" height="24" rx="2" fill="#EF4444" />
-        <path d="M20 16V24" stroke="#ffffff" strokeWidth="2" />
-        <circle cx="20" cy="28" r="2" fill="#ffffff" />
-      </svg>
-    ),
-    link: "https://www.townmanor.ai/explorestate",
-  },
+
   {
     title: "Commercial Investment",
     description: "Expert guidance for commercial property investment",
