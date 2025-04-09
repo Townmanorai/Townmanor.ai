@@ -1,0 +1,44 @@
+/* Star rating styles */
+.star-icon {
+  transition: color 0.2s ease;
+}
+
+.star-icon.active {
+  color: #ffc107; /* Yellow color for active stars */
+}
+
+.star-icon.inactive {
+  color: #e0e0e0; /* Light gray for inactive stars */
+}
+
+.rating-lst {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rating-lst li {
+  margin-right: 5px;
+}
+
+.rating-action {
+  display: flex;
+  align-items: center;
+}
+
+/* Hover effect for star rating */
+.rating-action span:hover .star-icon,
+.rating-action span:hover ~ span .star-icon {
+  color: #ffc107;
+}
+
+/* Make sure the stars are properly aligned */
+.cm-info .rating-lst {
+  margin-bottom: 5px;
+}
+
+/* Ensure proper spacing in the review form */
+.form-group-rating {
+  margin-bottom: 15px;
+} 

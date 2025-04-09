@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./AgentOnSpotLight.css";
@@ -9,7 +8,6 @@ const AgentOnSpotLight = ({ agentIds, title, titleid }) => {
   const [agents, setAgents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     const fetchAgents = async () => {
@@ -30,11 +28,10 @@ const AgentOnSpotLight = ({ agentIds, title, titleid }) => {
     fetchAgents();
   }, []);
 
-  // Dummy agent data in case agentIds is empty
   const dummyAgent = [
     {
       id: 0,
-      imageUrl: '',  // Dummy image or placeholder image
+      imageUrl: 'https://via.placeholder.com/80x80?text=No+Agent',
       nameSurname: 'No Agent Available',
       agentUrl: '#',
       address: 'N/A',
@@ -43,7 +40,6 @@ const AgentOnSpotLight = ({ agentIds, title, titleid }) => {
     },
   ];
 
-  // If agentIds is empty, use dummyAgent; otherwise, use the actual agents
   const numericAgentIds = agentIds.length === 0 ? dummyAgent.map(agent => agent.id) : agentIds.map(id => Number(id));
   const filteredAgents = agentIds.length === 0 ? dummyAgent : agents.filter(agent => numericAgentIds.includes(agent.id));
 
@@ -52,12 +48,10 @@ const AgentOnSpotLight = ({ agentIds, title, titleid }) => {
   };
 
   const calculateRegistrationText = (agentProfile) => {
-    // Check if agentProfile or registrationDate is null/undefined
     if (!agentProfile || !agentProfile.registrationDate) {
-      return 'N/A'; // Return a default value if registrationDate is missing
+      return 'N/A';
     }
     
-    // If registrationDate exists, proceed with the calculation
     const oldDate = new Date(agentProfile.registrationDate);
     const now = new Date();
     const diffYears = now.getFullYear() - oldDate.getFullYear();
@@ -65,54 +59,78 @@ const AgentOnSpotLight = ({ agentIds, title, titleid }) => {
     const diffDays = now.getDate() - oldDate.getDate();
   
     if (diffYears > 0) {
-      return `${diffYears} Year${diffYears > 1 ? 's' : ''}`;
+      return `${diffYears}y`;
     } else if (diffMonths > 0) {
-      return `${diffMonths} Month${diffMonths > 1 ? 's' : ''}`;
+      return `${diffMonths}m`;
     } else {
-      return `${diffDays > 0 ? diffDays : 1} Day${diffDays > 1 ? 's' : ''}`;
+      return `${diffDays > 0 ? diffDays : 1}d`;
     }
   };
-  
+
+  if (loading) {
+    return (
+      <section className="agent-spotlight-new">
+        <h3 className="widget-title-new">Agents on Spotlight</h3>
+        <div className="agents-list-new">
+          <div className="agent-card-new">
+            <div className="agent-image-new">
+              <img src="https://via.placeholder.com/80x80?text=Loading..." alt="Loading" />
+            </div>
+            <div className="agent-info-new">
+              <div>Loading agent information...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="agent-spotlight-new">
+        <h3 className="widget-title-new">Agents on Spotlight</h3>
+        <div className="error-message">Error loading agents. Please try again later.</div>
+      </section>
+    );
+  }
 
   return (
     <section className="agent-spotlight-new">
       <h3 className="widget-title-new">Agents on Spotlight</h3>
       <div className="agents-list-new">
-        {loading ? (
-          <div>Loading agents...</div>
-        ) : error ? (
-          <div>Error: {error}</div>
-        ) : filteredAgents.length > 0 ? (
-          filteredAgents.map((agent) => (
-            <div key={agent.id} className="agent-card-new">
-              <div className="agent-image-new">
-                <img src={agent.imageUrl || 'placeholder-image-url'} alt={agent.nameSurname || ''} />
-              </div>
-              <div className="agent-info-new">
+        {filteredAgents.map((agent) => (
+          <div key={agent.id} className="agent-card-new">
+            <div className="agent-image-new">
+              <img 
+                src={agent.imageUrl || 'https://via.placeholder.com/80x80?text=No+Image'} 
+                alt={'Agent'} 
+              />
+            </div>
+            <div className="agent-info-new">
+              <div>
                 <h4 className="agent-name-new">
                   <a href={agent.agentUrl || '#'} title={agent.nameSurname || ''}>
-                    {agent.nameSurname || ''}
+                    {agent.nameSurname || 'Unknown Agent'}
                   </a>
                 </h4>
-                <p className="agent-address-new">{agent.address || ''}</p>
+                <p className="agent-address-new">{agent.address || 'Location not specified'}</p>
+              </div>
+              <div className="agent-stats">
                 <p className="agent-registration-new">
-                  <b>Registered:</b> {calculateRegistrationText(agent.agentProfile)} ago
+                  <b>{calculateRegistrationText(agent.agentProfile)}</b> registered
                 </p>
                 <p className="agent-listings-new">
-                  <b>{agent.totalListingsNum || 0}</b> Listings
+                  <b>{agent.totalListingsNum || 0}</b> listings
                 </p>
               </div>
             </div>
-          ))
-        ) : (
-          <div>No agents available in spotlight.</div>
-        )}
-
-        <div className="list-featured-agent">
-          <button onClick={handleListYourselfClick} className="btn-featured-agent">
-            List yourself as an Agent on SpotLight (5000 points)
-          </button>
-        </div>
+          </div>
+        ))}
+      </div>
+      <div className="list-featured-agent">
+        <button onClick={handleListYourselfClick} className="btn-featured-agent">
+          List yourself as an Agent (5000 points)
+        </button>
       </div>
     </section>
   );

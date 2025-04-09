@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import Slider from 'react-slick';
 import '../HomePage/TopRentedProperties.css';  // Separate CSS for rented properties
@@ -8,85 +6,24 @@ import '../HomePage/TopRentedProperties.css';  // Separate CSS for rented proper
 const propertiesData = [
   {
     id: 1,
-    imgSrc: "/770x483sobha_310_riverside_crescent1.webp",
-    type: "3 BHK Flat",
-    rent: "₹35,000/month",
-    location: "Sector 62, Noida",
-    status: "Available for Rent",
-    picCount: 12
+    imgSrc: "No image available",
   },
   {
     id: 2,
-    imgSrc: "/770x483sobha_310_riverside_crescent3.webp",
-    type: "2 BHK Apartment",
-    rent: "₹25,000/month",
-    location: "Sector 18, Noida",
-    status: "Available for Rent",
-    picCount: 8
+    imgSrc: "No image available",
   },
   {
     id: 3,
-    imgSrc: "/770x483sobha_310_riverside_crescent6.webp",
-    type: "1 BHK Studio",
-    rent: "₹15,000/month",
-    location: "Sector 128, Noida",
-    status: "Available for Rent",
-    picCount: 4
+    imgSrc: "No image available",
   },
   {
     id: 4,
-    imgSrc: "/770x483sobha_310_riverside_crescent5.webp",
-    type: "3 BHK Flat",
-    rent: "₹35,000/month",
-    location: "Sector 62, Noida",
-    status: "Available for Rent",
-    picCount: 12
+    imgSrc: "No image available",
   },
   {
     id: 5,
-    imgSrc: "/851x678bhutani_cyberthum101.jpg",
-    type: "2 BHK Apartment",
-    rent: "₹25,000/month",
-    location: "Sector 18, Noida",
-    status: "Available for Rent",
-    picCount: 8
-  },
-  {
-    id: 6,
-    imgSrc: "/851x678bhutani_cyberthum103.jpg",
-    type: "1 BHK Studio",
-    rent: "₹15,000/month",
-    location: "Sector 128, Noida",
-    status: "Available for Rent",
-    picCount: 4
-  },
-  {
-    id: 7,
-    imgSrc: "/851x678bhutani_cyberthum104.jpg",
-    type: "3 BHK Flat",
-    rent: "₹35,000/month",
-    location: "Sector 62, Noida",
-    status: "Available for Rent",
-    picCount: 12
-  },
-  {
-    id: 8,
-    imgSrc: "/851x678bhutani_cyberthum101.jpg",
-    type: "2 BHK Apartment",
-    rent: "₹25,000/month",
-    location: "Sector 18, Noida",
-    status: "Available for Rent",
-    picCount: 8
-  },
-  {
-    id: 9,
-    imgSrc: "/851x678bhutani_cyberthum101.jpg",
-    type: "1 BHK Studio",
-    rent: "₹15,000/month",
-    location: "Sector 128, Noida",
-    status: "Available for Rent",
-    picCount: 4
-  },
+    imgSrc: "No image available",
+  }
   // Add more rental properties as needed
 ];
 
@@ -130,10 +67,10 @@ const SellProperties_By_Project = ({project_name}) => {
     fontSize: "20px",
     fontWeight: "normal", // Use "normal" instead of "none"
     color: "#000000",
-    textTransform: "uppercase",
+    // textTransform: "uppercase",
     borderBottom: "1px solid #EE0001" // Corrected to camelCase
   }}>
-            {project_name ? `Sell Properties in ${project_name}` : 'Sell Properties'}
+            {project_name ? `Resale Properties in ${project_name}` : 'Resale Properties'}
             </div>
             {/* <a href="javascript:void(0);" className="rented-anchor-see-all push-right">
               See all Rental Properties
@@ -146,7 +83,7 @@ const SellProperties_By_Project = ({project_name}) => {
                   <div className="rented-property-card card-shadow">
                     <a href="javascript:void(0);">
                       <div className="rented-card-graphic">
-                        <img src={property.imgSrc} alt={property.type} />
+                        <img src={property.imgSrc} alt={"Currently data is not available"} />
                         <span className="pic-count">{property.picCount}</span>
                       </div>
                       <div className="rented-card-content">

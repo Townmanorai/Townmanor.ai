@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './ourprocess.css'
 
 const OurProcess = () => {
 
@@ -22,7 +23,7 @@ const OurProcess = () => {
   ]
 
   return (
-    <div style={{ height: '100%', marginTop: '110px' }}>
+    <div style={{ height: '100%', marginTop: '50px' }}>
       <div className='container'>
         <div style={{marginBottom:'30px'}}>
           <h1 className='Wo-heading'>
@@ -46,4 +47,4 @@ const OurProcess = () => {
   )
 }
 
-export default OurProcess
+export default OurProcess;

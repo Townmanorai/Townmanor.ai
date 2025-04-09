@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import "../common.css";  // Ensure you have these styles in your CSS files
 import "../commonsecond.css";
+import "./Property_ReviewSection.css"; // Import the new CSS file
+import { FaStar, FaRegStar } from 'react-icons/fa';
 
 // Dummy JSON data
 const data = {
@@ -25,10 +27,17 @@ const data = {
 
 const PropertyReviewSection = () => {
   const [reviewMessage, setReviewMessage] = useState('');
+  const [selectedRating, setSelectedRating] = useState(0);
 
   // Handle review message change
   const handleReviewMessageChange = (e) => {
     setReviewMessage(e.target.value);
+  };
+
+  // Handle star rating selection
+  const handleStarClick = (rating) => {
+    setSelectedRating(rating);
+    document.getElementById('review_star_input').value = rating;
   };
 
   return (
@@ -61,7 +70,11 @@ const PropertyReviewSection = () => {
                           <ul className="rating-lst">
                             {[...Array(5)].map((_, i) => (
                               <li key={i}>
-                                <span className={`la la-star ${i < review.stars ? '' : 'innactive'}`}></span>
+                                {i < review.stars ? (
+                                  <FaStar className="star-icon active" />
+                                ) : (
+                                  <FaRegStar className="star-icon inactive" />
+                                )}
                               </li>
                             ))}
                           </ul>
@@ -103,14 +116,21 @@ const PropertyReviewSection = () => {
               <h3>Write a Review</h3>
               <div className={`form-group-rating rating-lst ${data.notLogged.length > 0 ? 'login_popup_enabled' : ''}`}>
                 <input type="radio" name="stars" value="" className="hidden" checked="checked" />
-                <fieldset className="rating-action rating" required>
+                <div className="rating-action rating" required>
                   {[5, 4, 3, 2, 1].map(star => (
-                    <React.Fragment key={star}>
-                      <input type="radio" id={`star${star}`} name="stars" value={star} />
-                      <label className="full" htmlFor={`star${star}`} title={`Rating ${star}`}></label>
-                    </React.Fragment>
+                    <span 
+                      key={star} 
+                      onClick={() => handleStarClick(star)}
+                      style={{ cursor: 'pointer', marginRight: '5px' }}
+                    >
+                      {star <= selectedRating ? (
+                        <FaStar className="star-icon active" size={24} />
+                      ) : (
+                        <FaRegStar className="star-icon inactive" size={24} />
+                      )}
+                    </span>
                   ))}
-                </fieldset>
+                </div>
               </div>
             </div>
           )}
