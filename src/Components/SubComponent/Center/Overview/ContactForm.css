@@ -19,6 +19,7 @@
   margin-bottom: 14%;
   flex-basis: 25%;
   align-items: flex-start;
+  word-wrap: break-word;
 }
 
 .contact-img {

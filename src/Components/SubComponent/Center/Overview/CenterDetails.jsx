@@ -52,7 +52,7 @@ const CenterDetails = ({ property }) => {
         {details.slice(0, visibleDetails).map((detail, index) =>
           detail.value && (
             <div key={index}>
-              <span>{detail.label} :</span> {detail.value.charAt(0).toUpperCase()+detail.value.slice(1)}
+              <span>{detail.label} :</span> {String(detail.value).charAt(0).toUpperCase()+ String(detail.value).slice(1)}
             </div>
           )
         )}

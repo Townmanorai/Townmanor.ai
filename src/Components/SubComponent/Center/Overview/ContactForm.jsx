@@ -43,11 +43,11 @@ const ContactForm = ({username}) => {
 
             </div>
             <span>
-            <a href={`https://wa.me/${data.phone}`} target="_blank" rel="noopener noreferrer">
+            {data?.phone && (<a href={`https://wa.me/${data.phone}`} target="_blank" rel="noopener noreferrer">
               <button className="whatsapp-btn">WhatsApp</button>
-            </a>
+            </a>)}
               <a href='tel:+911204420450'>
-              <button tel='91-0120-4420450' className="contact-btn">Contact</button>
+              <button className="contact-btn">Contact</button>
               </a>
             </span>
           </div>
