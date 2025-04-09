@@ -46,7 +46,7 @@
       grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (max-width: 5000px) {
+@media (max-width: 500px) {
   .distance-grid {
       grid-template-columns: repeat(1, 1fr);
   }
