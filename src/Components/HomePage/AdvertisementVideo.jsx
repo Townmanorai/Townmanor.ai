@@ -6,7 +6,7 @@ const AdvertisementVideo = () => {
     'https://s3.ap-south-1.amazonaws.com/townamnor.ai/video/WhatsApp+Video+2024-10-23+at+11.18.49+AM.mp4',
     'https://s3.ap-south-1.amazonaws.com/townamnor.ai/video/WhatsApp+Video+2024-10-23+at+11.22.03+AM.mp4',
     'https://s3.ap-south-1.amazonaws.com/townamnor.ai/video/Explore+Bhutani+Group+s+Innovative+Projects+1.mp4',
-    'https://s3.ap-south-1.amazonaws.com/townamnor.ai/video/Unlocking+Lucrative+Investment+Opportunities+in+2023.mp4',
+    'https://s3.ap-south-1.amazonaws.com/townamnor.ai/video/Commercial+Real+Estate+in+India+1.mp4',
   ];
 
   return (
