@@ -1,28 +1,26 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:3000'; // Update this to your backend URL
-
 const TaskForm = () => {
     const [formData, setFormData] = useState({
         title: '',
         description: '',
-        assignee: 'ravindra',
-        status: 'pending', // Add default status
-        priority: 'medium' // Add default priority
+        assignee: '',
+        status: 'pending', // Default status
+        priority: 'medium' // Default priority
     });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${API_BASE_URL}/api/crm/tasks`, formData);
+            const response = await axios.post('https://www.townmanor.ai/api/crm/tasks', formData);
             console.log('Task created:', response.data);
             setFormData({ 
                 title: '', 
                 description: '', 
-                assignee: 'ravindra',
-                status: 'pending',
-                priority: 'medium'
+                assignee: '',
+                status: '',
+                priority: ''
             });
             alert('Task created successfully!');
         } catch (error) {
@@ -89,4 +87,4 @@ const TaskForm = () => {
     );
 };
 
-export default TaskForm; 
+export default TaskForm;

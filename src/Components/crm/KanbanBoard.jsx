@@ -15,7 +15,7 @@ const KanbanBoard = () => {
     const fetchTasks = async () => {
         try {
             setLoading(true);
-            const response = await axios.get('/api/crm/tasks');
+            const response = await axios.get('https://www.townmanor.ai/api/crm/tasks');
             setTasks(response.data || []);
             setError(null);
         } catch (error) {
@@ -29,7 +29,7 @@ const KanbanBoard = () => {
 
     const handleStatusChange = async (taskId, newStatus) => {
         try {
-            await axios.put(`/api/crm/tasks/${taskId}/status`, { status: newStatus });
+            await axios.put(`https://www.townmanor.ai/api/crm/tasks/${taskId}/status`, { status: newStatus });
             fetchTasks();
         } catch (error) {
             console.error('Error updating task status:', error);
@@ -80,4 +80,4 @@ const KanbanBoard = () => {
     );
 };
 
-export default KanbanBoard; 
+export default KanbanBoard;

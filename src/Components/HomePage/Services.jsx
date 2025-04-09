@@ -236,7 +236,7 @@ const servicesData = [
         <path d="M12 28H28V32H12V28Z" fill="#ffffff" />
       </svg>
     ),
-    link: "https://townmanor.ai/pricing-plans",
+    
   },
 
   {

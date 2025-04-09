@@ -2,7 +2,7 @@
 
 .ad-video-section {
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping to create multiple rows on smaller screens */
+    flex-wrap: nowrap; 
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -30,6 +30,7 @@
   @media (max-width: 768px) {
     .ad-video-section {
       padding: 10px;
+      flex-wrap: wrap;
     }
   
     .video-ad-container {
