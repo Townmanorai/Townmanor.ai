@@ -1,0 +1,102 @@
+.TaskForm_container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.TaskForm_form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.TaskForm_title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.TaskForm_group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Horizontal layout for each field */
+.TaskForm_group.horizontal {
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.TaskForm_label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4a5568;
+  width: 120px; /* fixed label width */
+}
+
+.TaskForm_input,
+.TaskForm_textarea,
+.TaskForm_select {
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  flex: 1;
+}
+
+.TaskForm_input:focus,
+.TaskForm_textarea:focus,
+.TaskForm_select:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+.TaskForm_textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.TaskForm_submit {
+  background-color: #4299e1;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  align-self: center;
+}
+
+.TaskForm_submit:hover {
+  background-color: #3182ce;
+}
+
+.TaskForm_submit:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.TaskForm_error {
+  background-color: #fff5f5;
+  color: #c53030;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* Specific styling for the "Other" assignee input */
+.other-input {
+  max-width: 200px;
+}
