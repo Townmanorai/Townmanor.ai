@@ -1,42 +1,57 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+const API_BASE_URL = 'https://www.townmanor.ai'; // Update this to your backend URL
+
 const TaskForm = () => {
     const [formData, setFormData] = useState({
         title: '',
         description: '',
-        assignee: '',
-        status: 'pending', // Default status
-        priority: 'medium' // Default priority
+        assignee: 'ravindra', // Set default value
+        status: 'pending',
+        priority: 'medium'
     });
+
+    const [error, setError] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setError('');
+
+        // Validate form data
+        if (!formData.title.trim() || !formData.description.trim() || !formData.assignee) {
+            setError('Please fill in all required fields');
+            return;
+        }
+
         try {
-            const response = await axios.post('https://www.townmanor.ai/api/crm/tasks', formData);
+            const response = await axios.post(`${API_BASE_URL}/api/crm/tasks`, formData);
             console.log('Task created:', response.data);
             setFormData({ 
                 title: '', 
                 description: '', 
-                assignee: '',
-                status: '',
-                priority: ''
+                assignee: 'ravindra',
+                status: 'pending',
+                priority: 'medium'
             });
             alert('Task created successfully!');
         } catch (error) {
             console.error('Error creating task:', error);
-            alert('Failed to create task. Please check the console for details.');
+            setError(error.response?.data?.details || 'Failed to create task');
         }
     };
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+        setError(''); // Clear error when user makes changes
     };
 
     return (
         <form className="TaskForm_container" onSubmit={handleSubmit}>
+            {error && <div className="TaskForm_error">{error}</div>}
+            
             <div className="TaskForm_field">
-                <label className="TaskForm_label">Title</label>
+                <label className="TaskForm_label">Title *</label>
                 <input
                     type="text"
                     name="title"
@@ -47,7 +62,7 @@ const TaskForm = () => {
                 />
             </div>
             <div className="TaskForm_field">
-                <label className="TaskForm_label">Description</label>
+                <label className="TaskForm_label">Description *</label>
                 <textarea
                     name="description"
                     value={formData.description}
@@ -57,12 +72,13 @@ const TaskForm = () => {
                 />
             </div>
             <div className="TaskForm_field">
-                <label className="TaskForm_label">Assignee</label>
+                <label className="TaskForm_label">Assignee *</label>
                 <select
                     name="assignee"
                     value={formData.assignee}
                     onChange={handleChange}
                     className="TaskForm_select"
+                    required
                 >
                     <option value="ravindra">Ravindra</option>
                     <option value="sunny">Sunny</option>
