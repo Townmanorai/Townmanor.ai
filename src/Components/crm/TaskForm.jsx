@@ -8,7 +8,7 @@ const TaskForm = () => {
         title: '',
         description: '',
         assignee: 'ravindra', // Set default value
-        status: 'pending',
+        status: 'todo',
         priority: 'medium'
     });
 
@@ -31,7 +31,7 @@ const TaskForm = () => {
                 title: '', 
                 description: '', 
                 assignee: 'ravindra',
-                status: 'pending',
+                status: 'todo',
                 priority: 'medium'
             });
             alert('Task created successfully!');
