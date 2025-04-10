@@ -8,6 +8,7 @@ import { LuIndianRupee } from "react-icons/lu";
 import { PiPaintBrushHousehold } from "react-icons/pi";
 
 import { useNavigate, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const NewSearchListingPage = () => {
     const { city, configuration, purpose, buytype, price } = useParams();
@@ -20,6 +21,7 @@ const NewSearchListingPage = () => {
     const [showFilter, setShowFilter] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCity, setSelectedCity] = useState(city || '');
+    const [seo,setseo] = useState([]);
     const [showCityDropdown, setShowCityDropdown] = useState(false);
     const propertiesPerPage = 8;
     const navigate = useNavigate();
@@ -99,6 +101,7 @@ const NewSearchListingPage = () => {
                     throw new Error('Failed to fetch properties');
                 }
                 const data = await response.json();
+                setseo(data);
                 const sortedProperties = data.sort((a, b) => {
                     return new Date(b.created_at) - new Date(a.created_at);
                 });
@@ -377,10 +380,25 @@ const NewSearchListingPage = () => {
         const imageUrl = images && images.length > 0 
             ? `https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/${images[0]}`
             : "/dummyproperty.jpg";
+            const generateMetaKeywords = (properties) => {
+                const keywords = properties.map(property => {
+                  const configuration = property.configuration || 'Apartment';
+                  const city = property.property_name || '';
+                  const price = property.price || 'Price not available';
+                  const pricerange = property.pricerange || '';
+                  return `${configuration} flat in ${city} at ${price} ${pricerange}`;
+                });
+            
+                return keywords.join(', ');
+              };
         
         return (
             <>
-         
+            <Helmet>
+            <meta name="keywords" content={generateMetaKeywords(seo)} />
+        <meta name="description" content="Find your dream property in Noida and Greater Noida. Explore a wide variety of apartments, villas, and homes for sale or rent. Get the best deals with Town Manor." />
+        <title>Search Properties - Residential & Commercial Properties</title>
+            </Helmet>
             <div key={property.id} className="card-listing-wrapper">
                 <div className="image-box-container">
                     <span className="badge-highlighted">Featured</span>
@@ -550,7 +568,10 @@ const NewSearchListingPage = () => {
   
     return (
         <>
-      
+        <Helmet>
+
+        <meta name="description" content="Find your dream property in Noida and Greater Noida. Explore a wide variety of apartments, villas, and homes for sale or rent. Get the best deals with Town Manor." />
+        </Helmet>
         <div className="container-main-wrapper">
             {/* Header Section */}
             <div className="header-container">
