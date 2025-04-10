@@ -1,30 +1,32 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
 import { motion } from 'framer-motion';
 import { IoHeartOutline } from 'react-icons/io5';
 import 'swiper/css';
+import 'swiper/css/navigation';
 import './HomeInt.css';
 
 function HomeInt1() {
     const data = [
         {
-            image: './pngimg.jpg',
+            image: './image.jpg',
             description: 'Sleek, efficient, and modern designs tailored to your needs.'
         },
         {
-            image: './pngimg1.jpg',
+            image: './image1.jpg',
             description: 'Sleek, efficient, and modern designs tailored to your needs.'
         },
         {
-            image: './pngimg1.jpg',
+            image: './image2.jpg',
             description: 'Sleek, efficient, and modern designs tailored to your needs.'
         },
         {
-            image: './pngimg1.jpg',
+            image: './image.jpg',
             description: 'Sleek, efficient, and modern designs tailored to your needs.'
         },
         {
-            image: './pngimg2.jpg',
+            image: './image1.jpg',
             description: 'Sleek, efficient, and modern designs tailored to your needs.'
         }
     ];
@@ -47,17 +49,46 @@ function HomeInt1() {
                 </motion.h1>
                 <div className='wo-box'>
                     <Swiper
-                        spaceBetween={10}
+                        spaceBetween={20}
                         slidesPerView={3}
                         loop={true}
-                        autoplay={{ delay: 3000 }}
+                        modules={[Navigation, Autoplay]}
+                        navigation={{
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                            enabled: true
+                        }}
+                        autoplay={{ 
+                            delay: 3000,
+                            disableOnInteraction: false
+                        }}
+                        breakpoints={{
+                            // when window width is >= 320px
+                            320: {
+                                slidesPerView: 1,
+                                spaceBetween: 10
+                            },
+                            // when window width is >= 576px
+                            576: {
+                                slidesPerView: 1,
+                                spaceBetween: 15
+                            },
+                            // when window width is >= 768px
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 15
+                            },
+                            // when window width is >= 1024px
+                            1024: {
+                                slidesPerView: 3,
+                                spaceBetween: 20
+                            }
+                        }}
                     >
                         {data.map((item, index) => (
                             <SwiperSlide key={index}>
                                 <motion.div 
                                     className='wb-contain'
-                                    whileHover={{ scale: 1.05 }}
-                                    transition={{ duration: 0.3 }}
                                 >
                                     <motion.div 
                                         className='hr-icon' 
@@ -93,6 +124,8 @@ function HomeInt1() {
                                 </motion.div>
                             </SwiperSlide>
                         ))}
+                        <div className="swiper-button-prev"></div>
+                        <div className="swiper-button-next"></div>
                     </Swiper>
                 </div>
             </div>

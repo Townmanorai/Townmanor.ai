@@ -105,27 +105,30 @@ function HomePlatforms() {
     },
   ];
 
+  // Duplicate the platforms array to create a seamless loop
+  const duplicatedPlatforms = [...Platforms, ...Platforms];
+
   return (
-    <div style={{ height: '100%', marginTop: '110px' }}>
-      <div className="container">
+    <div style={{ height: '100%', marginTop: '50px' }}>
+      <div className="">
         <div>
           <div className="hp-heading">
             <h1>
               Explore Leading <span>Home Interior</span> Platforms
             </h1>
           </div>
-          <div className="hp-icons">
-            {Platforms.map((item, index) => (
-              <div className="hp-icon" key={index}>
-                <div className="hpi-images">
-                  <div className="hi-images">
-                    <img src={item.img} alt="" />
+          <div className="platforms-scroll-container">
+            <div className="platforms-scroll">
+              {duplicatedPlatforms.map((item, index) => (
+                <div className="platform-item" key={index}>
+                  <div className="platform-image">
+                    <img src={item.img} alt={item.name} />
                   </div>
-                  <span style={{ fontSize: '22px', fontWeight: '500' }}>{item.name}</span>
+                  <div className="platform-name">{item.name}</div>
+                  {item.data && <div className="platform-tagline">{item.data}</div>}
                 </div>
-                <div className="hpi-para">{item.data}</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
         <div>
