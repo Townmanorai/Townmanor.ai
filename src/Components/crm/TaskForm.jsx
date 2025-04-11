@@ -6,8 +6,8 @@ const TaskForm = ({ onTaskCreated }) => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
-    assignee: 'ravindra',
-    customAssignee: '', // For when the user selects "Other"
+    assignee: 'sapna',
+    customAssignee: '',
     status: 'todo',
     priority: 'medium'
   });
@@ -44,19 +44,23 @@ const TaskForm = ({ onTaskCreated }) => {
       const response = await axios.post('https://www.townmanor.ai/api/crm/tasks', payload);
       console.log('Task created:', response.data);
       
-      // Reset form with default values
+      // Reset form (optional if you're doing a full refresh)
       setFormData({
         title: '',
         description: '',
-        assignee: 'ravindra',
+        assignee: 'sapna',
         customAssignee: '',
         status: 'todo',
         priority: 'medium'
       });
-      
+
+      // Call parent callback if provided
       if (onTaskCreated) {
         onTaskCreated();
       }
+      
+      // Refresh the page automatically
+      window.location.reload();
     } catch (err) {
       console.error('Error creating task:', err);
       setError(err.response?.data?.error || 'Failed to create task');
@@ -69,99 +73,124 @@ const TaskForm = ({ onTaskCreated }) => {
     <div className="TaskForm_container">
       <form onSubmit={handleSubmit} className="TaskForm_form">
         <h2 className="TaskForm_title">Create New Task</h2>
-        
+
         {error && <div className="TaskForm_error">{error}</div>}
 
-        {/* Title Field */}
-        <div className="TaskForm_group horizontal">
-          <label htmlFor="title" className="TaskForm_label">Title</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-            className="TaskForm_input"
-            required
-            placeholder="Enter task title"
-          />
-        </div>
+        <table className="TaskForm_table">
+          <tbody>
+            {/* Title Row */}
+            <tr>
+              <td className="TaskForm_labelCell">
+                <label htmlFor="title" className="TaskForm_label">Title</label>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  value={formData.title}
+                  onChange={handleChange}
+                  className="TaskForm_input"
+                  required
+                  placeholder="Enter task title"
+                />
+              </td>
+            </tr>
 
-        {/* Description Field */}
-        <div className="TaskForm_group horizontal">
-          <label htmlFor="description" className="TaskForm_label">Description</label>
-          <textarea
-            id="description"
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            className="TaskForm_textarea"
-            required
-            placeholder="Enter task description"
-            rows="2"
-          />
-        </div>
+            {/* Description Row */}
+            <tr>
+              <td className="TaskForm_labelCell">
+                <label htmlFor="description" className="TaskForm_label">Description</label>
+              </td>
+              <td>
+                <textarea
+                  id="description"
+                  name="description"
+                  value={formData.description}
+                  onChange={handleChange}
+                  className="TaskForm_textarea"
+                  required
+                  placeholder="Enter task description"
+                  rows="2"
+                />
+              </td>
+            </tr>
 
-        {/* Assignee Field */}
-        <div className="TaskForm_group horizontal">
-          <label htmlFor="assignee" className="TaskForm_label">Assignee</label>
-          <select
-            id="assignee"
-            name="assignee"
-            value={formData.assignee}
-            onChange={handleChange}
-            className="TaskForm_select"
-            required
-          >
-            <option value="ravindra">Ravindra</option>
-            <option value="sunny">Sunny</option>
-            <option value="ayush">Ayush</option>
-            <option value="other">Other</option>
-          </select>
-          {formData.assignee === 'other' && (
-            <input
-              type="text"
-              name="customAssignee"
-              value={formData.customAssignee}
-              onChange={handleChange}
-              className="TaskForm_input other-input"
-              placeholder="Enter assignee name"
-              required
-            />
-          )}
-        </div>
+            {/* Assignee Row */}
+            <tr>
+              <td className="TaskForm_labelCell">
+                <label htmlFor="assignee" className="TaskForm_label">Assignee</label>
+              </td>
+              <td>
+                <select
+                  id="assignee"
+                  name="assignee"
+                  value={formData.assignee}
+                  onChange={handleChange}
+                  className="TaskForm_select"
+                  required
+                >
+                  <option value="ravindra">Ravindra</option>
+                  <option value="sunny">Sunny</option>
+                  <option value="ayush">Ayush</option>
+                  <option value="sapna">Sapna</option>
+                  <option value="other">Other</option>
+                </select>
+                {formData.assignee === 'other' && (
+                  <input
+                    type="text"
+                    name="customAssignee"
+                    value={formData.customAssignee}
+                    onChange={handleChange}
+                    className="TaskForm_input other-input"
+                    placeholder="Enter assignee name"
+                    required
+                  />
+                )}
+              </td>
+            </tr>
 
-        {/* Status Field */}
-        <div className="TaskForm_group horizontal">
-          <label htmlFor="status" className="TaskForm_label">Status</label>
-          <select
-            id="status"
-            name="status"
-            value={formData.status}
-            onChange={handleChange}
-            className="TaskForm_select"
-          >
-            <option value="todo">To Do</option>
-            <option value="doing">In Progress</option>
-            <option value="completed">Completed</option>
-          </select>
-        </div>
+            {/* Status Row */}
+            <tr>
+              <td className="TaskForm_labelCell">
+                <label htmlFor="status" className="TaskForm_label">Status</label>
+              </td>
+              <td>
+                <select
+                  id="status"
+                  name="status"
+                  value={formData.status}
+                  onChange={handleChange}
+                  className="TaskForm_select"
+                >
+                  <option value="todo">To Do</option>
+                  <option value="doing">In Progress</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </td>
+            </tr>
 
-        {/* Priority Field */}
-        <div className="TaskForm_group horizontal">
-          <label htmlFor="priority" className="TaskForm_label">Priority</label>
-          <select
-            id="priority"
-            name="priority"
-            value={formData.priority}
-            onChange={handleChange}
-            className="TaskForm_select"
-          >
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-          </select>
-        </div>
+            {/* Priority Row */}
+            <tr>
+              <td className="TaskForm_labelCell">
+                <label htmlFor="priority" className="TaskForm_label">Priority</label>
+              </td>
+              <td>
+                <select
+                  id="priority"
+                  name="priority"
+                  value={formData.priority}
+                  onChange={handleChange}
+                  className="TaskForm_select"
+                >
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
         <button 
           type="submit" 

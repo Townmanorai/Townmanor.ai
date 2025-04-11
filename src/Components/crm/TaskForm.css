@@ -10,46 +10,51 @@
 .TaskForm_form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0rem;
 }
 
 .TaskForm_title {
   font-size: 1.5rem;
   font-weight: 600;
   color: #1a1a1a;
-  margin-bottom: 1rem;
+  margin-bottom:0rem;
   text-align: center;
 }
 
-.TaskForm_group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.TaskForm_table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 1rem; /* Add vertical spacing between rows, or adjust as needed */
 }
 
-/* Horizontal layout for each field */
-.TaskForm_group.horizontal {
-  flex-direction: row;
-  align-items: center;
-  gap: 1rem;
+.TaskForm_labelCell {
+  width: 120px;        /* a fixed width for labels */
+  vertical-align: top; /* ensure textareas expand down, not push label out of alignment */
+  text-align: left;    /* or 'right' if you prefer right-aligned labels */
+  padding-right: 0.5rem;
 }
 
 .TaskForm_label {
   font-size: 0.875rem;
   font-weight: 500;
   color: #4a5568;
-  width: 120px; /* fixed label width */
 }
 
 .TaskForm_input,
 .TaskForm_textarea,
 .TaskForm_select {
+  width: 100%;
+  box-sizing: border-box;
   padding: 0.75rem;
   border: 1px solid #e2e8f0;
   border-radius: 6px;
   font-size: 1rem;
   transition: border-color 0.2s, box-shadow 0.2s;
-  flex: 1;
+}
+
+.TaskForm_textarea {
+  min-height: 80px;
+  resize: vertical;
 }
 
 .TaskForm_input:focus,
@@ -60,13 +65,8 @@
   box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
 }
 
-.TaskForm_textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
 .TaskForm_submit {
-  background-color: #4299e1;
+  background-color: #ef4444; /* Example red button; change color as desired */
   color: white;
   padding: 0.75rem 1.5rem;
   border: none;
@@ -74,12 +74,13 @@
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
+  margin: 1rem auto 0 auto; /* center horizontally */
+  display: block;
   transition: background-color 0.2s;
-  align-self: center;
 }
 
 .TaskForm_submit:hover {
-  background-color: #3182ce;
+  background-color: #dc2626;
 }
 
 .TaskForm_submit:disabled {
@@ -98,5 +99,7 @@
 
 /* Specific styling for the "Other" assignee input */
 .other-input {
-  max-width: 200px;
+  margin-top: 0.5rem;
 }
+
+
