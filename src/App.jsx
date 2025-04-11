@@ -179,7 +179,7 @@ function App() {
             <Route path="/newform" element={<PropertyListingForm />} />
             <Route path="/search/:name" element={<PhoneSearch />} />
             <Route path="/Searchbar" element={<MainSearch />} />
-            <Route path='/homelane' element={<HomeLane />} />
+            {/* <Route path='/homelane' element={<HomeLane />} /> */}
             <Route path='/homelane/kitchen' element={<ModularKitchen />} />
             <Route path='/homelane/warddrobe' element={<WardDrobes />} />
             <Route path='/homelane/masterbedroom' element={<Masterbedroom />} />
@@ -207,7 +207,7 @@ function App() {
             <Route path='/Success2' element={<Success2/>} />
             <Route path='/Failure2' element={<Failure2/>} />
             <Route path='/Transaction' element={<Transaction/>} />
-            <Route path='/HomeInt' element={<HomeInterior/>} />
+            <Route path='/homelane' element={<HomeInterior/>} />
             <Route path="/agents" element={<AgentForm />} />
             <Route path="/agentlist" element={<AgentList />} />
             <Route path="/agent/:id" element={<Profile />} />
