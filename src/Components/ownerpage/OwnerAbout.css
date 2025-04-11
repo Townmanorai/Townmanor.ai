@@ -1,0 +1,217 @@
+.custom_property_wrapper_2025 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #222;
+    margin: 20px;
+    max-width: 1400px;
+    margin: 10px auto;
+  }
+  
+  .custom_property_maincard_2025 {
+    background: #fff;
+    flex: 2;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  
+  .custom_property_heading_2025 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  
+  .custom_property_info_grid_2025 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  .property_features_container_uniq2025 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+  }
+  
+  .property_features_item_uniq2025 {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+  }
+  
+  .property_icon_uniq2025 {
+    font-size: 20px;
+    color: #333;
+    margin-top: 2px;
+  }
+  
+  .property_label_uniq2025 {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 2px;
+  }
+  
+  .property_value_uniq2025 {
+    font-weight: 500;
+    color: black;
+    font-size: 15px;
+  }
+  
+  .custom_property_info_grid_2025 span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .custom_property_description_2025 {
+    font-size: 14px;
+    color: #444;
+    margin-top: 10px;
+  }
+  
+  .custom_property_showmore_2025 {
+    color: #0070f3;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  
+  .custom_property_sidecards_2025 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .custom_property_agentcard_2025 {
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: relative;
+  }
+  
+  .custom_agent_topbadge_2025 {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: black;
+    color: white;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  .custom_agent_details_2025 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  
+  .custom_agent_img_2025 {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    object-fit: cover;
+  }
+  
+  .custom_agent_name_2025 {
+    font-weight: 600;
+    font-size: 16px;
+  }
+  
+  .custom_agent_agency_2025 {
+    font-size: 13px;
+    color: #666;
+  }
+  
+  .custom_agent_rera_2025 {
+    font-size: 12px;
+    color: #aaa;
+  }
+  
+  .custom_agent_stats_2025 {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 0;
+  }
+  
+  .custom_agent_statval_2025 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .custom_agent_buttons_2025 {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .custom_btn_light_2025 {
+    flex: 1;
+    padding: 8px;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .custom_btn_dark_2025 {
+    flex: 1;
+    padding: 8px;
+    background: linear-gradient(to right, #ff4447, #8a2e2e);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .custom_property_pdfcard_2025 {
+    background: #fff;
+    padding: 14px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+  }
+  
+  .custom_pdf_text_2025 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  .custom_pdf_btn_2025 {
+    width: 100%;
+    padding: 10px;
+    background: white;
+    color: #000000;
+    border: 2px solid black;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  @media (max-width: 768px) {
+
+    svg.property_icon_uniq2025 {
+        width: 20px;
+        height: 50px;
+    }
+    .property_features_container_uniq2025 {
+    
+        grid-template-columns: repeat(auto-fit, minmax(181px, 1fr));
+  
+    }
+    .custom_property_wrapper_2025 {
+    
+        flex-direction: column-reverse;
+    }
+  }
+  
