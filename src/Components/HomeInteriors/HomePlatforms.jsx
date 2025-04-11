@@ -1,81 +1,156 @@
-import React from 'react';
-import "./HOmePlatforms.css"
-import { FaStar } from 'react-icons/fa';  
+import React, { useState } from 'react';
+import "./HomePlatforms.css"
+import { FaStar, FaCheckCircle, FaPhone, FaEnvelope, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Marketplace = () => {
+  const [hoveredId, setHoveredId] = useState(null);
+
   const sellers = [
     {
       id: 1,
       name: "TechHub Electronics",
       image: "kitchen-design1.jpg",
-      sellerImage: "https://creatie.ai/ai/api/search-image?query=Professional headshot of a middle-aged man with a friendly smile wearing a business casual attire, clean background&width=100&height=100&orientation=squarish&flag=aa219901-7d09-404e-8bc8-3afabd13038b&flag=656b7b1e-c2e5-4a37-a88c-b1306a431fa1&flag=d042d6e7-3721-46be-aa7b-c60f38309e52&flag=fccc1b74-8847-45d8-814e-0ac25e874354&flag=9aa274a0-af95-4bdd-bec5-fade4da49664",
+      sellerImage: "",
       rating: 4.9,
       reviews: 523,
       category: "Living Room",
       verified: true,
+      phone: "+1 234-567-8900",
+      email: "contact@techhub.com",
+      features: ["Modern Designs", "3D Visualization", "Budget Friendly"]
     },
     {
       id: 2,
       name: "Style Studio",
       image: "kitchen-design2.jpg",
-      sellerImage: "https://creatie.ai/ai/api/search-image?query=Professional headshot of a young woman with a warm smile wearing fashionable business attire, clean background&width=100&height=100&orientation=squarish&flag=0216cd31-aeb2-4db1-95ce-639a8c0e50c4&flag=aebc3d1b-d76a-47da-bbbb-0c330b170d92&flag=666d07a8-b0d5-4465-a608-0d2fe471f8df&flag=3c1db83d-7339-4c7f-8eee-b172ee472e17&flag=88e2e592-7188-40fa-858a-c4ebb7af7ff7",
+      sellerImage: "",
       rating: 4.8,
       reviews: 428,
       category: "Bedroom",
       verified: true,
+      phone: "+1 234-567-8901",
+      email: "hello@stylestudio.com",
+      features: ["Luxury Designs", "Custom Furniture", "Quick Delivery"]
     },
     {
       id: 3,
       name: "Home & Living",
       image: "kitchen-design3.jpg",
-      sellerImage: "https://creatie.ai/ai/api/search-image?query=Professional headshot of a middle-aged woman with an elegant smile wearing sophisticated business attire, clean background&width=100&height=100&orientation=squarish&flag=af359ed5-7259-4a05-a2ef-b82ebbb4b195&flag=79e44674-6700-48a8-b497-c47951c1a478&flag=f43e665d-5e09-462e-956f-378fa22532a9&flag=007c4182-9032-4996-9019-06e55675f133&flag=aa6ccac6-9974-470b-b537-6f42b3c6f7b5",
+      sellerImage: "",
       rating: 4.7,
       reviews: 312,
       category: "Bathroom",
       verified: true,
+      phone: "+1 234-567-8902",
+      email: "info@homeandliving.com",
+      features: ["Eco-Friendly", "Smart Home", "Premium Materials"]
     },
     {
       id: 4,
       name: "Modern Kitchen Solutions",
       image: "kitchen-design2.jpg",
-      sellerImage: "https://creatie.ai/ai/api/search-image?query=Professional headshot of a young interior designer&width=100&height=100&flag=3a4541bd-4c42-4cdb-b544-c5ab780a291a&flag=4f949192-e18b-4ebe-84ba-0b3c96bc25da&flag=036ed642-291d-495b-a508-a09c5ce55419",
+      sellerImage: "",
       rating: 4.8,
       reviews: 245,
       category: "Kitchen",
       verified: true,
+      phone: "+1 234-567-8903",
+      email: "contact@modernkitchen.com",
+      features: ["Modular Designs", "Space Optimization", "Energy Efficient"]
     },
   ];
 
+  // Custom arrow components
+  const PrevArrow = (props) => {
+    const { onClick } = props;
+    return (
+      <div className="slider-arrow prev-arrow" onClick={onClick}>
+        <FaChevronLeft />
+      </div>
+    );
+  };
+
+  const NextArrow = (props) => {
+    const { onClick } = props;
+    return (
+      <div className="slider-arrow next-arrow" onClick={onClick}>
+        <FaChevronRight />
+      </div>
+    );
+  };
+
+  // Slider settings
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+        }
+      }
+    ]
+  };
+
   return (
     <div className="marketplace-container">
-      <h2 className="marketplace-title">Home Interior Sellers</h2>
-      <div className="sellers-grid">
-        {sellers.map((seller) => (
-          <div key={seller.id} className="seller-card">
-            <div className="seller-image-container">
-              <img src={seller.image} alt={seller.name} className="seller-image" />
-            </div>
-            <div className="seller-details">
-              <div className="seller-info">
-                <img src={seller.sellerImage} alt="Seller" className="seller-avatar" />
-                <div className="seller-text">
+      <h2 className="marketplace-title">Top Interior Designers</h2>
+      <div className="sellers-slider-container">
+        <Slider {...settings} className="sellers-slider">
+          {sellers.map((seller) => (
+            <div
+              key={seller.id}
+              className={`seller-card ${hoveredId === seller.id ? 'hovered' : ''}`}
+              onMouseEnter={() => setHoveredId(seller.id)}
+              onMouseLeave={() => setHoveredId(null)}
+            >
+              <div className="seller-profile">
+                <img src={seller.sellerImage} alt={seller.name} className="seller-avatar" />
+                <div className="seller-info">
                   <h3 className="seller-name">{seller.name}</h3>
                   <div className="seller-rating">
-                    {/* <i className="fas fa-star seller-star"></i> */}
-                    <FaStar style={{width:'15px',marginRight:'5px'}} size={10} color="gold"/>
-                    <span className="seller-rating-value">{seller.rating}</span>
-                    <span className="seller-reviews">{seller.reviews} reviews</span>
+                    <FaStar className="star-icon" />
+                    <span>{seller.rating}</span>
+                    <span className="reviews">({seller.reviews})</span>
                   </div>
+                  <div className="seller-category">{seller.category}</div>
+                </div>
+                {seller.verified && <FaCheckCircle className="verified-badge" />}
+              </div>
+
+              <div className="seller-details">
+                <div className="features-list">
+                  {seller.features.map((feature, index) => (
+                    <span key={index} className="feature-tag">{feature}</span>
+                  ))}
+                </div>
+                <div className="contact-info">
+                  <a href={`tel:${seller.phone}`} className="contact-item">
+                    <FaPhone /> {seller.phone}
+                  </a>
+                  <a href={`mailto:${seller.email}`} className="contact-item">
+                    <FaEnvelope /> {seller.email}
+                  </a>
                 </div>
               </div>
-              <div className="seller-tags">
-                <span className="seller-category">{seller.category}</span>
-                {seller.verified && <span className="seller-verified">Verified</span>}
-              </div>
-              <button className="seller-contact-button">Contact Seller</button>
             </div>
-          </div>
-        ))}
+          ))}
+        </Slider>
       </div>
     </div>
   );
@@ -109,31 +184,28 @@ function HomePlatforms() {
   const duplicatedPlatforms = [...Platforms, ...Platforms];
 
   return (
-    <div style={{ height: '100%', marginTop: '50px' }}>
-      <div className="">
-        <div>
-          <div className="hp-heading">
-            <h1>
-              Explore Leading <span>Home Interior</span> Platforms
-            </h1>
-          </div>
-          <div className="platforms-scroll-container">
-            <div className="platforms-scroll">
-              {duplicatedPlatforms.map((item, index) => (
-                <div className="platform-item" key={index}>
-                  <div className="platform-image">
-                    <img src={item.img} alt={item.name} />
-                  </div>
-                  <div className="platform-name">{item.name}</div>
-                  {item.data && <div className="platform-tagline">{item.data}</div>}
-                </div>
-              ))}
+    <div className='int-platforms'>
+      <div className="platforms-scroll-container">
+        <div className="hp-heading" style={{marginBottom:'10px'}}>
+          <h1>
+            Explore Leading <span>Home Interior</span> Platforms
+          </h1>
+        </div>
+        <div className="platforms-scroll">
+          {duplicatedPlatforms.map((item, index) => (
+            <div className="platform-item" key={index}>
+              <div className="platform-image">
+                <img src={item.img} alt={item.name} />
+              </div>
+              <div className="platform-name">{item.name}</div>
+              {item.data && <div className="platform-tagline">{item.data}</div>}
             </div>
-          </div>
+          ))}
         </div>
-        <div>
-          <Marketplace />
-        </div>
+      </div>
+
+      <div>
+        <Marketplace />
       </div>
     </div>
   );

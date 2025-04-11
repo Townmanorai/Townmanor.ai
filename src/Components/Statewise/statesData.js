@@ -615,113 +615,558 @@ export const districtsData = {
       "famousPlaces": ["Mughal Garden", "Raja Garden", "Tihar Jail"]
     }
   ],
-    'haryana': [
-      {
-        "name": "Ambala",
-        "population": "1.1M",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/8/85/Mansa_Devi_temple_main_shrine.jpg",
-        "link": "https://mcambala.gov.in/property/PropertySelfAssessment_New.aspx",
-        "famousPlaces": ["Ambala Cantt", "Ambala City", "Mata Mansa Devi Temple"]
-      },
-      {
-        "name": "Sonipat",
-        "population": "1.5M",
-        "image": "https://staticimg.amarujala.com/assets/images/2018/11/19/kmp-expressway_1542603428.jpeg?w=750&dpr=1.0",
-        "link": "https://property.ulbharyana.gov.in/",
-        "famousPlaces": ["KMP Expressway", "Devi Temple", "Khwaja Khizr Tomb"]
-      },
-      {
-        "name": "Faridabad",
-        "population": "1.9M",
-        "image": "https://www.delhibn.com/wp-content/uploads/2022/11/badkal-lake-1024x768.jpg",
-        "link": "https://property.ulbharyana.gov.in/",
-        "famousPlaces": ["Surajkund Mela", "Badkhal Lake", "ISKCON Temple"]
-      },
-      {
-        "name": "Gurugram",
-        "population": "1.5M",
-        "image": "https://www.dlf.in/offices/gurugram/dlfcybercity/images/cyberprojects/Bldg-9A-and-9B.jpg",
-        "link": "https://property.ulbharyana.gov.in/",
-        "famousPlaces": ["Cyber City", "Kingdom of Dreams", "Sheetla Mata Mandir"]
-      },
-      {
-        "name": "Panipat",
-        "population": "1.2M",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStxQCWRKIlxBO6oQFGZ--WWZDpR543iBcTKQ&s",
-        "link": "https://property.ulbharyana.gov.in/",
-        "famousPlaces": ["Panipat Refinery", "Kabuli Bagh Mosque", "Panipat Museum"]
-      },
-      {
-        "name": "Karnal",
-        "population": "1.5M",
-        "image": "https://cdnbbsr.s3waas.gov.in/s37b7a53e239400a13bd6be6c91c4f6c4e/uploads/2020/05/2020051466.jpg",
-        "link": "https://property.ulbharyana.gov.in/",
-        "famousPlaces": ["Karna Lake", "Karnal Fort", "Kalander Shah's Tomb"]
-      },
-      {
-        "name": "Kurukshetra",
-        "population": "1.0M",
-        "image": "https://48koskurukshetra.com/wp-content/uploads/2019/06/015419809d4cd30f58612941488213df.png",
-        "link": "https://property.ulbharyana.gov.in/",
-        "famousPlaces": ["Brahma Sarovar", "Kurukshetra Panorama and Science Centre", "Sannihit Sarovar"]
-      },
-      {
-        "name": "Hisar",
-        "population": "1.7M",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/1/19/Agroha_Dhaam_Hindu_Temple.jpg",
-        "link": "https://property.ulbharyana.gov.in/",
-        "famousPlaces": ["Hisar Fort", "Agroha Dham", "Blue Bird Lake"]
-      },
-      {
-        "name": "Rohtak",
-        "population": "1.2M",
-        "image": "https://haryanatourism.gov.in/wp-content/uploads/2024/07/asthal_pic5.jpg",
-        "link": "https://property.ulbharyana.gov.in/",
-        "famousPlaces": ["Tilyar Lake", "Asthal Bohar", "Sai Mandir"]
-      },
-      {
-        "name": "Yamunanagar",
-        "population": "1.2M",
-        "image": "https://static.toiimg.com/img/71098679/Master.jpg",
-        "link": "https://property.ulbharyana.gov.in/",
-        "famousPlaces": ["Kalesar National Park", "Hathni Kund Barrage", "Chhachhrauli Fort"]
-      },
-      {
-        "name": "Panchkula",
-        "population": "0.6M",
-        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/58/ae/62/morni-hills.jpg?w=1200&h=-1&s=1",
-        "link": "https://property.ulbharyana.gov.in/",
-        "famousPlaces": ["Cactus Garden", "Morni Hills", "Nada Sahib Gurudwara"]
-      },
-      {
-        "name": "Bhiwani",
-        "population": "1.6M",
-        "image": "https://haryanatourism.gov.in/wp-content/uploads/2024/07/Starmonument_pic-1.jpg",
-        "link": "https://property.ulbharyana.gov.in/",
-        "famousPlaces": ["Bhiwani Railway Station", "Star Monument", "Devsar Dham"]
-      },
-      {
-        "name": "Jind",
-        "population": "1.3M",
-        "image": "https://images.bhaskarassets.com/thumb/1200x900/web2images/521/2016/09/18/jind1_1474226648.jpg",
-        "link": "https://property.ulbharyana.gov.in/",
-        "famousPlaces": ["Rani Talab", "Pandava Temple", "Hansdehar"]
-      },
-      {
-        "name": "Kaithal",
-        "population": "1.1M",
-        "image": "https://internationalgitamahotsav.in/wp-content/uploads/2019/05/81-scaled.jpg",
-        "link": "https://property.ulbharyana.gov.in/",
-        "famousPlaces": ["Ancient Bricks Temple", "Kapil Muni Tirth", "Phelgu Tank"]
-      },
-      {
-        "name": "Rewari",
-        "population": "0.9M",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn_pzle9OrDm6xh3dXj2N4VVtPePpPFwfc7w&s",
-        "link": "https://property.ulbharyana.gov.in/",
-        "famousPlaces": ["Rewari Railway Heritage Museum", "Bada Talab", "Ghanteshwar Mandir"]
-      }
-    ]
+  'haryana': [
+    {
+      "name": "Ambala",
+      "population": "1.1M",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/85/Mansa_Devi_temple_main_shrine.jpg",
+      "link": "https://mcambala.gov.in/property/PropertySelfAssessment_New.aspx",
+      "famousPlaces": ["Ambala Cantt", "Ambala City", "Mata Mansa Devi Temple"]
+    },
+    {
+      "name": "Sonipat",
+      "population": "1.5M",
+      "image": "https://staticimg.amarujala.com/assets/images/2018/11/19/kmp-expressway_1542603428.jpeg?w=750&dpr=1.0",
+      "link": "https://property.ulbharyana.gov.in/",
+      "famousPlaces": ["KMP Expressway", "Devi Temple", "Khwaja Khizr Tomb"]
+    },
+    {
+      "name": "Faridabad",
+      "population": "1.9M",
+      "image": "https://www.delhibn.com/wp-content/uploads/2022/11/badkal-lake-1024x768.jpg",
+      "link": "https://property.ulbharyana.gov.in/",
+      "famousPlaces": ["Surajkund Mela", "Badkhal Lake", "ISKCON Temple"]
+    },
+    {
+      "name": "Gurugram",
+      "population": "1.5M",
+      "image": "https://www.dlf.in/offices/gurugram/dlfcybercity/images/cyberprojects/Bldg-9A-and-9B.jpg",
+      "link": "https://property.ulbharyana.gov.in/",
+      "famousPlaces": ["Cyber City", "Kingdom of Dreams", "Sheetla Mata Mandir"]
+    },
+    {
+      "name": "Panipat",
+      "population": "1.2M",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStxQCWRKIlxBO6oQFGZ--WWZDpR543iBcTKQ&s",
+      "link": "https://property.ulbharyana.gov.in/",
+      "famousPlaces": ["Panipat Refinery", "Kabuli Bagh Mosque", "Panipat Museum"]
+    },
+    {
+      "name": "Karnal",
+      "population": "1.5M",
+      "image": "https://cdnbbsr.s3waas.gov.in/s37b7a53e239400a13bd6be6c91c4f6c4e/uploads/2020/05/2020051466.jpg",
+      "link": "https://property.ulbharyana.gov.in/",
+      "famousPlaces": ["Karna Lake", "Karnal Fort", "Kalander Shah's Tomb"]
+    },
+    {
+      "name": "Kurukshetra",
+      "population": "1.0M",
+      "image": "https://48koskurukshetra.com/wp-content/uploads/2019/06/015419809d4cd30f58612941488213df.png",
+      "link": "https://property.ulbharyana.gov.in/",
+      "famousPlaces": ["Brahma Sarovar", "Kurukshetra Panorama and Science Centre", "Sannihit Sarovar"]
+    },
+    {
+      "name": "Hisar",
+      "population": "1.7M",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/19/Agroha_Dhaam_Hindu_Temple.jpg",
+      "link": "https://property.ulbharyana.gov.in/",
+      "famousPlaces": ["Hisar Fort", "Agroha Dham", "Blue Bird Lake"]
+    },
+    {
+      "name": "Rohtak",
+      "population": "1.2M",
+      "image": "https://haryanatourism.gov.in/wp-content/uploads/2024/07/asthal_pic5.jpg",
+      "link": "https://property.ulbharyana.gov.in/",
+      "famousPlaces": ["Tilyar Lake", "Asthal Bohar", "Sai Mandir"]
+    },
+    {
+      "name": "Yamunanagar",
+      "population": "1.2M",
+      "image": "https://static.toiimg.com/img/71098679/Master.jpg",
+      "link": "https://property.ulbharyana.gov.in/",
+      "famousPlaces": ["Kalesar National Park", "Hathni Kund Barrage", "Chhachhrauli Fort"]
+    },
+    {
+      "name": "Panchkula",
+      "population": "0.6M",
+      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/58/ae/62/morni-hills.jpg?w=1200&h=-1&s=1",
+      "link": "https://property.ulbharyana.gov.in/",
+      "famousPlaces": ["Cactus Garden", "Morni Hills", "Nada Sahib Gurudwara"]
+    },
+    {
+      "name": "Bhiwani",
+      "population": "1.6M",
+      "image": "https://haryanatourism.gov.in/wp-content/uploads/2024/07/Starmonument_pic-1.jpg",
+      "link": "https://property.ulbharyana.gov.in/",
+      "famousPlaces": ["Bhiwani Railway Station", "Star Monument", "Devsar Dham"]
+    },
+    {
+      "name": "Jind",
+      "population": "1.3M",
+      "image": "https://images.bhaskarassets.com/thumb/1200x900/web2images/521/2016/09/18/jind1_1474226648.jpg",
+      "link": "https://property.ulbharyana.gov.in/",
+      "famousPlaces": ["Rani Talab", "Pandava Temple", "Hansdehar"]
+    },
+    {
+      "name": "Kaithal",
+      "population": "1.1M",
+      "image": "https://internationalgitamahotsav.in/wp-content/uploads/2019/05/81-scaled.jpg",
+      "link": "https://property.ulbharyana.gov.in/",
+      "famousPlaces": ["Ancient Bricks Temple", "Kapil Muni Tirth", "Phelgu Tank"]
+    },
+    {
+      "name": "Rewari",
+      "population": "0.9M",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn_pzle9OrDm6xh3dXj2N4VVtPePpPFwfc7w&s",
+      "link": "https://property.ulbharyana.gov.in/",
+      "famousPlaces": ["Rewari Railway Heritage Museum", "Bada Talab", "Ghanteshwar Mandir"]
+    }
+  ],
+  'arunachal-pradesh':[
+    {
+      "name": "Tawang",
+      "population": "49,950",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/TawangMonastery-ArunachalPradesh-1.jpg/250px-TawangMonastery-ArunachalPradesh-1.jpg",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Tawang Monastery", "Sela Pass", "Madhuri Lake"]
+    },
+    {
+      "name": "West Kameng",
+      "population": "87,013",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/13%2C700_feet_Sela_Lake%2Cin_west_Kameng%2C_Arunachal_Pradesh.jpg/250px-13%2C700_feet_Sela_Lake%2Cin_west_Kameng%2C_Arunachal_Pradesh.jpg",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Bomdila Monastery", "Eaglenest Wildlife Sanctuary", "Rupa"]
+    },
+    {
+      "name": "East Kameng",
+      "population": "78,413",
+      "image": "https://maps.wikimedia.org/img/osm-intl,a,a,a,225x225.png?lang=en&domain=en.wikipedia.org&title=East_Kameng_district&revid=1274360208&groups=_51ad5a0f1bed6f3ae8a3c2a56392c7379a852838",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Pakke Wildlife Sanctuary", "Seppa", "Bameng"]
+    },
+    {
+      "name": "Papum Pare",
+      "population": "176,385",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Dikrong_river_near_Itanagar.jpg/250px-Dikrong_river_near_Itanagar.jpg",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Itanagar", "Ganga Lake", "Itanagar Wildlife Sanctuary"]
+    },
+    {
+      "name": "Kurung Kumey",
+      "population": "89,717",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Sarli_AP.jpg/250px-Sarli_AP.jpg",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Koloriang", "Taliha", "Nyapin Valley"]
+    },
+    {
+      "name": "Kra Daadi",
+      "population": "22,290",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/93/View_of_Palin_Town.jpg",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Palin", "Pipsorang", "Yachuli"]
+    },
+    {
+      "name": "Lower Subansiri",
+      "population": "82,839",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Ziro_valley_of_Aruncahl_in_summer_season.jpg/250px-Ziro_valley_of_Aruncahl_in_summer_season.jpg",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Ziro Valley", "Talley Valley Wildlife Sanctuary", "Hapoli"]
+    },
+    {
+      "name": "Upper Subansiri",
+      "population": "83,205",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Upper_Subansiri_in_Arunachal_Pradesh_%28India%29.svg/250px-Upper_Subansiri_in_Arunachal_Pradesh_%28India%29.svg.png",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Daporijo", "Menga Caves", "Baririjo"]
+    },
+    {
+      "name": "West Siang",
+      "population": "112,272",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/River_Siyom%2C_Aalo%2C_Arunachal_Pradesh.jpg/250px-River_Siyom%2C_Aalo%2C_Arunachal_Pradesh.jpg",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Aalo", "Mechuka Valley", "Ramakrishna Mission School"]
+    },
+    {
+      "name": "East Siang",
+      "population": "99,019",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/River_Siang_%28Brahmaputra%29_entering_into_the_plains_at_Ranaghat%2C_on_the_east_of_Roing.jpg/250px-River_Siang_%28Brahmaputra%29_entering_into_the_plains_at_Ranaghat%2C_on_the_east_of_Roing.jpg",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Pasighat", "Daying Ering Wildlife Sanctuary", "Raneghat Bridge"]
+    },
+    {
+      "name": "Siang",
+      "population": "31,920",
+      "image": "https://maps.wikimedia.org/img/osm-intl,a,a,a,225x225.png?lang=en&domain=en.wikipedia.org&title=Siang_district&revid=1248600567&groups=_0b6a2ac2acc7bb9e2da9106cefd0bac04668a301",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Boleng", "Yeksi Waterfalls", "Pangin"]
+    },
+    {
+      "name": "Upper Siang",
+      "population": "33,146",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/TsitA.jpg/250px-TsitA.jpg",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Yingkiong", "Mouling National Park", "Tuting"]
+    },
+    {
+      "name": "Lower Siang",
+      "population": "80,597",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Malini_Than.jpg/250px-Malini_Than.jpg",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Likabali", "Siji", "Gensi"]
+    },
+    {
+      "name": "Lower Dibang Valley",
+      "population": "53,986",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/View_from_Bara_Golai%2C_16_km_north_of_Roing.jpg/1280px-View_from_Bara_Golai%2C_16_km_north_of_Roing.jpg",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Roing", "Mehao Lake", "Mayudia Pass"]
+    },
+    {
+      "name": "Dibang Valley",
+      "population": "7,948",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Dibang_valley_%287453899412%29.jpg/1280px-Dibang_valley_%287453899412%29.jpg",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Anini", "Dibang Wildlife Sanctuary", "Etalin"]
+    },
+    {
+      "name": "Lohit",
+      "population": "145,538",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/The_Lohit_river%2C_Arunachal_Pradesh.jpg/250px-The_Lohit_river%2C_Arunachal_Pradesh.jpg",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Tezu", "Parasuram Kund", "Wakro"]
+    },
+    {
+      "name": "Namsai",
+      "population": "95,950",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/51/Golden_Pagoda_Namsai_Arunachal_Pradesh.jpg",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Golden Pagoda", "Chongkham", "Lekhapani"]
+    },
+    {
+      "name": "Changlang",
+      "population": "147,951",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/India_Arunachal_Pradesh_location_map.svg/1920px-India_Arunachal_Pradesh_location_map.svg.png",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Namdapha National Park", "Miao", "Jairampur"]
+    },
+    {
+      "name": "Tirap",
+      "population": "111,975",
+      "image": "https://maps.wikimedia.org/img/osm-intl,a,a,a,225x225.png?lang=en&domain=en.wikipedia.org&title=Tirap_district&revid=1278872294&groups=_ab42b5ee47deeaed411281bb8276fa460819198f",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Khonsa", "Deomali", "Lazu"]
+    },
+    {
+      "name": "Longding",
+      "population": "60,000",
+      "image": "https://maps.wikimedia.org/img/osm-intl,a,a,a,225x225.png?lang=en&domain=en.wikipedia.org&title=Longding_district&revid=1257427691&groups=_dc0d067e55213d7de357a250a2d68a5a00d2cfab",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Longding", "Kanubari", "Wakka"]
+    },
+    {
+      "name": "Kamle",
+      "population": "22,256",
+      "image": "https://maps.wikimedia.org/img/osm-intl,a,a,a,225x225.png?lang=en&domain=en.wikipedia.org&title=Kamle_district&revid=1256399632&groups=_73a31753974b865cf203d38e0caf47567cc18619",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Raga", "Boasimla", "Daporijo Road"]
+    },
+    {
+      "name": "Lepa Rada",
+      "population": "Data not available",
+      "image": "",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Basar", "Pagi", "Bame"]
+    },
+    {
+      "name": "Shi-Yomi",
+      "population": "13,310",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Mechuka_overview.jpg/250px-Mechuka_overview.jpg",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Mechuka", "Monigong", "Tato"]
+    },
+    {
+      "name": "Pakke-Kessang",
+      "population": "Data not available",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Landscape_Kameng_River_Pakke_Tiger_Reserve.jpg/250px-Landscape_Kameng_River_Pakke_Tiger_Reserve.jpg",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Lemmi", "Pakke Tiger Reserve", "Dissing Passo"]
+    },
+    {
+      "name": "Itanagar Capital Complex",
+      "population": "Data not available",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Gyakar_Sinyi_or_Ganga_Lake.jpg/1280px-Gyakar_Sinyi_or_Ganga_Lake.jpg",
+      "link": "https://cdma.ap.gov.in/en/ptpayments",
+      "famousPlaces": ["Itanagar Fort", "Jawaharlal Nehru Museum", "Ganga Lake"]
+    }
+  ],
+  'bihar':[
+    {
+      name: "Araria",
+      population: "2.8M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/India_Bihar_location_map.svg/250px-India_Bihar_location_map.svg.png",
+      link: "",
+      famousPlaces: ["Forbesganj", "Madanpur", "Araria Jama Masjid"]
+    },
+    {
+      name: "Arwal",
+      population: "0.7M",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Son_River_Arwal_Bihar.jpg/250px-Son_River_Arwal_Bihar.jpg",
+      link: "",
+      famousPlaces: ["Arwal Sun Temple", "Madhusudan Temple"]
+    },
+    {
+      name: "Aurangabad",
+      population: "2.5M",
+      image: "",
+      link: "",
+      famousPlaces: ["Deo Sun Temple", "Umga Hills", "Amjhar Sharif"]
+    },
+    {
+      name: "Banka",
+      population: "2.0M",
+      image: "",
+      link: "",
+      famousPlaces: ["Mandar Hill", "Bounsi", "Papaharni"]
+    },
+    {
+      name: "Begusarai",
+      population: "2.9M",
+      image: "",
+      link: "",
+      famousPlaces: ["Kanwar Lake", "Naulakha Temple", "Simaria Ghat"]
+    },
+    {
+      name: "Bhagalpur",
+      population: "3.0M",
+      image: "",
+      link: "",
+      famousPlaces: ["Vikramshila University", "Kuppa Ghat", "Burhanath Temple"]
+    },
+    {
+      name: "Bhojpur",
+      population: "2.7M",
+      image: "",
+      link: "",
+      famousPlaces: ["Veer Kunwar Singh Fort", "Arrah House", "Sun Temple"]
+    },
+    {
+      name: "Buxar",
+      population: "1.7M",
+      image: "",
+      link: "",
+      famousPlaces: ["Katkauli Ka Maidan", "Buxar Fort", "Nath Baba Mandir"]
+    },
+    {
+      name: "Darbhanga",
+      population: "4.0M",
+      image: "",
+      link: "",
+      famousPlaces: ["Darbhanga Fort", "Chandradhari Museum", "Ahilya Asthan"]
+    },
+    {
+      name: "East Champaran",
+      population: "5.1M",
+      image: "",
+      link: "",
+      famousPlaces: ["Motihari", "Gandhi Museum", "Kesariya Stupa"]
+    },
+    {
+      name: "Gaya",
+      population: "4.3M",
+      image: "",
+      link: "",
+      famousPlaces: ["Bodh Gaya", "Vishnupad Temple", "Barabar Caves"]
+    },
+    {
+      name: "Gopalganj",
+      population: "2.6M",
+      image: "",
+      link: "",
+      famousPlaces: ["Thawe Temple", "Katahri Palace", "Gandak River"]
+    },
+    {
+      name: "Jamui",
+      population: "1.8M",
+      image: "",
+      link: "",
+      famousPlaces: ["Simultala", "Kali Mandir", "Minto Tower"]
+    },
+    {
+      name: "Jehanabad",
+      population: "1.1M",
+      image: "",
+      link: "",
+      famousPlaces: ["Barabar Caves", "Bela Park", "Shiv Mandir"]
+    },
+    {
+      name: "Kaimur",
+      population: "1.6M",
+      image: "",
+      link: "",
+      famousPlaces: ["Kaimur Wildlife Sanctuary", "Telhar Waterfall", "Mundeshwari Temple"]
+    },
+    {
+      name: "Katihar",
+      population: "3.0M",
+      image: "",
+      link: "",
+      famousPlaces: ["Barari", "Kali Mandir", "Manihari Ghat"]
+    },
+    {
+      name: "Khagaria",
+      population: "1.7M",
+      image: "",
+      link: "",
+      famousPlaces: ["Budhkar Temple", "Gogri", "Koshi River"]
+    },
+    {
+      name: "Kishanganj",
+      population: "1.7M",
+      image: "",
+      link: "",
+      famousPlaces: ["Har Gauri Temple", "Kargil Park", "Kishanganj Fort"]
+    },
+    {
+      name: "Lakhisarai",
+      population: "1.1M",
+      image: "",
+      link: "",
+      famousPlaces: ["Ashok Dham Temple", "Surya Mandir", "Abhaypur Fort"]
+    },
+    {
+      name: "Madhepura",
+      population: "2.0M",
+      image: "",
+      link: "",
+      famousPlaces: ["Singheshwar Temple", "Murliganj", "Kosi River"]
+    },
+    {
+      name: "Madhubani",
+      population: "4.5M",
+      image: "",
+      link: "",
+      famousPlaces: ["Kapileshwar Temple", "Uchaitha", "Madhubani Painting Hub"]
+    },
+    {
+      name: "Munger",
+      population: "1.4M",
+      image: "",
+      link: "",
+      famousPlaces: ["Munger Fort", "Sita Kund", "Yoga Ashram"]
+    },
+    {
+      name: "Muzaffarpur",
+      population: "4.8M",
+      image: "",
+      link: "",
+      famousPlaces: ["Litchi Gardens", "Baba Garib Nath Temple", "Ram Chandra Shahi Museum"]
+    },
+    {
+      name: "Nalanda",
+      population: "2.9M",
+      image: "",
+      link: "",
+      famousPlaces: ["Nalanda University Ruins", "Rajgir", "Pawapuri"]
+    },
+    {
+      name: "Nawada",
+      population: "2.2M",
+      image: "",
+      link: "",
+      famousPlaces: ["Kakolat Falls", "Baba Bairagi Temple", "Hanuman Mandir"]
+    },
+    {
+      name: "Patna",
+      population: "5.8M",
+      image: "",
+      link: "",
+      famousPlaces: ["Golghar", "Patna Sahib", "Bihar Museum"]
+    },
+    {
+      name: "Purnia",
+      population: "3.6M",
+      image: "",
+      link: "",
+      famousPlaces: ["Puran Devi Temple", "Kosi River Bank", "Ganga Devi Mandir"]
+    },
+    {
+      name: "Rohtas",
+      population: "2.9M",
+      image: "",
+      link: "",
+      famousPlaces: ["Rohtasgarh Fort", "Sasaram Tomb", "Gupta Dham"]
+    },
+    {
+      name: "Saharsa",
+      population: "2.0M",
+      image: "",
+      link: "",
+      famousPlaces: ["Shiv Mandir", "Kosi Barrage", "Mahishi"]
+    },
+    {
+      name: "Samastipur",
+      population: "4.2M",
+      image: "",
+      link: "",
+      famousPlaces: ["Khudneshwar Temple", "Mangalgarh Fort", "Budhi Gandak River"]
+    },
+    {
+      name: "Saran",
+      population: "3.9M",
+      image: "",
+      link: "",
+      famousPlaces: ["Aami Temple", "Sonepur Mela", "Gandhi Museum"]
+    },
+    {
+      name: "Sheikhpura",
+      population: "0.7M",
+      image: "",
+      link: "",
+      famousPlaces: ["Girihinda Hill", "Sheikhpura Fort", "Kapil Dhara"]
+    },
+    {
+      name: "Sheohar",
+      population: "0.6M",
+      image: "",
+      link: "",
+      famousPlaces: ["Buxa Fort", "Shiv Mandir", "Deokuli"]
+    },
+    {
+      name: "Sitamarhi",
+      population: "3.4M",
+      image: "",
+      link: "",
+      famousPlaces: ["Janaki Mandir", "Haleshwar Asthan", "Baghi Math"]
+    },
+    {
+      name: "Siwan",
+      population: "3.3M",
+      image: "",
+      link: "",
+      famousPlaces: ["Mehandar Temple", "Ziradei", "Siwan Palace"]
+    },
+    {
+      name: "Supaul",
+      population: "2.3M",
+      image: "",
+      link: "",
+      famousPlaces: ["Mahadev Mandir", "Triveni Sangam", "Kosi Barrage"]
+    },
+    {
+      name: "Vaishali",
+      population: "3.5M",
+      image: "",
+      link: "",
+      famousPlaces: ["Ashokan Pillar", "Buddha Stupa", "Vaishali Museum"]
+    },
+    {
+      name: "West Champaran",
+      population: "4.1M",
+      image: "",
+      link: "",
+      famousPlaces: ["Valmiki Nagar", "Triveni Sangam", "Lauria Nandangarh"]
+    }
+  ]  
  
   
 };
