@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./HomePlatforms.css"
+import "./HOmePlatforms.css"
 import { FaStar, FaCheckCircle, FaPhone, FaEnvelope, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
