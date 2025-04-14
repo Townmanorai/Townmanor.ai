@@ -1,4 +1,3 @@
-
 // AuthContainer.js
 
 import React, { useEffect, useState } from 'react';
@@ -14,24 +13,27 @@ const AuthContainer = () => {
   const [activeTab, setActiveTab] = useState('log-in-form');
   const [username, setUsername] = useState(null);
 
-  useEffect(() => {
-    // Get the token from cookies
-    const token = Cookies.get('jwttoken'); // Retrieve the token from cookies
-    console.log('Token from cookies:', token);  // Log the retrieved token for debugging
+  const getCookie = (name) => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+  };
 
-    if (token) {
-      try {
-        // Decode the token
-        const decodedToken = jwtDecode(token);  
-        console.log('Decoded Token:', decodedToken);
-        setUsername(decodedToken.username); // Set the username from the token
-      } catch (error) {
-        console.error('Error decoding token:', error);
-      }
-    } else {
-      console.log('No token found in cookies');
+  const token = getCookie('jwttoken');
+  let isAuthenticated = false;
+
+  if (token) {
+    try {
+      const decoded = jwtDecode(token);
+      isAuthenticated = !!decoded.username;
+      setUsername(decoded.username);
+    } catch (error) {
+      console.log('No valid token found');
     }
-  }, []);
+  } else {
+    console.log('No token found in cookies');
+  }
 
   return (
     <div className="wrapper ConTentFlex Body_back_Img">

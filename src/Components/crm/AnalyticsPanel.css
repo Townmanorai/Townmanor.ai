@@ -116,7 +116,7 @@
 
 .stats-row, .priority-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 0.5rem;
 }
 

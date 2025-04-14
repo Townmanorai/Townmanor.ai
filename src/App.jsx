@@ -6,6 +6,7 @@ import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import ReactGA from 'react-ga4';
 import { clarity } from 'react-microsoft-clarity';
+import { AuthProvider } from './contexts/AuthContext.jsx';
 
 import AdminPropertyPage from './Components/AdminPropertyUI/AdminPropertyPage';
 import SearchProperty from './Components/SearchProperty/SearchProperty';
@@ -130,117 +131,119 @@ function App() {
  
   return (
     <Router>
-      <ScrollToTop />
-      <ScrollRestoration />
-      <div className="app-container">
-        <Navbar />
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/admin-property" element={<AdminPropertyPage />} />
-            <Route path="/oldsearch" element={<SearchPropertyPage />} />
-            <Route path="/auth" element={<AuthContainer onUserLogin={handleUserLogin} />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} /> {/* Forgot Password Route */}
-            <Route path="/sign-up" element={<Signup />} /> {/* Sign Up Route */}
-            <Route path="/pricing-plans" element={<PricingPlans />} />
-            <Route path="/subscription-plans" element={<SubscriptionPricingPlan />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/:username/property/:id" element={<Property />} />
-            <Route path="/property/:id" element={<Property />} />
-            {/* Conditional routes based on whether a username exists */}
-            {/* {currentUser ? (
+      <AuthProvider>
+        <ScrollToTop />
+        <ScrollRestoration />
+        <div className="app-container">
+          <Navbar />
+          <main className="main-content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/admin-property" element={<AdminPropertyPage />} />
+              <Route path="/oldsearch" element={<SearchPropertyPage />} />
+              <Route path="/auth" element={<AuthContainer onUserLogin={handleUserLogin} />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} /> {/* Forgot Password Route */}
+              <Route path="/sign-up" element={<Signup />} /> {/* Sign Up Route */}
+              <Route path="/pricing-plans" element={<PricingPlans />} />
+              <Route path="/subscription-plans" element={<SubscriptionPricingPlan />} />
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/:username/property/:id" element={<Property />} />
-            ) : (
               <Route path="/property/:id" element={<Property />} />
-            )} */}
-            <Route path="/featured-agent-form" element={<FeaturedAgentForm />} />
-            <Route path="/SubPlan" element={<PricingPlans />} />
-            <Route path="/payment" element={<PaymentForm />} />
-            <Route path="/success" element={<Success />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/failure" element={<Failure />} />
+              {/* Conditional routes based on whether a username exists */}
+              {/* {currentUser ? (
+                <Route path="/:username/property/:id" element={<Property />} />
+              ) : (
+                <Route path="/property/:id" element={<Property />} />
+              )} */}
+              <Route path="/featured-agent-form" element={<FeaturedAgentForm />} />
+              <Route path="/SubPlan" element={<PricingPlans />} />
+              <Route path="/payment" element={<PaymentForm />} />
+              <Route path="/success" element={<Success />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/failure" element={<Failure />} />
 
-            <Route path="/home-loan" element={<HomeLoan />} />
-            <Route path="/credit-score" element={<CreditScore />} />
-            <Route path="/insurance" element={<Insurance />} />
-            <Route path="/rentagreements" element={<RentMainPage />} />
-            <Route path="/landverification" element={<LandMainPage />} />
-            <Route path="/landverification/verify" element={<LandVerification />} />
-            <Route path="/landrecord" element={<LandRecords />} />
-            <Route path="/rent-agreement" element={<RentAgreementForm/>} />
-            <Route path="/explorestate" element={<ExploreStates/>} />
-            <Route path="/state/:stateName" element={<StateDistricts />} />
-            <Route path="/ut/:stateName" element={<StateDistricts />} />
-            <Route path="/reraverification" element={<ReraVerificationForm/>} />
+              <Route path="/home-loan" element={<HomeLoan />} />
+              <Route path="/credit-score" element={<CreditScore />} />
+              <Route path="/insurance" element={<Insurance />} />
+              <Route path="/rentagreements" element={<RentMainPage />} />
+              <Route path="/landverification" element={<LandMainPage />} />
+              <Route path="/landverification/verify" element={<LandVerification />} />
+              <Route path="/landrecord" element={<LandRecords />} />
+              <Route path="/rent-agreement" element={<RentAgreementForm/>} />
+              <Route path="/explorestate" element={<ExploreStates/>} />
+              <Route path="/state/:stateName" element={<StateDistricts />} />
+              <Route path="/ut/:stateName" element={<StateDistricts />} />
+              <Route path="/reraverification" element={<ReraVerificationForm/>} />
 
-            <Route path="/property-details/:property_name" element={<PropertyListedUserList />} />
-            {/* sunny route */}
-            <Route path="/form" element={<Phone />} />
-            <Route path="/newform" element={<PropertyListingForm />} />
-            <Route path="/search/:name" element={<PhoneSearch />} />
-            <Route path="/Searchbar" element={<MainSearch />} />
-            <Route path='/homelane' element={<HomeLane />} />
-            <Route path='/homelane/kitchen' element={<ModularKitchen />} />
-            <Route path='/homelane/warddrobe' element={<WardDrobes />} />
-            <Route path='/homelane/masterbedroom' element={<Masterbedroom />} />
-            <Route path='/homelane/tv' element={<Tv />} />
-            <Route path='/homelane/livingroom' element={<Livingroom />} />
-            <Route path='/homelane/falseceiling' element={<FalseCeling />} />
-            <Route path='/homelane/bathroom' element={<Bathroom />} />
-            <Route path='/homelane/kids' element={<Kids />} />
-            <Route path='/homelane/fullhouseinterior' element={<FullHouseinterior />} />
-            <Route path='/homelane/commercialinterior' element={<CommercialInterior />} />
-            <Route path='/homelane/officeinterior' element={<Officeinterior />} />
-            <Route path='/homelane/bedroom' element={<Bedroom />} />
-            <Route path='/homelane/furniture' element={<Furniture />} />
+              <Route path="/property-details/:property_name" element={<PropertyListedUserList />} />
+              {/* sunny route */}
+              <Route path="/form" element={<Phone />} />
+              <Route path="/newform" element={<PropertyListingForm />} />
+              <Route path="/search/:name" element={<PhoneSearch />} />
+              <Route path="/Searchbar" element={<MainSearch />} />
+              <Route path='/homelane' element={<HomeLane />} />
+              <Route path='/homelane/kitchen' element={<ModularKitchen />} />
+              <Route path='/homelane/warddrobe' element={<WardDrobes />} />
+              <Route path='/homelane/masterbedroom' element={<Masterbedroom />} />
+              <Route path='/homelane/tv' element={<Tv />} />
+              <Route path='/homelane/livingroom' element={<Livingroom />} />
+              <Route path='/homelane/falseceiling' element={<FalseCeling />} />
+              <Route path='/homelane/bathroom' element={<Bathroom />} />
+              <Route path='/homelane/kids' element={<Kids />} />
+              <Route path='/homelane/fullhouseinterior' element={<FullHouseinterior />} />
+              <Route path='/homelane/commercialinterior' element={<CommercialInterior />} />
+              <Route path='/homelane/officeinterior' element={<Officeinterior />} />
+              <Route path='/homelane/bedroom' element={<Bedroom />} />
+              <Route path='/homelane/furniture' element={<Furniture />} />
 
-            {/* Dynamic Route for State */}
-            <Route path="/states/:stateName" element={<StateDetails />} />
-            <Route path="/commercial3/:index" element={<Commercial3 />} />
-            <Route path='/homeShift' element={<HomeShift />}></Route>
-            <Route path="/commercial" element={<Commercial />} />
-            <Route path='/article/:id' element={<Article />}></Route>
-            <Route path="/commercialform" element={<LeaseProperty />} />
-            <Route path="/home/:id" element={<UserListPropertyPage />} />
-            <Route path="/propertyOA" element={<Propertx />} />
-            <Route path="/commercialform2" element={<Commercialform2 />} />
-            <Route path='/Success2' element={<Success2/>} />
-            <Route path='/Failure2' element={<Failure2/>} />
-            <Route path='/Transaction' element={<Transaction/>} />
-            {/* <Route path='/homelane' element={<HomeInterior/>} /> */}
-            <Route path="/agents" element={<AgentForm />} />
-            <Route path="/agentlist" element={<AgentList />} />
-            <Route path="/agent/:id" element={<Profile />} />
-            <Route path="/agents/edit" element={<EditForm />} />
-            <Route path="/agents/form" element={<SignUpForm />} />
-            {/* <Route path="/Livspace" element={<Livspace/>}/> */}
-            <Route path="Coliving" element={<Coliving_space/>}/>
-            {/* You can also add dynamic routes for specific city or option pages */}
-            {/* <Route path="/properties-for-sale-rent/:stateName" element={<PropertiesForSaleRent />} /> */}
-            {/* <Route path="/pay-house-tax-online/:stateName" element={<PayHouseTaxOnline />} /> */}
-            {/* <Route path="/land-record-verification/:stateName" element={<LandRecordVerification />} /> */}
-            {/* <Route path="/rera/:stateName" element={<RERA />} /> */}
-            <Route path="/stateName/:stateName/city/:cityName" element={<CityWise />} />  Example for city route
-            <Route path='/proptech' element={<PropTechNews/>}/>
-            <Route path='/singleblog/:id' element={<ArticleComponent/>}/>
-            <Route path='/adminproperty/:id' element={<PropertyListings/>}/>
-            <Route path='/andromeda' element={<Andromeda/>}/>
-            {/* Route for residential properties */}
-            <Route path='/search-property/:city/:configuration/:purpose/:buytype/:price' element={<NewSearchListingPage/>}/>
-            {/* Route for plot/land and commercial properties */}
-            <Route path='/search-property/:city/:purpose/:buytype/:price' element={<NewSearchListingPage/>}/>
-            <Route path="/crm" element={<CRM />} />
-            <Route path='/adminpropertyacess' element={<MainProperty/>}/>
-            <Route path='/adminpropertycontrol' element={<MainProperty/>}/>
-            <Route path='/ownerProperty' element={<PropertyTable/>}/>
-            <Route path='/adminproperty' element={<PropertyControl/>}/>
-            <Route path='/editform/:index' element={<PropertyEditForm/>}/>
-            <Route path='/adminlogin' element={<LoginAdmin/>}/>
-            <Route path='/newownerpage' element={<OwnerPage/>}/>
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+              {/* Dynamic Route for State */}
+              <Route path="/states/:stateName" element={<StateDetails />} />
+              <Route path="/commercial3/:index" element={<Commercial3 />} />
+              <Route path='/homeShift' element={<HomeShift />}></Route>
+              <Route path="/commercial" element={<Commercial />} />
+              <Route path='/article/:id' element={<Article />}></Route>
+              <Route path="/commercialform" element={<LeaseProperty />} />
+              <Route path="/home/:id" element={<UserListPropertyPage />} />
+              <Route path="/propertyOA" element={<Propertx />} />
+              <Route path="/commercialform2" element={<Commercialform2 />} />
+              <Route path='/Success2' element={<Success2/>} />
+              <Route path='/Failure2' element={<Failure2/>} />
+              <Route path='/Transaction' element={<Transaction/>} />
+              {/* <Route path='/homelane' element={<HomeInterior/>} /> */}
+              <Route path="/agents" element={<AgentForm />} />
+              <Route path="/agentlist" element={<AgentList />} />
+              <Route path="/agent/:id" element={<Profile />} />
+              <Route path="/agents/edit" element={<EditForm />} />
+              <Route path="/agents/form" element={<SignUpForm />} />
+              {/* <Route path="/Livspace" element={<Livspace/>}/> */}
+              <Route path="Coliving" element={<Coliving_space/>}/>
+              {/* You can also add dynamic routes for specific city or option pages */}
+              {/* <Route path="/properties-for-sale-rent/:stateName" element={<PropertiesForSaleRent />} /> */}
+              {/* <Route path="/pay-house-tax-online/:stateName" element={<PayHouseTaxOnline />} /> */}
+              {/* <Route path="/land-record-verification/:stateName" element={<LandRecordVerification />} /> */}
+              {/* <Route path="/rera/:stateName" element={<RERA />} /> */}
+              <Route path="/stateName/:stateName/city/:cityName" element={<CityWise />} />  Example for city route
+              <Route path='/proptech' element={<PropTechNews/>}/>
+              <Route path='/singleblog/:id' element={<ArticleComponent/>}/>
+              <Route path='/adminproperty/:id' element={<PropertyListings/>}/>
+              <Route path='/andromeda' element={<Andromeda/>}/>
+              {/* Route for residential properties */}
+              <Route path='/search-property/:city/:configuration/:purpose/:buytype/:price' element={<NewSearchListingPage/>}/>
+              {/* Route for plot/land and commercial properties */}
+              <Route path='/search-property/:city/:purpose/:buytype/:price' element={<NewSearchListingPage/>}/>
+              <Route path="/crm" element={<CRM />} />
+              <Route path='/adminpropertyacess' element={<MainProperty/>}/>
+              <Route path='/adminpropertycontrol' element={<MainProperty/>}/>
+              <Route path='/ownerProperty' element={<PropertyTable/>}/>
+              <Route path='/adminproperty' element={<PropertyControl/>}/>
+              <Route path='/editform/:index' element={<PropertyEditForm/>}/>
+              <Route path='/adminlogin' element={<LoginAdmin/>}/>
+              <Route path='/newownerpage' element={<OwnerPage/>}/>
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </AuthProvider>
     </Router>
   );
 }
