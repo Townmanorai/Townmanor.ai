@@ -236,7 +236,11 @@ const PropertyListings = () => {
                 <option value="Ahmedabad">Ahmedabad</option>
                 <option value="Lucknow">Lucknow</option>
                 <option value="Goa">Goa</option>
+                <option value="Uttarkhand">Uttarkhand</option>
+                <option value="Bhubaneswar">Bhubaneswar</option>
                 <option value="Dubai">Dubai</option>
+                <option value="Qatar">Qatar</option>
+               
               </select>
             </div>
             <div className="realty-input-group">
