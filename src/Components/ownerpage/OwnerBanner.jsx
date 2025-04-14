@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import { FaUser } from "react-icons/fa";
-import { FaUserAlt } from "react-icons/fa";
-import { FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import './OwnerBanner.css'
-import { MdEmail, MdPhone } from "react-icons/md";
 function OwnerBanner() {
     const dummyImages = [
         "/Bikaner.jpg",
@@ -16,54 +13,13 @@ function OwnerBanner() {
         "/Rohini.png",
         "/Durgapur.jpg"
     ];
-    const [modal, setModal] = useState(false);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-    const openModal = (index) => {
-        setCurrentImageIndex(index);
-        setModal(true);
-    };
-
-    const closeModal = () => {
-        setModal(false);
-    };
-
-    const nextImage = () => {
-        setCurrentImageIndex((prev) => 
-            prev === dummyImages.length - 1 ? 0 : prev + 1
-        );
-    };
-
-    const prevImage = () => {
-        setCurrentImageIndex((prev) => 
-            prev === 0 ? dummyImages.length - 1 : prev - 1
-        );
-    };
-
-    // Handle keyboard navigation
-    React.useEffect(() => {
-        const handleKeyDown = (e) => {
-            if (!modal) return;
-            
-            switch (e.key) {
-                case 'ArrowLeft':
-                    prevImage();
-                    break;
-                case 'ArrowRight':
-                    nextImage();
-                    break;
-                case 'Escape':
-                    closeModal();
-                    break;
-                default:
-                    break;
-            }
-        };
-
-        window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [modal]);
-
+    const [modal,setmodal] = useState(false);
+    const openmodal = ()=>{
+      setmodal(true);
+    }
+    const closemodal = ()=>{
+        setmodal(false);
+      }
     return (
         <>
             <div className="ui-body__container">
@@ -83,7 +39,7 @@ function OwnerBanner() {
                             <span className="ui-property__badge ui-property__badge--blue">0% Brokerage</span>
                         </div>
                     </div>
-                    <div className="ui-price-box mobile_view">
+                    <div className="ui-price-box">
                         <h2 className="ui-price-box__price">₹ 2.10 Cr</h2>
                         <p className="ui-price-box__rate">₹ 8077 / Sq.ft</p>
                         <div className="ui-agent__card">
@@ -96,14 +52,13 @@ function OwnerBanner() {
                         <button className="ui-contact__btn">Connect Now</button>
                     </div>
                 </div>
-               
+
                 <div className="ui-property__main">
                     <div className="ui-property__image-section">
                         <img
                             src={dummyImages[0]}
                             alt="Property"
                             className="ui-property__main-image"
-                            onClick={() => openModal(0)}
                         />
                         <div className="ui-property__thumbnail-list">
                             {dummyImages.slice(1, 4).map((img, index) => (
@@ -112,15 +67,11 @@ function OwnerBanner() {
                                     src={img}
                                     alt={`Thumbnail ${index + 1}`}
                                     className="ui-property_secondaryimage"
-                                    onClick={() => openModal(index + 1)}
                                 />
                             ))}
 
                             {dummyImages.length > 4 && (
-                                <div 
-                                    className="ui-thumbnail__overlay"
-                                    onClick={() => openModal(4)}
-                                >
+                                <div className="ui-property_secondaryimage ui-thumbnail__overlay">
                                     <img
                                         src={dummyImages[4]}
                                         alt="More thumbnails"
@@ -133,41 +84,7 @@ function OwnerBanner() {
                             )}
                         </div>
                     </div>
-                    {/* <div className="ui-price-box desk_view">
-                        <div>
-                        <h2 className="ui-price-box__price">₹ 2.10 Cr</h2>
-                        <p className="ui-price-box__rate">₹ 8077 / Sq.ft</p>
-                        </div>
-                        <div>
-                        <div className="ui-agent__card">
-                            <FaUser className="ui-agent__icon" />
-                            <div className="ui-agent__info">
-                                <p className="ui-agent__name">Suresh Kumar</p>
-                                <p className="ui-agent__label">Agent</p>
-                            </div>
-                        </div>
-                        <button className="ui-contact__btn">Connect Now</button>
-                        </div>
-                    </div> */}
-                    <div className="mpac-container desk_view">
-      <div className="mpac-price-section">
-        <p className="mpac-price">₹ <span>4.25 Cr</span></p>
-        <p className="mpac-rate">₹ 20238 / Sq.ft</p>
-      </div>
 
-      <div className="mpac-user-card">
-        <div className="mpac-user-avatar">
-          <FaUserAlt size={40} color="#ccc" />
-        </div>
-        <div className="mpac-user-info">
-          <p className="mpac-user-name">Ravindra Nath Jha</p>
-          <p className="mpac-user-role">Owner</p>
-          <a>Connect Now</a>
-        </div>
-       
-      </div>
-     
-    </div>
 
                     <div className="ui-property__info-card">
 
@@ -193,66 +110,9 @@ function OwnerBanner() {
                         </div>
                     </div>
                 </div>
-          
+
 
             </div>
-            <div className="contact-strip">
-      <span className="contact-name">Townmanor Infratech LLP</span>
-      <span className="contact-item">
-        <MdEmail className="contact-icon" />
-        Support@townmanor.ai
-      </span>
-      <span className="contact-item">
-        <MdPhone className="contact-icon" />
-        +91 7042888903
-      </span>
-    </div>
-            {/* Image Modal */}
-            {modal && (
-                <div className="modal-overlay" onClick={closeModal}>
-                    <div className="modal-content" onClick={e => e.stopPropagation()}>
-                        <button className="modal-close" onClick={closeModal}>
-                            <FaTimes />
-                        </button>
-                        
-                        <div className="modal-main-image">
-                            <img 
-                                src={dummyImages[currentImageIndex]} 
-                                alt={`Image ${currentImageIndex + 1}`} 
-                            />
-                        </div>
-
-                        <div className="modal-navigation">
-                            <button 
-                                className="modal-nav-btn prev" 
-                                onClick={prevImage}
-                                aria-label="Previous image"
-                            >
-                                <FaChevronLeft />
-                            </button>
-                            <button 
-                                className="modal-nav-btn next" 
-                                onClick={nextImage}
-                                aria-label="Next image"
-                            >
-                                <FaChevronRight />
-                            </button>
-                        </div>
-
-                        <div className="modal-thumbnails">
-                            {dummyImages.map((img, index) => (
-                                <img
-                                    key={index}
-                                    src={img}
-                                    alt={`Thumbnail ${index + 1}`}
-                                    className={`modal-thumbnail ${index === currentImageIndex ? 'active' : ''}`}
-                                    onClick={() => setCurrentImageIndex(index)}
-                                />
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            )}
         </>
     )
 }
