@@ -93,6 +93,14 @@ const LoginForm = () => {
       }
       
       console.log('Sending verification code to:', formattedPhone);
+      
+      // Make sure the recaptcha container exists
+      if (!document.getElementById('recaptcha-container')) {
+        const recaptchaDiv = document.createElement('div');
+        recaptchaDiv.id = 'recaptcha-container';
+        document.body.appendChild(recaptchaDiv);
+      }
+      
       const confirmation = await setupPhoneAuth(formattedPhone);
       setConfirmationResult(confirmation);
       setShowVerificationInput(true);

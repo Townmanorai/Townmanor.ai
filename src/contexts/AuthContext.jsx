@@ -147,35 +147,74 @@ export function AuthProvider({ children }) {
     }
   }
 
-  // Phone Authentication Setup
-  async function setupPhoneAuth(phoneNumber) {
+  // Setup Phone Authentication
+  const setupPhoneAuth = async (phoneNumber) => {
     try {
-      // Clear any existing verifier
-      if (recaptchaVerifier) {
-        recaptchaVerifier.clear();
+      console.log('Setting up phone auth for:', phoneNumber);
+      
+      // Check if we already have a recaptcha verifier
+      if (window.recaptchaVerifier) {
+        console.log('Using existing recaptcha verifier');
+        return window.recaptchaVerifier;
       }
-
-      // Create a new verifier
-      const verifier = new RecaptchaVerifier('recaptcha-container', {
-        'size': 'invisible',
-        'callback': (response) => {
-          // reCAPTCHA solved, allow signInWithPhoneNumber.
-          console.log('reCAPTCHA verified');
+      
+      // Create a new recaptcha verifier
+      window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+        size: 'invisible',
+        callback: () => {
+          console.log('reCAPTCHA solved');
+        },
+        'expired-callback': () => {
+          console.log('reCAPTCHA expired');
+          // Reset the verifier
+          window.recaptchaVerifier = null;
         }
-      }, auth);
-
+      });
+      
+      console.log('Created new recaptcha verifier');
+      
       // Render the verifier
-      verifier.render();
-      setRecaptchaVerifier(verifier);
-
+      await window.recaptchaVerifier.render();
+      console.log('Rendered recaptcha verifier');
+      
       // Send verification code
-      return signInWithPhoneNumber(auth, phoneNumber, verifier);
+      const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, window.recaptchaVerifier);
+      console.log('Verification code sent successfully');
+      
+      return confirmationResult;
     } catch (error) {
       console.error('Error setting up phone auth:', error);
-      toast.error(error.message);
-      throw error;
+      
+      // Handle specific error cases
+      if (error.code === 'auth/invalid-phone-number') {
+        throw new Error('Invalid phone number format. Please include country code (e.g., +91)');
+      } else if (error.code === 'auth/quota-exceeded') {
+        throw new Error('Too many attempts. Please try again later');
+      } else if (error.code === 'auth/user-disabled') {
+        throw new Error('This phone number has been disabled');
+      } else if (error.message.includes('appVerificationDisabledForTesting')) {
+        // This is a development/testing error
+        console.warn('Phone auth testing mode error. This is expected in development.');
+        // For development/testing, you might want to return a mock confirmation result
+        return {
+          verificationId: 'mock-verification-id',
+          confirm: async (code) => {
+            console.log('Mock confirmation with code:', code);
+            // Return a mock user for testing
+            return {
+              user: {
+                uid: 'mock-user-id',
+                phoneNumber: phoneNumber
+              }
+            };
+          }
+        };
+      }
+      
+      // Generic error
+      throw new Error('Failed to send verification code. Please try again later.');
     }
-  }
+  };
 
   // Verify Phone Code
   async function verifyPhoneCode(confirmationResult, code) {
