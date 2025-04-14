@@ -45,21 +45,7 @@ const NewPhoneSearch = () => {
       case "New Projects":
         navigate('/adminproperty/Noida');
         break;
-      case "Plot/Land":
-        setPurpose('Sale');
-        setCategory('');
-        setConstructionStatus('');
-        setResidential('plot');
-        setCommercial('land');
-        setConfiguration('');
-        break;
-      case "Commercial Project":
-        setPurpose('Sale');
-        setCategory('commercial');
-        setConstructionStatus('');
-        setResidential('');
-        setConfiguration('');
-        break;
+    
       case "Commercial Investment":
         navigate('/commercial');
         break;
@@ -152,7 +138,7 @@ const NewPhoneSearch = () => {
           <h1>Discover <b>best properties</b> in one <b>place</b></h1>
         </div>
         <div className="new-phone-search-tabs">
-          {["Rent", "Buy", "New Projects", "Plot/Land", "Commercial Project", "Commercial Investment"].map(
+          {["Rent", "Buy", "New Projects", "Commercial Investment"].map(
             (tab) => (
               <button
                 key={tab}

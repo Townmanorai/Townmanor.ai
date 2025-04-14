@@ -122,7 +122,7 @@ const SearchBar = () => {
             {/* <img src="./new.png" alt="" className='img' /> */}
            New Projects
           </button>
-          <button
+          {/* <button
             type="button"
             className={`btn btn-outline-danger btnr ${activeBtn === 'PlotLand' ? 'active' : ''}`}
             onClick={() => {
@@ -139,10 +139,10 @@ const SearchBar = () => {
             }
             }
           >
-            {/* <img src="./land.png" alt="" className='img' /> */}
+            
             Plot/Land
-          </button>
-          <button
+          </button> */}
+          {/* <button
             type="button"
             className={`btn btn-outline-danger btnr ${activeBtn === 'Commercial' ? 'active' : ''}`}
             onClick={() => {
@@ -159,9 +159,9 @@ const SearchBar = () => {
             }
             }
           >
-            {/* <img src="./commercial.png" alt="" className='img' /> */}
+           
            Commercial
-          </button>
+          </button> */}
           <button
             type="button"
             className={`btn btn-warning btnr`}
