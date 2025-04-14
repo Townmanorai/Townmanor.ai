@@ -22,7 +22,7 @@ const CenterDetails = ({ property }) => {
 
   const details = [
     { label: 'Project', value: property.property_name },
-    { label: 'Price', value: property.price >100? `${property.price}` : `${property.price} ${property.pricerange}` },
+    { label: 'Price', value: property.price? (property.price >100? `${property.price}` : `${property.price} ${property.pricerange}`):(`Price On Request`) },
     { label: 'Configuration', value: property.configuration },
     { label: 'Construction Status', value: property.construction_status },
     { label: 'Rera Id', value: property.rera_id },
