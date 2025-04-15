@@ -114,7 +114,7 @@ const StateDetails = () => {
                     {cities.map((city, index) => (
                         <motion.div
                             key={index}
-                            className="city-card"
+                            className="city-cardxyz"
                             variants={itemVariants}
                             onHoverStart={() => setHoveredCity(index)}
                             onHoverEnd={() => setHoveredCity(null)}
@@ -125,10 +125,10 @@ const StateDetails = () => {
                                     <img
                                         src={city.image}
                                         alt={city.city_name}
-                                        className="city-image"
+                                        className="city-imagexyz"
                                     />
                                 </div>
-                                <div className="city-info">
+                                <div className="city-infoxyz">
                                     <FaCity className="city-icon" />
                                     <span>{city.city_name}</span>
                                 </div>

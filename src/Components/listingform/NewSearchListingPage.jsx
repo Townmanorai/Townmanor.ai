@@ -179,7 +179,30 @@ const NewSearchListingPage = () => {
     const handleCitySelect = (city) => {
         setSelectedCity(city);
         setShowCityDropdown(false);
-        applyAllFilters(properties);
+        
+        // Reset all other filters
+        setFilters({
+            purpose: '',
+            uploadDate: '',
+            bedrooms: '',
+            residential: '',
+            minBudget: '',
+            maxBudget: '',
+            furnishType: '',
+            constructionStatus: '',
+            isReraCertified: false
+        });
+        
+        // Reset search term
+        setSearchTerm('');
+        
+        // Filter properties only by city
+        const filtered = properties.filter(prop => 
+            city ? prop.city?.toLowerCase() === city.toLowerCase() : true
+        );
+        
+        setFilteredProperties(filtered);
+        setCurrentPage(1);
     };
 
     // Clear city selection
@@ -265,16 +288,18 @@ const NewSearchListingPage = () => {
 
         // Apply budget filters
         if (filters.minBudget) {
+            const minBudgetValue = parseFloat(filters.minBudget);
             filtered = filtered.filter(prop => {
                 const propertyPrice = convertPriceToNumber(prop.price, prop.pricerange);
-                return propertyPrice >= parseFloat(filters.minBudget);
+                return propertyPrice >= minBudgetValue;
             });
         }
 
         if (filters.maxBudget) {
+            const maxBudgetValue = parseFloat(filters.maxBudget);
             filtered = filtered.filter(prop => {
                 const propertyPrice = convertPriceToNumber(prop.price, prop.pricerange);
-                return propertyPrice <= parseFloat(filters.maxBudget);
+                return propertyPrice <= maxBudgetValue;
             });
         }
 
@@ -327,15 +352,19 @@ const NewSearchListingPage = () => {
     };
 
     const formatPrice = (price, pricerange, money_type) => {
-        if (!price) return 'Price on request';
+        if (!price || price === 0) return 'Price on request';
         
-        // If price range is not null and not 'thousane', use Indian Rupee (₹) symbol, else use the provided money_type
-        const displayMoneyType = price ? '₹' : money_type;
+        // Use Indian Rupee symbol by default
+        const currencySymbol = '₹';
         
-        // If pricerange is 'thousane', return an empty string for the pricerange
-        const formattedPriceRange = pricerange === 'Thousand' ? '' : pricerange;
-        
-        return `${displayMoneyType} ${price} ${formattedPriceRange ? `${formattedPriceRange}` : ''}`;
+        // Format the price based on the pricerange
+        if (pricerange === 'Crore') {
+            return `${currencySymbol} ${price} ${pricerange}`;
+        } else if (pricerange === 'Lakh') {
+            return `${currencySymbol} ${price} ${pricerange}`;
+        } else {
+            return `${currencySymbol} ${price}`;
+        }
     };
 
     // Calculate pagination values
@@ -827,10 +856,11 @@ const NewSearchListingPage = () => {
                                     onChange={handleFilterChange}
                                 >
                                     <option value="">Max Budget</option>
-                                    <option>10,000,000</option>
-                                    <option>30,000,000</option>
-                                    <option>50,000,000</option>
-                                    <option>50,000,000+</option>
+                                    <option value="10000000">1 Crore</option>
+                                    <option value="30000000">3 Crore</option>
+                                    <option value="50000000">5 Crore</option>
+                                    <option value="100000000">10 Crore</option>
+                                    <option value="200000000">20 Crore+</option>
                                 </select>
                                 <FaChevronDown className="unique-dropdown-icon" />
                             </div>

@@ -17,9 +17,7 @@ const PropertyFilters = ({ filter }) => {
     const [selectedPrice, setSelectedPrice] = useState(content === 'rent' ? '5k - 10k' : '5 L - 20 Cr');
 
     const handleCityChange = (event) => {
-        const city = event.target.value;
-        setSelectedCity(city);
-        setFilteredLocalities(localities[city]);
+        setSelectedCity(event.target.value);
     };
 
     const handleConfigChange = (event) => {
@@ -88,58 +86,6 @@ const PropertyFilters = ({ filter }) => {
         navigate(searchUrl);
     };
 
-    const localities = {
-        Delhi: [
-            { name: 'Greater Kailash', city: 'Delhi' },
-            { name: 'Defence Colony', city: 'Delhi' },
-            { name: 'Vasant Kunj', city: 'Delhi' },
-            { name: 'Dwarka', city: 'Delhi' },
-            { name: 'South Extension', city: 'Delhi' },
-        ],
-        Noida: [
-            { name: 'Sector 18', city: 'Noida' },
-            { name: 'Sector 50', city: 'Noida' },
-            { name: 'Sector 62', city: 'Noida' },
-            { name: 'Sector 78', city: 'Noida' },
-            { name: 'Greater Noida Expressway', city: 'Noida' },
-        ],
-        Gurgaon: [
-            { name: 'DLF Phase 1', city: 'Gurgaon' },
-            { name: 'DLF Phase 2', city: 'Gurgaon' },
-            { name: 'Sector 29', city: 'Gurgaon' },
-            { name: 'MG Road', city: 'Gurgaon' },
-            { name: 'Sohna Road', city: 'Gurgaon' },
-        ],
-        Faridabad: [
-            { name: 'Sector 15', city: 'Faridabad' },
-            { name: 'Sector 37', city: 'Faridabad' },
-            { name: 'Sector 55', city: 'Faridabad' },
-            { name: 'Sainik Colony', city: 'Faridabad' },
-            { name: 'Badkhal Lake', city: 'Faridabad' },
-        ],
-        Lucknow: [
-            { name: 'Hazratganj', city: 'Lucknow' },
-            { name: 'Gomti Nagar', city: 'Lucknow' },
-            { name: 'Alambagh', city: 'Lucknow' },
-            { name: 'Indira Nagar', city: 'Lucknow' },
-            { name: 'Mahanagar', city: 'Lucknow' },
-        ],
-        Ghaziabad: [
-            { name: 'Indirapuram', city: 'Ghaziabad' },
-            { name: 'Vasundhara', city: 'Ghaziabad' },
-            { name: 'Kaushambi', city: 'Ghaziabad' },
-            { name: 'Raj Nagar Extension', city: 'Ghaziabad' },
-            { name: 'Crossings Republik', city: 'Ghaziabad' },
-        ],
-        GreaterNoida: [
-            { name: 'Alpha 1', city: 'GreaterNoida' },
-            { name: 'Beta 2', city: 'GreaterNoida' },
-            { name: 'Gamma 1', city: 'GreaterNoida' },
-            { name: 'Omicron 1', city: 'GreaterNoida' },
-            { name: 'Knowledge Park', city: 'GreaterNoida' },
-        ],
-    };
-    const [filteredLocalities, setFilteredLocalities] = useState(localities['Delhi']);
     return (
         <div className="property-filters">
             <div className="property-filters-form">
@@ -156,6 +102,7 @@ const PropertyFilters = ({ filter }) => {
                         <option>Lucknow</option>
                         <option>GreaterNoida</option>
                         <option>Ghaziabad</option>
+                        <option>Mukteshwar</option>
                     </select>
                 </div>
 
@@ -235,18 +182,6 @@ const PropertyFilters = ({ filter }) => {
                 </div>
 
                 <button className="search-button" onClick={handleSearch}>Search</button>
-            </div>
-
-            <div className="popular-localities">
-                <div className="localities-title">Popular Localities in {selectedCity}</div>
-                <div className="localities-buttons">
-                    {/* Step 3: Dynamically render localities based on the selected city */}
-                    {filteredLocalities.map(locality => (
-                        <button key={locality.name} className="locality-button">
-                            {locality.name}
-                        </button>
-                    ))}
-                </div>
             </div>
         </div>
     );

@@ -25,6 +25,7 @@ const SearchBar = () => {
   const [residential, setresidential] = useState('apartment');
   const [commercial, setcommercial] = useState('');
   const [construction_status, setconstruction_status] = useState('');
+  const [showComingSoon, setShowComingSoon] = useState(false);
 
   const handleInput = (e) => {
     set_minValue(e.minValue);
@@ -122,7 +123,7 @@ const SearchBar = () => {
             {/* <img src="./new.png" alt="" className='img' /> */}
            New Projects
           </button>
-          {/* <button
+          <button
             type="button"
             className={`btn btn-outline-danger btnr ${activeBtn === 'PlotLand' ? 'active' : ''}`}
             onClick={() => {
@@ -141,27 +142,14 @@ const SearchBar = () => {
           >
             
             Plot/Land
-          </button> */}
-          {/* <button
+          </button>
+          <button
             type="button"
-            className={`btn btn-outline-danger btnr ${activeBtn === 'Commercial' ? 'active' : ''}`}
-            onClick={() => {
-              handleBtnClick('Commercial')
-              setbtntype('commercial');
-              setIsVisible(true);
-              setnewproject(false);
-              setplot(false);
-              setpurpose('Sale');
-              setcategory('commercial')
-              setconstruction_status('');
-              setresidential('');
-              setConfiguration('');
-            }
-            }
+            className={`btn btn-outline-danger btnr `}
+            onClick={() => setShowComingSoon(true)}
           >
-           
-           Commercial
-          </button> */}
+           Coliving Space
+          </button>
           <button
             type="button"
             className={`btn btn-warning btnr`}
@@ -336,6 +324,17 @@ const SearchBar = () => {
           </div>
         </div> */}
         <PropertyFilters filter={btntype}/>
+
+        {/* Coming Soon Popup */}
+        {showComingSoon && (
+          <div className="coming-soon-overlay" onClick={() => setShowComingSoon(false)}>
+            <div className="coming-soon-popup" onClick={(e) => e.stopPropagation()}>
+              <h3>Coming Soon!</h3>
+              <p>This feature will be available shortly.</p>
+              <button onClick={() => setShowComingSoon(false)}>Close</button>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

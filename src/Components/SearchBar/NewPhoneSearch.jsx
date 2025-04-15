@@ -8,13 +8,14 @@ import MultiRangeSlider from "multi-range-slider-react";
 const NewPhoneSearch = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Rent");
+  const [showComingSoon, setShowComingSoon] = useState(false);
   
   // States from SearchBar.jsx
   const [city, setCity] = useState('noida');
   const [locality, setLocality] = useState('');
   const [configuration, setConfiguration] = useState('');
   const [unitType, setUnitType] = useState('');
-  const [purpose, setPurpose] = useState('rent');
+  const [purpose, setPurpose] = useState('sale');
   const [category, setCategory] = useState('residential');
   const [residential, setResidential] = useState('apartment');
   const [commercial, setCommercial] = useState('');
@@ -24,6 +25,11 @@ const NewPhoneSearch = () => {
   const [tabSelected, setTabSelected] = useState(false);
   // Handle tab change with appropriate state updates
   const handleTabChange = (tab) => {
+    if (tab === "Coliving Space") {
+      setShowComingSoon(true);
+      return;
+    }
+    
     setActiveTab(tab);
     setTabSelected(true);
     // Reset and set states based on selected tab
@@ -127,7 +133,17 @@ const NewPhoneSearch = () => {
 
   return (
     <div className="new-phone-search-container">
-       <div className="newsearchbanner">
+      {showComingSoon && (
+        <div className="coming-soon-overlay" onClick={() => setShowComingSoon(false)}>
+          <div className="coming-soon-popup" onClick={(e) => e.stopPropagation()}>
+            <h3>Coming Soon!</h3>
+            <p>This feature will be available shortly.</p>
+            <button onClick={() => setShowComingSoon(false)}>Close</button>
+          </div>
+        </div>
+      )}
+      
+      <div className="newsearchbanner">
         {/* <div className="new-phone-search-overlay"></div> */}
         <img
           src="/search.jpg"
@@ -138,7 +154,7 @@ const NewPhoneSearch = () => {
           <h1>Discover <b>best properties</b> in one <b>place</b></h1>
         </div>
         <div className="new-phone-search-tabs">
-          {["Rent", "Buy", "New Projects", "Commercial Investment"].map(
+          {["Rent", "Buy", "New Projects","Plot/Land", "Coliving Space","Commercial Investment"].map(
             (tab) => (
               <button
                 key={tab}
@@ -177,6 +193,7 @@ const NewPhoneSearch = () => {
               <option value="faridabad">Faridabad</option>
               <option value="doha">Doha</option>
               <option value="dubai">Dubai</option>
+              <option value="Mukteshwar">Mukteshwar</option>
             </select>
             <FaChevronDown className="new-phone-search-arrow" />
           </div>

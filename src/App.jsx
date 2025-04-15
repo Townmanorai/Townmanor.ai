@@ -231,6 +231,7 @@ function App() {
               <Route path='/search-property/:city/:configuration/:purpose/:buytype/:price' element={<NewSearchListingPage/>}/>
               {/* Route for plot/land and commercial properties */}
               <Route path='/search-property/:city/:purpose/:buytype/:price' element={<NewSearchListingPage/>}/>
+              <Route path='/search-property' element={<NewSearchListingPage/>}/>
               <Route path="/crm" element={<CRM />} />
               <Route path='/adminpropertyacess' element={<MainProperty/>}/>
               <Route path='/adminpropertycontrol' element={<MainProperty/>}/>

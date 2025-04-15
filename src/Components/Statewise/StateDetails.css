@@ -173,7 +173,7 @@
     margin: 0 auto;
 }
 
-.city-card {
+.city-cardxyz {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -207,7 +207,7 @@
     background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
 }
 
-.city-image {
+.city-imagexyz {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -218,7 +218,7 @@
     transform: scale(1.1);
 }
 
-.city-info {
+.city-infoxyz {
     padding: 1rem;
     display: flex;
     align-items: center;
