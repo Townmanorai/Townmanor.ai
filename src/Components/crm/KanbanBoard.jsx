@@ -7,6 +7,9 @@ const KanbanBoard = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [draggedTask, setDraggedTask] = useState(null);
+    const [selectedTask, setSelectedTask] = useState(null);
+    const [showHistory, setShowHistory] = useState(false);
+    const [currentUser] = useState('sapna');
 
     const fetchTasks = async () => {
         try {
@@ -58,16 +61,29 @@ const KanbanBoard = () => {
         e.preventDefault();
         if (!draggedTask) return;
 
+        const timestamp = new Date().toISOString();
+        const historyEntry = {
+            fromStatus: draggedTask.status,
+            toStatus: newStatus,
+            timestamp: timestamp
+        };
+
         try {
+            // Send only the status to avoid backend incompatibility
             await axios.put(`https://www.townmanor.ai/api/crm/tasks/${draggedTask.id}/status`, {
-                status: newStatus
+                status: newStatus,
+                changed_by: currentUser
             });
 
-            // Update local state
+            // Update local state with history for frontend display only
             setTasks(prevTasks =>
                 prevTasks.map(task =>
                     task.id === draggedTask.id
-                        ? { ...task, status: newStatus }
+                        ? { 
+                            ...task, 
+                            status: newStatus,
+                            history: [...(task.history || []), historyEntry]
+                        }
                         : task
                 )
             );
@@ -79,10 +95,49 @@ const KanbanBoard = () => {
         setDraggedTask(null);
     };
 
+    const handlePriorityChange = async (taskId, newPriority) => {
+        try {
+            await axios.put(`https://www.townmanor.ai/api/crm/tasks/${taskId}/priority`, {
+                priority: newPriority
+            });
+
+            setTasks(prevTasks =>
+                prevTasks.map(task =>
+                    task.id === taskId
+                        ? { ...task, priority: newPriority }
+                        : task
+                )
+            );
+        } catch (err) {
+            console.error('Error updating task priority:', err);
+            setError(err.response?.data?.error || 'Failed to update task priority');
+        }
+    };
+
+    const handleProgressChange = async (taskId, newProgress) => {
+        try {
+            await axios.put(`https://www.townmanor.ai/api/crm/tasks/${taskId}/progress`, {
+                progress: parseInt(newProgress)
+            });
+
+            setTasks(prevTasks =>
+                prevTasks.map(task =>
+                    task.id === taskId
+                        ? { ...task, progress: parseInt(newProgress) }
+                        : task
+                )
+            );
+        } catch (err) {
+            console.error('Error updating task progress:', err);
+            setError(err.response?.data?.error || 'Failed to update task progress');
+        }
+    };
+
     // Mapping status values to header colors
     const statusColumns = {
         todo: 'To Do',
         doing: 'In Progress',
+        testing: 'Testing',
         completed: 'Completed'
     };
 
@@ -92,6 +147,8 @@ const KanbanBoard = () => {
                 return 'KanbanBoard_statusTodo';
             case 'doing':
                 return 'KanbanBoard_statusDoing';
+            case 'testing':
+                return 'KanbanBoard_statusTesting';
             case 'completed':
                 return 'KanbanBoard_statusCompleted';
             default:
@@ -111,6 +168,26 @@ const KanbanBoard = () => {
             default:
                 return 'priority-medium';
         }
+    };
+
+    const TaskHistory = ({ task }) => {
+        if (!task.history || task.history.length === 0) {
+            return <div className="KanbanBoard_noHistory">No history available</div>;
+        }
+
+        return (
+            <div className="KanbanBoard_history">
+                <h4>Task History</h4>
+                <ul>
+                    {task.history.map((entry, index) => (
+                        <li key={index}>
+                            {new Date(entry.timestamp).toLocaleString()} - 
+                            Moved from {entry.fromStatus} to {entry.toStatus}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        );
     };
 
     return (
@@ -149,6 +226,10 @@ const KanbanBoard = () => {
                                             className="KanbanBoard_task"
                                             draggable
                                             onDragStart={(e) => handleDragStart(e, task)}
+                                            onClick={() => {
+                                                setSelectedTask(task);
+                                                setShowHistory(true);
+                                            }}
                                         >
                                             <div className="KanbanBoard_taskHeaderRow">
                                                 <p className="KanbanBoard_taskTitle">{task.title}</p>
@@ -175,7 +256,40 @@ const KanbanBoard = () => {
                                             </div>
                                             <p className="KanbanBoard_taskDescription">{task.description}</p>
 
+                                            {/* Priority Selection Dropdown */}
+                                            <div className="KanbanBoard_prioritySelector">
+                                                <label>Priority:</label>
+                                                <select
+                                                    value={task.priority || 'medium'}
+                                                    onChange={(e) => handlePriorityChange(task.id, e.target.value)}
+                                                    className="KanbanBoard_prioritySelect"
+                                                >
+                                                    <option value="low">Low</option>
+                                                    <option value="medium">Medium</option>
+                                                    <option value="high">High</option>
+                                                </select>
+                                            </div>
 
+                                            {/* Progress Bar */}
+                                            <div className="KanbanBoard_progressContainer">
+                                                <input
+                                                    type="range"
+                                                    min="0"
+                                                    max="100"
+                                                    value={task.progress || 0}
+                                                    onChange={(e) => handleProgressChange(task.id, e.target.value)}
+                                                    className="KanbanBoard_progressSlider"
+                                                />
+                                                <span className="KanbanBoard_progressText">{task.progress || 0}%</span>
+                                            </div>
+
+                                            {/* Tester Info */}
+                                            {task.status === 'testing' && task.tester && (
+                                                <div className="KanbanBoard_tester">
+                                                    <span className="KanbanBoard_testerLabel">Tester:</span>
+                                                    <span className="KanbanBoard_testerName">{task.tester}</span>
+                                                </div>
+                                            )}
 
                                             <div className="KanbanBoard_taskFooter">
                                                 <div className="KanbanBoard_taskDetails">
@@ -195,6 +309,25 @@ const KanbanBoard = () => {
                     </div>
                 ))}
             </div>
+
+            {/* Task History Modal */}
+            {showHistory && selectedTask && (
+                <div className="KanbanBoard_modal">
+                    <div className="KanbanBoard_modalContent">
+                        <h3>{selectedTask.title}</h3>
+                        <TaskHistory task={selectedTask} />
+                        <button 
+                            className="KanbanBoard_closeButton"
+                            onClick={() => {
+                                setShowHistory(false);
+                                setSelectedTask(null);
+                            }}
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

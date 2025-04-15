@@ -1,108 +1,150 @@
 /* Container and Column Layout */
 .KanbanBoard_container {
-  padding: 1rem;
-  background-color: #f7f8fa;
+  padding: 2rem;
   min-height: 100vh;
-  font-family: 'Segoe UI', sans-serif;
+  background-color: #f7fafc;
 }
 
 .KanbanBoard_columns {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 
 /* Column Styles */
 .KanbanBoard_column {
-  background-color: #fff;
-  flex: 1;
-  min-width: 300px;
+  background: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 500px;
   display: flex;
   flex-direction: column;
 }
 
 .KanbanBoard_columnHeader {
-  padding: 0.75rem 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-weight: bold;
-  border-bottom: 1px solid #eee;
+}
+
+.KanbanBoard_columnHeader h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d3748;
 }
 
 .KanbanBoard_statusTodo {
-  background-color: #f6ad55;
+  background-color: #ebf8ff;
+  color: #2b6cb0;
 }
 
 .KanbanBoard_statusDoing {
-  background-color: #4299e1;
+  background-color: #faf5ff;
+  color: #6b46c1;
+}
+
+.KanbanBoard_statusTesting {
+  background-color: #fff5f5;
+  color: #c53030;
 }
 
 .KanbanBoard_statusCompleted {
-  background-color: #48bb78;
+  background-color: #f0fff4;
+  color: #2f855a;
 }
 
 .KanbanBoard_count {
-  font-size: 0.85rem;
-  background: #ccc;
-  padding: 0.2rem 0.5rem;
-  border-radius: 999px;
+  background: #edf2f7;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  color: #4a5568;
 }
 
 /* Task Card */
 .KanbanBoard_task {
-  background-color: #fdfdfd;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
   padding: 1rem;
-  margin: 0.75rem 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  cursor: grab;
-  transition: box-shadow 0.2s ease;
+  margin-bottom: 1rem;
+  cursor: move;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .KanbanBoard_task:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Title */
-.KanbanBoard_taskHeader {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1f2937;
+.KanbanBoard_taskHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
 }
 
 .KanbanBoard_taskTitle {
+  font-weight: 600;
+  color: #2d3748;
   margin: 0;
+  flex-grow: 1;
 }
 
 /* Assignees */
 .KanbanBoard_taskAssignees {
   display: flex;
+  gap: 0.5rem;
   flex-wrap: wrap;
-  gap: 0.4rem;
 }
 
 .KanbanBoard_taskAssignee {
-  font-size: 0.7rem;
-  font-weight: 500;
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-  background-color: #e5e7eb;
-  color: #1f2937;
-  white-space: nowrap;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #2d3748;
 }
 
 /* Description */
 .KanbanBoard_taskDescription {
-  font-size: 0.85rem;
-  color: #374151;
-  line-height: 1.4;
-  margin: 0.2rem 0;
+  color: #4a5568;
+  font-size: 0.875rem;
+  margin: 0.5rem 0;
+}
+
+/* Priority Selector */
+.KanbanBoard_prioritySelector {
+  display: flex;
+  align-items: center;
+  margin: 0.75rem 0;
+  gap: 0.5rem;
+}
+
+.KanbanBoard_prioritySelector label {
+  font-size: 0.75rem;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.KanbanBoard_prioritySelect {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  background-color: #f7fafc;
+  color: #4a5568;
+  cursor: pointer;
+}
+
+.KanbanBoard_prioritySelect:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.2);
 }
 
 /* Footer */
@@ -110,78 +152,197 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 1rem;
+  font-size: 0.75rem;
 }
 
-.KanbanBoard_taskDetails {
-  font-size: 0.75rem;
-  color: #6b7280;
+.KanbanBoard_taskDate {
+  color: #718096;
 }
 
 /* Priority Tag */
 .KanbanBoard_taskPriority {
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 500;
 }
 
 /* Priority Classes */
 .priority-high {
-  background-color: #e41818;
+  background-color: #fed7d7;
+  color: #c53030;
 }
 
 .priority-medium {
-  background-color: #f59e0b;
+  background-color: #fefcbf;
+  color: #975a16;
 }
 
 .priority-low {
-  background-color: #10b981;
+  background-color: #c6f6d5;
+  color: #2f855a;
 }
 
 /* Loading and Error */
 .KanbanBoard_loading {
-  padding: 1rem;
   text-align: center;
-  color: #6b7280;
+  color: #718096;
+  padding: 1rem;
 }
 
 .KanbanBoard_error {
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  background-color: #fee2e2;
-  color: #b91c1c;
-  border: 1px solid #fca5a5;
+  background-color: #fff5f5;
+  color: #c53030;
+  padding: 1rem;
   border-radius: 6px;
+  margin-bottom: 1rem;
+  text-align: center;
 }
-.KanbanBoard_taskHeaderRow {
+
+/* Progress Bar Styles */
+.KanbanBoard_progressContainer {
+  margin: 0.75rem 0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  gap: 0.5rem;
 }
 
-.KanbanBoard_taskTitle {
-  font-weight: 600;
-  font-size: 14px;
-  margin: 0;
+.KanbanBoard_progressSlider {
   flex-grow: 1;
-  color: #333;
+  height: 8px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #e2e8f0;
+  border-radius: 4px;
+  outline: none;
 }
 
-.KanbanBoard_taskAssignees {
+.KanbanBoard_progressSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #4299e1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.KanbanBoard_progressSlider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #4299e1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.KanbanBoard_progressSlider::-webkit-slider-thumb:hover {
+  background: #3182ce;
+}
+
+.KanbanBoard_progressSlider::-moz-range-thumb:hover {
+  background: #3182ce;
+}
+
+.KanbanBoard_progressText {
+  font-size: 0.75rem;
+  color: #4a5568;
+  min-width: 2.5rem;
+  text-align: right;
+}
+
+/* Tester Info Styles */
+.KanbanBoard_tester {
+  margin: 0.5rem 0;
+  font-size: 0.75rem;
+  color: #4a5568;
   display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.KanbanBoard_taskAssignee {
-  padding: 2px 6px;
-  border-radius: 12px;
-  font-size: 12px;
+.KanbanBoard_testerLabel {
   font-weight: 500;
-  color: #333;
-  white-space: nowrap;
+}
+
+.KanbanBoard_testerName {
+  color: #2d3748;
+}
+
+/* History Modal Styles */
+.KanbanBoard_modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.KanbanBoard_modalContent {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.KanbanBoard_modalContent h3 {
+  margin: 0 0 1rem 0;
+  color: #2d3748;
+}
+
+.KanbanBoard_history {
+  margin: 1rem 0;
+}
+
+.KanbanBoard_history h4 {
+  margin: 0 0 0.5rem 0;
+  color: #4a5568;
+}
+
+.KanbanBoard_history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.KanbanBoard_history li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.875rem;
+  color: #4a5568;
+}
+
+.KanbanBoard_history li:last-child {
+  border-bottom: none;
+}
+
+.KanbanBoard_closeButton {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.KanbanBoard_closeButton:hover {
+  background-color: #3182ce;
+}
+
+.KanbanBoard_noHistory {
+  color: #718096;
+  font-style: italic;
+  text-align: center;
+  padding: 1rem;
 }

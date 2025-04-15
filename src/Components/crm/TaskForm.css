@@ -102,4 +102,68 @@
   margin-top: 0.5rem;
 }
 
+/* New styles for progress bar */
+.TaskForm_progress {
+  width: 100%;
+  height: 8px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #e2e8f0;
+  border-radius: 4px;
+  outline: none;
+  margin-right: 1rem;
+}
+
+.TaskForm_progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #4299e1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.TaskForm_progress::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #4299e1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.TaskForm_progress::-webkit-slider-thumb:hover {
+  background: #3182ce;
+}
+
+.TaskForm_progress::-moz-range-thumb:hover {
+  background: #3182ce;
+}
+
+.TaskForm_progressValue {
+  font-size: 0.875rem;
+  color: #4a5568;
+  min-width: 3rem;
+  display: inline-block;
+  text-align: right;
+}
+
+/* Style for tester selection when status is testing */
+.TaskForm_select[required] {
+  border-color: #4299e1;
+}
+
+.TaskForm_select[required]:invalid {
+  border-color: #e2e8f0;
+}
+
+/* Style for work log textarea */
+.TaskForm_textarea[placeholder="Enter work log details"] {
+  background-color: #f7fafc;
+  font-family: monospace;
+  font-size: 0.875rem;
+}
+
 

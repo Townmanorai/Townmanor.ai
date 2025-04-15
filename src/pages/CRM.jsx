@@ -3,6 +3,7 @@ import TaskForm from '../Components/crm/TaskForm';
 import KanbanBoard from '../Components/crm/KanbanBoard';
 import AnalyticsPanel from '../Components/crm/AnalyticsPanel';
 import '../styles/CRM.css';
+import WorkLog from '../Components/crm/WorkLog';
 
 const CRM = () => {
     return (
@@ -19,6 +20,9 @@ const CRM = () => {
                 </div>
                 <div className="CRM_analyticsSection">
                     <AnalyticsPanel />
+                </div>
+                <div className="CRM_analyticsSection">
+                    <WorkLog />
                 </div>
             </div>
         </div>

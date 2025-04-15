@@ -1,0 +1,214 @@
+.WorkLog_container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.WorkLog_title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.WorkLog_error {
+    background-color: #fff5f5;
+    color: #c53030;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Date Range Selection */
+.WorkLog_dateRange {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f7fafc;
+    border-radius: 8px;
+}
+
+.WorkLog_dateInput {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.WorkLog_dateInput label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4a5568;
+}
+
+.WorkLog_dateInput input {
+    padding: 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 0.875rem;
+}
+
+.WorkLog_exportButton {
+    margin-left: auto;
+    padding: 0.5rem 1rem;
+    background-color: #4299e1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.WorkLog_exportButton:hover {
+    background-color: #3182ce;
+}
+
+/* New Work Log Form */
+.WorkLog_form {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #f7fafc;
+    border-radius: 8px;
+}
+
+.WorkLog_form h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.WorkLog_formGroup {
+    margin-bottom: 1rem;
+}
+
+.WorkLog_formGroup label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+}
+
+.WorkLog_formGroup input,
+.WorkLog_formGroup textarea,
+.WorkLog_select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.WorkLog_formGroup textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.WorkLog_formGroup input:focus,
+.WorkLog_formGroup textarea:focus,
+.WorkLog_select:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+/* Custom user input field */
+.WorkLog_input.other-input {
+    margin-top: 0.5rem;
+    background-color: #fff;
+}
+
+.WorkLog_submitButton {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #48bb78;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.WorkLog_submitButton:hover {
+    background-color: #38a169;
+}
+
+/* Work Logs Display */
+.WorkLog_list {
+    margin-top: 2rem;
+}
+
+.WorkLog_list h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.WorkLog_loading {
+    text-align: center;
+    color: #718096;
+    padding: 1rem;
+}
+
+.WorkLog_empty {
+    text-align: center;
+    color: #718096;
+    font-style: italic;
+    padding: 1rem;
+}
+
+.WorkLog_items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.WorkLog_item {
+    padding: 1rem;
+    background-color: #f7fafc;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.WorkLog_itemHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.WorkLog_date {
+    font-weight: 500;
+    color: #2d3748;
+}
+
+.WorkLog_user {
+    font-size: 0.875rem;
+    color: #4a5568;
+    background-color: #edf2f7;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.WorkLog_tasks {
+    color: #4a5568;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.WorkLog_tasks p {
+    margin: 0.25rem 0;
+} 

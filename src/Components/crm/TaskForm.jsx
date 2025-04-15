@@ -9,7 +9,10 @@ const TaskForm = ({ onTaskCreated }) => {
     assignee: 'sapna',
     customAssignee: '',
     status: 'todo',
-    priority: 'medium'
+    priority: 'medium',
+    progress: 0,
+    tester: '',
+    workLog: ''
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -37,29 +40,34 @@ const TaskForm = ({ onTaskCreated }) => {
       description: formData.description,
       assignee: finalAssignee,
       status: formData.status,
-      priority: formData.priority
+      priority: formData.priority,
+      progress: parseInt(formData.progress),
+      tester: formData.tester,
+      workLog: formData.workLog,
+      timestamp: new Date().toISOString()
     };
 
     try {
       const response = await axios.post('https://www.townmanor.ai/api/crm/tasks', payload);
       console.log('Task created:', response.data);
       
-      // Reset form (optional if you're doing a full refresh)
+      // Reset form
       setFormData({
         title: '',
         description: '',
         assignee: 'sapna',
         customAssignee: '',
         status: 'todo',
-        priority: 'medium'
+        priority: 'medium',
+        progress: 0,
+        tester: '',
+        workLog: ''
       });
 
-      // Call parent callback if provided
       if (onTaskCreated) {
         onTaskCreated();
       }
       
-      // Refresh the page automatically
       window.location.reload();
     } catch (err) {
       console.error('Error creating task:', err);
@@ -165,6 +173,7 @@ const TaskForm = ({ onTaskCreated }) => {
                 >
                   <option value="todo">To Do</option>
                   <option value="doing">In Progress</option>
+                  <option value="testing">Testing</option>
                   <option value="completed">Completed</option>
                 </select>
               </td>
@@ -187,6 +196,69 @@ const TaskForm = ({ onTaskCreated }) => {
                   <option value="medium">Medium</option>
                   <option value="high">High</option>
                 </select>
+              </td>
+            </tr>
+
+            {/* Progress Row */}
+            <tr>
+              <td className="TaskForm_labelCell">
+                <label htmlFor="progress" className="TaskForm_label">Progress</label>
+              </td>
+              <td>
+                <input
+                  type="range"
+                  id="progress"
+                  name="progress"
+                  value={formData.progress}
+                  onChange={handleChange}
+                  min="0"
+                  max="100"
+                  className="TaskForm_progress"
+                />
+                <span className="TaskForm_progressValue">{formData.progress}%</span>
+              </td>
+            </tr>
+
+            {/* Tester Row - Only show when status is testing */}
+            {formData.status === 'testing' && (
+              <tr>
+                <td className="TaskForm_labelCell">
+                  <label htmlFor="tester" className="TaskForm_label">Tester</label>
+                </td>
+                <td>
+                  <select
+                    id="tester"
+                    name="tester"
+                    value={formData.tester}
+                    onChange={handleChange}
+                    className="TaskForm_select"
+                    required
+                  >
+                    <option value="">Select Tester</option>
+                    <option value="ravindra">Ravindra</option>
+                    <option value="sunny">Sunny</option>
+                    <option value="ayush">Ayush</option>
+                    <option value="sapna">Sapna</option>
+                  </select>
+                </td>
+              </tr>
+            )}
+
+            {/* Work Log Row */}
+            <tr>
+              <td className="TaskForm_labelCell">
+                <label htmlFor="workLog" className="TaskForm_label">Work Log</label>
+              </td>
+              <td>
+                <textarea
+                  id="workLog"
+                  name="workLog"
+                  value={formData.workLog}
+                  onChange={handleChange}
+                  className="TaskForm_textarea"
+                  placeholder="Enter work log details"
+                  rows="2"
+                />
               </td>
             </tr>
           </tbody>
