@@ -1,0 +1,142 @@
+/* OurProcess Component Styles */
+.process-section {
+  padding: 0;
+  margin-bottom: 0px;
+  background-color: #ffffff;
+  padding-bottom: 50px;
+}
+
+.process-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.process-header {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+
+.process-title {
+  font-size: 32px;
+  color: #282828;
+  font-weight: 600;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.process-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background-color: #e6181b;
+  border-radius: 5px;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+  padding: 0 10px;
+}
+
+.process-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.process-card:hover {
+  transform: translateY(-5px);
+}
+
+.process-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.process-icon img {
+  width: 35px;
+  height: 35px;
+}
+
+.process-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.process-description {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .process-section {
+    margin-bottom: 40px;
+  }
+
+  .process-header {
+    margin-top: 40px;
+    margin-bottom: 25px;
+  }
+
+  .process-title {
+    font-size: 28px;
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+    padding: 0 5px;
+  }
+
+  .process-card {
+    padding: 15px;
+  }
+
+  .process-name {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .process-section {
+    margin-bottom: 30px;
+  }
+
+  .process-header {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .process-title {
+    font-size: 24px;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 20px;
+  }
+}

@@ -6,6 +6,7 @@ import HomePlatforms from './HomePlatforms'
 import Interior from './Interior'
 import ContactPage from './ContactPage'
 import Interior2 from './Interior2'
+import HomeInteriorFaqSection from './HomeInteriorFaqSection'
 
 function HomeInterior() {
   return (
@@ -17,6 +18,7 @@ function HomeInterior() {
       <Interior />
       <ContactPage />
       <Interior2 />
+      <HomeInteriorFaqSection />
     </div>
   )
 }

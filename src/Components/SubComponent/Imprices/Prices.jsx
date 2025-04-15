@@ -94,11 +94,11 @@ function Prices({ property }) {
       <div className="im-price">
         <div className="subprice1">
           <p className="price-detail">{property.configuration} Builder Floor For {property.purpose}</p>
-          <div className="price-tag">
+          {property.price ? (<div className="price-tag">
             <p className="">
               <span className="price-price">₹ {property.price > 100 ? property.price : `${property.price} ${property.pricerange}`} </span>
             </p>
-          </div>
+          </div>):(<span className="price-price">Price On Request</span>)}
         </div>
         <div className="subprice2">
           <p className="price-add"><i><IoLocationSharp /></i>{property.address}</p>

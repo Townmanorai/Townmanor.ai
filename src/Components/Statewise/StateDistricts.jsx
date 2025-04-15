@@ -44,7 +44,7 @@ const StateDistricts = () => {
       <div className="explore-states">
         <div className="explore-states__error">
           <h2>District data not available</h2>
-          <Link to="/states" className="explore-states__back-btn">
+          <Link to="/explorestate" className="explore-states__back-btn">
             Back to States
           </Link>
         </div>

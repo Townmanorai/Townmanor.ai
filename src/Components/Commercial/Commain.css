@@ -1056,7 +1056,218 @@ font-weight: 500;
     font-weight: 500; /* Similar to Tailwind's font-medium */
     color: #4b5563; /* Tailwind's gray-700 */
 }
-
+.promo_banner_wrapper {
+    display: flex;
+    height: 60vh;
+    background: linear-gradient(to right, #d8ecfa 50%, #ffffff 50%);
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  .promo_left_panel {
+    width: 50%;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .promo_main_heading {
+    font-size: 27px;
+    font-weight: 500;
+    color: #1f2b48;
+    margin-bottom: 1rem;
+  }
+  
+  .promo_subtext {
+    font-size: 1rem;
+    color: #495766;
+    margin-bottom: 2rem;
+  }
+  
+  .promo_search_bar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .promo_dropdown {
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 30%;
+  }
+  
+  .promo_input_field {
+    flex: 1;
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .promo_search_button {
+    padding: 0.6rem 1.2rem;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .promo_search_button:hover {
+    background-color: #d32f2f;
+  }
+  
+  .promo_features_row {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .promo_feature_box {
+    background: #f4f7fb;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    color: #2a3b4c;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  
+  .promo_right_panel {
+    width: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .promo_building_image {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+  }
+  
+  .promo_building_card {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    max-width: 300px;
+  }
+  
+  .promo_card_heading {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1d3557;
+    margin-bottom: 0.5rem;
+  }
+  
+  .promo_card_location {
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+  
+  .promo_card_features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .promo_card_button {
+    width: 100%;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .promo_card_button:hover {
+    background-color: #d32f2f;
+  }
+  @media (max-width: 768px) {
+    .promo_banner_wrapper {
+      margin-top: 4rem;
+      flex-direction: column-reverse;
+      height: auto;
+      background: linear-gradient(to right, #f3c8c8 50%, #ffffff 50%);
+    }
+  
+    .promo_left_panel {
+      width: 100%;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      align-items: center;
+    }
+  
+    .promo_main_heading {
+      font-size: 1.8rem;
+    }
+  
+    .promo_subtext {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    .promo_search_bar {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.7rem;
+    }
+  
+    .promo_dropdown,
+    .promo_input_field,
+    .promo_search_button {
+      width: 100%;
+    }
+  
+    .promo_features_row {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+    }
+  
+    .promo_right_panel {
+      width: 100%;
+      padding: 1.5rem;
+      position: relative;
+    }
+  
+    .promo_building_image {
+      display: none; /* hide image for mobile simplicity */
+    }
+  
+    .promo_building_card {
+      position: static;
+      margin-top: 1.5rem;
+      max-width: 100%;
+      width: 100%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    .promo_card_heading {
+      font-size: 1rem;
+    }
+  
+    .promo_card_button {
+      font-size: 0.95rem;
+      padding: 0.5rem;
+    }
+  }
+  
 @media only screen and (min-width: 0px) and (max-width: 500px) {
     #ban-img {
         height: 26vh !important;
@@ -1552,7 +1763,7 @@ font-weight: 500;
 }
 .grandthum-container {
     max-width: 375px;
-    margin: 0 auto;
+    margin: 20px auto;
     background-color: #ffffff;
     border-radius: 8px;
     overflow: hidden;
@@ -1563,7 +1774,11 @@ font-weight: 500;
     padding: 16px;
     text-align: center;
   }
-  
+  .com_detail_icon{
+    height: 26px !important;
+    width: 26px !important;
+    padding: 2px;
+  }
   .grandthum-title {
     font-size: 18px;
     font-weight: 600;
@@ -1619,8 +1834,53 @@ font-weight: 500;
     background-color: #007bff;
     color: white;
   }
-  
   .grandthum-details {
+    padding: 27px 10px;
+    background-color: #fff;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .grandthum-details-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .grandthum-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .grandthum-info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #444;
+    font-size: 13px;
+    padding: 4px 0;
+  }
+  
+  .grandthum-info-item span {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .grandthum-info-item strong {
+    flex: 1;
+    text-align: right;
+    font-weight: 500;
+    color: #000;
+    word-break: break-word;
+  }
+  
+  .grandthum-info-item i {
+    margin-right: 6px;
+  }
+  /* .grandthum-details {
     padding: 16px;
     background-color: #fff;
   }
@@ -1647,7 +1907,7 @@ font-weight: 500;
   
   .grandthum-info-item i {
     color: #007bff;
-  }
+  } */
  
   /* @media (max-width: 375px) {
     .grandthum-container {
@@ -1670,6 +1930,7 @@ font-weight: 500;
     background: linear-gradient(to right, rgb(255, 68, 71), rgb(138, 46, 46));
     margin: 0px 23px;
   }
+  
 }
 
 

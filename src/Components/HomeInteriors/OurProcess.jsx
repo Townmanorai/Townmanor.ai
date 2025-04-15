@@ -1,50 +1,51 @@
 import React from 'react';
-import './OurProcess.css'
+import './OurProcess.css';
 
 const OurProcess = () => {
-
   const ourprocess = [
     {
-      name: 'Consultation',
-      process: 'Discussing ideas, preferences, and budget helps align goals'
+      name: 'Initial Consultation',
+      process: 'We begin with a detailed discussion of your vision, preferences, and budget to ensure perfect alignment with your goals.',
+      icon: '/consultation-icon.png'
     },
     {
       name: 'Design Concept',
-      process: 'Visual representation of your space'
+      process: 'Our expert designers create detailed visual representations of your space, incorporating your style and functional requirements.',
+      icon: '/design-icon.png'
     },
     {
       name: 'Material Selection',
-      process: 'Discuss your ideas, preferences, and budget'
+      process: 'Choose from our curated collection of premium materials, finishes, and fixtures that match your aesthetic and quality standards.',
+      icon: '/material-icon.png'
     },
     {
-      name: 'Execution',
-      process: 'Discuss your ideas, preferences, and budget'
+      name: 'Expert Execution',
+      process: 'Our skilled craftsmen bring your design to life with precision, ensuring every detail meets our high standards of excellence.',
+      icon: '/execution-icon.png'
     }
-  ]
+  ];
 
   return (
-    <div style={{ height: '100%', marginTop: '50px' }}>
-      <div className='container'>
-        <div style={{marginBottom:'30px'}}>
-          <h1 className='Wo-heading'>
-            Our Process
-          </h1>
+    <section className="process-section">
+      <div className="process-container">
+        <div className="process-header">
+          <h1 className="process-title">Our Process</h1>
         </div>
 
-        <div className='Op-cards'>
+        <div className="process-grid">
           {ourprocess.map((item, index) => (
-            <div className='Oc-cards' key={index}>
-              <i className='icon-FEATURES Oc-icon'>
-                <img style={{ filter: 'none', maxWidth: '40px' }} src="/brokerage.png" alt="" />
-              </i>
-              <h3 className='Oc-cards-h3'>{item.name}</h3>
-              <p className='Oc-cards-p'>{item.process}</p>
+            <div className="process-card" key={index}>
+              <div className="process-icon">
+                <img src={item.icon} alt={item.name} />
+              </div>
+              <h3 className="process-name">{item.name}</h3>
+              <p className="process-description">{item.process}</p>
             </div>
           ))}
         </div>
       </div>
-    </div>
-  )
-}
+    </section>
+  );
+};
 
 export default OurProcess;

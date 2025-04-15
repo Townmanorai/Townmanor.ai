@@ -25,6 +25,7 @@ import { BsDatabaseFillUp } from 'react-icons/bs';
 import { VscGraphLine } from 'react-icons/vsc';
 import { IoCalendarOutline } from 'react-icons/io5';
 import { BiArea } from 'react-icons/bi';
+import { FaBuilding, FaStore, FaChartLine, FaMapMarkerAlt } from "react-icons/fa";
 function Commercial() {
 
   const [commercialdata, setcommercialdata] = useState([]);
@@ -118,9 +119,9 @@ function Commercial() {
   const settings2 = {
     dots: true,
     infinite: true,
-    speed: 1000,
+    speed: 2000,
     autoplay: true,         
-    autoplaySpeed: 1000,    
+    autoplaySpeed: 2000,    
     slidesToShow: 1,
     slidesToScroll: 1
   };
@@ -224,10 +225,10 @@ function Commercial() {
           </form>
         </div> */}
         <div style={{
-          height:'100px'
+          height:'70px'
         }} 
         className='diff'></div>
-        <div style={{
+        {/* <div style={{
           display:'flex',
           flexDirection:'row',
           justifyContent:'space-between',
@@ -262,7 +263,83 @@ function Commercial() {
           <div className='newbannerright'>
             <img src='/citymain6.jpg' id='combannerimg'></img>
           </div>
+        </div> */}
+          <div className="promo_banner_wrapper">
+      {/* Left Section */}
+      <div className="promo_left_panel">
+        <h1 className="promo_main_heading">
+          Unlock Growth with <br />
+          Smart Commercial Investments
+        </h1>
+        <p className="promo_subtext">
+          Start your journey to financial freedom with trusted, high-yield commercial projects.
+        </p>
+
+        <div className="promo_search_bar">
+          <select 
+            className="promo_dropdown"
+            value={city} 
+            onChange={handleCityChange}
+          >
+            <option value="Noida">Noida</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Gurgaon">Gurugram</option>
+            <option value="Faridabad">Faridabad</option>
+            <option value="Ghaziabad">Ghaziabad</option>
+          </select>
+          <input
+            className="promo_input_field"
+            type="text"
+            placeholder="Search for commercial project"
+            value={searchQuery}
+            onChange={handleSearchQueryChange}
+          />
+          <button 
+            className="promo_search_button"
+            onClick={handleFormSubmit}
+          >Search</button>
         </div>
+
+        <div className="promo_features_row">
+          <div className="promo_feature_box">
+            <FaBuilding />
+            <span>Premium Offices</span>
+          </div>
+          <div className="promo_feature_box">
+            <FaStore />
+            <span>Retail Spaces</span>
+          </div>
+          <div className="promo_feature_box">
+            <FaChartLine />
+            <span>High ROI</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Section */}
+      <div className="promo_right_panel">
+        <img
+          src="/citymain6.jpg"
+          alt="Vertex Business Tower"
+          className="promo_building_image"
+        />
+        <div className="promo_building_card">
+          <h2 className="promo_card_heading">Bhutani City Centre Sector 32</h2>
+          <p className="promo_card_location">
+            <FaMapMarkerAlt /> Sector 32, Noida
+          </p>
+          <ul className="promo_card_features">
+            <li>✅ Premium Grade A Office Space</li>
+            <li>✅ lease guarantee upto May 2028</li>
+            <li>✅ 31,000 per sq.ft onwards</li>
+          </ul>
+          <button className="promo_card_button" onClick={()=>{
+            navigate('/commercial3/8')
+          }}>View Details</button>
+        </div>
+      </div>
+    </div>
+  
         <div className='fronthead'>
           <h1>Available <b>Property</b></h1>
         </div>
@@ -434,7 +511,7 @@ function Commercial() {
               <header className="grandthum-header">
                 <h1 className="grandthum-title">{item.project_name}</h1>
                 <p className="grandthum-location">
-                  <CiLocationOn size={15} color='black'/>{item.address}
+                  <CiLocationOn className='com_detail_icon' color='black'/>{item.address}
                 </p>
               </header>
         
@@ -448,13 +525,13 @@ function Commercial() {
         
               <div className="grandthum-buttons">
                 <button className="grandthum-compare-button" onClick={()=>{handleCompare(item.id)}}>
-                  <FaCodeCompare color='black'/>
+                  <FaCodeCompare className='com_detail_icon' color='black'/>
                   <span>Compare</span>
                 </button>
                 <button className="grandthum-know-button" onClick={()=>{handleKnowMore(item.id)}}  style={{
                   background:'black'
                 }}>
-                  <FaLink color='black'/>
+                  <FaLink color='black' className='com_detail_icon'/>
                   <span>Know More</span>
                 </button>
               </div>
@@ -463,22 +540,22 @@ function Commercial() {
                 <h2 className="grandthum-details-title">Property Details</h2>
                 <div className="grandthum-info">
                   <div className="grandthum-info-item">
-                  <BsDatabaseFillUp color='black' size={5}/>
+                  <BsDatabaseFillUp color='black' className='com_detail_icon'/>
                     <span>Investment</span>
                     <strong>{item.invest}</strong>
                   </div>
                   <div className="grandthum-info-item">
-                  <VscGraphLine color='black' size={5} />
+                  <VscGraphLine color='black' className='com_detail_icon' />
                     <span>Return</span>
                     <strong>{item.return_policy}</strong>
                   </div>
                   <div className="grandthum-info-item">
-                  <IoCalendarOutline color='black' size={5} />
+                  <IoCalendarOutline color='black' className='com_detail_icon' />
                     <span>Possession Date</span>
                     <strong>{trimPossessionDate(item.possession_date)}</strong>
                   </div>
                   <div className="grandthum-info-item">
-                  < BiArea  color='black' size={5}/>
+                  < BiArea  color='black' className='com_detail_icon'/>
                     <span>Area</span>
                     <strong>{item.project_area_range}</strong>
                   </div>

@@ -1,0 +1,134 @@
+.unique-wrapper-r34g56 {
+   
+
+   
+    color: #333;
+    max-width: 1400px;
+    margin: 19px auto;
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+  }
+  
+  .unique-section-heading-p67l {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #202020;
+  }
+  
+  .unique-landmark-grid-l87q {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .unique-card-lmk-g3 {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    flex: 1;
+    min-width: 250px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  }
+  
+  .unique-card-lmk-g3 h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #555;
+  }
+  
+  .unique-card-lmk-g3 ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .unique-card-lmk-g3 li {
+    padding: 0.2rem 0;
+    color: #666;
+  }
+  
+  .unique-amenities-w43v {
+    margin-top: 2rem;
+  }
+  
+  .unique-amenities-grid-wx2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .unique-amenities-grid-wx2 div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fff;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  
+  .unique-amenities-footer-b8t {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .unique-amenities-btn-view,
+  .unique-amenities-btn-download {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    background: #e23e57;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .unique-loan-calc-p45 {
+    /* margin-top: 2.5rem; */
+    /* background: #fff; */
+    /* padding: 1.5rem; */
+    display: flex
+;
+    border-radius: 8px;
+    /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); */
+    /* border: 1px solid #ddd; */
+    flex-basis: 40%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .unique-loan-form-x10 input,
+  .unique-loan-form-x10 select {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .unique-loan-tenure-row {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .unique-loan-tenure-row input {
+    flex: 2;
+  }
+  
+  .unique-loan-tenure-row select {
+    flex: 1;
+  }
+  .home_loan_adv{
+    width: 82%;
+    height: 304px;
+    border-radius: 8px;
+  }
+  
