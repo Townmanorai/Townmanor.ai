@@ -3,6 +3,7 @@ import axios from 'axios';
 import './WorkLog.css';
 
 const WorkLog = () => {
+    // State for work logs, loading, error, date range, and new log values.
     const [workLogs, setWorkLogs] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -10,6 +11,9 @@ const WorkLog = () => {
         startDate: new Date().toISOString().split('T')[0],
         endDate: new Date().toISOString().split('T')[0]
     });
+    // New state for the currently selected user filter
+    const [selectedUser, setSelectedUser] = useState('sapna');
+    
     const [newLog, setNewLog] = useState({
         work_date: new Date().toISOString().split('T')[0],
         task_description: '',
@@ -17,13 +21,15 @@ const WorkLog = () => {
         custom_user: ''
     });
 
+    // Fetch work logs filtered by date range and selected user
     const fetchWorkLogs = async () => {
         try {
             setLoading(true);
             const response = await axios.get('https://www.townmanor.ai/api/crm/worklogs', {
                 params: {
-                    startDate: dateRange.startDate,
-                    endDate: dateRange.endDate
+                    user_id: selectedUser,
+                    start_date: dateRange.startDate,
+                    end_date: dateRange.endDate
                 }
             });
             setWorkLogs(response.data);
@@ -38,7 +44,7 @@ const WorkLog = () => {
 
     useEffect(() => {
         fetchWorkLogs();
-    }, [dateRange]);
+    }, [dateRange, selectedUser]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -74,16 +80,18 @@ const WorkLog = () => {
         }
     };
 
+    // Export work logs with the selected user's filter
     const handleExport = async () => {
         try {
             const response = await axios.get('https://www.townmanor.ai/api/crm/worklogs/export', {
                 params: {
-                    startDate: dateRange.startDate,
-                    endDate: dateRange.endDate
+                    user_id: selectedUser,
+                    start_date: dateRange.startDate,
+                    end_date: dateRange.endDate
                 },
                 responseType: 'blob'
             });
-
+    
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
@@ -103,6 +111,7 @@ const WorkLog = () => {
 
             {error && <div className="WorkLog_error">{error}</div>}
 
+            {/* Date Range and User Filter */}
             <div className="WorkLog_dateRange">
                 <div className="WorkLog_dateInput">
                     <label htmlFor="startDate">Start Date:</label>
@@ -122,6 +131,21 @@ const WorkLog = () => {
                         onChange={(e) => setDateRange(prev => ({ ...prev, endDate: e.target.value }))}
                     />
                 </div>
+                {/* New dropdown for filtering by user */}
+                <div className="WorkLog_dateInput">
+                    <label htmlFor="userFilter">Filter by User:</label>
+                    <select
+                        id="userFilter"
+                        value={selectedUser}
+                        onChange={(e) => setSelectedUser(e.target.value)}
+                    >
+                        <option value="sapna">Sapna</option>
+                        <option value="ravindra">Ravindra</option>
+                        <option value="sunny">Sunny</option>
+                        <option value="ayush">Ayush</option>
+                        {/* Add more options as needed */}
+                    </select>
+                </div>
                 <button
                     className="WorkLog_exportButton"
                     onClick={handleExport}
@@ -137,7 +161,7 @@ const WorkLog = () => {
                     <input
                         type="date"
                         id="logDate"
-                        name="work_date"  // Updated name to match state
+                        name="work_date"
                         value={newLog.work_date}
                         onChange={handleChange}
                         required
@@ -169,7 +193,7 @@ const WorkLog = () => {
                     <label htmlFor="tasks">Tasks Completed:</label>
                     <textarea
                         id="tasks"
-                        name="task_description"  // Updated name to match state
+                        name="task_description"
                         value={newLog.task_description}
                         onChange={handleChange}
                         placeholder="Enter the tasks you completed today"
@@ -187,7 +211,7 @@ const WorkLog = () => {
                 {loading ? (
                     <div className="WorkLog_loading">Loading...</div>
                 ) : workLogs.length === 0 ? (
-                    <div className="WorkLog_empty">No work logs found for the selected date range.</div>
+                    <div className="WorkLog_empty">No work logs found for the selected date range and user.</div>
                 ) : (
                     <div className="WorkLog_items">
                         {workLogs.map((log) => (
