@@ -1,0 +1,129 @@
+.emi-calculator-main-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+   
+    min-height: fit-content;
+    font-family: Arial, sans-serif;
+  }
+  
+  .emi-calculator-form-wrapper {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .emi-calculator-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: #333333;
+    font-weight: 600;
+  }
+  
+  .emi-calculator-input-box {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+  }
+  
+  .emi-calculator-tenure-section {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .emi-calculator-tenure-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  .emi-calculator-tenure-dropdown {
+    padding: 0.75rem;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  .emi-calculator-button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .emi-calculator-calculate-btn {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .emi-calculator-calculate-btn:hover {
+    background-color: #333333;
+  }
+  
+  .emi-calculator-reset-btn {
+    background-color: #f1f1f1;
+    color: #000000;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .emi-calculator-reset-btn:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .emi-calculator-results-display {
+    margin-top: 2rem;
+    background-color: #eef3f9;
+    padding: 1.25rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+  
+  .emi-calculator-result-heading {
+    margin-bottom: 0.5rem;
+    color: #2b2f4c;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .emi-calculator-result-text {
+    color: #495057;
+    margin: 0.25rem 0;
+    font-size: 1rem;
+  }
+  .bank_interest_logo{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    
+  }
+  .bank_logo {
+    width: 80%;
+    box-shadow: 1px 1px 1px 1px lightgrey;
+    padding: 2px;
+    /* border: 2px solid; */
+    /* padding: 10px; */
+}

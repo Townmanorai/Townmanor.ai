@@ -1,0 +1,94 @@
+.custom-section-wrapper-service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+   
+    max-width: 1400px;
+    margin: 10px auto;
+  }
+  
+  .custom-single-card-container {
+    background-color: #f7f9fc;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .custom-card-icon-circle {
+    background-color: #e0e6f7;
+    color: #333a73;
+    padding: 0.75rem;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .custom-card-title-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2b2d42;
+    margin-bottom: 1rem;
+  }
+  
+  .custom-card-list-info {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    height: 59px;
+  }
+  
+  .custom-card-info-list-item {
+    font-size: 15px;
+    margin-bottom: 0.5rem;
+    color: #4a4e69;
+    display: flex;
+    align-items: center;
+  }
+  
+  .custom-checkmark-icon {
+    color: #4caf50;
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  
+  .custom-card-action-button {
+    background-color: white;
+    color: #333;
+    border: 1px solid #d84340;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    cursor: pointer;
+    align-self: stretch;
+    transition: background-color 0.3s ease;
+  }
+  @media (max-width: 1024px){
+    .custom-section-wrapper-service-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+       
+    }
+    .custom-card-info-list-item {
+        font-size: 12px;
+    }
+    .custom-card-action-button {
+        background-color: white;
+        color: #333;
+        border: 1px solid #d84340;
+       
+        font-size: 0.9rem;
+        border-radius: 8px;
+        cursor: pointer;
+        align-self: stretch;
+        transition: background-color 0.3s ease;
+    }
+  }
+  
+  

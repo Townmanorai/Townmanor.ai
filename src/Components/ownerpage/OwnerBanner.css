@@ -73,6 +73,7 @@
     width: 100%;
     border-radius: 8px;
     object-fit: cover;
+    height: 400px;
 }
 
 .ui-property__thumbnail-list {
@@ -249,4 +250,26 @@
   .ui-error-report__btn:hover {
     background-color: #fb8c00;
   }
-  
+  @media (max-width:768px){
+    .ui-property__header {
+    
+      flex-direction: column;
+     
+  }
+  .ul-price-detailsection{
+    display: flex;
+    flex-direction: row;
+  }
+  #price-detail-mobile{
+    flex-basis: 60%;
+  }
+  #usericonxyz{
+    width: 20px;
+    height: 20px;
+  }
+  .ui-property__title {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 10px 0 5px;
+}
+  }

@@ -239,7 +239,7 @@ function App() {
               <Route path='/adminproperty' element={<PropertyControl/>}/>
               <Route path='/editform/:index' element={<PropertyEditForm/>}/>
               <Route path='/adminlogin' element={<LoginAdmin/>}/>
-              <Route path='/newownerpage' element={<OwnerPage/>}/>
+              <Route path='/newownerpage/:id' element={<OwnerPage/>}/>
             </Routes>
           </main>
           <Footer />

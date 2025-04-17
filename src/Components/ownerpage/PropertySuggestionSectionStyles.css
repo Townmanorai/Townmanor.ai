@@ -1,0 +1,99 @@
+.property-suggestion-section-wrapper {
+    padding: 2rem;
+   
+    max-width: 1400px;
+    margin: 0px auto;
+  }
+  
+  .property-suggestion-heading-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+  }
+  
+  .property-card-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .property-card-wrapper-box {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .property-card-wrapper-box:hover {
+    transform: translateY(-4px);
+  }
+  
+  .property-card-image-frame {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+  }
+  
+  .property-image-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .property-view-badge-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.75rem;
+  }
+  
+  .property-icon-eye-shape {
+    font-size: 0.75rem;
+  }
+  
+  .property-card-text-detail-box {
+    padding: 1rem;
+  }
+  
+  .property-flat-detail-row {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .property-flat-bhk-info,
+  .property-flat-price-info {
+    font-size: 1rem;
+    color: #111827;
+  }
+  
+  .property-project-subtext-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #4b5563;
+    margin-bottom: 0.25rem;
+  }
+  
+  .property-project-name-text,
+  .property-size-square-text {
+    white-space: nowrap;
+  }
+  
+  .property-location-area-name {
+    font-size: 0.85rem;
+    color: #6b7280;
+  }
+  
