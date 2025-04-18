@@ -20,8 +20,8 @@ const HomeLoan = () => {
         <meta property="og:url" content="https://townmanor.ai/home-loan" /> {/* Optional: Replace with your site URL */}
       </Helmet>
     <div className='wpart'>
-    <TownManorAndromeda/>
-      <section className='HomeLoan_area' style={{paddingTop:'30px'}}>
+    {/* <TownManorAndromeda/> */}
+      <section className='HomeLoan_area' style={{paddingTop:'80px'}}>
        
         <ProductSection />
         <LoanForm />

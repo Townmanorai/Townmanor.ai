@@ -76,7 +76,14 @@
        
     }
     .custom-card-info-list-item {
-        font-size: 12px;
+        font-size: 11px;
+    }
+    .custom-card-action-button {
+      background-color: white;
+      color: #333;
+      border: 1px solid #d84340;
+      padding: 8px 1.25rem;
+      font-size: 10px !important;
     }
     .custom-card-action-button {
         background-color: white;

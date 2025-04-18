@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { FaHome, FaCouch, FaFileContract, FaBullhorn } from "react-icons/fa";
 import "./ServiceCardSectionStyles.css";
 
@@ -10,7 +11,8 @@ const cardInfoData = [
       "50+ Partner Banks Network",
       "Lowest Interest Rates"
     ],
-    buttonText: "Get CIBIL-Linked Estimate"
+    buttonText: "Get CIBIL-Linked Estimate",
+    url: "/home-loan"
   },
   {
     icon: <FaCouch size={24} />,
@@ -19,7 +21,8 @@ const cardInfoData = [
       "Customized Solutions",
       "10-Year Warranty"
     ],
-    buttonText: "Book a Consultation Now"
+    buttonText: "Book a Consultation Now",
+    url: "/homelane"
   },
   {
     icon: <FaFileContract size={24} />,
@@ -28,7 +31,8 @@ const cardInfoData = [
       "Make your Rent Agreement at home",
       "At Very Affordable Price"
     ],
-    buttonText: "Request Professional Valuation"
+    buttonText: "Request Professional Valuation",
+    url: "/rentagreements"
   },
   {
     icon: <FaBullhorn size={24} />,
@@ -37,11 +41,18 @@ const cardInfoData = [
       "Absolutely free",
       "Quick Response Time"
     ],
-    buttonText: "Check Credit Score"
+    buttonText: "Check Credit Score",
+    url: "/credit-score"
   }
 ];
 
 const ServiceCardSection = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = (url) => {
+    navigate(url);
+  };
+
   return (
     <div className="custom-section-wrapper-service-cards">
       {cardInfoData.map((card, index) => (
@@ -55,7 +66,12 @@ const ServiceCardSection = () => {
               </li>
             ))}
           </ul>
-          <button className="custom-card-action-button">{card.buttonText}</button>
+          <button 
+            className="custom-card-action-button"
+            onClick={() => handleNavigate(card.url)}
+          >
+            {card.buttonText}
+          </button>
         </div>
       ))}
     </div>

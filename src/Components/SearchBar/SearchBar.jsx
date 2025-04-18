@@ -148,7 +148,7 @@ const SearchBar = () => {
             className={`btn btn-outline-danger btnr `}
             onClick={() => setShowComingSoon(true)}
           >
-           Coliving Space
+           Co-living Space
           </button>
           <button
             type="button"

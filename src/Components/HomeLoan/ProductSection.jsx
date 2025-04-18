@@ -6,7 +6,7 @@ import "../commonsecond.css";
 
 // Dummy JSON data
 const dummyData = {
-  heading: "Turn your dream home into a reality with our home loans! Townmanor",
+  heading: "Turn your dream home into a reality with our home loans!",
   features: [
     "Customized Repayment Plans",
     "Low-Interest Rates",
@@ -28,10 +28,16 @@ const ProductSection = () => {
       <div className="container">
         <div className="ProductBanner_bannerFlex">
           <div className="ProductBanner_Text">
-            <p className="ProductBanner_Heading homeloan_heading">
-            Turn your dream home into a reality with our home loans! <span className='townmanor-andromeda-highlight-text'>Townmanor</span>
+            <p className="ProductBanner_Heading">
+              {dummyData.heading.split('<span class="bold-loan">').map((part, index) =>
+                index === 1 ? (
+                  <span key={index} className="bold-loan">{part.split('</span>')[0]}</span>
+                ) : (
+                  part
+                )
+              )}
             </p>
-            <ul className="ProductBanner_features homeloan_feature">
+            <ul className="ProductBanner_features">
               {dummyData.features.map((feature, index) => (
                 <li key={index}>
                   <img
@@ -43,7 +49,7 @@ const ProductSection = () => {
                 </li>
               ))}
             </ul>
-            <div className="ProductBanner_BanksList homeloan_feature">
+            <div className="ProductBanner_BanksList">
               {dummyData.bankImages.map((imageSrc, index) => (
                 <img
                   key={index}
@@ -53,7 +59,7 @@ const ProductSection = () => {
                 />
               ))}
             </div>
-            <div className="CIBIL_score homeloancibilbutton">
+            <div className="CIBIL_score">
               {/* Commented out the Link component */}
               <Link to={dummyData.cibilLink} className="check_CIBIL_score_btn">
                 Get Your Credit Score
@@ -63,7 +69,7 @@ const ProductSection = () => {
               </a> */}
             </div>
           </div>
-          <div className="ProductBanner_Img homeloanimg">
+          <div className="ProductBanner_Img">
             <img
               width="400"
               src={dummyData.mainImage}

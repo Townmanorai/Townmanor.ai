@@ -6,10 +6,12 @@ import { IoIosEye, IoMdCompass, IoMdKey } from "react-icons/io";
 // import { GiFloorTiles } from "react-icons/gi";
 import './OwnerAbout.css'
 import { GiDominoTiles } from 'react-icons/gi';
+import PropertyPDF from './PropertyPDF';
+import { useNavigate } from 'react-router-dom';
 
 function OwnerAbout({ property }) {
   const [showFullDescription, setShowFullDescription] = useState(false);
-
+  const navigate = useNavigate();
   if (!property) return null;
 
   const displayDescription = showFullDescription ? property.description : 
@@ -81,7 +83,7 @@ function OwnerAbout({ property }) {
               </div>
             )}
 
-            {property.property_date && (
+            {/* {property.property_date && (
               <div className="property_features_item_uniq2025">
                 <BsPeopleFill className="property_icon_uniq2025" />
                 <div>
@@ -89,7 +91,7 @@ function OwnerAbout({ property }) {
                   <div className="property_value_uniq2025">{property.property_date}</div>
                 </div>
               </div>
-            )}
+            )} */}
 
             {property.floor_allowed && (
               <div className="property_features_item_uniq2025">
@@ -146,7 +148,9 @@ function OwnerAbout({ property }) {
             </div>
             <div className="custom_agent_buttons_2025">
               <button className="custom_btn_light_2025">View Profile</button>
-              <button className="custom_btn_dark_2025">View Properties</button>
+              <button className="custom_btn_dark_2025" onClick={()=>{
+                navigate('/search-property')
+              }}>View Properties</button>
             </div>
           </div>
 
@@ -158,7 +162,7 @@ function OwnerAbout({ property }) {
                 <small>Product specifications and details (PDF)</small>
               </div>
             </div>
-            <button className="custom_pdf_btn_2025">⬇ Download PDF</button>
+            <PropertyPDF property={property} />
           </div>
         </div>
       </div>

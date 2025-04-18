@@ -1,12 +1,65 @@
 import React, { useState } from 'react'
 import { FaUser } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
+import { MdEmail, MdPhone } from "react-icons/md";
 import './OwnerBanner.css'
 
 function OwnerBanner({ property }) {
     const [modal, setmodal] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-    
+    const [showConnectForm, setShowConnectForm] = useState(false);
+    const [showErrorForm, setShowErrorForm] = useState(false);
+    const [formData, setFormData] = useState({
+        name: '',
+        phone: '',
+        errorDescription: ''
+    });
+
+    const handleConnectSubmit = (e) => {
+        e.preventDefault();
+        // Handle connect form submission here
+        setShowConnectForm(false);
+        setFormData({ name: '', phone: '', errorDescription: '' });
+    };
+
+    const handleErrorSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch('https://www.townmanor.ai/api/formlead/leads', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    phone_number: formData.phone,
+                    purpose: 'error message',
+                    source: `error reporting in property ${property.property_name} (ID: ${property.id})`,
+                    error_description: formData.errorDescription // Adding this as additional data
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to submit error report');
+            }
+
+            // Reset form and close modal on success
+            setShowErrorForm(false);
+            setFormData({ name: '', phone: '', errorDescription: '' });
+            alert('Thank you for reporting the error. We will look into it!');
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            alert('Failed to submit error report. Please try again.');
+        }
+    };
+
+    const handleInputChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
     const openmodal = () => {
         setmodal(true);
     }
@@ -81,9 +134,11 @@ function OwnerBanner({ property }) {
                             Property in {property.city || 'Location'} / Property in {property.locality || 'Area'} / {property.property_name}
                         </p>
                         <h1 className="ui-property__title">
-                            {property.property_name}
+                            {property.configuration ? `${property.configuration} flat for sale in ${property.property_name || property.city}` : property.city}
                         </h1>
-                        <p className="ui-property__subtitle">{property.locality}, {property.city}</p>
+                        <p className="ui-property__subtitle" style={{
+                            textTransform:'capitalize'
+                        }}>{property.city}</p>
                         <p className="ui-property__building">Address: {property.address}</p>
 
                         <div className="ui-property__badges">
@@ -101,11 +156,11 @@ function OwnerBanner({ property }) {
                                 <FaUser className="ui-agent__icon" id='usericonxyz'/>
                                 <div className="ui-agent__info">
                                     <p className="ui-agent__name">{property.username || 'TownManor Agent'}</p>
-                                    <p className="ui-agent__label">Property Agent</p>
+                                    <p className="ui-agent__label">Agent</p>
                                 </div>
                             </div>
                         </div>
-                        <button className="ui-contact__btn" onClick={openmodal}>Connect Now</button>
+                        <button className="ui-contact__btn" onClick={() => setShowConnectForm(true)}>Connect Now</button>
                     </div>
                 </div>
 
@@ -212,11 +267,116 @@ function OwnerBanner({ property }) {
                         </div>
                         <div className="ui-error-report__box">
                             <p>Is there any error or missing information?</p>
-                            <button className="ui-error-report__btn">Report Error / Add Missing Information</button>
+                            <button className="ui-error-report__btn" onClick={() => setShowErrorForm(true)}>
+                                Report Error / Add Missing Information
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+
+            {/* Connect Now Form Modal */}
+            {showConnectForm && (
+                <div className="tm-property-modal__overlay" onClick={() => setShowConnectForm(false)}>
+                    <div className="tm-property-modal__content" onClick={e => e.stopPropagation()}>
+                        <button className="tm-property-modal__close-btn" onClick={() => setShowConnectForm(false)}>
+                            <FaTimes />
+                        </button>
+                        <form onSubmit={handleConnectSubmit} className="tm-property-form__container">
+                            <h2 className="tm-property-form__heading">Connect with Us</h2>
+                            <div className="tm-property-form__group">
+                                <label className="tm-property-form__label" htmlFor="name">Name:</label>
+                                <input
+                                    className="tm-property-form__input"
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                            </div>
+                            <div className="tm-property-form__group">
+                                <label className="tm-property-form__label" htmlFor="phone">Phone Number:</label>
+                                <input
+                                    className="tm-property-form__input"
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                            </div>
+                            <button type="submit" className="tm-property-form__submit-btn">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            )}
+
+            {/* Error Report Form Modal */}
+            {showErrorForm && (
+                <div className="tm-property-modal__overlay" onClick={() => setShowErrorForm(false)}>
+                    <div className="tm-property-modal__content" onClick={e => e.stopPropagation()}>
+                        <button className="tm-property-modal__close-btn" onClick={() => setShowErrorForm(false)}>
+                            <FaTimes />
+                        </button>
+                        <form onSubmit={handleErrorSubmit} className="tm-property-form__container">
+                            <h2 className="tm-property-form__heading">Report Error / Add Missing Information</h2>
+                            <div className="tm-property-form__group">
+                                <label className="tm-property-form__label" htmlFor="error-name">Name:</label>
+                                <input
+                                    className="tm-property-form__input"
+                                    type="text"
+                                    id="error-name"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                            </div>
+                            <div className="tm-property-form__group">
+                                <label className="tm-property-form__label" htmlFor="error-phone">Phone Number:</label>
+                                <input
+                                    className="tm-property-form__input"
+                                    type="tel"
+                                    id="error-phone"
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                            </div>
+                            <div className="tm-property-form__group">
+                                <label className="tm-property-form__label" htmlFor="errorDescription">Describe Error:</label>
+                                <textarea
+                                    className="tm-property-form__textarea"
+                                    id="errorDescription"
+                                    name="errorDescription"
+                                    value={formData.errorDescription}
+                                    onChange={handleInputChange}
+                                    required
+                                    rows="4"
+                                />
+                            </div>
+                            <button type="submit" className="tm-property-form__submit-btn">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            )}
+           <div className="contact-wrap-holder">
+      <div className="static-contact-info">
+        <div className="info-label-head">Townmanor Infratech LLP</div>
+        <div className="slide-content-block">
+          <MdEmail className="icon-contact-symbol" />
+          <span className="info-label-text">Support@townmanor.ai</span>
+        </div>
+        <div className="slide-content-block">
+          <MdPhone className="icon-contact-symbol" />
+          <span className="info-label-text">+91 7042888903</span>
+        </div>
+      </div>
+    </div>
         </>
     )
 }

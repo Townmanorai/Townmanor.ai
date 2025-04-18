@@ -324,6 +324,60 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 400px;
+    position: relative;
+  }
+  
+  .unique-map-wrapper .fullwidth-home-map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .leaflet-container {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .open_street_map_marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .marker-container {
+    position: relative;
+    width: 40px;
+    height: 46px;
+  }
+  
+  .marker-card {
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .marker-arrow {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #fff;
   }
   
   .unique-map-iframe-style {
@@ -383,6 +437,9 @@
     .distance-swiper .swiper-slide {
       width: calc(100% - 10px) !important;
     }
+    .unique-amenities-btn-view, .unique-amenities-btn-download {
+      padding: 14px 20px;
+    }
     /* .unique-loan-calc-p45{
        
     } */
@@ -411,8 +468,13 @@
     flex-basis: 80%;
    
 }
-
-
+.custom-card-info-list-item {
+  font-size: 10px;
+}
+.custom-card-action-button {
+ 
+  padding: 0px 10px;
+}
   }
 
  

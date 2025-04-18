@@ -40,7 +40,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import "./Amenties.css";
 import EmiCalculator from './EmiCalculator';
-
+import Map from '../SearchProperty/Map';
+import PropertyPDF from './PropertyPDF';
 const amenityIcons = {
   'Air Conditioner': FaFan,
   'Cable TV': FaVideo,
@@ -205,7 +206,7 @@ function UniqueAmenitiesComponent({ property }) {
                   {showAllAmenities ? 'Show Less' : `View all Amenities (${amenities.length})`}
                 </button>
                 <button className="unique-amenities-btn-download" type="button">
-                  <BiDownload /> Download Brochure
+                  <BiDownload /> Download Brochure  
                 </button>
               </div>
             </section>
@@ -214,15 +215,14 @@ function UniqueAmenitiesComponent({ property }) {
           <section>
             <div className="unique-map-swiper-container">
               <h2 className="unique-map-title">Location Map</h2>
-              <div className="unique-map-wrapper">
-                <iframe
-                  title="interactive-location-map"
-                  src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY || ''}&q=${encodeURIComponent(`${property.locality}, ${property.city}`)}`}
-                  className="unique-map-iframe-style"
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+              <div className="unique-map-wrapper" style={{ height: '400px', width: '100%', borderRadius: '10px', overflow: 'hidden' }}>
+                <Map results={[{ 
+                  lat: parseFloat(property.lat), 
+                  lng: parseFloat(property.lng),
+                  property_name: property.name,
+                  locality: property.locality,
+                  city: property.city
+                }]} /> 
               </div>
             </div>
           </section>
