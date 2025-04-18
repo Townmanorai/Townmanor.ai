@@ -489,7 +489,7 @@ const NewSearchListingPage = () => {
                     <div className="button-actions-container">
                        
                         <button className="btn-view-info" onClick={() => {
-                            navigate(`/home/${property.id}`)
+                            navigate(`/newownerpage/${property.id}`)
                         }}>View Details</button>
                         <button className="btn-contact-agent" onClick={() => setShowModal(true)}>Connect Now</button>
                        

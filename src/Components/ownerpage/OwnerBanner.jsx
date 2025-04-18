@@ -89,19 +89,30 @@ function OwnerBanner({ property }) {
     const formatPrice = (price) => {
         if (!price) return 'Price on Request';
         
-        // If price is already formatted with pricerange
-        if (property.pricerange) {
-            return `₹ ${price} ${property.pricerange}`;
+        // Convert price to number if it's a string
+        price = parseFloat(price);
+        
+        // Handle rent cases (monthly rent)
+        if (property.purpose === 'rent' || property.montly_rent) {
+            return `₹ ${price.toLocaleString('en-IN')}/month`;
         }
         
-        // Fallback to old formatting logic
-        price = parseInt(price);
+        // Handle sale cases based on pricerange
+        if (property.pricerange === 'Crore') {
+            return `₹ ${price} Cr`;
+        } else if (property.pricerange === 'Lakh') {
+            return `₹ ${price} Lakh`;
+        } else if (property.pricerange === 'Thousand') {
+            return `₹ ${price.toLocaleString('en-IN')}`;
+        }
+        
+        // Fallback to automatic formatting based on value
         if (price >= 10000000) {
             return `₹ ${(price / 10000000).toFixed(2)} Cr`;
         } else if (price >= 100000) {
             return `₹ ${(price / 100000).toFixed(2)} Lac`;
         } else {
-            return `₹ ${price.toLocaleString()}`;
+            return `₹ ${price.toLocaleString('en-IN')}`;
         }
     };
 
@@ -114,7 +125,7 @@ function OwnerBanner({ property }) {
         if (property.pricerange) {
             if (property.pricerange.toLowerCase().includes('cr')) {
                 actualPrice = price * 10000000; // Convert Crore to actual value
-            } else if (property.pricerange.toLowerCase().includes('lac')) {
+            } else if (property.pricerange.toLowerCase().includes('lakh')) {
                 actualPrice = price * 100000; // Convert Lac to actual value
             }
         } else {
