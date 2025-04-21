@@ -128,6 +128,28 @@ export function AuthProvider({ children }) {
       console.log('Attempting Google sign in...');
       const result = await signInWithPopup(auth, provider);
       console.log('Google sign in successful:', result);
+      
+      // Now call our backend to create/login the user and generate JWT
+      try {
+        const user = result.user;
+        const response = await axios.post('https://www.townmanor.ai/api/api/users/google-login', {
+          email: user.email,
+          displayName: user.displayName,
+          uid: user.uid
+        });
+        
+        if (response.status === 200) {
+          console.log('Backend Google authentication successful');
+          // JWT token is set as cookie by the backend
+        } else {
+          console.error('Backend Google authentication failed:', response);
+          throw new Error('Google sign-in verification failed');
+        }
+      } catch (backendError) {
+        console.error('Backend error during Google authentication:', backendError);
+        throw new Error(backendError.response?.data?.message || 'Failed to authenticate with the server');
+      }
+      
       return result;
     } catch (error) {
       console.error('Error during Google sign in:', error);
