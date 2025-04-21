@@ -1,173 +1,224 @@
 import React, { useState, useEffect } from 'react';
-import Slider from 'react-slick'; // Import the slider
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import './Coliving_space.css';  // Assuming the modal styles will be defined in this file
-import { FaHouse } from "react-icons/fa6";
-import { MdBedroomChild } from "react-icons/md";
-import { FaPeopleRoof } from "react-icons/fa6";
-import { FaArrowsSplitUpAndLeft } from "react-icons/fa6";
+import './Coliving_space.css';
+import { FaUsers, FaBed, FaHome, FaCheck, FaArrowRight } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 
 function Coliving_space() {
-  // Slick slider settings
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 100,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    initialSlide: 0, // Ensures the first slide is shown properly
-    autoplay: true, // Enables auto-scroll
-    autoplaySpeed: 2000, // Sets the interval time for auto-scrolling in milliseconds (2 seconds here)
-  };
-
-  // State for modal visibility
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // State for form inputs (name and email)
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  // Handle modal open
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  // Handle modal close
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
+  // Handle modal open/close
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   
   // Handle form submission
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log('Name:', name, 'Email:', email);
-    closeModal(); // Close the modal after form submission
-  };
-  
-  const content= "Experience a new way of living with our premium co-living spaces, designed for comfort and convenience in prime locations near major hubs. Enjoy fully furnished rooms with modern interiors, high-speed WiFi, and regular housekeeping services. Connect with like-minded individuals through vibrant community events and networking opportunities. Live, work, and unwind with access to yoga and studio spaces—all under one roof."
-
-  const [ShowContent, SetShowContent] = useState(false);
-  const [trimmedContent, setTrimmedContent] = useState('');
-  
-  // Function to handle trimming based on screen size
-  const updateTrimmedContent = () => {
-    const screenWidth = window.innerWidth;
-    let newTrimmedContent;
-
-    if (screenWidth < 720) {
-      newTrimmedContent = content.length > 80 ? content.substring(0, 80) + '...' : content;
-    } else {
-      newTrimmedContent = content.length > 180 ? content.substring(0, 180) + '...' : content;
-    }
-
-    setTrimmedContent(newTrimmedContent);
+    closeModal();
   };
 
   useEffect(() => {
-    updateTrimmedContent();
-    window.addEventListener('resize', updateTrimmedContent);
-    
-    // Clean up event listener on component unmount
-    return () => window.removeEventListener('resize', updateTrimmedContent);
+    setIsLoaded(true);
   }, []);
 
   return (
     <>
-      <div className=''>
-        <div className='container'>
-          <div className='coliving'>
-            <div className='co-left section-heading'>
-              <h3> We <b>Are</b> Coming <b>Soon !</b></h3>
-              {/* <div>
-                <p>
-                  {ShowContent ? trimmedContent : content} 
-                </p>
-                <div className='Co-toggle' onClick={() => SetShowContent(!ShowContent)}>{ShowContent ? "Read More": "Read Less"}</div>
-              </div> */}
-              <div>
-                <p>
-                  {ShowContent ? content : trimmedContent}
-                </p>
-                <div className='Co-toggle' onClick={() => SetShowContent(!ShowContent)}>
-                  {ShowContent ? "Read Less" : "Read More"} {/* Toggle between Read More and Read Less */}
-                </div>
-              </div>
-
-              <div className='co-box'>
-                <div className='co-box-div'>
-                  <div className="cd-img">
-                    <FaHouse style={{ width: '25px', color: 'ff0000' }} />
-                  </div>
-                  <div style={{fontSize:'13px', marginTop: '10px', color: 'red', fontWeight: '500' }}>
-                    Shared Space
-                  </div>
-                </div>
-                <div className='co-box-div'>
-                  <div className="cd-img">
-                    <MdBedroomChild style={{ width: '25px', color: 'ff0000' }} />
-                  </div>
-                  <div style={{fontSize:'13px', marginTop: '10px', color: 'red', fontWeight: '500' }}>
-                    Furnished Rooms
-                  </div>
-                </div>
-
-                <div className='co-box-div'>
-                  <div className="cd-img">
-                    <FaPeopleRoof style={{ width: '25px', color: 'ff0000' }} />
-                  </div>
-                  <div style={{fontSize:'13px', marginTop: '10px', color: 'red', fontWeight: '500',textAlign:'center' }}>
-                    Vibrant Community
-                  </div>
-                </div>
-
-                <div className='co-box-div'>
-                  <div className="cd-img">
-                    <FaArrowsSplitUpAndLeft style={{ width: '25px', color: 'ff0000' }} />
-                  </div>
-                  <div style={{fontSize:'13px', marginTop: '10px', color: 'red', fontWeight: '500' }}>
-                    Flexibility
-                  </div>
-                </div>
-              </div>
-              
-            </div>
-            <div className='co-right'>
-              <Slider {...settings} className="slider-container">
-                <div className="slide-item">
-                  <img src="https://t3.ftcdn.net/jpg/04/93/61/16/240_F_493611634_x9YOUceromllu0DSFdz9I369uEuZLGs4.jpg" alt="Co-living Image 2" className="slider-image" />
-                </div>
-                <div className="slide-item">
-                  <img src="https://t3.ftcdn.net/jpg/07/07/66/56/240_F_707665604_BfeWGzxdXJVnLIVpK6EymudY9KgXkmBe.jpg" alt="Co-living Image 3" className="slider-image" />
-                </div>
-                <div className="slide-item">
-                  <img src="https://t4.ftcdn.net/jpg/04/23/99/73/240_F_423997357_wOfT46bbeEg99XV2dRphEzLvEdlP9mSw.jpg" alt="Co-living Image 1" className="slider-image" />
-                </div>
-                <div className="slide-item">
-                  <img src="https://t3.ftcdn.net/jpg/03/91/49/42/240_F_391494226_eqmnXVliHHI1e1guSyr6SNEjzau6b3C6.jpg" />
-                </div>
-              </Slider>
+      {/* Hero Section */}
+      <div className="container coliving-hero-section">
+        <div className="coliving-hero-bg" style={{
+          backgroundImage: `url('https://readdy.ai/api/search-image?query=Modern%20co-living%20space%20interior%20with%20soft%20natural%20light%2C%20minimalist%20design%2C%20large%20windows%2C%20communal%20areas%20with%20comfortable%20furniture%2C%20plants%2C%20and%20a%20warm%20welcoming%20atmosphere%2C%20blending%20into%20a%20light%20blue%20gradient%20on%20the%20left%20side%20for%20text%20overlay&width=1440&height=800&seq=hero-bg-1&orientation=landscape')`
+        }}></div>
+        <div className="coliving-hero-gradient"></div>
+        <div className="container coliving-hero-content">
+          <div className="coliving-hero-text">
+            <h2 className={`coliving-heading ${isLoaded ? "loaded" : ""}`}>
+              We Are Coming Soon!
+            </h2>
+            <p className={`coliving-paragraph ${isLoaded ? "loaded" : ""}`}>
+              Experience a new way of living with our premium co-living
+              spaces, designed for comfort and convenience in prime locations
+              near major hubs. Enjoy fully furnished rooms with modern
+              interiors, high-speed WiFi, and regular housekeeping services.
+            </p>
+            <p className={`coliving-paragraph ${isLoaded ? "loaded" : ""}`}>
+              Connect with like-minded individuals through vibrant community
+              events and networking opportunities. Live, work, and unwind with
+              access to yoga and studio spaces—all under one roof.
+            </p>
+            <div className={`coliving-buttons ${isLoaded ? "loaded" : ""}`}>
+              <button className="coliving-primary-btn" onClick={openModal}>
+                Join the Waitlist
+              </button>
+              <button className="coliving-secondary-btn">
+                Learn More
+              </button>
             </div>
           </div>
-            <div style={{ margin: '0px', fontSize: '16px', color: 'ff0000',textAlign:'center',display:'flex',flexDirection:'column' }}>
-                {/* <span style={{fontSize:'12px'}}>If you want to know more </span> */}
-                <button style={{width:'fit-content',textAlign:'center',marginLeft:'auto',marginRight:'auto',border:"none",borderRadius:'10px'}} onClick={openModal} className="co-sign-up">Show Intrest!</button>
-              </div>
         </div>
       </div>
 
-      {/* Modal for sign up */}
+      {/* Features Section */}
+      <div className="coliving-features-section">
+        <div className="container">
+          <div className="coliving-features-heading">
+            <h2>Our <b>Living</b> Options</h2>
+            <p>
+              Choose the perfect living arrangement that suits your lifestyle
+              and preferences.
+            </p>
+          </div>
+          <div className="coliving-cards">
+            {/* Card 1 */}
+            <div className="coliving-card">
+              <div className="coliving-card-image">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Modern%20co-living%20shared%20apartment%20with%20communal%20kitchen%20and%20living%20space%2C%20stylish%20furniture%2C%20plants%2C%20and%20warm%20lighting%2C%20showing%20multiple%20private%20rooms%20connected%20to%20common%20areas%2C%20clean%20and%20contemporary%20design&width=600&height=400&seq=coliving-1&orientation=landscape"
+                  alt="Co-Living Spaces"
+                />
+              </div>
+              <div className="coliving-card-content">
+                <div className="coliving-card-header">
+                  <div className="coliving-card-icon blue">
+                    <FaUsers />
+                  </div>
+                  <h3>Co-Living Spaces</h3>
+                </div>
+                <p className="coliving-card-description">
+                  Shared apartments with premium amenities.
+                </p>
+                <ul className="coliving-card-list">
+                  <li>
+                    <FaCheck className="check-icon" />
+                    <span>Private bedroom in shared apartment</span>
+                  </li>
+                  <li>
+                    <FaCheck className="check-icon" />
+                    <span>Access to common areas and kitchen</span>
+                  </li>
+                  <li>
+                    <FaCheck className="check-icon" />
+                    <span>Community events and activities</span>
+                  </li>
+                </ul>
+                <button className="coliving-link-btn blue">
+                  Learn more <FaArrowRight className="arrow-icon" />
+                </button>
+              </div>
+            </div>
+            
+            {/* Card 2 */}
+            <div className="coliving-card">
+              <div className="coliving-card-image">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Modern%20PG%20accommodation%20with%20private%20bedroom%2C%20study%20desk%2C%20comfortable%20bed%2C%20and%20basic%20amenities%2C%20showing%20a%20compact%20but%20well-designed%20living%20space%20with%20storage%20solutions%2C%20clean%20and%20functional%20interior%20design&width=600&height=400&seq=pg-2&orientation=landscape"
+                  alt="PG Comforts"
+                />
+                <div className="join-waitlist-sticker" onClick={openModal}>
+                  <span>Join Waitlist!</span>
+                </div>
+              </div>
+              <div className="coliving-card-content">
+                <div className="coliving-card-header">
+                  <div className="coliving-card-icon purple">
+                    <FaBed />
+                  </div>
+                  <h3>PG Comforts</h3>
+                </div>
+                <p className="coliving-card-description">
+                  Affordable, fully managed private rooms.
+                </p>
+                <ul className="coliving-card-list">
+                  <li>
+                    <FaCheck className="check-icon" />
+                    <span>Fully furnished private room</span>
+                  </li>
+                  <li>
+                    <FaCheck className="check-icon" />
+                    <span>Regular housekeeping services</span>
+                  </li>
+                  <li>
+                    <FaCheck className="check-icon" />
+                    <span>Meals and laundry options</span>
+                  </li>
+                </ul>
+                <button className="coliving-link-btn purple">
+                  Learn more <FaArrowRight className="arrow-icon" />
+                </button>
+              </div>
+            </div>
+            
+            {/* Card 3 */}
+            <div className="coliving-card">
+              <div className="coliving-card-image">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Luxury%20studio%20apartment%20with%20modern%20minimalist%20design%2C%20full%20kitchenette%2C%20sleeping%20area%2C%20and%20living%20space%20in%20one%20open%20concept%20room%2C%20large%20windows%20with%20natural%20light%2C%20high-end%20finishes%2C%20and%20smart%20home%20features%2C%20elegant%20and%20sophisticated&width=600&height=400&seq=suite-3&orientation=landscape"
+                  alt="Studio & Suites"
+                />
+              </div>
+              <div className="coliving-card-content">
+                <div className="coliving-card-header">
+                  <div className="coliving-card-icon teal">
+                    <FaHome />
+                  </div>
+                  <h3>Studio & Suites</h3>
+                </div>
+                <p className="coliving-card-description">
+                  Private studio living with all essentials.
+                </p>
+                <ul className="coliving-card-list">
+                  <li>
+                    <FaCheck className="check-icon" />
+                    <span>Self-contained private living space</span>
+                  </li>
+                  <li>
+                    <FaCheck className="check-icon" />
+                    <span>Kitchenette and private bathroom</span>
+                  </li>
+                  <li>
+                    <FaCheck className="check-icon" />
+                    <span>Premium furnishings and amenities</span>
+                  </li>
+                </ul>
+                <button className="coliving-link-btn teal">
+                  Learn more <FaArrowRight className="arrow-icon" />
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div className="coliving-signup-box">
+            <div className="coliving-signup-text">
+              <h3>Be the first to know when we launch</h3>
+              <p>
+                Join our waitlist to receive exclusive early access and special
+                offers when we open our doors.
+              </p>
+            </div>
+            <div className="coliving-signup-form">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <button onClick={openModal}>Join Waitlist</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Modal for signup */}
       {isModalOpen && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <div style={{display:'flex',justifyContent:'space-between'}}>
+            <div className="modal-header">
               <h2>Sign up</h2>
-              <button style={{border:'none',height:'fit-content',backgroundColor:'white'}} onClick={closeModal}> < RxCross2/></button>
-              
+              <button onClick={closeModal}><RxCross2/></button>
             </div>
-            <form className='coliving-model' onSubmit={handleFormSubmit}>
+            <form className="coliving-model" onSubmit={handleFormSubmit}>
               <div className="modal-form-group">
                 <label htmlFor="name">Name</label>
                 <input
@@ -191,7 +242,6 @@ function Coliving_space() {
                 />
               </div>
               <button type="submit" className="submitbutton_">Submit</button>
-              {/* <button type="button" onClick={closeModal} className="close-button">Close</button> */}
             </form>
           </div>
         </div>
