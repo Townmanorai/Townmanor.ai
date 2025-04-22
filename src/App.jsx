@@ -93,6 +93,8 @@ import PropertyControl from './Components/admindashboard/property/PropertyContro
 import PropertyEditForm from './Components/admindashboard/property/PropertyEditForm';
 import LoginAdmin from './Components/admindashboard/LoginAdmin';
 import OwnerPage from './Components/ownerpage/OwnerPage';
+import MainAdmin from './Components/NewAdmin.jsx/MainAdmin.jsx';
+
 
 // Scroll restoration component
 const ScrollRestoration = () => {
@@ -240,6 +242,7 @@ function App() {
               <Route path='/editform/:index' element={<PropertyEditForm/>}/>
               <Route path='/adminlogin' element={<LoginAdmin/>}/>
               <Route path='/newownerpage/:id' element={<OwnerPage/>}/>
+              <Route path='/newadminpage/:id' element={<MainAdmin/>}/>
             </Routes>
           </main>
           <Footer />

@@ -1,0 +1,643 @@
+.adminBannerUnique__container {
+    padding: 20px;
+    background-color: #fff;
+    color: #333;
+    margin-top: 4rem;
+  }
+  
+  .adminBannerUnique__breadcrumbs {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+    padding: 0 20px;
+  }
+  
+  .adminBannerUnique__breadcrumbs span {
+    font-weight: 500;
+    color: #000;
+  }
+  
+  .adminBannerUnique__main {
+    display: flex;
+    gap: 40px;
+    padding: 0 20px;
+  }
+  
+  .adminBannerUnique__images {
+    flex: 1.5;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .adminBannerUnique__mainImg {
+    width: 65%;
+    height: 400px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .adminBannerUnique__sideImgs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 35%;
+  }
+  
+  .adminBannerUnique__sideImg {
+    width: 100%;
+    height: 190px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .adminBannerUnique__details {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .adminBannerUnique__pricing {
+    margin-bottom: 20px;
+  }
+  
+  .adminBannerUnique__pricing p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .adminBannerUnique__pricing h3 {
+    margin: 4px 0 15px;
+    font-size: 22px;
+    color: #000;
+  }
+  
+  .adminBannerUnique__pricing h4 {
+    margin: 4px 0;
+    font-size: 18px;
+    color: #000;
+  }
+  
+  .adminBannerUnique__title {
+    font-size: 22px;
+    margin: 0 0 10px;
+    color: #000;
+  }
+  
+  .adminBannerUnique__address {
+    margin-bottom: 25px;
+  }
+  
+  .adminBannerUnique__addressMain {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    color: #444;
+    font-size: 15px;
+  }
+  
+  .adminBannerUnique__addressIcon {
+    color: #e23e57;
+    font-size: 18px;
+  }
+  
+  .adminBannerUnique__addressDetails {
+    display: flex;
+    gap: 20px;
+    color: #666;
+    font-size: 14px;
+    margin-left: 26px;
+  }
+  
+  .adminBannerUnique__addressDetails span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .adminBannerUnique__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+  }
+  
+  .adminBannerUnique__table td {
+    padding: 12px 8px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .adminBannerUnique__action {
+    color: #d00;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: right;
+  }
+  
+  .adminBannerUnique__buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .adminBannerUnique__buttons button {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #333;
+    transition: all 0.2s;
+  }
+  
+  .adminBannerUnique__buttons button:hover {
+    background: #f5f5f5;
+  }
+  
+  .adminBannerUnique__cta {
+    width: 45%;
+    padding: 7px 24px;
+    background-color: #d00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0px 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    transition: background-color 0.2s;
+  }
+  
+  .adminBannerUnique__cta:hover {
+    background-color: #b00;
+  }
+  
+  .adminBannerUnique__report {
+    width: 45%;
+    padding: 7px 24px;
+    background-color: transparent;
+    color: #666;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .adminBannerUnique__infoCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  .adminBannerUnique__infoCard {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .adminBannerUnique__infoCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .adminBannerUnique__infoLabel {
+    color: #666;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .adminBannerUnique__infoValue {
+    color: #333;
+    font-size: 15px;
+    display: block;
+  }
+  
+  /* Media Queries */
+  @media screen and (max-width: 1200px) {
+    .adminBannerUnique__main {
+      gap: 30px;
+    }
+    
+    .adminBannerUnique__mainImg {
+      height: 350px;
+    }
+    
+    .adminBannerUnique__sideImg {
+      height: 165px;
+    }
+  }
+  
+  @media screen and (max-width: 992px) {
+    .adminBannerUnique__main {
+      flex-direction: column;
+    }
+    
+    .adminBannerUnique__images {
+      width: 100%;
+    }
+    
+    .adminBannerUnique__details {
+      width: 100%;
+    }
+    
+    .adminBannerUnique__infoCards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .adminBannerUnique__images {
+      flex-direction: column;
+    }
+    
+    .adminBannerUnique__mainImg {
+      width: 100%;
+      height: 300px;
+    }
+    
+    .adminBannerUnique__sideImgs {
+      width: 100%;
+      flex-direction: row;
+    }
+    .adminBannerUnique__pricing {
+      margin-bottom: 20px;
+      display: flex
+  ;
+      flex-direction: row;
+      justify-content: space-between;
+  }
+  .adminBannerUnique__pricing h3 {
+    margin: 4px 0 15px;
+    font-size: 17px;
+    color: #000;
+}
+    .adminBannerUnique__sideImg {
+      width: 50%;
+      height: 150px;
+    }
+    
+    .adminBannerUnique__infoCards {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding: 15px;
+    }
+    
+    .adminBannerUnique__buttons {
+      flex-wrap: wrap;
+    }
+    
+    .adminBannerUnique__buttons button {
+      flex: 1;
+      justify-content: center;
+    }
+    
+    .adminBannerUnique__addressDetails {
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .adminBannerUnique__infoCard {
+      padding: 12px;
+    }
+    
+    .adminBannerUnique__infoLabel {
+      font-size: 12px;
+    }
+    
+    .adminBannerUnique__infoValue {
+      font-size: 14px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .adminBannerUnique__container {
+      padding: 10px;
+    }
+    
+    .adminBannerUnique__main {
+      padding: 0 10px;
+    }
+    
+    .adminBannerUnique__infoCards {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding: 0 10px;
+    }
+    
+    .adminBannerUnique__infoCards > div {
+      padding: 12px 15px;
+      font-size: 13px;
+    }
+    
+    .adminBannerUnique__infoCards strong {
+      font-size: 14px;
+    }
+    
+    .adminBannerUnique__title {
+      font-size: 24px;
+    }
+    
+    .adminBannerUnique__mainImg {
+      height: 250px;
+    }
+    
+    .adminBannerUnique__sideImg {
+      height: 120px;
+    }
+  }
+  
+  /* Add extra small device support */
+  @media screen and (max-width: 360px) {
+    .adminBannerUnique__infoCards > div {
+      padding: 10px 12px;
+      font-size: 12px;
+    }
+    
+    .adminBannerUnique__infoCards strong {
+      font-size: 13px;
+    }
+  }
+  
+  /* Image Modal Styles */
+  .image-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .image-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+  }
+  
+  .modal-close-btn:hover {
+    transform: scale(1.2);
+  }
+  
+  .modal-image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  
+  .modal-navigation {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .modal-nav-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .modal-dots {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .modal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .modal-dot.active {
+    background-color: white;
+    transform: scale(1.2);
+  }
+  
+  .modal-image-counter {
+    position: absolute;
+    bottom: 80px;
+    color: white;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 20px;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Media Queries */
+  @media only screen and (max-width: 480px) {
+    .image-modal-content {
+      width: 95%;
+    }
+    
+    .modal-nav-btn {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  
+  .interest-form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .interest-form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    animation: slideIn 0.3s ease;
+  }
+  
+  .interest-form-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #666;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+  }
+  
+  .interest-form-close:hover {
+    color: #333;
+  }
+  
+  .interest-form-container h3 {
+    margin: 0 0 20px;
+    font-size: 20px;
+    color: #333;
+    padding-right: 30px;
+  }
+  
+  .interest-form-field {
+    margin-bottom: 20px;
+  }
+  
+  .interest-form-field label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+  }
+  
+  .interest-form-field input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.2s ease;
+  }
+  
+  .interest-form-field input:focus {
+    outline: none;
+    border-color: #e23e57;
+  }
+  
+  .interest-form-field textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.2s ease;
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+  }
+  
+  .interest-form-field textarea:focus {
+    outline: none;
+    border-color: #e23e57;
+  }
+  
+  .interest-form-error {
+    color: #d00;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .interest-form-success {
+    color: #2ecc71;
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .interest-form-submit {
+    width: 100%;
+    padding: 12px;
+    background: #e23e57;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .interest-form-submit:hover {
+    background: #d01d3b;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  

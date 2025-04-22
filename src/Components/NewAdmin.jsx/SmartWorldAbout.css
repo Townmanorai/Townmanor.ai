@@ -1,0 +1,201 @@
+.smartWorldUnique__aboutSection {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 20px;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  max-width: 1600px;
+  margin: 20px auto;
+}
+
+.smartWorldUnique__leftBlock {
+  width: 60%;
+  padding-right: 30px;
+}
+
+.smartWorldUnique__title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.smartWorldUnique__introText {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 16px;
+}
+
+.smartWorldUnique__extraText {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.smartWorldUnique__showMore {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.smartWorldUnique__arrow {
+  margin-left: 5px;
+}
+
+.smartWorldUnique__rightCard {
+  width: 35%;
+  background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  position: relative;
+}
+
+.smartWorldUnique__agentTitle {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.smartWorldUnique__agentBadge {
+  background-color: #000;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.smartWorldUnique__agentInfo {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.smartWorldUnique__agentImg {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  margin-right: 12px;
+}
+
+.smartWorldUnique__agentDetails {
+  font-size: 14px;
+}
+
+.smartWorldUnique__agentName {
+  font-weight: bold;
+}
+
+.smartWorldUnique__agentGroup {
+  color: #555;
+}
+
+.smartWorldUnique__agentRERA {
+  font-size: 12px;
+  color: #999;
+}
+
+.smartWorldUnique__agentStats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.smartWorldUnique__agentButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.smartWorldUnique__profileBtn {
+  background-color: #fff;
+  border: 1px solid #000;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.smartWorldUnique__propertyBtn {
+  background-color: #d60000;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .smartWorldUnique__aboutSection {
+    flex-direction: column-reverse;
+    padding: 20px;
+    gap: 20px 2px;
+  }
+
+  .smartWorldUnique__leftBlock,
+  .smartWorldUnique__rightCard {
+    width: 100%;
+    padding: 0;
+  }
+
+  .smartWorldUnique__rightCard {
+    margin-top: 25px;
+  }
+
+  .smartWorldUnique__agentStats {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .smartWorldUnique__agentButtons {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 600px) {
+  .smartWorldUnique__title {
+    font-size: 20px;
+  }
+
+  .smartWorldUnique__introText,
+  .smartWorldUnique__extraText {
+    font-size: 14px;
+  }
+
+  .smartWorldUnique__agentInfo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .smartWorldUnique__agentImg {
+    margin-bottom: 10px;
+  }
+
+  .smartWorldUnique__agentStats {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .smartWorldUnique__agentButtons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .smartWorldUnique__profileBtn,
+  .smartWorldUnique__propertyBtn {
+    width: 100%;
+    text-align: center;
+  }
+}

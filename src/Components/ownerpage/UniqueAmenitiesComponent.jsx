@@ -157,7 +157,8 @@ function UniqueAmenitiesComponent({ property }) {
                     1024: {
                       slidesPerView: 3,
                       spaceBetween: 20
-                    }
+                    },
+                    
                   }}
                   style={{
                     "--swiper-navigation-color": "#e23e57",

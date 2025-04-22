@@ -1,0 +1,212 @@
+.propertyToggleUnique__container {
+    padding: 20px;
+    max-width: 1600px;
+    margin: 0px auto;
+  }
+  
+  .propertyToggleUnique__tabs {
+    display: flex;
+    gap: 20px;
+    margin: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+  }
+  
+  .propertyToggleUnique__tabs button {
+    padding: 10px 25px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    color: #666;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .propertyToggleUnique__tabs button:hover {
+    color: #e23e57;
+  }
+  
+  .propertyToggleUnique__tabs button.active {
+    color: #e23e57;
+  }
+  
+  .propertyToggleUnique__tabs button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -11px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #e23e57;
+  }
+  
+  .propertyToggleUnique__content {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 20px 0;
+    padding: 0 15px;
+  }
+  
+  .propertyToggleUnique__cards {
+    width: 70%;
+    position: relative;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 12px;
+  }
+  
+  .propertyToggleUnique__imageRight {
+    width: 28%;
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .propertyToggleUnique__imageRight img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .propertyToggleUnique__card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+  }
+  
+  .propertyToggleUnique__card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .propertyToggleUnique__card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .propertyToggleUnique__card h4 {
+    font-size: 16px;
+    margin: 12px 15px;
+    color: #333;
+  }
+  
+  .propertyToggleUnique__infoRow {
+    display: flex;
+    gap: 15px;
+    padding: 0 15px;
+    margin-bottom: 10px;
+  }
+  
+  .propertyToggleUnique__infoRow span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .propertyToggleUnique__card p {
+    font-size: 14px;
+    color: #666;
+    margin: 0 15px 10px;
+    line-height: 1.4;
+  }
+  
+  .propertyToggleUnique__card h5 {
+    font-size: 18px;
+    margin: 0 15px 15px;
+    color: #e23e57;
+  }
+  
+  .propertyToggleUnique__contactBtn {
+    width: calc(100% - 30px);
+    margin: 0 15px 15px;
+    padding: 8px;
+    background: #e23e57;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .propertyToggleUnique__contactBtn:hover {
+    background: #d62e47;
+  }
+  
+  /* Swiper Styles */
+  .propertyToggleUnique__cards .swiper {
+    padding: 10px 5px 30px 5px;
+  }
+  
+  .propertyToggleUnique__cards .swiper-button-next,
+  .propertyToggleUnique__cards .swiper-button-prev {
+    background: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  .propertyToggleUnique__cards .swiper-button-next:after,
+  .propertyToggleUnique__cards .swiper-button-prev:after {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 992px) {
+    .propertyToggleUnique__content {
+      flex-direction: column;
+      gap: 20px;
+      padding: 0 10px;
+    }
+  
+    .propertyToggleUnique__cards,
+    .propertyToggleUnique__imageRight {
+      width: 100%;
+    }
+  
+    .propertyToggleUnique__cards {
+      padding: 10px;
+    }
+  
+    .propertyToggleUnique__imageRight img {
+      height: 300px;
+    }
+  
+    .propertyToggleUnique__card {
+      height: 380px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .propertyToggleUnique__content {
+      padding: 0 5px;
+    }
+  
+    .propertyToggleUnique__cards {
+      padding: 8px;
+    }
+  
+    .propertyToggleUnique__card {
+      height: 350px;
+      margin: 3px;
+    }
+  
+    .propertyToggleUnique__imageRight img {
+      height: 250px;
+    }
+  }
+  

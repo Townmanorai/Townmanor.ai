@@ -143,17 +143,14 @@
   }
   
   .unique-loan-calc-p45 {
-    /* margin-top: 2.5rem; */
-    /* background: #fff; */
-    /* padding: 1.5rem; */
-    display: flex
-;
+    display: flex;
     border-radius: 8px;
-    /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); */
-    /* border: 1px solid #ddd; */
     flex-basis: 40%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 400px;
+    padding: 20px 0;
   }
   
   .unique-loan-form-x10 input,
@@ -425,6 +422,25 @@
     border-radius: 8px;
     border: 2px solid #dcdcdc;
   }
+  .admin_calculator{
+    display: block;
+  }
+  #adminamenties_adv {
+   
+      width: 76%;
+      height: 276px;
+      margin-left: 65px;
+      /* object-fit: cover; */
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+  
+  }
+  
+  #adminamenties_adv:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  }
   
   /* Media Queries for Responsive Design */
   @media (max-width: 1024px) {
@@ -440,22 +456,24 @@
     .unique-amenities-btn-view, .unique-amenities-btn-download {
       padding: 14px 20px;
     }
-    /* .unique-loan-calc-p45{
-       
-    } */
+    .unique-loan-calc-p45 {
+        height: auto;
+        padding: 15px 0;
+    }
+    
+    #adminamenties_adv {
+        width: 100%;
+        height: 150px;
+    }
+    
     .unique-wrapper-r34g56 {
-     
-      flex-direction: column;
-  
+        flex-direction: column;
+    }
+    .distance-swiper {
+      margin: 10px !important;
+      padding: 5px 5px !important;
+      width: 96% !important;
   }
-  .distance-swiper {
-    margin: 10px !important;
-    padding: 5px 5px !important;
-    width: 96% !important;
-}
-    /* .distance-swiper-container{
-      display: none;
-    } */
     .unique-amenities-grid-wx2 {
       display: grid
   ;
