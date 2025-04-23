@@ -739,7 +739,7 @@
   position: absolute;
   top: 30px;
   right: -40px;
-  background: linear-gradient(to right, #0066ff, #003380);
+  background: linear-gradient(to right, #000000, #000000);
   color: white;
   padding: 5px 40px;
   transform: rotate(45deg);
