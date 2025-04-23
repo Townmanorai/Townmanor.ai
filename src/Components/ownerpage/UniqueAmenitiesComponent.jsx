@@ -229,7 +229,32 @@ function UniqueAmenitiesComponent({ property }) {
           </section>
         </div>
         <section className="unique-loan-calc-p45">
-          <EmiCalculator property={property} />
+        {(() => {
+          let loanAmount;
+          if (property.purpose === 'rent') {
+            loanAmount = "10000000"; // 1 crore for rent
+          } else {
+            // For sale properties
+            if (property.pricerange === 'Crore') {
+              loanAmount = String(property.price * 10000000); // Convert Cr to actual value
+            } else if (property.pricerange === 'Lakh') {
+              loanAmount = String(property.price * 100000); // Convert Lakh to actual value
+            } else {
+              loanAmount = String(property.price); // Use as is
+            }
+          }
+          const downPayment = String(parseFloat(loanAmount) * 0.2); // 20% of the loan amount
+
+          return (
+            <EmiCalculator 
+              defaultLoanAmount={loanAmount}
+              defaultDownPayment={downPayment}
+              defaultInterestRate="8.5"
+              defaultLoanTenure="20"
+              defaultTenureType="Years"
+            />
+          );
+        })()}
         </section>
       </div>
     </>

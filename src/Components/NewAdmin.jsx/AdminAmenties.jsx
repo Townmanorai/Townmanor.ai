@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback } from 'react'
 import {
   FaBolt,
@@ -33,7 +32,7 @@ import {
   FaFilm,
   FaSchool
 } from "react-icons/fa";
-import { MdLocationOn, MdSecurity, MdElevator, MdLocalLaundryService } from "react-icons/md";
+import { MdLocationOn, MdSecurity, MdElevator, MdLocalLaundryService, MdTrain } from "react-icons/md";
 import { BiDownload } from "react-icons/bi";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -88,42 +87,48 @@ function AdminAmenties({property}) {
       // Create nearby places array directly from the API data
       const nearbyPlaces = [
         {
+          icon: MdTrain,
+          title: "Metro",
+          distance: property.metro && property.metro !== "nan" ? `${property.metro}` : null,
+          description: "Nearest metro station"
+        },
+        {
           icon: FaSchool,
           title: "School",
-          distance: property.school ? `${property.school} km` : null,
+          distance: property.school && property.school !== "nan" ? `${property.school}` : null,
           description: "Top rated schools nearby"
         },
         {
           icon: FaHospital,
           title: "Hospital",
-          distance: property.hospital ? `${property.hospital} km` : null,
+          distance: property.hospital && property.hospital !== "nan" ? `${property.hospital}` : null,
           description: "Major hospitals in vicinity"
         },
         {
           icon: FaBuilding,
           title: "Mall",
-          distance: property.mall ? `${property.mall} km` : null,
+          distance: property.mall && property.mall !== "nan" ? `${property.mall}` : null,
           description: "Shopping malls & centers"
         },
         {
           icon: FaBus,
           title: "Bus Stop",
-          distance: property.bus ? `${property.bus} km` : null,
+          distance: property.bus && property.bus !== "nan" ? `${property.bus}` : null,
           description: "Public transport access"
         },
         {
           icon: FaUtensils,
           title: "Restaurant",
-          distance: property.restaurant ? `${property.restaurant} km` : null,
+          distance: property.restaurant && property.restaurant !== "nan" ? `${property.restaurant}` : null,
           description: "Dining options available"
         },
         {
           icon: FaFilm,
           title: "Cinema",
-          distance: property.cinema ? `${property.cinema} km` : null,
+          distance: property.cinema && property.cinema !== "nan" ? `${property.cinema}` : null,
           description: "Entertainment nearby"
         }
-      ].filter(place => place.distance && place.distance !== "null km");
+      ].filter(place => place.distance && place.distance !== "null ");
     
       const handleToggleAmenities = useCallback(() => {
         setShowAllAmenities(prev => !prev);
@@ -228,8 +233,95 @@ function AdminAmenties({property}) {
             </section>
           </div>
           <section className="unique-loan-calc-p45 admin_calculator">
-            <EmiCalculator property={property} />
-            <img src='/homeload.png' id='adminamenties_adv'></img>
+            {/* <EmiCalculator property={property} /> */}
+            {/* <img src='/homeload.png' id='adminamenties_adv'></img> */}
+            {(() => {
+              let loanAmount;
+              console.log('Original price:', property.price);
+              console.log('Purpose:', property.purpose);
+
+              if (property.purpose === 'rent') {
+                loanAmount = "10000000"; // 1 crore for rent
+              } else {
+                // For sale properties
+                if (typeof property.price === 'string') {
+                  // Remove currency symbol and clean the string
+                  let processedPrice = property.price
+                    .replace(/[^\d.\-CrLcrl\s]/g, '') // Remove everything except numbers, dots, Cr, L and spaces
+                    .replace(/\s+/g, '')  // Remove all spaces
+                    .trim();
+                  
+                  console.log('Processed price:', processedPrice);
+
+                  if (processedPrice.includes('-')) {
+                    const priceRange = processedPrice.split('-');
+                    console.log('Price range parts:', priceRange);
+
+                    const values = priceRange.map(price => {
+                      price = price.trim();
+                      console.log('Processing price part:', price);
+                      
+                      // Extract number and unit
+                      const numMatch = price.match(/(\d+\.?\d*)/);
+                      const number = numMatch ? parseFloat(numMatch[0]) : 0;
+                      
+                      if (price.toLowerCase().includes('cr')) {
+                        console.log('Crore value:', number * 10000000);
+                        return number * 10000000;
+                      } else if (price.toLowerCase().includes('l')) {
+                        console.log('Lakh value:', number * 100000);
+                        return number * 100000;
+                      }
+                      return number;
+                    }).filter(val => !isNaN(val) && val > 0);
+
+                    console.log('Calculated values:', values);
+                    loanAmount = String(Math.max(...values));
+                  } else {
+                    // Single value handling
+                    const numMatch = processedPrice.match(/(\d+\.?\d*)/);
+                    const number = numMatch ? parseFloat(numMatch[0]) : 0;
+                    
+                    if (processedPrice.toLowerCase().includes('cr')) {
+                      loanAmount = String(number * 10000000);
+                    } else if (processedPrice.toLowerCase().includes('l')) {
+                      loanAmount = String(number * 100000);
+                    } else {
+                      loanAmount = String(number);
+                    }
+                  }
+                } else {
+                  // Fallback for non-string price
+                  if (property.pricerange === 'Crore') {
+                    loanAmount = String(property.price * 10000000);
+                  } else if (property.pricerange === 'Lakh') {
+                    loanAmount = String(property.price * 100000);
+                  } else {
+                    loanAmount = String(property.price);
+                  }
+                }
+              }
+
+              // Ensure we have a valid number, otherwise default to a reasonable value
+              if (!loanAmount || isNaN(parseFloat(loanAmount))) {
+                console.log('Invalid loan amount, defaulting to 10000000');
+                loanAmount = "10000000"; // Default to 1 crore if parsing fails
+              }
+
+              console.log('Final loan amount:', loanAmount);
+              const downPayment = String(parseFloat(loanAmount) * 0.2);
+              console.log('Down payment:', downPayment);
+
+              return (
+                <EmiCalculator 
+                  defaultLoanAmount={loanAmount}
+                  defaultDownPayment={downPayment}
+                  defaultInterestRate="8.5"
+                  defaultLoanTenure="20"
+                  defaultTenureType="Years"
+                />
+              );
+            })()}
           </section>
         </div></>
   )

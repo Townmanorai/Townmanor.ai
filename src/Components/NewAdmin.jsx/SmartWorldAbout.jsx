@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaStar } from 'react-icons/fa';
+import { FaStar, FaWhatsapp } from 'react-icons/fa';
 import './SmartWorldAbout.css';
 
 const SmartWorldAbout = ({ property }) => {
@@ -30,7 +30,7 @@ const SmartWorldAbout = ({ property }) => {
       </div>
 
       <div className="smartWorldUnique__rightCard">
-        <div className="smartWorldUnique__agentTitle">Property Details</div>
+        <div className="smartWorldUnique__agentTitle">Agent on Spotlight</div>
         <div className="smartWorldUnique__agentBadge">{property.Listed_By || 'Premium'}</div>
         <div className="smartWorldUnique__agentInfo">
           <img
@@ -39,22 +39,18 @@ const SmartWorldAbout = ({ property }) => {
             className="smartWorldUnique__agentImg"
           />
           <div className="smartWorldUnique__agentDetails">
-            <div className="smartWorldUnique__agentName">{property.property_name}</div>
-            <div className="smartWorldUnique__agentGroup">{property.locality}, {property.city}</div>
-            <div className="smartWorldUnique__agentRERA">RERA ID: {property.rera_id || 'N/A'}</div>
+            <div className="smartWorldUnique__agentName">Townmanor Infratech pvt Limited</div>
+            <div className="smartWorldUnique__agentGroup">Noida</div>
+            <div className="smartWorldUnique__agentRERA">RERA ID: UPRERAAGT26073</div>
           </div>
         </div>
         <div className="smartWorldUnique__agentStats">
-          <div>
-            <strong>{property.configuration}</strong><br />CONFIGURATION
-          </div>
-          <div>
-            <strong>{property.construction_status}</strong><br />STATUS
-          </div>
+         
         </div>
         <div className="smartWorldUnique__agentButtons">
-          <button className="smartWorldUnique__profileBtn">Download Brochure</button>
-          <button className="smartWorldUnique__propertyBtn">Contact Agent</button>
+          <button className="smartWorldUnique__profileBtn">+91 7042888903</button>
+         <a href='https://wa.me/+917042888903'><button className="smartWorldUnique__propertyBtn"><FaWhatsapp size={20} />
+          Connect on Whatsapp</button></a> 
         </div>
       </div>
     </div>

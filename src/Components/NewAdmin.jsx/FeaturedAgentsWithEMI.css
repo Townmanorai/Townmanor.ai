@@ -110,15 +110,16 @@
   }
   
   .agentEmiUnique__buttons button:first-child {
-    background: #d32f2f;
-    color: white;
-    border: none;
+    
+      /* background: #d32f2f; */
+      background: transparent !important;
+      color: black;
+  
   }
   
   .agentEmiUnique__buttons button:hover {
-    background: #c62828;
-    color: white;
-    border-color: #c62828;
+   
+    color: #d32f2f;
   }
   
   /* Swiper Navigation Styles */

@@ -10,6 +10,7 @@ import ServiceCardSection from '../ownerpage/ServiceCardSection'
 import PropertySuggestionSection from '../ownerpage/PropertySuggestionSection'
 import CommentsComponent from '../ownerpage/CommentsComponent'
 import { useParams } from 'react-router-dom'
+import AdminSuggestion from './AdminSuggestion'
 
 function MainAdmin() {
   const [property, setProperty] = useState(null);
@@ -50,9 +51,11 @@ function MainAdmin() {
    <SmartWorldAbout property={property}/>
    <FeaturedAgentsWithEMI property={property}/>
    <AdminAmenties property={property}/>
-   <PropertiesToggleView property={property}/>
+   <PropertiesToggleView propertyName = {property.property_name}/>
    <ServiceCardSection property/>
-   <PropertySuggestionSection property={property}/>
+   <AdminSuggestion city={property.city}/>
+   {/* <PropertySuggestionSection property={property}/> */}
+  
    <CommentsComponent property={property}/>
    </>
   )

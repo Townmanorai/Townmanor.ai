@@ -1,22 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaRedo } from "react-icons/fa";
 import { PieChart, Pie, Cell, Legend, ResponsiveContainer } from "recharts";
 import "./calculator.css";
 
-const EmiCalculator = () => {
-  const [loanAmount, setLoanAmount] = useState("");
-  const [downPayment, setDownPayment] = useState("");
-  const [interestRate, setInterestRate] = useState("");
-  const [loanTenure, setLoanTenure] = useState("");
-  const [tenureType, setTenureType] = useState("Years");
+const EmiCalculator = ({
+  defaultLoanAmount = "",
+  defaultDownPayment = "",
+  defaultInterestRate = "",
+  defaultLoanTenure = "",
+  defaultTenureType = "Years"
+}) => {
+  const [loanAmount, setLoanAmount] = useState(defaultLoanAmount);
+  const [downPayment, setDownPayment] = useState(defaultDownPayment);
+  const [interestRate, setInterestRate] = useState(defaultInterestRate);
+  const [loanTenure, setLoanTenure] = useState(defaultLoanTenure);
+  const [tenureType, setTenureType] = useState(defaultTenureType);
   const [emiResult, setEmiResult] = useState(null);
 
-  const handleCalculateEMI = () => {
+  const calculateEMI = () => {
     const totalAmount = parseFloat(loanAmount);
     const downPaymentAmount = parseFloat(downPayment) || 0;
     const principal = totalAmount - downPaymentAmount;
     const annualRate = parseFloat(interestRate);
     let tenure = parseFloat(loanTenure);
+
+    // Return early if any required value is missing or invalid
+    if (!totalAmount || !annualRate || !tenure) {
+      return;
+    }
 
     if (tenureType === "Years") {
       tenure *= 12;
@@ -30,6 +41,17 @@ const EmiCalculator = () => {
     const totalInterest = totalPayment - principal;
 
     setEmiResult({ emi, principal, totalInterest, downPayment: downPaymentAmount });
+  };
+
+  useEffect(() => {
+    // Calculate EMI on mount if default values are provided
+    if (defaultLoanAmount && defaultInterestRate && defaultLoanTenure) {
+      calculateEMI();
+    }
+  }, []); // Run once on component mount
+
+  const handleCalculateEMI = () => {
+    calculateEMI();
   };
 
   const handleReset = () => {
@@ -117,7 +139,7 @@ const EmiCalculator = () => {
             <p className="emi-calculator-result-text">Total Interest: ₹{emiResult.totalInterest.toFixed(2)}</p>
 
             <div className="emi-calculator-donut-chart-wrapper">
-              <ResponsiveContainer width="100%" height={250}>
+              <ResponsiveContainer width="100%" height={280}>
                 <PieChart>
                   <Pie
                     dataKey="value"

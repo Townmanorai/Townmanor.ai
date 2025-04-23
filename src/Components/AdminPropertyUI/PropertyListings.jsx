@@ -488,7 +488,7 @@ const PropertyListings = () => {
             ) : currentProperties.length > 0 ? (
               currentProperties.map((property) => (
                 <div key={property.id} className="realty-card" onClick={()=>{
-                  navigate(`/property/${property.id}`)
+                  navigate(`/newadminpage/${property.id}`)
                 }}>
                   <div className="realty-img-container">
                     {/* <img

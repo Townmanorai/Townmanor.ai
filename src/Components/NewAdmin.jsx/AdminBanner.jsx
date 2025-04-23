@@ -4,6 +4,7 @@ import { IoClose } from "react-icons/io5";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 import axios from 'axios';
 import './adminbanner.css'
+import { MdEmail, MdPhone } from 'react-icons/md';
 
 function AdminBanner({ property }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -401,6 +402,19 @@ function AdminBanner({ property }) {
         </div>
       </div>
     )}
+      <div className="contact-wrap-holder">
+          <div className="static-contact-info">
+            <div className="info-label-head">Townmanor Infratech LLP</div>
+            <div className="slide-content-block">
+              <MdEmail className="icon-contact-symbol" />
+              <span className="info-label-text">Support@townmanor.ai</span>
+            </div>
+            <div className="slide-content-block">
+              <MdPhone className="icon-contact-symbol" />
+              <span className="info-label-text">+91 7042888903</span>
+            </div>
+          </div>
+        </div>
    </>
   )
 }

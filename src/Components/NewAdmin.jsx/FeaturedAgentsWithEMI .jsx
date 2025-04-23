@@ -6,25 +6,53 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "./FeaturedAgentsWithEMI.css";
 
-const FeaturedAgentsWithEMI = ({ property }) => {
-    // Create a default agent based on property data
-    const defaultAgent = {
-        name: property.Listed_By || 'Property Agent',
-        group: property.property_name,
-        rating: '4.5',
-        reviews: '10',
-        location: `${property.locality}, ${property.city}`,
-        image: '/Agent.png'
-    };
-
-    // For now, we'll use the default agent. In a real app, you might fetch agents from an API
-    const agents = [defaultAgent];
+const FeaturedAgentsWithEMI = () => {
+    // Static agents data
+    const agents = [
+        {
+            name: 'Townmanor',
+            group: 'TownManor Infratech LLP ',
+            rating: '4.5',
+            reviews: '10',
+            location: 'Noida , Up',
+            image: '/infratech2.png',
+            verified: true
+        },
+        {
+            name: 'Your Name Here',
+            group: 'Become a Top Agent',
+            rating: null,
+            reviews: null,
+            location: 'Your city',
+            image: '/dummyagent.jpg',
+            verified: false
+        },
+        {
+            name: 'Your Name Here',
+            group: 'Join as Top Agent',
+            rating: null,
+            reviews: null,
+            location: 'Your City',
+            image: '/dummyagent.jpg',
+            verified: false
+        },
+        {
+            name: 'Your Name Here',
+            group: 'Join as Top Agent',
+            rating: null,
+            reviews: null,
+            location: 'Your City',
+            image: '/dummyagent.jpg',
+            verified: false
+        }
+    ];
 
     return (
         <div className="agentEmiUnique__wrapper">
             <div className="agentEmiUnique__agentSection">
-                <h3 className="agentEmiUnique__title">Property Contact</h3>
-                <p className="agentEmiUnique__subtitle">Get in touch with the property representative</p>
+                <h3 className="agentEmiUnique__title">Featured Agent</h3>
+                <p className="agentEmiUnique__subtitle">Get in touch with the Top Agents</p>
+                
                 <Swiper
                     modules={[Navigation]}
                     spaceBetween={20}
@@ -35,11 +63,11 @@ const FeaturedAgentsWithEMI = ({ property }) => {
                             spaceBetween: 10
                         },
                         768: {
-                            slidesPerView: 1,
+                            slidesPerView: 2,
                             spaceBetween: 20
                         },
                         1024: {
-                            slidesPerView: 1,
+                            slidesPerView: 3,
                             spaceBetween: 20
                         }
                     }}
@@ -47,20 +75,31 @@ const FeaturedAgentsWithEMI = ({ property }) => {
                 >
                     {agents.map((agent, index) => (
                         <SwiperSlide key={index}>
-                            <div className="agentEmiUnique__card">
+                            <div className={`agentEmiUnique__card ${!agent.verified ? 'agentEmiUnique__card--dummy' : ''}`}>
                                 <img src={agent.image} alt={agent.name} className="agentEmiUnique__avatar" />
                                 <h4 className="agentEmiUnique__name">{agent.name}</h4>
                                 <div className="agentEmiUnique__group">{agent.group}</div>
-                                <div className="agentEmiUnique__rating">
-                                    <FaStar color="#f4c150" /> {agent.rating} - {agent.reviews} reviews
-                                </div>
+                                {agent.verified ? (
+                                    <>
+                                        <div className="agentEmiUnique__rating">
+                                            <FaStar color="#f4c150" /> {agent.rating} - {agent.reviews} reviews
+                                        </div>
+                                        {/* <div className="agentEmiUnique__verified">✅ Verified Contact</div> */}
+                                        <div className="agentEmiUnique__buttons">
+                                            <button>+91 7042888903</button>
+                                            <a href='https://wa.me/+917042888903'><button>Contact Now</button></a>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <>
+                                        <div className="agentEmiUnique__joinText">Join us and feature your profile here!</div>
+                                        <div className="agentEmiUnique__buttons">
+                                            <button>Join Now</button>
+                                        </div>
+                                    </>
+                                )}
                                 <div className="agentEmiUnique__location">
                                     <FaMapMarkerAlt /> {agent.location}
-                                </div>
-                                <div className="agentEmiUnique__verified">✅ Verified Contact</div>
-                                <div className="agentEmiUnique__buttons">
-                                    <button>View Details</button>
-                                    <button>Contact Now</button>
                                 </div>
                             </div>
                         </SwiperSlide>
@@ -88,7 +127,6 @@ const FeaturedAgentsWithEMI = ({ property }) => {
 
                     <button className="agentEmiUnique__sendBtn">Send</button>
                 </div>
-            
             </div>
         </div>
     );

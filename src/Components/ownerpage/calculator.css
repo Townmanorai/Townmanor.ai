@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    padding: 1rem;
    
     min-height: fit-content;
     font-family: Arial, sans-serif;
@@ -10,7 +10,7 @@
   
   .emi-calculator-form-wrapper {
     background-color: #ffffff;
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 16px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
     width: 100%;
@@ -27,7 +27,7 @@
   
   .emi-calculator-input-box {
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.25rem;
     border: 1px solid #cccccc;
     border-radius: 8px;
     margin-bottom: 1.25rem;
@@ -101,7 +101,9 @@
     border-radius: 12px;
     text-align: center;
   }
-  
+  .emi-calculator-title-heading{
+    margin-bottom: 0px;
+  }
   .emi-calculator-result-heading {
     margin-bottom: 0.5rem;
     color: #2b2f4c;

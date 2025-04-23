@@ -3,7 +3,7 @@
   justify-content: space-between;
   padding: 30px 20px;
   font-family: Arial, sans-serif;
-  background-color: #fff;
+  /* background-color: #fff; */
   max-width: 1600px;
   margin: 20px auto;
 }
@@ -14,8 +14,8 @@
 }
 
 .smartWorldUnique__title {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 22px;
+  font-weight: 500;
   margin-bottom: 12px;
 }
 
@@ -55,7 +55,7 @@
 }
 
 .smartWorldUnique__agentTitle {
-  font-weight: bold;
+  font-weight: 500;
   font-size: 16px;
   margin-bottom: 8px;
 }
@@ -90,9 +90,9 @@
   font-size: 14px;
 }
 
-.smartWorldUnique__agentName {
+/* .smartWorldUnique__agentName {
   font-weight: bold;
-}
+} */
 
 .smartWorldUnique__agentGroup {
   color: #555;
@@ -114,6 +114,7 @@
 .smartWorldUnique__agentButtons {
   display: flex;
   gap: 10px;
+  justify-content: center;
 }
 
 .smartWorldUnique__profileBtn {
@@ -126,13 +127,14 @@
 }
 
 .smartWorldUnique__propertyBtn {
-  background-color: #d60000;
-  color: #fff;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
+    /* background-color: #d60000; */
+    background: transparent;
+    color: green;
+ 
+    border: 1px solid black;
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-size: 14px;
 }
 /* Responsive Styles */
 @media (max-width: 1024px) {

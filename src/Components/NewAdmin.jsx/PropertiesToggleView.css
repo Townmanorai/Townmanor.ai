@@ -7,23 +7,25 @@
   .propertyToggleUnique__tabs {
     display: flex;
     gap: 20px;
-    margin: 15px 0;
-    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
     padding-bottom: 10px;
   }
   
   .propertyToggleUnique__tabs button {
-    padding: 10px 25px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    font-weight: 500;
+    padding: 10px 30px;
     font-size: 16px;
+    font-weight: 600;
     color: #666;
+    background: none;
+    border: none;
+    cursor: pointer;
     position: relative;
     transition: all 0.3s ease;
   }
-  
+  .propertyToggleUnique__main{
+    width: 100%;
+  }
   .propertyToggleUnique__tabs button:hover {
     color: #e23e57;
   }
@@ -35,7 +37,7 @@
   .propertyToggleUnique__tabs button.active::after {
     content: '';
     position: absolute;
-    bottom: -11px;
+    bottom: -12px;
     left: 0;
     width: 100%;
     height: 2px;
@@ -80,7 +82,7 @@
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    height: 400px;
+    height: 420px;
     display: flex;
     flex-direction: column;
     margin: 5px;
@@ -207,6 +209,143 @@
   
     .propertyToggleUnique__imageRight img {
       height: 250px;
+    }
+  }
+  
+  .propertyToggleUnique__noData {
+    text-align: center;
+    padding: 40px 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+  
+  .propertyToggleUnique__noData h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+  
+  .propertyToggleUnique__noData p {
+    color: #666;
+    font-size: 16px;
+  }
+  
+  .propertyToggleUnique__loading {
+    text-align: center;
+    padding: 40px 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+  
+  .propertyToggleUnique__loading h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 24px;
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.6;
+    }
+  }
+  
+  .propertyToggleUnique__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .propertyToggleUnique__swiper {
+    padding: 20px 10px 40px 10px !important;
+  }
+  
+  .swiper-pagination {
+    bottom: 0 !important;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #e23e57 !important;
+    background: white;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 20px !important;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: #e23e57 !important;
+  }
+  
+  .propertyToggleUnique__filters {
+    margin-bottom: 30px;
+  }
+  
+  .propertyToggleUnique__bhkFilters {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .propertyToggleUnique__bhkFilters button {
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .propertyToggleUnique__bhkFilters button:hover {
+    background: #eee;
+  }
+  
+  .propertyToggleUnique__bhkFilters button.active {
+    background: #e23e57;
+    color: white;
+    border-color: #e23e57;
+  }
+  
+  @media (max-width: 768px) {
+    .propertyToggleUnique__filters {
+      margin-bottom: 20px;
+    }
+  
+    .propertyToggleUnique__tabs {
+      gap: 10px;
+    }
+  
+    .propertyToggleUnique__tabs button {
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+  
+    .propertyToggleUnique__bhkFilters {
+      gap: 10px;
+    }
+  
+    .propertyToggleUnique__bhkFilters button {
+      padding: 6px 15px;
+      font-size: 13px;
     }
   }
   
