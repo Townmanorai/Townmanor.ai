@@ -318,8 +318,8 @@
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 9999px;
-  font-weight: 500;
-  font-size: 1.125rem;
+  font-weight: 400;
+  font-size: 1rem;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   border: none;
@@ -340,8 +340,8 @@
   border: 1px solid #eb2525;
   padding: 0rem 1rem;
   border-radius: 9999px;
-  font-weight: 500;
-  font-size: 1.125rem;
+  font-weight: 400;
+  font-size: 1rem;
   transition: all 0.3s ease;
   cursor: pointer;
   white-space: nowrap;
@@ -608,12 +608,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
+  padding: 0rem;
 }
 
 .modal-header h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 500;
   color: #111827;
 }
 
@@ -736,8 +737,8 @@
 /* Join Waitlist Sticker */
 .join-waitlist-sticker {
   position: absolute;
-  top: 20px;
-  right: -47px;
+  top: 30px;
+  right: -40px;
   background: linear-gradient(to right, #0066ff, #003380);
   color: white;
   padding: 5px 40px;

@@ -5,6 +5,7 @@ import { RxCross2 } from "react-icons/rx";
 
 function Coliving_space() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
@@ -12,6 +13,10 @@ function Coliving_space() {
   // Handle modal open/close
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+  
+  // Handle info modal open/close
+  const openInfoModal = () => setIsInfoModalOpen(true);
+  const closeInfoModal = () => setIsInfoModalOpen(false);
   
   // Handle form submission
   const handleFormSubmit = (e) => {
@@ -52,7 +57,7 @@ function Coliving_space() {
               <button className="coliving-primary-btn" onClick={openModal}>
                 Join the Waitlist
               </button>
-              <button className="coliving-secondary-btn">
+              <button className="coliving-secondary-btn" onClick={openInfoModal}>
                 Learn More
               </button>
             </div>
@@ -78,6 +83,9 @@ function Coliving_space() {
                   src="https://readdy.ai/api/search-image?query=Modern%20co-living%20shared%20apartment%20with%20communal%20kitchen%20and%20living%20space%2C%20stylish%20furniture%2C%20plants%2C%20and%20warm%20lighting%2C%20showing%20multiple%20private%20rooms%20connected%20to%20common%20areas%2C%20clean%20and%20contemporary%20design&width=600&height=400&seq=coliving-1&orientation=landscape"
                   alt="Co-Living Spaces"
                 />
+                <div className="join-waitlist-sticker">
+                  <span>Join Waitlist!</span>
+                </div>
               </div>
               <div className="coliving-card-content">
                 <div className="coliving-card-header">
@@ -103,7 +111,7 @@ function Coliving_space() {
                     <span>Community events and activities</span>
                   </li>
                 </ul>
-                <button className="coliving-link-btn blue">
+                <button className="coliving-link-btn blue" onClick={openInfoModal}>
                   Learn more <FaArrowRight className="arrow-icon" />
                 </button>
               </div>
@@ -116,7 +124,7 @@ function Coliving_space() {
                   src="https://readdy.ai/api/search-image?query=Modern%20PG%20accommodation%20with%20private%20bedroom%2C%20study%20desk%2C%20comfortable%20bed%2C%20and%20basic%20amenities%2C%20showing%20a%20compact%20but%20well-designed%20living%20space%20with%20storage%20solutions%2C%20clean%20and%20functional%20interior%20design&width=600&height=400&seq=pg-2&orientation=landscape"
                   alt="PG Comforts"
                 />
-                <div className="join-waitlist-sticker" onClick={openModal}>
+                <div className="join-waitlist-sticker">
                   <span>Join Waitlist!</span>
                 </div>
               </div>
@@ -144,7 +152,7 @@ function Coliving_space() {
                     <span>Meals and laundry options</span>
                   </li>
                 </ul>
-                <button className="coliving-link-btn purple">
+                <button className="coliving-link-btn purple" onClick={openInfoModal}>
                   Learn more <FaArrowRight className="arrow-icon" />
                 </button>
               </div>
@@ -157,6 +165,9 @@ function Coliving_space() {
                   src="https://readdy.ai/api/search-image?query=Luxury%20studio%20apartment%20with%20modern%20minimalist%20design%2C%20full%20kitchenette%2C%20sleeping%20area%2C%20and%20living%20space%20in%20one%20open%20concept%20room%2C%20large%20windows%20with%20natural%20light%2C%20high-end%20finishes%2C%20and%20smart%20home%20features%2C%20elegant%20and%20sophisticated&width=600&height=400&seq=suite-3&orientation=landscape"
                   alt="Studio & Suites"
                 />
+                <div className="coming-soon-sticker">
+                  <span>Opening Very Soon!</span>
+                </div>
               </div>
               <div className="coliving-card-content">
                 <div className="coliving-card-header">
@@ -182,7 +193,7 @@ function Coliving_space() {
                     <span>Premium furnishings and amenities</span>
                   </li>
                 </ul>
-                <button className="coliving-link-btn teal">
+                <button className="coliving-link-btn teal" onClick={openInfoModal}>
                   Learn more <FaArrowRight className="arrow-icon" />
                 </button>
               </div>
@@ -243,6 +254,26 @@ function Coliving_space() {
               </div>
               <button type="submit" className="submitbutton_">Submit</button>
             </form>
+          </div>
+        </div>
+      )}
+      
+      {/* Info Modal for "Coming Soon" */}
+      {isInfoModalOpen && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h2>Coming Soon!</h2>
+              <button onClick={closeInfoModal}><RxCross2/></button>
+            </div>
+            <div className="info-modal-content">
+              <p>We're working hard to bring you more information about our living options.</p>
+              <p>Please join our waitlist to receive updates when more details become available.</p>
+              <button onClick={() => {
+                closeInfoModal();
+                setTimeout(() => openModal(), 300);
+              }} className="submitbutton_">Join Waitlist</button>
+            </div>
           </div>
         </div>
       )}
