@@ -206,7 +206,9 @@ const PropertiesToggleView = ({ propertyName }) => {
           {renderMainContent()}
         </div>
         <div className="propertyToggleUnique__imageRight">
-          <img src="/rentagreement.png" alt="Property Agreement" />
+          <img src="/rentagreement.png" alt="Property Agreement" onClick={()=>{
+            handleNavigate('https://townmanor.ai/rentagreements')
+          }}/>
         </div>
       </div>
     </div>

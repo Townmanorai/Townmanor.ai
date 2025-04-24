@@ -5,6 +5,7 @@ import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 import axios from 'axios';
 import './adminbanner.css'
 import { MdEmail, MdPhone } from 'react-icons/md';
+import AdminPdf from './AdminPdf';
 
 function AdminBanner({ property }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -71,9 +72,16 @@ function AdminBanner({ property }) {
     }
   }, [isModalOpen]);
 
+  // Helper function to check if value is valid (not nan)
+  const isValidValue = (value) => {
+    if (!value) return false;
+    if (typeof value === 'string' && value.toLowerCase() === 'nan') return false;
+    return true;
+  };
+
   // Format price to handle special characters
   const formatPrice = (price) => {
-    if (!price) return 'Price on Request';
+    if (!isValidValue(price)) return 'Price on Request';
     // Replace HTML encoded rupee symbol with ₹
     return price.replace('â‚¹', '₹').replace('  ', ' ').trim();
   };
@@ -182,7 +190,7 @@ function AdminBanner({ property }) {
    <>
     <div className="adminBannerUnique__container">
       <div className="adminBannerUnique__breadcrumbs">
-        Home / {property.city} / <span>{property.property_name}</span>
+        Home / {isValidValue(property.city) ? property.city : ''} / <span>{property.property_name}</span>
       </div>
 
       <div className="adminBannerUnique__main">
@@ -212,7 +220,7 @@ function AdminBanner({ property }) {
           <div className="adminBannerUnique__pricing">
             <p>Quoted Price</p>
             <h3>{formatPrice(property.price)}</h3>
-            {property.maintenance_charge && (
+            {isValidValue(property.maintenance_charge) && (
               <>
                 <p>Maintenance Charge</p>
                 <h4>{property.maintenance_charge}</h4>
@@ -221,13 +229,17 @@ function AdminBanner({ property }) {
           </div>
           <h2 className="adminBannerUnique__title">{property.property_name}</h2>
           <div className="adminBannerUnique__address">
-            <div className="adminBannerUnique__addressMain">
-              <FaMapMarkerAlt className="adminBannerUnique__addressIcon" />
-              <span>{property.address}</span>
-            </div>
+            {isValidValue(property.address) && (
+              <div className="adminBannerUnique__addressMain">
+                <FaMapMarkerAlt className="adminBannerUnique__addressIcon" />
+                <span>{property.address}</span>
+              </div>
+            )}
             <div className="adminBannerUnique__addressDetails">
-              <span><FaBed /> {property.configuration}</span>
-              {property.area_detail && (
+              {isValidValue(property.configuration) && (
+                <span><FaBed /> {property.configuration}</span>
+              )}
+              {isValidValue(property.area_detail) && (
                 <span><FaRulerCombined /> {property.area_detail}</span>
               )}
             </div>
@@ -236,7 +248,7 @@ function AdminBanner({ property }) {
           <div className="adminBannerUnique__buttons">
             <button><FaHeart /> Favorite</button>
             <button><FaShareAlt /> Share</button>
-            <button>📄 Brochure</button>
+            <AdminPdf property={property} />
           </div>
 
           <button className="adminBannerUnique__cta" onClick={handleShowInterest}>Show Interest</button>
@@ -245,27 +257,37 @@ function AdminBanner({ property }) {
       </div>
 
       <div className="adminBannerUnique__infoCards">
-        <div className="adminBannerUnique__infoCard">
-          <span className="adminBannerUnique__infoLabel">Project Type</span>
-          <strong className="adminBannerUnique__infoValue">{property.category || 'N/A'}</strong>
-        </div>
-        <div className="adminBannerUnique__infoCard">
-          <span className="adminBannerUnique__infoLabel">Project Status</span>
-          <strong className="adminBannerUnique__infoValue">{property.construction_status || 'N/A'}</strong>
-        </div>
-        <div className="adminBannerUnique__infoCard">
-          <span className="adminBannerUnique__infoLabel">Configuration</span>
-          <strong className="adminBannerUnique__infoValue">{property.configuration || 'N/A'}</strong>
-        </div>
-        <div className="adminBannerUnique__infoCard">
-          <span className="adminBannerUnique__infoLabel">Area</span>
-          <strong className="adminBannerUnique__infoValue">{property.area_detail || 'N/A'}</strong>
-        </div>
-        <div className="adminBannerUnique__infoCard">
-          <span className="adminBannerUnique__infoLabel">RERA Number</span>
-          <strong className="adminBannerUnique__infoValue">{property.rera_id || 'N/A'}</strong>
-        </div>
-        {property.Listed_By && (
+        {isValidValue(property.category) && (
+          <div className="adminBannerUnique__infoCard">
+            <span className="adminBannerUnique__infoLabel">Project Type</span>
+            <strong className="adminBannerUnique__infoValue">{property.category}</strong>
+          </div>
+        )}
+        {isValidValue(property.construction_status) && (
+          <div className="adminBannerUnique__infoCard">
+            <span className="adminBannerUnique__infoLabel">Project Status</span>
+            <strong className="adminBannerUnique__infoValue">{property.construction_status}</strong>
+          </div>
+        )}
+        {isValidValue(property.configuration) && (
+          <div className="adminBannerUnique__infoCard">
+            <span className="adminBannerUnique__infoLabel">Configuration</span>
+            <strong className="adminBannerUnique__infoValue">{property.configuration}</strong>
+          </div>
+        )}
+        {isValidValue(property.area_detail) && (
+          <div className="adminBannerUnique__infoCard">
+            <span className="adminBannerUnique__infoLabel">Area</span>
+            <strong className="adminBannerUnique__infoValue">{property.area_detail}</strong>
+          </div>
+        )}
+        {isValidValue(property.rera_id) && (
+          <div className="adminBannerUnique__infoCard">
+            <span className="adminBannerUnique__infoLabel">RERA Number</span>
+            <strong className="adminBannerUnique__infoValue">{property.rera_id}</strong>
+          </div>
+        )}
+        {isValidValue(property.Listed_By) && (
           <div className="adminBannerUnique__infoCard">
             <span className="adminBannerUnique__infoLabel">Listed By</span>
             <strong className="adminBannerUnique__infoValue">{property.Listed_By}</strong>

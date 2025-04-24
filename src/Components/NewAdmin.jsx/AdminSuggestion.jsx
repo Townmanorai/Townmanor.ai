@@ -87,21 +87,33 @@ function AdminSuggestion({ city }) {
                                 </div>
                                 <div className="property-card-text-detail-box">
                                     <div className="property-flat-detail-row">
-                                        <span className="property-flat-bhk-info">{item.configuration}</span>
-                                        <span className="property-flat-price-info">
-                                            {formatPrice(item.price)}
-                                        </span>
+                                        {item.configuration && item.configuration !== 'nan' && (
+                                            <span className="property-flat-bhk-info">{item.configuration}</span>
+                                        )}
+                                        {item.price && item.price !== 'nan' && (
+                                            <span className="property-flat-price-info">
+                                                {formatPrice(item.price)}
+                                            </span>
+                                        )}
                                     </div>
                                     <div className="property-project-subtext-row">
-                                        <span className="property-project-name-text">{item.property_name}</span>
-                                        <span className="property-size-square-text">{item.area_detail}</span>
+                                        {item.property_name && item.property_name !== 'nan' && (
+                                            <span className="property-project-name-text">{item.property_name}</span>
+                                        )}
+                                        {item.area_detail && item.area_detail !== 'nan' && (
+                                            <span className="property-size-square-text">{item.area_detail}</span>
+                                        )}
                                     </div>
-                                    <div className="property-location-row">
-                                        <span className="property-address-text">{item.address}</span>
-                                    </div>
-                                    <div className="property-status-row">
-                                        <span className="property-status-text">{item.construction_status}</span>
-                                    </div>
+                                    {item.address && item.address !== 'nan' && (
+                                        <div className="property-location-row">
+                                            <span className="property-address-text">{item.address}</span>
+                                        </div>
+                                    )}
+                                    {item.construction_status && item.construction_status !== 'nan' && (
+                                        <div className="property-status-row">
+                                            <span className="property-status-text">{item.construction_status}</span>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </SwiperSlide>
@@ -134,21 +146,33 @@ function AdminSuggestion({ city }) {
                                 </div>
                                 <div className="property-card-text-detail-box">
                                     <div className="property-flat-detail-row">
-                                        <span className="property-flat-bhk-info">{item.configuration}</span>
-                                        <span className="property-flat-price-info">
-                                            {formatPrice(item.price)}
-                                        </span>
+                                        {item.configuration && item.configuration !== 'nan' && (
+                                            <span className="property-flat-bhk-info">{item.configuration}</span>
+                                        )}
+                                        {item.price && item.price !== 'nan' && (
+                                            <span className="property-flat-price-info">
+                                                {formatPrice(item.price)}
+                                            </span>
+                                        )}
                                     </div>
                                     <div className="property-project-subtext-row">
-                                        <span className="property-project-name-text">{item.property_name}</span>
-                                        <span className="property-size-square-text">{item.area_detail}</span>
+                                        {item.property_name && item.property_name !== 'nan' && (
+                                            <span className="property-project-name-text">{item.property_name}</span>
+                                        )}
+                                        {item.area_detail && item.area_detail !== 'nan' && (
+                                            <span className="property-size-square-text">{item.area_detail}</span>
+                                        )}
                                     </div>
-                                    <div className="property-location-row">
-                                        <span className="property-address-text">{item.address}</span>
-                                    </div>
-                                    <div className="property-status-row">
-                                        <span className="property-status-text">{item.construction_status}</span>
-                                    </div>
+                                    {item.address && item.address !== 'nan' && (
+                                        <div className="property-location-row">
+                                            <span className="property-address-text">{item.address}</span>
+                                        </div>
+                                    )}
+                                    {item.construction_status && item.construction_status !== 'nan' && (
+                                        <div className="property-status-row">
+                                            <span className="property-status-text">{item.construction_status}</span>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </SwiperSlide>

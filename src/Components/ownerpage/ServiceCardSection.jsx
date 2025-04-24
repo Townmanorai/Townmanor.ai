@@ -6,13 +6,13 @@ import "./ServiceCardSectionStyles.css";
 const cardInfoData = [
   {
     icon: <FaHome size={24} />,
-    title: "Home Loan Estimate",
+    title: "Co-Living Space",
     details: [
-      "50+ Partner Banks Network",
-      "Lowest Interest Rates"
+      "Find Perfect Co-Living Spaces",
+      "Coming Soon to Townmanor"
     ],
-    buttonText: "Get CIBIL-Linked Estimate",
-    url: "/home-loan"
+    buttonText: "Coming Soon",
+    url: "#"
   },
   {
     icon: <FaCouch size={24} />,

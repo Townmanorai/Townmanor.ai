@@ -24,7 +24,7 @@
     transition: all 0.3s ease;
   }
   .propertyToggleUnique__main{
-    width: 100%;
+    width: 70%;
   }
   .propertyToggleUnique__tabs button:hover {
     color: #e23e57;

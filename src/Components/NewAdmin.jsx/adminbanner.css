@@ -145,6 +145,7 @@
     background: #fff;
     border-radius: 5px;
     cursor: pointer;
+    width: fit-content;
     display: inline-flex;
     align-items: center;
     gap: 8px;

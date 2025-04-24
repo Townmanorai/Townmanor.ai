@@ -42,6 +42,7 @@ import "./AdminAmenties.css";
 import EmiCalculator from '../ownerpage/EmiCalculator';
 import Map from '../SearchProperty/Map';
 import PropertyPDF from '../ownerpage/PropertyPDF';
+import AdminPdf from './AdminPdf';
 const amenityIcons = {
   'Air Conditioner': FaFan,
   'Cable TV': FaVideo,
@@ -210,9 +211,10 @@ function AdminAmenties({property}) {
                   >
                     {showAllAmenities ? 'Show Less' : `View all Amenities (${amenities.length})`}
                   </button>
-                  <button className="unique-amenities-btn-download" type="button">
+                  {/* <button className="unique-amenities-btn-download" type="button">
                     <BiDownload /> Download Brochure  
-                  </button>
+                  </button> */}
+                  <AdminPdf property={property} />
                 </div>
               </section>
             )}

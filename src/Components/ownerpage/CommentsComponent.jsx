@@ -62,7 +62,9 @@ const CommentsComponent = ({ propertyName, propertyId }) => {
       setIsSubmitting(false);
     }
   };
-
+  const handleNavigate = (url) => {
+    navigate(url);
+  };
   return (
     <div className="comments-container-wrap">
       <div className="comments-input-section">
@@ -140,6 +142,10 @@ const CommentsComponent = ({ propertyName, propertyId }) => {
           src="/home.png"
           style={{
             width: "100%",
+            cursor:'pointer'
+          }}
+          onClick={()=>{
+            handleNavigate('https://townmanor.ai/homelane');
           }}
           alt="Advertisement"
         />
