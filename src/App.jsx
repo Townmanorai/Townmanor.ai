@@ -94,7 +94,7 @@ import PropertyEditForm from './Components/admindashboard/property/PropertyEditF
 import LoginAdmin from './Components/admindashboard/LoginAdmin';
 import OwnerPage from './Components/ownerpage/OwnerPage';
 import MainAdmin from './Components/NewAdmin.jsx/MainAdmin.jsx';
-
+import RentalListings from './pages/RentalServices/RentalListings';
 
 // Scroll restoration component
 const ScrollRestoration = () => {
@@ -224,7 +224,7 @@ function App() {
               {/* <Route path="/pay-house-tax-online/:stateName" element={<PayHouseTaxOnline />} /> */}
               {/* <Route path="/land-record-verification/:stateName" element={<LandRecordVerification />} /> */}
               {/* <Route path="/rera/:stateName" element={<RERA />} /> */}
-              <Route path="/stateName/:stateName/city/:cityName" element={<CityWise />} />  Example for city route
+              <Route path="/stateName/:stateName/city/:cityName" element={<CityWise />} />  
               <Route path='/proptech' element={<PropTechNews/>}/>
               <Route path='/singleblog/:id' element={<ArticleComponent/>}/>
               <Route path='/adminproperty/:id' element={<PropertyListings/>}/>
@@ -243,6 +243,7 @@ function App() {
               <Route path='/adminlogin' element={<LoginAdmin/>}/>
               <Route path='/newownerpage/:id' element={<OwnerPage/>}/>
               <Route path='/newadminpage/:id' element={<MainAdmin/>}/>
+              <Route path="/rental-listings" element={<RentalListings />} />
             </Routes>
           </main>
           <Footer />
