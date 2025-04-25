@@ -71,7 +71,7 @@ const StateHouseTax = () => {
           <div className="col-xl-8">
             <div className="state-house-tax-heading section-heading" style={{marginBottom:'0px'}}>
               {/* <span>Popular States</span> */}
-              <h3>Explore<b>  properties</b> and other <b>services state</b>  wise</h3>
+              <h3>Your<b>  region </b> - your <b> interests</b>, discover</h3>
             </div>
           </div>
         </div>

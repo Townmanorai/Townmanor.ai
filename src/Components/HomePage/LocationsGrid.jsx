@@ -425,7 +425,7 @@ const LocationsGrid = () => {
           <div className="col-xl-6">
             <div className="section-heading mb-0 pb-0">
               {/* <span>Popular Cities</span> */}
-              <h3>Explore <b>properties</b> cities <b>wise</b></h3>
+              <h3>Discover<b>  real estate</b> options in the <b>city</b>  of <b> your</b> choice</h3>
             </div>
           </div>
         </div>
