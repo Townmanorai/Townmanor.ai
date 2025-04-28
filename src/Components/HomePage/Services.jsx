@@ -217,26 +217,26 @@ const servicesData = [
       </svg>
     ),
   },
-
   {
-    title: "eSign",
-    description: "Secure electronic signature and document verification",
+    title: "E-Sign Documents",
+    description: "Legally valid Aadhaar-based digital signatures for property documents",
     icon: (
       <svg
         width="40"
         height="40"
         viewBox="0 0 40 40"
         fill="none"
-        aria-label="eSign Icon"
+        aria-label="E-Sign Icon"
         role="img"
       >
-        <rect x="8" y="8" width="24" height="24" rx="2" fill="#3B82F6" />
-        <path d="M12 16H28V20H12V16Z" fill="#ffffff" />
-        <path d="M12 22H28V26H12V22Z" fill="#ffffff" />
-        <path d="M12 28H28V32H12V28Z" fill="#ffffff" />
+        <rect x="8" y="8" width="24" height="24" rx="2" fill="#8B5CF6" />
+        <path d="M12 16H28" stroke="#ffffff" strokeWidth="2" />
+        <path d="M12 24H28" stroke="#ffffff" strokeWidth="2" />
+        <path d="M18 16L24 28" stroke="#ffffff" strokeWidth="2" />
       </svg>
     ),
-    
+    link: "https://townmanor.ai/esign",
+    isNew: true,
   },
 
   {

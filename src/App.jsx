@@ -95,6 +95,7 @@ import LoginAdmin from './Components/admindashboard/LoginAdmin';
 import OwnerPage from './Components/ownerpage/OwnerPage';
 import MainAdmin from './Components/NewAdmin.jsx/MainAdmin.jsx';
 import RentalListings from './pages/RentalServices/RentalListings';
+import ESignForm from './Components/ESign/ESignForm';
 
 // Scroll restoration component
 const ScrollRestoration = () => {
@@ -176,6 +177,7 @@ function App() {
               <Route path="/state/:stateName" element={<StateDistricts />} />
               <Route path="/ut/:stateName" element={<StateDistricts />} />
               <Route path="/reraverification" element={<ReraVerificationForm/>} />
+              <Route path="/esign" element={<ESignForm />} />
 
               <Route path="/property-details/:property_name" element={<PropertyListedUserList />} />
               {/* sunny route */}
