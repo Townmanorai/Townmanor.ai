@@ -27,6 +27,15 @@ export function useAuth() {
   return context;
 }
 
+// Helper function to debug cookies
+function logCookies() {
+  console.log('Current cookies:', document.cookie);
+  const cookies = document.cookie.split(';').map(cookie => cookie.trim());
+  console.log('Parsed cookies:', cookies);
+  const jwtCookie = cookies.find(cookie => cookie.startsWith('jwttoken='));
+  console.log('JWT cookie found:', jwtCookie || 'Not found');
+}
+
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -64,7 +73,7 @@ export function AuthProvider({ children }) {
       console.log('Attempting login with username:', username);
       
       // First authenticate with the backend
-      const response = await axios.post('https://www.townmanor.ai/api/api/users/login', {
+      const response = await axios.post('http://localhost:3030/api/users/login', {
         username,
         password
       });
@@ -74,8 +83,10 @@ export function AuthProvider({ children }) {
       if (response.status === 200) {
         // Store the token in cookies
         if (response.data.token) {
-          document.cookie = `jwttoken=${response.data.token}; path=/; secure; samesite=strict`;
+          // Set the token as a cookie
+          document.cookie = `jwttoken=${response.data.token}; path=/; max-age=36000; SameSite=Lax`;
           console.log('JWT token saved to cookies');
+          logCookies(); // Debug cookies
         } else {
           console.warn('No token found in login response');
         }
@@ -140,7 +151,14 @@ export function AuthProvider({ children }) {
         
         if (response.status === 200) {
           console.log('Backend Google authentication successful');
-          // JWT token is set as cookie by the backend
+          // Set the token as a cookie if it exists in the response
+          if (response.data.token) {
+            document.cookie = `jwttoken=${response.data.token}; path=/; max-age=36000; SameSite=Lax`;
+            console.log('JWT token saved to cookies');
+            logCookies(); // Debug cookies
+          } else {
+            console.warn('No token found in Google login response');
+          }
         } else {
           console.error('Backend Google authentication failed:', response);
           throw new Error('Google sign-in verification failed');
@@ -253,8 +271,13 @@ export function AuthProvider({ children }) {
   // Logout function
   async function logout() {
     try {
-      // Clear the JWT token cookie
-      document.cookie = 'jwttoken=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+      // Clear the JWT token cookie more thoroughly
+      document.cookie = 'jwttoken=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax';
+      document.cookie = 'jwttoken=; path=/api; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax';
+      document.cookie = 'jwttoken=; domain=.townmanor.ai; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax';
+      
+      console.log('JWT cookie cleared');
+      logCookies(); // Debug cookies after clearing
       
       // Sign out from Firebase
       await signOut(auth);
@@ -271,6 +294,9 @@ export function AuthProvider({ children }) {
       console.log('Auth State Changed:', user);
       setCurrentUser(user);
       setLoading(false);
+      
+      // Check if we have a JWT token cookie
+      logCookies();
     });
 
     return unsubscribe;

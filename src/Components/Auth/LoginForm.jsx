@@ -178,6 +178,9 @@ const LoginForm = () => {
           // Set the token in cookies with proper attributes
           document.cookie = `jwttoken=${data.token}; path=/; secure; samesite=strict`;
           console.log('JWT token saved to cookies');
+          
+          // Debug cookies
+          console.log('Current cookies after login:', document.cookie);
         } else {
           console.warn('No token found in login response');
         }
