@@ -186,7 +186,7 @@ const LoginForm = () => {
         }
         
         toast.success('Login successful!');
-        // navigate('/dashboard');
+        navigate('/dashboard');
       } else {
         setError(data.message || 'Login failed');
         toast.error(data.message || 'Login failed');
