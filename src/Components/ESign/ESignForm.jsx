@@ -30,6 +30,7 @@ const ESignForm = () => {
   const [statusCheckInterval, setStatusCheckInterval] = useState(null);
   const [signStatus, setSignStatus] = useState(null);
   const [uploadProgress, setUploadProgress] = useState(0);
+  const [auditTrailUrl, setAuditTrailUrl] = useState(null);
   
   // Document type options
   const documentTypes = [
@@ -143,25 +144,32 @@ const ESignForm = () => {
       if (data.success) {
         setSignStatus(data.data.status);
         
-        // Handle different statuses
+        // Handle different statuses based on API documentation
         switch (data.data.status) {
+          case 'client_intiated':
+            toast.info('E-Sign process initiated. Waiting for OTP...');
+            break;
+          case 'otp_sent':
+            toast.info('OTP sent to your registered mobile. Please verify.');
+            break;
+          case 'otp_verified':
+            toast.info('OTP verified. E-sign process starting...');
+            break;
+          case 'esign_started':
+            toast.info('E-Sign process in progress...');
+            break;
           case 'esign_completed':
             toast.success('E-Sign process completed successfully!');
             stopStatusCheck();
             getESignReport(id);
+            getAuditTrail(id);
             break;
           case 'esign_failed':
             toast.error('E-Sign process failed. Please try again.');
             stopStatusCheck();
             break;
-          case 'otp_verified':
-            toast.info('OTP verified. Waiting for e-sign completion...');
-            break;
-          case 'otp_sent':
-            toast.info('OTP sent. Please verify to continue the e-sign process.');
-            break;
           default:
-            // Keep checking for other statuses
+            console.log('Unknown status:', data.data.status);
             break;
         }
       } else {
@@ -224,6 +232,33 @@ const ESignForm = () => {
       }
     } catch (err) {
       console.error('Error getting e-sign report:', err);
+    }
+  };
+  
+  // Get audit trail
+  const getAuditTrail = async (id) => {
+    try {
+      const response = await fetch(`${BASE_URL}/audit-trail/${id}`, {
+        method: 'GET',
+        headers: {
+          "Authorization": `Bearer ${BEARER_TOKEN}`,
+          "Content-Type": "application/json"
+        }
+      });
+      
+      const data = await response.json();
+      console.log('E-Sign audit trail:', data);
+      
+      if (data.success && data.data.url) {
+        // Store the audit trail URL for later use
+        setAuditTrailUrl(data.data.url);
+        // Optionally, you can automatically open the audit trail in a new tab
+        // window.open(data.data.url, '_blank');
+      } else {
+        console.error('Error getting audit trail:', data.message);
+      }
+    } catch (err) {
+      console.error('Error getting audit trail:', err);
     }
   };
   
@@ -403,6 +438,21 @@ const ESignForm = () => {
             {signStatus === 'esign_completed' && <p>E-Sign completed successfully!</p>}
             {signStatus === 'esign_failed' && <p>E-Sign failed. Please try again.</p>}
           </div>
+        </div>
+      )}
+      
+      {signStatus === 'esign_completed' && auditTrailUrl && (
+        <div className="esign-audit-trail">
+          <h3>Audit Trail</h3>
+          <p>Download the complete audit trail of the e-sign process:</p>
+          <a 
+            href={auditTrailUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="esign-audit-trail-link"
+          >
+            Download Audit Trail
+          </a>
         </div>
       )}
       
