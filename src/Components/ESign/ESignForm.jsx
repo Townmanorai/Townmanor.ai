@@ -68,6 +68,10 @@ const ESignForm = () => {
     }
   };
 
+  // BEARER_TOKEN and BASE_URL
+  const BEARER_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg";
+  const BASE_URL = 'https://kyc-api.surepass.io/api/v1/esign';
+
   // Initiate e-sign process
   const initiateESign = async () => {
     setLoading(true);
@@ -83,12 +87,11 @@ const ESignForm = () => {
       formDataForUpload.append('aadhaar_number', formData.aadhaarNumber);
       formDataForUpload.append('document_type', formData.documentType);
       
-      // Make API call to initiate e-sign
-      const response = await fetch('https://kyc-api.surepass.io/api/v1/esign/init', {
+      // Make API call to Surepass API
+      const response = await fetch(`${BASE_URL}/init`, {
         method: 'POST',
         headers: {
-          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg',
-          // No Content-Type header here as FormData sets it with boundary
+          "Authorization": `Bearer ${BEARER_TOKEN}`,
         },
         body: formDataForUpload,
         onUploadProgress: (progressEvent) => {
@@ -126,11 +129,11 @@ const ESignForm = () => {
   // Check e-sign status
   const checkESignStatus = async (id) => {
     try {
-      const response = await fetch(`https://kyc-api.surepass.io/api/v1/esign/status/${id}`, {
+      const response = await fetch(`${BASE_URL}/status/${id}`, {
         method: 'GET',
         headers: {
-          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg',
-          'Content-Type': 'application/json'
+          "Authorization": `Bearer ${BEARER_TOKEN}`,
+          "Content-Type": "application/json"
         }
       });
       
@@ -193,11 +196,11 @@ const ESignForm = () => {
   // Get e-sign report
   const getESignReport = async (id) => {
     try {
-      const response = await fetch(`https://kyc-api.surepass.io/api/v1/esign/report/${id}`, {
+      const response = await fetch(`${BASE_URL}/report/${id}`, {
         method: 'POST',
         headers: {
-          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg',
-          'Content-Type': 'application/json'
+          "Authorization": `Bearer ${BEARER_TOKEN}`,
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           categories: ["name_match"]
