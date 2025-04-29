@@ -9,8 +9,8 @@ const CategoriesPresentation = () => {
   const treefields = [
     {
       url: "/category/1",
-      title: "Luxury Villas",
-      thumbnail_url: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283470648-TMb1.webp",
+      title: "Godrej riverine",
+      thumbnail_url: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1745908302433-Golf-View-Luxury-popup.jpg",
     },
     {
       url: "/category/2",
@@ -56,43 +56,43 @@ const CategoriesPresentation = () => {
               {/* React Bootstrap Carousel */}
               <Carousel className="HomeInT_Slider_page">
                 <Carousel.Item onClick={()=>{
-                  handleNavigate('https://www.ats.ind.in/projects-in-noida/ats-pristine-golf-villas-sector-150-noida-expressway/');
+                  handleNavigate('https://www.godrejproperties.com/noida/residential/godrej-riverine');
                 }}
                 style={{
                   cursor:'pointer'
                 }}
                 >
                   <img
-                    className="d-block w-100 img-fluid"
-                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283470648-TMb1.webp"
+                    className="d-block w-100 img-fluid fluidx"
+                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1745908302433-Golf-View-Luxury-popup.jpg"
                     alt="View for rent"
                   />
                 </Carousel.Item>
                 <Carousel.Item
                 onClick={()=>{
-                  handleNavigate('https://www.kalpataru.com/noida/kalpataru-vista');
+                  handleNavigate('https://www.sobhagroup.co/');
                 }}
                 style={{
                   cursor:'pointer'
                 }}
                 >
                   <img
-                    className="d-block w-100 img-fluid"
-                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283470662-TMb2.webp"
+                    className="d-block w-100 img-fluid fluidx"
+                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1745908302431-banner1.jpg"
                     alt="View for rent"
                   />
                 </Carousel.Item>
                 <Carousel.Item
                  onClick={()=>{
-                  handleNavigate('https://www.mahagunindia.com/project/mahagun-manorialle/');
+                  handleNavigate('https://www.bhutanigroup.com/citycenter32/');
                 }}
                 style={{
                   cursor:'pointer'
                 }}
                 >
                   <img
-                    className="d-block w-100 img-fluid"
-                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283470675-TMb3.webp"
+                    className="d-block w-100 img-fluid fluidx"
+                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1745908302427-20241112134035_bhutani-cc-32-images-11.jpg"
                     alt="View for rent"
                   />
                 </Carousel.Item>

@@ -27,7 +27,9 @@ justify-content: center;
 margin-left: 100px;
 text-align: center;
 }
-
+.fluidx{
+    height: 480px !important;
+}
 .project-spotlight {
 font-size: 50px;
 text-transform: uppercase;

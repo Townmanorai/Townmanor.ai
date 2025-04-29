@@ -128,7 +128,7 @@ const TopRentedProperties = () => {
                           <div className="property-location">{property.address}</div>
                           <div className="property-status" style={{ color: '#333' }}>Available for {property.purpose}</div>
                           <div className="action-btn">
-                            <Link to={`https://townmanor.ai/home/${property.id}`}>
+                            <Link to={`https://townmanor.ai/newownerpage/${property.id}`}>
                               <span className="btn-blue medium">View Details</span>
                             </Link>
                           </div>

@@ -1,0 +1,245 @@
+.dashboard_wrap_abxy123 {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    margin-top: 4rem;
+  }
+  
+  .dashboard_navbar_abxy123 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .dashboard_logo_abxy123 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .dashboard_iconlogo_abxy123 {
+    font-size: 28px;
+    color: #d84340;
+  }
+  
+  .dashboard_menu_abxy123 a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    position: relative;
+  }
+  
+  .dashboard_menu_abxy123 a:hover {
+    color: #d84340;
+  }
+  
+  .dashboard_overview_abxy123 {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .overview_card_abxy123 {
+    background: #f9fafb;
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 220px;
+  }
+  
+  .overview_icon_abxy123 {
+    font-size: 28px;
+    color: #d84340;
+  }
+  
+  .dashboard_mainsection_abxy123 {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .dashboard_properties_leads_abxy123 {
+    flex: 2;
+  }
+  
+  .properties_list_abxy123,
+  .leads_list_abxy123 {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  
+  .property_item_abxy123 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .property_info_abxy123 {
+    flex: 1;
+  }
+  
+  .property_status_abxy123 {
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  .property_status_abxy123.active {
+    background: #d1fae5;
+    color: #065f46;
+  }
+  
+  .property_status_abxy123.sold {
+    background: #f3f4f6;
+    color: #6b7280;
+  }
+  
+  .lead_item_abxy123 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .leads_morelink_abxy123 {
+    display: block;
+    margin-top: 10px;
+    color: #d84340;
+    text-align: center;
+  }
+  
+  .dashboard_sidebar_abxy123 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  #dashboard_img{
+    width: 20%;
+    border-radius: 8px;
+  }
+  .agent_card_abxy123,
+  .featured_agent_abxy123,
+  .boosters_section_abxy123 {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .edit_profile_btn_abxy123,
+  .featured_btn_abxy123,
+  .boost_btn_abxy123 {
+    margin-top: 10px;
+    background: #d84340;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .edit_profile_btn_abxy123:hover,
+  .featured_btn_abxy123:hover,
+  .boost_btn_abxy123:hover {
+    background: #4338ca;
+  }
+  .dashboard_sidebar_abxy123 {
+    
+    
+    border-radius: 18px;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    min-width: 320px;
+  }
+  
+  .card_abxy123 {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    width: 100%;
+  }
+  
+  .dashboard_img_profile {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid #e6e6e6;
+  }
+  
+  .dashboard_img_feature,
+  .dashboard_img_boost {
+    width: 150px;
+    height: auto;
+    border-radius: 12px;
+    margin: 10px 0;
+  }
+  
+  .edit_profile_btn_abxy123,
+  .featured_btn_abxy123,
+  .boost_btn_abxy123 {
+    background: #e63946;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 22px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(230,57,70,0.08);
+  }
+  .edit_profile_btn_abxy123:hover,
+  .featured_btn_abxy123:hover,
+  .boost_btn_abxy123:hover {
+    background: #b81c2b;
+  }
+  
+  h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .agent_phone, .agent_location, .featured_status, .booster_info {
+    color: #555;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .dashboard_overview_abxy123 {
+      flex-direction: column;
+    }
+  
+    .dashboard_mainsection_abxy123 {
+      flex-direction: column;
+    }
+  
+    .dashboard_navbar_abxy123 {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+  

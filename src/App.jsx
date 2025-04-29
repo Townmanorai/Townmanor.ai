@@ -96,6 +96,7 @@ import OwnerPage from './Components/ownerpage/OwnerPage';
 import MainAdmin from './Components/NewAdmin.jsx/MainAdmin.jsx';
 import RentalListings from './pages/RentalServices/RentalListings';
 import ESignForm from './Components/ESign/ESignForm';
+import DashboardComponent from './Components/userdashboard/DashboardComponent.jsx';
 
 // Scroll restoration component
 const ScrollRestoration = () => {
@@ -246,6 +247,7 @@ function App() {
               <Route path='/newownerpage/:id' element={<OwnerPage/>}/>
               <Route path='/newadminpage/:id' element={<MainAdmin/>}/>
               <Route path="/rental-listings" element={<RentalListings />} />
+              <Route path='/userdashboard' element={<DashboardComponent/>}/>
             </Routes>
           </main>
           <Footer />
