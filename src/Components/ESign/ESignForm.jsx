@@ -18,6 +18,7 @@ const ESignForm = () => {
     name: '',
     mobile: '',
     email: '',
+    otp: '',
     aadhaarNumber: '',
     documentType: 'property_agreement',
     documentFile: null
@@ -31,6 +32,7 @@ const ESignForm = () => {
   const [signStatus, setSignStatus] = useState(null);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [auditTrailUrl, setAuditTrailUrl] = useState(null);
+  const [currentStep, setCurrentStep] = useState(1); // 1: Initial form, 2: OTP verification, 3: Document upload, 4: Aadhaar verification
   
   // Document type options
   const documentTypes = [
@@ -39,6 +41,10 @@ const ESignForm = () => {
     { value: 'sale_deed', label: 'Sale Deed' },
     { value: 'other', label: 'Other Document' }
   ];
+
+  // BEARER_TOKEN and BASE_URL
+  const BEARER_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg";
+  const BASE_URL = 'https://kyc-api.surepass.io/api/v1/esign';
 
   // Handle form input changes
   const handleChange = (e) => {
@@ -69,9 +75,77 @@ const ESignForm = () => {
     }
   };
 
-  // BEARER_TOKEN and BASE_URL
-  const BEARER_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg";
-  const BASE_URL = 'https://kyc-api.surepass.io/api/v1/esign';
+  // Send OTP
+  const sendOTP = async () => {
+    setLoading(true);
+    setError(null);
+    
+    try {
+      const response = await fetch(`${BASE_URL}/send-otp`, {
+        method: 'POST',
+        headers: {
+          "Authorization": `Bearer ${BEARER_TOKEN}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          mobile: formData.mobile,
+          email: formData.email
+        })
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        toast.success('OTP sent successfully!');
+        setCurrentStep(2); // Move to OTP verification step
+      } else {
+        setError(data.message || 'Failed to send OTP');
+        toast.error(data.message || 'Failed to send OTP');
+      }
+    } catch (err) {
+      console.error('Error sending OTP:', err);
+      setError('Error sending OTP. Please try again.');
+      toast.error('Error sending OTP. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Verify OTP
+  const verifyOTP = async () => {
+    setLoading(true);
+    setError(null);
+    
+    try {
+      const response = await fetch(`${BASE_URL}/verify-otp`, {
+        method: 'POST',
+        headers: {
+          "Authorization": `Bearer ${BEARER_TOKEN}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          mobile: formData.mobile,
+          otp: formData.otp
+        })
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        toast.success('OTP verified successfully!');
+        setCurrentStep(3); // Move to document upload step
+      } else {
+        setError(data.message || 'Invalid OTP');
+        toast.error(data.message || 'Invalid OTP');
+      }
+    } catch (err) {
+      console.error('Error verifying OTP:', err);
+      setError('Error verifying OTP. Please try again.');
+      toast.error('Error verifying OTP. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // Initiate e-sign process
   const initiateESign = async () => {
@@ -110,9 +184,10 @@ const ESignForm = () => {
         // Start checking status
         startStatusCheck(data.data.client_id);
         
-        // Open Surepass e-sign portal in a new window if URL is provided
+        // Open NSDL e-sign portal in a new window
         if (data.data.redirect_url) {
           window.open(data.data.redirect_url, '_blank');
+          setCurrentStep(4); // Move to Aadhaar verification step
         }
       } else {
         setError(data.message || 'Failed to initiate e-sign process');
@@ -126,7 +201,7 @@ const ESignForm = () => {
       setLoading(false);
     }
   };
-  
+
   // Check e-sign status
   const checkESignStatus = async (id) => {
     try {
@@ -144,42 +219,22 @@ const ESignForm = () => {
       if (data.success) {
         setSignStatus(data.data.status);
         
-        // Handle different statuses based on API documentation
-        switch (data.data.status) {
-          case 'client_intiated':
-            toast.info('E-Sign process initiated. Waiting for OTP...');
-            break;
-          case 'otp_sent':
-            toast.info('OTP sent to your registered mobile. Please verify.');
-            break;
-          case 'otp_verified':
-            toast.info('OTP verified. E-sign process starting...');
-            break;
-          case 'esign_started':
-            toast.info('E-Sign process in progress...');
-            break;
-          case 'esign_completed':
-            toast.success('E-Sign process completed successfully!');
-            stopStatusCheck();
-            getESignReport(id);
-            getAuditTrail(id);
-            break;
-          case 'esign_failed':
-            toast.error('E-Sign process failed. Please try again.');
-            stopStatusCheck();
-            break;
-          default:
-            console.log('Unknown status:', data.data.status);
-            break;
+        if (data.data.status === 'esign_completed') {
+          toast.success('E-Sign process completed successfully!');
+          stopStatusCheck();
+          getESignReport(id);
+          getAuditTrail(id);
+          setCurrentStep(5); // Move to completion step
+        } else if (data.data.status === 'esign_failed') {
+          toast.error('E-Sign process failed. Please try again.');
+          stopStatusCheck();
         }
-      } else {
-        console.error('Error checking e-sign status:', data.message);
       }
     } catch (err) {
       console.error('Error checking e-sign status:', err);
     }
   };
-  
+
   // Start checking e-sign status at intervals
   const startStatusCheck = (id) => {
     // First immediate check
@@ -192,7 +247,7 @@ const ESignForm = () => {
     
     setStatusCheckInterval(interval);
   };
-  
+
   // Stop checking e-sign status
   const stopStatusCheck = () => {
     if (statusCheckInterval) {
@@ -200,7 +255,7 @@ const ESignForm = () => {
       setStatusCheckInterval(null);
     }
   };
-  
+
   // Get e-sign report
   const getESignReport = async (id) => {
     try {
@@ -218,23 +273,14 @@ const ESignForm = () => {
       const data = await response.json();
       console.log('E-Sign report:', data);
       
-      if (data.success) {
-        // Process the report data as needed
-        // For now, just show a success message
-        toast.success('E-Sign document is ready for download!');
-        
-        // If signed document URL is available, offer download
-        if (data.data.reports && data.data.reports.signed_document_url) {
-          window.open(data.data.reports.signed_document_url, '_blank');
-        }
-      } else {
-        console.error('Error getting e-sign report:', data.message);
+      if (data.success && data.data.reports && data.data.reports.signed_document_url) {
+        window.open(data.data.reports.signed_document_url, '_blank');
       }
     } catch (err) {
       console.error('Error getting e-sign report:', err);
     }
   };
-  
+
   // Get audit trail
   const getAuditTrail = async (id) => {
     try {
@@ -247,60 +293,59 @@ const ESignForm = () => {
       });
       
       const data = await response.json();
-      console.log('E-Sign audit trail:', data);
       
       if (data.success && data.data.url) {
-        // Store the audit trail URL for later use
         setAuditTrailUrl(data.data.url);
-        // Optionally, you can automatically open the audit trail in a new tab
-        // window.open(data.data.url, '_blank');
-      } else {
-        console.error('Error getting audit trail:', data.message);
       }
     } catch (err) {
       console.error('Error getting audit trail:', err);
     }
   };
-  
+
   // Cleanup status check interval on component unmount
   useEffect(() => {
     return () => {
       stopStatusCheck();
     };
   }, []);
-  
+
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Validate form
-    if (!formData.name.trim()) {
-      setError('Name is required');
-      return;
+    // Validate form based on current step
+    if (currentStep === 1) {
+      if (!formData.name.trim()) {
+        setError('Name is required');
+        return;
+      }
+      
+      if (!formData.mobile.trim() || !/^[0-9]{10}$/.test(formData.mobile)) {
+        setError('Valid 10-digit mobile number is required');
+        return;
+      }
+      
+      if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+        setError('Valid email is required');
+        return;
+      }
+      
+      sendOTP();
+    } else if (currentStep === 2) {
+      if (!formData.otp.trim() || !/^[0-9]{6}$/.test(formData.otp)) {
+        setError('Valid 6-digit OTP is required');
+        return;
+      }
+      
+      verifyOTP();
+    } else if (currentStep === 3) {
+      if (!formData.documentFile) {
+        setError('Please upload a document to sign');
+        return;
+      }
+      
+      initiateESign();
     }
-    
-    if (!formData.mobile.trim() || !/^[0-9]{10}$/.test(formData.mobile)) {
-      setError('Valid 10-digit mobile number is required');
-      return;
-    }
-    
-    if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      setError('Valid email is required');
-      return;
-    }
-    
-    if (!formData.aadhaarNumber.trim() || !/^[0-9]{12}$/.test(formData.aadhaarNumber)) {
-      setError('Valid 12-digit Aadhaar number is required');
-      return;
-    }
-    
-    if (!formData.documentFile) {
-      setError('Please upload a document to sign');
-      return;
-    }
-    
-    // Initiate e-sign process
-    initiateESign();
   };
 
   return (
@@ -313,191 +358,156 @@ const ESignForm = () => {
       <form onSubmit={handleSubmit} className="esign-form">
         {error && <div className="esign-error">{error}</div>}
         
-        <div className="esign-form-group">
-          <label htmlFor="name">Full Name *</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Enter your full name"
-            required
-          />
-        </div>
-        
-        <div className="esign-form-group">
-          <label htmlFor="mobile">Mobile Number *</label>
-          <input
-            type="tel"
-            id="mobile"
-            name="mobile"
-            value={formData.mobile}
-            onChange={handleChange}
-            placeholder="Enter 10-digit mobile number"
-            pattern="[0-9]{10}"
-            required
-          />
-        </div>
-        
-        <div className="esign-form-group">
-          <label htmlFor="email">Email Address *</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Enter your email address"
-            required
-          />
-        </div>
-        
-        <div className="esign-form-group">
-          <label htmlFor="aadhaarNumber">Aadhaar Number *</label>
-          <input
-            type="text"
-            id="aadhaarNumber"
-            name="aadhaarNumber"
-            value={formData.aadhaarNumber}
-            onChange={handleChange}
-            placeholder="Enter 12-digit Aadhaar number"
-            pattern="[0-9]{12}"
-            required
-          />
-          <small>Your Aadhaar number is required for digital verification</small>
-        </div>
-        
-        <div className="esign-form-group">
-          <label htmlFor="documentType">Document Type *</label>
-          <select
-            id="documentType"
-            name="documentType"
-            value={formData.documentType}
-            onChange={handleChange}
-            required
-          >
-            {documentTypes.map(type => (
-              <option key={type.value} value={type.value}>
-                {type.label}
-              </option>
-            ))}
-          </select>
-        </div>
-        
-        <div className="esign-form-group">
-          <label htmlFor="documentFile">Upload Document (PDF or Image) *</label>
-          <input
-            type="file"
-            id="documentFile"
-            name="documentFile"
-            onChange={handleFileChange}
-            accept=".pdf,image/*"
-            required
-          />
-          <small>Max file size: 5MB</small>
-        </div>
-        
-        {uploadProgress > 0 && uploadProgress < 100 && (
-          <div className="esign-progress">
-            <div className="esign-progress-bar" style={{ width: `${uploadProgress}%` }}>
-              {uploadProgress}%
+        {/* Step 1: Initial Form */}
+        {currentStep === 1 && (
+          <>
+            <div className="esign-form-group">
+              <label htmlFor="name">Full Name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Enter your full name"
+                required
+              />
             </div>
+            
+            <div className="esign-form-group">
+              <label htmlFor="mobile">Mobile Number *</label>
+              <input
+                type="tel"
+                id="mobile"
+                name="mobile"
+                value={formData.mobile}
+                onChange={handleChange}
+                placeholder="Enter 10-digit mobile number"
+                pattern="[0-9]{10}"
+                required
+              />
+            </div>
+            
+            <div className="esign-form-group">
+              <label htmlFor="email">Email Address *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter your email address"
+                required
+              />
+            </div>
+          </>
+        )}
+        
+        {/* Step 2: OTP Verification */}
+        {currentStep === 2 && (
+          <>
+            <div className="esign-form-group">
+              <label htmlFor="otp">Enter OTP *</label>
+              <input
+                type="text"
+                id="otp"
+                name="otp"
+                value={formData.otp}
+                onChange={handleChange}
+                placeholder="Enter 6-digit OTP"
+                pattern="[0-9]{6}"
+                required
+              />
+              <small>OTP sent to {formData.mobile}</small>
+            </div>
+          </>
+        )}
+        
+        {/* Step 3: Document Upload */}
+        {currentStep === 3 && (
+          <>
+            <div className="esign-form-group">
+              <label htmlFor="documentType">Document Type *</label>
+              <select
+                id="documentType"
+                name="documentType"
+                value={formData.documentType}
+                onChange={handleChange}
+                required
+              >
+                {documentTypes.map(type => (
+                  <option key={type.value} value={type.value}>
+                    {type.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+            
+            <div className="esign-form-group">
+              <label htmlFor="documentFile">Upload Document (PDF or Image) *</label>
+              <input
+                type="file"
+                id="documentFile"
+                name="documentFile"
+                onChange={handleFileChange}
+                accept=".pdf,image/*"
+                required
+              />
+              <small>Max file size: 5MB</small>
+            </div>
+            
+            {uploadProgress > 0 && uploadProgress < 100 && (
+              <div className="esign-progress">
+                <div className="esign-progress-bar" style={{ width: `${uploadProgress}%` }}>
+                  {uploadProgress}%
+                </div>
+              </div>
+            )}
+          </>
+        )}
+        
+        {/* Step 4: Aadhaar Verification */}
+        {currentStep === 4 && (
+          <div className="esign-aadhaar-verification">
+            <h3>Aadhaar Verification</h3>
+            <p>Please complete the Aadhaar verification process in the new window.</p>
+            <p>Once completed, you will be able to download your signed document.</p>
           </div>
         )}
         
-        <div className="esign-form-group terms-checkbox">
-          <input
-            type="checkbox"
-            id="termsAgree"
-            name="termsAgree"
-            required
-          />
-          <label htmlFor="termsAgree">
-            I consent to digitally sign this document using my Aadhaar. I understand this has the same legal validity as a physical signature.
-          </label>
-        </div>
-        
-        <button 
-          type="submit" 
-          className="esign-submit-btn"
-          disabled={loading}
-        >
-          {loading ? 'Processing...' : 'E-Sign Document'}
-        </button>
-      </form>
-      
-      {signStatus && (
-        <div className="esign-status">
-          <h3>E-Sign Status</h3>
-          <div className="esign-status-box">
-            {signStatus === 'client_intiated' && <p>Initiation in progress...</p>}
-            {signStatus === 'otp_sent' && <p>OTP sent to your registered mobile. Please verify.</p>}
-            {signStatus === 'otp_verified' && <p>OTP verified. Preparing for e-sign...</p>}
-            {signStatus === 'esign_started' && <p>E-Sign process started...</p>}
-            {signStatus === 'esign_completed' && <p>E-Sign completed successfully!</p>}
-            {signStatus === 'esign_failed' && <p>E-Sign failed. Please try again.</p>}
+        {/* Step 5: Completion */}
+        {currentStep === 5 && (
+          <div className="esign-completion">
+            <h3>E-Sign Process Completed</h3>
+            <p>Your document has been successfully signed.</p>
+            {auditTrailUrl && (
+              <a 
+                href={auditTrailUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="esign-audit-trail-link"
+              >
+                Download Audit Trail
+              </a>
+            )}
           </div>
-        </div>
-      )}
-      
-      {signStatus === 'esign_completed' && auditTrailUrl && (
-        <div className="esign-audit-trail">
-          <h3>Audit Trail</h3>
-          <p>Download the complete audit trail of the e-sign process:</p>
-          <a 
-            href={auditTrailUrl} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="esign-audit-trail-link"
+        )}
+        
+        {/* Submit Button */}
+        {currentStep < 4 && (
+          <button 
+            type="submit" 
+            className="esign-submit-btn"
+            disabled={loading}
           >
-            Download Audit Trail
-          </a>
-        </div>
-      )}
-      
-      <div className="esign-info-section">
-        <h3>About Digital Signature</h3>
-        <p>
-          A digital signature created through Aadhaar e-Sign is legally valid under the IT Act, 2000.
-          The process is secure and ensures that your document is signed with proper verification of your identity.
-        </p>
-        
-        <h3>How It Works</h3>
-        <div className="esign-steps">
-          <div className="esign-step">
-            <div className="esign-step-number">1</div>
-            <div className="esign-step-content">
-              <h4>Upload Document</h4>
-              <p>Upload the document you need to sign</p>
-            </div>
-          </div>
-          
-          <div className="esign-step">
-            <div className="esign-step-number">2</div>
-            <div className="esign-step-content">
-              <h4>Verify Identity</h4>
-              <p>Verify your identity using Aadhaar OTP</p>
-            </div>
-          </div>
-          
-          <div className="esign-step">
-            <div className="esign-step-number">3</div>
-            <div className="esign-step-content">
-              <h4>Sign Document</h4>
-              <p>Digitally sign your document</p>
-            </div>
-          </div>
-          
-          <div className="esign-step">
-            <div className="esign-step-number">4</div>
-            <div className="esign-step-content">
-              <h4>Download</h4>
-              <p>Download your digitally signed document</p>
-            </div>
-          </div>
-        </div>
-      </div>
+            {loading ? 'Processing...' : 
+              currentStep === 1 ? 'Send OTP' :
+              currentStep === 2 ? 'Verify OTP' :
+              'E-Sign Document'
+            }
+          </button>
+        )}
+      </form>
       
       <ToastContainer
         position="bottom-right"
