@@ -98,7 +98,7 @@ const ESignForm = () => {
         }
       };
 
-      console.log('Request URL:', '/api/api/v1/esign/initialize');
+      console.log('Request URL:', 'https://kyc-api.surepass.io/api/v1/esign/initialize');
       console.log('Request Headers:', {
         "Authorization": `Bearer ${BEARER_TOKEN}`,
         "Content-Type": "application/json",
@@ -107,13 +107,14 @@ const ESignForm = () => {
       console.log('Request Body:', requestBody);
 
       // Make the actual request
-      const response = await fetch('/api/api/v1/esign/initialize', {
+      const response = await fetch('https://kyc-api.surepass.io/api/v1/esign/initialize', {
         method: 'POST',
         headers: {
           "Authorization": `Bearer ${BEARER_TOKEN}`,
           "Content-Type": "application/json",
           "Accept": "application/json"
         },
+        mode: 'cors',
         body: JSON.stringify(requestBody)
       }).catch(error => {
         console.error('Network error details:', {
@@ -180,7 +181,7 @@ const ESignForm = () => {
     
     try {
       console.log('Making API call to verify OTP...');
-      const response = await fetch('/api/api/v1/esign/verify-otp', {
+      const response = await fetch('https://kyc-api.surepass.io/api/v1/esign/verify-otp', {
         method: 'POST',
         headers: {
           "Authorization": `Bearer ${BEARER_TOKEN}`,
@@ -227,7 +228,7 @@ const ESignForm = () => {
       formDataForUpload.append('token', token);
       
       console.log('Making API call to upload document...');
-      const response = await fetch('/api/api/v1/esign/upload', {
+      const response = await fetch('https://kyc-api.surepass.io/api/v1/esign/upload', {
         method: 'POST',
         headers: {
           "Authorization": `Bearer ${BEARER_TOKEN}`,
