@@ -70,12 +70,9 @@ const ESignForm = () => {
     
     try {
       console.log('Making API call to initialize eSign...');
-      console.log('Request URL:', 'https://kyc-api.surepass.io/api/v1/esign/initialize');
-      console.log('Request Headers:', {
-        "Authorization": `Bearer ${BEARER_TOKEN}`,
-        "Content-Type": "application/json"
-      });
-      console.log('Request Body:', {
+      
+      // Create the request body
+      const requestBody = {
         pdf_pre_uploaded: false,
         callback_url: window.location.href,
         config: {
@@ -99,40 +96,33 @@ const ESignForm = () => {
           mobile_number: formData.mobile,
           user_email: formData.email
         }
-      });
+      };
 
-      const response = await fetch('https://kyc-api.surepass.io/api/v1/esign/initialize', {
+      console.log('Request URL:', '/api/api/v1/esign/initialize');
+      console.log('Request Headers:', {
+        "Authorization": `Bearer ${BEARER_TOKEN}`,
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      });
+      console.log('Request Body:', requestBody);
+
+      // Make the actual request
+      const response = await fetch('/api/api/v1/esign/initialize', {
         method: 'POST',
         headers: {
           "Authorization": `Bearer ${BEARER_TOKEN}`,
           "Content-Type": "application/json",
           "Accept": "application/json"
         },
-        body: JSON.stringify({
-          pdf_pre_uploaded: false,
-          callback_url: window.location.href,
-          config: {
-            accept_selfie: true,
-            allow_selfie_upload: true,
-            accept_virtual_sign: true,
-            track_location: true,
-            auth_mode: "1",
-            reason: "Contract",
-            positions: {
-              "1": [
-                {
-                  x: 10,
-                  y: 20
-                }
-              ]
-            }
-          },
-          prefill_options: {
-            full_name: formData.name,
-            mobile_number: formData.mobile,
-            user_email: formData.email
-          }
-        })
+        body: JSON.stringify(requestBody)
+      }).catch(error => {
+        console.error('Network error details:', {
+          name: error.name,
+          message: error.message,
+          stack: error.stack,
+          type: error.type
+        });
+        throw error;
       });
 
       console.log('Response Status:', response.status);
@@ -164,7 +154,8 @@ const ESignForm = () => {
       console.error('Error details:', {
         name: err.name,
         message: err.message,
-        stack: err.stack
+        stack: err.stack,
+        type: err.type
       });
       
       let errorMessage = 'Error initializing e-sign process. Please try again.';
@@ -189,7 +180,7 @@ const ESignForm = () => {
     
     try {
       console.log('Making API call to verify OTP...');
-      const response = await fetch('https://kyc-api.surepass.io/api/v1/esign/verify-otp', {
+      const response = await fetch('/api/api/v1/esign/verify-otp', {
         method: 'POST',
         headers: {
           "Authorization": `Bearer ${BEARER_TOKEN}`,
@@ -236,7 +227,7 @@ const ESignForm = () => {
       formDataForUpload.append('token', token);
       
       console.log('Making API call to upload document...');
-      const response = await fetch('https://kyc-api.surepass.io/api/v1/esign/upload', {
+      const response = await fetch('/api/api/v1/esign/upload', {
         method: 'POST',
         headers: {
           "Authorization": `Bearer ${BEARER_TOKEN}`,
