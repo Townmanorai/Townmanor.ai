@@ -64,15 +64,49 @@ const ESignForm = () => {
 
   // Initialize eSign process
   const initializeESign = async () => {
+    console.log('Step 1: Initializing eSign process with user details:', formData);
     setLoading(true);
     setError(null);
     
     try {
+      console.log('Making API call to initialize eSign...');
+      console.log('Request URL:', 'https://kyc-api.surepass.io/api/v1/esign/initialize');
+      console.log('Request Headers:', {
+        "Authorization": `Bearer ${BEARER_TOKEN}`,
+        "Content-Type": "application/json"
+      });
+      console.log('Request Body:', {
+        pdf_pre_uploaded: false,
+        callback_url: window.location.href,
+        config: {
+          accept_selfie: true,
+          allow_selfie_upload: true,
+          accept_virtual_sign: true,
+          track_location: true,
+          auth_mode: "1",
+          reason: "Contract",
+          positions: {
+            "1": [
+              {
+                x: 10,
+                y: 20
+              }
+            ]
+          }
+        },
+        prefill_options: {
+          full_name: formData.name,
+          mobile_number: formData.mobile,
+          user_email: formData.email
+        }
+      });
+
       const response = await fetch('https://kyc-api.surepass.io/api/v1/esign/initialize', {
         method: 'POST',
         headers: {
           "Authorization": `Bearer ${BEARER_TOKEN}`,
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Accept": "application/json"
         },
         body: JSON.stringify({
           pdf_pre_uploaded: false,
@@ -82,7 +116,7 @@ const ESignForm = () => {
             allow_selfie_upload: true,
             accept_virtual_sign: true,
             track_location: true,
-            auth_mode: "1", // Aadhaar OTP based eSign
+            auth_mode: "1",
             reason: "Contract",
             positions: {
               "1": [
@@ -101,22 +135,47 @@ const ESignForm = () => {
         })
       });
 
+      console.log('Response Status:', response.status);
+      console.log('Response Headers:', Object.fromEntries(response.headers.entries()));
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('API Error Response:', errorText);
+        throw new Error(`API Error: ${response.status} ${response.statusText}`);
+      }
+
       const data = await response.json();
+      console.log('Initialize API Response:', data);
       
       if (data.success) {
+        console.log('Step 1: Successfully initialized. Client ID:', data.data.client_id);
         setClientId(data.data.client_id);
         setToken(data.data.token);
         setEsignUrl(data.data.url);
         setCurrentStep(2); // Move to OTP verification step
         toast.success('OTP sent to your mobile number');
       } else {
+        console.error('Step 1: Failed to initialize:', data.message);
         setError(data.message || 'Failed to initialize e-sign process');
         toast.error(data.message || 'Failed to initialize e-sign process');
       }
     } catch (err) {
-      console.error('Error initializing e-sign:', err);
-      setError('Error initializing e-sign process. Please try again.');
-      toast.error('Error initializing e-sign process. Please try again.');
+      console.error('Step 1: Error initializing e-sign:', err);
+      console.error('Error details:', {
+        name: err.name,
+        message: err.message,
+        stack: err.stack
+      });
+      
+      let errorMessage = 'Error initializing e-sign process. Please try again.';
+      if (err.message.includes('Failed to fetch')) {
+        errorMessage = 'Network error: Please check your internet connection and try again.';
+      } else if (err.message.includes('API Error')) {
+        errorMessage = `API Error: ${err.message}`;
+      }
+      
+      setError(errorMessage);
+      toast.error(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -124,10 +183,12 @@ const ESignForm = () => {
 
   // Verify OTP
   const verifyOTP = async () => {
+    console.log('Step 2: Verifying OTP for client ID:', clientId);
     setLoading(true);
     setError(null);
     
     try {
+      console.log('Making API call to verify OTP...');
       const response = await fetch('https://kyc-api.surepass.io/api/v1/esign/verify-otp', {
         method: 'POST',
         headers: {
@@ -141,16 +202,19 @@ const ESignForm = () => {
       });
       
       const data = await response.json();
+      console.log('Verify OTP API Response:', data);
       
       if (data.success) {
+        console.log('Step 2: OTP verified successfully');
         toast.success('OTP verified successfully!');
         setCurrentStep(3); // Move to document upload step
       } else {
+        console.error('Step 2: OTP verification failed:', data.message);
         setError(data.message || 'Invalid OTP');
         toast.error(data.message || 'Invalid OTP');
       }
     } catch (err) {
-      console.error('Error verifying OTP:', err);
+      console.error('Step 2: Error verifying OTP:', err);
       setError('Error verifying OTP. Please try again.');
       toast.error('Error verifying OTP. Please try again.');
     } finally {
@@ -160,15 +224,18 @@ const ESignForm = () => {
 
   // Upload document and redirect to NSDL
   const uploadDocument = async () => {
+    console.log('Step 3: Uploading document for client ID:', clientId);
     setLoading(true);
     setError(null);
     
     try {
+      console.log('Preparing document upload...');
       const formDataForUpload = new FormData();
       formDataForUpload.append('file', formData.documentFile);
       formDataForUpload.append('client_id', clientId);
       formDataForUpload.append('token', token);
       
+      console.log('Making API call to upload document...');
       const response = await fetch('https://kyc-api.surepass.io/api/v1/esign/upload', {
         method: 'POST',
         headers: {
@@ -178,18 +245,21 @@ const ESignForm = () => {
       });
       
       const data = await response.json();
+      console.log('Upload Document API Response:', data);
       
       if (data.success) {
+        console.log('Step 3: Document uploaded successfully, redirecting to NSDL...');
         toast.success('Document uploaded successfully!');
         // Redirect to NSDL e-sign portal
         window.open(esignUrl, '_blank');
         setCurrentStep(4); // Move to Aadhaar verification step
       } else {
+        console.error('Step 3: Document upload failed:', data.message);
         setError(data.message || 'Failed to upload document');
         toast.error(data.message || 'Failed to upload document');
       }
     } catch (err) {
-      console.error('Error uploading document:', err);
+      console.error('Step 3: Error uploading document:', err);
       setError('Error uploading document. Please try again.');
       toast.error('Error uploading document. Please try again.');
     } finally {
@@ -200,9 +270,11 @@ const ESignForm = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Form submitted at step:', currentStep);
     
     // Validate form based on current step
     if (currentStep === 1) {
+      console.log('Validating user details...');
       if (!formData.name.trim()) {
         setError('Name is required');
         return;
@@ -218,20 +290,25 @@ const ESignForm = () => {
         return;
       }
       
+      console.log('User details validated, proceeding to initialize eSign...');
       initializeESign();
     } else if (currentStep === 2) {
+      console.log('Validating OTP...');
       if (!formData.otp.trim() || !/^[0-9]{6}$/.test(formData.otp)) {
         setError('Valid 6-digit OTP is required');
         return;
       }
       
+      console.log('OTP validated, proceeding to verify...');
       verifyOTP();
     } else if (currentStep === 3) {
+      console.log('Validating document...');
       if (!formData.documentFile) {
         setError('Please upload a document to sign');
         return;
       }
       
+      console.log('Document validated, proceeding to upload...');
       uploadDocument();
     }
   };
