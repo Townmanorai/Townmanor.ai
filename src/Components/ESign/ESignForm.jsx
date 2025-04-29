@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,14 +13,15 @@ import './ESignForm.css';
 const ESignForm = () => {
   const navigate = useNavigate();
   
+  // BEARER_TOKEN constant
+  const BEARER_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg";
+  
   // Form states
   const [formData, setFormData] = useState({
     name: '',
     mobile: '',
     email: '',
     otp: '',
-    aadhaarNumber: '',
-    documentType: 'property_agreement',
     documentFile: null
   });
   
@@ -28,24 +29,10 @@ const ESignForm = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [clientId, setClientId] = useState(null);
-  const [statusCheckInterval, setStatusCheckInterval] = useState(null);
-  const [signStatus, setSignStatus] = useState(null);
-  const [uploadProgress, setUploadProgress] = useState(0);
-  const [auditTrailUrl, setAuditTrailUrl] = useState(null);
+  const [token, setToken] = useState(null);
+  const [esignUrl, setEsignUrl] = useState(null);
   const [currentStep, setCurrentStep] = useState(1); // 1: Initial form, 2: OTP verification, 3: Document upload, 4: Aadhaar verification
   
-  // Document type options
-  const documentTypes = [
-    { value: 'property_agreement', label: 'Property Agreement' },
-    { value: 'rental_agreement', label: 'Rental Agreement' },
-    { value: 'sale_deed', label: 'Sale Deed' },
-    { value: 'other', label: 'Other Document' }
-  ];
-
-  // BEARER_TOKEN and BASE_URL
-  const BEARER_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg";
-  const BASE_URL = 'https://kyc-api.surepass.io/api/v1/esign';
-
   // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -59,7 +46,7 @@ const ESignForm = () => {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      if (file.type === 'application/pdf' || file.type.startsWith('image/')) {
+      if (file.type === 'application/pdf') {
         if (file.size <= 5 * 1024 * 1024) { // 5MB limit
           setFormData({
             ...formData,
@@ -70,42 +57,66 @@ const ESignForm = () => {
           setError('File size should be less than 5MB');
         }
       } else {
-        setError('Please upload PDF or image files only');
+        setError('Please upload PDF files only');
       }
     }
   };
 
-  // Send OTP
-  const sendOTP = async () => {
+  // Initialize eSign process
+  const initializeESign = async () => {
     setLoading(true);
     setError(null);
     
     try {
-      const response = await fetch(`${BASE_URL}/send-otp`, {
+      const response = await fetch('https://kyc-api.surepass.io/api/v1/esign/initialize', {
         method: 'POST',
         headers: {
           "Authorization": `Bearer ${BEARER_TOKEN}`,
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          mobile: formData.mobile,
-          email: formData.email
+          pdf_pre_uploaded: false,
+          callback_url: window.location.href,
+          config: {
+            accept_selfie: true,
+            allow_selfie_upload: true,
+            accept_virtual_sign: true,
+            track_location: true,
+            auth_mode: "1", // Aadhaar OTP based eSign
+            reason: "Contract",
+            positions: {
+              "1": [
+                {
+                  x: 10,
+                  y: 20
+                }
+              ]
+            }
+          },
+          prefill_options: {
+            full_name: formData.name,
+            mobile_number: formData.mobile,
+            user_email: formData.email
+          }
         })
       });
-      
+
       const data = await response.json();
       
       if (data.success) {
-        toast.success('OTP sent successfully!');
+        setClientId(data.data.client_id);
+        setToken(data.data.token);
+        setEsignUrl(data.data.url);
         setCurrentStep(2); // Move to OTP verification step
+        toast.success('OTP sent to your mobile number');
       } else {
-        setError(data.message || 'Failed to send OTP');
-        toast.error(data.message || 'Failed to send OTP');
+        setError(data.message || 'Failed to initialize e-sign process');
+        toast.error(data.message || 'Failed to initialize e-sign process');
       }
     } catch (err) {
-      console.error('Error sending OTP:', err);
-      setError('Error sending OTP. Please try again.');
-      toast.error('Error sending OTP. Please try again.');
+      console.error('Error initializing e-sign:', err);
+      setError('Error initializing e-sign process. Please try again.');
+      toast.error('Error initializing e-sign process. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -117,14 +128,14 @@ const ESignForm = () => {
     setError(null);
     
     try {
-      const response = await fetch(`${BASE_URL}/verify-otp`, {
+      const response = await fetch('https://kyc-api.surepass.io/api/v1/esign/verify-otp', {
         method: 'POST',
         headers: {
           "Authorization": `Bearer ${BEARER_TOKEN}`,
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          mobile: formData.mobile,
+          client_id: clientId,
           otp: formData.otp
         })
       });
@@ -147,167 +158,44 @@ const ESignForm = () => {
     }
   };
 
-  // Initiate e-sign process
-  const initiateESign = async () => {
+  // Upload document and redirect to NSDL
+  const uploadDocument = async () => {
     setLoading(true);
     setError(null);
     
     try {
-      // Create form data for file upload
       const formDataForUpload = new FormData();
       formDataForUpload.append('file', formData.documentFile);
-      formDataForUpload.append('name', formData.name);
-      formDataForUpload.append('mobile', formData.mobile);
-      formDataForUpload.append('email', formData.email);
-      formDataForUpload.append('aadhaar_number', formData.aadhaarNumber);
-      formDataForUpload.append('document_type', formData.documentType);
+      formDataForUpload.append('client_id', clientId);
+      formDataForUpload.append('token', token);
       
-      // Make API call to Surepass API
-      const response = await fetch(`${BASE_URL}/init`, {
+      const response = await fetch('https://kyc-api.surepass.io/api/v1/esign/upload', {
         method: 'POST',
         headers: {
           "Authorization": `Bearer ${BEARER_TOKEN}`,
         },
-        body: formDataForUpload,
-        onUploadProgress: (progressEvent) => {
-          const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
-          setUploadProgress(progress);
-        }
+        body: formDataForUpload
       });
       
       const data = await response.json();
-      console.log('E-Sign initiation response:', data);
       
       if (data.success) {
-        toast.success('E-Sign process initiated successfully!');
-        setClientId(data.data.client_id);
-        // Start checking status
-        startStatusCheck(data.data.client_id);
-        
-        // Open NSDL e-sign portal in a new window
-        if (data.data.redirect_url) {
-          window.open(data.data.redirect_url, '_blank');
-          setCurrentStep(4); // Move to Aadhaar verification step
-        }
+        toast.success('Document uploaded successfully!');
+        // Redirect to NSDL e-sign portal
+        window.open(esignUrl, '_blank');
+        setCurrentStep(4); // Move to Aadhaar verification step
       } else {
-        setError(data.message || 'Failed to initiate e-sign process');
-        toast.error(data.message || 'Failed to initiate e-sign process');
+        setError(data.message || 'Failed to upload document');
+        toast.error(data.message || 'Failed to upload document');
       }
     } catch (err) {
-      console.error('Error initiating e-sign:', err);
-      setError('Error initiating e-sign process. Please try again.');
-      toast.error('Error initiating e-sign process. Please try again.');
+      console.error('Error uploading document:', err);
+      setError('Error uploading document. Please try again.');
+      toast.error('Error uploading document. Please try again.');
     } finally {
       setLoading(false);
     }
   };
-
-  // Check e-sign status
-  const checkESignStatus = async (id) => {
-    try {
-      const response = await fetch(`${BASE_URL}/status/${id}`, {
-        method: 'GET',
-        headers: {
-          "Authorization": `Bearer ${BEARER_TOKEN}`,
-          "Content-Type": "application/json"
-        }
-      });
-      
-      const data = await response.json();
-      console.log('E-Sign status check response:', data);
-      
-      if (data.success) {
-        setSignStatus(data.data.status);
-        
-        if (data.data.status === 'esign_completed') {
-          toast.success('E-Sign process completed successfully!');
-          stopStatusCheck();
-          getESignReport(id);
-          getAuditTrail(id);
-          setCurrentStep(5); // Move to completion step
-        } else if (data.data.status === 'esign_failed') {
-          toast.error('E-Sign process failed. Please try again.');
-          stopStatusCheck();
-        }
-      }
-    } catch (err) {
-      console.error('Error checking e-sign status:', err);
-    }
-  };
-
-  // Start checking e-sign status at intervals
-  const startStatusCheck = (id) => {
-    // First immediate check
-    checkESignStatus(id);
-    
-    // Then check every 5 seconds
-    const interval = setInterval(() => {
-      checkESignStatus(id);
-    }, 5000);
-    
-    setStatusCheckInterval(interval);
-  };
-
-  // Stop checking e-sign status
-  const stopStatusCheck = () => {
-    if (statusCheckInterval) {
-      clearInterval(statusCheckInterval);
-      setStatusCheckInterval(null);
-    }
-  };
-
-  // Get e-sign report
-  const getESignReport = async (id) => {
-    try {
-      const response = await fetch(`${BASE_URL}/report/${id}`, {
-        method: 'POST',
-        headers: {
-          "Authorization": `Bearer ${BEARER_TOKEN}`,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          categories: ["name_match"]
-        })
-      });
-      
-      const data = await response.json();
-      console.log('E-Sign report:', data);
-      
-      if (data.success && data.data.reports && data.data.reports.signed_document_url) {
-        window.open(data.data.reports.signed_document_url, '_blank');
-      }
-    } catch (err) {
-      console.error('Error getting e-sign report:', err);
-    }
-  };
-
-  // Get audit trail
-  const getAuditTrail = async (id) => {
-    try {
-      const response = await fetch(`${BASE_URL}/audit-trail/${id}`, {
-        method: 'GET',
-        headers: {
-          "Authorization": `Bearer ${BEARER_TOKEN}`,
-          "Content-Type": "application/json"
-        }
-      });
-      
-      const data = await response.json();
-      
-      if (data.success && data.data.url) {
-        setAuditTrailUrl(data.data.url);
-      }
-    } catch (err) {
-      console.error('Error getting audit trail:', err);
-    }
-  };
-
-  // Cleanup status check interval on component unmount
-  useEffect(() => {
-    return () => {
-      stopStatusCheck();
-    };
-  }, []);
 
   // Handle form submission
   const handleSubmit = async (e) => {
@@ -330,7 +218,7 @@ const ESignForm = () => {
         return;
       }
       
-      sendOTP();
+      initializeESign();
     } else if (currentStep === 2) {
       if (!formData.otp.trim() || !/^[0-9]{6}$/.test(formData.otp)) {
         setError('Valid 6-digit OTP is required');
@@ -344,7 +232,7 @@ const ESignForm = () => {
         return;
       }
       
-      initiateESign();
+      uploadDocument();
     }
   };
 
@@ -427,42 +315,17 @@ const ESignForm = () => {
         {currentStep === 3 && (
           <>
             <div className="esign-form-group">
-              <label htmlFor="documentType">Document Type *</label>
-              <select
-                id="documentType"
-                name="documentType"
-                value={formData.documentType}
-                onChange={handleChange}
-                required
-              >
-                {documentTypes.map(type => (
-                  <option key={type.value} value={type.value}>
-                    {type.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-            
-            <div className="esign-form-group">
-              <label htmlFor="documentFile">Upload Document (PDF or Image) *</label>
+              <label htmlFor="documentFile">Upload Document (PDF) *</label>
               <input
                 type="file"
                 id="documentFile"
                 name="documentFile"
                 onChange={handleFileChange}
-                accept=".pdf,image/*"
+                accept=".pdf"
                 required
               />
               <small>Max file size: 5MB</small>
             </div>
-            
-            {uploadProgress > 0 && uploadProgress < 100 && (
-              <div className="esign-progress">
-                <div className="esign-progress-bar" style={{ width: `${uploadProgress}%` }}>
-                  {uploadProgress}%
-                </div>
-              </div>
-            )}
           </>
         )}
         
@@ -472,24 +335,6 @@ const ESignForm = () => {
             <h3>Aadhaar Verification</h3>
             <p>Please complete the Aadhaar verification process in the new window.</p>
             <p>Once completed, you will be able to download your signed document.</p>
-          </div>
-        )}
-        
-        {/* Step 5: Completion */}
-        {currentStep === 5 && (
-          <div className="esign-completion">
-            <h3>E-Sign Process Completed</h3>
-            <p>Your document has been successfully signed.</p>
-            {auditTrailUrl && (
-              <a 
-                href={auditTrailUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="esign-audit-trail-link"
-              >
-                Download Audit Trail
-              </a>
-            )}
           </div>
         )}
         
@@ -503,7 +348,7 @@ const ESignForm = () => {
             {loading ? 'Processing...' : 
               currentStep === 1 ? 'Send OTP' :
               currentStep === 2 ? 'Verify OTP' :
-              'E-Sign Document'
+              'Upload Document'
             }
           </button>
         )}
