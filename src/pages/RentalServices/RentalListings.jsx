@@ -244,37 +244,41 @@ const RentalListings = () => {
                 {property.mountainView && (
                   <div className="rental-new-tag">Mountain View</div>
                 )}
-                <img 
-                  src={property.image} 
-                  alt={property.name} 
-                  className="rental-property-image" 
-                />
+                <Link to={`/rental-property/${property.id}`}>
+                  <img 
+                    src={property.image} 
+                    alt={property.name} 
+                    className="rental-property-image" 
+                  />
+                </Link>
               </div>
-              <div className="rental-property-details">
-                <h2 className="rental-property-name">{property.name}</h2>
-                <div className="rental-property-location">
-                  <i className="rental-location-icon"></i>
-                  <span>{property.location}</span>
-                </div>
-                <div className="rental-property-specs">
-                  <div className="rental-spec-item">
-                    <span className="rental-spec-icon">🛏️</span>
-                    <span>{property.bedrooms} Beds</span>
+              <Link to={`/rental-property/${property.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <div className="rental-property-details">
+                  <h2 className="rental-property-name">{property.name}</h2>
+                  <div className="rental-property-location">
+                    <i className="rental-location-icon"></i>
+                    <span>{property.location}</span>
                   </div>
-                  <div className="rental-spec-item">
-                    <span className="rental-spec-icon">🚿</span>
-                    <span>{property.bathrooms} Baths</span>
+                  <div className="rental-property-specs">
+                    <div className="rental-spec-item">
+                      <span className="rental-spec-icon">🛏️</span>
+                      <span>{property.bedrooms} Beds</span>
+                    </div>
+                    <div className="rental-spec-item">
+                      <span className="rental-spec-icon">🚿</span>
+                      <span>{property.bathrooms} Baths</span>
+                    </div>
+                    <div className="rental-spec-item">
+                      <span className="rental-spec-icon">📏</span>
+                      <span>{property.area} sqft</span>
+                    </div>
                   </div>
-                  <div className="rental-spec-item">
-                    <span className="rental-spec-icon">📏</span>
-                    <span>{property.area} sqft</span>
+                  <div className="rental-property-price-row">
+                    <div className="rental-price-amount">₹{property.price}/month</div>
+                    <button className="rental-reserve-button">Reserve Now</button>
                   </div>
                 </div>
-                <div className="rental-property-price-row">
-                  <div className="rental-price-amount">₹{property.price}/month</div>
-                  <button className="rental-reserve-button">Reserve Now</button>
-                </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>

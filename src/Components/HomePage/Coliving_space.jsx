@@ -32,7 +32,8 @@ function Coliving_space() {
   return (
     <>
       {/* Hero Section */}
-      <div className="container coliving-hero-section">
+      <div className="coliving-hero-section">
+      <div className="container ">
         <div className="coliving-hero-bg" style={{
           backgroundImage: `url('https://readdy.ai/api/search-image?query=Modern%20co-living%20space%20interior%20with%20soft%20natural%20light%2C%20minimalist%20design%2C%20large%20windows%2C%20communal%20areas%20with%20comfortable%20furniture%2C%20plants%2C%20and%20a%20warm%20welcoming%20atmosphere%2C%20blending%20into%20a%20light%20blue%20gradient%20on%20the%20left%20side%20for%20text%20overlay&width=1440&height=800&seq=hero-bg-1&orientation=landscape')`
         }}></div>
@@ -64,7 +65,7 @@ function Coliving_space() {
           </div>
         </div>
       </div>
-
+      </div>
       {/* Features Section */}
       <div className="coliving-features-section">
         <div className="container">
