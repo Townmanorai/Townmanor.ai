@@ -173,7 +173,7 @@ const Navbar = () => {
                         }}/>
                             <span>
                               {username ? (
-                                <Link to="/dashboard" className="login_popup_enabled" onClick={closeMenu}>
+                                <Link to="/userdashboard" className="login_popup_enabled" onClick={closeMenu}>
                                   <b className="signin-op">{username}</b>
                                 </Link>
                               ) : (

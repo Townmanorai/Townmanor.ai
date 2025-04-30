@@ -1,0 +1,346 @@
+.bfa_main_wrap {
+  background: #fafbfc;
+  font-family: 'Inter', Arial, sans-serif;
+  min-height: 100vh;
+  padding-bottom: 48px;
+}
+.bfa_hero_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 0 18px 0;
+  margin: 0 0 0 0;
+  background: #fff;
+  gap: 10px 40px;
+}
+.bfa_hero_texts {
+  margin-left: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.bfa_hero_title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #22223b;
+}
+.bfa_hero_desc {
+  font-size: 1rem;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+.bfa_hero_btns {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+.bfa_btn_primary {
+  background: linear-gradient(to right, #8a2e2e, #ff4447);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.bfa_btn_primary:hover {
+  background: #333;
+}
+.bfa_btn_secondary {
+  background: #f3f4f6;
+  color: #22223b;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.bfa_btn_secondary:hover {
+  background: #e0e7ef;
+}
+.bfa_hero_img img {
+  width: 260px;
+  max-width: 100%;
+  margin-right: 32px;
+  border-radius: 12px;
+}
+.bfa_section_title {
+  display: block;
+  text-align: center;
+  font-size: 1.13rem;
+  font-weight: 700;
+  color: #22223b;
+  margin: 38px 0 6px 0;
+}
+.bfa_section_subtitle {
+  display: block;
+  text-align: center;
+  color: #64748b;
+  font-size: 1rem;
+  margin-bottom: 22px;
+}
+.bfa_benefits_row {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 38px;
+}
+.bfa_benefit_card {
+  background: #fff;
+  border-radius: 13px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  padding: 26px 22px;
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.bfa_benefit_icon {
+  color: #D81212;
+  font-size: 2.1rem;
+  margin-bottom: 7px;
+}
+.bfa_benefit_title {
+  font-weight: 600;
+  color: #22223b;
+  font-size: 1.05rem;
+}
+.bfa_benefit_desc {
+  color: #64748b;
+  font-size: 0.99rem;
+  text-align: center;
+}
+.bfa_advantage_section {
+  background: #fff;
+  border-radius: 13px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  margin: 0 auto 38px auto;
+  padding: 26px 0 22px 0;
+  max-width: 950px;
+  text-align: center;
+}
+.bfa_advantage_title {
+  font-size: 1.09rem;
+  font-weight: 700;
+  color: #22223b;
+  margin-bottom: 3px;
+}
+.bfa_advantage_subtitle {
+  color: #64748b;
+  font-size: 0.99rem;
+  margin-bottom: 18px;
+  display: block;
+}
+.bfa_advantage_stats_row {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  margin-top: 18px;
+}
+.bfa_advantage_stat {
+  background: #f9fafb;
+  border-radius: 11px;
+  padding: 16px 22px;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bfa_stat_value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #D81212;
+}
+.bfa_stat_label {
+  color: #64748b;
+  font-size: 0.97rem;
+  margin-top: 2px;
+  text-align: center;
+}
+.bfa_compare_section {
+  margin: 44px auto 0 auto;
+  max-width: 900px;
+}
+.bfa_compare_title {
+  font-size: 1.09rem;
+  font-weight: 700;
+  color: #22223b;
+  display: block;
+  text-align: center;
+}
+.bfa_compare_subtitle {
+  color: #64748b;
+  font-size: 0.99rem;
+  display: block;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.bfa_compare_table_wrap {
+  background: #fff;
+  border-radius: 13px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  margin-top: 14px;
+  padding: 18px 0;
+}
+.bfa_compare_table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.bfa_compare_table_row {
+  display: flex;
+  border-bottom: 1px solid #f1f5f9;
+}
+.bfa_compare_table_head {
+  background: #f9fafb;
+  font-weight: 600;
+  color: #22223b;
+}
+.bfa_compare_table_cell {
+  flex: 1;
+  padding: 11px 13px;
+  font-size: 1rem;
+  color: #22223b;
+}
+.bfa_compare_table_row:last-child {
+  border-bottom: none;
+}
+.bfa_faq_section {
+  margin: 48px auto 0 auto;
+  max-width: 700px;
+}
+.bfa_faq_title {
+  font-size: 1.09rem;
+  font-weight: 700;
+  color: #22223b;
+  display: block;
+  text-align: center;
+}
+.bfa_faq_subtitle {
+  color: #64748b;
+  font-size: 0.99rem;
+  display: block;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.bfa_faq_list {
+  margin-top: 10px;
+}
+.bfa_faq_item {
+  background: #fff;
+  border-radius: 9px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.bfa_faq_question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 14px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #22223b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.bfa_faq_question:hover {
+  background: #f3f4f6;
+}
+.bfa_faq_qicon {
+  color: #D81212;
+  font-size: 1.1rem;
+  margin-right: 9px;
+}
+.bfa_faq_chevron {
+  color: #64748b;
+  font-size: 1.13rem;
+  margin-left: 14px;
+  transition: transform 0.18s;
+}
+.bfa_faq_chevron_open {
+  transform: rotate(180deg);
+}
+.bfa_faq_answer {
+  background: #f9fafb;
+  color: #22223b;
+  font-size: 0.98rem;
+  padding: 14px 18px 14px 36px;
+  border-top: 1px solid #f1f5f9;
+}
+.bfa_footer_cta {
+  margin: 64px 0 0 0;
+
+  color: #333;
+  text-align: center;
+  padding: 38px 10px 28px 10px;
+  border-radius: 0;
+}
+.bfa_footer_cta_title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 7px;
+}
+.bfa_footer_cta_desc {
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 18px;
+}
+.bfa_footer_cta_btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 7px;
+}
+.bfa_footer_cta_guarantee {
+  color: #D81212;
+  font-size: 0.97rem;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .bfa_hero_section {
+    flex-direction: column;
+    gap: 16px;
+    padding: 22px 0 10px 0;
+  }
+  .bfa_hero_img img {
+    margin-right: 0;
+    margin-top: 16px;
+    width: 100%;
+    max-width: 320px;
+  }
+  .bfa_benefits_row {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+  .bfa_advantage_stats_row {
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+  }
+}
+@media (max-width: 600px) {
+  .bfa_hero_texts {
+    margin-left: 0;
+    padding: 0 12px;
+  }
+  .bfa_hero_img img {
+    max-width: 98vw;
+  }
+  .bfa_benefits_row, .bfa_advantage_section, .bfa_compare_section, .bfa_faq_section {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}

@@ -1,0 +1,83 @@
+.udnav_navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  background: #fff;
+  min-height: 60px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  position: relative;
+  z-index: 20;
+}
+.udnav_logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #22223b;
+}
+.udnav_menu_icon {
+  display: none;
+  background: none;
+  border: none;
+  color: #22223b;
+  cursor: pointer;
+}
+.udnav_menu_links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  transition: right 0.22s;
+}
+.udnav_link {
+  text-decoration: none;
+  color: #22223b;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 7px 10px;
+  border-radius: 6px;
+  transition: background 0.16s;
+}
+.udnav_link:hover {
+  background: #f3f4f6;
+}
+.udnav_add_btn {
+  background: linear-gradient(to right, #ff4447, #8a2e2e);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  transition: background 0.18s;
+}
+.udnav_add_btn:hover {
+  background: linear-gradient(to right, #8a2e2e, #ff4447);
+}
+
+/* Mobile styles */
+@media (max-width: 900px) {
+  .udnav_menu_icon {
+    display: block;
+    z-index: 22;
+  }
+  .udnav_menu_links {
+    flex-direction: column;
+    align-items: flex-start;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    right: -100vw;
+    width: 220px;
+    padding: 26px 18px 18px 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-radius: 0 0 12px 12px;
+    gap: 14px;
+    transition: right 0.22s;
+  }
+  .udnav_menu_open {
+    right: 0;
+  }
+}

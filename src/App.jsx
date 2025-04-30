@@ -98,6 +98,10 @@ import RentalListings from './pages/RentalServices/RentalListings';
 import ESignForm from './Components/ESign/ESignForm';
 import DashboardComponent from './Components/userdashboard/DashboardComponent.jsx';
 import PropertyDetails from './pages/RentalServices/PropertyDetails';
+import UserProfileModernCard from './Components/userdashboard/UserProfileModernCard.jsx';
+import UserLeadsManagement from './Components/userdashboard/UserLeadsManagement.jsx';
+import UserPropertiesCardGrid from './Components/userdashboard/UserPropertiesCardGrid.jsx';
+import BecomeFeaturedAgent from './Components/userdashboard/BecomeFeaturedAgent.jsx';
 
 // Scroll restoration component
 const ScrollRestoration = () => {
@@ -250,6 +254,10 @@ function App() {
               <Route path="/rental-listings" element={<RentalListings />} />
               <Route path='/userdashboard' element={<DashboardComponent/>}/>
               <Route path="/rental-property/:id" element={<PropertyDetails />} />
+              <Route path='/userdashboard-profile' element={<UserProfileModernCard/>}/>
+              <Route path='/userdashboard-lead' element={<UserLeadsManagement/>}/>
+              <Route path='/userdashboard-property' element={<UserPropertiesCardGrid/>}/>
+              <Route path='/userdashboard-agent' element={<BecomeFeaturedAgent/>}/>
             </Routes>
           </main>
           <Footer />
