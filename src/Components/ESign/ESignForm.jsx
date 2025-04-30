@@ -81,6 +81,7 @@ const ESignForm = () => {
           accept_virtual_sign: true,
           track_location: true,
           auth_mode: "1",
+          skip_otp: true,
           reason: "Contract",
           positions: {
             "1": [
