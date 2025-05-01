@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaHome, FaUser, FaStar, FaBell, FaEye, FaEdit } from "react-icons/fa";
+import { FaHome, FaUser, FaStar, FaBell, FaEye, FaEdit, FaPlus } from "react-icons/fa";
 import "./DashboardComponentStyles.css";
 import { SiReacthookform } from "react-icons/si";
 import { FaArrowUpFromBracket } from "react-icons/fa6";
@@ -168,6 +168,38 @@ const DashboardComponent = () => {
               <div>Loading properties...</div>
             ) : error ? (
               <div>Error: {error}</div>
+            ) : properties.length === 0 ? (
+              <div className="no_properties_message_abxy123">
+                <img 
+                  src="/placeholder.jpg" 
+                  alt="No properties" 
+                  style={{ 
+                    width: '200px', 
+                    height: '150px', 
+                    objectFit: 'cover', 
+                    borderRadius: '8px',
+                    marginBottom: '15px'
+                  }} 
+                />
+                <p>Currently No Property Upload</p>
+                <Link 
+                  to="/add-property" 
+                  className="add_property_btn_abxy123"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    background: 'linear-gradient(to right, #ff4447, #8a2e2e)',
+                    color: 'white',
+                    padding: '10px 20px',
+                    borderRadius: '5px',
+                    textDecoration: 'none',
+                    marginTop: '10px'
+                  }}
+                >
+                  <FaPlus /> Upload Your First Property
+                </Link>
+              </div>
             ) : (
               <>
                 {properties.map((property) => (

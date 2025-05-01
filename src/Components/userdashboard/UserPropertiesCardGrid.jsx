@@ -49,6 +49,11 @@ const UserPropertiesCardGrid = () => {
     try {
       setLoading(true);
       const response = await fetch(`https://www.townmanor.ai/api/owner-property/username/${username}`);
+      if (response.status === 404) {
+        setProperties([]);
+        setLoading(false);
+        return;
+      }
       if (!response.ok) {
         throw new Error('Failed to fetch properties');
       }
@@ -57,7 +62,7 @@ const UserPropertiesCardGrid = () => {
       setLoading(false);
     } catch (error) {
       console.error('Error fetching properties:', error);
-      setError('Failed to load properties');
+      setError('Something went wrong while loading properties. Please try again later.');
       setLoading(false);
     }
   };
@@ -172,7 +177,63 @@ const UserPropertiesCardGrid = () => {
   }
 
   if (error) {
-    return <div className="mpc_error">{error}</div>;
+    return (
+      <>
+        <UserDashboardNavbar />
+        <div className="mpc_main_wrap" style={{ textAlign: 'center', padding: '50px 20px' }}>
+          <h2 style={{ marginBottom: '20px', color: '#333' }}>{error}</h2>
+          <button 
+            onClick={() => {
+              setError(null);
+              fetchProperties();
+            }}
+            style={{
+              padding: '12px 24px',
+              backgroundColor: '#D81212',
+              color: 'white',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer',
+              fontSize: '16px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px'
+            }}
+          >
+            Try Again
+          </button>
+        </div>
+      </>
+    );
+  }
+
+  if (!loading && properties.length === 0) {
+    return (
+      <>
+        <UserDashboardNavbar />
+        <div className="mpc_main_wrap" style={{ textAlign: 'center', padding: '50px 20px' }}>
+          <h2 style={{ marginBottom: '20px', color: '#333' }}>Currently there are no properties available</h2>
+          <p style={{ marginBottom: '30px', color: '#666' }}>Start by uploading your first property</p>
+          <button 
+            onClick={() => navigate('/newform')} 
+            style={{
+              padding: '12px 24px',
+              backgroundColor: '#D81212',
+              color: 'white',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer',
+              fontSize: '16px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px'
+            }}
+          >
+            <FaPlus /> Add Property
+          </button>
+        </div>
+      </>
+    );
   }
 
   return (

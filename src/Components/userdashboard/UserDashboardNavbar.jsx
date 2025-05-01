@@ -42,7 +42,12 @@ const UserDashboardNavbar = () => {
         }}>My Profile</a>
         <button className="udnav_add_btn" onClick={()=>{
           navigate('/newform')
-        }}>
+        }}
+        style={{
+          background: 'linear-gradient(to right, #ff4447, #8a2e2e)',
+          color: 'white'
+        }}
+        >
           <FaArrowUpFromBracket size={18} style={{ marginRight: 6 }} />
           Add Property
         </button>
