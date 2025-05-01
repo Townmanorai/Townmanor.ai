@@ -186,14 +186,32 @@ const ESignForm = () => {
   // Upload document and redirect to NSDL
   const uploadDocument = async () => {
     console.log('=== Step 2: Document Upload Process ===');
-    console.log('Client ID:', clientId);
-    console.log('Token:', token);
+    console.log('Initial Parameters:', {
+      clientId,
+      token,
+      documentFile: formData.documentFile ? {
+        name: formData.documentFile.name,
+        type: formData.documentFile.type,
+        size: formData.documentFile.size
+      } : null
+    });
+    console.log('Bearer Token:', BEARER_TOKEN);
+    
     setLoading(true);
     setError(null);
     
     try {
       // Step 1: Get upload link
-      console.log('=== Getting Upload Link ===');
+      console.log('\n=== Step 2.1: Getting Upload Link ===');
+      console.log('Request URL:', 'https://kyc-api.surepass.io/api/v1/esign/get-upload-link');
+      console.log('Request Headers:', {
+        "Authorization": `Bearer ${BEARER_TOKEN}`,
+        "Content-Type": "application/json"
+      });
+      console.log('Request Body:', {
+        client_id: clientId
+      });
+
       const getLinkResponse = await fetch('https://kyc-api.surepass.io/api/v1/esign/get-upload-link', {
         method: 'POST',
         headers: {
@@ -205,68 +223,122 @@ const ESignForm = () => {
         })
       });
 
+      console.log('Get Link Response Status:', getLinkResponse.status);
+      console.log('Get Link Response Headers:', Object.fromEntries(getLinkResponse.headers.entries()));
+
       const linkData = await getLinkResponse.json();
-      console.log('Upload Link Response:', JSON.stringify(linkData, null, 2));
+      console.log('Upload Link Response Data:', JSON.stringify(linkData, null, 2));
 
       if (!linkData.success) {
+        console.error('Failed to get upload link:', linkData);
         throw new Error(linkData.message || 'Failed to get upload link');
       }
 
       const { url, fields } = linkData.data;
+      console.log('\nAWS S3 Upload Details:');
+      console.log('Upload URL:', url);
+      console.log('AWS Fields:', fields);
 
       // Step 2: Upload to AWS S3
-      console.log('=== Uploading to AWS S3 ===');
+      console.log('\n=== Step 2.2: Uploading to AWS S3 ===');
       const formDataForUpload = new FormData();
       
-      // Add all fields from the response
+      // Add all fields from the response first
+      console.log('Adding AWS fields to FormData:');
       Object.entries(fields).forEach(([key, value]) => {
+        console.log(`Adding field: ${key} = ${value}`);
         formDataForUpload.append(key, value);
       });
       
       // Add the file last
+      console.log('\nAdding file to FormData:', {
+        fileName: formData.documentFile.name,
+        fileType: formData.documentFile.type,
+        fileSize: formData.documentFile.size
+      });
       formDataForUpload.append('file', formData.documentFile);
 
-      console.log('Uploading to URL:', url);
-      console.log('Form Data Fields:');
+      console.log('\nPreparing S3 Upload:');
+      console.log('Upload URL:', url);
+      console.log('FormData Contents:');
       for (let [key, value] of formDataForUpload.entries()) {
-        console.log(`${key}:`, value instanceof File ? value.name : value);
+        console.log(`${key}:`, value instanceof File ? {
+          name: value.name,
+          type: value.type,
+          size: value.size
+        } : value);
       }
 
+      console.log('\nSending upload request to AWS S3...');
       const uploadResponse = await fetch(url, {
         method: 'POST',
         body: formDataForUpload
       });
 
+      console.log('\nS3 Upload Response:', {
+        status: uploadResponse.status,
+        statusText: uploadResponse.statusText,
+        headers: Object.fromEntries(uploadResponse.headers.entries())
+      });
+
       if (!uploadResponse.ok) {
+        console.error('S3 Upload failed:', {
+          status: uploadResponse.status,
+          statusText: uploadResponse.statusText
+        });
+        
+        // Try to get error details if available
+        try {
+          const errorText = await uploadResponse.text();
+          console.error('S3 Error Response:', errorText);
+        } catch (e) {
+          console.error('Could not read error response:', e);
+        }
+        
         throw new Error(`Failed to upload to AWS S3: ${uploadResponse.status} ${uploadResponse.statusText}`);
       }
 
-      console.log('=== Document Upload Successful ===');
-      console.log('Redirecting to NSDL URL:', esignUrl);
+      // Step 3: Verify upload and proceed
+      console.log('\n=== Step 2.3: Upload Successful ===');
+      console.log('Upload completed successfully');
+      console.log('NSDL URL for redirection:', esignUrl);
+      
       toast.success('Document uploaded successfully!');
+      console.log('Opening NSDL URL in new tab...');
       window.open(esignUrl, '_blank');
+      
+      console.log('Updating component state to step 3');
       setCurrentStep(3);
 
     } catch (err) {
-      console.error('=== Error in Document Upload ===');
-      console.error('Error Type:', err.name);
-      console.error('Error Message:', err.message);
-      console.error('Error Stack:', err.stack);
+      console.error('\n=== Error in Document Upload ===');
+      console.error('Error Details:', {
+        name: err.name,
+        message: err.message,
+        stack: err.stack
+      });
       
       let errorMessage = 'Error uploading document. Please try again.';
       if (err.message.includes('Failed to fetch')) {
+        console.error('Network Error detected');
         errorMessage = 'Network error: Please check your internet connection and try again.';
       } else if (err.message.includes('Failed to get upload link')) {
+        console.error('Upload Link Error detected');
         errorMessage = 'Failed to get upload link from server. Please try again.';
       } else if (err.message.includes('Failed to upload to AWS S3')) {
+        console.error('S3 Upload Error detected');
         errorMessage = 'Failed to upload document to server. Please try again.';
       } else {
+        console.error('Unknown Error detected');
         errorMessage = err.message;
       }
       
+      console.error('Setting error state with message:', errorMessage);
       setError(errorMessage);
       toast.error(errorMessage);
     } finally {
+      console.log('\n=== Upload Process Complete ===');
+      console.log('Resetting loading state');
       setLoading(false);
     }
   };
