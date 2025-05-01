@@ -192,74 +192,61 @@ const ESignForm = () => {
     setError(null);
     
     try {
-      console.log('Preparing document upload...');
-      console.log('Document File:', formData.documentFile);
-      
-      const formDataForUpload = new FormData();
-      formDataForUpload.append('file', formData.documentFile);
-      formDataForUpload.append('client_id', clientId);
-      formDataForUpload.append('token', token);
-      
-      console.log('=== Upload Request Details ===');
-      console.log('URL:', 'https://kyc-api.surepass.io/api/v1/esign/upload');
-      console.log('Headers:', {
-        "Authorization": `Bearer ${BEARER_TOKEN}`,
-        "Accept": "application/json"
-      });
-      console.log('Form Data Contents:');
-      for (let [key, value] of formDataForUpload.entries()) {
-        console.log(`${key}:`, value);
-      }
-      
-      console.log('Making API call...');
-      const response = await fetch('https://kyc-api.surepass.io/api/v1/esign/upload', {
+      // Step 1: Get upload link
+      console.log('=== Getting Upload Link ===');
+      const getLinkResponse = await fetch('https://kyc-api.surepass.io/api/v1/esign/get-upload-link', {
         method: 'POST',
         headers: {
           "Authorization": `Bearer ${BEARER_TOKEN}`,
-          "Accept": "application/json"
+          "Content-Type": "application/json"
         },
-        mode: 'cors',
-        body: formDataForUpload
-      }).catch(error => {
-        console.error('=== Network Error Details ===');
-        console.error('Error Name:', error.name);
-        console.error('Error Message:', error.message);
-        console.error('Error Stack:', error.stack);
-        console.error('Error Type:', error.type);
-        throw error;
+        body: JSON.stringify({
+          client_id: clientId
+        })
       });
 
-      console.log('=== Response Details ===');
-      console.log('Status:', response.status);
-      console.log('Status Text:', response.statusText);
-      console.log('Headers:', Object.fromEntries(response.headers.entries()));
+      const linkData = await getLinkResponse.json();
+      console.log('Upload Link Response:', JSON.stringify(linkData, null, 2));
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error('=== API Error Response ===');
-        console.error('Status:', response.status);
-        console.error('Status Text:', response.statusText);
-        console.error('Error Text:', errorText);
-        throw new Error(`API Error: ${response.status} ${response.statusText}`);
+      if (!linkData.success) {
+        throw new Error(linkData.message || 'Failed to get upload link');
       }
 
-      const data = await response.json();
-      console.log('=== API Response Data ===');
-      console.log('Full Response:', JSON.stringify(data, null, 2));
+      const { url, fields } = linkData.data;
+
+      // Step 2: Upload to AWS S3
+      console.log('=== Uploading to AWS S3 ===');
+      const formDataForUpload = new FormData();
       
-      if (data.success) {
-        console.log('=== Success Response ===');
-        console.log('Redirecting to NSDL URL:', esignUrl);
-        toast.success('Document uploaded successfully!');
-        window.open(esignUrl, '_blank');
-        setCurrentStep(3);
-      } else {
-        console.error('=== Error Response ===');
-        console.error('Message:', data.message);
-        console.error('Message Code:', data.message_code);
-        setError(data.message || 'Failed to upload document');
-        toast.error(data.message || 'Failed to upload document');
+      // Add all fields from the response
+      Object.entries(fields).forEach(([key, value]) => {
+        formDataForUpload.append(key, value);
+      });
+      
+      // Add the file last
+      formDataForUpload.append('file', formData.documentFile);
+
+      console.log('Uploading to URL:', url);
+      console.log('Form Data Fields:');
+      for (let [key, value] of formDataForUpload.entries()) {
+        console.log(`${key}:`, value instanceof File ? value.name : value);
       }
+
+      const uploadResponse = await fetch(url, {
+        method: 'POST',
+        body: formDataForUpload
+      });
+
+      if (!uploadResponse.ok) {
+        throw new Error(`Failed to upload to AWS S3: ${uploadResponse.status} ${uploadResponse.statusText}`);
+      }
+
+      console.log('=== Document Upload Successful ===');
+      console.log('Redirecting to NSDL URL:', esignUrl);
+      toast.success('Document uploaded successfully!');
+      window.open(esignUrl, '_blank');
+      setCurrentStep(3);
+
     } catch (err) {
       console.error('=== Error in Document Upload ===');
       console.error('Error Type:', err.name);
@@ -269,8 +256,12 @@ const ESignForm = () => {
       let errorMessage = 'Error uploading document. Please try again.';
       if (err.message.includes('Failed to fetch')) {
         errorMessage = 'Network error: Please check your internet connection and try again.';
-      } else if (err.message.includes('API Error')) {
-        errorMessage = `API Error: ${err.message}`;
+      } else if (err.message.includes('Failed to get upload link')) {
+        errorMessage = 'Failed to get upload link from server. Please try again.';
+      } else if (err.message.includes('Failed to upload to AWS S3')) {
+        errorMessage = 'Failed to upload document to server. Please try again.';
+      } else {
+        errorMessage = err.message;
       }
       
       setError(errorMessage);

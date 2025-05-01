@@ -160,7 +160,11 @@ const RentalListings = () => {
         <div className="logo-container">
           <Link to="/">
             <div className="rental-townmanor-logo">
-              <h1>Townmanor</h1>
+              <div className="animated-text">
+                <span className="word">Town PG</span>
+                <span className="word">Town Co-living</span>
+                <span className="word">Town Suits</span>
+              </div>
             </div>
           </Link>
         </div>

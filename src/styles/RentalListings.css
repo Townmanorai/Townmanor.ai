@@ -20,6 +20,10 @@
   z-index: 1000;
 }
 
+.rental-townmanor-logo {
+  position: relative;
+}
+
 .rental-townmanor-logo h1 {
   margin: 0;
   font-size: 24px;
@@ -78,7 +82,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to right, rgba(46, 49, 146, 0.8), transparent);
+  background: linear-gradient(to right, rgb(146 46 46 / 28%), transparent);
 }
 
 .rental-hero-content {
@@ -680,5 +684,55 @@
   .rental-filter-button {
     width: 100%;
     max-width: 250px;
+  }
+}
+
+.animated-text {
+  height: 40px;
+  width: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.animated-text .word {
+  display: block;
+  height: 100%;
+  font-size: 24px;
+  font-weight: bold;
+  color: #4e0808;
+  /* background: linear-gradient(to right, #ff4447, #8a2e2e); */
+  position: absolute;
+  width: 100%;
+  top: 0;
+  animation: cycleWords 9s infinite;
+  opacity: 0;
+  transform: translateY(50%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animated-text .word:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.animated-text .word:nth-child(2) {
+  animation-delay: 3s;
+}
+
+.animated-text .word:nth-child(3) {
+  animation-delay: 6s;
+}
+
+@keyframes cycleWords {
+  0%, 27% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  33%, 93% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50%);
   }
 } 

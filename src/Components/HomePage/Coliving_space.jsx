@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Coliving_space.css';
 import { FaUsers, FaBed, FaHome, FaCheck, FaArrowRight } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 
 function Coliving_space() {
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [name, setName] = useState('');
@@ -75,6 +77,13 @@ function Coliving_space() {
               Choose the perfect living arrangement that suits your lifestyle
               and preferences.
             </p>
+            <button 
+              className="coliving-primary-btn" 
+              onClick={() => navigate('/rental-listings')}
+              style={{ marginTop: '20px' }}
+            >
+              View All Rental Listings
+            </button>
           </div>
           <div className="coliving-cards">
             {/* Card 1 */}

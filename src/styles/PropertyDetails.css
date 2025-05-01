@@ -326,7 +326,7 @@
   left: 0;
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, #4299e1 0%, #7f9cf5 100%);
+  background: linear-gradient(90deg, #e14242 0%, #f57f7f 100%);
   border-radius: 2px;
 }
 
@@ -339,7 +339,7 @@
 
 /* Video Tour CTA */
 .video-tour {
-  background: linear-gradient(135deg, #4299e1 0%, #7f9cf5 100%);
+  background: linear-gradient(135deg, #e14242 0%, #f57f7f 100%);
   padding: 30px;
   border-radius: 16px;
   display: flex;
