@@ -63,12 +63,13 @@ const ESignForm = () => {
 
   // Initialize eSign process
   const initializeESign = async () => {
-    console.log('Step 1: Initializing eSign process with user details:', formData);
+    console.log('=== Step 1: Initializing eSign Process ===');
+    console.log('Form Data:', formData);
     setLoading(true);
     setError(null);
     
     try {
-      console.log('Making API call to initialize eSign...');
+      console.log('Preparing initialization request...');
       
       // Create the request body
       const requestBody = {
@@ -98,15 +99,16 @@ const ESignForm = () => {
         }
       };
 
-      console.log('Request URL:', 'https://kyc-api.surepass.io/api/v1/esign/initialize');
-      console.log('Request Headers:', {
+      console.log('=== Request Details ===');
+      console.log('URL:', 'https://kyc-api.surepass.io/api/v1/esign/initialize');
+      console.log('Headers:', {
         "Authorization": `Bearer ${BEARER_TOKEN}`,
         "Content-Type": "application/json",
         "Accept": "application/json"
       });
-      console.log('Request Body:', requestBody);
+      console.log('Request Body:', JSON.stringify(requestBody, null, 2));
 
-      // Make the actual request
+      console.log('Making API call...');
       const response = await fetch('https://kyc-api.surepass.io/api/v1/esign/initialize', {
         method: 'POST',
         headers: {
@@ -117,47 +119,55 @@ const ESignForm = () => {
         mode: 'cors',
         body: JSON.stringify(requestBody)
       }).catch(error => {
-        console.error('Network error details:', {
-          name: error.name,
-          message: error.message,
-          stack: error.stack,
-          type: error.type
-        });
+        console.error('=== Network Error Details ===');
+        console.error('Error Name:', error.name);
+        console.error('Error Message:', error.message);
+        console.error('Error Stack:', error.stack);
+        console.error('Error Type:', error.type);
         throw error;
       });
 
-      console.log('Response Status:', response.status);
-      console.log('Response Headers:', Object.fromEntries(response.headers.entries()));
+      console.log('=== Response Details ===');
+      console.log('Status:', response.status);
+      console.log('Status Text:', response.statusText);
+      console.log('Headers:', Object.fromEntries(response.headers.entries()));
 
       if (!response.ok) {
         const errorText = await response.text();
-        console.error('API Error Response:', errorText);
+        console.error('=== API Error Response ===');
+        console.error('Status:', response.status);
+        console.error('Status Text:', response.statusText);
+        console.error('Error Text:', errorText);
         throw new Error(`API Error: ${response.status} ${response.statusText}`);
       }
 
       const data = await response.json();
-      console.log('Initialize API Response:', data);
+      console.log('=== API Response Data ===');
+      console.log('Full Response:', JSON.stringify(data, null, 2));
       
       if (data.success) {
-        console.log('Step 1: Successfully initialized. Client ID:', data.data.client_id);
+        console.log('=== Success Response ===');
+        console.log('Client ID:', data.data.client_id);
+        console.log('Token:', data.data.token);
+        console.log('URL:', data.data.url);
+        
         setClientId(data.data.client_id);
         setToken(data.data.token);
         setEsignUrl(data.data.url);
-        setCurrentStep(2); // Move to document upload step
+        setCurrentStep(2);
         toast.success('Initialization successful');
       } else {
-        console.error('Step 1: Failed to initialize:', data.message);
+        console.error('=== Error Response ===');
+        console.error('Message:', data.message);
+        console.error('Message Code:', data.message_code);
         setError(data.message || 'Failed to initialize e-sign process');
         toast.error(data.message || 'Failed to initialize e-sign process');
       }
     } catch (err) {
-      console.error('Step 1: Error initializing e-sign:', err);
-      console.error('Error details:', {
-        name: err.name,
-        message: err.message,
-        stack: err.stack,
-        type: err.type
-      });
+      console.error('=== Error in Initialization ===');
+      console.error('Error Type:', err.name);
+      console.error('Error Message:', err.message);
+      console.error('Error Stack:', err.stack);
       
       let errorMessage = 'Error initializing e-sign process. Please try again.';
       if (err.message.includes('Failed to fetch')) {
@@ -175,44 +185,96 @@ const ESignForm = () => {
 
   // Upload document and redirect to NSDL
   const uploadDocument = async () => {
-    console.log('Step 2: Uploading document for client ID:', clientId);
+    console.log('=== Step 2: Document Upload Process ===');
+    console.log('Client ID:', clientId);
+    console.log('Token:', token);
     setLoading(true);
     setError(null);
     
     try {
       console.log('Preparing document upload...');
+      console.log('Document File:', formData.documentFile);
+      
       const formDataForUpload = new FormData();
       formDataForUpload.append('file', formData.documentFile);
       formDataForUpload.append('client_id', clientId);
       formDataForUpload.append('token', token);
       
-      console.log('Making API call to upload document...');
+      console.log('=== Upload Request Details ===');
+      console.log('URL:', 'https://kyc-api.surepass.io/api/v1/esign/upload');
+      console.log('Headers:', {
+        "Authorization": `Bearer ${BEARER_TOKEN}`,
+        "Accept": "application/json"
+      });
+      console.log('Form Data Contents:');
+      for (let [key, value] of formDataForUpload.entries()) {
+        console.log(`${key}:`, value);
+      }
+      
+      console.log('Making API call...');
       const response = await fetch('https://kyc-api.surepass.io/api/v1/esign/upload', {
         method: 'POST',
         headers: {
           "Authorization": `Bearer ${BEARER_TOKEN}`,
+          "Accept": "application/json"
         },
+        mode: 'cors',
         body: formDataForUpload
+      }).catch(error => {
+        console.error('=== Network Error Details ===');
+        console.error('Error Name:', error.name);
+        console.error('Error Message:', error.message);
+        console.error('Error Stack:', error.stack);
+        console.error('Error Type:', error.type);
+        throw error;
       });
-      
+
+      console.log('=== Response Details ===');
+      console.log('Status:', response.status);
+      console.log('Status Text:', response.statusText);
+      console.log('Headers:', Object.fromEntries(response.headers.entries()));
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('=== API Error Response ===');
+        console.error('Status:', response.status);
+        console.error('Status Text:', response.statusText);
+        console.error('Error Text:', errorText);
+        throw new Error(`API Error: ${response.status} ${response.statusText}`);
+      }
+
       const data = await response.json();
-      console.log('Upload Document API Response:', data);
+      console.log('=== API Response Data ===');
+      console.log('Full Response:', JSON.stringify(data, null, 2));
       
       if (data.success) {
-        console.log('Step 2: Document uploaded successfully, redirecting to NSDL...');
+        console.log('=== Success Response ===');
+        console.log('Redirecting to NSDL URL:', esignUrl);
         toast.success('Document uploaded successfully!');
-        // Redirect to NSDL e-sign portal
         window.open(esignUrl, '_blank');
-        setCurrentStep(3); // Move to Aadhaar verification step
+        setCurrentStep(3);
       } else {
-        console.error('Step 2: Document upload failed:', data.message);
+        console.error('=== Error Response ===');
+        console.error('Message:', data.message);
+        console.error('Message Code:', data.message_code);
         setError(data.message || 'Failed to upload document');
         toast.error(data.message || 'Failed to upload document');
       }
     } catch (err) {
-      console.error('Step 2: Error uploading document:', err);
-      setError('Error uploading document. Please try again.');
-      toast.error('Error uploading document. Please try again.');
+      console.error('=== Error in Document Upload ===');
+      console.error('Error Type:', err.name);
+      console.error('Error Message:', err.message);
+      console.error('Error Stack:', err.stack);
+      
+      let errorMessage = 'Error uploading document. Please try again.';
+      if (err.message.includes('Failed to fetch')) {
+        errorMessage = 'Network error: Please check your internet connection and try again.';
+      } else if (err.message.includes('API Error')) {
+        errorMessage = `API Error: ${err.message}`;
+      }
+      
+      setError(errorMessage);
+      toast.error(errorMessage);
     } finally {
       setLoading(false);
     }
