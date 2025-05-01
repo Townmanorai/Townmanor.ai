@@ -91,7 +91,7 @@ const UserPropertiesCardGrid = () => {
   };
 
   const handleViewProperty = (propertyId) => {
-    navigate(`/property/${propertyId}`);
+    navigate(`/newownerpage/${propertyId}`);
   };
 
   const renderPaginationButtons = () => {
@@ -235,11 +235,11 @@ const UserPropertiesCardGrid = () => {
               />
             </div>
             <div className="mpc_card_body">
-              <span className="mpc_prop_name">{prop.property_name}</span>
+              <span className="mpc_prop_name">{prop.configuration}  at {prop.property_name}</span>
               <span className="mpc_prop_addr">{prop.address}</span>
               <span className="mpc_prop_price">₹{prop.price} {prop.pricerange}</span>
               <span className="mpc_prop_month">
-                {prop.area_detail} {prop.area_type} • {prop.configuration}
+                {prop.area_detail} {prop.area_type} 
               </span>
               <div className="mpc_row_status">
                 <span
@@ -262,11 +262,13 @@ const UserPropertiesCardGrid = () => {
                 >
                   <FaEye style={{ marginRight: '5px' }} color="black"/> View
                 </button>
-                <button className="mpc_edit_btn">Edit</button>
+                <button className="mpc_edit_btn" onClick={()=>{
+                  navigate(`/editform/${prop.id}`)
+                }}>Edit</button>
                 <button className="mpc_delete_btn">Delete</button>
-                <button className="mpc_menu_btn">
+                {/* <button className="mpc_menu_btn">
                   <FaEllipsisV />
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

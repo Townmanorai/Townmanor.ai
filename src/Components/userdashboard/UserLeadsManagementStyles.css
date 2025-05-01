@@ -338,6 +338,9 @@
     margin-left: 0;
     margin-right: 0;
   }
+  .lead_mobile {
+    display: none;
+  }
   .lmgt_card,
   .lmgt_table_wrap {
     border-radius: 0;

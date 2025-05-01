@@ -109,14 +109,14 @@ const UserProfileModernCard = () => {
         <div className="upmc_profile_info_section">
           <div className="upmc_profile_photo_block">
             <img
-              src="/Agent.png"
+              src="/dummyagent.jpg"
               alt="profile"
               className="upmc_profile_photo"
             />
-            <button className="upmc_change_photo_btn">
+            {/* <button className="upmc_change_photo_btn">
               <FaCamera className="upmc_icon_camera" />
               <span className="upmc_change_photo_text">Change Photo</span>
-            </button>
+            </button> */}
             <div className="upmc_profile_name">{userData?.name_surname || username}</div>
             <div className="upmc_profile_role">{userData?.user_type || "User"}</div>
           </div>

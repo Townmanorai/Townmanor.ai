@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaUserCircle,
   FaEnvelope,
@@ -14,74 +14,89 @@ import {
 } from "react-icons/fa";
 import "./UserLeadsManagementStyles.css";
 import UserDashboardNavbar from "./UserDashboardNavbar";
-
-const leadsData = [
-  {
-    name: "John Doe",
-    avatar: "",
-    email: "johndoe@email.com",
-    phone: "+1 (555) 123-4567",
-    added: "5 days ago",
-    property: "Woodland Acres",
-    lastContact: "Apr 20, 2025",
-  },
-  {
-    name: "Mary Johnson",
-    avatar: "",
-    email: "mary.johnson@email.com",
-    phone: "+1 (555) 987-6543",
-    added: "7 days ago",
-    property: "Sunnydale Apartments",
-    lastContact: "Apr 18, 2025",
-  },
-  {
-    name: "David Chen",
-    avatar: "",
-    email: "david.chen@email.com",
-    phone: "+1 (555) 234-5678",
-    added: "3 days ago",
-    property: "Mapleview Estate",
-    lastContact: "Apr 22, 2025",
-  },
-  {
-    name: "Sarah Williams",
-    avatar: "",
-    email: "sarah.w@email.com",
-    phone: "+1 (555) 345-6789",
-    added: "10 days ago",
-    property: "Lakeside Villas",
-    lastContact: "Apr 15, 2025",
-  },
-  {
-    name: "Robert Taylor",
-    avatar: "",
-    email: "robert@email.com",
-    phone: "+1 (555) 456-7890",
-    added: "9 days ago",
-    property: "Woodland Acres",
-    lastContact: "Apr 23, 2025",
-  },
-  {
-    name: "Emily Parker",
-    avatar: "",
-    email: "emily.p@email.com",
-    phone: "+1 (555) 567-8901",
-    added: "6 days ago",
-    property: "Sunnydale Apartments",
-    lastContact: "Apr 19, 2025",
-  },
-  {
-    name: "Michael Brown",
-    avatar: "",
-    email: "michael.b@email.com",
-    phone: "+1 (555) 678-9012",
-    added: "4 days ago",
-    property: "Mapleview Estate",
-    lastContact: "Apr 21, 2025",
-  },
-];
+import Cookies from 'js-cookie';
+import { jwtDecode } from 'jwt-decode';
 
 const UserLeadsManagement = () => {
+  const [username, setUsername] = useState('');
+  const [leads, setLeads] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredLeads, setFilteredLeads] = useState([]);
+
+  // Get username from JWT token
+  useEffect(() => {
+    const token = Cookies.get('jwttoken');
+    if (token) {
+      try {
+        const decodedToken = jwtDecode(token);
+        setUsername(decodedToken.username);
+      } catch (error) {
+        console.error('Error decoding token:', error);
+        setError('Failed to authenticate user');
+      }
+    }
+  }, []);
+
+  // Fetch leads when username is available
+  useEffect(() => {
+    if (username) {
+      fetchLeads();
+    }
+  }, [username]);
+
+  const fetchLeads = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch('https://www.townmanor.ai/api/formlead/leads');
+      if (!response.ok) {
+        throw new Error('Failed to fetch leads');
+      }
+      const data = await response.json();
+      // Filter leads based on username AND source being "owner page"
+      const userLeads = data.filter(lead => 
+        lead.username === username && 
+        lead.source === "owner page"
+      );
+      setLeads(userLeads);
+      setFilteredLeads(userLeads);
+      setLoading(false);
+    } catch (err) {
+      console.error('Error fetching leads:', err);
+      setError(err.message);
+      setLoading(false);
+    }
+  };
+
+  // Handle search
+  useEffect(() => {
+    const filtered = leads.filter(lead => 
+      lead.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      lead.property_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      lead.purpose.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredLeads(filtered);
+  }, [searchTerm, leads]);
+
+  // Format date
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
+  };
+
+  // Calculate time difference
+  const getTimeDifference = (dateString) => {
+    const now = new Date();
+    const date = new Date(dateString);
+    const diffDays = Math.floor((now - date) / (1000 * 60 * 60 * 24));
+    return `${diffDays} days ago`;
+  };
+
   return (
     <>
     <UserDashboardNavbar/>
@@ -94,32 +109,49 @@ const UserLeadsManagement = () => {
       </div>
       <div className="lmgt_stats_row">
         <div className="lmgt_stats_card">
-          <span className="lmgt_stats_value lmgt_stats_blue">42</span>
-          <span className="lmgt_stats_label">Total Leads</span>
+          <span className="lmgt_stats_value lmgt_stats_blue">{leads.length}</span>
+          <span className="lmgt_stats_label">Total Property Leads</span>
         </div>
-        <div className="lmgt_stats_card">
-          <span className="lmgt_stats_value lmgt_stats_green">12</span>
-          <span className="lmgt_stats_label">New Leads (This Week)</span>
+        <div className="lmgt_stats_card ">
+          <span className="lmgt_stats_value lmgt_stats_green">
+            {leads.filter(lead => {
+              const leadDate = new Date(lead.created_at);
+              const weekAgo = new Date();
+              weekAgo.setDate(weekAgo.getDate() - 7);
+              return leadDate > weekAgo;
+            }).length}
+          </span>
+          <span className="lmgt_stats_label">New Property Leads (This Week)</span>
         </div>
-        <div className="lmgt_stats_card">
-          <span className="lmgt_stats_value lmgt_stats_orange">8</span>
-          <span className="lmgt_stats_label">Converted Leads</span>
+        <div className="lmgt_stats_card lead_mobile">
+          <span className="lmgt_stats_value lmgt_stats_orange">
+            {leads.filter(lead => lead.purpose.toLowerCase().includes('converted')).length}
+          </span>
+          <span className="lmgt_stats_label">Converted Property Leads</span>
         </div>
-        <div className="lmgt_stats_card">
-          <span className="lmgt_stats_value lmgt_stats_red">5</span>
-          <span className="lmgt_stats_label">Follow-ups Due Today</span>
+        <div className="lmgt_stats_card lead_mobile">
+          <span className="lmgt_stats_value lmgt_stats_red">
+            {leads.filter(lead => {
+              const leadDate = new Date(lead.created_at);
+              const today = new Date();
+              return leadDate.toDateString() === today.toDateString();
+            }).length}
+          </span>
+          <span className="lmgt_stats_label">Today's Property Leads</span>
         </div>
-        <button className="lmgt_add_lead_btn">
+        {/* <button className="lmgt_add_lead_btn">
           <FaPlus style={{ marginRight: 8 }} />
           Add New Lead
-        </button>
+        </button> */}
       </div>
       <div className="lmgt_filter_bar">
         <div className="lmgt_search_box">
           <FaSearch className="lmgt_search_icon" />
           <input
             className="lmgt_search_input"
-            placeholder="Search leads by name, email, or property..."
+            placeholder="Search leads by name, property, or purpose..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
         <div className="lmgt_filters_group">
@@ -142,7 +174,7 @@ const UserLeadsManagement = () => {
         </div>
       </div>
       <div className="lmgt_table_actions_row">
-        <span className="lmgt_all_leads_label">All Leads</span>
+        <span className="lmgt_all_leads_label">All Property Leads</span>
         <div className="lmgt_table_actions_btns">
           <button className="lmgt_export_btn">
             <FaDownload style={{ marginRight: 6 }} />
@@ -155,48 +187,53 @@ const UserLeadsManagement = () => {
         </div>
       </div>
       <div className="lmgt_table_wrap">
-        <div className="lmgt_table_header_row">
-          <span className="lmgt_table_header_cell lmgt_th_checkbox"></span>
-          <span className="lmgt_table_header_cell lmgt_th_lead">Lead</span>
-          <span className="lmgt_table_header_cell lmgt_th_contact">Contact Info</span>
-          <span className="lmgt_table_header_cell lmgt_th_property">Property Interest</span>
-          <span className="lmgt_table_header_cell lmgt_th_lastcontact">Last Contact</span>
-          <span className="lmgt_table_header_cell lmgt_th_actions">Actions</span>
-        </div>
-        {leadsData.map((lead, idx) => (
-          <div className="lmgt_table_row" key={idx}>
-            <span className="lmgt_table_cell lmgt_td_checkbox">
-              <input type="checkbox" />
-            </span>
-            <span className="lmgt_table_cell lmgt_td_lead">
-              {lead.avatar ? (
-                <img src={lead.avatar} className="lmgt_lead_avatar" alt="avatar" />
-              ) : (
-                <FaUserCircle className="lmgt_lead_avatar_icon" />
-              )}
-              <span className="lmgt_lead_name">{lead.name}</span>
-              <span className="lmgt_lead_added">Added {lead.added}</span>
-            </span>
-            <span className="lmgt_table_cell lmgt_td_contact">
-              <span className="lmgt_lead_email">{lead.email}</span>
-              <span className="lmgt_lead_phone">{lead.phone}</span>
-            </span>
-            <span className="lmgt_table_cell lmgt_td_property">
-              <span className="lmgt_lead_property">{lead.property}</span>
-            </span>
-            <span className="lmgt_table_cell lmgt_td_lastcontact">
-              <span className="lmgt_lead_lastcontact">{lead.lastContact}</span>
-            </span>
-            <span className="lmgt_table_cell lmgt_td_actions">
-              <FaEnvelope className="lmgt_action_icon" title="Email" />
-              <FaPhoneAlt className="lmgt_action_icon" title="Call" />
-              <FaEllipsisV className="lmgt_action_icon" title="More" />
-            </span>
-          </div>
-        ))}
+        {loading ? (
+          <div className="lmgt_loading">Loading leads...</div>
+        ) : error ? (
+          <div className="lmgt_error">{error}</div>
+        ) : (
+          <>
+            <div className="lmgt_table_header_row">
+              <span className="lmgt_table_header_cell lmgt_th_checkbox"></span>
+              <span className="lmgt_table_header_cell lmgt_th_lead">Lead</span>
+              <span className="lmgt_table_header_cell lmgt_th_contact">Contact Info</span>
+              <span className="lmgt_table_header_cell lmgt_th_property">Property Interest</span>
+              <span className="lmgt_table_header_cell lmgt_th_lastcontact">Created At</span>
+              <span className="lmgt_table_header_cell lmgt_th_actions">Actions</span>
+            </div>
+            {filteredLeads.map((lead) => (
+              <div className="lmgt_table_row" key={lead.id}>
+                <span className="lmgt_table_cell lmgt_td_checkbox lead_mobile">
+                  <input type="checkbox" />
+                </span>
+                <span className="lmgt_table_cell lmgt_td_lead lead_mobile">
+                  <FaUserCircle className="lmgt_lead_avatar_icon lead_mobile"/>
+                  <span className="lmgt_lead_name">{lead.name}</span>
+                  <span className="lmgt_lead_added">Added {getTimeDifference(lead.created_at)}</span>
+                </span>
+                <span className="lmgt_table_cell lmgt_td_contact">
+                  <span className="lmgt_lead_phone">{lead.phone_number}</span>
+                  <span className="lmgt_lead_source">{lead.source}</span>
+                </span>
+                <span className="lmgt_table_cell lmgt_td_property">
+                  <span className="lmgt_lead_property">{lead.property_name || 'N/A'}</span>
+                  <span className="lmgt_lead_purpose lead_mobile">{lead.purpose}</span>
+                </span>
+                <span className="lmgt_table_cell lmgt_td_lastcontact">
+                  <span className="lmgt_lead_lastcontact">{formatDate(lead.created_at)}</span>
+                </span>
+                <span className="lmgt_table_cell lmgt_td_actions">
+                  <FaEnvelope className="lmgt_action_icon" title="Email" />
+                  <FaPhoneAlt className="lmgt_action_icon" title="Call" />
+                  {/* <FaEllipsisV className="lmgt_action_icon" title="More" /> */}
+                </span>
+              </div>
+            ))}
+          </>
+        )}
       </div>
       <div className="lmgt_table_footer">
-        <span className="lmgt_leads_count">Showing 1-7 of 42 leads</span>
+        <span className="lmgt_leads_count">Showing 1-{filteredLeads.length} of {leads.length} leads</span>
         <div className="lmgt_footer_controls">
           <span className="lmgt_footer_show_label">Show:</span>
           <select className="lmgt_footer_select">
@@ -206,8 +243,6 @@ const UserLeadsManagement = () => {
           </select>
           <div className="lmgt_footer_pagination">
             <button className="lmgt_footer_page_btn lmgt_footer_page_btn_active">1</button>
-            <button className="lmgt_footer_page_btn">2</button>
-            <button className="lmgt_footer_page_btn">3</button>
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@
 }
 .mpc_title {
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 500;
   color: #22223b;
 }
 .mpc_add_btn {
@@ -97,7 +97,7 @@
   padding: 18px 18px 12px 18px;
 }
 .mpc_prop_name {
-  font-weight: 700;
+  font-weight: 500;
   color: #22223b;
   font-size: 1.1rem;
   margin-bottom: 1px;
@@ -111,7 +111,7 @@
 }
 .mpc_prop_price {
   color: #333;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 1.05rem;
   margin-bottom: 1px;
   display: block;
@@ -272,4 +272,12 @@
     border-radius: 0;
     box-shadow: none;
   }
+  .mpc_filter_row {
+    display: grid
+;
+    gap: 12px;
+    align-items: center;
+    flex-basis: content;
+    margin: 0 48px 24px 48px;
+}
 }

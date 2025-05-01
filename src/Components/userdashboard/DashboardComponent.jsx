@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaHome, FaUser, FaStar, FaBell } from "react-icons/fa";
+import { FaHome, FaUser, FaStar, FaBell, FaEye, FaEdit } from "react-icons/fa";
 import "./DashboardComponentStyles.css";
 import { SiReacthookform } from "react-icons/si";
 import { FaArrowUpFromBracket } from "react-icons/fa6";
@@ -16,6 +16,9 @@ const DashboardComponent = () => {
   const [error, setError] = useState(null);
   const [userData, setUserData] = useState(null);
   const [userId, setUserId] = useState(null);
+  const [leads, setLeads] = useState([]);
+  const [totalLeads, setTotalLeads] = useState(0);
+  const [leadsLoading, setLeadsLoading] = useState(true);
 
   useEffect(() => {
     const token = Cookies.get('jwttoken');
@@ -23,13 +26,42 @@ const DashboardComponent = () => {
       try {
         const decodedToken = jwtDecode(token);
         setUsername(decodedToken.username);
-        setUserId(decodedToken.id); // Get user ID from token
+        setUserId(decodedToken.id);
       } catch (error) {
         console.error('Error decoding token:', error);
         setError('Failed to authenticate user');
       }
     }
   }, []);
+
+  useEffect(() => {
+    if (username) {
+      fetchProperties();
+      fetchLeads();
+    }
+  }, [username]);
+
+  const fetchLeads = async () => {
+    try {
+      setLeadsLoading(true);
+      const response = await fetch('https://www.townmanor.ai/api/formlead/leads');
+      if (!response.ok) {
+        throw new Error('Failed to fetch leads');
+      }
+      const data = await response.json();
+      // Filter leads based on username AND source being "owner page"
+      const userLeads = data.filter(lead => 
+        lead.username === username && 
+        lead.source === "owner page"
+      );
+      setLeads(userLeads);
+      setTotalLeads(userLeads.length);
+      setLeadsLoading(false);
+    } catch (error) {
+      console.error('Error fetching leads:', error);
+      setLeadsLoading(false);
+    }
+  };
 
   useEffect(() => {
     if (userId) {
@@ -108,7 +140,7 @@ const DashboardComponent = () => {
         <div className="overview_card_abxy123">
           <FaUser className="overview_icon_abxy123" />
           <div>
-            <h3>12</h3>
+            <h3>{leadsLoading ? "..." : totalLeads}</h3>
             <p>Total Leads</p>
           </div>
         </div>
@@ -122,7 +154,7 @@ const DashboardComponent = () => {
         <div className="overview_card_abxy123">
           <FaBell className="overview_icon_abxy123" />
           <div>
-            <h3>2</h3>
+            <h3>0</h3>
             <p>Active Boosters</p>
           </div>
         </div>
@@ -148,19 +180,56 @@ const DashboardComponent = () => {
                       id="dashboard_img" 
                     />
                     <div className="property_info_abxy123">
-                      <h4>{property.property_name}</h4>
+                      <h4 style={{
+                        fontWeight:'400'
+                      }}>{property.configuration} flat at  {property.property_name}</h4>
                       <p>₹{property.price} {property.pricerange}</p>
                     </div>
                     <div className={`property_status_abxy123 ${property.status === 1 ? 'active' : ''}`}>
                       {property.status === 1 ? 'Active' : 'Inactive'}
                     </div>
-                    <Link to={`/edit-property/${property.id}`}>Edit</Link>
+                    <div className="property_actions_abxy123">
+                      <Link to={`/newownerpage/${property.id}`} className="view_btn_abxy123">
+                        <FaEye /> View
+                      </Link>
+                      <Link to={`/editform/${property.id}`} className="edit_btn_abxy123">
+                        <FaEdit /> Edit
+                      </Link>
+                    </div>
                   </div>
                 ))}
                 {properties.length >= 5 && (
-                  <Link to="/userdashboard-property" className="view_more_properties_abxy123">
-                    View All Properties
-                  </Link>
+                  <div className="view_more_container">
+                    <Link 
+                      to="/userdashboard-property" 
+                      className="view_more_properties_abxy123"
+                      style={{
+                        display: 'inline-block',
+                        textAlign: 'center',
+                        width: '100%',
+                        padding: '10px 20px',
+                        marginTop: '15px',
+                        backgroundColor: '#f8f9fa',
+                        border: '1px solid #e2e6ea',
+                        borderRadius: '5px',
+                        color: '#333',
+                        textDecoration: 'none',
+                        fontWeight: '500',
+                        transition: 'all 0.3s ease',
+                        cursor: 'pointer'
+                      }}
+                      onMouseOver={(e) => {
+                        e.currentTarget.style.backgroundColor = '#e2e6ea';
+                        e.currentTarget.style.borderColor = '#dae0e5';
+                      }}
+                      onMouseOut={(e) => {
+                        e.currentTarget.style.backgroundColor = '#f8f9fa';
+                        e.currentTarget.style.borderColor = '#e2e6ea';
+                      }}
+                    >
+                      View All Properties ({totalProperties - 5} more)
+                    </Link>
+                  </div>
                 )}
               </>
             )}
@@ -168,23 +237,61 @@ const DashboardComponent = () => {
 
           <div className="leads_list_abxy123">
             <h2>Leads</h2>
-            <div className="lead_item_abxy123">
-              <div className="lead_info_abxy123">
-                <h5>John Doe</h5>
-                <p>johndoe@email.com</p>
-                <span>I would like to schedule a visit...</span>
+            {leadsLoading ? (
+              <div>Loading leads...</div>
+            ) : leads.length > 0 ? (
+              <>
+                {leads.slice(0, 2).map((lead) => (
+                  <div key={lead.id} className="lead_item_abxy123">
+                    <div className="lead_info_abxy123">
+                      <h5>{lead.name}</h5>
+                      <p>{lead.phone_number}</p>
+                      <span>{lead.property_name || 'N/A'}</span>
+                    </div>
+                    <div className="lead_date_abxy123">
+                      {new Date(lead.created_at).toLocaleDateString()}
+                    </div>
+                  </div>
+                ))}
+                {leads.length > 2 && (
+                  <div className="view_more_container">
+                    <Link 
+                      to="/userdashboard-lead" 
+                      className="view_more_properties_abxy123"
+                      style={{
+                        display: 'inline-block',
+                        textAlign: 'center',
+                        width: '100%',
+                        padding: '10px 20px',
+                        marginTop: '15px',
+                        backgroundColor: '#f8f9fa',
+                        border: '1px solid #e2e6ea',
+                        borderRadius: '5px',
+                        color: '#333',
+                        textDecoration: 'none',
+                        fontWeight: '500',
+                        transition: 'all 0.3s ease',
+                        cursor: 'pointer'
+                      }}
+                      onMouseOver={(e) => {
+                        e.currentTarget.style.backgroundColor = '#e2e6ea';
+                        e.currentTarget.style.borderColor = '#dae0e5';
+                      }}
+                      onMouseOut={(e) => {
+                        e.currentTarget.style.backgroundColor = '#f8f9fa';
+                        e.currentTarget.style.borderColor = '#e2e6ea';
+                      }}
+                    >
+                      See More Leads ({leads.length - 2} more)
+                    </Link>
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="no-leads-message">
+                Currently there are no leads available. Stay updated with us!
               </div>
-              <div className="lead_date_abxy123">05/14/24</div>
-            </div>
-            <div className="lead_item_abxy123">
-              <div className="lead_info_abxy123">
-                <h5>Mary Johnson</h5>
-                <p>mary.johnson@email.com</p>
-                <span>Can you provide more information...</span>
-              </div>
-              <div className="lead_date_abxy123">05/13/24</div>
-            </div>
-            <a className="leads_morelink_abxy123" href="#">See More Leads</a>
+            )}
           </div>
         </div>
 

@@ -15,11 +15,36 @@ function OwnerBanner({ property }) {
         errorDescription: ''
     });
 
-    const handleConnectSubmit = (e) => {
+    const handleConnectSubmit = async (e) => {
         e.preventDefault();
-        // Handle connect form submission here
-        setShowConnectForm(false);
-        setFormData({ name: '', phone: '', errorDescription: '' });
+        try {
+            const response = await fetch('https://www.townmanor.ai/api/formlead/leads', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    phone_number: formData.phone,
+                    purpose: `lead at ${property.property_name} (ID: ${property.id})`,
+                    source: 'owner page',
+                    username: property.username || 'admin',
+                    property_name: property.property_name
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to submit connect request');
+            }
+
+            // Reset form and close modal on success
+            setShowConnectForm(false);
+            setFormData({ name: '', phone: '', errorDescription: '' });
+            alert('Thank you for connecting! Our team will get back to you soon.');
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            alert('Failed to submit request. Please try again.');
+        }
     };
 
     const handleErrorSubmit = async (e) => {
@@ -35,7 +60,8 @@ function OwnerBanner({ property }) {
                     phone_number: formData.phone,
                     purpose: 'error message',
                     source: `error reporting in property ${property.property_name} (ID: ${property.id})`,
-                    error_description: formData.errorDescription // Adding this as additional data
+                    username: property.username || 'admin',
+                    property_name: property.property_name
                 }),
             });
 
