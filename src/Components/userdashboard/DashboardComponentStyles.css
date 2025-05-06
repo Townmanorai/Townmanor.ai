@@ -408,3 +408,170 @@
     }
   }
   
+  /* Booster Popup Styles */
+  .booster_popup_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .booster_popup_content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .close_button {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .close_button:hover {
+    color: #ff4447;
+  }
+  
+  .booster_popup_content h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  
+  .booster_plans {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .booster_plan {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    background: #fff;
+  }
+  
+  .booster_plan:hover {
+    transform: translateY(-5px);
+  }
+  
+  .booster_plan h3 {
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff4447;
+    margin: 1rem 0;
+  }
+  
+  .booster_plan p {
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+  
+  .booster_plan ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    text-align: left;
+  }
+  
+  .booster_plan ul li {
+    padding: 0.5rem 0;
+    color: #555;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  
+  .booster_plan ul li:before {
+    content: "✓";
+    color: #ff4447;
+    position: absolute;
+    left: 0;
+  }
+  
+  .select_plan_btn {
+    background: linear-gradient(to right, #ff4447, #8a2e2e);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+    width: 100%;
+  }
+  
+  .select_plan_btn:hover {
+    opacity: 0.9;
+  }
+  
+  /* Mobile Responsive Styles */
+  @media (max-width: 768px) {
+    .booster_popup_content {
+      padding: 1.5rem;
+      width: 95%;
+    }
+    
+    .booster_plans {
+      gap: 1rem;
+    }
+    
+    .booster_plan {
+      min-width: 100%;
+      padding: 1.5rem;
+    }
+    
+    .price {
+      font-size: 2rem;
+    }
+    
+    .booster_plan ul {
+      margin-bottom: 1rem;
+    }
+    
+    .select_plan_btn {
+      padding: 0.6rem 1.2rem;
+    }
+  }
+  
+  /* For very small screens */
+  @media (max-width: 380px) {
+    .booster_popup_content {
+      padding: 1rem;
+    }
+    
+    .booster_plan {
+      padding: 1rem;
+    }
+    
+    .price {
+      font-size: 1.8rem;
+    }
+  }
+  

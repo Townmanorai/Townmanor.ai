@@ -102,6 +102,7 @@ import UserProfileModernCard from './Components/userdashboard/UserProfileModernC
 import UserLeadsManagement from './Components/userdashboard/UserLeadsManagement.jsx';
 import UserPropertiesCardGrid from './Components/userdashboard/UserPropertiesCardGrid.jsx';
 import BecomeFeaturedAgent from './Components/userdashboard/BecomeFeaturedAgent.jsx';
+import BoosterPaymentResponse from './Components/userdashboard/BoosterPaymentResponse.jsx';
 
 // Scroll restoration component
 const ScrollRestoration = () => {
@@ -170,6 +171,7 @@ function App() {
               <Route path="/success" element={<Success />} />
               <Route path="/services" element={<Services />} />
               <Route path="/failure" element={<Failure />} />
+              <Route path="/booster-payment-response" element={<BoosterPaymentResponse />} />
 
               <Route path="/home-loan" element={<HomeLoan />} />
               <Route path="/credit-score" element={<CreditScore />} />

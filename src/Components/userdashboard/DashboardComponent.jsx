@@ -6,7 +6,8 @@ import { FaArrowUpFromBracket } from "react-icons/fa6";
 import UserDashboardNavbar from "./UserDashboardNavbar";
 import Cookies from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const DashboardComponent = () => {
   const [username, setUsername] = useState('');
@@ -19,6 +20,72 @@ const DashboardComponent = () => {
   const [leads, setLeads] = useState([]);
   const [totalLeads, setTotalLeads] = useState(0);
   const [leadsLoading, setLeadsLoading] = useState(true);
+  const [showBoosterPopup, setShowBoosterPopup] = useState(false);
+  const [paymentResponse, setPaymentResponse] = useState(null);
+  const [paymentStatus, setPaymentStatus] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handlePaymentResponse = async () => {
+      const searchParams = new URLSearchParams(window.location.search);
+      const txnid = searchParams.get('txnid');
+      
+      // Only process if we have a transaction ID and it matches our last payment
+      const lastPaymentTxnId = localStorage.getItem('lastPaymentTxnId');
+      
+      if (txnid && (txnid === lastPaymentTxnId || txnid.startsWith('BOOST_'))) {
+        const payuResponse = {
+          txnid,
+          amount: searchParams.get('amount'),
+          status: searchParams.get('status'),
+          firstname: searchParams.get('firstname'),
+          email: searchParams.get('email'),
+          phone: searchParams.get('phone'),
+          productinfo: searchParams.get('productinfo'),
+          mihpayid: searchParams.get('mihpayid'),
+          hash: searchParams.get('hash'),
+          field1: searchParams.get('field1'),
+          field2: searchParams.get('field2'),
+          field3: searchParams.get('field3'),
+          field4: searchParams.get('field4'),
+          field5: searchParams.get('field5'),
+          field6: searchParams.get('field6'),
+          field7: searchParams.get('field7'),
+          field8: searchParams.get('field8'),
+          field9: searchParams.get('field9'),
+          payment_source: searchParams.get('payment_source'),
+          PG_TYPE: searchParams.get('PG_TYPE'),
+          bank_ref_num: searchParams.get('bank_ref_num'),
+          bankcode: searchParams.get('bankcode'),
+          error: searchParams.get('error'),
+          error_Message: searchParams.get('error_Message')
+        };
+
+        console.log('PayU Payment Response:', payuResponse);
+        setPaymentResponse(payuResponse);
+        setPaymentStatus(payuResponse.status);
+
+        try {
+          const response = await axios.post('https://townmanor.ai/api/booster-payments', {
+            ...payuResponse,
+            payment_date: new Date().toISOString(),
+            plan_type: payuResponse.productinfo
+          });
+          console.log('Payment response stored:', response.data);
+        } catch (error) {
+          console.error('Error storing payment response:', error);
+        }
+
+        // Clear the stored transaction ID
+        localStorage.removeItem('lastPaymentTxnId');
+        
+        // Clear URL parameters after processing
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    };
+
+    handlePaymentResponse();
+  }, [window.location.search]);
 
   useEffect(() => {
     const token = Cookies.get('jwttoken');
@@ -105,9 +172,138 @@ const DashboardComponent = () => {
     }
   };
 
+  const handleSelectPlan = async (planType) => {
+    // Get the full domain URL
+    const domain = window.location.origin;
+    const returnUrl = `${domain}/userdashboard`;  // Specific return URL instead of current URL
+
+    const planData = {
+      name: planType === 'weekly' ? 'Weekly Booster' : 'Monthly Booster',
+      price: '1', // Setting test amount to ₹1
+      duration: planType === 'weekly' ? '7 days' : '30 days',
+      benefits: [
+        'Top Search Results',
+        'Featured Section Display',
+        'Enhanced Visibility'
+      ],
+      hiddenInputs: {
+        key: 'gtKFFx',
+        txnid: `BOOST_${Date.now()}`,
+        amount: '1',
+        firstname: username || 'User',
+        email: userData?.email || '',
+        phone: userData?.phone || '',
+        productinfo: planType === 'weekly' ? 'Weekly Booster' : 'Monthly Booster',
+        surl: returnUrl,
+        furl: returnUrl,
+        service_provider: 'payu_paisa'
+      }
+    };
+
+    try {
+      const response = await axios.post('https://townmanor.ai/api/payu/payment', planData.hiddenInputs);
+      const { paymentUrl, params } = response.data;
+      console.log('Payment initiation response:', response.data);
+
+      // Store transaction ID in localStorage for verification
+      localStorage.setItem('lastPaymentTxnId', params.txnid);
+
+      // Create and submit form
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = paymentUrl;
+
+      // Add hidden input fields
+      Object.entries(params).forEach(([key, value]) => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = value;
+        form.appendChild(input);
+      });
+
+      // Append form to body and submit
+      document.body.appendChild(form);
+      form.submit();
+      document.body.removeChild(form);
+    } catch (error) {
+      console.error('Payment initiation failed:', error);
+      alert('Failed to initiate payment. Please try again.');
+    }
+  };
+
+  const BoosterPopup = ({ onClose }) => {
+    return (
+      <div className="booster_popup_overlay" onClick={onClose}>
+        <div className="booster_popup_content" onClick={e => e.stopPropagation()}>
+          <button className="close_button" onClick={onClose}>&times;</button>
+          <h2>Choose Your Booster Plan</h2>
+          <div className="booster_plans">
+            <div className="booster_plan">
+              <h3>Weekly Booster</h3>
+              <div className="price">₹1</div>
+              <p>7 Days Property Boost</p>
+              <ul>
+                <li>Top Search Results</li>
+                <li>Featured Section Display</li>
+                <li>Enhanced Visibility</li>
+              </ul>
+              <button className="select_plan_btn" onClick={() => handleSelectPlan('weekly')}>Select Plan</button>
+            </div>
+            <div className="booster_plan">
+              <h3>Monthly Booster</h3>
+              <div className="price">₹1</div>
+              <p>30 Days Property Boost</p>
+              <ul>
+                <li>Top Search Results</li>
+                <li>Featured Section Display</li>
+                <li>Enhanced Visibility</li>
+              </ul>
+              <button className="select_plan_btn" onClick={() => handleSelectPlan('monthly')}>Select Plan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // Modify the PaymentNotification component to show more details
+  const PaymentNotification = () => {
+    if (!paymentResponse) return null;
+
+    const notificationStyle = {
+      position: 'fixed',
+      top: '20px',
+      right: '20px',
+      padding: '15px',
+      borderRadius: '5px',
+      backgroundColor: paymentResponse.status === 'success' ? '#4CAF50' : '#f44336',
+      color: 'white',
+      zIndex: 1000,
+      boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+      maxWidth: '300px'
+    };
+
+    return (
+      <div style={notificationStyle}>
+        <div style={{ marginBottom: '10px' }}>
+          {paymentResponse.status === 'success' 
+            ? 'Payment completed successfully!' 
+            : 'Payment failed. Please try again.'}
+        </div>
+        <div style={{ fontSize: '12px' }}>
+          Transaction ID: {paymentResponse.txnid}<br />
+          Amount: ₹{paymentResponse.amount}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <>
     <UserDashboardNavbar/>
+    {paymentStatus && <PaymentNotification />}
+    {showBoosterPopup && <BoosterPopup onClose={() => setShowBoosterPopup(false)} />}
     <div className="dashboard_wrap_abxy123">
       {/* <div className="dashboard_navbar_abxy123">
 
@@ -348,7 +544,7 @@ const DashboardComponent = () => {
             <h4>Show your property on top</h4>
             <p className="booster_info">Buy Property Booster</p>
             <img src="/Work.jpg" className="dashboard_img_boost" alt="boost" />
-            <button className="boost_btn_abxy123">Boost your Property</button>
+            <button className="boost_btn_abxy123" onClick={() => setShowBoosterPopup(true)}>Boost your Property</button>
           </div>
         </div>
 

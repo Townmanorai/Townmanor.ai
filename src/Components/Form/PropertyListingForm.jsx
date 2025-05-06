@@ -321,7 +321,7 @@ const PropertyListingForm = () => {
             [type]: prev[type].filter(file => file !== fileName)
         }));
     };
-    const aikey = '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'
+    const aikey = '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'
     const handleSubmit = async (e) => {
         e.preventDefault();
         setPropertyData(prev => ({ ...prev, isLoading: true }));
@@ -521,21 +521,41 @@ const PropertyListingForm = () => {
     const generateDescription = async () => {
         setPropertyData(prev => ({ ...prev, isLoading: true }));
         try {
-            const propertyTypeValue = propertyData.propertyType.residential || propertyData.propertyType.commercial;
-            const promptText = `Generate a professional description for a ${propertyData.details.configuration || ''} ${propertyTypeValue} property for ${propertyData.purpose} in ${propertyData.details.locality}, ${propertyData.details.city}. 
-            The property is ${propertyData.details.areaDetail} square feet and has ${propertyData.details.bathroom || ''} bathrooms.
-            ${propertyData.details.amenities.length ? 'Amenities include: ' + propertyData.details.amenities.join(', ') : ''}`;
+            const response = await axios.post(
+                'https://api.openai.com/v1/chat/completions',
+                {
+                    model: "gpt-3.5-turbo",
+                    messages: [
+                        {
+                            role: "user",
+                            content: `
+                            purpose:${propertyData.purpose},
+                            unittype:${propertyData.propertyType.residential || propertyData.propertyType.commercial}
+                            constructionstatus:${propertyData.details.constructionStatus}
+                    ->Give briefly tell about ${propertyData.details.propertyName} at ${propertyData.details.address} must including famous nearby location and available commute option with name.
+                    ->tell me why we choose this property
+                     on basis on these points write proper good descritiption of property and give priority to first point & strictly avoid repetition
+                  `,
+                        },
+                    ],
+                },
+                {
+                    headers: {
+                        'Authorization': `Bearer ${aikey}`,
+                        'Content-Type': 'application/json'
+                    },
+                }
+            );
 
-            // For testing purposes, generate a simple description
-            const description = `Stunning ${propertyData.details.configuration || ''} ${propertyTypeValue} property available for ${propertyData.purpose} in the heart of ${propertyData.details.locality}, ${propertyData.details.city}. This beautiful property spans ${propertyData.details.areaDetail} sq.ft, featuring ${propertyData.details.bathroom || ''} modern bathrooms and elegant living spaces. ${propertyData.details.amenities.length ? 'You\'ll love the premium amenities including ' + propertyData.details.amenities.slice(0, 3).join(', ') + ' and more.' : ''} Perfect location with nearby amenities and excellent connectivity.`;
-
+            const rawDescription = response.data.choices[0].message.content;
             setPropertyData(prev => ({
                 ...prev,
-                description,
+                description: rawDescription,
                 isLoading: false
             }));
+
         } catch (error) {
-            console.error('Error generating description:', error);
+            console.error("Error generating description:", error);
             setPropertyData(prev => ({ ...prev, isLoading: false }));
         }
     };
