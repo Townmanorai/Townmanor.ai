@@ -254,7 +254,7 @@ function App() {
               <Route path='/newownerpage/:id' element={<OwnerPage/>}/>
               <Route path='/newadminpage/:id' element={<MainAdmin/>}/>
               <Route path="/rental-listings" element={<RentalListings />} />
-              <Route path='/userdashboard' element={<DashboardComponent/>}/>
+              <Route path='/userdashboard/:propertyId?' element={<DashboardComponent/>}/>
               <Route path="/rental-property/:id" element={<PropertyDetails />} />
               <Route path='/userdashboard-profile' element={<UserProfileModernCard/>}/>
               <Route path='/userdashboard-lead' element={<UserLeadsManagement/>}/>

@@ -6,7 +6,7 @@ import { FaArrowUpFromBracket } from "react-icons/fa6";
 import UserDashboardNavbar from "./UserDashboardNavbar";
 import Cookies from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import PropertyBoosterModal from './PropertyBoosterModal';
 
@@ -25,6 +25,7 @@ const DashboardComponent = () => {
   const [paymentResponse, setPaymentResponse] = useState(null);
   const [paymentStatus, setPaymentStatus] = useState(null);
   const navigate = useNavigate();
+  const { propertyId } = useParams();
 
   useEffect(() => {
     const handlePaymentResponse = async () => {
@@ -319,6 +320,38 @@ const DashboardComponent = () => {
       window.history.replaceState({}, document.title, '/userdashboard');
     }
   }, []);
+
+  useEffect(() => {
+    const handlePropertyBoost = async () => {
+      try {
+        // Get the stored property ID from localStorage
+        const storedPropertyId = localStorage.getItem('boostPropertyId');
+        
+        // Check if we have a propertyId in the URL and it matches 75369
+        if (propertyId === '75369' && storedPropertyId) {
+          // Make the API call with the stored property ID
+          await axios.put(`https://townmanor.ai/api/owner-property/priority/${storedPropertyId}`, {
+            priority: true
+          });
+          
+          // Clear the stored property ID after successful activation
+          localStorage.removeItem('boostPropertyId');
+          
+          // Show success message
+          alert('Property boost activated successfully!');
+          
+          // Refresh the properties list to show updated status
+          fetchProperties();
+          
+        }
+      } catch (error) {
+        console.error('Error activating property boost:', error);
+        alert('Failed to activate property boost. Please try again.');
+      }
+    };
+
+    handlePropertyBoost();
+  }, [propertyId, navigate]);
 
   return (
     <>

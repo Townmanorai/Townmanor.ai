@@ -9,27 +9,27 @@ const Success = () => {
   const [countdown, setCountdown] = useState(12);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const storedPropertyId = localStorage.getItem('boostPropertyId');
+  // useEffect(() => {
+  //   const storedPropertyId = localStorage.getItem('boostPropertyId');
 
-    const handlePaymentSuccess = async () => {
-      try {
-        if (storedPropertyId) {
-          await axios.put(`https://townmanor.ai/api/owner-property/priority/${storedPropertyId}`, {
-            priority: true
-          });
-          // Clear the stored property ID after successful activation
-          localStorage.removeItem('boostPropertyId');
-        }
-        setLoading(false);
-      } catch (error) {
-        console.error('Error activating property boost:', error);
-        setLoading(false);
-      }
-    };
+  //   const handlePaymentSuccess = async () => {
+  //     try {
+  //       if (storedPropertyId) {
+  //         await axios.put(`https://townmanor.ai/api/owner-property/priority/${storedPropertyId}`, {
+  //           priority: true
+  //         });
+  //         // Clear the stored property ID after successful activation
+  //         localStorage.removeItem('boostPropertyId');
+  //       }
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.error('Error activating property boost:', error);
+  //       setLoading(false);
+  //     }
+  //   };
 
-    handlePaymentSuccess();
-  }, []);
+  //   handlePaymentSuccess();
+  // }, []);
 
   useEffect(() => {
     // Start countdown only after loading is complete
@@ -40,7 +40,7 @@ const Success = () => {
 
       return () => clearInterval(timer);
     } else if (countdown === 0) {
-      navigate('/userdashboard');
+      navigate('/userdashboard/75369');
     }
   }, [countdown, loading, navigate]);
 
