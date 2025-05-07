@@ -168,9 +168,9 @@ function App() {
               <Route path="/featured-agent-form" element={<FeaturedAgentForm />} />
               <Route path="/SubPlan" element={<PricingPlans />} />
               <Route path="/payment" element={<PaymentForm />} />
-              <Route path="/api/payu/success/:propertyId" element={<Success />} />
+              <Route path="/payu/success/:propertyId" element={<Success />} />
               <Route path="/services" element={<Services />} />
-              <Route path="/api/payu/failure" element={<Failure />} />
+              <Route path="/payu/failure" element={<Failure />} />
               <Route path="/booster-payment-response" element={<BoosterPaymentResponse />} />
 
               <Route path="/home-loan" element={<HomeLoan />} />

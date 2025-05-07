@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-import './Success.css';
+import './PropertyBoosterStyles.css';
 
 const Success = () => {
     const navigate = useNavigate();
@@ -22,7 +22,7 @@ const Success = () => {
                 // Still redirect to dashboard after 12 seconds even if there's an error
                 setTimeout(() => {
                     navigate('/userdashboard');
-                }, 7000);
+                }, 12000);
             }
         };
 
