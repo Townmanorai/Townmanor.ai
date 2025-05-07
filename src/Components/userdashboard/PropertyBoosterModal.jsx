@@ -85,7 +85,7 @@ const PropertyBoosterModal = ({ isOpen, onClose, username, userData }) => {
         firstname: userData?.name_surname || username || '',
         email: userData?.email || '',
         phone: userData?.phone || '',
-        surl: `http://townmanor.ai/payu/success/${selectedProperty.id}`,
+        surl: `http://townmanor.ai/payu/success`,
         furl: `http://townmanor.ai/payu/failure`,
         udf1: selectedProperty.id.toString(), // Custom field for property ID
         service_provider: 'payu_paisa'
@@ -98,6 +98,9 @@ const PropertyBoosterModal = ({ isOpen, onClose, username, userData }) => {
       if (missingFields.length > 0) {
         throw new Error(`Missing required fields: ${missingFields.join(', ')}. Please update your profile with the required information.`);
       }
+
+      // Store the property ID in localStorage before payment
+      localStorage.setItem('boostPropertyId', selectedProperty.id.toString());
 
       // Call backend to get payment hash and URL
       const response = await axios.post('https://townmanor.ai/api/payu/payment', paymentData);
