@@ -103,6 +103,11 @@ const NewSearchListingPage = () => {
                 const data = await response.json();
                 setseo(data);
                 const sortedProperties = data.sort((a, b) => {
+                    // First sort by priority (1 comes first)
+                    if (a.priority === "1" && b.priority !== "1") return -1;
+                    if (a.priority !== "1" && b.priority === "1") return 1;
+                    
+                    // Then sort by creation date for properties with same priority
                     return new Date(b.created_at) - new Date(a.created_at);
                 });
                 setProperties(sortedProperties);
@@ -340,6 +345,16 @@ const NewSearchListingPage = () => {
             filtered = filtered.filter(prop => prop.rera_id !== null && prop.rera_id !== '');
         }
 
+        // Sort filtered results by priority and then by creation date
+        filtered.sort((a, b) => {
+            // First sort by priority (1 comes first)
+            if (a.priority === "1" && b.priority !== "1") return -1;
+            if (a.priority !== "1" && b.priority === "1") return 1;
+            
+            // Then sort by creation date for properties with same priority
+            return new Date(b.created_at) - new Date(a.created_at);
+        });
+
         setFilteredProperties(filtered);
         setCurrentPage(1);
     };
@@ -430,7 +445,7 @@ const NewSearchListingPage = () => {
             </Helmet>
             <div key={property.id} className="card-listing-wrapper">
                 <div className="image-box-container">
-                    <span className="badge-highlighted">Featured</span>
+                    {property.priority === "1" && <span className="badge-highlighted">Featured</span>}
                     <img
                         src={imageUrl}
                         alt={property.property_name || 'Property Image'}

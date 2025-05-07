@@ -96,12 +96,18 @@
   gap: 4px;
   padding: 18px 18px 12px 18px;
 }
+.mpc_prop_name_wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
 .mpc_prop_name {
-  font-weight: 500;
-  color: #22223b;
   font-size: 1.1rem;
-  margin-bottom: 1px;
-  display: block;
+  font-weight: 500;
+  color: #333;
+  display: flex;
+  align-items: center;
+  line-height: 1.4;
 }
 .mpc_prop_addr {
   color: #64748b;
@@ -280,4 +286,24 @@
     flex-basis: content;
     margin: 0 48px 24px 48px;
 }
+}
+
+@keyframes trending {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-2px) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+}
+
+.boost-icon {
+  animation: trending 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 2px rgba(0, 200, 83, 0.3));
 }

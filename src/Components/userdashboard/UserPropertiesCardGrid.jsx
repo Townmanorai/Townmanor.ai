@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import {
   FaPlus,
   FaEllipsisV,
-  FaEye
+  FaEye,
+  FaChartLine
 } from "react-icons/fa";
 import "./UserPropertiesCardGridStyles.css";
 import UserDashboardNavbar from "./UserDashboardNavbar";
@@ -296,7 +297,23 @@ const UserPropertiesCardGrid = () => {
               />
             </div>
             <div className="mpc_card_body">
-              <span className="mpc_prop_name">{prop.configuration}  at {prop.property_name}</span>
+              <div className="mpc_prop_name_wrapper">
+                <span className="mpc_prop_name">
+                  {prop.configuration} at {prop.property_name}
+                  {prop.priority === "1" && (
+                    <FaChartLine 
+                      style={{
+                        marginLeft: '8px',
+                        color: '#00c853',
+                        verticalAlign: 'middle',
+                        fontSize: '16px'
+                      }}
+                      title="Boosted Property - Enhanced Visibility"
+                      className="boost-icon"
+                    />
+                  )}
+                </span>
+              </div>
               <span className="mpc_prop_addr">{prop.address}</span>
               <span className="mpc_prop_price">₹{prop.price} {prop.pricerange}</span>
               <span className="mpc_prop_month">

@@ -575,3 +575,23 @@
     }
   }
   
+  @keyframes trending {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translateY(-2px) scale(1.1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0) scale(1);
+      opacity: 0.8;
+    }
+  }
+
+  .property_info_abxy123 h4 svg {
+    animation: trending 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 0 2px rgba(0, 200, 83, 0.3));
+  }
+  

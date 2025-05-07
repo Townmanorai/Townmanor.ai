@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaHome, FaUser, FaStar, FaBell, FaEye, FaEdit, FaPlus } from "react-icons/fa";
+import { FaHome, FaUser, FaStar, FaBell, FaEye, FaEdit, FaPlus, FaCrown, FaChartLine } from "react-icons/fa";
 import "./DashboardComponentStyles.css";
 import { SiReacthookform } from "react-icons/si";
 import { FaArrowUpFromBracket } from "react-icons/fa6";
@@ -151,12 +151,6 @@ const DashboardComponent = () => {
     }
   };
 
-  useEffect(() => {
-    if (username) {
-      fetchProperties();
-    }
-  }, [username]);
-
   const fetchProperties = async () => {
     try {
       const response = await fetch(`https://www.townmanor.ai/api/owner-property/username/${username}`);
@@ -164,12 +158,17 @@ const DashboardComponent = () => {
         throw new Error('Failed to fetch properties');
       }
       const data = await response.json();
+      
+      // Update both states in one batch
       setTotalProperties(data.length);
       setProperties(data.slice(0, 5)); // Only take first 5 properties
       setLoading(false);
+      setError(null); // Clear any previous errors
     } catch (error) {
       console.error('Error fetching properties:', error);
       setError('Failed to load properties');
+      setProperties([]); // Clear properties on error
+      setTotalProperties(0);
       setLoading(false);
     }
   };
@@ -278,71 +277,29 @@ const DashboardComponent = () => {
   };
 
   useEffect(() => {
-    // Check for payment status in URL parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    const paymentStatus = urlParams.get('payment');
-    const propertyId = urlParams.get('propertyId');
-
-    if (paymentStatus === 'success' && propertyId) {
-      // Call the priority API
-      const handlePaymentSuccess = async () => {
-        try {
-          // Get the stored transaction details
-          const storedDetails = localStorage.getItem('boostPlanDetails');
-          const txnDetails = storedDetails ? JSON.parse(storedDetails) : null;
-
-          // Verify the property ID matches
-          if (!txnDetails || txnDetails.propertyId.toString() !== propertyId) {
-            throw new Error('Invalid transaction details');
-          }
-
-          // Call the priority API
-          await axios.post(`https://townmanor.ai/api/owner-property/priority/${propertyId}`);
-          alert('Property boost activated successfully!');
-          
-          // Clear the stored transaction details
-          localStorage.removeItem('boostPlanDetails');
-          
-          // Remove the query parameters from URL
-          window.history.replaceState({}, document.title, '/userdashboard');
-          
-          // Refresh the properties list to show updated status
-          fetchProperties();
-        } catch (error) {
-          console.error('Error activating property boost:', error);
-          alert('Failed to activate property boost. Please contact support.');
-        }
-      };
-      handlePaymentSuccess();
-    } else if (paymentStatus === 'failure') {
-      alert('Payment failed. Please try again.');
-      // Remove the query parameters from URL
-      window.history.replaceState({}, document.title, '/userdashboard');
-    }
-  }, []);
-
-  useEffect(() => {
     const handlePropertyBoost = async () => {
       try {
         // Get the stored property ID from localStorage
         const storedPropertyId = localStorage.getItem('boostPropertyId');
         
-        // Check if we have a propertyId in the URL and it matches 75369
-        if (propertyId === '75369' && storedPropertyId) {
+        if (storedPropertyId) {
           // Make the API call with the stored property ID
-          await axios.put(`https://townmanor.ai/api/owner-property/priority/${storedPropertyId}`, {
+          const response = await axios.put(`https://townmanor.ai/api/owner-property/priority/${storedPropertyId}`, {
             priority: true
           });
-          
-          // Clear the stored property ID after successful activation
-          localStorage.removeItem('boostPropertyId');
-          
-          // Show success message
-          alert('Property boost activated successfully!');
-          
-          // Refresh the properties list to show updated status
-          fetchProperties();
-          
+
+          if (response.status === 200) {
+            // Clear the stored property ID after successful activation
+            localStorage.removeItem('boostPropertyId');
+            
+            // Show success message
+            alert('Property boost activated successfully!');
+            
+            // Refresh the properties list to show updated status
+            await fetchProperties();
+          } else {
+            throw new Error('Failed to activate property boost');
+          }
         }
       } catch (error) {
         console.error('Error activating property boost:', error);
@@ -469,7 +426,20 @@ const DashboardComponent = () => {
                     <div className="property_info_abxy123">
                       <h4 style={{
                         fontWeight:'400'
-                      }}>{property.configuration} flat at  {property.property_name}</h4>
+                      }}>
+                        {property.configuration} flat at {property.property_name}
+                        {property.priority === "1" && (
+                          <FaChartLine 
+                            style={{
+                              marginLeft: '8px',
+                              color: '#00c853',
+                              verticalAlign: 'middle',
+                              fontSize: '16px'
+                            }}
+                            title="Boosted Property - Enhanced Visibility"
+                          />
+                        )}
+                      </h4>
                       <p>₹{property.price} {property.pricerange}</p>
                     </div>
                     <div className={`property_status_abxy123 ${property.status === 1 ? 'active' : ''}`}>

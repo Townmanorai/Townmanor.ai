@@ -85,8 +85,8 @@ const PropertyBoosterModal = ({ isOpen, onClose, username, userData }) => {
         firstname: userData?.name_surname || username || '',
         email: userData?.email || '',
         phone: userData?.phone || '',
-        surl: `http://townmanor.ai/payu/success`,
-        furl: `http://townmanor.ai/payu/failure`,
+        surl: `http://localhost:5173/success`,
+        furl: `http://localhost:5173/failure`,
         udf1: selectedProperty.id.toString(), // Custom field for property ID
         service_provider: 'payu_paisa'
       };
