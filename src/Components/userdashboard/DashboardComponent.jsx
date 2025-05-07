@@ -8,6 +8,7 @@ import Cookies from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import PropertyBoosterModal from './PropertyBoosterModal';
 
 const DashboardComponent = () => {
   const [username, setUsername] = useState('');
@@ -20,7 +21,7 @@ const DashboardComponent = () => {
   const [leads, setLeads] = useState([]);
   const [totalLeads, setTotalLeads] = useState(0);
   const [leadsLoading, setLeadsLoading] = useState(true);
-  const [showBoosterPopup, setShowBoosterPopup] = useState(false);
+  const [showBoosterModal, setShowBoosterModal] = useState(false);
   const [paymentResponse, setPaymentResponse] = useState(null);
   const [paymentStatus, setPaymentStatus] = useState(null);
   const navigate = useNavigate();
@@ -174,8 +175,8 @@ const DashboardComponent = () => {
 
   const handleSelectPlan = async (planType) => {
     // Get the full domain URL
-    const domain = window.location.origin;
-    const returnUrl = `${domain}/userdashboard`;  // Specific return URL instead of current URL
+    const domain = 'https://townmanor.ai';
+    const returnUrl = `${domain}/userdashboard`;
 
     const planData = {
       name: planType === 'weekly' ? 'Weekly Booster' : 'Monthly Booster',
@@ -194,8 +195,8 @@ const DashboardComponent = () => {
         email: userData?.email || '',
         phone: userData?.phone || '',
         productinfo: planType === 'weekly' ? 'Weekly Booster' : 'Monthly Booster',
-        surl: returnUrl,
-        furl: returnUrl,
+        surl: `${returnUrl}?payment=success&propertyId=${selectedProperty?.id}`,
+        furl: `${returnUrl}?payment=failure`,
         service_provider: 'payu_paisa'
       }
     };
@@ -215,12 +216,23 @@ const DashboardComponent = () => {
 
       // Add hidden input fields
       Object.entries(params).forEach(([key, value]) => {
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = key;
-        input.value = value;
-        form.appendChild(input);
+        if (value !== undefined && value !== null) {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = key;
+          input.value = value.toString();
+          form.appendChild(input);
+        }
       });
+
+      // Add property ID as a hidden field
+      if (selectedProperty?.id) {
+        const propertyIdInput = document.createElement('input');
+        propertyIdInput.type = 'hidden';
+        propertyIdInput.name = 'propertyId';
+        propertyIdInput.value = selectedProperty.id.toString();
+        form.appendChild(propertyIdInput);
+      }
 
       // Append form to body and submit
       document.body.appendChild(form);
@@ -230,41 +242,6 @@ const DashboardComponent = () => {
       console.error('Payment initiation failed:', error);
       alert('Failed to initiate payment. Please try again.');
     }
-  };
-
-  const BoosterPopup = ({ onClose }) => {
-    return (
-      <div className="booster_popup_overlay" onClick={onClose}>
-        <div className="booster_popup_content" onClick={e => e.stopPropagation()}>
-          <button className="close_button" onClick={onClose}>&times;</button>
-          <h2>Choose Your Booster Plan</h2>
-          <div className="booster_plans">
-            <div className="booster_plan">
-              <h3>Weekly Booster</h3>
-              <div className="price">₹1</div>
-              <p>7 Days Property Boost</p>
-              <ul>
-                <li>Top Search Results</li>
-                <li>Featured Section Display</li>
-                <li>Enhanced Visibility</li>
-              </ul>
-              <button className="select_plan_btn" onClick={() => handleSelectPlan('weekly')}>Select Plan</button>
-            </div>
-            <div className="booster_plan">
-              <h3>Monthly Booster</h3>
-              <div className="price">₹1</div>
-              <p>30 Days Property Boost</p>
-              <ul>
-                <li>Top Search Results</li>
-                <li>Featured Section Display</li>
-                <li>Enhanced Visibility</li>
-              </ul>
-              <button className="select_plan_btn" onClick={() => handleSelectPlan('monthly')}>Select Plan</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
   };
 
   // Modify the PaymentNotification component to show more details
@@ -299,11 +276,60 @@ const DashboardComponent = () => {
     );
   };
 
+  useEffect(() => {
+    // Check for payment status in URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const paymentStatus = urlParams.get('payment');
+    const propertyId = urlParams.get('propertyId');
+
+    if (paymentStatus === 'success' && propertyId) {
+      // Call the priority API
+      const handlePaymentSuccess = async () => {
+        try {
+          // Get the stored transaction details
+          const storedDetails = localStorage.getItem('boostPlanDetails');
+          const txnDetails = storedDetails ? JSON.parse(storedDetails) : null;
+
+          // Verify the property ID matches
+          if (!txnDetails || txnDetails.propertyId.toString() !== propertyId) {
+            throw new Error('Invalid transaction details');
+          }
+
+          // Call the priority API
+          await axios.post(`https://townmanor.ai/api/owner-property/priority/${propertyId}`);
+          alert('Property boost activated successfully!');
+          
+          // Clear the stored transaction details
+          localStorage.removeItem('boostPlanDetails');
+          
+          // Remove the query parameters from URL
+          window.history.replaceState({}, document.title, '/userdashboard');
+          
+          // Refresh the properties list to show updated status
+          fetchProperties();
+        } catch (error) {
+          console.error('Error activating property boost:', error);
+          alert('Failed to activate property boost. Please contact support.');
+        }
+      };
+      handlePaymentSuccess();
+    } else if (paymentStatus === 'failure') {
+      alert('Payment failed. Please try again.');
+      // Remove the query parameters from URL
+      window.history.replaceState({}, document.title, '/userdashboard');
+    }
+  }, []);
+
   return (
     <>
     <UserDashboardNavbar/>
     {paymentStatus && <PaymentNotification />}
-    {showBoosterPopup && <BoosterPopup onClose={() => setShowBoosterPopup(false)} />}
+    <PropertyBoosterModal 
+      isOpen={showBoosterModal} 
+      onClose={() => setShowBoosterModal(false)}
+      username={username}
+      userData={userData}
+    />
     <div className="dashboard_wrap_abxy123">
       {/* <div className="dashboard_navbar_abxy123">
 
@@ -544,7 +570,9 @@ const DashboardComponent = () => {
             <h4>Show your property on top</h4>
             <p className="booster_info">Buy Property Booster</p>
             <img src="/Work.jpg" className="dashboard_img_boost" alt="boost" />
-            <button className="boost_btn_abxy123" onClick={() => setShowBoosterPopup(true)}>Boost your Property</button>
+            <button className="boost_btn_abxy123" onClick={() => setShowBoosterModal(true)}>
+              Boost your Property
+            </button>
           </div>
         </div>
 

@@ -11,6 +11,8 @@ function Coliving_space() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   // Handle modal open/close
   const openModal = () => setIsModalOpen(true);
@@ -27,9 +29,28 @@ function Coliving_space() {
     closeModal();
   };
 
+  // Toggle read more
+  const toggleReadMore = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   useEffect(() => {
     setIsLoaded(true);
   }, []);
+
+  const firstParagraph = "Experience a new way of living with our premium co-living spaces, designed for comfort and convenience in prime locations near major hubs. Enjoy fully furnished rooms with modern interiors, high-speed WiFi, and regular housekeeping services.";
+  
+  const secondParagraph = "Connect with like-minded individuals through vibrant community events and networking opportunities. Live, work, and unwind with access to yoga and studio spaces—all under one roof.";
 
   return (
     <>
@@ -45,17 +66,32 @@ function Coliving_space() {
             <h2 className={`coliving-heading ${isLoaded ? "loaded" : ""}`}>
               We Are Coming Soon!
             </h2>
-            <p className={`coliving-paragraph ${isLoaded ? "loaded" : ""}`}>
-              Experience a new way of living with our premium co-living
-              spaces, designed for comfort and convenience in prime locations
-              near major hubs. Enjoy fully furnished rooms with modern
-              interiors, high-speed WiFi, and regular housekeeping services.
-            </p>
-            <p className={`coliving-paragraph ${isLoaded ? "loaded" : ""}`}>
-              Connect with like-minded individuals through vibrant community
-              events and networking opportunities. Live, work, and unwind with
-              access to yoga and studio spaces—all under one roof.
-            </p>
+            <div className={`coliving-paragraph ${isLoaded ? "loaded" : ""}`}>
+              {isMobile ? (
+                <>
+                  <p>
+                    {firstParagraph.slice(0, isExpanded ? undefined : 100)}
+                    {!isExpanded && firstParagraph.length > 100 && "..."}
+                  </p>
+                  {isExpanded && (
+                    <p className="mt-3">
+                      {secondParagraph}
+                    </p>
+                  )}
+                  <button 
+                    className="read-more-btn" 
+                    onClick={toggleReadMore}
+                  >
+                    {isExpanded ? "Read Less" : "Read More"}
+                  </button>
+                </>
+              ) : (
+                <>
+                  <p>{firstParagraph}</p>
+                  <p>{secondParagraph}</p>
+                </>
+              )}
+            </div>
             <div className={`coliving-buttons ${isLoaded ? "loaded" : ""}`}>
               <button className="coliving-primary-btn" onClick={openModal}>
                 Join the Waitlist

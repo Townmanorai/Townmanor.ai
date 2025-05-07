@@ -290,6 +290,10 @@
   max-width: 560px;
 }
 
+.coliving-paragraph p {
+  margin-bottom: 0.5rem;
+}
+
 .coliving-paragraph:last-of-type {
   transition-delay: 0.5s;
 }
@@ -761,4 +765,31 @@
   font-size: 14px;
   color: #4B5563;
   line-height: 1.5;
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: #ff4447;
+  padding: 5px 0;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 8px;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.read-more-btn:hover {
+  color: #8a2e2e;
+}
+
+@media (min-width: 768px) {
+  .read-more-btn {
+    display: none;
+  }
+  
+  .coliving-paragraph p {
+    margin-bottom: 1rem;
+  }
 }
