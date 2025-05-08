@@ -12,11 +12,11 @@ const CategoriesPresentation = () => {
       title: "Godrej riverine",
       thumbnail_url: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1745908302433-Golf-View-Luxury-popup.jpg",
     },
-    {
-      url: "/category/2",
-      title: "Modern Apartments",
-      thumbnail_url: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283470662-TMb2.webp",
-    },
+    // {
+    //   url: "/category/2",
+    //   title: "Modern Apartments",
+    //   thumbnail_url: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283470662-TMb2.webp",
+    // },
     {
       url: "/category/3",
       title: "Cozy Cottages",
@@ -68,7 +68,7 @@ const CategoriesPresentation = () => {
                     alt="View for rent"
                   />
                 </Carousel.Item>
-                <Carousel.Item
+                {/* <Carousel.Item
                 onClick={()=>{
                   handleNavigate('https://www.sobhagroup.co/');
                 }}
@@ -81,7 +81,7 @@ const CategoriesPresentation = () => {
                     src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1745908302431-banner1.jpg"
                     alt="View for rent"
                   />
-                </Carousel.Item>
+                </Carousel.Item> */}
                 <Carousel.Item
                  onClick={()=>{
                   handleNavigate('https://www.bhutanigroup.com/citycenter32/');
