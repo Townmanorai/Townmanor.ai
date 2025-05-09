@@ -1,0 +1,479 @@
+/* Unique prefix: colivingNoida__ */
+
+.colivingNoida__container {
+  color: #222;
+  margin: 10px auto;
+  padding: 0;
+  max-width: 1400px;
+  width: 100%;
+  margin-top: 5rem;
+}
+
+.colivingNoida__headerMain {
+  background: #fff;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  padding-bottom: 32px;
+}
+
+.colivingNoida__navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 6vw 0 6vw;
+}
+
+.colivingNoida__logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2a6cff;
+}
+
+.colivingNoida__navButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.colivingNoida__navBtn {
+  padding: 8px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+.colivingNoida__navBtn--login {
+  background: #fff;
+  color: #2a6cff;
+  border: 1px solid #2a6cff;
+}
+.colivingNoida__navBtn--signup {
+  background: #2a6cff;
+  color: #fff;
+}
+
+.colivingNoida__heroSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36px 6vw 0 6vw;
+  gap: 36px;
+}
+
+.colivingNoida__heroTextWrap {
+  max-width: 420px;
+}
+
+.colivingNoida__heroLabel {
+  display: inline-block;
+  background: #e6f0ff;
+  color: #2a6cff;
+  border-radius: 16px;
+  padding: 4px 16px;
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+}
+
+.colivingNoida__heroTitle {
+  font-size: 2rem;
+    /* font-weight: 800; */
+    margin-bottom: 12px;
+    color: #222;
+}
+
+.colivingNoida__heroDesc {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 22px;
+}
+
+.colivingNoida__heroBtns {
+  margin-top: 8px;
+}
+
+.colivingNoida__heroBtn {
+  margin-right: 16px;
+  padding: 10px 22px;
+  font-size: 1.05rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+.colivingNoida__heroBtn--primary {
+  background: linear-gradient(to right, #ff4447, #8a2e2e);
+  color: #fff;
+}
+.colivingNoida__heroBtn--secondary {
+  background: #fff;
+  color: #c62828;
+  border: 1px solid #c62828;
+}
+
+.colivingNoida__heroImages {
+  display: flex;
+  gap: 18px;
+}
+
+.colivingNoida__heroImg {
+  width: 100%;
+  height: 312px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+/* Features */
+.colivingNoida__featuresSection {
+    /* width: 100%; */
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    /* margin: 36px 4vw 0 0vw; */
+    /* flex-wrap: wrap; */
+    /* max-width: 1200px; */
+    margin: 11px auto;
+}
+.colivingNoida__featureCard {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  padding: 24px 18px;
+  flex: 1 1 180px;
+  min-width: 180px;
+  text-align: center;
+}
+.colivingNoida__iconFeature {
+  font-size: 2.1rem;
+  color: #c62828;
+  margin-bottom: 10px;
+}
+.colivingNoida__featureTitle {
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 1.08rem;
+}
+.colivingNoida__featureDesc {
+  color: #555;
+  font-size: 0.98rem;
+}
+
+/* Top Spaces */
+.colivingNoida__spacesSection {
+  margin: 56px 0 0 0;
+  background: #f4f8fc;
+  padding: 36px 6vw;
+}
+.colivingNoida__spacesHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  gap: 14px;
+}
+.colivingNoida__spacesLabel {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.colivingNoida__spacesFilters {
+  display: flex;
+  gap: 12px;
+}
+.colivingNoida__spacesSelect {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.colivingNoida__spacesSelect:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.colivingNoida__spacesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 24px 0;
+}
+.colivingNoida__spaceCard {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.colivingNoida__spaceCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+.colivingNoida__spaceImageContainer {
+  position: relative;
+  width: 100%;
+  padding-top: 66.67%; /* 3:2 aspect ratio */
+}
+.colivingNoida__spaceImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.colivingNoida__spaceInfo {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.colivingNoida__spaceTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+.colivingNoida__spaceDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.colivingNoida__spaceIconRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  font-size: 14px;
+}
+.colivingNoida__iconMeta {
+  color: #666;
+  font-size: 16px;
+}
+.colivingNoida__spacePriceSection {
+  margin-top: 4px;
+}
+.colivingNoida__roomsFrom {
+  display: block;
+  color: #666;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+.colivingNoida__priceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.colivingNoida__spacePrice {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+.colivingNoida__availability {
+  font-size: 14px;
+  font-weight: 500;
+}
+.colivingNoida__availability.available {
+  color: #1e8e3e;
+}
+.colivingNoida__availability.occupied {
+  color: #d93025;
+}
+.colivingNoida__spaceBtn {
+  width: 100%;
+  padding: 12px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+}
+.colivingNoida__spaceBtn:hover {
+  background-color: #357abd;
+}
+.colivingNoida__loadMoreBtn {
+  display: block;
+  margin: 32px auto;
+  padding: 12px 32px;
+  background: linear-gradient(to right, #ff4447, #8a2e2e);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.colivingNoida__loadMoreBtn:hover {
+  background-color: #357abd;
+}
+
+/* Community Section */
+.colivingNoida__communitySection {
+  margin: 48px 0 0 0;
+  padding: 36px 6vw;
+  background: #fff;
+}
+.colivingNoida__communityHeader {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-align: center;
+}
+.colivingNoida__communityDesc {
+  text-align: center;
+  color: #666;
+  margin-bottom: 28px;
+}
+.colivingNoida__communityGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.colivingNoida__communityCard {
+  background: #f8fafc;
+  border-radius: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  padding: 18px 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.colivingNoida__iconCommunity {
+  font-size: 2rem;
+  color: #2a6cff;
+  margin-bottom: 8px;
+}
+.colivingNoida__communityTitle {
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-size: 1.05rem;
+}
+.colivingNoida__communityText {
+  color: #555;
+  font-size: 0.97rem;
+}
+.colivingNoida__communityCard--large {
+  grid-column: span 2;
+  padding: 0;
+  overflow: hidden;
+  min-height: 180px;
+}
+.colivingNoida__communityImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 180px;
+  border-radius: 14px 14px 0 0;
+}
+.colivingNoida__communityCardOverlay {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.92);
+  padding: 18px 14px;
+}
+
+/* CTA Section */
+.colivingNoida__ctaSection {
+  background: #f4f8fc;
+  padding: 36px 6vw 48px 6vw;
+  text-align: center;
+}
+.colivingNoida__ctaTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.colivingNoida__ctaDesc {
+  color: #666;
+  margin-bottom: 18px;
+}
+.colivingNoida__ctaBtns {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+.colivingNoida__ctaBtn {
+  padding: 10px 28px;
+  font-size: 1.05rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+.colivingNoida__ctaBtn--primary {
+  background: linear-gradient(to right, #ff4447, #8a2e2e);
+  color: #fff;
+}
+.colivingNoida__ctaBtn--secondary {
+  background: #fff;
+  color: #2a6cff;
+  border: 1px solid #2a6cff;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .colivingNoida__heroSection {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .colivingNoida__featuresSection {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .colivingNoida__spacesHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .colivingNoida__communityGrid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .colivingNoida__spacesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  svg.colivingNoida__iconFeature {
+    width: 25px;
+    height: 25px;
+}
+.colivingNoida__featuresSection {
+  display: grid
+;
+  /* flex-direction: column; */
+  gap: 14px;
+  padding: 10px;
+  grid-template-columns: repeat(2, 1fr);
+}
+.colivingNoida__featureCard {
+  
+  height: 290px;
+  
+}
+}
+@media (max-width: 480px) {
+  .colivingNoida__spacesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .colivingNoida__spaceImageContainer {
+    padding-top: 56.25%; /* 16:9 aspect ratio for mobile */
+  }
+}

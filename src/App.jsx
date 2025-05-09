@@ -103,6 +103,7 @@ import UserLeadsManagement from './Components/userdashboard/UserLeadsManagement.
 import UserPropertiesCardGrid from './Components/userdashboard/UserPropertiesCardGrid.jsx';
 import BecomeFeaturedAgent from './Components/userdashboard/BecomeFeaturedAgent.jsx';
 import BoosterPaymentResponse from './Components/userdashboard/BoosterPaymentResponse.jsx';
+import ColivingNoida from './Components/coliving/ColivingNoida.jsx';
 
 // Scroll restoration component
 const ScrollRestoration = () => {
@@ -260,6 +261,7 @@ function App() {
               <Route path='/userdashboard-lead' element={<UserLeadsManagement/>}/>
               <Route path='/userdashboard-property' element={<UserPropertiesCardGrid/>}/>
               <Route path='/userdashboard-agent' element={<BecomeFeaturedAgent/>}/>
+              <Route path='/newcoliving' element={<ColivingNoida/>}/>
             </Routes>
           </main>
           <Footer />
