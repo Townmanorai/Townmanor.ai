@@ -541,7 +541,7 @@ const PropertyListingForm = () => {
                 },
                 {
                     headers: {
-                        'Authorization': `Bearer ${aikey}`,
+                        'Authorization': `Bearer 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`,
                         'Content-Type': 'application/json'
                     },
                 }
