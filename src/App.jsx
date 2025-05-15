@@ -104,6 +104,13 @@ import UserPropertiesCardGrid from './Components/userdashboard/UserPropertiesCar
 import BecomeFeaturedAgent from './Components/userdashboard/BecomeFeaturedAgent.jsx';
 import BoosterPaymentResponse from './Components/userdashboard/BoosterPaymentResponse.jsx';
 import ColivingNoida from './Components/coliving/ColivingNoida.jsx';
+import RentAgreementContractDetail from './Components/RentAgreeement/RentAgreementContractDetail.jsx';
+import Rent from './Components/RentAgreeement/Rent.jsx';
+import PaymentVerification from './Components/RentAgreeement/PaymentVerification.jsx';
+
+import Agreementgenerate from './Components/RentAgreeement/Agreementgenerate.jsx';
+
+
 
 // Scroll restoration component
 const ScrollRestoration = () => {
@@ -262,6 +269,10 @@ function App() {
               <Route path='/userdashboard-property' element={<UserPropertiesCardGrid/>}/>
               <Route path='/userdashboard-agent' element={<BecomeFeaturedAgent/>}/>
               <Route path='/newcoliving' element={<ColivingNoida/>}/>
+              <Route path='/newRentAgreement' element={<Rent/>}/>
+             
+              <Route path='/newRentAgreement/payment/:userid?' element={<PaymentVerification/>}/>
+              <Route path='/rentvalue' element={<Agreementgenerate/>}/>
             </Routes>
           </main>
           <Footer />

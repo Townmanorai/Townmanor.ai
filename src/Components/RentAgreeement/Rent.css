@@ -1,0 +1,102 @@
+/* Progress Bar */
+.rent-contract-detail-progressbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+  position: relative;
+  margin-top: 6rem;
+  margin-bottom: -2.5rem;
+}
+
+.rent-contract-detail-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.rent-contract-detail-step span:first-child {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  border: 2px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.rent-contract-detail-step span:last-child {
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.rent-contract-detail-step::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: calc(50% + 20px);
+  width: calc(100% - 40px);
+  height: 2px;
+  background: #e0e0e0;
+  transition: background 0.3s ease;
+}
+
+.rent-contract-detail-step:last-child::after {
+  display: none;
+}
+
+.rent-contract-detail-step-active span:first-child {
+  background: #7c6dfa;
+  border-color: #7c6dfa;
+  color: white;
+}
+
+.rent-contract-detail-step-active::after {
+  background: #7c6dfa;
+}
+
+@media (max-width: 768px) {
+  .rent-contract-detail-progressbar {
+    padding: 0 10px;
+  }
+
+  .rent-contract-detail-step span:first-child {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .rent-contract-detail-step span:last-child {
+    font-size: 11px;
+  }
+
+  .rent-contract-detail-step::after {
+    top: 14px;
+    left: calc(50% + 16px);
+    width: calc(100% - 32px);
+  }
+}
+
+@media (max-width: 480px) {
+  .rent-contract-detail-step span:last-child {
+    display: none;
+  }
+
+  .rent-contract-detail-step::after {
+    left: calc(50% + 14px);
+    width: calc(100% - 28px);
+  }
+}
+  
