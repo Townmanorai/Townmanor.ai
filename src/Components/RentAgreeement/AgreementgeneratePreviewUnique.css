@@ -1,0 +1,64 @@
+.agreement-preview-unique-container {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(30, 41, 59, 0.10);
+  padding: 32px 24px 24px 24px;
+  max-width: 420px;
+  margin: 48px auto 0 auto;
+  text-align: center;
+  position: relative;
+}
+.agreement-preview-unique-icon {
+  background: #f6faff;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px auto;
+}
+.agreement-preview-unique-title {
+  color: #222b45;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.agreement-preview-unique-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  width: 100%;
+  margin-bottom: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+.agreement-preview-unique-btn:hover {
+  background: #1746a2;
+}
+.agreement-preview-unique-note {
+  color: #7b8794;
+  font-size: 0.98rem;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+.agreement-preview-unique-download-icon {
+  font-size: 1.3rem;
+  margin-right: 6px;
+  display: inline-block;
+}
+.agreement-preview-unique-clock-icon {
+  font-size: 1.1rem;
+  display: inline-block;
+}

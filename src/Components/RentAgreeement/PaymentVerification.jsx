@@ -3,20 +3,23 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { FaLink, FaEnvelope, FaArrowLeft, FaCreditCard, FaCcVisa, FaCcMastercard, FaRegFileAlt } from "react-icons/fa";
 import axios from "axios";
 import "./PaymentVerification.css";
+import VerificationHandler from "./VerificationHandler";
+import Agreementgenerate from "./Agreementgenerate";
 
 const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   const [verificationState, setVerificationState] = useState({
     landlordVerified: false,
     tenantVerified: false
   });
-  
+
   const [formState, setFormState] = useState({
     consent: false,
     needPhysicalCopy: false,
     isSubmitted: false,
+    paymentStatus: 'unpaid',
     ...formData
   });
 
@@ -89,7 +92,7 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
   const handleChange = (e) => {
     const { name, type, checked, value } = e.target;
     const newValue = type === 'checkbox' ? checked : value === 'true';
-    
+
     setFormState(prev => ({
       ...prev,
       [name]: newValue
@@ -100,13 +103,6 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
         [name]: newValue
       });
     }
-  };
-
-  const generateVerificationLink = (type) => {
-    // In production, this would be your actual domain
-    const baseUrl = window.location.origin;
-    const token = generateToken(type); // You would implement this
-    return `${baseUrl}/verify?type=${type}&token=${token}`;
   };
 
   const handleVerificationLink = async (type) => {
@@ -224,7 +220,7 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
       if (response.data && response.data.id) {
         // Store the agreement ID in localStorage
         localStorage.setItem('rentAgreementId', response.data.id);
-        
+
         // Update local state
         setFormState(prev => ({
           ...prev,
@@ -271,8 +267,22 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
       // For now, we'll simulate a successful payment
       const paymentResult = await processPayment(paymentSummary.total);
       if (paymentResult.success) {
-        alert("Payment successful! Your rent agreement will be generated shortly.");
-        navigate('/agreement-success');
+        // Update payment status to paid
+        setFormState(prev => ({
+          ...prev,
+          paymentStatus: 'paid'
+        }));
+        
+        // Save payment status to localStorage
+        const savedData = JSON.parse(localStorage.getItem('rentAgreementFormData') || '{}');
+        localStorage.setItem('rentAgreementFormData', JSON.stringify({
+          ...savedData,
+          paymentStatus: 'paid'
+        }));
+        
+        alert("Payment successful! Your rent agreement is ready for download.");
+        // Don't navigate away so user can download the agreement
+        // navigate('/agreement-success');
       }
     } catch (error) {
       console.error('Payment failed:', error);
@@ -295,6 +305,13 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
     return `verify_${type}_${Date.now()}`;
   };
 
+  const generateVerificationLink = (type) => {
+    // In production, this would be your actual domain
+    const baseUrl = window.location.origin;
+    const token = generateToken(type); // You would implement this
+    return `${baseUrl}/verify?type=${type}&token=${token}`;
+  };
+
   return (
     <div className="payment-verification-unique-main-wrapper">
       <div className="payment-verification-unique-container">
@@ -303,8 +320,8 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
           Please verify your details and complete the payment to generate your rent agreement
         </p>
         <div className="payment-verification-unique-checkbox-row">
-          <input 
-            type="checkbox" 
+          <input
+            type="checkbox"
             id="agreementConfirm"
             name="consent"
             checked={formState.consent}
@@ -314,94 +331,60 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
             I confirm that all details provided in the agreement are correct and accurate. I understand that this will be used to generate a legally binding document.
           </label>
         </div>
-        <button 
+        <button
           className="payment-verification-unique-preview-btn"
           onClick={handlePreviewAgreement}
         >
-          <FaRegFileAlt style={{marginRight: 8}} /> Preview Agreement
+          <FaRegFileAlt style={{ marginRight: 8 }} /> Preview Agreement
         </button>
         <div className="payment-verification-unique-section-label">Do you need a physical copy?</div>
         <div className="payment-verification-unique-radio-row">
           <label className="payment-verification-unique-radio-label">
-            <input 
-              type="radio" 
-              name="needPhysicalCopy" 
+            <input
+              type="radio"
+              name="needPhysicalCopy"
               value="true"
               checked={formState.needPhysicalCopy === true}
               onChange={handleChange}
-            /> 
+            />
             Yes
           </label>
           <label className="payment-verification-unique-radio-label">
-            <input 
-              type="radio" 
-              name="needPhysicalCopy" 
+            <input
+              type="radio"
+              name="needPhysicalCopy"
               value="false"
               checked={formState.needPhysicalCopy === false}
               onChange={handleChange}
-            /> 
+            />
             No
           </label>
         </div>
         <div className="payment-verification-unique-section-label">Verification</div>
         <div className="payment-verification-unique-verification-box">
-          <div className="payment-verification-unique-verification-title">
-            Landlord Verification {verificationState.landlordVerified && "✓"}
-          </div>
-          <div className="payment-verification-unique-verification-desc">Send verification link to the landlord</div>
-          <div className="payment-verification-unique-verification-btns">
-            <button 
-              className="payment-verification-unique-link-btn"
-              onClick={() => handleVerificationLink('landlord')}
-            >
-              <FaLink style={{marginRight: 7}} /> Copy Link
-            </button>
-            <button 
-              className="payment-verification-unique-send-btn"
-              onClick={() => handleSendVerification('landlord')}
-            >
-              <FaEnvelope style={{marginRight: 7}} /> Send Verify
-            </button>
-          </div>
+          <VerificationHandler userType="landlord" formData={formData} />
         </div>
         <div className="payment-verification-unique-verification-box">
-          <div className="payment-verification-unique-verification-title">
-            Tenant Verification {verificationState.tenantVerified && "✓"}
-          </div>
-          <div className="payment-verification-unique-verification-desc">Send verification link to the tenant</div>
-          <div className="payment-verification-unique-verification-btns">
-            <button 
-              className="payment-verification-unique-link-btn"
-              onClick={() => handleVerificationLink('tenant')}
-            >
-              <FaLink style={{marginRight: 7}} /> Copy Link
-            </button>
-            <button 
-              className="payment-verification-unique-send-btn"
-              onClick={() => handleSendVerification('tenant')}
-            >
-              <FaEnvelope style={{marginRight: 7}} /> Send Verify
-            </button>
-          </div>
+          <VerificationHandler userType="tenant" formData={formData} />
         </div>
         <div className="payment-verification-unique-info-box">
           <span className="payment-verification-unique-info-icon">i</span>
           <span>You can also complete the verification step after payment. Both parties will receive an email with verification instructions.</span>
         </div>
         <div className="payment-verification-unique-btn-row">
-          <button 
-            type="button" 
+          <button
+            type="button"
             className="payment-verification-unique-prev-btn"
             onClick={onPrev}
           >
-            <FaArrowLeft style={{marginRight: 6}} /> Previous
+            <FaArrowLeft style={{ marginRight: 6 }} /> Previous
           </button>
-          <button 
-            type="button" 
+          <button
+            type="button"
             className="payment-verification-unique-prev-btn"
             onClick={handleSubmit}
           >
-            <FaArrowLeft style={{marginRight: 6}} /> Submit
+            <FaArrowLeft style={{ marginRight: 6 }} /> Submit
           </button>
         </div>
       </div>
@@ -421,7 +404,7 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
         <div className="payment-verification-unique-summary-total">
           <span>Total Amount</span><span>₹{paymentSummary.total}</span>
         </div>
-        <button 
+        <button
           className="payment-verification-unique-pay-btn"
           onClick={handlePayment}
           disabled={!formState.isSubmitted || !verificationState.landlordVerified || !verificationState.tenantVerified}
@@ -431,7 +414,13 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
         <div className="payment-verification-unique-payment-icons">
           <FaCreditCard /> <FaCcVisa /> <FaCcMastercard />
         </div>
+        
+          <div className="download-agreement-container">
+            <Agreementgenerate/>
+          </div>
+        
       </div>
+      
     </div>
   );
 };
