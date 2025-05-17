@@ -73,8 +73,8 @@ const PropertyBoosterModal = ({ isOpen, onClose, username, userData }) => {
   const handlePlanSelect = async (plan) => {
     setSelectedPlan(plan);
     try {
-      // Generate a unique transaction ID
-      const txnid = 'TXN_' + Date.now();
+      // Generate a unique transaction ID with OID prefix to match backend
+      const txnid = 'OID' + Date.now();
       
       // Prepare payment details with correct PayU structure
       const paymentData = {
@@ -144,26 +144,13 @@ const PropertyBoosterModal = ({ isOpen, onClose, username, userData }) => {
       const urlParams = new URLSearchParams(window.location.search);
       const status = urlParams.get('status');
       const txnid = urlParams.get('txnid');
-      const mihpayid = urlParams.get('mihpayid');
-      const error = urlParams.get('error');
+      const amount = urlParams.get('amount');
 
       if (status === 'success' && txnid) {
-        // Verify the payment status with backend
-        axios.get(`https://townmanor.ai/api/payu/verify/${txnid}`)
-          .then(response => {
-            if (response.data.status === 'success') {
-              alert(`Payment successful! Transaction ID: ${mihpayid}`);
-              window.location.reload();
-            } else {
-              alert('Payment verification failed. Please contact support.');
-            }
-          })
-          .catch(err => {
-            console.error('Verification failed:', err);
-            alert('Payment verification failed. Please contact support.');
-          });
-      } else if (status === 'failure' || error) {
-        alert(`Payment failed. ${error || 'Please try again.'}`);
+        alert(`Payment successful! Transaction ID: ${txnid}`);
+        window.location.reload();
+      } else if (status === 'failure') {
+        alert(`Payment failed. Please try again.`);
       }
     };
 
