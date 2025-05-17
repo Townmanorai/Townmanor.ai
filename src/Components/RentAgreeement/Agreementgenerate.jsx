@@ -7,6 +7,7 @@ function Agreementgenerate() {
   const [agreementData, setAgreementData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [stampImage, setStampImage] = useState(null);
 
   useEffect(() => {
     const fetchAgreementData = async () => {
@@ -18,6 +19,14 @@ function Agreementgenerate() {
         
         const response = await axios.get(`https://townmanor.ai/api/rentagreement/${rentAgreementId}`);
         setAgreementData(response.data);
+
+        // Load stamp image
+        const img = new Image();
+        img.src = '/stamp.png'; // Make sure to add this image to your public folder
+        img.onload = () => {
+          setStampImage(img);
+        };
+
         setLoading(false);
       } catch (err) {
         setError(err.message);
@@ -281,6 +290,11 @@ function Agreementgenerate() {
     doc.text("_______________", leftMargin, y);
     y += 10;
     doc.text(`${agreementData.landlord_name}`, leftMargin, y);
+    
+    // Add stamp for verified owner
+    if (agreementData.owner_verified === 1 && stampImage) {
+      doc.addImage(stampImage, 'PNG', leftMargin + 80, y - 30, 30, 30);
+    }
     y += 20;
 
     // Licensee signature
@@ -288,9 +302,13 @@ function Agreementgenerate() {
     doc.text("Licensee", leftMargin, y);
     y += 20;
     doc.setFont("helvetica", "normal");
-    doc.text("_______________", leftMargin, y);
     y += 10;
     doc.text(`${agreementData.tenant_name}`, leftMargin, y);
+    
+    // Add stamp for verified tenant
+    if (agreementData.tenant_verified === 1 && stampImage) {
+      doc.addImage(stampImage, 'PNG', leftMargin + 80, y - 30, 30, 30);
+    }
     y += 20;
 
     // Save the PDF with a meaningful filename
