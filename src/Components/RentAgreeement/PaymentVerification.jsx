@@ -371,7 +371,7 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
       const userData = await userResponse.json();
       
       // Generate a unique transaction ID with RID prefix for rent agreement
-      const txnid = 'RID' + Date.now();
+      const txnid = 'OID' + Date.now();
       
       // Prepare payment details with PayU structure
       const paymentData = {
@@ -382,8 +382,8 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
         firstname: userData.name || username || '',
         email: userData.email || '',
         phone: userData.phone || '',
-        surl: `https://townmanor.ai/api/rentagreement/payu/success`,
-        furl: `https://townmanor.ai/api/rentagreement/payu/failure`,
+        surl: `https://townmanor.ai/api/boster/payu/success`,
+        furl: `https://townmanor.ai/api/boster/payu/failure`,
         udf1: localStorage.getItem('rentAgreementId'), // Custom field for agreement ID
         service_provider: 'payu_paisa'
       };
