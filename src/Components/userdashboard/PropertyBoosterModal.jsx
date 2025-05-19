@@ -100,6 +100,7 @@ const PropertyBoosterModal = ({ isOpen, onClose, username, userData }) => {
       }
 
       // Store the property ID in localStorage before payment
+      localStorage.setItem('paymentType', 'boost');
       localStorage.setItem('boostPropertyId', selectedProperty.id.toString());
 
       // Call backend to get payment hash and URL

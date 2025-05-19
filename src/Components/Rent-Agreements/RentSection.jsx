@@ -9,7 +9,7 @@ const RentSection = () => {
   const navigate = useNavigate(); // Hook for navigation
 
   const handleNavigation = () => {
-    navigate("/rent-agreement");
+    navigate("/newRentAgreement");
   };
 
   return (

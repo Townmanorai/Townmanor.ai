@@ -271,9 +271,9 @@ function App() {
               <Route path='/newcoliving' element={<ColivingNoida/>}/>
               <Route path='/newRentAgreement' element={<Rent/>}/>
              
-              <Route path='/newRentAgreement/payment' element={<PaymentVerification/>}/>
-              <Route path='/newRentAgreement/landlord/:userid?' element={<PaymentVerification/>}/>
-              <Route path='/newRentAgreement/tenant/:userid?' element={<PaymentVerification/>}/>
+              <Route path='/newRentAgreement/payment/:userid?' element={<PaymentVerification/>}/>
+              {/* <Route path='/newRentAgreement/landlord/:userid?' element={<PaymentVerification/>}/>
+              <Route path='/newRentAgreement/tenant/:userid?' element={<PaymentVerification/>}/> */}
               <Route path='/rentvalue' element={<Agreementgenerate/>}/>
             </Routes>
           </main>
