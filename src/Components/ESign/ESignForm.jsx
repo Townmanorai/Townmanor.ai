@@ -74,7 +74,7 @@ const ESignForm = () => {
       
       // Create the request body
       const requestBody = {
-        pdf_pre_uploaded: true,
+        pdf_pre_uploaded: false,
         callback_url: window.location.href,
         config: {
           accept_selfie: true,

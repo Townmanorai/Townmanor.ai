@@ -109,6 +109,7 @@ import Rent from './Components/RentAgreeement/Rent.jsx';
 import PaymentVerification from './Components/RentAgreeement/PaymentVerification.jsx';
 
 import Agreementgenerate from './Components/RentAgreeement/Agreementgenerate.jsx';
+import Esign2 from './Components/ESign/Esign2.jsx';
 
 
 
@@ -275,6 +276,7 @@ function App() {
               {/* <Route path='/newRentAgreement/landlord/:userid?' element={<PaymentVerification/>}/>
               <Route path='/newRentAgreement/tenant/:userid?' element={<PaymentVerification/>}/> */}
               <Route path='/rentvalue' element={<Agreementgenerate/>}/>
+               <Route path='/esign2' element={<Esign2/>}/>
             </Routes>
           </main>
           <Footer />
