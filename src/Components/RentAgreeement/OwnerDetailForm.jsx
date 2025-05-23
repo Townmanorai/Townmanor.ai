@@ -1,8 +1,10 @@
-import React from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaArrowLeft, FaArrowRight, FaUpload } from "react-icons/fa";
 import "./OwnerDetailForm.css";
 
 const OwnerDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
+  const [uploading, setUploading] = useState(false);
+  const [uploadedFile, setUploadedFile] = useState(null);
   const handleSubmit = (e) => {
     e.preventDefault();
     onNext();
@@ -13,6 +15,39 @@ const OwnerDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
     onFormDataChange({
       [name]: value
     });
+  };
+
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setUploadedFile(file);
+    setUploading(true);
+    
+    try {
+      const formData = new FormData();
+      formData.append('images', file);
+      
+      const response = await fetch('https://www.townmanor.ai/api/image/aws-upload-owner-images', {
+        method: 'POST',
+        body: formData,
+      });
+      
+      const data = await response.json();
+      
+      if (data.fileUrls && data.fileUrls.length > 0) {
+        onFormDataChange({
+          landlordIdentityProofNumber: data.fileUrls[0]
+        });
+        setUploading(false);
+      } else {
+        console.error('No file URLs returned from server');
+        setUploading(false);
+      }
+    } catch (error) {
+      console.error('Error uploading file:', error);
+      setUploading(false);
+    }
   };
 
   return (
@@ -117,17 +152,46 @@ const OwnerDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
            
           />
 
-          <label className="owner-detail-unique-label">Identity Proof Number <span>*</span></label>
-          <input
-            type="text"
-            name="landlordIdentityProofNumber"
-            className="owner-detail-unique-input"
-            placeholder="Enter Aadhaar/PAN number"
-            value={formData.landlordIdentityProofNumber}
-            onChange={handleChange}
-            required
-          />
-          <span className="owner-detail-unique-id-desc">Enter Aadhaar, PAN, Voter ID, or Passport number</span>
+          <label className="owner-detail-unique-label">Identity Proof (PAN Card) <span>*</span></label>
+          <div className="owner-detail-unique-file-upload">
+            <input
+              type="file"
+              id="identityProofFile"
+              name="identityProofFile"
+              accept="image/*"
+              onChange={handleFileUpload}
+              style={{ display: 'none' }}
+              required={!formData.landlordIdentityProofNumber}
+            />
+            <label 
+              htmlFor="identityProofFile" 
+              className="owner-detail-unique-input owner-detail-unique-file-label"
+              style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                cursor: 'pointer',
+                justifyContent: 'space-between'
+              }}
+            >
+              <span>{uploadedFile ? uploadedFile.name : 'Upload PAN Card Image'}</span>
+              <FaUpload />
+            </label>
+            {uploading && <span className="owner-detail-unique-id-desc">Uploading...</span>}
+            {formData.landlordIdentityProofNumber && !uploading && (
+              <div className="owner-detail-unique-preview">
+                <span className="owner-detail-unique-id-desc">Image uploaded successfully!</span>
+                <a 
+                  href={formData.landlordIdentityProofNumber} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="owner-detail-unique-preview-link"
+                >
+                  View uploaded image
+                </a>
+              </div>
+            )}
+            <span className="owner-detail-unique-id-desc">Upload a clear image of your PAN Card</span>
+          </div>
 
           <div className="owner-detail-unique-btn-row">
             <button 

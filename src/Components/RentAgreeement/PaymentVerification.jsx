@@ -450,12 +450,12 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
             I confirm that all details provided in the agreement are correct and accurate. I understand that this will be used to generate a legally binding document.
           </label>
         </div>
-        <button
+        {/* <button
           className="payment-verification-unique-preview-btn"
           onClick={handlePreviewAgreement}
         >
           <FaRegFileAlt style={{ marginRight: 8 }} /> Preview Agreement
-        </button>
+        </button> */}
         <div className="payment-verification-unique-section-label">Do you need a physical copy?</div>
         <div className="payment-verification-unique-radio-row">
           <label className="payment-verification-unique-radio-label">

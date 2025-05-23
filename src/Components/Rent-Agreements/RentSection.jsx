@@ -9,11 +9,22 @@ const RentSection = () => {
   const navigate = useNavigate(); // Hook for navigation
 
   const handleNavigation = () => {
-    navigate("/newRentAgreement");
+   
+    const token = localStorage.getItem('token');
+    
+    if (token) {
+      // User is logged in, proceed to agreement creation
+      
+    } else {
+      // User is not logged in, show notification and redirect to login page
+      alert("Please login first to create an agreement");
+      navigate("/login", { state: { from: "/newRentAgreement" } });
+    }
   };
 
   return (
     <section className="rent-hero-section">
+      
       <div className="rent-hero-container">
         <motion.div 
           className="rent-hero-content"

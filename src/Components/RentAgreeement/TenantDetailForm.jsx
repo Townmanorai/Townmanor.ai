@@ -1,8 +1,10 @@
-import React from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaArrowLeft, FaArrowRight, FaUpload } from "react-icons/fa";
 import "./TenantDetailForm.css";
 
 const TenantDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
+  const [uploading, setUploading] = useState(false);
+  const [uploadedFile, setUploadedFile] = useState(null);
   const handleSubmit = (e) => {
     e.preventDefault();
     onNext();
@@ -13,6 +15,39 @@ const TenantDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
     onFormDataChange({
       [name]: value
     });
+  };
+
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setUploadedFile(file);
+    setUploading(true);
+    
+    try {
+      const formData = new FormData();
+      formData.append('images', file);
+      
+      const response = await fetch('https://www.townmanor.ai/api/image/aws-upload-owner-images', {
+        method: 'POST',
+        body: formData,
+      });
+      
+      const data = await response.json();
+      
+      if (data.fileUrls && data.fileUrls.length > 0) {
+        onFormDataChange({
+          tenantIdentityProofNumber: data.fileUrls[0]
+        });
+        setUploading(false);
+      } else {
+        console.error('No file URLs returned from server');
+        setUploading(false);
+      }
+    } catch (error) {
+      console.error('Error uploading file:', error);
+      setUploading(false);
+    }
   };
 
   return (
@@ -104,16 +139,46 @@ const TenantDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
          
         />
 
-        <label className="tenant-detail-unique-label">Identity Proof Number <span>*</span></label>
-        <input
-          type="text"
-          name="tenantIdentityProofNumber"
-          className="tenant-detail-unique-input"
-          placeholder="Enter 12-digit Aadhaar or PAN number"
-          value={formData.tenantIdentityProofNumber}
-          onChange={handleChange}
-          required
-        />
+        <label className="tenant-detail-unique-label">Identity Proof (PAN Card) <span>*</span></label>
+        <div className="tenant-detail-unique-file-upload">
+          <input
+            type="file"
+            id="tenantIdentityProofFile"
+            name="tenantIdentityProofFile"
+            accept="image/*"
+            onChange={handleFileUpload}
+            style={{ display: 'none' }}
+            required={!formData.tenantIdentityProofNumber}
+          />
+          <label 
+            htmlFor="tenantIdentityProofFile" 
+            className="tenant-detail-unique-input tenant-detail-unique-file-label"
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              cursor: 'pointer',
+              justifyContent: 'space-between'
+            }}
+          >
+            <span>{uploadedFile ? uploadedFile.name : 'Upload PAN Card Image'}</span>
+            <FaUpload />
+          </label>
+          {uploading && <span className="tenant-detail-unique-id-desc">Uploading...</span>}
+          {formData.tenantIdentityProofNumber && !uploading && (
+            <div className="tenant-detail-unique-preview">
+              <span className="tenant-detail-unique-id-desc">Image uploaded successfully!</span>
+              <a 
+                href={formData.tenantIdentityProofNumber} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="tenant-detail-unique-preview-link"
+              >
+                View uploaded image
+              </a>
+            </div>
+          )}
+          <span className="tenant-detail-unique-id-desc">Upload a clear image of your PAN Card</span>
+        </div>
 
         <label className="tenant-detail-unique-label">Email ID <span>*</span></label>
         <input
