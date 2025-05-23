@@ -1,0 +1,192 @@
+/* Unique eSign Select Type Styles (unqtwq) */
+.unqtwq_esign_select_wrap {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fafbfc;
+  border-radius: 18px;
+  box-shadow: 0 3px 32px 0 rgba(80, 80, 120, 0.07);
+  padding: 38px 28px 18px 28px;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.unqtwq_esign_select_title {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.unqtwq_esign_select_icon {
+  font-size: 38px;
+  color: #5d5fef;
+  margin-bottom: 6px;
+}
+
+.unqtwq_esign_select_title h2 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #23235a;
+  margin: 0 0 6px 0;
+}
+
+.unqtwq_esign_select_title p {
+  color: #6d6d8f;
+  font-size: 1.08rem;
+  margin: 0;
+}
+
+.unqtwq_esign_select_options {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  margin-bottom: 34px;
+}
+
+.unqtwq_esign_select_card {
+  background: #fff;
+  border-radius: 13px;
+  box-shadow: 0 2px 14px 0 rgba(80, 80, 120, 0.09);
+  padding: 26px 22px 22px 22px;
+  flex: 1 1 320px;
+  min-width: 280px;
+  max-width: 370px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.unqtwq_esign_select_radio {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+}
+.unqtwq_esign_select_radio input[type="radio"] {
+  accent-color: #5d5fe5;
+  width: 20px;
+  height: 20px;
+}
+
+.unqtwq_esign_select_card_icon {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 32px;
+  color: #5d5fe5;
+  margin-bottom: 6px;
+}
+
+.unqtwq_esign_select_card_body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.unqtwq_esign_select_card_body h3 {
+  font-size: 1.21rem;
+  font-weight: 600;
+  color: #22224b;
+  margin: 0 0 5px 0;
+}
+
+.unqtwq_esign_select_card_sub {
+  display: flex;
+  align-items: center;
+  font-size: 0.98rem;
+  color: #6d6d8f;
+  margin-bottom: 10px;
+}
+.unqtwq_esign_select_card_subicon {
+  margin-right: 5px;
+  font-size: 1.05em;
+}
+
+.unqtwq_esign_select_card_desc {
+  font-size: 1.01rem;
+  color: #4c4c7a;
+  margin-bottom: 12px;
+}
+
+.unqtwq_esign_select_card_list {
+  padding-left: 20px;
+  margin-bottom: 18px;
+  color: #3a3a5a;
+  font-size: 0.97rem;
+}
+.unqtwq_esign_select_card_list li {
+  margin-bottom: 4px;
+}
+
+.unqtwq_esign_select_btn {
+  background: #5d5fe5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 0;
+  font-size: 1.04rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.unqtwq_esign_select_btn:hover {
+  background: #4747c9;
+}
+
+.unqtwq_esign_select_footer {
+  display: flex;
+  align-items: flex-start;
+  background: #f2f3fa;
+  border-radius: 10px;
+  padding: 21px 18px 12px 18px;
+  margin-top: 12px;
+  gap: 18px;
+  font-size: 0.99rem;
+}
+.unqtwq_esign_select_footer_icon {
+  font-size: 1.8rem;
+  color: #36b37e;
+  margin-right: 8px;
+  margin-top: 2px;
+}
+.unqtwq_esign_select_footer strong {
+  font-weight: 600;
+  color: #23235a;
+  display: block;
+  margin-bottom: 3px;
+}
+.unqtwq_esign_select_footer p {
+  color: #52527a;
+  margin: 0 0 7px 0;
+}
+.unqtwq_esign_select_footer_tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.unqtwq_esign_select_footer_tags span {
+  background: #e7e9fa;
+  color: #5d5fe5;
+  border-radius: 5px;
+  padding: 3px 9px;
+  font-size: 0.93em;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 900px) {
+  .unqtwq_esign_select_options {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .unqtwq_esign_select_card {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+@media (max-width: 600px) {
+  .unqtwq_esign_select_wrap {
+    padding: 12px 2vw 8px 2vw;
+  }
+  .unqtwq_esign_select_options {
+    gap: 10px;
+  }
+  .unqtwq_esign_select_footer {
+    flex-direction: column;
+    gap: 9px;
+  }
+}

@@ -235,7 +235,7 @@ const servicesData = [
         <path d="M18 16L24 28" stroke="#ffffff" strokeWidth="2" />
       </svg>
     ),
-    link: "https://townmanor.ai/esign",
+    link: "https://townmanor.ai/esignoverview",
     isNew: true,
   },
 
