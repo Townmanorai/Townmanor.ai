@@ -3,6 +3,7 @@ import AdminAccesor from '../navbar/AdminAccesor';
 import axios from 'axios';
 import './RentAgreementStyles.css';
 import { toast } from 'react-toastify';
+import Agreementgenerate from '../../RentAgreeement/Agreementgenerate';
 
 function AdminRent() {
   const [agreements, setAgreements] = useState([]);
@@ -11,6 +12,8 @@ function AdminRent() {
   const [currentPage, setCurrentPage] = useState(1);
   const [agreementsPerPage] = useState(5);
   const [expandedAgreement, setExpandedAgreement] = useState(null);
+  const [generatingAgreement, setGeneratingAgreement] = useState(false);
+  const [selectedAgreementId, setSelectedAgreementId] = useState(null);
 
   useEffect(() => {
     const fetchAgreements = async () => {
@@ -386,7 +389,15 @@ function AdminRent() {
                       </div>
 
                       <div className="rentAgmt__actionButtons">
-                        <button className="rentAgmt__actionButton rentAgmt__viewButton">View Full Agreement</button>
+                        <button 
+                          className="rentAgmt__actionButton rentAgmt__viewButton"
+                          onClick={() => {
+                            setSelectedAgreementId(agreement.id);
+                            setGeneratingAgreement(true);
+                          }}
+                        >
+                          Generate Agreement
+                        </button>
                         {agreement.landlord_verified !== 1 && (
                           <button 
                             className="rentAgmt__actionButton rentAgmt__verifyButton"
@@ -427,6 +438,29 @@ function AdminRent() {
           </div>
         )}
       </div>
+
+      {/* Agreement generation modal */}
+      {generatingAgreement && selectedAgreementId && (
+        <div className="rentAgmt__modal">
+          <div className="rentAgmt__modalContent">
+            <div className="rentAgmt__modalHeader">
+              <h3>Generate Agreement</h3>
+              <button 
+                className="rentAgmt__modalClose" 
+                onClick={() => {
+                  setGeneratingAgreement(false);
+                  setSelectedAgreementId(null);
+                }}
+              >
+                &times;
+              </button>
+            </div>
+            <div className="rentAgmt__modalBody">
+              <Agreementgenerate agreementId={selectedAgreementId} />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

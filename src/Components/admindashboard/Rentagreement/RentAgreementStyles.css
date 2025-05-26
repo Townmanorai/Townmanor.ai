@@ -337,6 +337,61 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+/* Modal Styles */
+.rentAgmt__modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.rentAgmt__modalContent {
+  background-color: #fff;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.rentAgmt__modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.rentAgmt__modalHeader h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.rentAgmt__modalClose {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #777;
+  transition: color 0.2s ease;
+}
+
+.rentAgmt__modalClose:hover {
+  color: #333;
+}
+
+.rentAgmt__modalBody {
+  padding: 1.5rem;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 992px) {
   .rentAgmt__container {

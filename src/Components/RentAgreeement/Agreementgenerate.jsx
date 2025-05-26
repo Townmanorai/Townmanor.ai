@@ -3,29 +3,26 @@ import { jsPDF } from 'jspdf';
 import axios from 'axios';
 import './AgreementgeneratePreviewUnique.css';
 
-function Agreementgenerate() {
+function Agreementgenerate({ agreementId }) {
   const [agreementData, setAgreementData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [stampImage, setStampImage] = useState(null);
 
   useEffect(() => {
     const fetchAgreementData = async () => {
       try {
-        const rentAgreementId = localStorage.getItem('rentAgreementId');
+        // Use the agreementId prop if provided (for admin), otherwise use localStorage (for user)
+        let rentAgreementId = agreementId;
+        
         if (!rentAgreementId) {
-          throw new Error('No agreement ID found');
+          rentAgreementId = localStorage.getItem('rentAgreementId');
+          if (!rentAgreementId) {
+            throw new Error('No agreement ID found');
+          }
         }
         
         const response = await axios.get(`https://townmanor.ai/api/rentagreement/${rentAgreementId}`);
         setAgreementData(response.data);
-
-        // Load stamp image
-        const img = new Image();
-        img.src = '/stamp.png'; // Make sure to add this image to your public folder
-        img.onload = () => {
-          setStampImage(img);
-        };
 
         setLoading(false);
       } catch (err) {
@@ -35,7 +32,7 @@ function Agreementgenerate() {
     };
 
     fetchAgreementData();
-  }, []);
+  }, [agreementId]);
 
   const generatePDF = () => {
     if (!agreementData) return;
@@ -291,9 +288,13 @@ function Agreementgenerate() {
     y += 10;
     doc.text(`${agreementData.landlord_name}`, leftMargin, y);
     
-    // Add stamp for verified owner
-    if (agreementData.owner_verified === 1 && stampImage) {
-      doc.addImage(stampImage, 'PNG', leftMargin + 80, y - 30, 30, 30);
+    // Owner verification indicator
+    if (agreementData.owner_verified === 1) {
+      doc.setTextColor(0, 128, 0);
+      doc.setFont("helvetica", "italic");
+      doc.text("(Verified)", leftMargin + 80, y);
+      doc.setTextColor(0, 0, 0);
+      doc.setFont("helvetica", "normal");
     }
     y += 20;
 
@@ -305,9 +306,13 @@ function Agreementgenerate() {
     y += 10;
     doc.text(`${agreementData.tenant_name}`, leftMargin, y);
     
-    // Add stamp for verified tenant
-    if (agreementData.tenant_verified === 1 && stampImage) {
-      doc.addImage(stampImage, 'PNG', leftMargin + 80, y - 30, 30, 30);
+    // Tenant verification indicator
+    if (agreementData.tenant_verified === 1) {
+      doc.setTextColor(0, 128, 0);
+      doc.setFont("helvetica", "italic");
+      doc.text("(Verified)", leftMargin + 80, y);
+      doc.setTextColor(0, 0, 0);
+      doc.setFont("helvetica", "normal");
     }
     y += 20;
 
