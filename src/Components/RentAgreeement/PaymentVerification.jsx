@@ -319,7 +319,7 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
         transaction_id: `TXN${Date.now()}`,
         total_amount_paid: paymentSummary.total
       };
-
+      console.log(requestData);
       const response = await axios.post('https://townmanor.ai/api/rentagreement', requestData, {
         headers: {
           'Content-Type': 'application/json'

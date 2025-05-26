@@ -7,7 +7,7 @@ const PropertyDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
     propertyType: '',
     floorNumber: '',
     configuration: '',
-    area: '',
+    areaSqft: '',
     propertyNumber: '',
     buildingName: '',
     locality: '',
@@ -34,7 +34,7 @@ const PropertyDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
       propertyType: formData.propertyType || '',
       floorNumber: formData.floorNumber || '',
       configuration: formData.configuration || '',
-      area: formData.area || '',
+      areaSqft: formData.areaSqft || '',
       propertyNumber: formData.propertyNumber || '',
       buildingName: formData.buildingName || '',
       locality: formData.locality || '',
@@ -53,7 +53,7 @@ const PropertyDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
     if ((localFormData.propertyType === 'Apartment' || localFormData.propertyType === 'Studio') && !localFormData.configuration) {
       newErrors.configuration = 'Configuration is required';
     }
-    if (!localFormData.area) newErrors.area = 'Area is required';
+    if (!localFormData.areaSqft) newErrors.areaSqft = 'Area is required';
     if (!localFormData.locality) newErrors.locality = 'Locality is required';
     if (!localFormData.city) newErrors.city = 'City is required';
     if (!localFormData.state) newErrors.state = 'State is required';
@@ -160,13 +160,13 @@ const PropertyDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
               type="number"
               className="property-detail-unique-input property-detail-unique-areasize-input"
               placeholder="Enter area in sq. ft"
-              name="area"
-              value={localFormData.area}
+              name="areaSqft"
+              value={localFormData.areaSqft}
               onChange={handleChange}
             />
             <span className="property-detail-unique-areasize-unit">sq. ft</span>
           </div>
-          {errors.area && <span className="error-message">{errors.area}</span>}
+          {errors.areaSqft && <span className="error-message">{errors.areaSqft}</span>}
 
           <label className="property-detail-unique-label">Property Number</label>
           <input

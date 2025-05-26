@@ -36,8 +36,9 @@ const OwnerDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
       const data = await response.json();
       
       if (data.fileUrls && data.fileUrls.length > 0) {
+        // Store the image URL in landlordIdentityNumber to match PaymentVerification.jsx
         onFormDataChange({
-          landlordIdentityProofNumber: data.fileUrls[0]
+          landlordIdentityNumber: data.fileUrls[0]
         });
         setUploading(false);
       } else {
@@ -161,7 +162,7 @@ const OwnerDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
               accept="image/*"
               onChange={handleFileUpload}
               style={{ display: 'none' }}
-              required={!formData.landlordIdentityProofNumber}
+              required={!formData.landlordIdentityNumber}
             />
             <label 
               htmlFor="identityProofFile" 
@@ -177,11 +178,11 @@ const OwnerDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
               <FaUpload />
             </label>
             {uploading && <span className="owner-detail-unique-id-desc">Uploading...</span>}
-            {formData.landlordIdentityProofNumber && !uploading && (
+            {formData.landlordIdentityNumber && !uploading && (
               <div className="owner-detail-unique-preview">
                 <span className="owner-detail-unique-id-desc">Image uploaded successfully!</span>
                 <a 
-                  href={formData.landlordIdentityProofNumber} 
+                  href={formData.landlordIdentityNumber} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="owner-detail-unique-preview-link"

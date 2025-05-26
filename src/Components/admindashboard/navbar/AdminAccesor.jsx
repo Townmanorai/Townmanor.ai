@@ -24,6 +24,7 @@ function AdminAccesor() {
    }>Property control</span>
    <a href='UserAgent'><span>User Agent</span></a> 
    <a href='/Inquire'> <span >Inquire/lead</span></a>
+    <a href='/RentController'> <span >Rent Agreement</span></a>
    <a href='/postcontrol'><span>Blog & article</span></a> 
    <a href='/commercialdashboard'><span>Commercial Dashboard</span></a> 
     <a href='/Subscription'><span>package & subscription</span></a> 

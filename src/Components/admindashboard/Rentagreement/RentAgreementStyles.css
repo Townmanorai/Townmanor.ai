@@ -1,0 +1,389 @@
+/* RentAgreementStyles.css - Unique class names to avoid CSS conflicts */
+
+.rentAgmt__container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.rentAgmt__sidebar {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.rentAgmt__mainContent {
+  flex: 1;
+  padding: 9rem;
+  margin-top: 2rem;
+}
+
+.rentAgmt__title {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.rentAgmt__summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.rentAgmt__summaryItem {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  flex: 1;
+}
+
+.rentAgmt__summaryLabel {
+  display: block;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.rentAgmt__summaryValue {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.rentAgmt__agreementsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.rentAgmt__card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.rentAgmt__cardHeader {
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #eee;
+  background-color: #f9f9f9;
+}
+
+.rentAgmt__cardTitle h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.rentAgmt__location {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.rentAgmt__cardMeta {
+  text-align: right;
+}
+
+.rentAgmt__statusBadge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.rentAgmt__statusComplete {
+  background-color: #e6f7ee;
+  color: #0c8b51;
+}
+
+.rentAgmt__statusPending {
+  background-color: #fff4e5;
+  color: #e67e22;
+}
+
+.rentAgmt__transactionId {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.rentAgmt__cardContent {
+  padding: 1.25rem;
+}
+
+.rentAgmt__cardRow {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+  gap: 1rem;
+}
+
+.rentAgmt__cardColumn {
+  flex: 1;
+  min-width: 150px;
+}
+
+.rentAgmt__label {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.rentAgmt__value {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.rentAgmt__expandButton {
+  background-color: transparent;
+  border: 1px solid #ddd;
+  color: #555;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.rentAgmt__expandButton:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.rentAgmt__expandedContent {
+  margin-top: 1.5rem;
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
+}
+
+.rentAgmt__expandedTitle {
+  font-size: 1.1rem;
+  color: #444;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.rentAgmt__expandedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.rentAgmt__fullWidth {
+  grid-column: 1 / -1;
+}
+
+.rentAgmt__expandedItem {
+  margin-bottom: 0.5rem;
+}
+
+.rentAgmt__expandedLabel {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.rentAgmt__expandedValue {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #333;
+  word-break: break-word;
+}
+
+.rentAgmt__documentPreview {
+  margin-top: 0.5rem;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.rentAgmt__identityImage {
+  max-width: 300px;
+  max-height: 200px;
+  object-fit: contain;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.rentAgmt__identityImage:hover {
+  transform: scale(1.05);
+}
+
+.rentAgmt__verificationBadge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.rentAgmt__verified {
+  background-color: #e6f7ee;
+  color: #0c8b51;
+}
+
+.rentAgmt__unverified {
+  background-color: #ffebee;
+  color: #e53935;
+}
+
+.rentAgmt__actionButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.rentAgmt__actionButton {
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.rentAgmt__viewButton {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.rentAgmt__viewButton:hover {
+  background-color: #bbdefb;
+}
+
+.rentAgmt__verifyButton {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.rentAgmt__verifyButton:hover {
+  background-color: #c8e6c9;
+}
+
+.rentAgmt__pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.rentAgmt__paginationButton {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rentAgmt__paginationButton:hover {
+  background-color: #f5f5f5;
+}
+
+.rentAgmt__activePage {
+  background-color: #1976d2;
+  color: #fff;
+  border-color: #1976d2;
+}
+
+.rentAgmt__activePage:hover {
+  background-color: #1565c0;
+}
+
+.rentAgmt__loadingSpinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.rentAgmt__error {
+  padding: 1.5rem;
+  background-color: #ffebee;
+  color: #c62828;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.rentAgmt__noData {
+  padding: 3rem;
+  text-align: center;
+  color: #666;
+  font-size: 1.1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+  .rentAgmt__container {
+    flex-direction: column;
+  }
+  
+  .rentAgmt__sidebar {
+    width: 100%;
+  }
+  
+  .rentAgmt__mainContent {
+    padding: 1.5rem;
+  }
+  
+  .rentAgmt__cardHeader {
+    flex-direction: column;
+  }
+  
+  .rentAgmt__cardMeta {
+    text-align: left;
+    margin-top: 1rem;
+  }
+  
+  .rentAgmt__expandedGrid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .rentAgmt__mainContent {
+    padding: 1rem;
+  }
+  
+  .rentAgmt__summary {
+    flex-direction: column;
+  }
+  
+  .rentAgmt__cardRow {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .rentAgmt__expandedGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .rentAgmt__actionButtons {
+    flex-direction: column;
+  }
+}

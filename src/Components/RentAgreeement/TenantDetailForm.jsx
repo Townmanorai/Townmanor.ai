@@ -37,7 +37,7 @@ const TenantDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
       
       if (data.fileUrls && data.fileUrls.length > 0) {
         onFormDataChange({
-          tenantIdentityProofNumber: data.fileUrls[0]
+          tenantIdentityNumber: data.fileUrls[0]
         });
         setUploading(false);
       } else {
@@ -139,7 +139,7 @@ const TenantDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
          
         />
 
-        <label className="tenant-detail-unique-label">Identity Proof (PAN Card) <span>*</span></label>
+        <label className="tenant-detail-unique-label">Identity Proof PAN Card <span>*</span></label>
         <div className="tenant-detail-unique-file-upload">
           <input
             type="file"
@@ -148,7 +148,7 @@ const TenantDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
             accept="image/*"
             onChange={handleFileUpload}
             style={{ display: 'none' }}
-            required={!formData.tenantIdentityProofNumber}
+            required={!formData.tenantIdentityNumber}
           />
           <label 
             htmlFor="tenantIdentityProofFile" 
@@ -164,11 +164,11 @@ const TenantDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
             <FaUpload />
           </label>
           {uploading && <span className="tenant-detail-unique-id-desc">Uploading...</span>}
-          {formData.tenantIdentityProofNumber && !uploading && (
+          {formData.tenantIdentityNumber && !uploading && (
             <div className="tenant-detail-unique-preview">
               <span className="tenant-detail-unique-id-desc">Image uploaded successfully!</span>
               <a 
-                href={formData.tenantIdentityProofNumber} 
+                href={formData.tenantIdentityNumber} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="tenant-detail-unique-preview-link"
