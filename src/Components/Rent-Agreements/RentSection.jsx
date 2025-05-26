@@ -3,6 +3,7 @@ import React from 'react';
 import './RentSection.css';
 import { motion } from 'framer-motion';
 import { useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 const RentSection = () => {
 
@@ -10,15 +11,16 @@ const RentSection = () => {
 
   const handleNavigation = () => {
    
-    const token = localStorage.getItem('token');
+    const token = Cookies.get('jwttoken');
     
     if (token) {
       // User is logged in, proceed to agreement creation
+      navigate("/newRentAgreement");
       
     } else {
       // User is not logged in, show notification and redirect to login page
       alert("Please login first to create an agreement");
-      navigate("/login", { state: { from: "/newRentAgreement" } });
+      navigate("/auth", { state: { from: "/newRentAgreement" } });
     }
   };
 

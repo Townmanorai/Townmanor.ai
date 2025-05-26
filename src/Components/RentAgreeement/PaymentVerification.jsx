@@ -192,10 +192,12 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
   useEffect(() => {
     // Check if this is a post-payment success view
     const agreementId = localStorage.getItem('agreementId');
-    if (userid && agreementId) {
+    if (agreementId) {
+      // If agreementId exists in localStorage, show success content
       setIsPaymentSuccess(true);
+      console.log('Agreement ID found in localStorage:', agreementId);
     }
-  }, [userid]);
+  }, []);
 
   const [formState, setFormState] = useState({
     consent: false,
