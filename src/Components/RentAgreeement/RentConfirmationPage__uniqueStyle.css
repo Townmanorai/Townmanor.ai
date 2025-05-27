@@ -1,0 +1,28 @@
+.rent-confirmation-unique-root-x7z {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+.rent-confirmation-unique-checkmark-x7z {
+  color: #43b864;
+  font-size: 80px;
+  margin-bottom: 30px;
+}
+
+.rent-confirmation-unique-title-x7z {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: #212529;
+  text-align: center;
+}
+
+.rent-confirmation-unique-desc-x7z {
+  font-size: 1.1rem;
+  color: #5a6473;
+  text-align: center;
+  margin-top: 0;
+}

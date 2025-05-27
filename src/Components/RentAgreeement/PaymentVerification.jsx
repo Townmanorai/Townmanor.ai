@@ -191,7 +191,7 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
 
   useEffect(() => {
     // Check if this is a post-payment success view
-    const agreementId = localStorage.getItem('agreementId');
+    const agreementId = localStorage.getItem('rentAgreementId');
     if (agreementId) {
       // If agreementId exists in localStorage, show success content
       setIsPaymentSuccess(true);
@@ -545,11 +545,11 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
         )}
       </div>
       
-      <AgreementPreviewModal 
+      {/* <AgreementPreviewModal 
         isOpen={isPreviewModalOpen}
         onClose={() => setIsPreviewModalOpen(false)}
         agreementData={agreementData}
-      />
+      /> */}
     </div>
   );
 };

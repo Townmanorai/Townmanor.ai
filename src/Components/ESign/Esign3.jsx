@@ -5,6 +5,10 @@ import {
 } from 'react-icons/fi';
 import axios from 'axios';
 import './Esign3_custom.css';
+import * as pdfjsLib from 'pdfjs-dist';
+
+// Set the PDF.js worker source
+pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
 // API Authorization token
 const API_TOKEN = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg';
@@ -267,9 +271,16 @@ function Esign3() {
         const typedArray = new Uint8Array(event.target.result);
         
         try {
-          // For now, we'll set a placeholder value
-          // In a real implementation, you would use PDF.js to count pages
-          setPageCount(5); // Placeholder
+          // Use PDF.js to load the document and count pages
+          const loadingTask = pdfjsLib.getDocument({ data: typedArray });
+          const pdf = await loadingTask.promise;
+          
+          // Get the number of pages
+          const numPages = pdf.numPages;
+          console.log(`PDF loaded with ${numPages} pages`);
+          
+          // Update state with actual page count
+          setPageCount(numPages);
         } catch (err) {
           console.error('Error counting PDF pages:', err);
           setPageCount(1); // Default to 1 if counting fails
@@ -425,7 +436,7 @@ function Esign3() {
         'https://kyc-api.surepass.io/api/v1/esign/initialize',
         {
           pdf_pre_uploaded: true,
-          callback_url: 'https://www.townmanor.ai/esign3',
+          callback_url: 'https://www.townmanor.ai/verified',
           config: {
             accept_selfie: true,
             allow_selfie_upload: true,
@@ -556,7 +567,7 @@ function Esign3() {
         'https://kyc-api.surepass.io/api/v1/esign/initialize',
         {
           pdf_pre_uploaded: true,
-          callback_url: 'https://www.townmanor.ai/esign3',
+          callback_url: 'https://www.townmanor.ai/verified',
           config: {
             accept_selfie: true,
             allow_selfie_upload: true,
