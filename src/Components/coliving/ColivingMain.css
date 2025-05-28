@@ -1,0 +1,359 @@
+/* All class names use the prefix colivingMain__ to avoid CSS conflicts */
+
+.colivingMain__container {
+  background: #f9f9f9;
+  padding: 0;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.colivingMain__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #fff;
+  border-bottom: 1px solid #e6e6e6;
+  font-size: 14px;
+}
+
+.colivingMain__header-title {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.colivingMain__header-btn {
+  background: #4f7cff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 18px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.colivingMain__header-btn:hover {
+  background: #3356b8;
+}
+
+.colivingMain__gallery {
+  display: flex;
+  gap: 12px;
+  margin: 24px auto 0 auto;
+  max-width: 900px;
+  justify-content: center;
+}
+.colivingMain__gallery-main {
+  flex: 2;
+  border-radius: 12px;
+  overflow: hidden;
+  min-width: 0;
+}
+.colivingMain__gallery-main img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.colivingMain__gallery-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.colivingMain__gallery-side img {
+  border-radius: 12px;
+  width: 100%;
+  height: 105px;
+  object-fit: cover;
+}
+
+.colivingMain__overview {
+  background: #fff;
+  margin: 24px auto 0 auto;
+  max-width: 900px;
+  border-radius: 10px;
+  padding: 18px 24px 14px 24px;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+}
+.colivingMain__overview-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+.colivingMain__room-booking {
+  display: flex;
+  gap: 18px;
+  margin: 24px auto 0 auto;
+  max-width: 900px;
+}
+.colivingMain__room-card {
+  background: #fff;
+  border-radius: 10px;
+  flex: 1;
+  padding: 18px 20px 18px 20px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+}
+.colivingMain__room-card--highlight {
+  border: 1.5px solid #4f7cff;
+}
+.colivingMain__room-title {
+  font-weight: 600;
+  font-size: 16px;
+}
+.colivingMain__room-price {
+  color: #4f7cff;
+  font-size: 18px;
+  font-weight: 700;
+}
+.colivingMain__room-btn {
+  margin-top: 12px;
+  width: 100%;
+  background: #4f7cff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 0;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.colivingMain__room-btn:hover {
+  background: #3356b8;
+}
+
+.colivingMain__amenities {
+  background: #fff;
+  margin: 24px auto 0 auto;
+  max-width: 900px;
+  border-radius: 10px;
+  padding: 18px 24px 10px 24px;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+.colivingMain__amenity {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  color: #555;
+  padding: 10px 0;
+}
+.colivingMain__amenity-icon {
+  font-size: 24px;
+  color: #4f7cff;
+  margin-bottom: 4px;
+}
+
+.colivingMain__hotspots {
+  background: #fff;
+  margin: 24px auto 0 auto;
+  max-width: 900px;
+  border-radius: 10px;
+  padding: 18px 24px 10px 24px;
+  font-size: 14px;
+}
+.colivingMain__hotspot-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 7px 0;
+}
+.colivingMain__hotspot-name {
+  font-weight: 500;
+}
+.colivingMain__hotspot-distance {
+  color: #888;
+}
+
+.colivingMain__map {
+  background: #fff;
+  margin: 24px auto 0 auto;
+  max-width: 900px;
+  border-radius: 10px;
+  padding: 18px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.colivingMain__map-img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+}
+
+.colivingMain__utilities {
+  background: #fff;
+  margin: 24px auto 0 auto;
+  max-width: 900px;
+  border-radius: 10px;
+  padding: 18px 24px 10px 24px;
+  font-size: 14px;
+}
+.colivingMain__utilities-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.colivingMain__utilities-table th,
+.colivingMain__utilities-table td {
+  padding: 7px 8px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+}
+.colivingMain__utilities-table th {
+  font-weight: 600;
+  color: #333;
+  background: #fafbfc;
+}
+
+.colivingMain__reviews {
+  background: #fff;
+  margin: 24px auto 0 auto;
+  max-width: 900px;
+  border-radius: 10px;
+  padding: 18px 24px 10px 24px;
+  display: flex;
+  gap: 18px;
+}
+.colivingMain__review-card {
+  flex: 1;
+  background: #f5f8ff;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #333;
+}
+.colivingMain__review-user {
+  font-weight: 600;
+  color: #4f7cff;
+  margin-bottom: 2px;
+}
+
+.colivingMain__promise {
+  background: #fff;
+  margin: 24px auto 0 auto;
+  max-width: 900px;
+  border-radius: 10px;
+  padding: 18px 24px 10px 24px;
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+}
+.colivingMain__promise-item {
+  flex: 1;
+  text-align: center;
+  font-size: 13px;
+  color: #333;
+}
+.colivingMain__promise-icon {
+  font-size: 24px;
+  color: #4f7cff;
+  margin-bottom: 4px;
+}
+
+.colivingMain__similar-listings {
+  background: #fff;
+  margin: 24px auto 0 auto;
+  max-width: 900px;
+  border-radius: 10px;
+  padding: 18px 24px 10px 24px;
+  display: flex;
+  gap: 12px;
+}
+.colivingMain__similar-card {
+  flex: 1;
+  background: #f7f7fa;
+  border-radius: 8px;
+  padding: 8px 8px 12px 8px;
+  font-size: 13px;
+  color: #333;
+  text-align: center;
+}
+.colivingMain__similar-img {
+  width: 100%;
+  border-radius: 8px;
+  height: 90px;
+  object-fit: cover;
+}
+
+.colivingMain__footer {
+  background: linear-gradient(90deg, #4f7cff 0%, #7b8cff 100%);
+  color: #fff;
+  text-align: center;
+  padding: 32px 10px 18px 10px;
+  margin-top: 36px;
+}
+.colivingMain__footer-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.colivingMain__footer-desc {
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+.colivingMain__footer-btn {
+  background: #fff;
+  color: #4f7cff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 26px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+.colivingMain__footer-btn:hover {
+  background: #e6eeff;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .colivingMain__gallery,
+  .colivingMain__room-booking,
+  .colivingMain__amenities,
+  .colivingMain__reviews,
+  .colivingMain__promise,
+  .colivingMain__similar-listings {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .colivingMain__gallery-main img {
+    height: 170px;
+  }
+  .colivingMain__gallery-side img {
+    height: 80px;
+  }
+}
+@media (max-width: 600px) {
+  .colivingMain__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 13px 8px;
+  }
+  .colivingMain__gallery,
+  .colivingMain__room-booking,
+  .colivingMain__amenities,
+  .colivingMain__reviews,
+  .colivingMain__promise,
+  .colivingMain__similar-listings {
+    max-width: 100%;
+    padding: 0 4px;
+    gap: 10px;
+  }
+  .colivingMain__overview,
+  .colivingMain__hotspots,
+  .colivingMain__map,
+  .colivingMain__utilities {
+    max-width: 100%;
+    padding: 10px 4px;
+  }
+  .colivingMain__footer {
+    padding: 22px 4px 14px 4px;
+  }
+}

@@ -1,0 +1,99 @@
+.townmanor_coliving_utilities_section {
+    padding: 2rem;
+    background-color: white;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.townmanor_coliving_utilities_section h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.townmanor_coliving_utilities_table {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 1rem 1.5rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eee;
+}
+
+.townmanor_coliving_table_header > div {
+    color: #666;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 1rem 1.5rem;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.townmanor_coliving_table_row:hover {
+    background-color: #f8f9fa;
+}
+
+.townmanor_coliving_table_row:last-child {
+    border-bottom: none;
+}
+
+.townmanor_coliving_utility_col {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.townmanor_coliving_utility_icon_wrapper {
+    color: #6c63ff;
+    width: 20px;
+    text-align: center;
+}
+
+.townmanor_coliving_utility_col span {
+    color: #333;
+}
+
+.townmanor_coliving_cost_col {
+    color: #333;
+}
+
+.frequency-col {
+    color: #666;
+    font-size: 0.875rem;
+}
+
+@media (max-width: 640px) {
+    .townmanor_coliving_table_header {
+        display: none;
+    }
+
+    .townmanor_coliving_table_row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    .townmanor_coliving_cost_col, .townmanor_coliving_frequency_col {
+        padding-left: 2.25rem;
+        color: #666;
+        font-size: 0.875rem;
+    }
+}

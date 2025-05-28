@@ -1,0 +1,94 @@
+.townmanor_coliving_gallery_wrapper {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1rem;
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.townmanor_coliving_main_image {
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+
+.townmanor_coliving_main_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.townmanor_coliving_image_counter {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+}
+
+.townmanor_coliving_thumbnail_strip {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.townmanor_coliving_thumbnail {
+    width: 100%;
+    height: 120px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.townmanor_coliving_thumbnail:hover {
+    opacity: 0.8;
+}
+
+.townmanor_coliving_thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.townmanor_coliving_nav_button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.townmanor_coliving_nav_button:hover {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.townmanor_coliving_nav_button.townmanor_coliving_prev {
+    left: 1rem;
+}
+
+.townmanor_coliving_nav_button.townmanor_coliving_next {
+    right: 1rem;
+}
+
+.townmanor_coliving_nav_icon {
+    color: #333;
+}
+
+.townmanor_coliving_thumbnail.townmanor_coliving_active {
+    border: 2px solid #6c63ff;
+    border-radius: 4px;
+}

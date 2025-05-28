@@ -1,0 +1,26 @@
+.townmanor_coliving_location_section {
+    padding: 2rem;
+    background-color: white;
+    margin-top: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.townmanor_coliving_location_section h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.townmanor_coliving_map_container {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    height: 400px;
+    background-color: #f8f9fa;
+}
+
+.townmanor_coliving_map_container iframe {
+    display: block;
+}

@@ -1,0 +1,117 @@
+.townmanor_coliving_similar_listings_section {
+    padding: 2rem;
+    background-color: white;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.townmanor_coliving_similar_listings_section h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.townmanor_coliving_listings_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.townmanor_coliving_listing_card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    transition: transform 0.2s;
+}
+
+.townmanor_coliving_listing_card:hover {
+    transform: translateY(-2px);
+}
+
+.townmanor_coliving_listing_image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.townmanor_coliving_listing_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.status {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.status {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+}
+
+.townmanor_coliving_status_available {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.townmanor_coliving_status_waitlist {
+    background-color: #fff8e1;
+    color: #f57c00;
+}
+
+.townmanor_coliving_status_booked {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.townmanor_coliving_listing_info {
+    padding: 1.5rem;
+}
+
+.townmanor_coliving_listing_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.townmanor_coliving_listing_info h3 {
+    font-size: 1.125rem;
+    color: #333;
+    margin: 0;
+    font-weight: 500;
+}
+
+.townmanor_coliving_listing_details {
+    display: flex;
+    gap: 1rem;
+    color: #666;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.townmanor_coliving_listing_price {
+    color: #333;
+}
+
+.townmanor_coliving_price {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.townmanor_coliving_period {
+    color: #666;
+    font-size: 0.875rem;
+}

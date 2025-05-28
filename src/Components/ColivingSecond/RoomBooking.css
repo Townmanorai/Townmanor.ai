@@ -1,0 +1,150 @@
+.townmanor_coliving_room_booking {
+    padding: 2rem;
+    background-color: white;
+    margin-top: 2rem;
+}
+
+.townmanor_coliving_room_booking h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.townmanor_coliving_rooms_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.townmanor_coliving_room_card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.townmanor_coliving_room_card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.townmanor_coliving_room_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.townmanor_coliving_room_header h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0;
+}
+
+.townmanor_coliving_status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.townmanor_coliving_status_booked {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+.townmanor_coliving_status_available {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.townmanor_coliving_room_price {
+    margin-bottom: 1.5rem;
+}
+
+.townmanor_coliving_amount {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.townmanor_coliving_period {
+    color: #666;
+    font-size: 0.875rem;
+}
+
+.townmanor_coliving_room_features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.townmanor_coliving_feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    font-size: 0.875rem;
+}
+
+.townmanor_coliving_feature_icon {
+    color: #6c63ff;
+    font-size: 1rem;
+}
+
+.townmanor_coliving_current_occupant {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.townmanor_coliving_occupant_icon {
+    width: 40px;
+    height: 40px;
+    background-color: #e3e1ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.townmanor_coliving_user_icon {
+    color: #6c63ff;
+}
+
+.townmanor_coliving_occupant_info {
+    display: flex;
+    flex-direction: column;
+}
+
+.townmanor_coliving_label {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.townmanor_coliving_role {
+    font-size: 0.875rem;
+    color: #333;
+}
+
+.townmanor_coliving_book_now {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.townmanor_coliving_book_now:hover {
+    background-color: #5b52d1;
+}
