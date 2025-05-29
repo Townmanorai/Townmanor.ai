@@ -2,11 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { jsPDF } from 'jspdf';
 import axios from 'axios';
 import './AgreementgeneratePreviewUnique.css';
+import { FaEdit, FaFilePdf, FaArrowLeft } from 'react-icons/fa';
+import html2canvas from 'html2canvas';
+import DOMPurify from 'dompurify';
+import EditableAgreementModal from './EditableAgreementModal';
 
 function Agreementgenerate({ agreementId }) {
   const [agreementData, setAgreementData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [editModalOpen, setEditModalOpen] = useState(false);
+  const [editedContent, setEditedContent] = useState('');
 
   useEffect(() => {
     const fetchAgreementData = async () => {
@@ -34,9 +40,22 @@ function Agreementgenerate({ agreementId }) {
     fetchAgreementData();
   }, [agreementId]);
 
+  const handleSaveContent = (htmlContent) => {
+    setEditedContent(htmlContent);
+  };
+
+  const handleEditClick = () => {
+    setEditModalOpen(true);
+  };
+
+  const closeEditModal = () => {
+    setEditModalOpen(false);
+  };
+
   const generatePDF = () => {
     if (!agreementData) return;
-
+    
+    // Use the original PDF generation method
     const doc = new jsPDF({
       orientation: 'portrait',
       unit: 'mm',
@@ -343,25 +362,104 @@ function Agreementgenerate({ agreementId }) {
     );
   }
 
+  // New function to generate PDF from HTML content
+  const generatePDFFromHTML = async () => {
+    if (!editedContent) return;
+    
+    // Create a temporary div to render the HTML
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = DOMPurify.sanitize(editedContent);
+    tempDiv.style.width = '210mm';
+    tempDiv.style.padding = '20mm';
+    tempDiv.style.backgroundColor = 'white';
+    tempDiv.style.position = 'absolute';
+    tempDiv.style.left = '-9999px';
+    document.body.appendChild(tempDiv);
+    
+    try {
+      // Use html2canvas to convert the HTML to an image
+      const canvas = await html2canvas(tempDiv, {
+        scale: 2,
+        useCORS: true,
+        logging: false
+      });
+      
+      const imgData = canvas.toDataURL('image/jpeg', 1.0);
+      
+      // Create PDF
+      const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'mm',
+        format: 'a4'
+      });
+      
+      // Calculate dimensions
+      const imgWidth = 210; // A4 width in mm
+      const pageHeight = 297; // A4 height in mm
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+      let heightLeft = imgHeight;
+      let position = 0;
+      
+      // Add first page
+      pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+      
+      // Add additional pages if needed
+      while (heightLeft > 0) {
+        position = heightLeft - imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+      
+      // Save the PDF
+      pdf.save(`rent-agreement-${agreementData.landlord_name}-${agreementData.tenant_name}.pdf`);
+    } catch (err) {
+      console.error('Error generating PDF from HTML:', err);
+    } finally {
+      // Clean up
+      document.body.removeChild(tempDiv);
+    }
+  };
+
+
+
+
+
   return (
     <div className="agreement-preview-unique-container">
       <div className="agreement-preview-unique-icon">
-        {/* Document SVG or Emoji */}
         <span role="img" aria-label="doc" style={{fontSize: '2rem', color: '#2563eb'}}>📄</span>
       </div>
       <div className="agreement-preview-unique-title">Your preview agreement is ready</div>
-      <button
-        onClick={generatePDF}
-        className="agreement-preview-unique-btn"
-        disabled={!agreementData}
-      >
-        {/* <span className="agreement-preview-unique-download-icon" role="img" aria-label="download">⬇️</span> */}
-        Generate Rent Agreement PDF
-      </button>
+      <div className="agreement-preview-unique-actions-row">
+        <button
+          onClick={handleEditClick}
+          className="agreement-preview-unique-edit-btn"
+          disabled={!agreementData}
+        >
+          <FaEdit /> Edit Agreement
+        </button>
+        <button
+          onClick={generatePDF}
+          className="agreement-preview-unique-btn"
+          disabled={!agreementData}
+        >
+          <FaFilePdf /> Generate PDF Directly
+        </button>
+      </div>
       <div className="agreement-preview-unique-note">
         <span className="agreement-preview-unique-clock-icon" role="img" aria-label="clock">⏱️</span>
         Original Rent Agreement shared with you within 24 hours
       </div>
+      
+      {/* Editable Agreement Modal */}
+      <EditableAgreementModal
+        isOpen={editModalOpen}
+        onClose={closeEditModal}
+        agreementData={agreementData}
+        onSaveContent={handleSaveContent}
+      />
     </div>
   );
 }

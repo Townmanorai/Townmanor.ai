@@ -1,0 +1,91 @@
+.editable-agreement-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  padding: 20px;
+  width: 100%;
+}
+
+.editor-container {
+  min-height: 500px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.editor-wrapper {
+  padding: 0;
+  border-radius: 4px;
+}
+
+.editor-content {
+  min-height: 450px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.editor-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.save-button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background-color: #1d4ed8;
+}
+
+/* Styling for the editor content */
+.editor-content h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.editor-content h2 {
+  font-size: 20px;
+  margin: 15px 0;
+  color: #222;
+}
+
+.editor-content h3 {
+  font-size: 18px;
+  margin: 15px 0;
+  color: #333;
+}
+
+.editor-content p {
+  margin-bottom: 10px;
+}
+
+.editor-content strong {
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .editable-agreement-container {
+    padding: 15px;
+  }
+  
+  .editor-content {
+    min-height: 350px;
+    padding: 15px;
+  }
+}

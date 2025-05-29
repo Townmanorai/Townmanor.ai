@@ -1,4 +1,15 @@
 .agreement-preview-unique-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(30, 41, 59, 0.10);
@@ -25,6 +36,18 @@
   margin-bottom: 24px;
 }
 .agreement-preview-unique-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
   background: #2563eb;
   color: #fff;
   border: none;
@@ -61,4 +84,151 @@
 .agreement-preview-unique-clock-icon {
   font-size: 1.1rem;
   display: inline-block;
+}
+
+/* New styles for editable agreement functionality */
+.agreement-preview-unique-container.full-width {
+  max-width: 900px;
+  padding: 20px;
+  text-align: left;
+}
+
+.agreement-preview-unique-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.agreement-preview-unique-header h2 {
+  font-size: 24px;
+  color: #1f2937;
+  margin: 0;
+}
+
+.agreement-preview-unique-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.agreement-preview-unique-actions-row {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  width: 100%;
+  justify-content: center;
+}
+
+.agreement-preview-unique-edit-btn {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 16px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.agreement-preview-unique-edit-btn:hover {
+  background-color: #e5e7eb;
+}
+
+.agreement-preview-unique-back-btn {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.agreement-preview-unique-back-btn:hover {
+  background-color: #e5e7eb;
+}
+
+.agreement-preview-content {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.agreement-preview-content h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #111;
+  text-align: center;
+}
+
+.agreement-preview-content h2 {
+  font-size: 20px;
+  margin: 15px 0;
+  color: #222;
+  text-align: center;
+}
+
+.agreement-preview-content h3 {
+  font-size: 18px;
+  margin: 15px 0;
+  color: #333;
+}
+
+.agreement-preview-content p {
+  margin-bottom: 10px;
+}
+
+.agreement-preview-content strong {
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .agreement-preview-unique-container.full-width {
+    padding: 15px;
+  }
+  
+  .agreement-preview-unique-actions-row,
+  .agreement-preview-unique-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .agreement-preview-unique-btn,
+  .agreement-preview-unique-edit-btn {
+    width: 100%;
+  }
+  
+  .agreement-preview-unique-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .agreement-preview-content {
+    padding: 15px;
+    max-height: 500px;
+  }
 }
