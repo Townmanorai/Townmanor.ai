@@ -116,6 +116,7 @@
 
 .agreement-preview-unique-actions-row {
   display: flex;
+  flex-direction: column;
   gap: 10px;
   margin: 20px 0;
   width: 100%;
@@ -202,6 +203,22 @@
 
 .agreement-preview-content strong {
   font-weight: bold;
+}
+
+/* Loading spinner animation */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 /* Responsive adjustments */

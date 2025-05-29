@@ -13,6 +13,7 @@ function Agreementgenerate({ agreementId }) {
   const [error, setError] = useState(null);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [editedContent, setEditedContent] = useState('');
+  const [pdfGenerating, setPdfGenerating] = useState(false);
 
   useEffect(() => {
     const fetchAgreementData = async () => {
@@ -52,10 +53,20 @@ function Agreementgenerate({ agreementId }) {
     setEditModalOpen(false);
   };
 
-  const generatePDF = () => {
+  const generatePDF = async () => {
     if (!agreementData) return;
     
-    // Use the original PDF generation method
+    // Set loading state
+    setPdfGenerating(true);
+    
+    try {
+      // If we have edited content, generate PDF from HTML
+      if (editedContent) {
+        await generatePDFFromHTML();
+        return;
+      }
+    
+    // Otherwise use the original PDF generation method
     const doc = new jsPDF({
       orientation: 'portrait',
       unit: 'mm',
@@ -88,7 +99,7 @@ function Agreementgenerate({ agreementId }) {
     y += 10;
     
     // Property Address
-    doc.text(`Property Address: ${agreementData.property_number}, ${agreementData.floor_number} Floor, ${agreementData.building_name},`, leftMargin, y);
+    doc.text(`3. Property Address: ${agreementData.property_number}, ${agreementData.floor_number} Floor, ${agreementData.building_name},`, leftMargin, y);
     y += 7;
     doc.text(`${agreementData.locality}, ${agreementData.city}, ${agreementData.state}, ${agreementData.pincode}`, leftMargin, y);
     y += 10;
@@ -106,7 +117,7 @@ function Agreementgenerate({ agreementId }) {
       });
     };
 
-    doc.text(`4. Duration: ${agreementData.agreement_duration_months} Months commencing from ${formatDate(startDate)} to ${formatDate(endDate)}`, leftMargin, y);
+    doc.text(`4. Duration: ${agreementData.agreement_duration_months} Months commencing from ${formatDate(startDate)}`, leftMargin, y);
     y += 10;
     doc.text(`5. License Fees: Rs. ${agreementData.monthly_rent} Per month.`, leftMargin, y);
     y += 10;
@@ -132,7 +143,7 @@ function Agreementgenerate({ agreementId }) {
       y += 10;
       
       const identityText = identityNumber ? `, ID: ${identityNumber}` : '';
-      doc.text(`Name: ${name} Age: ${age} Years${identityText}, residing at ${address}`, leftMargin, y, { maxWidth: contentWidth });
+      doc.text(`Name: ${name} Age: ${age} Years , residing at ${address}`, leftMargin, y, { maxWidth: contentWidth });
       y += 15;
     };
 
@@ -157,7 +168,7 @@ function Agreementgenerate({ agreementId }) {
       agreementData.tenant_name,
       agreementData.tenant_age,
       "Not Specified",
-      agreementData.tenant_identity_number,
+      
       agreementData.tenant_address
     );
 
@@ -335,8 +346,21 @@ function Agreementgenerate({ agreementId }) {
     }
     y += 20;
 
-    // Save the PDF with a meaningful filename
+    // Get the PDF as a blob for upload
+    const pdfBlob = doc.output('blob');
+    
+    // Upload the PDF to S3 and update the document URL in the database
+    await uploadPDFToS3AndUpdateDB(pdfBlob);
+    
+    // Also save a local copy for the user
     doc.save(`rent-agreement-${agreementData.landlord_name}-${agreementData.tenant_name}.pdf`);
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      alert('Error generating PDF: ' + (error.message || 'Unknown error'));
+    } finally {
+      // Reset loading state
+      setPdfGenerating(false);
+    }
   };
 
   if (loading) {
@@ -362,48 +386,199 @@ function Agreementgenerate({ agreementId }) {
     );
   }
 
-  // New function to generate PDF from HTML content
+  // Function to upload PDF to AWS S3 and update document URL
+  const uploadPDFToS3AndUpdateDB = async (pdfBlob) => {
+    // Loading state is already set in the parent function
+    try {
+      // Get rent agreement ID from localStorage or props
+      let rentAgreementId = agreementId;
+      if (!rentAgreementId) {
+        rentAgreementId = localStorage.getItem('rentAgreementId');
+        if (!rentAgreementId) {
+          throw new Error('No agreement ID found');
+        }
+      }
+
+      // Create FormData for file upload
+      const formData = new FormData();
+      const timestamp = new Date().getTime();
+      const fileName = `rent-agreement-${agreementData.landlord_name}-${agreementData.tenant_name}-${timestamp}.pdf`;
+      
+      // Add the PDF blob to the FormData with the 'images' field name as required by the API
+      formData.append('images', pdfBlob, fileName);
+      
+      // Upload the PDF to AWS S3
+      const uploadResponse = await axios.post('https://www.townmanor.ai/api/image/aws-upload-owner-images', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      
+      if (uploadResponse.data && uploadResponse.data.fileUrls && uploadResponse.data.fileUrls.length > 0) {
+        // Get the uploaded file URL
+        const documentUrl = uploadResponse.data.fileUrls[0];
+        console.log('PDF uploaded successfully:', documentUrl);
+        
+        // Update the document URL in the database
+        const updateResponse = await axios.put(`https://townmanor.ai/api/rentagreement/update-document/${rentAgreementId}`, {
+          document: documentUrl
+        });
+        
+        console.log('Document URL updated in database:', updateResponse.data);
+        alert('Agreement PDF has been generated and saved successfully!');
+        return true;
+      } else {
+        throw new Error('Failed to get file URL from upload response');
+      }
+    } catch (error) {
+      console.error('Error in uploading PDF or updating document URL:', error);
+      alert('Failed to upload PDF: ' + (error.message || 'Unknown error'));
+      return false;
+    }
+  };
+
+  // New function to generate PDF from HTML content with proper formatting
   const generatePDFFromHTML = async () => {
     if (!editedContent) return;
-    
+
     // Create a temporary div to render the HTML
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = DOMPurify.sanitize(editedContent);
-    tempDiv.style.width = '210mm';
-    tempDiv.style.padding = '20mm';
+
+    // Core document styling for legal format
+    tempDiv.style.width = '280mm'; // Increased width for A3
+    tempDiv.style.margin = '20mm';
+    tempDiv.style.padding = '10mm 25mm'; // Add left/right padding for inner margins
     tempDiv.style.backgroundColor = 'white';
+    tempDiv.style.fontFamily = 'Times New Roman, Times, serif';
+    tempDiv.style.fontSize = '12pt';
+    tempDiv.style.lineHeight = '1.5';
+    tempDiv.style.color = '#000';
+    tempDiv.style.letterSpacing = '0.01em';
+
+    // Headings styling (agreement title, section titles)
+    const headings = tempDiv.querySelectorAll('h1, h2, h3');
+    headings.forEach(heading => {
+      heading.style.fontWeight = 'bold';
+      heading.style.fontFamily = 'Times New Roman, Times, serif';
+      heading.style.textAlign = 'center';
+      heading.style.letterSpacing = '0.02em';
+      heading.style.textShadow = 'none'; // Prevent shadow artifacts
+      heading.style.color = '#000';      // Ensure text is black
+      heading.style.background = 'none'; // Remove any accidental bg
+      heading.style.position = 'static'; // Prevent overlay issues
+      if (heading.tagName === 'H1') {
+        heading.style.fontSize = '18pt';
+        heading.style.marginTop = '0';
+        heading.style.marginBottom = '8mm';
+      } else if (heading.tagName === 'H2') {
+        heading.style.fontSize = '15pt';
+        heading.style.marginTop = '8mm';
+        heading.style.marginBottom = '5mm';
+      } else {
+        heading.style.fontSize = '13pt';
+        heading.style.marginTop = '6mm';
+        heading.style.marginBottom = '3mm';
+      }
+    });
+
+    // Remove bold styling from strong/b inside headings to avoid double bold/ghosting
+    const strongsInHeadings = tempDiv.querySelectorAll('h1 strong, h2 strong, h3 strong, h1 b, h2 b, h3 b');
+    strongsInHeadings.forEach(strong => {
+      strong.style.fontWeight = 'inherit';
+      strong.style.fontSize = 'inherit';
+    });
+
+    // Paragraphs styling (body text)
+    const paragraphs = tempDiv.querySelectorAll('p');
+    paragraphs.forEach(p => {
+      p.style.marginBottom = '6mm';
+      p.style.textAlign = 'justify';
+      p.style.fontSize = '12pt';
+      p.style.letterSpacing = '0.01em';
+    });
+
+    // Ordered and unordered lists styling (numbered sections)
+    const ols = tempDiv.querySelectorAll('ol');
+    ols.forEach(ol => {
+      ol.style.marginLeft = '18px';
+      ol.style.marginBottom = '8mm';
+      ol.style.fontSize = '12pt';
+      ol.style.fontFamily = 'inherit';
+    });
+    const uls = tempDiv.querySelectorAll('ul');
+    uls.forEach(ul => {
+      ul.style.marginLeft = '18px';
+      ul.style.marginBottom = '8mm';
+      ul.style.fontSize = '12pt';
+      ul.style.fontFamily = 'inherit';
+    });
+    const lis = tempDiv.querySelectorAll('li');
+    lis.forEach(li => {
+      li.style.marginBottom = '2mm';
+      li.style.textAlign = 'justify';
+      li.style.fontSize = '12pt';
+      li.style.fontFamily = 'inherit';
+    });
+
+    // Bold/strong styling for section headers and important text
+    const strongs = tempDiv.querySelectorAll('strong, b');
+    strongs.forEach(strong => {
+      strong.style.fontWeight = 'bold';
+      strong.style.fontSize = '13pt';
+      strong.style.display = 'inline';
+      strong.style.letterSpacing = '0.01em';
+    });
+
+    // Horizontal rule styling for section breaks if used
+    const hrs = tempDiv.querySelectorAll('hr');
+    hrs.forEach(hr => {
+      hr.style.border = '1px solid #888';
+      hr.style.margin = '10mm 0';
+    });
+
+    // Add extra spacing between main sections if needed
+    const sectionBreaks = tempDiv.querySelectorAll('.section-break');
+    sectionBreaks.forEach(sb => {
+      sb.style.marginTop = '10mm';
+      sb.style.marginBottom = '10mm';
+    });
+
+    // Position the div off-screen for rendering
     tempDiv.style.position = 'absolute';
     tempDiv.style.left = '-9999px';
     document.body.appendChild(tempDiv);
-    
+
     try {
-      // Use html2canvas to convert the HTML to an image
+      // Use html2canvas to convert the HTML to an image with higher quality settings
       const canvas = await html2canvas(tempDiv, {
-        scale: 2,
+        scale: 3, // Higher scale for better quality
         useCORS: true,
-        logging: false
+        logging: false,
+        letterRendering: true,
+        allowTaint: true
       });
-      
+
       const imgData = canvas.toDataURL('image/jpeg', 1.0);
-      
-      // Create PDF
+
+      // Create PDF with proper settings matching the unedited PDF
       const pdf = new jsPDF({
         orientation: 'portrait',
         unit: 'mm',
-        format: 'a4'
+        format: [297, 420] // A3 portrait: 297mm x 420mm
       });
-      
+
       // Calculate dimensions
-      const imgWidth = 210; // A4 width in mm
-      const pageHeight = 297; // A4 height in mm
+      const imgWidth = 297; // A3 width in mm
+      const pageHeight = 420; // A3 height in mm
       const imgHeight = canvas.height * imgWidth / canvas.width;
       let heightLeft = imgHeight;
       let position = 0;
-      
+
       // Add first page
       pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
       heightLeft -= pageHeight;
-      
+
       // Add additional pages if needed
       while (heightLeft > 0) {
         position = heightLeft - imgHeight;
@@ -411,11 +586,18 @@ function Agreementgenerate({ agreementId }) {
         pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
         heightLeft -= pageHeight;
       }
+
+      // Get the PDF as a blob for upload
+      const pdfBlob = pdf.output('blob');
       
-      // Save the PDF
+      // Upload the PDF to S3 and update the document URL in the database
+      await uploadPDFToS3AndUpdateDB(pdfBlob);
+      
+      // Also save a local copy for the user
       pdf.save(`rent-agreement-${agreementData.landlord_name}-${agreementData.tenant_name}.pdf`);
     } catch (err) {
       console.error('Error generating PDF from HTML:', err);
+      alert('Error generating PDF: ' + (err.message || 'Unknown error'));
     } finally {
       // Clean up
       document.body.removeChild(tempDiv);
@@ -425,27 +607,36 @@ function Agreementgenerate({ agreementId }) {
 
 
 
-
   return (
     <div className="agreement-preview-unique-container">
       <div className="agreement-preview-unique-icon">
         <span role="img" aria-label="doc" style={{fontSize: '2rem', color: '#2563eb'}}>📄</span>
       </div>
-      <div className="agreement-preview-unique-title">Your preview agreement is ready</div>
+      <div className="agreement-preview-unique-title">
+        {pdfGenerating ? 'Generating and saving your PDF...' : 'Your preview agreement is ready'}
+      </div>
       <div className="agreement-preview-unique-actions-row">
         <button
           onClick={handleEditClick}
           className="agreement-preview-unique-edit-btn"
-          disabled={!agreementData}
+          disabled={!agreementData || pdfGenerating}
         >
           <FaEdit /> Edit Agreement
         </button>
         <button
           onClick={generatePDF}
           className="agreement-preview-unique-btn"
-          disabled={!agreementData}
+          disabled={!agreementData || pdfGenerating}
         >
-          <FaFilePdf /> Generate PDF Directly
+          {pdfGenerating ? (
+            <>
+              <span className="loading-spinner"></span> Processing...
+            </>
+          ) : (
+            <>
+              <FaFilePdf /> {editedContent ? 'Generate PDF with Edits' : 'Generate PDF Directly'}
+            </>
+          )}
         </button>
       </div>
       <div className="agreement-preview-unique-note">
