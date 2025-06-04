@@ -147,8 +147,14 @@ const NewPhoneSearch = () => {
         {/* <div className="new-phone-search-overlay"></div> */}
         <img
           src="/search.jpg"
+          srcSet="/search-small.jpg 400w, /search.jpg 800w"
+          sizes="(max-width: 768px) 400px, 800px"
           alt="Property Banner"
           className="new-phone-search-banner"
+          loading="lazy"
+          width="800"
+          height="400"
+          decoding="async"
         />
         <div className="new-phone-search-title">
           <h1>Discover <b>best properties</b> in one <b>place</b></h1>

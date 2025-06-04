@@ -71,7 +71,7 @@ const SearchBar = () => {
       <div className='container2' style={{ position: 'relative', overflow: 'hidden' }}>
         {/* Background Image Layer */}
         <img 
-          src="/public/search.jpg"
+          src="/search.jpg"
           alt="Search background"
           style={{
             position: 'absolute',
