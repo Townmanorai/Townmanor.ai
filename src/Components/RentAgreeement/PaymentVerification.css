@@ -167,6 +167,24 @@
   transition: background 0.2s;
 }
 
+.payment-verification-unique-proceed-btn {
+  background: #7c6dfa;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.payment-verification-unique-proceed-btn:hover {
+  background: #5b4fc5;
+}
+
 /* Payment Summary Card */
 .payment-verification-unique-summary-card {
   background: #fff;
@@ -362,5 +380,83 @@
 
   .agreement-details-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Payment Summary Modal Styles */
+.payment-summary-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.payment-summary-modal {
+  background: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.payment-summary-modal-header {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+}
+
+.payment-summary-modal-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.payment-summary-close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-summary-close-btn:hover {
+  color: #333;
+}
+
+.payment-summary-modal-content {
+  padding: 20px;
+}
+
+.payment-verification-unique-summary-card.modal-card {
+  box-shadow: none;
+  padding: 0;
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .payment-summary-modal {
+    width: 95%;
+    margin: 10px;
   }
 }

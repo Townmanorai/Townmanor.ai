@@ -182,16 +182,47 @@ const AgreementPreviewModal = ({ isOpen, onClose, agreementData }) => {
   );
 };
 
-const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
+// Payment Summary Modal Component
+const PaymentSummaryModal = ({ isOpen, onClose, children }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="payment-summary-modal-overlay" onClick={onClose}>
+      <div className="payment-summary-modal" onClick={(e) => e.stopPropagation()}>
+        <div className="payment-summary-modal-header">
+          <h2>Payment Summary</h2>
+          <button onClick={onClose} className="payment-summary-close-btn">
+            <FaTimes />
+          </button>
+        </div>
+        <div className="payment-summary-modal-content">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const PaymentVerification = ({ formData, onFormDataChange, onPrev, onSubmitSuccess }) => {
   const navigate = useNavigate();
-  const { userid } = useParams();
+  const { userid, paymentId } = useParams();
   const [isPreviewModalOpen, setIsPreviewModalOpen] = useState(false);
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [agreementData, setAgreementData] = useState(null);
   const [isPaymentSuccess, setIsPaymentSuccess] = useState(false);
 
   useEffect(() => {
     // Check if this is a post-payment success view
     const agreementId = localStorage.getItem('rentAgreementId');
+    const currentPath = window.location.pathname;
+    
+    // Check if we're on the payment success URL path
+    if (currentPath.includes('/newRentAgreement/payment/')) {
+      setIsPaymentSuccess(true);
+      setIsPaymentModalOpen(true); // Automatically open the modal on payment success page
+      console.log('Payment success page detected, showing payment success modal');
+    }
+    
     if (agreementId) {
       // If agreementId exists in localStorage, show success content
       setIsPaymentSuccess(true);
@@ -277,6 +308,9 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
       alert("Please confirm that all details are correct before proceeding.");
       return;
     }
+    
+    // Open the payment modal
+    setIsPaymentModalOpen(true);
 
     try {
       const requestData = {
@@ -495,55 +529,62 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev }) => {
           </button>
           <button
             type="button"
-            className="payment-verification-unique-prev-btn"
+            className="payment-verification-unique-proceed-btn"
             onClick={handleSubmit}
           >
-            <FaArrowLeft style={{ marginRight: 6 }} /> Submit
+            {isPaymentSuccess ? 'Download preview Agreement' : 'Proceed to payment'}
           </button>
         </div>
       </div>
-      <div className="payment-verification-unique-summary-card">
-        {isPaymentSuccess ? (
-          <div className="payment-success-content">
-            <div className="payment-verification-unique-summary-title">Payment Successful!</div>
-            <div className="payment-success-message">
-              Your rent agreement payment has been processed successfully. You can now download your agreement.
-            </div>
-          </div>
-        ) : (
-          <>
-            <div className="payment-verification-unique-summary-title">Payment Summary</div>
-            <div className="payment-verification-unique-summary-item">
-              <span>Stamp Paper Fee</span><span>₹{paymentSummary.stampPaperFee}</span>
-            </div>
-            <div className="payment-verification-unique-summary-item">
-              <span>Convenience Fee</span><span>₹{paymentSummary.convenienceFee}</span>
-            </div>
-            {formState.needPhysicalCopy && (
-              <div className="payment-verification-unique-summary-item">
-                <span>Delivery Fee</span><span>₹{paymentSummary.deliveryFee}</span>
+      
+      {/* Payment Summary Modal */}
+      <PaymentSummaryModal 
+        isOpen={isPaymentModalOpen} 
+        onClose={() => setIsPaymentModalOpen(false)}
+      >
+        <div className="payment-verification-unique-summary-card modal-card">
+          {isPaymentSuccess ? (
+            <div className="payment-success-content">
+              <div className="payment-verification-unique-summary-title">Payment Successful!</div>
+              <div className="payment-success-message">
+                Your rent agreement payment has been processed successfully. You can now download your agreement.
               </div>
-            )}
-            <div className="payment-verification-unique-summary-total">
-              <span>Total Amount</span><span>₹{paymentSummary.total}</span>
             </div>
-            <button
-              className="payment-verification-unique-pay-btn"
-              onClick={handlePayment}
-            >
-              Pay Now
-            </button>
-            <div className="payment-verification-unique-payment-icons">
-              <FaCreditCard /> <FaCcVisa /> <FaCcMastercard />
+          ) : (
+            <>
+              <div className="payment-verification-unique-summary-title">Payment Summary</div>
+              <div className="payment-verification-unique-summary-item">
+                <span>Stamp Paper Fee</span><span>₹{paymentSummary.stampPaperFee}</span>
+              </div>
+              <div className="payment-verification-unique-summary-item">
+                <span>Convenience Fee</span><span>₹{paymentSummary.convenienceFee}</span>
+              </div>
+              {formState.needPhysicalCopy && (
+                <div className="payment-verification-unique-summary-item">
+                  <span>Delivery Fee</span><span>₹{paymentSummary.deliveryFee}</span>
+                </div>
+              )}
+              <div className="payment-verification-unique-summary-total">
+                <span>Total Amount</span><span>₹{paymentSummary.total}</span>
+              </div>
+              <button
+                className="payment-verification-unique-pay-btn"
+                onClick={handlePayment}
+              >
+                Pay Now
+              </button>
+              <div className="payment-verification-unique-payment-icons">
+                <FaCreditCard /> <FaCcVisa /> <FaCcMastercard />
+              </div>
+            </>
+          )}
+          {isPaymentSuccess && (
+            <div className="download-agreement-container">
+              <Agreementgenerate/>
             </div>
-          </>
-        )}
-        {isPaymentSuccess && (
-          <div className="download-agreement-container">
-            <Agreementgenerate/>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      </PaymentSummaryModal>
       
       {/* <AgreementPreviewModal 
         isOpen={isPreviewModalOpen}

@@ -178,6 +178,28 @@
   gap: 4px;
 }
 
+/* Checkbox Group for Yes/No Options */
+.rent-contract-detail-checkbox-group {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.rent-contract-detail-checkbox-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.rent-contract-detail-checkbox-label input[type="radio"] {
+  accent-color: #3f51b5;
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
 /* Buttons */
 .rent-contract-detail-btn-row {
   display: flex;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./Rent.css"
 
 import RentAgreementContract from './RentAgreementContract'
@@ -8,61 +8,75 @@ import TenantDetailForm from './TenantDetailForm';
 import PaymentVerification from './PaymentVerification';
 
 function Rent() {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState({
-    // Contract Details
-    city: '',
-    securityRefundableAmount: '',
-    stampPaper: 0,
-    agreementDuration: 0,
-    monthlyRent: 0,
-    rentMaintenance: false,
-    otherCharges: false,
-    agreementStart: '',
-    yearlyIncrementInRent: '',
-    identity: '',
-    noticePeriod: 0,
-    lockInPeriod: 0,
-    
-    // Property Details
-    propertyType: '',
-    floorNumber: 0,
-    configuration: '',
-    area: 0,
-    propertyNumber: 0,
-    buildingName: '',
-    locality: '',
-    pincode: 0,
-    state: '',
-    
-    // Owner Details
-    landlordName: '',
-    landlordAge: 0,
-    landlordPhone: '',
-    landlordAddress: '',
-    landlordIdentityProofNumber: '',
-    landlordIdentityType: '',
-    landlordEmail: '',
-    landlordGender: '',
-    
-    // Tenant Details
-    tenantName: '',
-    tenantAge: 0,
-    tenantPhone: '',
-    tenantAddress: '',
-    tenantIdentityProofNumber: '',
-    tenantIdentityType: '',
-    tenantEmail: '',
-    tenantGender: '',
-    
-    // Payment & Verification
-    consent: false,
-    tenantVerified: false,
-    landlordVerified: false,
-    needPhysicalCopy: false,
-    transactionId: '',
-    totalAmount: ''
+  // Initialize from localStorage if available, otherwise use default values
+  const [currentStep, setCurrentStep] = useState(() => {
+    const savedStep = localStorage.getItem('rentAgreementCurrentStep');
+    return savedStep ? parseInt(savedStep) : 1;
   });
+  
+  const [formData, setFormData] = useState(() => {
+    const savedFormData = localStorage.getItem('rentAgreementFormData');
+    return savedFormData ? JSON.parse(savedFormData) : {
+      // Contract Details
+      city: '',
+      securityRefundableAmount: '',
+      stampPaper: 0,
+      agreementDuration: 0,
+      monthlyRent: 0,
+      rentMaintenance: false,
+      otherCharges: false,
+      agreementStart: '',
+      yearlyIncrementInRent: '',
+      identity: '',
+      noticePeriod: 0,
+      lockInPeriod: 0,
+      
+      // Property Details
+      propertyType: '',
+      floorNumber: 0,
+      configuration: '',
+      area: 0,
+      propertyNumber: 0,
+      buildingName: '',
+      locality: '',
+      pincode: 0,
+      state: '',
+      
+      // Owner Details
+      landlordName: '',
+      landlordAge: 0,
+      landlordPhone: '',
+      landlordAddress: '',
+      landlordIdentityProofNumber: '',
+      landlordIdentityType: '',
+      landlordEmail: '',
+      landlordGender: '',
+      
+      // Tenant Details
+      tenantName: '',
+      tenantAge: 0,
+      tenantPhone: '',
+      tenantAddress: '',
+      tenantIdentityProofNumber: '',
+      tenantIdentityType: '',
+      tenantEmail: '',
+      tenantGender: '',
+      
+      // Payment & Verification
+      consent: false,
+      tenantVerified: false,
+      landlordVerified: false,
+      needPhysicalCopy: false,
+      transactionId: '',
+      totalAmount: ''
+    };
+  });
+
+  // Save form data and current step to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem('rentAgreementFormData', JSON.stringify(formData));
+    localStorage.setItem('rentAgreementCurrentStep', currentStep.toString());
+  }, [formData, currentStep]);
 
   const handleNext = () => {
     setCurrentStep(prev => Math.min(prev + 1, 5));
@@ -73,10 +87,19 @@ function Rent() {
   };
 
   const handleFormData = (stepData) => {
-    setFormData(prev => ({
-      ...prev,
-      ...stepData
-    }));
+    setFormData(prev => {
+      const updatedData = {
+        ...prev,
+        ...stepData
+      };
+      return updatedData;
+    });
+  };
+  
+  // Function to clear saved form data (can be used when form is successfully submitted)
+  const clearSavedFormData = () => {
+    localStorage.removeItem('rentAgreementFormData');
+    localStorage.removeItem('rentAgreementCurrentStep');
   };
 
   const renderStep = () => {
@@ -122,6 +145,7 @@ function Rent() {
             formData={formData}
             onFormDataChange={handleFormData}
             onPrev={handlePrev}
+            onSubmitSuccess={clearSavedFormData} // Clear saved data on successful submission
           />
         );
       default:

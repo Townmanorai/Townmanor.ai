@@ -188,11 +188,11 @@ const PropertyDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
             onChange={handleChange}
           />
 
-          <label className="property-detail-unique-label">Locality <span>*</span></label>
+          <label className="property-detail-unique-label">Address <span>*</span></label>
           <input
             type="text"
             className="property-detail-unique-input"
-            placeholder="Enter locality"
+            placeholder="Enter address"
             name="locality"
             value={localFormData.locality}
             onChange={handleChange}

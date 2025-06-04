@@ -1,8 +1,37 @@
-import React, { useState } from "react";
-import { FaArrowLeft, FaArrowRight, FaUpload } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { FaArrowLeft, FaArrowRight, FaUpload, FaInfoCircle } from "react-icons/fa";
 import "./TenantDetailForm.css";
 
 const TenantDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
+  // Initialize tooltip functionality
+  useEffect(() => {
+    const infoIcons = document.querySelectorAll('.info-icon');
+    
+    infoIcons.forEach(icon => {
+      icon.addEventListener('mouseenter', () => {
+        const tooltip = icon.nextElementSibling;
+        if (tooltip && tooltip.classList.contains('info-tooltip')) {
+          tooltip.style.visibility = 'visible';
+          tooltip.style.opacity = '1';
+        }
+      });
+      
+      icon.addEventListener('mouseleave', () => {
+        const tooltip = icon.nextElementSibling;
+        if (tooltip && tooltip.classList.contains('info-tooltip')) {
+          tooltip.style.visibility = 'hidden';
+          tooltip.style.opacity = '0';
+        }
+      });
+    });
+    
+    return () => {
+      infoIcons.forEach(icon => {
+        icon.removeEventListener('mouseenter', () => {});
+        icon.removeEventListener('mouseleave', () => {});
+      });
+    };
+  }, []);
   const [uploading, setUploading] = useState(false);
   const [uploadedFile, setUploadedFile] = useState(null);
   const handleSubmit = (e) => {
@@ -177,7 +206,34 @@ const TenantDetailForm = ({ formData, onFormDataChange, onNext, onPrev }) => {
               </a>
             </div>
           )}
-          <span className="tenant-detail-unique-id-desc">Upload a clear image of your PAN Card</span>
+          <div className="tenant-detail-unique-id-desc-container" style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <span className="tenant-detail-unique-id-desc">Upload a clear image of your PAN Card</span>
+            <div className="info-tooltip-container" style={{ position: 'relative', display: 'inline-block' }}>
+              <FaInfoCircle 
+                className="info-icon" 
+                style={{ color: '#4a90e2', cursor: 'pointer' }}
+                title="PAN Card is required for stamp paper purchase and verification"
+              />
+              <div className="info-tooltip" style={{ 
+                visibility: 'hidden', 
+                width: '200px',
+                background: '#555',
+                color: '#fff',
+                textAlign: 'center',
+                borderRadius: '6px',
+                padding: '5px',
+                position: 'absolute',
+                zIndex: '1',
+                bottom: '125%',
+                left: '50%',
+                marginLeft: '-100px',
+                opacity: '0',
+                transition: 'opacity 0.3s'
+              }}>
+                PAN Card is required for stamp paper purchase and legal verification during the rent agreement process.
+              </div>
+            </div>
+          </div>
         </div>
 
         <label className="tenant-detail-unique-label">Email ID <span>*</span></label>

@@ -38,7 +38,7 @@ const RentAgreementContract = ({ formData, onFormDataChange, onNext }) => {
           </div>
 
           <label className="rent-contract-detail-label">
-            Security / Refundable Amount 
+            Security deposit Amount 
           </label>
           <input
             type="number"
@@ -95,28 +95,54 @@ const RentAgreementContract = ({ formData, onFormDataChange, onNext }) => {
 
           <div className="rent-contract-detail-toggle-row">
             <span>Rent Excluding Maintenance?</span>
-            <label className="rent-contract-detail-switch">
-              <input 
-                type="checkbox"
-                name="rentMaintenance"
-                checked={formData.rentMaintenance}
-                onChange={handleChange}
-              />
-              <span className="rent-contract-detail-slider"></span>
-            </label>
+            <div className="rent-contract-detail-checkbox-group">
+              <label className="rent-contract-detail-checkbox-label">
+                <input 
+                  type="radio" 
+                  name="rentMaintenance" 
+                  value={true}
+                  checked={formData.rentMaintenance === true}
+                  onChange={() => onFormDataChange({ rentMaintenance: true })}
+                /> 
+                Yes
+              </label>
+              <label className="rent-contract-detail-checkbox-label">
+                <input 
+                  type="radio" 
+                  name="rentMaintenance" 
+                  value={false}
+                  checked={formData.rentMaintenance === false}
+                  onChange={() => onFormDataChange({ rentMaintenance: false })}
+                /> 
+                No
+              </label>
+            </div>
           </div>
 
           <div className="rent-contract-detail-toggle-row">
             <span>Rent Excluding Electricity & Other Charges?</span>
-            <label className="rent-contract-detail-switch">
-              <input 
-                type="checkbox"
-                name="otherCharges"
-                checked={formData.otherCharges}
-                onChange={handleChange}
-              />
-              <span className="rent-contract-detail-slider"></span>
-            </label>
+            <div className="rent-contract-detail-checkbox-group">
+              <label className="rent-contract-detail-checkbox-label">
+                <input 
+                  type="radio" 
+                  name="otherCharges" 
+                  value={true}
+                  checked={formData.otherCharges === true}
+                  onChange={() => onFormDataChange({ otherCharges: true })}
+                /> 
+                Yes
+              </label>
+              <label className="rent-contract-detail-checkbox-label">
+                <input 
+                  type="radio" 
+                  name="otherCharges" 
+                  value={false}
+                  checked={formData.otherCharges === false}
+                  onChange={() => onFormDataChange({ otherCharges: false })}
+                /> 
+                No
+              </label>
+            </div>
           </div>
 
           <label className="rent-contract-detail-label">Agreement Start Date <span>*</span></label>

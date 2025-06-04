@@ -2,171 +2,342 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Home page -->
   <url>
-    <loc>https://townmanor.ai/</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Main Services -->
   <url>
-    <loc>https://townmanor.ai/services</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/services</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Property Search -->
   <url>
-    <loc>https://townmanor.ai/search-property</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/search-property</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Authentication Pages -->
   <url>
-    <loc>https://townmanor.ai/auth</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/auth</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://townmanor.ai/sign-up</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/sign-up</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/forgot-password</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <!-- Financial Services -->
   <url>
-    <loc>https://townmanor.ai/home-loan</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/home-loan</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://townmanor.ai/credit-score</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/credit-score</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://townmanor.ai/insurance</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/insurance</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Property Services -->
   <url>
-    <loc>https://townmanor.ai/rentagreements</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/newRentAgreement</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://townmanor.ai/landverification</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/rentvalue</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://townmanor.ai/reraverification</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/esignoverview</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Interior Services -->
   <url>
-    <loc>https://townmanor.ai/homelane</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/homelane</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://townmanor.ai/homelane/kitchen</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/homelanemodular-kitchen</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://townmanor.ai/homelane/livingroom</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/homelane/wardrobes</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/homelane/masterbedroom</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/homelane/tv</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/homelane/livingroom</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/homelane/falseceiling</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/homelane/bathroom</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/homelane/kids</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/homelane/fullhouseinterior</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/homelane/commercialinterior</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/homelane/officeinterior</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/homelane/bedroom</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/homelane/furniture</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Commercial Properties -->
   <url>
-    <loc>https://townmanor.ai/commercial</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/homelane/commercial</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/homelane/commercial3</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  
+
+  <!-- Moving Services -->
+  <url>
+    <loc>https://www.townmanor.ai/home-shift</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Agent Services -->
   <url>
-    <loc>https://townmanor.ai/agents</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/agents</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://townmanor.ai/agentlist</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/agentlist</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/agents/form</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Blog and News -->
   <url>
-    <loc>https://townmanor.ai/proptech</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/proptech</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Subscription and Pricing -->
   <url>
-    <loc>https://townmanor.ai/pricing-plans</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/pricing-plans</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Dashboard -->
   <url>
-    <loc>https://townmanor.ai/userdashboard</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/userdashboard</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
- 
+  <url>
+    <loc>https://www.townmanor.ai/userdashboard-profile</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/userdashboard-lead</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/userdashboard-property</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/userdashboard-agent</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
   <!-- Coliving -->
   <url>
-    <loc>https://townmanor.ai/Coliving</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/Coliving</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/newcoliving</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/colivingsecond</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- E-Sign Services -->
+  <url>
+    <loc>https://www.townmanor.ai/esign2</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.townmanor.ai/esign3</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Rental Services -->
+  <url>
+    <loc>https://www.townmanor.ai/rental-listings</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- States Explorer -->
   <url>
-    <loc>https://townmanor.ai/explorestate</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://www.townmanor.ai/explorestate</loc>
+    <lastmod>2025-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-</urlset> 
+</urlset>
