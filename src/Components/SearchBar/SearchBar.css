@@ -41,27 +41,10 @@
 }
 
 .container2 {
-  background: url('/public/search.jpg');
   height: fit-content;
   padding: 20px 2px;
   padding-top: 150px;
-  background-size: cover;
-  filter: grayscale(0%) brightness(100%);
-  
 }
-.container2::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('/public/search.jpg') no-repeat center center;
-  background-size: cover;
-   filter: grayscale(0%) brightness(65%); 
-  z-index: -1; /* Make sure the background stays behind the content */
-}
-
 
 .buttonbox {
   display: flex;

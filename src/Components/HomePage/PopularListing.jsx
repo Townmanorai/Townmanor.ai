@@ -226,7 +226,10 @@ const PopularListing = () => {
                               src={image}
                               className="d-block w-100 img-fluid"
                               alt={property.property_name || 'Property Image'}
-                              
+                              loading="lazy"
+                              width="800"
+                              height="600"
+                              decoding="async"
                               onError={(e) => {
                                 e.target.onerror = null;
                                 e.target.src = 'https://townmanor.ai/fallback-image.jpg';
