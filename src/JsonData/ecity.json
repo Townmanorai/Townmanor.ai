@@ -10,6 +10,8 @@
       "reraLink": "https://www.up-rera.in/projects",
       "image": "/up_lucknow_imambada.jpg"
     },
+
+
     "Delhi": {
       "cities": [
         { "city_name": "New Delhi", "image": "/India_Gate.jpg", "paytaxUrl": "https://ndmc.gov.in/" },
