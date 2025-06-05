@@ -11,6 +11,7 @@ import RentFeatures from './RentFeatures';
 
 import './RentMainPage.css';
 import RentUserDetailsForm from './RentUserDetailsForm';
+import RentAgreementHowTo from './RentAgreementHowTo';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -28,7 +29,14 @@ function RentMainPage() {
   return (
     <div className="rent-main-container">
       <RentSection />
-
+        <motion.section 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, margin: "-20%" }}
+        variants={sectionVariants}
+      >
+        <RentAgreementHowTo/>
+      </motion.section>
       <motion.section 
         initial="hidden"
         whileInView="visible"
@@ -37,7 +45,7 @@ function RentMainPage() {
       >
         <RentFeatures />
       </motion.section>
-
+     
       <motion.section 
         initial="hidden"
         whileInView="visible"

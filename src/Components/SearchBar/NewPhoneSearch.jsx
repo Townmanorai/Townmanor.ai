@@ -146,8 +146,8 @@ const NewPhoneSearch = () => {
       <div className="newsearchbanner">
         {/* <div className="new-phone-search-overlay"></div> */}
         <img
-          src="/search.jpg"
-          srcSet="/search-small.jpg 400w, /search.jpg 800w"
+          src="/newsearch.webp"
+          srcSet="/search-small.jpg 400w, /newsearch.webp 800w"
           sizes="(max-width: 768px) 400px, 800px"
           alt="Property Banner"
           className="new-phone-search-banner"

@@ -1,0 +1,65 @@
+.rentagmtXyz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1rem 1.5rem 1rem;
+  background: #f7f8fa;
+  
+}
+
+.rentagmtXyz-title {
+  font-size: 2.1rem;
+  font-weight: 400 !important;
+  text-align: center;
+  margin-bottom: 0.7rem;
+  color: #181c32;
+}
+
+.rentagmtXyz-subtitle {
+  font-size: 1.1rem;
+  text-align: center;
+  color: #4e5d6c;
+  margin-bottom: 2.2rem;
+  max-width: 700px;
+}
+
+.rentagmtXyz-videoWrapper {
+  width: 100%;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 1.1rem;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 16 / 9;
+}
+
+.rentagmtXyz-loading {
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #888;
+}
+
+@media (max-width: 600px) {
+  .rentagmtXyz-title {
+    font-size: 1.3rem;
+  }
+  .rentagmtXyz-subtitle {
+    font-size: 0.98rem;
+    margin-bottom: 1.1rem;
+  }
+  .rentagmtXyz-videoWrapper {
+    max-width: 100vw;
+    border-radius: 0.7rem;
+    aspect-ratio: 16 / 9;
+  }
+  .rentagmtXyz-container {
+    padding: 1.1rem 0.2rem 0.7rem 0.2rem;
+  }
+}
