@@ -29,11 +29,11 @@ export function useAuth() {
 
 // Helper function to debug cookies
 function logCookies() {
-  console.log('Current cookies:', document.cookie);
+ 
   const cookies = document.cookie.split(';').map(cookie => cookie.trim());
-  console.log('Parsed cookies:', cookies);
+ 
   const jwtCookie = cookies.find(cookie => cookie.startsWith('jwttoken='));
-  console.log('JWT cookie found:', jwtCookie || 'Not found');
+  
 }
 
 export function AuthProvider({ children }) {
@@ -46,7 +46,7 @@ export function AuthProvider({ children }) {
     const setupPersistence = async () => {
       try {
         await setPersistence(auth, browserLocalPersistence);
-        console.log('Firebase persistence set to local');
+       
       } catch (error) {
         console.error('Error setting persistence:', error);
       }

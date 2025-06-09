@@ -60,19 +60,18 @@ const Navbar = () => {
   useEffect(() => {
     // Get the token from cookies
     const token = Cookies.get('jwttoken'); // Retrieve the token from cookies
-    console.log('Token from cookies:', token);  // Log the retrieved token for debugging
-
+  
     if (token) {
       try {
         // Decode the token
         const decodedToken = jwtDecode(token);  
-        console.log('Decoded Token:', decodedToken);
+        
         setUsername(decodedToken.username); // Set the username from the token
       } catch (error) {
-        console.error('Error decoding token:', error);
+       
       }
     } else {
-      console.log('No token found in cookies');
+     
     }
   }, []);
 

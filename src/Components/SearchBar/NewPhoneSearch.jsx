@@ -151,7 +151,6 @@ const NewPhoneSearch = () => {
           sizes="(max-width: 768px) 400px, 800px"
           alt="Property Banner"
           className="new-phone-search-banner"
-          loading="lazy"
           width="800"
           height="400"
           decoding="async"

@@ -29,10 +29,10 @@ const AuthContainer = () => {
       isAuthenticated = !!decoded.username;
       setUsername(decoded.username);
     } catch (error) {
-      console.log('No valid token found');
+ 
     }
   } else {
-    console.log('No token found in cookies');
+    
   }
 
   return (
