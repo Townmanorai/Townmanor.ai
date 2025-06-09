@@ -86,7 +86,7 @@ const BlogPosts = () => {
                       <div className="blog-img">
                         <div id='postimg'>
                         <Link to={`/singleblog/${post.id}`} title={post.heading}>
-                          <img src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/blog-image'+post.img} alt={post.heading} />
+                          <img loading="lazy" src={'https://s3.ap-south-1.amazonaws.com/townamnor.ai/blog-image'+post.img} alt={post.heading} />
                         </Link>
                         </div>
                         <div className="view-post">

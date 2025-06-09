@@ -78,7 +78,18 @@ const PropertySuggestionSection = ({ property }) => {
               }}>
                 <div className="property-card-image-frame" >
                   <img
-                    src={item.image_repository ? `https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/${JSON.parse(item.image_repository)[0]}` : "/commercial.jpg"}
+                    src={item.image_repository ? 
+                      (() => {
+                        try {
+                          const images = JSON.parse(item.image_repository);
+                          return images && images.length > 0 ? 
+                            `https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/${images[0]}` : 
+                            "/commercial.jpg";
+                        } catch (e) {
+                          return "/commercial.jpg";
+                        }
+                      })() : 
+                      "/commercial.jpg"}
                     alt={item.property_name}
                     className="property-image-thumbnail"
                   />
@@ -132,7 +143,18 @@ const PropertySuggestionSection = ({ property }) => {
               <div className="property-card-wrapper-box">
                 <div className="property-card-image-frame">
                   <img
-                    src={item.image_repository ? `https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/${JSON.parse(item.image_repository)[0]}` : "/commercial.jpg"}
+                    src={item.image_repository ? 
+                      (() => {
+                        try {
+                          const images = JSON.parse(item.image_repository);
+                          return images && images.length > 0 ? 
+                            `https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/${images[0]}` : 
+                            "/commercial.jpg";
+                        } catch (e) {
+                          return "/commercial.jpg";
+                        }
+                      })() : 
+                      "/commercial.jpg"}
                     alt={item.property_name}
                     className="property-image-thumbnail"
                   />
