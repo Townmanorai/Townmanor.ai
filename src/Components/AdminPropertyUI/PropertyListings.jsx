@@ -186,7 +186,7 @@ const PropertyListings = () => {
        <Helmet>
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
-        <meta name="keywords" content="PropTech, RealEstate, AI, SmartHomes, Technology, Innovation" />
+        <meta name="keywords" content="bptp terra ,dlf camellias price , m3m golf estate ,jm florence ,gulshan botnia ,ats dolce ,samridhi grand avenue, prateek stylome ,indiabulls centrum park,lotus panache" />
         
         {/* Dynamically creating meta tags for properties */}
         {currentProperties.length > 0 && currentProperties.map((property, index) => {

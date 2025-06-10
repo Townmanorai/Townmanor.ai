@@ -23,7 +23,7 @@ function CreditScore() {
     
         <meta 
           name="keywords" 
-          content="credit score, credit score tips, improve credit score, financial health, TownManor AI, credit score platform, financial decision-making"
+          content="credit score, credit score tips , how to get cibil score , how to know my cibil score"
         />
         <meta property="og:title" content="Credit Score - TownManor AI" />
         <meta 

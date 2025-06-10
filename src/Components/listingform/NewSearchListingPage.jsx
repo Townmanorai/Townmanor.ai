@@ -440,6 +440,7 @@ const NewSearchListingPage = () => {
             <>
             <Helmet>
             <meta name="keywords" content={generateMetaKeywords(seo)} />
+            <meta name="keywords" content="1 bhk flat on rent near me , rent room near me, rera , house for sale" />
         <meta name="description" content="Find your dream property in Noida and Greater Noida. Explore a wide variety of apartments, villas, and homes for sale or rent. Get the best deals with Town Manor." />
         <title>Search Properties - Residential & Commercial Properties</title>
             </Helmet>

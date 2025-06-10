@@ -127,7 +127,7 @@ function HomeLane() {
         <title>Home Interior | Top interior design companies | Modular kitchen - Townmanor Technologies</title>
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta name="description" content="Looking for the best interior design companies? Discover creative home decor ideas and modular kitchen designs tailored to your style" />
-        <meta name="keywords" content="Top interior design companies, best interior design, creative home decor, modular kitchen designs, home interior design" />
+        <meta name="keywords" content="village single floor home front design , false ceiling design , modern simple pop design ,pooja room design ,main entrance modern door design ,false ceiling design for living room" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="author" content="Townmanor Technologies" />
         <meta name="google-site-verification" content="Q-5FmOg3ddHnSHuLt6XNkTvC4ErGOqCZfGh-EGKfmt4" />

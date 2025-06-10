@@ -30,7 +30,7 @@ function Home() {
         <title>Property for sale | office interiors &amp; design - Townmanor Technologies</title>
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta name="description" content="Townmanor Technologies is committed to Revolutionizing how people buy homes online with an innovative blend of AI &amp; ML applications" />
-        <meta name="keywords" content="House for sale near me, top interior design companies, property for sale near me, flat near me, room interior decoration, office interiors &amp; design" />
+        <meta name="keywords" content="House for sale near me , real estate meaning in hindi , commercial real estate ,real estate agent near me , real estate meaning , real estate company in noida , real estate agency" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="author" content="" />
         <meta name="google-site-verification" content="Q-5FmOg3ddHnSHuLt6XNkTvC4ErGOqCZfGh-EGKfmt4" />
@@ -98,15 +98,17 @@ function Home() {
       
       {/* <Banner /> */}
       <MainSearch/>
-      <Services />
+      <PopularListing />
+     
       {/* <InHouseServices /> */}
       <Discovermore />
-      <PopularListing />
+      
       {/* <RightAgents /> */}
       <CategoriesPresentation />
       <ExclusiveOwnerProperties />
       {/* <PropertyList /> */}
       <TopRentedProperties />
+      <Services />
       <StateHouseTax />
       <Coliving_space/>
       <LocationsGrid />

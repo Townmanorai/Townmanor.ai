@@ -15,13 +15,20 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+ <!-- Admin property -->
 
+  <url>
+    <loc>https://townmanor.ai/adminproperty/Noida</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <!-- Property Search -->
   <url>
     <loc>https://www.townmanor.ai/search-property</loc>
     <lastmod>2025-06-02</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>1.0</priority>
   </url>
 
   <!-- Authentication Pages -->
@@ -204,8 +211,13 @@
     <priority>0.8</priority>
   </url>
 
-  
-
+  <!-- rera verification -->
+<url>
+    <loc>https://townmanor.ai/reraverification</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- Moving Services -->
   <url>
     <loc>https://www.townmanor.ai/home-shift</loc>
@@ -215,6 +227,14 @@
   </url>
 
   <!-- Agent Services -->
+  <!-- services -->
+
+   <url>
+    <loc>https://townmanor.ai/services</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://www.townmanor.ai/agents</loc>
     <lastmod>2025-06-02</lastmod>

@@ -154,6 +154,8 @@ const NewPhoneSearch = () => {
           width="800"
           height="400"
           decoding="async"
+           loading="eager"               
+  fetchpriority="high"
         />
         <div className="new-phone-search-title">
           <h1>Discover <b>best properties</b> in one <b>place</b></h1>
