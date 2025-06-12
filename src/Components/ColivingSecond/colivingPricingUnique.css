@@ -1,0 +1,337 @@
+.colivingPricingUniqueWrap {
+  background: #f8f9fb;
+  padding: 24px 0;
+  font-family: 'Inter', Arial, sans-serif;
+  margin: 0px auto;
+  max-width: 1400px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.colivingPricingUniqueContainer {
+  max-width: 900px;
+  
+ 
+  border-radius: 18px;
+
+  padding: 32px 20px 24px 20px;
+}
+.colivingPricingUniqueTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #2d2d2d;
+}
+.colivingPricingUniqueDesc {
+  font-size: 1rem;
+  color: #5a5a5a;
+  margin-bottom: 18px;
+}
+.colivingPricingUniqueTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.colivingPricingUniqueTag {
+  background: #e6f0fa;
+  color: #1a6ed8;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 0.92rem;
+}
+.colivingPricingUniqueRooms {
+  margin-bottom: 24px;
+}
+.colivingPricingUniqueRoomCard {
+  display: flex;
+  background: #ffffff;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  flex-direction: row;
+}
+.colivingPricingUniqueRoomImg {
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 14px 0 0 14px;
+}
+.colivingPricingUniqueRoomInfo {
+  flex: 1;
+  padding: 14px 16px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.colivingPricingUniqueRoomTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.colivingPricingUniqueRoomDetails {
+  font-size: 0.95rem;
+  color: #6a6a6a;
+  margin-bottom: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.colivingPricingUniqueRoomPrice {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a6ed8;
+  margin-bottom: 6px;
+}
+.colivingPricingUniqueRoomActions {
+  display: flex;
+  gap: 10px;
+}
+.colivingPricingUniqueBookBtn {
+  background: #1a6ed8;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 6px 18px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.colivingPricingUniqueBookBtn:disabled {
+  background: #bfc9d8;
+  cursor: not-allowed;
+}
+.colivingPricingUniqueViewBtn {
+  background: #fff;
+  color: #1a6ed8;
+  border: 1px solid #1a6ed8;
+  border-radius: 7px;
+  padding: 6px 18px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.colivingPricingUniqueRoomBooked {
+  color: #b94a48;
+  font-size: 0.97rem;
+  margin-bottom: 4px;
+}
+.colivingPricingUniqueAmenities {
+  margin-bottom: 24px;
+}
+.colivingPricingUniqueAmenitiesTitle {
+  font-size: 1.08rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.colivingPricingUniqueAmenitiesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+}
+.colivingPricingUniqueAmenity {
+  background: #f0f4f8;
+  color: #2d2d2d;
+  border-radius: 7px;
+  padding: 6px 14px;
+  font-size: 0.97rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.colivingPricingUniqueLocation {
+  margin-bottom: 0;
+}
+.colivingPricingUniqueLocationTitle {
+  font-size: 1.08rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.colivingPricingUniqueMap {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  background: #e6eaf0;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+.colivingPricingUniqueNearby {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  font-size: 0.93rem;
+  color: #5a5a5a;
+}
+/* --- Sidebar Sticky Card --- */
+.colivingPricingUniqueSidebar {
+    position: sticky;
+    top: 40px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px 0 rgba(16, 30, 54, .08);
+    padding: 47px 24px 24px 24px;
+    width: 340px;
+    min-width: 280px;
+    margin-left: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    height: fit-content;
+    margin-right: 47px;
+}
+
+.colivingPricingUniqueSidebarTabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.colivingPricingUniqueSidebarTab {
+  background: #f7f8fa;
+  border: 1px solid #e3e6ea;
+  color: #222;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 7px 18px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.colivingPricingUniqueSidebarTab.active {
+  background: #19202c;
+  color: #fff;
+  border: 1.5px solid #19202c;
+}
+
+.colivingPricingUniqueSidebarRoomSummary {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.colivingPricingUniqueSidebarRoomTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+}
+
+.colivingPricingUniqueSidebarRoomId {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 2px;
+}
+
+.colivingPricingUniqueSidebarRoomFeatures {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 2px;
+}
+.colivingPricingUniqueSidebarRoomFeature {
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.colivingPricingUniqueSidebarRoomLockin {
+  font-size: 14px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+.colivingPricingUniqueSidebarRoomLockinIcon {
+  font-size: 15px;
+}
+
+.colivingPricingUniqueSidebarRoomPrice {
+  font-size: 22px;
+  font-weight: 700;
+  color: #222;
+  margin: 8px 0 6px 0;
+}
+
+.colivingPricingUniqueSidebarChatBtn {
+  width: 100%;
+  background: #19202c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 0;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.colivingPricingUniqueSidebarChatBtn:hover {
+  background: #11151d;
+}
+
+.colivingPricingUniqueSidebarVisitBtn {
+  width: 100%;
+  background: #fff;
+  color: #222;
+  border: 1.5px solid #e3e6ea;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: border 0.2s, background 0.2s;
+}
+.colivingPricingUniqueSidebarVisitBtn:hover {
+  background: #f7f8fa;
+  border: 1.5px solid #19202c;
+}
+
+.colivingPricingUniqueSidebarRoomBooked {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  background: #f7f8fa;
+  color: #888;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 3px 14px;
+  border: 1px solid #e3e6ea;
+}
+
+@media (max-width: 600px) {
+  .colivingPricingUniqueContainer {
+    padding: 14px 2vw 10px 2vw;
+  }
+  .colivingPricingUniqueRoomCard {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .colivingPricingUniqueRoomImg {
+    width: 100%;
+    height: 140px;
+    border-radius: 14px 14px 0 0;
+  }
+  .colivingPricingUniqueRoomInfo {
+    padding: 10px 8px 10px 8px;
+  }
+  .colivingPricingUniqueAmenitiesList {
+    gap: 10px 10px;
+  }
+  .colivingPricingUniqueMap {
+    height: 120px;
+  }
+}

@@ -119,6 +119,7 @@ import ColivingMain from './Components/ColivingSecond/ColivingMain.jsx';
 
 
 
+
 // Scroll restoration component
 const ScrollRestoration = () => {
   const location = useLocation();
@@ -287,8 +288,8 @@ function App() {
                <Route path='/esign3/:userid?' element={<Esign3/>}/>
                 <Route path='/RentController' element={<AdminRent/>}/>
                 <Route path='/verified' element={<RentConfirmationPage/>}/>
-                <Route path='/colivingsecond' element={<ColivingMain/>}/>
-            
+                <Route path='/colivingsecond/:index' element={<ColivingMain/>}/>
+                 
             </Routes>
           </main>
           <Footer />
