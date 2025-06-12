@@ -10,6 +10,22 @@ const RentSection = () => {
   const navigate = useNavigate(); // Hook for navigation
 
   const handleNavigation = () => {
+    // Clean local storage except specific items
+    const preservedItems = ['veifast-session-id', 'verifastConfig_townmanor'];
+    const preservedValues = preservedItems.map(key => ({
+      key,
+      value: localStorage.getItem(key)
+    }));
+
+    // Clear all local storage
+    localStorage.clear();
+
+    // Restore preserved items
+    preservedValues.forEach(({ key, value }) => {
+      if (value) {
+        localStorage.setItem(key, value);
+      }
+    });
    
     const token = Cookies.get('jwttoken');
     

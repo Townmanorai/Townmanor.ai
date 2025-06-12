@@ -315,13 +315,13 @@ const PaymentVerification = ({ formData, onFormDataChange, onPrev, onSubmitSucce
     try {
       const requestData = {
         city: formData.city,
-        security_amount: 66000,
+        security_amount: formData.securityRefundableAmount,
         stamp_paper_value: paymentSummary.stampPaperFee,
         agreement_duration_months: parseInt(formData.durationMonths),
         monthly_rent: parseFloat(formData.monthlyRent),
         has_maintenance: formData.hasMaintenance ? 1 : 0,
         has_other_charges: formData.hasOtherCharges ? 1 : 0,
-        agreement_start_date: formData.startDate,
+        agreement_start_date: formData.agreementStart,
         yearly_increment: formData.yearlyIncrement,
         notice_period_months: parseInt(formData.noticePeriod),
         lock_in_period_months: parseInt(formData.lockInPeriod),
