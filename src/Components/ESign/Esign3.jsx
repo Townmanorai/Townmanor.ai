@@ -264,34 +264,8 @@ function Esign3() {
   
   // Count PDF pages
   const countPdfPages = async (pdfFile) => {
-    try {
-      const fileReader = new FileReader();
-      
-      fileReader.onload = async (event) => {
-        const typedArray = new Uint8Array(event.target.result);
-        
-        try {
-          // Use PDF.js to load the document and count pages
-          const loadingTask = pdfjsLib.getDocument({ data: typedArray });
-          const pdf = await loadingTask.promise;
-          
-          // Get the number of pages
-          const numPages = pdf.numPages;
-          console.log(`PDF loaded with ${numPages} pages`);
-          
-          // Update state with actual page count
-          setPageCount(numPages);
-        } catch (err) {
-          console.error('Error counting PDF pages:', err);
-          setPageCount(1); // Default to 1 if counting fails
-        }
-      };
-      
-      fileReader.readAsArrayBuffer(pdfFile);
-    } catch (err) {
-      console.error('Error reading file:', err);
-      setPageCount(1);
-    }
+    // Set fixed page count to 20
+    setPageCount(20);
   };
   
   // Upload file to server

@@ -105,9 +105,9 @@ function Agreementgenerate({ agreementId }) {
     y += 10;
 
     // Format date for display
-    const startDate = new Date(agreementData.agreement_start_date);
+    const startDate = new Date(agreementData.agreement_start_date || new Date());
     const endDate = new Date(startDate);
-    endDate.setMonth(endDate.getMonth() + parseInt(agreementData.agreement_duration_months));
+    endDate.setMonth(endDate.getMonth() + parseInt(agreementData.agreement_duration_months || 11));
     
     const formatDate = (date) => {
       return date.toLocaleDateString('en-US', {
@@ -117,7 +117,7 @@ function Agreementgenerate({ agreementId }) {
       });
     };
 
-    doc.text(`4. Duration: ${agreementData.agreement_duration_months} Months commencing from ${formatDate(startDate)}`, leftMargin, y);
+    doc.text(`4. Duration: ${agreementData.agreement_duration_months || 11} Months commencing from ${formatDate(startDate)}`, leftMargin, y);
     y += 10;
     doc.text(`5. License Fees: Rs. ${agreementData.monthly_rent} Per month.`, leftMargin, y);
     y += 10;
@@ -189,7 +189,7 @@ function Agreementgenerate({ agreementId }) {
     y += 20;
     doc.text("the said premises for residential use on a Leave and License basis for a period of", leftMargin, y, { maxWidth: contentWidth });
     y += 10;
-    doc.text(`${agreementData.agreement_duration_months} months commencing from ${formatDate(startDate)} and ending on ${formatDate(endDate)},`, leftMargin, y, { maxWidth: contentWidth });
+    doc.text(`${agreementData.agreement_duration_months || 11} months commencing from ${formatDate(startDate)} and ending on ${formatDate(endDate)},`, leftMargin, y, { maxWidth: contentWidth });
     y += 10;
     // Check if we need a page break before the AND WHEREAS section
   
@@ -222,7 +222,7 @@ function Agreementgenerate({ agreementId }) {
     addClause(
       "1",
       "Period",
-      `That the Licensor hereby grants to the Licensee herein a revocable leave and license, to occupy the Licensed Premises without creating any tenancy rights or any other rights, title and interest in favour of theLicensee for a period of ${agreementData.agreement_duration_months} months commencing with effect from ${formatDate(startDate)} to ${formatDate(endDate)}.`
+      `That the Licensor hereby grants to the Licensee herein a revocable leave and license, to occupy the Licensed Premises without creating any tenancy rights or any other rights, title and interest in favour of theLicensee for a period of ${agreementData.agreement_duration_months || 11} months commencing with effect from ${formatDate(startDate)} to ${formatDate(endDate)}.`
     );
 
     addClause(
@@ -240,7 +240,7 @@ function Agreementgenerate({ agreementId }) {
     addClause(
       "4",
       "Renewal",
-      `That agreement may be renewed for a period of ${agreementData.agreement_duration_months} months with ${agreementData.yearly_increment_in_rent} increment in license fees and at other terms to be mutually decided thereon. However, that if the Licensor does not wish to renew this agreement, the Licensee has agreed to vacate the premises immediately upon expiry, or sooner, and in good faith hand over the peaceful possession back to the Licensor.`
+      `That agreement may be renewed for a period of ${agreementData.agreement_duration_months || 11} months with ${agreementData.yearly_increment || 0} increment in license fees and at other terms to be mutually decided thereon. However, that if the Licensor does not wish to renew this agreement, the Licensee has agreed to vacate the premises immediately upon expiry, or sooner, and in good faith hand over the peaceful possession back to the Licensor.`
     );
 
     addClause(
@@ -276,13 +276,13 @@ function Agreementgenerate({ agreementId }) {
     addClause(
       "10",
       "Cancellation",
-      `That, subject to the condition of lock-in period (if any), if the Licensee commit default in regular and punctual payments of monthly compensation as herein before mentioned; or commits breach of any of the terms, covenants and conditions of this agreement; or if any legislation prohibiting the Leave and License is imposed, the Licensor shall be entitled to revoke and / or cancel the License hereby granted, by giving notice in writing of ${agreementData.notice_period} month and the Licensee too will have the right to vacate the said premises by giving a notice in writing of ${agreementData.notice_period} month to the Licensor as mentioned earlier.`
+      `That, subject to the condition of lock-in period (if any), if the Licensee commit default in regular and punctual payments of monthly compensation as herein before mentioned; or commits breach of any of the terms, covenants and conditions of this agreement; or if any legislation prohibiting the Leave and License is imposed, the Licensor shall be entitled to revoke and / or cancel the License hereby granted, by giving notice in writing of ${agreementData.notice_period_months || 3} month and the Licensee too will have the right to vacate the said premises by giving a notice in writing of ${agreementData.notice_period_months || 3} month to the Licensor as mentioned earlier.`
     );
 
     addClause(
       "11",
       "Lock-in Period",
-      `That both the parties have agreed to set a lock-in period of ${agreementData.lock_in_period} months during which neither the Licensor shall ask the Licensee to vacate the premises, nor the Licensee shall vacate the premises on their own during the lock-in period. However, if the Licensee vacates the premises for any reason, they shall pay to the Licensor the license fees for the remaining lock-in period at the rate as agreed upon in Clause 2. On the other hand, Licensor shall compensate the Licensee for loss and inconvenience caused to the Licensee if they have been asked to vacate the premises by the Licensor.`
+      `That both the parties have agreed to set a lock-in period of ${agreementData.lock_in_period_months || 3} months during which neither the Licensor shall ask the Licensee to vacate the premises, nor the Licensee shall vacate the premises on their own during the lock-in period. However, if the Licensee vacates the premises for any reason, they shall pay to the Licensor the license fees for the remaining lock-in period at the rate as agreed upon in Clause 2. On the other hand, Licensor shall compensate the Licensee for loss and inconvenience caused to the Licensee if they have been asked to vacate the premises by the Licensor.`
     );
 
     addClause(
