@@ -6,6 +6,8 @@
   padding: 32px 0;
   margin-left: 222px;
     margin-right: 222px;
+    border-radius: 18px;
+
 }
 
 .similar-listing-title-unique {
@@ -86,7 +88,8 @@
 
 .similar-listing-price-unique {
   font-size: 1.1rem;
-  color: #3a4be0;
+  /* color: #3a4be0; */
+  color: green;
   font-weight: 600;
   margin-top: 8px;
 }

@@ -39,7 +39,18 @@ const ColivingSimilarListing = () => {
             <div className={`similar-listing-badge-unique${item.badgeType === 'later' ? ' similar-listing-badge-unique-later' : ''}`}>{item.badge}</div>
             <div className="similar-listing-card-content-unique">
               <div className="similar-listing-title2-unique">{item.title}</div>
-              <div className="similar-listing-details-unique">{item.details}</div>
+              <div className="similar-listing-details-unique">
+                <span className="similar-listing-icon-unique" title="Bedrooms">
+                  {/* Bed/BHK icon */}
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#888" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M3 17V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10"/><path d="M7 17V9a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v8"/></svg>
+                </span>
+                {item.details.split('·')[0].trim()}
+                <span className="similar-listing-icon-unique" title="Area" style={{marginLeft: '16px'}}>
+                  {/* Area icon */}
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#888" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+                </span>
+                {item.details.split('·')[1] ? item.details.split('·')[1].trim() : ''}
+              </div>
               <div className="similar-listing-price-unique">{item.price}</div>
             </div>
             <button className="similar-listing-heart-unique" aria-label="Save listing">

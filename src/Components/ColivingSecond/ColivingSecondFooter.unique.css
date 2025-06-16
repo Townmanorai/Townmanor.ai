@@ -28,7 +28,7 @@
   flex-wrap: wrap;
 }
 .colivingSecondFooter_btn_primary_unique {
-  background: #5a3ff6;
+  background: linear-gradient(to right, #ff4447, #8a2e2e);
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -39,12 +39,14 @@
   transition: background 0.2s;
 }
 .colivingSecondFooter_btn_primary_unique:hover {
-  background: #3d28b0;
+  /* background: #3d28b0; */
+  background: linear-gradient(to right, #ff4447, #8a2e2e);
 }
 .colivingSecondFooter_btn_outline_unique {
   background: transparent;
-  color: #5a3ff6;
-  border: 2px solid #5a3ff6;
+  color:black;
+  border: 2px solid black;
+  /* border: linear-gradient(to right, #ff4447, #8a2e2e); */
   border-radius: 10px;
   padding: 16px 32px;
   font-size: 1rem;
