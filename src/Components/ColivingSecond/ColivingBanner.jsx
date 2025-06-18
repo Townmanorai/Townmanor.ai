@@ -21,8 +21,26 @@ const ColivingBanner = ({ coliving }) => {
         <span className="colivingBannerTitleUnique123">{coliving.property_name || "-"}</span>
         <span className="colivingBannerFemaleOnlyUnique123">{coliving.configuration_type || "-"}</span>
       </div>
-      <div className="colivingBannerDetailsUnique123">
+      {/* <div className="colivingBannerDetailsUnique123">
         {coliving.configuration || "-"}  {coliving.area || "-"}  {coliving.parking ? "Parking" : "No Parking"}  {coliving.floor ? `${coliving.floor}th Floor` : "-"}
+      </div> */}
+      <div style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
+        {['3 RK', '600 sq ft', 'No Parking', '3th Floor'].map((item, idx) => (
+          <span
+            key={idx}
+            style={{
+              background: '#e3e8f0',
+              color: '#1e293b',
+              borderRadius: '8px',
+              padding: '4px 10px',
+              fontSize: '15px',
+              fontWeight: 500,
+              display: 'inline-block',
+            }}
+          >
+            {item}
+          </span>
+        ))}
       </div>
       <div className="colivingBannerImagesUnique123">
         {images[0] && (
@@ -49,8 +67,26 @@ const ColivingBanner = ({ coliving }) => {
         <span className="colivingBannerTitleUnique123">{coliving.property_name || "-"}</span>
         <span className="colivingBannerFemaleOnlyUnique123">{coliving.configuration_type || "-"}</span>
       </div>
-      <div className="colivingBannerDetailsUnique123">
+      {/* <div className="colivingBannerDetailsUnique123">
         {coliving.configuration || "-"}  {coliving.area || "-"}  {coliving.parking ? "Parking" : "No Parking"}  {coliving.floor ? `${coliving.floor}th Floor` : "-"}
+      </div> */}
+      <div style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
+        {['3 RK', '600 sq ft', 'No Parking', '3th Floor'].map((item, idx) => (
+          <span
+            key={idx}
+            style={{
+              background: '#e3e8f0',
+              color: '#1e293b',
+              borderRadius: '8px',
+              padding: '4px 10px',
+              fontSize: '15px',
+              fontWeight: 500,
+              display: 'inline-block',
+            }}
+          >
+            {item}
+          </span>
+        ))}
       </div>
     <div className="colivingBannerautoslider">
       {images.map((img, idx) => (
@@ -68,3 +104,4 @@ const ColivingBanner = ({ coliving }) => {
 };
 
 export default ColivingBanner;
+

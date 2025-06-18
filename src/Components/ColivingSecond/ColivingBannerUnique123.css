@@ -70,6 +70,9 @@
 .colivingdeskview{
   display: none;
 }
+.coliving_mobileview_banner{
+  display: none;
+}
 @media (max-width: 700px) {
   .colivingBannerImagesUnique123 {
     flex-direction: column;
@@ -160,5 +163,6 @@
   }
  .coliving_mobileview_banner{
   margin-top: 6rem;
+  display: block;
  }
 }
