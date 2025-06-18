@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaLock, FaBolt, FaShieldAlt, FaWifi, FaChevronRight, FaStar, FaUsers, FaCalendarAlt, FaUtensils, FaMusic, FaBuilding, FaRulerCombined, FaHome } from 'react-icons/fa';
 import { IoBed } from 'react-icons/io5';
 import { MdApartment } from 'react-icons/md';
@@ -27,129 +28,95 @@ const features = [
   }
 ];
 
-const initialSpaces = [
-  {
-    title: 'Abode, HSR Layout',
-    type: '3 BHK',
-    area: '2600 ft²',
-    floor: '1st Floor',
-    price: '43000',
-    availability: 'Available',
-    img: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    title: 'Elevate, Koramangala',
-    type: '3 BHK',
-    area: '3500 ft²',
-    floor: 'Ground Floor',
-    price: '35000',
-    availability: 'Available',
-    img: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    title: 'Maison One, BTM Lake',
-    type: '1 BHK',
-    area: '800 ft²',
-    floor: '1st Floor',
-    price: '50000',
-    availability: 'Available',
-    img: 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    title: 'Aer, Whitefield',
-    type: '3 BHK',
-    area: '1800 ft²',
-    floor: '8th Floor',
-    price: '36000',
-    availability: 'Available from May 10, 2025',
-    img: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    title: 'East Heights, CV Raman Nagar',
-    type: '2 BHK',
-    area: '1800 ft²',
-    floor: '5th Floor',
-    price: '29000',
-    availability: 'Available',
-    img: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    title: 'Carnation, Green Glen Layout',
-    type: '2 BHK',
-    area: '1800 ft²',
-    floor: '2nd Floor',
-    price: '31000',
-    availability: 'Available',
-    img: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    title: 'The Summit, Indiranagar',
-    type: '3 BHK',
-    area: '2200 ft²',
-    floor: '10th Floor',
-    price: '45000',
-    availability: 'Occupied',
-    img: 'https://images.unsplash.com/photo-1515263487990-61b07816b324?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    title: 'Urban Nest, Electronic City',
-    type: '2 BHK',
-    area: '1600 ft²',
-    floor: '4th Floor',
-    price: '28000',
-    availability: 'Available',
-    img: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    title: 'Sky Villa, Marathahalli',
-    type: '1 BHK',
-    area: '950 ft²',
-    floor: '6th Floor',
-    price: '22000',
-    availability: 'Available',
-    img: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    title: 'Green View, Bellandur',
-    type: '3 BHK',
-    area: '2400 ft²',
-    floor: '3rd Floor',
-    price: '38000',
-    availability: 'Available',
-    img: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    title: 'Lake View, Whitefield',
-    type: '2 BHK',
-    area: '1500 ft²',
-    floor: '7th Floor',
-    price: '26000',
-    availability: 'Occupied',
-    img: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=600&q=80'
-  },
-  {
-    title: 'Sunshine Apartments, HSR',
-    type: '1 BHK',
-    area: '850 ft²',
-    floor: '2nd Floor',
-    price: '20000',
-    availability: 'Available',
-    img: 'https://images.unsplash.com/photo-1459535653751-d571815e906b?auto=format&fit=crop&w=600&q=80'
-  }
-];
-
 const ColivingNoida = () => {
-  const [spaces, setSpaces] = useState(initialSpaces);
+  const navigate = useNavigate();
+  const [spaces, setSpaces] = useState([]);
   const [visibleSpaces, setVisibleSpaces] = useState(6);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [filters, setFilters] = useState({
     priceSort: 'default',
     type: 'all',
     availability: 'all'
   });
 
+  // Fetch coliving properties
+  useEffect(() => {
+    const fetchProperties = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch('https://townmanor.ai/api/coliving');
+        if (!response.ok) {
+          throw new Error('Failed to fetch properties');
+        }
+        const properties = await response.json();
+        
+        // Fetch room data for each property
+        const propertiesWithRooms = await Promise.all(
+          properties.map(async (property) => {
+            try {
+              const roomResponse = await fetch(`https://townmanor.ai/api/coliving-rooms/${property.id}`);
+              if (!roomResponse.ok) {
+                throw new Error(`Failed to fetch rooms for property ${property.id}`);
+              }
+              const roomData = await roomResponse.json();
+              
+              // Parse image string to array and get first image
+              let imageUrl = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80'; // default image
+              try {
+                if (property.image) {
+                  const imageArray = JSON.parse(property.image);
+                  if (Array.isArray(imageArray) && imageArray.length > 0) {
+                    imageUrl = imageArray[0];
+                  }
+                }
+              } catch (e) {
+                console.error('Error parsing image array:', e);
+              }
+              
+              return {
+                id: property.id,
+                title: property.property_name,
+                type: property.configuration,
+                area: property.area,
+                floor: `${property.floor}th Floor`,
+                price: roomData.data?.price?.toString() || '0',
+                availability: roomData.data?.occupied ? 'Occupied' : 'Available',
+                img: imageUrl,
+                description: property.description,
+                amenities: property.amenities,
+                nearby_location: property.nearby_location,
+                roomDetails: roomData.data
+              };
+            } catch (error) {
+              console.error(`Error fetching rooms for property ${property.id}:`, error);
+              return {
+                ...property,
+                price: '0',
+                availability: 'Unknown',
+                img: property.image || 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80'
+              };
+            }
+          })
+        );
+
+        setSpaces(propertiesWithRooms);
+      } catch (error) {
+        setError(error.message);
+        console.error('Error fetching properties:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProperties();
+  }, []);
+
   // Filter and sort spaces
   useEffect(() => {
-    let filteredSpaces = [...initialSpaces];
+    if (loading) return;
+
+    let filteredSpaces = [...spaces];
 
     // Apply type filter
     if (filters.type !== 'all') {
@@ -176,7 +143,7 @@ const ColivingNoida = () => {
 
     setSpaces(filteredSpaces);
     setVisibleSpaces(6); // Reset to show first 6 items when filters change
-  }, [filters]);
+  }, [filters, loading]);
 
   const handleLoadMore = () => {
     setVisibleSpaces(prev => Math.min(prev + 6, spaces.length));
@@ -188,6 +155,18 @@ const ColivingNoida = () => {
       [filterType]: value
     }));
   };
+
+  const handlePropertyClick = (propertyId) => {
+    navigate(`/colivingsecond/${propertyId}`);
+  };
+
+  if (loading) {
+    return <div className="colivingNoida__container">Loading properties...</div>;
+  }
+
+  if (error) {
+    return <div className="colivingNoida__container">Error: {error}</div>;
+  }
 
   return (
     <div className="colivingNoida__container">
@@ -265,28 +244,25 @@ const ColivingNoida = () => {
         </div>
         <div className="colivingNoida__spacesGrid">
           {spaces.slice(0, visibleSpaces).map((space, idx) => (
-            <div className="colivingNoida__spaceCard" key={idx}>
+            <div 
+              className="colivingNoida__spaceCard" 
+              key={space.id || idx}
+              onClick={() => handlePropertyClick(space.id)}
+              style={{ cursor: 'pointer' }}
+            >
               <div className="colivingNoida__spaceImageContainer">
                 <img src={space.img} alt={space.title} className="colivingNoida__spaceImg" />
               </div>
               <div className="colivingNoida__spaceInfo">
                 <h3 className="colivingNoida__spaceTitle">{space.title}</h3>
                 
-                <div className="colivingNoida__spaceDetails">
-                  <div className="colivingNoida__spaceIconRow">
-                    <MdApartment className="colivingNoida__iconMeta" />
-                    <span>{space.type}</span>
-                  </div>
-                  
-                  <div className="colivingNoida__spaceIconRow">
-                    <FaRulerCombined className="colivingNoida__iconMeta" />
-                    <span>{space.area}</span>
-                  </div>
-                  
-                  <div className="colivingNoida__spaceIconRow">
-                    <IoBed className="colivingNoida__iconMeta" />
-                    <span>{space.floor}</span>
-                  </div>
+                <div className="colivingNoida__spaceDetailsRow">
+                  <MdApartment className="colivingNoida__iconMeta" />
+                  <span>{space.type}</span>
+                  <FaRulerCombined className="colivingNoida__iconMeta" style={{marginLeft: '16px'}} />
+                  <span>{space.area}</span>
+                  <IoBed className="colivingNoida__iconMeta" style={{marginLeft: '16px'}} />
+                  <span>{space.floor}</span>
                 </div>
 
                 <div className="colivingNoida__spacePriceSection">

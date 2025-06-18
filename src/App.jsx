@@ -115,6 +115,7 @@ import Esign3 from './Components/ESign/Esign3.jsx';
 import AdminRent from './Components/admindashboard/Rentagreement/AdminRent.jsx';
 import RentConfirmationPage from './Components/RentAgreeement/RentConfirmationPage.jsx';
 import ColivingMain from './Components/ColivingSecond/ColivingMain.jsx';
+import ColivingPaymentSuccess from './Components/ColivingSecond/ColivingPaymentSuccess.jsx';
 
 
 
@@ -289,6 +290,7 @@ function App() {
                 <Route path='/RentController' element={<AdminRent/>}/>
                 <Route path='/verified' element={<RentConfirmationPage/>}/>
                 <Route path='/colivingsecond/:index' element={<ColivingMain/>}/>
+                <Route path='/colivingpaymentpage' element={<ColivingPaymentSuccess/>}/>
                  
             </Routes>
           </main>

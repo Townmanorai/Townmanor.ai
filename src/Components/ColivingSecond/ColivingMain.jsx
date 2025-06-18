@@ -23,7 +23,15 @@ function ColivingMain() {
         const data = await response.json();
         // Parse image field if present and is a string
         if (data.image && typeof data.image === 'string') {
-          data.image = JSON.parse(data.image);
+          try {
+            data.image = JSON.parse(data.image);
+          } catch (e) {
+            // If parsing fails, set it as a single image array
+            data.image = [data.image];
+          }
+        } else if (!data.image) {
+          // If no image field, set a default image
+          data.image = ["https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"];
         }
         setcoliving(data);
       } catch (err) {

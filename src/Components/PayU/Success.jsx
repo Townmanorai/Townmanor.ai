@@ -19,6 +19,10 @@ const Success = () => {
       setMessage('Your rent agreement payment was successful.');
       setRedirectPath('/newRentAgreement/payment/75369'); // You can change this to the relevant page
     }
+    else if (paymentType === 'coliving') {
+      setMessage('Your coliving payment was successful.');
+      setRedirectPath('/colivingpaymentpage'); // You can change this to the relevant page
+    }
 
     const timer = setInterval(() => {
       setCountdown((prev) => {

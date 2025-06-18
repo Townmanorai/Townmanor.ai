@@ -205,88 +205,87 @@
   padding: 24px 0;
 }
 .colivingNoida__spaceCard {
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  background: #fff;
   overflow: hidden;
-  transition: transform 0.2s ease;
-  position: relative;
-  display: flex;
-  flex-direction: column;
+  transition: box-shadow 0.2s;
+  border: 1px solid #f0f0f0;
+  max-width: 350px;
+  margin: 0 auto;
 }
 .colivingNoida__spaceCard:hover {
   transform: translateY(-2px);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 .colivingNoida__spaceImageContainer {
-  position: relative;
   width: 100%;
-  padding-top: 66.67%; /* 3:2 aspect ratio */
+  height: 200px;
+  overflow: hidden;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
 }
 .colivingNoida__spaceImg {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 .colivingNoida__spaceInfo {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  padding: 20px 18px 16px 18px;
 }
 .colivingNoida__spaceTitle {
-  font-size: 18px;
+  font-size: 1.25rem;
   font-weight: 600;
-  color: #333;
-  margin: 0;
+  margin: 0 0 12px 0;
+  color: #222;
+  font-family: 'Georgia', serif;
 }
-.colivingNoida__spaceDetails {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.colivingNoida__spaceIconRow {
+.colivingNoida__spaceDetailsRow {
   display: flex;
   align-items: center;
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 18px;
   gap: 8px;
-  color: #666;
-  font-size: 14px;
 }
 .colivingNoida__iconMeta {
-  color: #666;
-  font-size: 16px;
+  color: #888;
+  font-size: 1.1em;
+  margin-right: 4px;
 }
 .colivingNoida__spacePriceSection {
-  margin-top: 4px;
+  display: flex
+  ;
+      flex-direction: row;
+      /* gap: 32px; */
+      align-items: flex-end;
+      justify-content: space-around;
 }
 .colivingNoida__roomsFrom {
-  display: block;
-  color: #666;
-  font-size: 12px;
-  margin-bottom: 4px;
+  font-size: 0.95em;
+  color: #888;
+  margin-bottom: 2px;
 }
 .colivingNoida__priceRow {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 10px;
 }
 .colivingNoida__spacePrice {
-  font-size: 16px;
+  font-size: 1.15em;
   font-weight: 600;
-  color: #333;
+  color: #222;
 }
 .colivingNoida__availability {
-  font-size: 14px;
+  font-size: 1em;
   font-weight: 500;
 }
 .colivingNoida__availability.available {
-  color: #1e8e3e;
+  color: #2eaf4d;
 }
 .colivingNoida__availability.occupied {
-  color: #d93025;
+  color: #d32f2f;
 }
 .colivingNoida__spaceBtn {
   width: 100%;

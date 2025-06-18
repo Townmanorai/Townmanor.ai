@@ -388,3 +388,247 @@
  
 }
 }
+
+/* Payment Modal Styles */
+.payment-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.payment-modal {
+  background: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.payment-modal-header {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+}
+
+.payment-modal-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.payment-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-modal-close:hover {
+  color: #333;
+}
+
+.payment-modal-content {
+  padding: 20px;
+}
+
+.payment-summary {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.payment-summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 15px;
+}
+
+.payment-summary-total {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+}
+
+.payment-proceed-btn {
+  background: #7c6dfa;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.payment-proceed-btn:hover {
+  background: #5b4fc5;
+}
+
+.payment-icons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  color: #bfc2ce;
+  font-size: 22px;
+}
+
+@media (max-width: 768px) {
+  .payment-modal {
+    width: 95%;
+    margin: 10px;
+  }
+}
+
+/* Payment Success Styles */
+.payment-success-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 20px;
+}
+
+.payment-success-content {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.payment-success-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+.payment-success-icon.success {
+  color: #4CAF50;
+}
+
+.payment-success-icon.error {
+  color: #f44336;
+}
+
+.payment-success-message h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.payment-success-message p {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.payment-success-details {
+  margin: 24px 0;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.payment-success-details p {
+  margin: 8px 0;
+  color: #555;
+}
+
+.payment-success-button {
+  background: #7c6dfa;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.payment-success-button:hover {
+  background: #5b4fc5;
+}
+
+.button-icon {
+  font-size: 18px;
+}
+
+.payment-success-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.payment-success-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #7c6dfa;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.payment-success-error {
+  color: #f44336;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 600px) {
+  .payment-success-content {
+    padding: 24px;
+  }
+
+  .payment-success-icon {
+    font-size: 48px;
+  }
+
+  .payment-success-message h2 {
+    font-size: 20px;
+  }
+
+  .payment-success-message p {
+    font-size: 14px;
+  }
+}
