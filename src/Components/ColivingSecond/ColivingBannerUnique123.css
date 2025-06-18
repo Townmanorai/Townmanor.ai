@@ -43,12 +43,12 @@
   margin-top: 18px;
 }
 .colivingBannerMainImgUnique123 {
-  flex: 2;
+  flex: 1;
   border-radius: 12px;
   object-fit: cover;
   width: 100%;
   min-width: 0;
-  max-height: 320px;
+  
   background: #eaeaea;
 }
 .colivingBannerSideImgsUnique123 {
@@ -64,8 +64,11 @@
   border-radius: 10px;
   object-fit: cover;
   width: 100%;
- 
+  height: 200px;
   background: #eaeaea;
+}
+.colivingdeskview{
+  display: none;
 }
 @media (max-width: 700px) {
   .colivingBannerImagesUnique123 {
@@ -81,4 +84,81 @@
   .colivingBannerSideImgUnique123 {
     height: 40px;
   }
+  .colivingmobile{
+    display: none;
+  }
+
+  .colivingBannerautoslider {
+
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 200px;
+   
+  }
+
+  .colivingBannerautoslider img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .colivingBannerautoslider img.active {
+    opacity: 1;
+  }
+
+  /* Tab indicators */
+  .colivingBannerautoslider::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 16px 16px;
+  }
+
+  .colivingBannerautoslider::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: #007bff;
+    border-radius: 0 0 0 16px;
+    transition: left 0.3s ease-in-out;
+    z-index: 1;
+  }
+
+  /* Mobile header styling */
+  .colivingBannerautoslider + .colivingBannerHeaderUnique123 {
+    margin-top: 16px;
+    padding: 0 16px;
+  }
+
+  .colivingBannerautoslider + .colivingBannerHeaderUnique123 .colivingBannerTitleUnique123 {
+    font-size: 1.25rem;
+  }
+
+  .colivingBannerautoslider + .colivingBannerHeaderUnique123 .colivingBannerFemaleOnlyUnique123 {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+  }
+
+  /* Mobile details styling */
+  .colivingBannerautoslider + .colivingBannerHeaderUnique123 + .colivingBannerDetailsUnique123 {
+    padding: 0 16px;
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #666;
+  }
+ .coliving_mobileview_banner{
+  margin-top: 6rem;
+ }
 }

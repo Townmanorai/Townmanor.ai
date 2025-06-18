@@ -26,6 +26,7 @@ const utilities = [
 
 const ColivingUtilities = () => {
   return (
+    <div id='colivingutility'>
     <div className="colivingUtilitiesUniqueBox">
       <div className="colivingUtilitiesUniqueTitle">Utilities & Add-Ons</div>
       <div className="colivingUtilitiesUniqueGrid">
@@ -38,6 +39,7 @@ const ColivingUtilities = () => {
         ))}
       </div>
     </div>
+  </div>
   )
 }
 

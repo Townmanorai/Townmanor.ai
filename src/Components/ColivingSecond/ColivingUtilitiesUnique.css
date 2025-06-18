@@ -5,9 +5,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 40px 0;
-  margin-left: 246px;
-  margin-right: 47px;
+  margin: auto;
+  
   box-shadow: 0 4px 24px 0 rgba(80, 80, 180, 0.06);
 }
 
@@ -16,7 +15,7 @@
   font-weight: 800;
   color: #232b3b;
   margin-bottom: 40px;
-  text-align: left;
+  text-align: center;
   width: 100%;
   margin-left: 8px;
   font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
@@ -26,11 +25,11 @@
 .colivingUtilitiesUniqueGrid {
   display: flex;
   flex-wrap: nowrap;
-  gap: 40px 36px;
-  width: 100%;
+  gap: 40px 48px;
+ 
   max-width: 1100px;
   justify-items: center;
-  margin-right: 46px;
+  
   overflow-x: auto;
 }
 
@@ -101,7 +100,10 @@
   margin-top: 2px;
   font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
 }
-
+#colivingutility{
+  max-width: 1400px;
+  margin: 10px auto;
+}
 @media (max-width: 900px) {
   .colivingUtilitiesUniqueBox {
     margin-left: 2vw;
@@ -116,7 +118,8 @@
 
 @media (max-width: 700px) {
   .colivingUtilitiesUniqueGrid {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
     gap: 18px;
   }
   .colivingUtilitiesUniqueItem {

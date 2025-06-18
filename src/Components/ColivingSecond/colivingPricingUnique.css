@@ -7,17 +7,16 @@
 
   display: flex;
   flex-direction: row;
+  
   justify-content: space-around;
 }
 .colivingPricingUniqueContainer {
   max-width: 900px;
-  
+  width: 80%;
  
   border-radius: 18px;
 
-  padding: 32px 20px 24px 20px;
-  margin-left: -17px;
-    margin-right: 42px;
+ margin: auto;
 }
 .colivingPricingUniqueTitle {
   font-size: 1.3rem;
@@ -54,10 +53,10 @@
   overflow: hidden;
   box-shadow: 0 1px 6px rgba(0,0,0,0.04);
   flex-direction: row;
+  height: 18vh;
 }
 .colivingPricingUniqueRoomImg {
-  width: 120px;
-  height: 90px;
+
   object-fit: cover;
   border-radius: 14px 0 0 14px;
 }
@@ -356,7 +355,35 @@
   .colivingPricingUniqueAmenitiesList {
     gap: 10px 10px;
   }
+  .colivingPricingUniqueRoomCard {
+ 
+  height: auto;
+}
   .colivingPricingUniqueMap {
     height: 120px;
   }
+  .colivingPricingUniqueSidebar {
+    /* position: sticky; */
+    position: relative;
+    top: 10px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px 0 rgba(16, 30, 54, .08);
+    padding: 47px 24px 24px 24px;
+    /* width: 340px; */
+    margin: 20px;
+    min-width: 298px;
+    /* margin-left: 79px; */
+    display: flex
+;
+    flex-direction: column;
+    gap: 11px;
+    height: fit-content;
+    /* margin-right: 29px; */
+}
+.colivingPricingUniqueWrap {
+   
+    flex-direction: column-reverse;
+ 
+}
 }

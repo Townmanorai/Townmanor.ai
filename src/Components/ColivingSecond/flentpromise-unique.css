@@ -62,4 +62,21 @@
     min-width: 0;
     flex: 1 1 100%;
   }
+  .flentpromise-unique-list {
+    display: grid
+;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .flentpromise-unique-bg {
+    background: #f3fdf7;
+    border-radius: 20px;
+    padding: 32px 24px;
+    display: flex
+;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 24px 0;
+    /* margin-left: 230px; */
+    /* margin-right: 230px; */
+}
 }
