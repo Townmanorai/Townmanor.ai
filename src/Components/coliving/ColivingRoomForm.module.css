@@ -1,0 +1,63 @@
+.roomFormContainer {
+  max-width:1400px;
+  margin: 0 auto;
+  margin-top: 22vh;
+  padding: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.roomFormGroup {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.roomLabel {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  color: #000000;
+}
+
+.roomInput, .roomTextarea, .roomSelect {
+  padding: 0.5rem;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.roomInput:invalid {
+  color: #888;
+}
+
+.roomInput option[value=""] {
+  color: #888;
+}
+
+.roomInput {
+  color: #000;
+}
+
+.roomButton {
+  background: #28a745;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .roomFormContainer {
+    padding: 0.7rem;
+    max-width: 98vw;
+  }
+  .roomButton {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
+}

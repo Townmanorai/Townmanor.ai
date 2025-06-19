@@ -117,6 +117,8 @@ import RentConfirmationPage from './Components/RentAgreeement/RentConfirmationPa
 import ColivingMain from './Components/ColivingSecond/ColivingMain.jsx';
 import ColivingPaymentSuccess from './Components/ColivingSecond/ColivingPaymentSuccess.jsx';
 
+import ColivingMainForm from './Components/coliving/ColivingMainForm.jsx';
+
 
 
 
@@ -291,6 +293,7 @@ function App() {
                 <Route path='/verified' element={<RentConfirmationPage/>}/>
                 <Route path='/colivingsecond/:index' element={<ColivingMain/>}/>
                 <Route path='/colivingpaymentpage' element={<ColivingPaymentSuccess/>}/>
+                <Route path='/Colivingform' element={<ColivingMainForm/>}></Route>
                  
             </Routes>
           </main>
