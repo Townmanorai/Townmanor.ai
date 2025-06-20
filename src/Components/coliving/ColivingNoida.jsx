@@ -186,7 +186,9 @@ const ColivingNoida = () => {
             <div className="colivingNoida__heroDesc">Discover affordable, fully-furnished coliving spaces with premium amenities and a vibrant community.</div>
             <div className="colivingNoida__heroBtns">
               <button className="colivingNoida__heroBtn colivingNoida__heroBtn--primary">Explore Spaces</button>
-              <button className="colivingNoida__heroBtn colivingNoida__heroBtn--secondary">Schedule Visit</button>
+              <button className="colivingNoida__heroBtn colivingNoida__heroBtn--secondary" onClick={()=>{
+                navigate('/colivingform')
+              }}>Upload your Space</button>
             </div>
           </div>
           <div className="colivingNoida__heroImages">

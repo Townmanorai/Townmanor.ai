@@ -212,7 +212,7 @@ function Coliving_space() {
                   alt="Studio & Suites"
                 />
                 <div className="coming-soon-sticker">
-                  <span>Opening Very Soon!</span>
+                  <span>Newly Launched</span>
                 </div>
               </div>
               <div className="coliving-card-content">
@@ -239,7 +239,9 @@ function Coliving_space() {
                     <span>Premium furnishings and amenities</span>
                   </li>
                 </ul>
-                <button className="coliving-link-btn teal" onClick={openInfoModal}>
+                <button className="coliving-link-btn teal" onClick={()=>{
+                  navigate('/newcoliving')
+                }}>
                   Learn more <FaArrowRight className="arrow-icon" />
                 </button>
               </div>

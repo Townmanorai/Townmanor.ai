@@ -7,7 +7,7 @@ const initialRoom = {
   area: '',
   bathroom: '',
   bedroom: '',
-  dedicated_work_space: false,
+  dedicated_work_space: '0',
   image: null,
 };
 
@@ -77,7 +77,7 @@ export default function ColivingRoomForm({ onRoomsChange, propertyId}) {
       price: Number(room.price),
       area: Number(room.area),
       bathroom: Number(room.bathroom),
-      dedicated_work_space: room.dedicated_work_space ? 1 : 0,
+      dedicated_work_space: Number(room.dedicated_work_space),
       image: imageUrl,
       property_id: propertyId,
     };
@@ -116,19 +116,31 @@ export default function ColivingRoomForm({ onRoomsChange, propertyId}) {
         </div>
         <div className={styles.formGroup}>
           <label>Area</label>
-          <input type="number" name="area" value={room.area} onChange={handleChange} required className={styles.input} />
+          <input type="number" name="area" value={room.area} onChange={handleChange} required className={styles.input} placeholder="enter room area in sq.ft" />
         </div>
         <div className={styles.formGroup}>
-          <label>Bathroom</label>
-          <input type="number" name="bathroom" value={room.bathroom} onChange={handleChange} required className={styles.input} />
+          <label>Attached bathroom</label>
+          <select name="bathroom" value={room.bathroom} onChange={handleChange} required className={styles.input}>
+            <option value="" disabled>Select an option</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
         </div>
         <div className={styles.formGroup}>
-          <label>Bedroom</label>
-          <input type="text" name="bedroom" value={room.bedroom} onChange={handleChange} required placeholder="e.g. Shared Room, Private Room" className={styles.input} />
+          <label>Bed size</label>
+          <select name="bedroom" value={room.bedroom} onChange={handleChange} required className={styles.input}>
+            <option value="" disabled>Select a bed size</option>
+            <option value="Queen size">Queen size</option>
+            <option value="single bed">Single bed</option>
+            <option value="normal size">Normal size</option>
+          </select>
         </div>
-        <div className={styles.formGroup + ' ' + styles.checkboxGroup}>
+        <div className={styles.formGroup}>
           <label>Dedicated Work Space</label>
-          <input type="checkbox" name="dedicated_work_space" checked={room.dedicated_work_space} onChange={handleChange} />
+          <select name="dedicated_work_space" value={room.dedicated_work_space} onChange={handleChange} className={styles.input}>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
         </div>
         <div className={styles.formGroup + ' ' + styles.imageUpload}>
           <label>Image</label>
@@ -151,8 +163,8 @@ export default function ColivingRoomForm({ onRoomsChange, propertyId}) {
               <div className={styles.roomDetails}>
                 <div><b>Price:</b> {r.price}</div>
                 <div><b>Area:</b> {r.area}</div>
-                <div><b>Bathroom:</b> {r.bathroom}</div>
-                <div><b>Bedroom:</b> {r.bedroom}</div>
+                <div><b>Attached bathroom:</b> {r.bathroom ? 'Yes' : 'No'}</div>
+                <div><b>Bed size:</b> {r.bedroom}</div>
                 <div><b>Dedicated Work Space:</b> {r.dedicated_work_space ? 'Yes' : 'No'}</div>
               </div>
               {r.image && <img src={r.image} alt="room" className={styles.roomImage} />}
