@@ -1,0 +1,131 @@
+/* ColivingForm unique styles to avoid conflicts */
+.colivingform_unique_formContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: #fff;
+  margin-top: 4rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  padding: 2rem 2.5rem;
+}
+.colivingform_unique_heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #2d3a4a;
+  text-align: center;
+}
+.colivingform_unique_formGroup {
+  margin-bottom: 1.3rem;
+}
+.colivingform_unique_label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #34495e;
+}
+.colivingform_unique_input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+.colivingform_unique_textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  resize: vertical;
+}
+.colivingform_unique_button {
+  background: #2d7ff9;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
+.colivingform_unique_button:disabled {
+  background: #b3c6e0;
+  cursor: not-allowed;
+}
+.colivingform_unique_tagInputWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  background: #f7f7fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 0.5rem;
+}
+.colivingform_unique_tag {
+  background: #e3f2fd;
+  color: #1976d2;
+  border-radius: 4px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.97rem;
+  display: flex;
+  align-items: center;
+}
+.colivingform_unique_tagRemove {
+  background: none;
+  border: none;
+  color: #b71c1c;
+  font-size: 1.1em;
+  margin-left: 0.3em;
+  cursor: pointer;
+}
+.colivingform_unique_tagInput {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: transparent;
+  flex: 1;
+  min-width: 120px;
+}
+.colivingform_unique_imagePreviewWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 0.7rem;
+}
+.colivingform_unique_imagePreview {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  background: #fafbfc;
+}
+.colivingform_unique_imageThumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.colivingform_unique_imageRemove {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: #fff;
+  border: none;
+  color: #b71c1c;
+  font-size: 1.2em;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

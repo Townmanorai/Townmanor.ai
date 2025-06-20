@@ -14,13 +14,7 @@ const ColivingPaymentSuccess = () => {
       try {
         // Get property ID from localStorage
         const propertyId = localStorage.getItem('propertyId');
-        const paymentType = localStorage.getItem('paymentType');
-
-        // Verify this is a coliving payment
-        if (paymentType !== 'coliving') {
-          throw new Error('Invalid payment type');
-        }
-
+       
         if (!propertyId) {
           throw new Error('Property ID not found');
         }
@@ -39,7 +33,7 @@ const ColivingPaymentSuccess = () => {
         if (response.data.success) {
           // Clear localStorage
           localStorage.removeItem('propertyId');
-          localStorage.removeItem('paymentType');
+         
         } else {
           throw new Error('Failed to update room status');
         }
