@@ -112,7 +112,7 @@ const ColivingPricing = ({ coliving }) => {
             data.data.map((room) => ({
               id: room.id,
               title: room.bedroom || `Room ${room.id}`,
-              img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80", // Placeholder image
+              img: room.image || "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80", // Use image from API
               price: `₹${room.price?.toLocaleString() || "-"}/month`,
               details: [
                 `${room.area || "-"} sqft`,
@@ -240,7 +240,7 @@ const ColivingPricing = ({ coliving }) => {
               <div className="colivingPricingUniqueRoomInfo">
                 <div>
                   <div className="colivingPricingUniqueRoomTitle">
-                    {room.title}
+                    Room {room.id}
                   </div>
                   <div className="colivingPricingUniqueRoomDetails">
                     {room.details.map((d, i) => (
@@ -268,9 +268,9 @@ const ColivingPricing = ({ coliving }) => {
                   >
                     Book Now
                   </button>
-                  <button className="colivingPricingUniqueViewBtn">
+                  {/* <button className="colivingPricingUniqueViewBtn">
                     View Details
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
@@ -310,8 +310,8 @@ const ColivingPricing = ({ coliving }) => {
               />
             )} */}
             <Map results={[{ 
-                  lat: parseFloat(coliving.lat), 
-                  lng: parseFloat(coliving.lng),
+                  lat: parseFloat(coliving.latitude), 
+                  lng: parseFloat(coliving.longitude),
                   property_name: coliving.property_name,
                   locality: coliving.address,
                   city: 'Bangalore'
@@ -355,8 +355,8 @@ const ColivingPricing = ({ coliving }) => {
         </div>
         {rooms[selectedRoomIdx] && (
           <div className="colivingPricingUniqueSidebarRoomSummary">
-            <div className="colivingPricingUniqueSidebarRoomTitle">{rooms[selectedRoomIdx].title}</div>
-            <div className="colivingPricingUniqueSidebarRoomId">Room ID: {rooms[selectedRoomIdx].id}</div>
+            <div className="colivingPricingUniqueSidebarRoomTitle"> Room: {rooms[selectedRoomIdx].id}</div>
+            {/* <div className="colivingPricingUniqueSidebarRoomId">Room ID: {rooms[selectedRoomIdx].id}</div> */}
             <div className="colivingPricingUniqueSidebarRoomFeatures">
               {rooms[selectedRoomIdx].details.map((d, i) => (
                 <span className="colivingPricingUniqueSidebarRoomFeature" key={i}>{d}</span>
@@ -367,12 +367,16 @@ const ColivingPricing = ({ coliving }) => {
               6 month lock-in
             </div>
             <div className="colivingPricingUniqueSidebarRoomPrice">{rooms[selectedRoomIdx].price}</div>
-            <button className="colivingPricingUniqueSidebarChatBtn">
+            <button className="colivingPricingUniqueSidebarChatBtn" disabled={!rooms[selectedRoomIdx]?.bookable}
+                    onClick={() => {
+                      setSelectedRoom(rooms[selectedRoomIdx]);
+                      setIsPaymentModalOpen(true);
+                    }}>
               <span className="colivingPricingUniqueSidebarChatIcon">💬</span> Book Now 
             </button>
-            <button className="colivingPricingUniqueSidebarVisitBtn">
+            {/* <button className="colivingPricingUniqueSidebarVisitBtn">
               <span className="colivingPricingUniqueSidebarVisitIcon">📅</span> Schedule A Visit
-            </button>
+            </button> */}
           </div>
         )}
       </div>

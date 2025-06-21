@@ -189,12 +189,9 @@
 }
 
 .colivingPricingUniqueSidebarTabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 12px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: thin;
+  display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
 }
 
 .colivingPricingUniqueSidebarTab {
