@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import './BookingForm.css';
+import Cookies from 'js-cookie';
+import { jwtDecode } from 'jwt-decode';
 
 const BookingForm = ({ room, coliving, onFormSubmit, onCancel }) => {
   const [formData, setFormData] = useState({
     phoneNumber: '',
     aadharCard: '',
   });
-     const token = Cookies.get('jwttoken');
-        if (!token) {
-          alert('Please login to proceed.');
-          return;
-        }
-        const decodedToken = jwtDecode(token);
-        const username = decodedToken.username;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -20,17 +16,26 @@ const BookingForm = ({ room, coliving, onFormSubmit, onCancel }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    localStorage.setItem('room_id', room.id);
 
-    const payload = {
-     username:username,
-      property_name:coliving.property_name,
-      phone_no: formData.phoneNumber,
-      adhar_number: formData.aadharCard,
-      occupied: 1,
-    };
+    const token = Cookies.get('jwttoken');
+    if (!token) {
+      alert('Please login to proceed.');
+      return;
+    }
 
     try {
+      const decodedToken = jwtDecode(token);
+      const username = decodedToken.username;
+      localStorage.setItem('room_id', room.id);
+
+      const payload = {
+        username: username,
+        property_name: coliving.property_name,
+        phone_no: formData.phoneNumber,
+        adhar_number: formData.aadharCard,
+        occupied: 1,
+      };
+
       const response = await fetch(`https://townmanor.ai/api/coliving-rooms/${room.id}`, {
         method: 'PUT',
         headers: {
@@ -42,19 +47,18 @@ const BookingForm = ({ room, coliving, onFormSubmit, onCancel }) => {
       if (!response.ok) {
         let errorMsg = 'Failed to submit booking.';
         try {
-            const errorData = await response.json();
-            errorMsg = errorData.message || `Failed with status: ${response.status}`;
+          const errorData = await response.json();
+          errorMsg = errorData.message || `Failed with status: ${response.status}`;
         } catch (jsonError) {
-            errorMsg = `Failed with status: ${response.status}`;
+          errorMsg = `Failed with status: ${response.status}`;
         }
         throw new Error(errorMsg);
       }
 
       const result = await response.json();
       console.log('Submission successful:', result);
-      
-      onFormSubmit(formData);
 
+      onFormSubmit(formData);
     } catch (error) {
       console.error('Submission error:', error);
       alert(`Error: ${error.message}`);
