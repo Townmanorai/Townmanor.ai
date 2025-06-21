@@ -26,6 +26,7 @@ import { jwtDecode } from 'jwt-decode';
 import axios from "axios";
 import "./colivingPricingUnique.css";
 import Map from '../SearchProperty/Map';
+import BookingForm from './BookingForm';
 // Hardcoded data as before
 const rooms = [
   {
@@ -99,8 +100,9 @@ const nearby = [
 const ColivingPricing = ({ coliving }) => {
   const [rooms, setRooms] = useState([]);
   const [selectedRoomIdx, setSelectedRoomIdx] = useState(0);
-  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
-  const [selectedRoom, setSelectedRoom] = useState(null);
+    const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+  const [isBookingFormOpen, setIsBookingFormOpen] = useState(false);
+    const [selectedRoom, setSelectedRoom] = useState(null);
 
   useEffect(() => {
     if (!coliving?.id) return;
@@ -146,6 +148,37 @@ const ColivingPricing = ({ coliving }) => {
     .split(",")
     .map((n) => n.trim())
     .filter(Boolean);
+
+    const handleBookingFormSubmit = async (formData) => {
+    try {
+      const token = Cookies.get('jwttoken');
+      if (!token) {
+        alert('Please login to proceed.');
+        return;
+      }
+      const decodedToken = jwtDecode(token);
+      const username = decodedToken.username;
+
+      const apiData = {
+        user_name: username,
+        property_name: coliving.property_name,
+        phone_no: formData.phoneNumber,
+        adhar_number: formData.aadharCard,
+      };
+
+      const response = await axios.put(`https://townmanor.ai/api/coliving-rooms/${selectedRoom.id}`, apiData);
+
+      if (response.data.success) {
+        setIsBookingFormOpen(false);
+        handlePayment(selectedRoom);
+      } else {
+        throw new Error(response.data.message || 'Failed to submit booking details.');
+      }
+    } catch (error) {
+      console.error('Booking submission failed:', error);
+      alert(error.response?.data?.message || error.message || 'Failed to submit booking details.');
+    }
+  };
 
   const handlePayment = async (room) => {
     try {
@@ -252,8 +285,8 @@ const ColivingPricing = ({ coliving }) => {
                   </div>
                   {room.booked && (
                     <div className="colivingPricingUniqueRoomBooked">
-                      Currently occupied by {room.bookedBy} until{" "}
-                      {room.bookedUntil}
+                      Currently occupied by {room.username} for 1 month
+                      
                     </div>
                   )}
                 </div>
@@ -263,7 +296,7 @@ const ColivingPricing = ({ coliving }) => {
                     disabled={!room.bookable}
                     onClick={() => {
                       setSelectedRoom(room);
-                      setIsPaymentModalOpen(true);
+                      setIsBookingFormOpen(true);
                     }}
                   >
                     Book Now
@@ -370,7 +403,7 @@ const ColivingPricing = ({ coliving }) => {
             <button className="colivingPricingUniqueSidebarChatBtn" disabled={!rooms[selectedRoomIdx]?.bookable}
                     onClick={() => {
                       setSelectedRoom(rooms[selectedRoomIdx]);
-                      setIsPaymentModalOpen(true);
+                      setIsBookingFormOpen(true);
                     }}>
               <span className="colivingPricingUniqueSidebarChatIcon">💬</span> Book Now 
             </button>
@@ -382,6 +415,15 @@ const ColivingPricing = ({ coliving }) => {
       </div>
 
       {/* Payment Modal */}
+            {isBookingFormOpen && selectedRoom && (
+        <BookingForm
+          room={selectedRoom}
+          coliving={coliving}
+          onFormSubmit={handleBookingFormSubmit}
+          onCancel={() => setIsBookingFormOpen(false)}
+        />
+      )}
+
       {isPaymentModalOpen && selectedRoom && (
         <div className="payment-modal-overlay" onClick={() => setIsPaymentModalOpen(false)}>
           <div className="payment-modal" onClick={(e) => e.stopPropagation()}>
