@@ -34,7 +34,7 @@ const ColivingBanner = ({ coliving }) => {
               borderRadius: '8px',
               padding: '4px 10px',
               fontSize: '15px',
-              fontWeight: 500,
+              fontWeight: 400,
               display: 'inline-block',
             }}
           >

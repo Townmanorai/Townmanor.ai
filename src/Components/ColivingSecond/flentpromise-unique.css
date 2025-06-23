@@ -12,9 +12,12 @@
 
 .flentpromise-unique-title {
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 400;
   color: black;
   margin-bottom: 24px;
+  text-align: center;
+ 
+  width: 100%;
 }
 
 .flentpromise-unique-list {
