@@ -29,8 +29,7 @@ const BookingForm = ({ room, coliving, onFormSubmit, onCancel }) => {
       localStorage.setItem('room_id', room.id);
 
       const payload = {
-        username: username,
-        property_name: coliving.property_name,
+       
         phone_no: formData.phoneNumber,
         adhar_number: formData.aadharCard,
         occupied: 1,
