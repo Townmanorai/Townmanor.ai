@@ -118,6 +118,8 @@ import ColivingMain from './Components/ColivingSecond/ColivingMain.jsx';
 import ColivingPaymentSuccess from './Components/ColivingSecond/ColivingPaymentSuccess.jsx';
 
 import ColivingMainForm from './Components/coliving/ColivingMainForm.jsx';
+import BookingForm from './Components/ColivingSecond/BookingForm.jsx';
+import UserService from './Components/userdashboard/UserService.jsx';
 
 
 
@@ -279,6 +281,7 @@ function App() {
               <Route path='/userdashboard-lead' element={<UserLeadsManagement/>}/>
               <Route path='/userdashboard-property' element={<UserPropertiesCardGrid/>}/>
               <Route path='/userdashboard-agent' element={<BecomeFeaturedAgent/>}/>
+              <Route path='/userdashboard-service' element={<UserService/>}/>
               <Route path='/newcoliving' element={<ColivingNoida/>}/>
               <Route path='/newRentAgreement' element={<Rent/>}/>
              
@@ -294,6 +297,7 @@ function App() {
                 <Route path='/colivingsecond/:index' element={<ColivingMain/>}/>
                 <Route path='/colivingpaymentpage' element={<ColivingPaymentSuccess/>}/>
                 <Route path='/Colivingform' element={<ColivingMainForm/>}></Route>
+                <Route path='/ColivingBookingPage' element={<BookingForm/>}></Route>
                  
             </Routes>
           </main>

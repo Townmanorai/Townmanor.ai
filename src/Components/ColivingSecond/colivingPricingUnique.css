@@ -233,16 +233,19 @@
 }
 
 .colivingPricingUniqueSidebarRoomFeatures {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 2px;
+  display: grid
+  ;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 2px;
 }
 .colivingPricingUniqueSidebarRoomFeature {
   font-size: 14px;
   color: #555;
   display: flex;
   align-items: center;
-  gap: 7px; /* increased gap for icon spacing */
+  gap: 7px; 
+  font-weight: 500;/* increased gap for icon spacing */
 }
 
 .colivingPricingUniqueSidebarRoomFeatureIcon {

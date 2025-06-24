@@ -40,6 +40,9 @@ const UserDashboardNavbar = () => {
         <a className="udnav_link" href="#" onClick={()=>{
           navigate('/userdashboard-profile')
         }}>My Profile</a>
+        <a className="udnav_link" href="#" onClick={()=>{
+          navigate('/userdashboard-service')
+        }}>Services</a>
         <button className="udnav_add_btn" onClick={()=>{
           navigate('/newform')
         }}

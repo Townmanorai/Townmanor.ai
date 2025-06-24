@@ -177,9 +177,7 @@
 }
 
 @media only screen and (max-width:920px){
-  .popular-listing.hp2{
-    margin-top: 80px !important;
-  }
+  
   .popular-listing.hp2.section-padding.widget_edit_enabled.mt-4.nps.bps{
     padding-top: 25px !important;
   }

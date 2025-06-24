@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   FaShieldAlt,
   FaCar,
@@ -100,9 +101,8 @@ const nearby = [
 const ColivingPricing = ({ coliving }) => {
   const [rooms, setRooms] = useState([]);
   const [selectedRoomIdx, setSelectedRoomIdx] = useState(0);
-    const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
-  const [isBookingFormOpen, setIsBookingFormOpen] = useState(false);
-    const [selectedRoom, setSelectedRoom] = useState(null);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!coliving?.id) return;
@@ -119,12 +119,12 @@ const ColivingPricing = ({ coliving }) => {
               details: [
                 `${room.area || "-"} sqft`,
                 room.bedroom,
-                room.dedicated_work_space ? "Workspace" : null,
-                room.bathroom ? `Bathroom: ${room.bathroom}` : null,
+                room.dedicated_work_space ? "Dedicated workspace" : null,
+                room.bathroom ? `Bathroom: Attached` : null,
               ].filter(Boolean),
               booked: !!room.occupied,
               bookable: !room.occupied,
-              bookedBy: room.occupied || undefined,
+              bookedBy: room.user_name || undefined,
               bookedUntil: undefined, // Not provided by API
             }))
           );
@@ -149,110 +149,7 @@ const ColivingPricing = ({ coliving }) => {
     .map((n) => n.trim())
     .filter(Boolean);
 
-    const handleBookingFormSubmit = async (formData) => {
-    try {
-      const token = Cookies.get('jwttoken');
-      if (!token) {
-        alert('Please login to proceed.');
-        return;
-      }
-      const decodedToken = jwtDecode(token);
-      const username = decodedToken.username;
 
-      const apiData = {
-        user_name: username,
-        property_name: coliving.property_name,
-        phone_no: formData.phoneNumber,
-        adhar_number: formData.aadharCard,
-      };
-
-      const response = await axios.put(`https://townmanor.ai/api/coliving-rooms/${selectedRoom.id}`, apiData);
-
-      if (response.data.success) {
-        setIsBookingFormOpen(false);
-        handlePayment(selectedRoom);
-      } else {
-        throw new Error(response.data.message || 'Failed to submit booking details.');
-      }
-    } catch (error) {
-      console.error('Booking submission failed:', error);
-      alert(error.response?.data?.message || error.message || 'Failed to submit booking details.');
-    }
-  };
-
-  const handlePayment = async (room) => {
-    try {
-      // Get JWT token and decode user data
-      const token = Cookies.get('jwttoken');
-      if (!token) {
-        alert('Please login to proceed with payment');
-        return;
-      }
-
-      const decodedToken = jwtDecode(token);
-      const username = decodedToken.username;
-
-      // Fetch user details from API
-      const userResponse = await fetch(`https://www.townmanor.ai/api/user/${username}`);
-      if (!userResponse.ok) {
-        throw new Error('Failed to fetch user data');
-      }
-      const userData = await userResponse.json();
-      
-      // Generate a unique transaction ID
-      const txnid = 'OID' + Date.now();
-      
-      // Store property ID and payment type in localStorage
-      localStorage.setItem('propertyId', coliving.id);
-      localStorage.setItem('paymentType', 'coliving');
-      
-      // Prepare payment details with PayU structure
-      const paymentData = {
-        key: 'UvTrjC', // PayU Merchant Key
-        txnid: txnid,
-        amount: '1.00', // For testing, amount is 1 rupee
-        productinfo: 'Coliving Room Booking',
-        firstname: userData.name || username || '',
-        email: userData.email || '',
-        phone: userData.phone || '',
-        surl: `https://townmanor.ai/api/boster/payu/success`,
-        furl: `https://townmanor.ai/api/boster/payu/failure`,
-        udf1: room.id, // Custom field for room ID
-        service_provider: 'payu_paisa'
-      };
-
-      // Call backend to get payment hash and URL
-      const response = await axios.post('https://townmanor.ai/api/payu/payment', paymentData);
-
-      if (!response.data || !response.data.paymentUrl || !response.data.params) {
-        throw new Error('Invalid payment response received');
-      }
-
-      // Create and submit payment form
-      const form = document.createElement('form');
-      form.method = 'POST';
-      form.action = response.data.paymentUrl;
-
-      // Add all the PayU parameters received from backend
-      Object.entries(response.data.params).forEach(([key, value]) => {
-        if (value !== undefined && value !== null) {
-          const input = document.createElement('input');
-          input.type = 'hidden';
-          input.name = key;
-          input.value = value.toString();
-          form.appendChild(input);
-        }
-      });
-
-      document.body.appendChild(form);
-      form.submit();
-      document.body.removeChild(form);
-    } catch (error) {
-      console.error('Payment initiation failed:', error);
-      alert(error.response?.data?.message || error.message || 
-        'Failed to initiate payment. Please ensure all required information is provided and try again.');
-    }
-  };
 
   return (
     <div className="colivingPricingUniqueWrap">
@@ -285,7 +182,7 @@ const ColivingPricing = ({ coliving }) => {
                   </div>
                   {room.booked && (
                     <div className="colivingPricingUniqueRoomBooked">
-                      Currently occupied by {room.username} for 1 month
+                      Currently occupied by {room.bookedBy} for 1 month
                       
                     </div>
                   )}
@@ -295,8 +192,17 @@ const ColivingPricing = ({ coliving }) => {
                     className="colivingPricingUniqueBookBtn"
                     disabled={!room.bookable}
                     onClick={() => {
-                      setSelectedRoom(room);
-                      setIsBookingFormOpen(true);
+                      const token = Cookies.get('jwttoken');
+                      if (!token) {
+                        setShowLoginModal(true);
+                        return;
+                      }
+                      navigate('/ColivingBookingPage', {
+                        state: {
+                          room: room,
+                          coliving: coliving
+                        }
+                      });
                     }}
                   >
                     Book Now
@@ -402,11 +308,37 @@ const ColivingPricing = ({ coliving }) => {
             <div className="colivingPricingUniqueSidebarRoomPrice">{rooms[selectedRoomIdx].price}</div>
             <button className="colivingPricingUniqueSidebarChatBtn" disabled={!rooms[selectedRoomIdx]?.bookable}
                     onClick={() => {
-                      setSelectedRoom(rooms[selectedRoomIdx]);
-                      setIsBookingFormOpen(true);
+                      const token = Cookies.get('jwttoken');
+                      if (!token) {
+                        setShowLoginModal(true);
+                        return;
+                      }
+                      navigate('/ColivingBookingPage', {
+                        state: {
+                          room: rooms[selectedRoomIdx],
+                          coliving: coliving
+                        }
+                      });
                     }}>
               <span className="colivingPricingUniqueSidebarChatIcon">💬</span> Book Now 
             </button>
+
+            {/* Login Modal */}
+            {showLoginModal && (
+              <div className="login-modal-overlay" style={{
+                position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'rgba(0,0,0,0.4)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center'
+              }}>
+                <div className="login-modal-content" style={{
+                  background: 'white', padding: 32, borderRadius: 8, boxShadow: '0 4px 24px rgba(0,0,0,0.2)', minWidth: 320, textAlign: 'center', position: 'relative'
+                }}>
+                  <h3 style={{marginBottom: 16}}>Please Login</h3>
+                  <p style={{marginBottom: 24}}>Please login first in order to book a room.</p>
+                  <button style={{marginRight: 12}} className="btn btn-primary" onClick={() => { window.location.href = '/auth'; }}>Login</button>
+                  <button className="btn btn-secondary" onClick={() => setShowLoginModal(false)}>Close</button>
+                </div>
+              </div>
+            )}
+
             {/* <button className="colivingPricingUniqueSidebarVisitBtn">
               <span className="colivingPricingUniqueSidebarVisitIcon">📅</span> Schedule A Visit
             </button> */}
@@ -414,53 +346,7 @@ const ColivingPricing = ({ coliving }) => {
         )}
       </div>
 
-      {/* Payment Modal */}
-            {isBookingFormOpen && selectedRoom && (
-        <BookingForm
-          room={selectedRoom}
-          coliving={coliving}
-          onFormSubmit={handleBookingFormSubmit}
-          onCancel={() => setIsBookingFormOpen(false)}
-        />
-      )}
 
-      {isPaymentModalOpen && selectedRoom && (
-        <div className="payment-modal-overlay" onClick={() => setIsPaymentModalOpen(false)}>
-          <div className="payment-modal" onClick={(e) => e.stopPropagation()}>
-            <div className="payment-modal-header">
-              <h2>Payment Summary</h2>
-              <button onClick={() => setIsPaymentModalOpen(false)} className="payment-modal-close">
-                ×
-              </button>
-            </div>
-            <div className="payment-modal-content">
-              <div className="payment-summary">
-                <div className="payment-summary-item">
-                  <span>Room Type</span>
-                  <span>{selectedRoom.title}</span>
-                </div>
-                <div className="payment-summary-item">
-                  <span>Amount</span>
-                  <span>₹1.00</span>
-                </div>
-                <div className="payment-summary-total">
-                  <span>Total Amount</span>
-                  <span>₹1.00</span>
-                </div>
-                <button
-                  className="payment-proceed-btn"
-                  onClick={() => handlePayment(selectedRoom)}
-                >
-                  Pay Now
-                </button>
-                <div className="payment-icons">
-                  <FaCreditCard /> <FaCcVisa /> <FaCcMastercard />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

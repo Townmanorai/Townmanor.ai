@@ -1,0 +1,156 @@
+/* Unique, specific class names for BookingForm component */
+.tmnBooking__container {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  margin: 0px auto;
+  margin-top: 4rem;
+  padding: 0;
+  max-width: 1000px;
+  font-family: 'Inter', sans-serif;
+}
+.tmnBooking__header {
+  display: flex;
+  align-items: flex-start;
+  padding: 24px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.tmnBooking__img {
+  width: 180px;
+  height: 120px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-left: 24px;
+}
+.tmnBooking__title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+.tmnBooking__address {
+  color: #7d7d7d;
+  font-size: 0.97rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.tmnBooking__badge {
+  background: #eaf3ff;
+  color: #2a6ae9;
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 8px;
+  margin-left: 6px;
+}
+.tmnBooking__features {
+  display: flex;
+  gap: 18px;
+  margin-top: 5px;
+}
+.tmnBooking__feature {
+  color: #7d7d7d;
+  font-size: 0.92rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tmnBooking__section {
+  padding: 24px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.tmnBooking__section:last-child {
+  border-bottom: none;
+}
+.tmnBooking__termsBox {
+  background: #fafbfc;
+  border-radius: 7px;
+  padding: 13px 17px;
+  font-size: 1rem;
+  height: fit-content;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  border: 1px solid #e5e5e5;
+}
+.tmnBooking__checkboxRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  gap: 7px;
+}
+.tmnBooking__checkbox {
+  accent-color: #2a6ae9;
+  width: 15px;
+  height: 15px;
+}
+.tmnBooking__inputRow {
+  display: flex;
+  gap: 10px;
+  margin-top: 7px;
+}
+.tmnBooking__input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  font-size: 0.97rem;
+  background: #fafbfc;
+  outline: none;
+  transition: border 0.2s;
+}
+.tmnBooking__input:focus {
+  border: 1.5px solid #2a6ae9;
+}
+.tmnBooking__summaryTable {
+  width: 100%;
+  font-size: 0.97rem;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+.tmnBooking__summaryTable td {
+  padding: 3px 0;
+}
+.tmnBooking__summaryLabel {
+  color: #7d7d7d;
+}
+.tmnBooking__summaryValue {
+  text-align: right;
+  font-weight: 500;
+}
+.tmnBooking__totalRow {
+  font-weight: 600;
+  color: #2a6ae9;
+}
+.tmnBooking__payBtn {
+  width: 100%;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 11px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: not-allowed;
+  margin-top: 7px;
+  transition: background 0.2s;
+}
+.tmnBooking__footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 24px 18px 24px;
+}
+.tmnBooking__designed {
+  font-size: 0.78rem;
+  color: #9ca6b8;
+  background: #f7f7f7;
+  border-radius: 6px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.tmnBooking__footerLogo {
+  width: 15px;
+  height: 15px;
+  margin-left: 3px;
+}
