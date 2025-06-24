@@ -161,32 +161,40 @@ const ColivingPricing = ({ coliving }) => {
         </div>
         <div className="colivingPricingUniqueRooms">
           {rooms.map((room) => (
-            <div className="colivingPricingUniqueRoomCard" key={room.id}>
-              <img
-                className="colivingPricingUniqueRoomImg"
-                src={room.img}
-                alt={room.title}
-              />
-              <div className="colivingPricingUniqueRoomInfo">
-                <div>
-                  <div className="colivingPricingUniqueRoomTitle">
-                    Room {room.id}
-                  </div>
-                  <div className="colivingPricingUniqueRoomDetails">
-                    {room.details.map((d, i) => (
-                      <span key={i}>{d}</span>
-                    ))}
-                  </div>
-                  <div className="colivingPricingUniqueRoomPrice">
-                    {room.price}
-                  </div>
-                  {room.booked && (
-                    <div className="colivingPricingUniqueRoomBooked">
-                      Currently occupied by {room.bookedBy} for 1 month
-                      
-                    </div>
-                  )}
+            <div className="colivingPricingCardContainer" key={room.id}>
+              <div className="colivingPricingCardImageSection">
+                <img
+                  className="colivingPricingCardImage"
+                  src={room.img}
+                  alt={room.title}
+                />
+                {/* {room.booked && (
+                  <div className="colivingPricingCardBookedBadge">Booked</div>
+                )} */}
+              </div>
+              <div className="colivingPricingCardDetailsSection">
+                <div className="colivingPricingCardHeader">
+                  <span className="colivingPricingCardRoomTitle">Room {room.id}</span>
                 </div>
+                <div className="colivingPricingCardRentSection">
+                  {/* <span className="colivingPricingCardRentLabel">Rent</span> */}
+                  <span className="colivingPricingCardRentValue">{room.price}</span>
+                  {/* <span className="colivingPricingCardRentSub">/month</span> */}
+                  {/* <div className="colivingPricingCardDeposit">+Additional Deposit Initially</div> */}
+                </div>
+                <div className="colivingPricingCardFeatures">
+                  {room.details.map((d, i) => (
+                    <div className="colivingPricingCardFeature" key={i}>{d}</div>
+                  ))}
+                </div>
+                {room.bookedBy && (
+                  <div className="colivingPricingCardOccupantSection">
+                    <div className="colivingPricingCardOccupantLabel">Current Occupant</div>
+                    <div className="colivingPricingCardOccupantDetails">
+                      <i className="fa fa-user"></i> {room.bookedBy}
+                    </div>
+                  </div>
+                )}
                 <div className="colivingPricingUniqueRoomActions">
                   <button
                     className="colivingPricingUniqueBookBtn"
@@ -207,9 +215,6 @@ const ColivingPricing = ({ coliving }) => {
                   >
                     Book Now
                   </button>
-                  {/* <button className="colivingPricingUniqueViewBtn">
-                    View Details
-                  </button> */}
                 </div>
               </div>
             </div>
@@ -306,22 +311,27 @@ const ColivingPricing = ({ coliving }) => {
               6 month lock-in
             </div>
             <div className="colivingPricingUniqueSidebarRoomPrice">{rooms[selectedRoomIdx].price}</div>
-            <button className="colivingPricingUniqueSidebarChatBtn" disabled={!rooms[selectedRoomIdx]?.bookable}
-                    onClick={() => {
-                      const token = Cookies.get('jwttoken');
-                      if (!token) {
-                        setShowLoginModal(true);
-                        return;
-                      }
-                      navigate('/ColivingBookingPage', {
-                        state: {
-                          room: rooms[selectedRoomIdx],
-                          coliving: coliving
-                        }
-                      });
-                    }}>
-              <span className="colivingPricingUniqueSidebarChatIcon">💬</span> Book Now 
-            </button>
+            <button
+  className="colivingPricingUniqueSidebarChatBtn"
+  disabled={!rooms[selectedRoomIdx]?.bookable}
+  onClick={() => {
+    const token = Cookies.get('jwttoken');
+    if (!token) {
+      setShowLoginModal(true);
+      return;
+    }
+    navigate('/ColivingBookingPage', {
+      state: {
+        room: rooms[selectedRoomIdx],
+        coliving: coliving
+      }
+    });
+  }}
+>
+  <span className="colivingPricingUniqueSidebarChatIcon">💬</span>
+  {rooms[selectedRoomIdx]?.bookable ? 'Book Now' : 'Not Available'}
+</button>
+
 
             {/* Login Modal */}
             {showLoginModal && (
