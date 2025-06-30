@@ -180,7 +180,10 @@ const PropertyListings = () => {
   };
   const pageTitle = `Property Listings in ${filters.city}`;
   const pageDescription = `Explore the best properties in ${filters.city}. Filter by price, configuration, and more to find your dream home.`;
-
+  const slugify = (str) =>
+  {
+   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-')  // Replace non-alphanumerics with dashes.replace(/^-+|-+$/g, '');     // Trim dashes from ends
+  }
   return (
     <>
        <Helmet>
@@ -488,7 +491,7 @@ const PropertyListings = () => {
             ) : currentProperties.length > 0 ? (
               currentProperties.map((property) => (
                 <div key={property.id} className="realty-card" onClick={()=>{
-                  navigate(`/newadminpage/${property.id}`)
+                  navigate(`/en/newadminpage/${property.id}/${slugify(property.property_name)}`)
                 }}>
                   <div className="realty-img-container">
                     {/* <img

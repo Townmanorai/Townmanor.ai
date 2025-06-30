@@ -120,6 +120,7 @@ import ColivingPaymentSuccess from './Components/ColivingSecond/ColivingPaymentS
 import ColivingMainForm from './Components/coliving/ColivingMainForm.jsx';
 import BookingForm from './Components/ColivingSecond/BookingForm.jsx';
 import UserService from './Components/userdashboard/UserService.jsx';
+import BookingUserDetail from './Components/ColivingSecond/BookingUserDetail.jsx';
 
 
 
@@ -272,8 +273,8 @@ function App() {
               <Route path='/adminproperty' element={<PropertyControl/>}/>
               <Route path='/editform/:index' element={<PropertyEditForm/>}/>
               <Route path='/adminlogin' element={<LoginAdmin/>}/>
-              <Route path='/newownerpage/:id' element={<OwnerPage/>}/>
-              <Route path='/newadminpage/:id' element={<MainAdmin/>}/>
+              <Route path='en/newownerpage/:id/:slug' element={<OwnerPage/>}/>
+              <Route path='en/newadminpage/:id/:slug' element={<MainAdmin/>}/>
               <Route path="/rental-listings" element={<RentalListings />} />
               <Route path='/userdashboard/:propertyId?' element={<DashboardComponent/>}/>
               <Route path="/rental-property/:id" element={<PropertyDetails />} />
@@ -298,7 +299,7 @@ function App() {
                 <Route path='/colivingpaymentpage' element={<ColivingPaymentSuccess/>}/>
                 <Route path='/Colivingform' element={<ColivingMainForm/>}></Route>
                 <Route path='/ColivingBookingPage' element={<BookingForm/>}></Route>
-                 
+                <Route path='/ColivingBookingUserDetail' element={<BookingUserDetail/>}></Route>
             </Routes>
           </main>
           <Footer />

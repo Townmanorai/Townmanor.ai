@@ -435,7 +435,10 @@ const NewSearchListingPage = () => {
             
                 return keywords.join(', ');
               };
-        
+         const slugify = (str) =>
+  {
+   return str.toLowerCase().replace(/[^a-z0-9]+/g, '-')  // Replace non-alphanumerics with dashes.replace(/^-+|-+$/g, '');     // Trim dashes from ends
+  }
         return (
             <>
             <Helmet>
@@ -505,7 +508,7 @@ const NewSearchListingPage = () => {
                     <div className="button-actions-container">
                        
                         <button className="btn-view-info" onClick={() => {
-                            navigate(`/newownerpage/${property.id}`)
+                            navigate(`/en/newownerpage/${property.id}/${slugify(property.property_name)}`)
                         }}>View Details</button>
                         <button className="btn-contact-agent" onClick={() => setShowModal(true)}>Connect Now</button>
                        

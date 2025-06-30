@@ -151,7 +151,7 @@ const BookingForm = () => {
         </div>
       </div>
 
-      {/* Personal Information */}
+      {/* Personal Information
       <div className="tmnBooking__section">
         <div style={{ fontWeight: 600, marginBottom: 7 }}>Personal Information</div>
         <div className="tmnBooking__inputRow">
@@ -174,29 +174,22 @@ const BookingForm = () => {
             required
           />
         </div>
-      </div>
+      </div> */}
 
-      {/* Payment Summary */}
+  
       <div className="tmnBooking__section">
-        <div style={{ fontWeight: 600, marginBottom: 7 }}>Payment Summary</div>
-        <table className="tmnBooking__summaryTable">
-          <tbody>
-            <tr>
-              <td className="tmnBooking__summaryLabel">Monthly Rent</td>
-              <td className="tmnBooking__summaryValue">₹{monthlyRent.toLocaleString()}</td>
-            </tr>
-            <tr>
-              <td className="tmnBooking__summaryLabel">GST (18%)</td>
-              <td className="tmnBooking__summaryValue">₹{gst.toLocaleString()}</td>
-            </tr>
-            <tr className="tmnBooking__totalRow">
-              <td className="tmnBooking__summaryLabel">Total Amount</td>
-              <td className="tmnBooking__summaryValue">₹{total.toLocaleString()}</td>
-            </tr>
-          </tbody>
-        </table>
-        <button className="tmnBooking__payBtn" disabled={!canProceed} onClick={handleBookingAndPayment}>
-          {loading ? 'Processing...' : 'Proceed to Payment'}
+        
+        <button
+          className="tmnBooking__payBtn"
+          onClick={() => {
+            if (room?.id && coliving?.id) {
+              localStorage.setItem('roomId', room.id);
+              localStorage.setItem('propertyId', coliving.id);
+            }
+            // Add any existing logic for moving to next step here
+          }}
+        >
+          Move to Next Step
         </button>
       </div>
 

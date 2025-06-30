@@ -213,7 +213,7 @@ const ColivingPricing = ({ coliving }) => {
                       });
                     }}
                   >
-                    Book Now
+                    Book Request
                   </button>
                 </div>
               </div>
@@ -329,7 +329,7 @@ const ColivingPricing = ({ coliving }) => {
   }}
 >
   <span className="colivingPricingUniqueSidebarChatIcon">💬</span>
-  {rooms[selectedRoomIdx]?.bookable ? 'Book Now' : 'Not Available'}
+  {rooms[selectedRoomIdx]?.bookable ? 'Book Request' : 'Not Available'}
 </button>
 
 

@@ -1,4 +1,6 @@
 import React, { useState, useRef } from 'react';
+import Cookies from 'js-cookie';
+import { jwtDecode } from 'jwt-decode';
 import styles from './ColivingRoomForm.module.css';
 
 
@@ -72,6 +74,13 @@ export default function ColivingRoomForm({ onRoomsChange, propertyId}) {
     if (imageFile) {
       imageUrl = await uploadImage();
     }
+    const token = Cookies.get('token');
+    let username = '';
+    if (token) {
+      const decodedToken = jwtDecode(token);
+      username = decodedToken.username;
+    }
+
     const newRoom = {
       ...room,
       price: Number(room.price),
@@ -80,6 +89,7 @@ export default function ColivingRoomForm({ onRoomsChange, propertyId}) {
       dedicated_work_space: Number(room.dedicated_work_space),
       image: imageUrl,
       property_id: propertyId,
+      username: username,
     };
     try {
       const response = await fetch('https://townmanor.ai/api/coliving-rooms', {
