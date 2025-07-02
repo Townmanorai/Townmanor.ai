@@ -186,7 +186,7 @@ const BookingForm = () => {
               localStorage.setItem('roomId', room.id);
               localStorage.setItem('propertyId', coliving.id);
             }
-            // Add any existing logic for moving to next step here
+            navigate('/coliving-user-detail');
           }}
         >
           Move to Next Step

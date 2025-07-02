@@ -195,7 +195,7 @@ const BookingUserDetail = () => {
             const paymentData = {
                 key: 'UvTrjC',
                 txnid: txnid,
-                amount: totalPrice.toFixed(2),
+                amount: 1.00,
                 productinfo: 'Room Booking',
                 firstname: userData.name || username || '',
                 email: userData.email || '',
