@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+
 import axios from 'axios';
 import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { differenceInDays, format } from 'date-fns';
 import './BookingUserDetail.css';
-
+import Cookies from 'js-cookie';
+import { jwtDecode } from 'jwt-decode';
 const BookingUserDetail = () => {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
@@ -20,9 +22,22 @@ const BookingUserDetail = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [isPhoneVerified, setIsPhoneVerified] = useState(false);
     const [profilePicture, setProfilePicture] = useState(null);
+    const [showPhotoUpload, setShowPhotoUpload] = useState(false);
+    const [bookingId, setBookingId] = useState(null);
+    const [photoUploaded, setPhotoUploaded] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [uploading, setUploading] = useState(false);
+    const [showConfirmation, setShowConfirmation] = useState(false);
 
     const roomId = localStorage.getItem('roomId');
-    const userId = localStorage.getItem('userId');
+    const userId = localStorage.getItem('propertyid');
+    const token = Cookies.get('jwttoken');
+    if (!token) {
+        alert('Please login to proceed.');
+        return;
+    }
+    const decodedToken = jwtDecode(token);
+    const username = decodedToken.username;
 
     useEffect(() => {
         if (roomId) {
@@ -35,7 +50,6 @@ const BookingUserDetail = () => {
                 });
         }
     }, [roomId]);
-    console.log(roomData.data.price);
 
     const handleSelect = (ranges) => {
         setStartDate(ranges.selection.startDate);
@@ -72,7 +86,7 @@ const BookingUserDetail = () => {
         console.log('Verifying Phone:', phoneNumber);
         setIsPhoneVerified(true); // Mock verification
     };
-    
+
     const handleFileChange = (e) => {
         setProfilePicture(e.target.files[0]);
     };
@@ -83,57 +97,159 @@ const BookingUserDetail = () => {
             alert('Please verify your Aadhar and Phone number.');
             return;
         }
-
+        setLoading(true);
+        
         const bookingDetails = {
-            user_id: userId,
+            user_id: 148, // This should be dynamic based on logged-in user
             room_id: roomId,
-            start_date: startDate.toISOString(),
-            end_date: endDate.toISOString(),
-            status: 'pending', // Or 'confirmed' after payment
+            start_date: format(startDate, 'yyyy-MM-dd'),
+            end_date: format(endDate, 'yyyy-MM-dd'),
+            status: 'pending',
             adhar_verification: isAdharVerified ? 1 : 0,
             phone_verification: isPhoneVerified ? 1 : 0,
             adhar_detail: adharNumber,
             price: totalPrice,
-            // payment_receipt and profile_picture would be handled via file upload
+            username: username,
         };
 
-        const formData = new FormData();
-        formData.append('bookingDetails', JSON.stringify(bookingDetails));
-        if (profilePicture) {
-            formData.append('profile_picture', profilePicture);
-        }
-
         try {
-            // Replace with your actual booking endpoint
-            const response = await axios.post('https://townmanor.ai/api/bookings', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-            console.log('Booking successful:', response.data);
-            alert('Booking successful!');
+            const response = await axios.post('https://townmanor.ai/api/bookings', bookingDetails);
+            if (response.data && response.data.booking && response.data.booking.id) {
+                setBookingId(response.data.booking.id);
+                setShowConfirmation(true);
+                // alert('Booking created! Please upload your photo.');
+                
+            } else {
+                // Fallback for different response structure
+                const potentialBookingId = response.data?.id || response.data?.bookingId;
+                if(potentialBookingId){
+                    setBookingId(potentialBookingId);
+                    setShowPhotoUpload(true);
+                    alert('Booking created! Please upload your photo.');
+                } else {
+                    throw new Error('Booking ID not found in response.');
+                }
+
+            }
+        
         } catch (error) {
-            console.error('Booking failed:', error);
-            alert('Booking failed. Please try again.');
+            console.error('Error creating booking:', error);
+            alert('Failed to create booking. ' + (error.response?.data?.message || error.message));
+        } finally {
+            setLoading(false);
         }
     };
 
-    const selectionRange = {
-        startDate: startDate,
-        endDate: endDate,
-        key: 'selection',
+    const handlePhotoUpload = async () => {
+        if (!profilePicture) {
+            alert('Please select a photo to upload.');
+            return;
+        }
+        setUploading(true);
+        const formData = new FormData();
+        formData.append('images', profilePicture);
+        
+        try {
+            const response = await fetch('https://www.townmanor.ai/api/image/aws-upload-owner-images', {
+                
+                method: 'POST',
+                body: formData,
+            });
+            
+            const data = await response.json();
+            console.log(data);
+            if (!data || !data.fileUrls || data.fileUrls.length === 0) {
+                throw new Error('Image URL not found in upload response.');
+            }
+
+            const imageUrl = data.fileUrls[0];
+
+            await axios.patch(`https://townmanor.ai/api/bookings/${bookingId}`, {
+                profile_picture: imageUrl,
+            });
+
+            alert('Photo uploaded successfully!');
+            setPhotoUploaded(true);
+            setShowPhotoUpload(false);
+
+        } catch (error) {
+            console.error('Error uploading photo:', error);
+            alert('Failed to upload photo. ' + (error.message || 'An unknown error occurred.'));
+        } finally {
+            setUploading(false);
+        }
+    };
+
+    const handleProceedToPayment = async () => {
+        console.log('Proceeding to payment for booking ID:', bookingId);
+        try {
+            localStorage.setItem('paymentType', 'coliving');
+            const userResponse = await fetch(`https://www.townmanor.ai/api/user/${username}`);
+            if (!userResponse.ok) {
+                throw new Error('Failed to fetch user data');
+            }
+            const userData = await userResponse.json();
+
+            const txnid = 'OID' + Date.now();
+
+            const paymentData = {
+                key: 'UvTrjC',
+                txnid: txnid,
+                amount: totalPrice.toFixed(2),
+                productinfo: 'Room Booking',
+                firstname: userData.name || username || '',
+                email: userData.email || '',
+                phone: userData.phone || '',
+                surl: `https://townmanor.ai/api/boster/payu/success`,
+                furl: `https://townmanor.ai/api/boster/payu/failure`,
+                udf1: localStorage.getItem('bookingId'),
+                service_provider: 'payu_paisa'
+            };
+
+            const response = await axios.post('https://townmanor.ai/api/payu/payment', paymentData);
+
+            if (!response.data || !response.data.paymentUrl || !response.data.params) {
+                throw new Error('Invalid payment response received');
+            }
+
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = response.data.paymentUrl;
+
+            Object.entries(response.data.params).forEach(([key, value]) => {
+                if (value !== undefined && value !== null) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = value.toString();
+                    form.appendChild(input);
+                }
+            });
+
+            document.body.appendChild(form);
+            form.submit();
+            document.body.removeChild(form);
+
+        } catch (error) {
+            console.error('Payment initiation failed:', error);
+            alert(error.response?.data?.message || error.message || 'Failed to initiate payment. Please try again.');
+        }
     };
 
     return (
         <div className="booking-user-detail__container">
             <div className="booking-user-detail__calendar-section">
-                 <h2>Select your dates</h2>
-                 <p>{nights > 0 ? `${nights} nights in ${roomData?.name || 'your selected room'}` : 'Select check-in and check-out dates'}</p>
+                <h2>Select your dates</h2>
+                <p>{nights > 0 ? `${nights} nights in ${roomData?.name || 'your selected room'}` : 'Select check-in and check-out dates'}</p>
                 <DateRange
                     editableDateInputs={true}
                     onChange={handleSelect}
                     moveRangeOnFirstSelection={false}
-                    ranges={[selectionRange]}
+                    ranges={[{
+                        startDate: startDate,
+                        endDate: endDate,
+                        key: 'selection',
+                    }]}
                     months={2}
                     direction="horizontal"
                     className="booking-user-detail__date-range"
@@ -159,7 +275,7 @@ const BookingUserDetail = () => {
                             <input type="text" value={format(endDate, 'MM/dd/yyyy')} readOnly />
                         </div>
                     </div>
-                    
+
                     <div className="booking-user-detail__verification-section">
                         <div className="booking-user-detail__form-group">
                             <label htmlFor="adhar">Aadhar Number</label>
@@ -196,20 +312,23 @@ const BookingUserDetail = () => {
                         </div>
                     </div>
 
-                    <div className="booking-user-detail__form-group">
-                        <label htmlFor="profile-picture">Profile Picture</label>
-                        <input type="file" id="profile-picture" onChange={handleFileChange} />
-                    </div>
+                    {!showPhotoUpload && !photoUploaded && (
+                        <button type="submit" className="booking-user-detail__reserve-button" disabled={loading}>
+                            {loading ? 'Reserving...' : 'Reserve'}
+                        </button>
+                    )}
 
-                    <button type="submit" className="booking-user-detail__reserve-button">
-                        Reserve
-                    </button>
+                    {photoUploaded && (
+                        <button type="button" onClick={handleProceedToPayment} className="booking-user-detail__payment-button">
+                            Proceed to Payment
+                        </button>
+                    )}
 
                     {nights > 0 && (
                         <div className="booking-user-detail__price-breakdown">
                             <p>You won't be charged yet</p>
                             <div className="booking-user-detail__price-item">
-                                <span>{`₹${roomData?.price || 0} x ${nights} nights`}</span>
+                                <span>{`₹${roomData?.data?.price || 0} x ${nights} nights`}</span>
                                 <span>₹{calculatedPrice.toFixed(2)}</span>
                             </div>
                             <div className="booking-user-detail__price-item">
@@ -225,6 +344,35 @@ const BookingUserDetail = () => {
                     )}
                 </form>
             </div>
+
+            {showPhotoUpload && (
+                <div className="booking-user-detail__modal-overlay">
+                    <div className="booking-user-detail__modal-content">
+                        <button className="booking-user-detail__modal-close-button" onClick={() => setShowPhotoUpload(false)}>&times;</button>
+                        <h2>Upload Your Profile Photo</h2>
+                        <p>For security, please upload a clear, recent photo of yourself.</p>
+                        <div className="booking-user-detail__form-group">
+                            <label htmlFor="photo-upload">Live Photo</label>
+                            <input
+                                type="file"
+                                id="photo-upload"
+                                accept="image/*"
+                                onChange={handleFileChange}
+                                className="booking-user-detail__file-input"
+                            />
+                        </div>
+                        <button
+                            onClick={handlePhotoUpload}
+                            disabled={uploading || !profilePicture}
+                            className="booking-user-detail__modal-button"
+                        >
+                            {uploading ? 'Uploading...' : 'Upload and Continue'}
+                        </button>
+                    </div>
+                </div>
+            )}
+
+           
         </div>
     );
 };

@@ -13,19 +13,34 @@ const ColivingPaymentSuccess = () => {
   const [roomData, setRoomData] = useState(null);
   const [propertyData, setPropertyData] = useState(null);
   const [paymentData, setPaymentData] = useState(null); // If you have payment details, set here
+  const [bookingData, setBookingData] = useState(null); // State for booking data
 
   useEffect(() => {
     const fetchReceiptData = async () => {
       try {
+        const bookingId = localStorage.getItem('bookingId');
+        if (bookingId) {
+          // Update payment status
+          await axios.post(
+            `https://townmanor.ai/api/bookings/${bookingId}`,
+            { status: 'payment confirm' },
+            { headers: { 'Content-Type': 'application/json' } }
+          );
+
+          // Fetch booking data
+          const bookingRes = await axios.get(`https://townmanor.ai/api/bookings/${bookingId}`);
+          setBookingData(bookingRes.data);
+        }
+
         const room_id = localStorage.getItem('room_id');
-        console.log(room_id)
         const propertyId = localStorage.getItem('propertyId');
-        console.log(propertyId)
-        // Optionally get payment data from localStorage or props if available
+        
         let paymentDetails = null;
         try {
           paymentDetails = JSON.parse(localStorage.getItem('paymentData')) || null;
-        } catch (e) { paymentDetails = null; }
+        } catch (e) { 
+          paymentDetails = null; 
+        }
 
         if (!room_id || !propertyId) {
           throw new Error('Room or Property ID not found');
@@ -75,6 +90,7 @@ const ColivingPaymentSuccess = () => {
     const room = roomData?.data || {};
     const property = propertyData || {};
     const payment = paymentData || {};
+    const booking = bookingData || {};
     const today = new Date();
     const doc = new jsPDF();
 
@@ -100,7 +116,7 @@ const ColivingPaymentSuccess = () => {
     doc.setFontSize(12);
     doc.text(`Room Name: ${room.property_name || ''}`, 14, 80);
     doc.text(`Room ID: ${room.id || ''}`, 14, 88);
-    doc.text(`Price: ₹${room.price || ''}`, 14, 96);
+    doc.text(`Price: ₹${booking.price || room.price || ''}`, 14, 96);
     doc.text(`Bedroom: ${room.bedroom || ''}`, 14, 104);
     doc.text(`Bathroom: ${room.bathroom || ''}`, 14, 112);
 
@@ -108,7 +124,7 @@ const ColivingPaymentSuccess = () => {
     doc.setFontSize(14);
     doc.text('User Details', 14, 124);
     doc.setFontSize(12);
-    doc.text(`Name: ${room.user_name || payment.payerName || ''}`, 14, 132);
+    doc.text(`Name: ${booking.username || room.user_name || payment.payerName || ''}`, 14, 132);
     doc.text(`Phone: ${room.phone_no || ''}`, 14, 140);
     doc.text(`Aadhar: ${room.adhar_number || ''}`, 14, 148);
 
@@ -116,7 +132,7 @@ const ColivingPaymentSuccess = () => {
     doc.setFontSize(14);
     doc.text('Payment Details', 14, 160);
     doc.setFontSize(12);
-    doc.text(`Amount: ₹${payment.amount || room.price || ''}`, 14, 168);
+    doc.text(`Amount: ₹${booking.price || payment.amount || room.price || ''}`, 14, 168);
     // doc.text(`Transaction ID: ${payment.transactionId || ''}`, 14, 176);
 
     // Thank you
