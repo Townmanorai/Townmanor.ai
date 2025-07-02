@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { FaMapMarkerAlt, FaBed, FaWifi, FaParking } from "react-icons/fa";
 import "./BookingForm.tmnBooking.css";
 import Cookies from 'js-cookie';
@@ -13,6 +13,8 @@ const BookingForm = () => {
   const [agree, setAgree] = useState(false);
   const [form, setForm] = useState({ phone: '', aadhar: '' });
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   if (!room || !coliving) {
     return (
@@ -186,7 +188,7 @@ const BookingForm = () => {
               localStorage.setItem('roomId', room.id);
               localStorage.setItem('propertyId', coliving.id);
             }
-            navigate('/coliving-user-detail');
+            navigate('/ColivingBookingUserDetail');
           }}
         >
           Move to Next Step
