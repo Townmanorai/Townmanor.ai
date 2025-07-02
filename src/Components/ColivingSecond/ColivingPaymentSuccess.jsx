@@ -21,7 +21,7 @@ const ColivingPaymentSuccess = () => {
         const bookingId = localStorage.getItem('bookingId');
         if (bookingId) {
           // Update payment status
-          await axios.post(
+          await axios.patch(
             `https://townmanor.ai/api/bookings/${bookingId}`,
             { status: 'payment confirm' },
             { headers: { 'Content-Type': 'application/json' } }
@@ -32,9 +32,9 @@ const ColivingPaymentSuccess = () => {
           setBookingData(bookingRes.data);
         }
 
-        const room_id = localStorage.getItem('room_id');
+        const room_id = localStorage.getItem('roomId');
         const propertyId = localStorage.getItem('propertyId');
-        
+        console.log(room_id, propertyId);
         let paymentDetails = null;
         try {
           paymentDetails = JSON.parse(localStorage.getItem('paymentData')) || null;
@@ -114,19 +114,21 @@ const ColivingPaymentSuccess = () => {
     doc.setFontSize(14);
     doc.text('Room Details', 14, 72);
     doc.setFontSize(12);
-    doc.text(`Room Name: ${room.property_name || ''}`, 14, 80);
+    // doc.text(`Room Name: ${room.property_name || ''}`, 14, 80);
     doc.text(`Room ID: ${room.id || ''}`, 14, 88);
-    doc.text(`Price: ₹${booking.price || room.price || ''}`, 14, 96);
+    doc.text(`Price: ₹${booking.price}`, 14, 96);
     doc.text(`Bedroom: ${room.bedroom || ''}`, 14, 104);
     doc.text(`Bathroom: ${room.bathroom || ''}`, 14, 112);
+    doc.text(`Start Date: ${booking.start_date || ''}`, 14, 118); 
+    doc.text(`End Date: ${booking.end_date || ''}`, 14, 126); 
 
     // User Details
     doc.setFontSize(14);
-    doc.text('User Details', 14, 124);
+    doc.text('User Details', 14, 130);
     doc.setFontSize(12);
-    doc.text(`Name: ${booking.username || room.user_name || payment.payerName || ''}`, 14, 132);
-    doc.text(`Phone: ${room.phone_no || ''}`, 14, 140);
-    doc.text(`Aadhar: ${room.adhar_number || ''}`, 14, 148);
+    doc.text(`Name: ${booking.username || room.user_name || payment.payerName || ''}`, 14, 138);
+    doc.text(`Phone: ${booking.phoneverification || ''}`, 14, 146);
+    doc.text(`Aadhar: ${booking.adhar_detail || ''}`, 14, 154);
 
     // Payment Details
     doc.setFontSize(14);
