@@ -46,12 +46,12 @@ const ColivingPaymentSuccess = () => {
           throw new Error('Room or Property ID not found');
         }
 
-        // Update room status
-        await axios.patch(
-          `https://townmanor.ai/api/coliving-rooms/${room_id}/occupied`,
-          { occupied: true },
-          { headers: { 'Content-Type': 'application/json' } }
-        );
+        // // Update room status
+        // await axios.patch(
+        //   `https://townmanor.ai/api/coliving-rooms/${room_id}/occupied`,
+        //   { occupied: true },
+        //   { headers: { 'Content-Type': 'application/json' } }
+        // );
 
         // Fetch room data
         const roomRes = await axios.get(`https://townmanor.ai/api/coliving-rooms/${room_id}`);

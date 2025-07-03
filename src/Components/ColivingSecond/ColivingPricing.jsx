@@ -187,14 +187,14 @@ const ColivingPricing = ({ coliving }) => {
                     <div className="colivingPricingCardFeature" key={i}>{d}</div>
                   ))}
                 </div>
-                {room.bookedBy && (
+                {/* {room.bookedBy && (
                   <div className="colivingPricingCardOccupantSection">
                     <div className="colivingPricingCardOccupantLabel">Current Occupant</div>
                     <div className="colivingPricingCardOccupantDetails">
                       <i className="fa fa-user"></i> {room.bookedBy}
                     </div>
                   </div>
-                )}
+                )} */}
                 <div className="colivingPricingUniqueRoomActions">
                   <button
                     className="colivingPricingUniqueBookBtn"

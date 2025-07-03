@@ -75,10 +75,82 @@ const BookingUserDetail = () => {
         }
     }, [roomData, startDate, endDate]);
 
-    const handleAdharVerify = () => {
-        // Add Aadhar verification logic here
-        console.log('Verifying Aadhar:', adharNumber);
-        setIsAdharVerified(true); // Mock verification
+    const handleAdharVerify = async () => {
+        if (!adharNumber || !/^\d{12}$/.test(adharNumber)) {
+            alert('Please enter a valid 12-digit Aadhar number.');
+            return;
+        }
+
+        setLoading(true);
+
+        const pollAadhaarStatus = async (clientId, retries = 5) => {
+            if (retries === 0) {
+                alert('Aadhaar verification is taking longer than usual. Please try again later.');
+                setLoading(false);
+                return;
+            }
+
+            try {
+                const statusResponse = await axios.get(
+                    `https://kyc-api.surepass.io/api/v1/async/status/${clientId}`,
+                    {
+                        headers: {
+                            'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg',
+                        },
+                    }
+                );
+
+                const statusData = statusResponse.data;
+                if (statusData && statusData.data.status === 'success') {
+                    if (statusData.data.api_resp.success) {
+                        setIsAdharVerified(true);
+                        alert('Aadhar verified successfully!');
+                    } else {
+                        alert(`Aadhar verification failed: ${statusData.data.api_resp.message} please check addhar number once again`);
+                    }
+                    setLoading(false);
+                } else if (statusData && statusData.data.status === 'pending') {
+                    setTimeout(() => pollAadhaarStatus(clientId, retries - 1), 3000);
+                } else {
+                    alert('Aadhar verification failed. Please check the number and try again.');
+                    setLoading(false);
+                }
+            } catch (error) {
+                console.error('Error fetching Aadhar status:', error);
+                alert('An error occurred while checking Aadhar verification status.');
+                setLoading(false);
+            }
+        };
+
+        try {
+            const submitResponse = await axios.post(
+                'https://kyc-api.surepass.io/api/v1/async/submit',
+                {
+                    type: 'aadhaar_validation',
+                    body: {
+                        id_number: adharNumber,
+                    },
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg',
+                    },
+                }
+            );
+
+            if (submitResponse.data && submitResponse.data.success) {
+                const clientId = submitResponse.data.data.client_id;
+                pollAadhaarStatus(clientId);
+            } else {
+                alert('Failed to submit Aadhar for verification.');
+                setLoading(false);
+            }
+        } catch (error) {
+            console.error('Error submitting Aadhar:', error);
+            alert('An error occurred during Aadhar verification.');
+            setLoading(false);
+        }
     };
 
     const handlePhoneVerify = () => {
