@@ -270,10 +270,10 @@ const ColivingNoida = () => {
                 <div className="colivingNoida__spacePriceSection">
                   <span className="colivingNoida__roomsFrom">Rooms from</span>
                   <div className="colivingNoida__priceRow">
-                    <span className="colivingNoida__spacePrice">₹{space.price}/mo</span>
-                    <span className={`colivingNoida__availability ${space.availability.toLowerCase().includes('available') ? 'available' : 'occupied'}`}>
+                    <span className="colivingNoida__spacePrice">₹{space.price}/ per Night</span>
+                    {/* <span className={`colivingNoida__availability ${space.availability.toLowerCase().includes('available') ? 'available' : 'occupied'}`}>
                       {space.availability}
-                    </span>
+                    </span> */}
                   </div>
                 </div>
               </div>

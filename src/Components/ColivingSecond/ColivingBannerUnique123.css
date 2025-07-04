@@ -37,6 +37,7 @@
   margin-top: 2px;
 }
 .colivingBannerImagesUnique123 {
+  position: relative;
   display: flex;
   flex-direction: row;
   gap: 12px;
@@ -165,4 +166,102 @@
   margin-top: 6rem;
   display: block;
  }
+}
+
+.seeAllPhotosButton {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f8f9fa;
+    color: #212529;
+    border: 1px solid #dee2e6;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+}
+
+.seeAllPhotosButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.seeAllPhotosButton svg {
+    stroke: #212529;
+}
+
+.imageModalBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.imageModalContent {
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+.modalImageContainer {
+    max-width: 80vw;
+    max-height: 80vh;
+    overflow: hidden;
+}
+
+.modalImageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.closeModalButton, .prevModalButton, .nextModalButton {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1001;
+    font-size: 24px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeModalButton {
+    top: 10px;
+    right: 10px;
+}
+
+.prevModalButton {
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nextModalButton {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }

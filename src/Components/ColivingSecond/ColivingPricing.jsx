@@ -115,7 +115,7 @@ const ColivingPricing = ({ coliving }) => {
               id: room.id,
               title: room.bedroom || `Room ${room.id}`,
               img: room.image || "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80", // Use image from API
-              price: `₹${room.price?.toLocaleString() || "-"}/month`,
+              price: `₹${room.price?.toLocaleString() || "-"}/per night`,
               details: [
                 `${room.area || "-"} sqft`,
                 room.bedroom,
@@ -138,6 +138,7 @@ const ColivingPricing = ({ coliving }) => {
         setRooms([]);
       });
   }, [coliving?.id]);
+  console.log(rooms);
 
   const apiAmenities = (coliving?.amenities || "")
     .split(",")

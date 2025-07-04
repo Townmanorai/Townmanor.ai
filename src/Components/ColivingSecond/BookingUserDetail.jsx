@@ -15,7 +15,8 @@ const BookingUserDetail = () => {
     const [calculatedPrice, setCalculatedPrice] = useState(0);
     const [gst, setGst] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
-    const [nights, setNights] = useState(0);
+        const [nights, setNights] = useState(0);
+    const [disabledDates, setDisabledDates] = useState([]);
 
     const [adharNumber, setAdharNumber] = useState('');
     const [isAdharVerified, setIsAdharVerified] = useState(false);
@@ -31,6 +32,7 @@ const BookingUserDetail = () => {
     const [loading, setLoading] = useState(false);
     const [uploading, setUploading] = useState(false);
     const [showConfirmation, setShowConfirmation] = useState(false);
+    const [phoneVerificationData, setPhoneVerificationData] = useState(null);
 
     const roomId = localStorage.getItem('roomId');
     const userId = localStorage.getItem('propertyid');
@@ -50,6 +52,24 @@ const BookingUserDetail = () => {
                 })
                 .catch(error => {
                     console.error('Error fetching room data:', error);
+                });
+
+            axios.get(`https://townmanor.ai/api/bookings/roomdata/${roomId}`)
+                .then(response => {
+                    const bookings = response.data;
+                    const disabled = bookings.flatMap(booking => {
+                        const start = new Date(booking.start_date);
+                        const end = new Date(booking.end_date);
+                        const dates = [];
+                        for (let dt = start; dt <= end; dt.setDate(dt.getDate() + 1)) {
+                            dates.push(new Date(dt));
+                        }
+                        return dates;
+                    });
+                    setDisabledDates(disabled);
+                })
+                .catch(error => {
+                    console.error('Error fetching room bookings:', error);
                 });
         }
     }, [roomId]);
@@ -209,6 +229,7 @@ const BookingUserDetail = () => {
             if (response.data.success) {
                 setIsPhoneVerified(true);
                 setShowOtpInput(false);
+                setPhoneVerificationData(response.data);
                 alert('Phone number verified successfully!');
             } else {
                 alert('Invalid OTP. Please try again.');
@@ -244,26 +265,34 @@ const BookingUserDetail = () => {
             adhar_detail: adharNumber,
             price: totalPrice,
             username: username,
+            phone_number: phoneNumber,
         };
 
         try {
             const response = await axios.post('https://townmanor.ai/api/bookings', bookingDetails);
-            if (response.data && response.data.booking && response.data.booking.id) {
-                setBookingId(response.data.booking.id);
-                setShowConfirmation(true);
-                // alert('Booking created! Please upload your photo.');
-                
-            } else {
-                // Fallback for different response structure
-                const potentialBookingId = response.data?.id || response.data?.bookingId;
-                if(potentialBookingId){
-                    setBookingId(potentialBookingId);
-                    setShowPhotoUpload(true);
-                    alert('Booking created! Please upload your photo.');
-                } else {
-                    throw new Error('Booking ID not found in response.');
+            const newBookingId = response.data?.booking?.id || response.data?.id || response.data?.bookingId;
+
+            if (newBookingId) {
+                setBookingId(newBookingId);
+
+                if (phoneVerificationData) {
+                    try {
+                        await axios.patch(`https://townmanor.ai/api/bookings/${newBookingId}`, {
+                            phone_data: JSON.stringify(phoneVerificationData),
+                        });
+                    } catch (patchError) {
+                        console.error('Error updating booking with phone data:', patchError);
+                    }
                 }
 
+                if (response.data?.booking?.id) {
+                    setShowConfirmation(true);
+                } else {
+                    setShowPhotoUpload(true);
+                    alert('Booking created! Please upload your photo.');
+                }
+            } else {
+                throw new Error('Booking ID not found in response.');
             }
         
         } catch (error) {
@@ -384,6 +413,7 @@ const BookingUserDetail = () => {
                         endDate: endDate,
                         key: 'selection',
                     }]}
+                    disabledDates={disabledDates}
                     months={2}
                     direction="horizontal"
                     className="booking-user-detail__date-range"
