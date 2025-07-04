@@ -21,6 +21,9 @@ const BookingUserDetail = () => {
     const [isAdharVerified, setIsAdharVerified] = useState(false);
     const [phoneNumber, setPhoneNumber] = useState('');
     const [isPhoneVerified, setIsPhoneVerified] = useState(false);
+    const [otp, setOtp] = useState('');
+    const [clientId, setClientId] = useState('');
+    const [showOtpInput, setShowOtpInput] = useState(false);
     const [profilePicture, setProfilePicture] = useState(null);
     const [showPhotoUpload, setShowPhotoUpload] = useState(false);
     const [bookingId, setBookingId] = useState(null);
@@ -153,10 +156,69 @@ const BookingUserDetail = () => {
         }
     };
 
-    const handlePhoneVerify = () => {
-        // Add Phone verification logic here
-        console.log('Verifying Phone:', phoneNumber);
-        setIsPhoneVerified(true); // Mock verification
+    const handleGenerateOtp = async () => {
+        if (!phoneNumber || !/^\d{10}$/.test(phoneNumber)) {
+            alert('Please enter a valid 10-digit phone number.');
+            return;
+        }
+
+        setLoading(true);
+
+        try {
+            const response = await axios.post('https://kyc-api.surepass.io/api/v1/telecom/generate-otp', {
+                id_number: phoneNumber
+            }, {
+                headers: {
+                    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg'
+                }
+            });
+
+            if (response.data.success) {
+                setClientId(response.data.data.client_id);
+                setShowOtpInput(true);
+                alert('OTP sent successfully!');
+            } else {
+                alert('Failed to send OTP. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error generating OTP:', error);
+            alert('An error occurred while sending OTP. Please try again.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleSubmitOtp = async () => {
+        if (!otp) {
+            alert('Please enter the OTP.');
+            return;
+        }
+
+        setLoading(true);
+
+        try {
+            const response = await axios.post('https://kyc-api.surepass.io/api/v1/telecom/submit-otp', {
+                client_id: clientId,
+                otp: otp
+            }, {
+                headers: {
+                    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDE0NjA5NiwianRpIjoiNmM0YWMxNTMtNDE2MS00YzliLWI4N2EtZWIxYjhmNDRiOTU5IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnVzZXJuYW1lXzJ5MTV1OWk0MW10bjR3eWpsaTh6b2p6eXZiZEBzdXJlcGFzcy5pbyIsIm5iZiI6MTcxMDE0NjA5NiwiZXhwIjoyMzQwODY2MDk2LCJ1c2VyX2NsYWltcyI6eyJzY29wZXMiOlsidXNlciJdfX0.DfipEQt4RqFBQbOK29jbQju3slpn0wF9aoccdmtIsPg'
+                }
+            });
+
+            if (response.data.success) {
+                setIsPhoneVerified(true);
+                setShowOtpInput(false);
+                alert('Phone number verified successfully!');
+            } else {
+                alert('Invalid OTP. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error submitting OTP:', error);
+            alert('An error occurred while verifying OTP. Please try again.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleFileChange = (e) => {
@@ -377,10 +439,23 @@ const BookingUserDetail = () => {
                                     placeholder="+91 XXXXX XXXXX"
                                     disabled={isPhoneVerified}
                                 />
-                                <button type="button" onClick={handlePhoneVerify} disabled={isPhoneVerified}>
-                                    {isPhoneVerified ? 'Verified' : 'Verify'}
+                                <button type="button" onClick={handleGenerateOtp} disabled={isPhoneVerified || showOtpInput}>
+                                    {isPhoneVerified ? 'Verified' : 'Send OTP'}
                                 </button>
                             </div>
+                            {showOtpInput && (
+                                <div className="booking-user-detail__verify-input-group">
+                                    <input
+                                        type="text"
+                                        value={otp}
+                                        onChange={(e) => setOtp(e.target.value)}
+                                        placeholder="Enter OTP"
+                                    />
+                                    <button type="button" onClick={handleSubmitOtp}>
+                                        Submit OTP
+                                    </button>
+                                </div>
+                            )}
                         </div>
                     </div>
 
