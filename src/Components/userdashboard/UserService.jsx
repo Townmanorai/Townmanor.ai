@@ -20,6 +20,9 @@ function UserService() {
   const [colivingRooms, setColivingRooms] = useState([]);
   const [colivingLoading, setColivingLoading] = useState(true);
   const [colivingError, setColivingError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5); // Adjust items per page as needed
+
 
   // Rent agreement state
   const [rentAgreements, setRentAgreements] = useState([]);
@@ -33,13 +36,14 @@ function UserService() {
   useEffect(() => {
     if (!username) return;
     setColivingLoading(true);
-    fetch(`https://townmanor.ai/api/coliving-rooms/user/${username}`)
+    fetch(`https://townmanor.ai/api/bookings/username/${username}`)
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch bookings');
         return res.json();
       })
       .then(data => {
-        setColivingRooms(Array.isArray(data) ? data : []);
+        const sortedData = Array.isArray(data) ? data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)) : [];
+        setColivingRooms(sortedData);
         setColivingLoading(false);
       })
       .catch(err => {
@@ -89,28 +93,39 @@ function UserService() {
             ) : colivingRooms.length === 0 ? (
               <div className="user-service-empty">No coliving rooms booked yet.</div>
             ) : (
+              <>
               <ul className="user-service-list">
-  {colivingRooms.map((room, idx) => {
-    // Mask phone and Aadhaar for privacy
-    const maskPhone = (num) => num ? num.slice(0, 2) + '******' + num.slice(-2) : 'N/A';
-    const maskAadhaar = (num) => num ? num.slice(0, 2) + '********' + num.slice(-2) : 'N/A';
-    return (
-      <li key={room.id || idx} className="user-service-list-item" style={{display:'flex',gap:'18px',alignItems:'center'}}>
-        <img src={room.image} alt={room.property_name} style={{width:'80px',height:'80px',objectFit:'cover',borderRadius:'8px',background:'#eee'}} />
-        <div style={{flex:1}}>
-          <div style={{fontWeight:700,fontSize:'1.1rem',marginBottom:'4px'}}>{room.property_name}</div>
-          <div><strong>Price:</strong> ₹{room.price?.toLocaleString() || 'N/A'} /mo</div>
-          <div><strong>Area:</strong> {room.area || 'N/A'} sqft</div>
-          <div><strong>Bedroom:</strong> {room.bedroom || 'N/A'}</div>
-          <div><strong>Bathroom:</strong> {room.bathroom || 'N/A'}</div>
-          <div><strong>Dedicated Workspace:</strong> {room.dedicated_work_space ? 'Yes' : 'No'}</div>
-          <div><strong>Phone:</strong> {maskPhone(room.phone_no)}</div>
-          <div><strong>Aadhaar:</strong> {maskAadhaar(room.adhar_number)}</div>
-        </div>
-      </li>
-    );
-  })}
-</ul>
+                {colivingRooms
+                  .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+                  .map((room, idx) => {
+                  const maskAadhaar = (num) => num ? num.slice(0, 2) + '********' + num.slice(-2) : 'N/A';
+                  return (
+                    <li key={room.id || idx} className="user-service-list-item">
+                      <div style={{flex:1}}>
+                        <div style={{fontWeight:700,fontSize:'1.1rem',marginBottom:'4px'}}>Booking #{room.id}</div>
+                        <div><strong>Price:</strong> ₹{room.price?.toLocaleString() || 'N/A'}</div>
+                        <div><strong>Dates:</strong> {new Date(room.start_date).toLocaleDateString()} - {new Date(room.end_date).toLocaleDateString()}</div>
+                        <div><strong>Status:</strong> {room.status}</div>
+                        <div><strong>Aadhaar:</strong> {maskAadhaar(room.adhar_detail)}</div>
+                        <div><strong>Aadhaar Verified:</strong> {room.adhar_verification ? 'Yes' : 'No'}</div>
+                        <div><strong>Phone Verified:</strong> {room.phone_verification ? 'Yes' : 'No'}</div>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+              {colivingRooms.length > itemsPerPage && (
+                <div className="pagination-controls">
+                  <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
+                    Previous
+                  </button>
+                  <span>Page {currentPage} of {Math.ceil(colivingRooms.length / itemsPerPage)}</span>
+                  <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, Math.ceil(colivingRooms.length / itemsPerPage)))} disabled={currentPage === Math.ceil(colivingRooms.length / itemsPerPage)}>
+                    Next
+                  </button>
+                </div>
+              )}
+            </>
             )}
           </div>
 

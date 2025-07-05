@@ -108,3 +108,36 @@
     padding: 10px 6px;
   }
 }
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination-controls button {
+  background-color: #4a4e69;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 0 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination-controls button:hover:not(:disabled) {
+  background-color: #22223b;
+}
+
+.pagination-controls button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-controls span {
+  margin: 0 10px;
+  font-size: 1rem;
+  color: #4a4e69;
+}

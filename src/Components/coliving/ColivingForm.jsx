@@ -123,6 +123,7 @@ export default function ColivingForm({ onSuccess }) {
     if (imageFiles.length > 0) {
       uploadedImageUrls = await uploadImages();
     }
+    console.log(uploadedImageUrls);
     const payload = {
       property_name: property.property_name,
       configuration: property.configuration_type,

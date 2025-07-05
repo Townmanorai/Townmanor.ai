@@ -55,7 +55,7 @@ const ColivingNoida = () => {
         const propertiesWithRooms = await Promise.all(
           properties.map(async (property) => {
             try {
-              const roomResponse = await fetch(`https://townmanor.ai/api/coliving-rooms/${property.id}`);
+              const roomResponse = await fetch(`https://townmanor.ai/api/coliving-rooms/property/${property.id}`);
               if (!roomResponse.ok) {
                 throw new Error(`Failed to fetch rooms for property ${property.id}`);
               }
@@ -80,13 +80,13 @@ const ColivingNoida = () => {
                 type: property.configuration,
                 area: property.area,
                 floor: `${property.floor}th Floor`,
-                price: roomData.data?.price?.toString() || '0',
-                availability: roomData.data?.occupied ? 'Occupied' : 'Available',
+                price: roomData.data?.[0]?.price?.toString() || '0',
+                availability: roomData.data?.[0]?.occupied ? 'Occupied' : 'Available',
                 img: imageUrl,
                 description: property.description,
                 amenities: property.amenities,
                 nearby_location: property.nearby_location,
-                roomDetails: roomData.data
+                roomDetails: roomData.data?.[0]
               };
             } catch (error) {
               console.error(`Error fetching rooms for property ${property.id}:`, error);

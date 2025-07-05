@@ -101,6 +101,7 @@ const nearby = [
 const ColivingPricing = ({ coliving }) => {
   const [rooms, setRooms] = useState([]);
   const [selectedRoomIdx, setSelectedRoomIdx] = useState(0);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const navigate = useNavigate();
 
@@ -157,8 +158,18 @@ const ColivingPricing = ({ coliving }) => {
       <div className="colivingPricingUniqueContainer">
         <div className="colivingPricingUniqueTitle">About This Property</div>
         <div className="colivingPricingUniqueDesc">
-          {coliving?.description ||
-            "Spacious and modern coliving apartment with all amenities included. Perfect for working professionals and students."}
+          {coliving?.description && coliving.description.length > 300 ? (
+            <p>
+              {isExpanded
+                ? coliving.description
+                : `${coliving.description.substring(0, 500)}...`}
+              <button onClick={() => setIsExpanded(!isExpanded)} className="read-more-btnx">
+                {isExpanded ? 'Read Less' : 'Read More'}
+              </button>
+            </p>
+          ) : (
+            <p>{coliving?.description || "Spacious and modern coliving apartment with all amenities included. Perfect for working professionals and students."}</p>
+          )}
         </div>
         <div className="colivingPricingUniqueRooms">
           {rooms.map((room) => (

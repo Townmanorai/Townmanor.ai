@@ -512,8 +512,21 @@
   transition: border 0.2s, background 0.2s;
 }
 .colivingPricingUniqueSidebarVisitBtn:hover {
-  background: #f7f8fa;
-  border: 1.5px solid #19202c;
+  background-color: #eee;
+}
+
+.read-more-btnx {
+  background: none;
+  border: none;
+  color: rgb(165, 34, 34);
+  cursor: pointer;
+  padding: 0;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.read-more-btnx:hover {
+  text-decoration: underline;
 }
 
 .colivingPricingUniqueSidebarRoomBooked {
