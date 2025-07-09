@@ -173,6 +173,142 @@
 
 /* Custom Modal Styles */
 .booking-user-detail__modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking-user-detail__modal-content.custom-photo-upload-modal {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+  padding: 28px 24px 20px 24px;
+  width: 370px;
+  max-width: 95vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.booking-user-detail__modal-close-button {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.booking-user-detail__modal-close-button:hover {
+  color: #1976d2;
+}
+
+.custom-photo-upload__camera-preview {
+  width: 100%;
+  height: 150px;
+  background: #f5f6fa;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  border: 1px solid #e0e0e0;
+}
+.custom-photo-upload__camera-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+.custom-photo-upload__camera-text {
+  color: #888;
+  font-size: 15px;
+}
+
+.custom-photo-upload__drag-drop {
+  width: 100%;
+  min-height: 120px;
+  border: 2px dashed #bdbdbd;
+  border-radius: 12px;
+  background: #fafbfc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  padding: 18px 0;
+  position: relative;
+}
+.custom-photo-upload__upload-icon {
+  margin-bottom: 8px;
+}
+.custom-photo-upload__browse-link {
+  color: #1976d2;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 2px;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.custom-photo-upload__file-input {
+  display: none;
+}
+
+.custom-photo-upload__button-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+}
+.custom-photo-upload__take-photo-btn,
+.custom-photo-upload__upload-btn {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+.custom-photo-upload__take-photo-btn {
+  background: #f5f6fa;
+  color: #222;
+  border: 1px solid #e0e0e0;
+}
+.custom-photo-upload__take-photo-btn:hover {
+  background: #e3e7ed;
+}
+.custom-photo-upload__upload-btn {
+  background: #1976d2;
+  color: #fff;
+  border: 1px solid #1976d2;
+}
+.custom-photo-upload__upload-btn:disabled {
+  background: #b0b0b0;
+  color: #fff;
+  border: 1px solid #b0b0b0;
+  cursor: not-allowed;
+}
+
+.booking-user-detail__modal-overlay {
     position: fixed;
     top: 0;
     left: 0;

@@ -14,6 +14,7 @@ const BookingUserDetail = () => {
     const [roomData, setRoomData] = useState(null);
     const [calculatedPrice, setCalculatedPrice] = useState(0);
     const [gst, setGst] = useState(0);
+    const [gstPercentage, setGstPercentage] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
         const [nights, setNights] = useState(0);
     const [disabledDates, setDisabledDates] = useState([]);
@@ -85,14 +86,26 @@ const BookingUserDetail = () => {
             if (days > 0) {
                 setNights(days);
                 const basePrice = days * roomData.data.price;
-                const gstAmount = basePrice * 0.18; // Assuming 18% GST
+                let gstAmount = 0;
+                let currentGstPercentage = 0;
+
+                if (basePrice < 7000) {
+                    currentGstPercentage = 10;
+                    gstAmount = basePrice * 0.10;
+                } else {
+                    currentGstPercentage = 18;
+                    gstAmount = basePrice * 0.18;
+                }
+
                 setCalculatedPrice(basePrice);
                 setGst(gstAmount);
+                setGstPercentage(currentGstPercentage);
                 setTotalPrice(basePrice + gstAmount);
             } else {
                 setNights(0);
                 setCalculatedPrice(0);
                 setGst(0);
+                setGstPercentage(0);
                 setTotalPrice(0);
             }
         }
@@ -358,7 +371,7 @@ const BookingUserDetail = () => {
             const paymentData = {
                 key: 'UvTrjC',
                 txnid: txnid,
-                amount: 1.00,
+                amount: totalPrice,
                 productinfo: 'Room Booking',
                 firstname: userData.name || username || '',
                 email: userData.email || '',
@@ -509,7 +522,7 @@ const BookingUserDetail = () => {
                                 <span>₹{calculatedPrice.toFixed(2)}</span>
                             </div>
                             <div className="booking-user-detail__price-item">
-                                <span>GST (18%)</span>
+                                <span>{`GST (${gstPercentage}%)`}</span>
                                 <span>₹{gst.toFixed(2)}</span>
                             </div>
                             <hr />
@@ -523,31 +536,49 @@ const BookingUserDetail = () => {
             </div>
 
             {showPhotoUpload && (
-                <div className="booking-user-detail__modal-overlay">
-                    <div className="booking-user-detail__modal-content">
-                        <button className="booking-user-detail__modal-close-button" onClick={() => setShowPhotoUpload(false)}>&times;</button>
-                        <h2>Upload Your Profile Photo</h2>
-                        <p>For security, please upload a clear, recent photo of yourself.</p>
-                        <div className="booking-user-detail__form-group">
-                            <label htmlFor="photo-upload">Live Photo</label>
-                            <input
-                                type="file"
-                                id="photo-upload"
-                                accept="image/*"
-                                onChange={handleFileChange}
-                                className="booking-user-detail__file-input"
-                            />
-                        </div>
-                        <button
-                            onClick={handlePhotoUpload}
-                            disabled={uploading || !profilePicture}
-                            className="booking-user-detail__modal-button"
-                        >
-                            {uploading ? 'Uploading...' : 'Upload and Continue'}
-                        </button>
-                    </div>
-                </div>
-            )}
+  <div className="booking-user-detail__modal-overlay">
+    <div className="booking-user-detail__modal-content custom-photo-upload-modal">
+      <button className="booking-user-detail__modal-close-button" onClick={() => setShowPhotoUpload(false)}>&times;</button>
+      <h2>Upload Your Photo</h2>
+      <div className="custom-photo-upload__camera-preview">
+        <div className="custom-photo-upload__camera-icon">
+          <span role="img" aria-label="camera" style={{fontSize: '40px', color: '#bdbdbd'}}>&#128247;</span>
+        </div>
+        <div className="custom-photo-upload__camera-text">Camera preview will appear here</div>
+      </div>
+      <div className="custom-photo-upload__drag-drop">
+        <div className="custom-photo-upload__upload-icon">
+          <span role="img" aria-label="upload" style={{fontSize: '32px', color: '#90caf9'}}>&#128228;</span>
+        </div>
+        <div>Drag and drop your photo here</div>
+        <div style={{fontSize: '12px', color: '#888'}}>or click to browse files</div>
+        <label htmlFor="photo-upload" className="custom-photo-upload__browse-link">Browse files</label>
+        <input
+          type="file"
+          id="photo-upload"
+          accept="image/*"
+          onChange={handleFileChange}
+          className="custom-photo-upload__file-input"
+        />
+      </div>
+      <div className="custom-photo-upload__button-row">
+        <button type="button" className="custom-photo-upload__take-photo-btn">
+          <span role="img" aria-label="camera" style={{marginRight: '8px'}}>&#128247;</span>
+          Take Photo
+        </button>
+        <button
+          type="button"
+          onClick={handlePhotoUpload}
+          disabled={uploading || !profilePicture}
+          className="custom-photo-upload__upload-btn"
+        >
+          <span role="img" aria-label="upload" style={{marginRight: '8px'}}>&#8682;</span>
+          {uploading ? 'Uploading...' : 'Upload'}
+        </button>
+      </div>
+    </div>
+  </div>
+)}
 
            
         </div>
