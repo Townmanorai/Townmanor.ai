@@ -55,7 +55,7 @@ function Coliving_space() {
   return (
     <>
       {/* Hero Section */}
-      <div className="coliving-hero-section">
+      {/* <div className="coliving-hero-section">
       <div className="container ">
         <div className="coliving-hero-bg" style={{
           backgroundImage: `url('https://readdy.ai/api/search-image?query=Modern%20co-living%20space%20interior%20with%20soft%20natural%20light%2C%20minimalist%20design%2C%20large%20windows%2C%20communal%20areas%20with%20comfortable%20furniture%2C%20plants%2C%20and%20a%20warm%20welcoming%20atmosphere%2C%20blending%20into%20a%20light%20blue%20gradient%20on%20the%20left%20side%20for%20text%20overlay&width=1440&height=800&seq=hero-bg-1&orientation=landscape')`
@@ -103,30 +103,30 @@ function Coliving_space() {
           </div>
         </div>
       </div>
-      </div>
+      </div> */}
       {/* Features Section */}
       <div className="coliving-features-section">
         <div className="container">
           <div className="coliving-features-heading">
-            <h2>Our <b>Living</b> Options</h2>
+            <h2>Our Smart Urban Living Options </h2>
             <p>
               Choose the perfect living arrangement that suits your lifestyle
               and preferences.
             </p>
-            <button 
+            {/* <button 
               className="coliving-primary-btn" 
               onClick={() => navigate('/rental-listings')}
               style={{ marginTop: '20px' }}
             >
               View All Rental Listings
-            </button>
+            </button> */}
           </div>
           <div className="coliving-cards">
             {/* Card 1 */}
             <div className="coliving-card">
               <div className="coliving-card-image">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Modern%20co-living%20shared%20apartment%20with%20communal%20kitchen%20and%20living%20space%2C%20stylish%20furniture%2C%20plants%2C%20and%20warm%20lighting%2C%20showing%20multiple%20private%20rooms%20connected%20to%20common%20areas%2C%20clean%20and%20contemporary%20design&width=600&height=400&seq=coliving-1&orientation=landscape"
+                  src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752043923923-6228eccb-8eaf-408d-8db0-9953dc2f1f2e.webp"
                   alt="Co-Living Spaces"
                 />
                 <div className="join-waitlist-sticker">
@@ -136,14 +136,14 @@ function Coliving_space() {
               <div className="coliving-card-content">
                 <div className="coliving-card-header">
                   <div className="coliving-card-icon blue">
-                    <FaUsers />
+                    <img src="/colive2.png" alt="Logo" style={{ width: 32, height: 32, objectFit: 'contain' }} />
                   </div>
-                  <h3>Co-Living Spaces</h3>
+                  <h3>TM Hive</h3>
                 </div>
                 <p className="coliving-card-description">
-                  Shared apartments with premium amenities.
+                  Live Together, Grow Together.
                 </p>
-                <ul className="coliving-card-list">
+                {/* <ul className="coliving-card-list">
                   <li>
                     <FaCheck className="check-icon" />
                     <span>Private bedroom in shared apartment</span>
@@ -156,7 +156,7 @@ function Coliving_space() {
                     <FaCheck className="check-icon" />
                     <span>Community events and activities</span>
                   </li>
-                </ul>
+                </ul> */}
                 <button className="coliving-link-btn blue" onClick={openInfoModal}>
                   Learn more <FaArrowRight className="arrow-icon" />
                 </button>
@@ -167,7 +167,7 @@ function Coliving_space() {
             <div className="coliving-card">
               <div className="coliving-card-image">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Modern%20PG%20accommodation%20with%20private%20bedroom%2C%20study%20desk%2C%20comfortable%20bed%2C%20and%20basic%20amenities%2C%20showing%20a%20compact%20but%20well-designed%20living%20space%20with%20storage%20solutions%2C%20clean%20and%20functional%20interior%20design&width=600&height=400&seq=pg-2&orientation=landscape"
+                  src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752044074068-download%20%282%29.webp"
                   alt="PG Comforts"
                 />
                 <div className="join-waitlist-sticker">
@@ -177,14 +177,14 @@ function Coliving_space() {
               <div className="coliving-card-content">
                 <div className="coliving-card-header">
                   <div className="coliving-card-icon purple">
-                    <FaBed />
+                  <img src="/colive3.png" alt="Logo" style={{ width: 32, height: 32, objectFit: 'contain' }} />
                   </div>
-                  <h3>PG Comforts</h3>
+                  <h3>TM Stay</h3>
                 </div>
                 <p className="coliving-card-description">
-                  Affordable, fully managed private rooms.
+                  Simple Stays, Smart Together.
                 </p>
-                <ul className="coliving-card-list">
+                {/* <ul className="coliving-card-list">
                   <li>
                     <FaCheck className="check-icon" />
                     <span>Fully furnished private room</span>
@@ -197,7 +197,7 @@ function Coliving_space() {
                     <FaCheck className="check-icon" />
                     <span>Meals and laundry options</span>
                   </li>
-                </ul>
+                </ul> */}
                 <button className="coliving-link-btn purple" onClick={openInfoModal}>
                   Learn more <FaArrowRight className="arrow-icon" />
                 </button>
@@ -208,7 +208,7 @@ function Coliving_space() {
             <div className="coliving-card">
               <div className="coliving-card-image">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Luxury%20studio%20apartment%20with%20modern%20minimalist%20design%2C%20full%20kitchenette%2C%20sleeping%20area%2C%20and%20living%20space%20in%20one%20open%20concept%20room%2C%20large%20windows%20with%20natural%20light%2C%20high-end%20finishes%2C%20and%20smart%20home%20features%2C%20elegant%20and%20sophisticated&width=600&height=400&seq=suite-3&orientation=landscape"
+                  src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752044289221-resized_image_600x400.jpeg"
                   alt="Studio & Suites"
                 />
                 <div className="coming-soon-sticker">
@@ -218,14 +218,14 @@ function Coliving_space() {
               <div className="coliving-card-content">
                 <div className="coliving-card-header">
                   <div className="coliving-card-icon teal">
-                    <FaHome />
+                   <img src="/colive4.png" alt="Logo" style={{ width: 32, height: 32, objectFit: 'contain' }} />
                   </div>
-                  <h3>Studio & Suites</h3>
+                  <h3>TM Luxe</h3>
                 </div>
                 <p className="coliving-card-description">
-                  Private studio living with all essentials.
+                  Private Comfort, Premium Style.
                 </p>
-                <ul className="coliving-card-list">
+                {/* <ul className="coliving-card-list">
                   <li>
                     <FaCheck className="check-icon" />
                     <span>Self-contained private living space</span>
@@ -234,11 +234,11 @@ function Coliving_space() {
                     <FaCheck className="check-icon" />
                     <span>Kitchenette and private bathroom</span>
                   </li>
-                  <li>
-                    <FaCheck className="check-icon" />
+                  <li> */}
+                    {/* <FaCheck className="check-icon" />
                     <span>Premium furnishings and amenities</span>
                   </li>
-                </ul>
+                </ul> */}
                 <button className="coliving-link-btn teal" onClick={()=>{
                   navigate('/newcoliving')
                 }}>
@@ -323,7 +323,7 @@ function Coliving_space() {
               }} className="submitbutton_">Join Waitlist</button>
             </div>
           </div>
-        </div>
+        </div> 
       )}
     </>
   );
