@@ -228,9 +228,9 @@
 }
 
 .modalImageContainer img {
-    width: 600px;
+    /* width: 600px; */
     height: 600px;
-    object-fit: fill;
+    /* object-fit: fill; */
 }
 
 .closeModalButton, .prevModalButton, .nextModalButton {
