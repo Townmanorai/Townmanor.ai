@@ -138,7 +138,7 @@ function Coliving_space() {
                   <div className="coliving-card-icon blue">
                     <img src="/colive2.png" alt="Logo" style={{ width: 32, height: 32, objectFit: 'contain' }} />
                   </div>
-                  <h3>TM Hive</h3>
+                  <h3>TM <span id='coliving-card-span'>Hive</span></h3>
                 </div>
                 <p className="coliving-card-description">
                   Live Together, Grow Together.
@@ -179,7 +179,7 @@ function Coliving_space() {
                   <div className="coliving-card-icon purple">
                   <img src="/colive3.png" alt="Logo" style={{ width: 32, height: 32, objectFit: 'contain' }} />
                   </div>
-                  <h3>TM Stay</h3>
+                  <h3>TM <span id='coliving-card-span'>Stay</span></h3>
                 </div>
                 <p className="coliving-card-description">
                   Simple Stays, Smart Together.
@@ -220,7 +220,7 @@ function Coliving_space() {
                   <div className="coliving-card-icon teal">
                    <img src="/colive4.png" alt="Logo" style={{ width: 32, height: 32, objectFit: 'contain' }} />
                   </div>
-                  <h3>TM Luxe</h3>
+                  <h3>TM <span id='coliving-card-span'>Luxe</span></h3>
                 </div>
                 <p className="coliving-card-description">
                   Private Comfort, Premium Style.
