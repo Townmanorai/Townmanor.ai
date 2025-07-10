@@ -28,7 +28,7 @@ const ColivingBanner = ({ coliving }) => {
         {coliving.configuration || "-"}  {coliving.area || "-"}  {coliving.parking ? "Parking" : "No Parking"}  {coliving.floor ? `${coliving.floor}th Floor` : "-"}
       </div> */}
       <div style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
-        {['3 RK', '600 sq ft', 'No Parking', '3th Floor'].map((item, idx) => (
+        {[`${coliving.configuration_type}`, `${coliving.area} sq.ft`, 'Parking', `${coliving.floor} floor`].map((item, idx) => (
           <span
             key={idx}
             style={{
@@ -78,7 +78,7 @@ const ColivingBanner = ({ coliving }) => {
         {coliving.configuration || "-"}  {coliving.area || "-"}  {coliving.parking ? "Parking" : "No Parking"}  {coliving.floor ? `${coliving.floor}th Floor` : "-"}
       </div> */}
       <div style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
-        {['3 RK', '600 sq ft', 'No Parking', '3th Floor'].map((item, idx) => (
+        {[`${coliving.configuration_type}`, `${coliving.area} sq.ft`, 'Parking', `${coliving.floor} floor`].map((item, idx) => (
           <span
             key={idx}
             style={{

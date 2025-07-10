@@ -185,9 +185,9 @@ const ColivingPricing = ({ coliving }) => {
                 )} */}
               </div>
               <div className="colivingPricingCardDetailsSection">
-                <div className="colivingPricingCardHeader">
+                {/* <div className="colivingPricingCardHeader">
                   <span className="colivingPricingCardRoomTitle">Room {room.id}</span>
-                </div>
+                </div> */}
                 <div className="colivingPricingCardRentSection">
                   {/* <span className="colivingPricingCardRentLabel">Rent</span> */}
                   <span className="colivingPricingCardRentValue">{room.price}</span>
@@ -311,17 +311,17 @@ const ColivingPricing = ({ coliving }) => {
         </div>
         {rooms[selectedRoomIdx] && (
           <div className="colivingPricingUniqueSidebarRoomSummary">
-            <div className="colivingPricingUniqueSidebarRoomTitle"> Room: {rooms[selectedRoomIdx].id}</div>
+            {/* <div className="colivingPricingUniqueSidebarRoomTitle"> Room: {rooms[selectedRoomIdx].id}</div> */}
             {/* <div className="colivingPricingUniqueSidebarRoomId">Room ID: {rooms[selectedRoomIdx].id}</div> */}
             <div className="colivingPricingUniqueSidebarRoomFeatures">
               {rooms[selectedRoomIdx].details.map((d, i) => (
                 <span className="colivingPricingUniqueSidebarRoomFeature" key={i}>{d}</span>
               ))}
             </div>
-            <div className="colivingPricingUniqueSidebarRoomLockin">
+            {/* <div className="colivingPricingUniqueSidebarRoomLockin">
               <span className="colivingPricingUniqueSidebarRoomLockinIcon">⏱️</span>
               6 month lock-in
-            </div>
+            </div> */}
             <div className="colivingPricingUniqueSidebarRoomPrice">{rooms[selectedRoomIdx].price}</div>
             <button
   className="colivingPricingUniqueSidebarChatBtn"
