@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css"; // Slick's styles
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import CityGrid from "./CityGrid";
+import IndiaCityMapLeaflet from "./IndiaCityMapLeaflet";
 const LocationsGrid = () => {
   // Simulating the treefields data from an API call
   const treefields = [
@@ -458,7 +459,8 @@ const LocationsGrid = () => {
             )
           )}
         </Slider> */}
-        <CityGrid/>
+        {/* <CityGrid/> */}
+        <IndiaCityMapLeaflet/>
       </div>
     </section>
   );

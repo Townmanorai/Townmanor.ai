@@ -1,0 +1,88 @@
+/* IndiaCityMapLeaflet unique styles */
+.icmlf-container {
+  display: flex;
+  gap: 32px;
+  background: #fff;
+  padding: 2px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 1200px;
+  margin: 1rem auto;
+}
+
+.icmlf-map-section {
+  flex: 1.5;
+  min-width: 350px;
+}
+
+.icmlf-map {
+  height: 470px;
+  width: 550px;
+  border-radius: 12px;
+}
+
+.icmlf-city-list {
+  flex-basis: 53%;
+  min-width: 220px;
+  max-height: 450px;
+  overflow-y: auto;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.icmlf-city-list-inner {
+     display: grid
+;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    justify-content: flex-start;
+}
+
+.icmlf-city-card {
+     /* width: calc(33% - 12px); */
+    /* min-width: 180px; */
+    background: #fff;
+    color: #222;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    padding: 4px;
+    margin-bottom: 8px;
+    display: flex
+;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+    gap: 11px;
+}
+.icmlf-city-card-selected {
+  background: #1976d2;
+  color: #fff;
+  border: 2px solid #1976d2;
+}
+
+.icmlf-city-img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  background: #eee;
+  flex-shrink: 0;
+}
+
+.icmlf-city-name {
+ font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.2px;
+    /* flex: 1; */
+    text-align: center;
+    margin: 0px 2px;
+}
+@media screen and (max-width: 480px) {
+    .icmlf-container {
+        display: flex;
+        flex-direction: column;
+      }
+}

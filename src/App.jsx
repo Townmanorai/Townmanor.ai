@@ -121,6 +121,7 @@ import ColivingMainForm from './Components/coliving/ColivingMainForm.jsx';
 import BookingForm from './Components/ColivingSecond/BookingForm.jsx';
 import UserService from './Components/userdashboard/UserService.jsx';
 import BookingUserDetail from './Components/ColivingSecond/BookingUserDetail.jsx';
+import IndiaCityMapLeaflet from './Components/HomePage/IndiaCityMapLeaflet.jsx';
 
 
 
@@ -300,6 +301,7 @@ function App() {
                 <Route path='/Colivingform' element={<ColivingMainForm/>}></Route>
                 <Route path='/ColivingBookingPage' element={<BookingForm/>}></Route>
                 <Route path='/ColivingBookingUserDetail' element={<BookingUserDetail/>}></Route>
+                <Route path='/cityview' element={<IndiaCityMapLeaflet/>}></Route>
             </Routes>
           </main>
           <Footer />
