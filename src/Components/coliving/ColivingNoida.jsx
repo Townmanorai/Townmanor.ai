@@ -164,14 +164,22 @@ const ColivingNoida = () => {
     return <div className="colivingNoida__container">Loading properties...</div>;
   }
 
-  if (error) {
+if (error) {
     return <div className="colivingNoida__container">Error: {error}</div>;
   }
 
   return (
     <div className="colivingNoida__container">
+      {/* TM Luxe Info Section */}
+      <div className="colivingNoida__tmluxeInfo">
+        <h2 className="colivingNoida__tmluxeTitle">TM Luxe (Townmanor Studio & Suites)</h2>
+        <p className="colivingNoida__tmluxeDesc">
+          TM Luxe (Townmanor Studio & Suites) is Townmanor Technology’s upscale extension into the hospitality domain, targeting discerning guests, business travelers, professionals, and couples seeking hotel-like comfort with apartment-style independence. Leveraging Townmanor's proptech heritage, TM Luxe properties are poised to blend the highest service standards with homely amenities. Explore urban living in style.
+        </p>
+      </div>
+      
       {/* Header Section */}
-      <header className="colivingNoida__headerMain">
+      {/* <header className="colivingNoida__headerMain"> */}
         {/* <nav className="colivingNoida__navBar">
           <span className="colivingNoida__logo">Logo</span>
           <div className="colivingNoida__navButtons">
@@ -179,7 +187,10 @@ const ColivingNoida = () => {
             <button className="colivingNoida__navBtn colivingNoida__navBtn--signup">Sign Up</button>
           </div>
         </nav> */}
-        <div className="colivingNoida__heroSection">
+
+
+
+        {/* <div className="colivingNoida__heroSection">
           <div className="colivingNoida__heroTextWrap">
             <span className="colivingNoida__heroLabel">Noida</span>
             <h1 className="colivingNoida__heroTitle">Studio  & Suites </h1>
@@ -195,10 +206,10 @@ const ColivingNoida = () => {
             <img src="/coliving.png" alt="Coliving" className="colivingNoida__heroImg" />
            
           </div>
-        </div>
-      </header>
+        </div> */}
+      {/* </header> */}
 
-      {/* Features Section */}
+      {/* Features Section
       <section className="colivingNoida__featuresSection">
         {features.map((f, idx) => (
           <div className="colivingNoida__featureCard" key={idx}>
@@ -207,7 +218,7 @@ const ColivingNoida = () => {
             <div className="colivingNoida__featureDesc">{f.desc}</div>
           </div>
         ))}
-      </section>
+      </section> */}
 
       {/* Top Spaces Section */}
       <section className="colivingNoida__spacesSection">
