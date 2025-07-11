@@ -208,7 +208,7 @@ function Coliving_space() {
             <div className="coliving-card">
               <div className="coliving-card-image">
                 <img
-                  src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752044289221-resized_image_600x400.jpeg"
+                  src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752212963992-download%20%283%29.png"
                   alt="Studio & Suites"
                 />
                 <div className="coming-soon-sticker">
