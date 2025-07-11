@@ -223,8 +223,8 @@ if (error) {
       {/* Top Spaces Section */}
       <section className="colivingNoida__spacesSection">
         <div className="colivingNoida__spacesHeader">
-          <span className="colivingNoida__spacesLabel">Top Spaces in Noida</span>
-          <div className="colivingNoida__spacesFilters">
+          <span className="colivingNoida__spacesLabel">Select Your Property in Noida</span>
+          {/* <div className="colivingNoida__spacesFilters">
             <select 
               className="colivingNoida__spacesSelect"
               value={filters.priceSort}
@@ -253,7 +253,7 @@ if (error) {
               <option value="Available">Available</option>
               <option value="Occupied">Occupied</option>
             </select>
-          </div>
+          </div> */}
         </div>
         <div className="colivingNoida__spacesGrid">
           {spaces.slice(0, visibleSpaces).map((space, idx) => (
@@ -324,14 +324,14 @@ if (error) {
       </section> */}
 
       {/* CTA Section */}
-      <section className="colivingNoida__ctaSection">
+      {/* <section className="colivingNoida__ctaSection">
         <div className="colivingNoida__ctaTitle">Ready to Find Your Perfect Coliving Space?</div>
         <div className="colivingNoida__ctaDesc">Join thousands of happy residents living in our coliving spaces across Noida. Book a tour today!</div>
         <div className="colivingNoida__ctaBtns">
           <button className="colivingNoida__ctaBtn colivingNoida__ctaBtn--primary">Book a Tour</button>
           <button className="colivingNoida__ctaBtn colivingNoida__ctaBtn--secondary">Contact Us</button>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

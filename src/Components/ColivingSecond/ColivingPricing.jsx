@@ -296,7 +296,7 @@ const ColivingPricing = ({ coliving }) => {
         </div>
       </div>
       <div className="colivingPricingUniqueSidebar">
-        <div className="colivingPricingUniqueSidebarTabs">
+        {/* <div className="colivingPricingUniqueSidebarTabs">
           {rooms.map((room, idx) => (
             <button
               key={room.id}
@@ -308,7 +308,7 @@ const ColivingPricing = ({ coliving }) => {
               {`Room ${idx + 1}`}
             </button>
           ))}
-        </div>
+        </div> */}
         {rooms[selectedRoomIdx] && (
           <div className="colivingPricingUniqueSidebarRoomSummary">
             {/* <div className="colivingPricingUniqueSidebarRoomTitle"> Room: {rooms[selectedRoomIdx].id}</div> */}
