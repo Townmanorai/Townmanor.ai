@@ -732,19 +732,30 @@
 /* Coming Soon Sticker */
 .coming-soon-sticker {
   position: absolute;
-  top: 50px;
-  right: -47px;
+  top: 33px;
+  right: -37px;
   background: linear-gradient(to right, #ff4447, #8a2e2e);
   color: white;
-  padding: 5px 40px;
+  padding: 3px 40px;
   transform: rotate(45deg);
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 600;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   z-index: 2;
   cursor: pointer;
 }
-
+.tmluxe{
+  background: linear-gradient(to right, #ff4447, #8a2e2e);
+  color: white !important;
+  padding: 6px 10px;
+  border-radius: 13px;
+  font-weight: 400;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
 /* Join Waitlist Sticker */
 .join-waitlist-sticker {
   position: absolute;
@@ -752,13 +763,14 @@
   right: -40px;
   background: linear-gradient(to right, #000000, #000000);
   color: white;
-  padding: 5px 40px;
+  padding: 3px 40px;
   transform: rotate(45deg);
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 600;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   z-index: 2;
   cursor: pointer;
+  letter-spacing: 1px;
 }
 
 /* Info Modal Content */
@@ -798,4 +810,10 @@
   .coliving-paragraph p {
     margin-bottom: 1rem;
   }
+ 
+}
+@media (min-width: 300px) {
+  .coliving-card {
+    margin: 0px auto;
+}
 }

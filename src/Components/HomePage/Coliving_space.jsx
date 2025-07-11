@@ -182,7 +182,7 @@ function Coliving_space() {
                   <h3>TM <span id='coliving-card-span'>Stay</span></h3>
                 </div>
                 <p className="coliving-card-description">
-                  Simple Stays, Smart Together.
+                  Simple Stays, Smart Choices.
                 </p>
                 {/* <ul className="coliving-card-list">
                   <li>
@@ -239,16 +239,16 @@ function Coliving_space() {
                     <span>Premium furnishings and amenities</span>
                   </li>
                 </ul> */}
-                <button className="coliving-link-btn teal" onClick={()=>{
+                <button className="coliving-link-btn teal tmluxe" onClick={()=>{
                   navigate('/newcoliving')
                 }}>
-                  Learn more <FaArrowRight className="arrow-icon" />
+                  Booking Request  <FaArrowRight className="arrow-icon" />
                 </button>
               </div>
             </div>
           </div>
           
-          <div className="coliving-signup-box">
+          {/* <div className="coliving-signup-box">
             <div className="coliving-signup-text">
               <h3>Be the first to know when we launch</h3>
               <p>
@@ -265,7 +265,7 @@ function Coliving_space() {
               />
               <button onClick={openModal}>Join Waitlist</button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
