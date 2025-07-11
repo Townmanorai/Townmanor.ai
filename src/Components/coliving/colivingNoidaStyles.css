@@ -220,10 +220,11 @@
 }
 .colivingNoida__spaceImageContainer {
   width: 100%;
-  height: 200px;
+  height: auto;
   overflow: hidden;
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
+  aspect-ratio: 4 / 3;
 }
 .colivingNoida__spaceImg {
   width: 100%;
@@ -472,7 +473,7 @@
     grid-template-columns: 1fr;
   }
   
-  .colivingNoida__spaceImageContainer {
-    padding-top: 56.25%; /* 16:9 aspect ratio for mobile */
-  }
+  /* .colivingNoida__spaceImageContainer {
+    padding-top: 56.25%; 
+  } */
 }

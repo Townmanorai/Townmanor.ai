@@ -94,19 +94,23 @@
 
   .colivingBannerautoslider {
 
-    display: flex;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    height: 314px;
-   
+    display: flex
+    ;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: fit-content;
+            aspect-ratio: 4 / 3;
+            margin-top: 20px;
   }
 
   .colivingBannerautoslider img {
     position: absolute;
+   
+   
+    object-fit: cover;
     width: 100%;
     height: 100%;
-    object-fit: cover;
     border-radius: 12px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
