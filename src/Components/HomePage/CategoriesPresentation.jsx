@@ -22,6 +22,15 @@ const CategoriesPresentation = () => {
       title: "Cozy Cottages",
       thumbnail_url: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/commercial-images/1742283470675-TMb3.webp",
     },
+    {
+      url: "/category/4",
+      title: "Sobha Aurum",
+      thumbnail_url: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752495817975-Sobha-limited-sobha-builders.jpg",
+    },{
+      url: "/category/5",
+      title: "M3M Cullinan",
+      thumbnail_url: "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752495818052-hero-section-card2-scaled.jpeg",
+    },
   ];
 
   const defaultImages = [
@@ -68,7 +77,21 @@ const CategoriesPresentation = () => {
                     alt="View for rent"
                   />
                 </Carousel.Item>
-                {/* <Carousel.Item
+                <Carousel.Item
+                onClick={()=>{
+                  handleNavigate('https://m3mindia.com/residential/m3m-the-cullinan');
+                }}
+                style={{
+                  cursor:'pointer'
+                }}
+                >
+                  <img
+                    className="d-block w-100 img-fluid fluidx"
+                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752495818052-hero-section-card2-scaled.jpeg"
+                    alt="View for rent"
+                  />
+                </Carousel.Item>
+                <Carousel.Item
                 onClick={()=>{
                   handleNavigate('https://www.sobhagroup.co/');
                 }}
@@ -78,10 +101,10 @@ const CategoriesPresentation = () => {
                 >
                   <img
                     className="d-block w-100 img-fluid fluidx"
-                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1745908302431-banner1.jpg"
+                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752495817975-Sobha-limited-sobha-builders.jpg"
                     alt="View for rent"
                   />
-                </Carousel.Item> */}
+                </Carousel.Item>
                 <Carousel.Item
                  onClick={()=>{
                   handleNavigate('https://www.bhutanigroup.com/citycenter32/');
