@@ -121,12 +121,13 @@ const ColivingPricing = ({ coliving }) => {
                 `${room.area || "-"} sqft`,
                 room.bedroom,
                 room.dedicated_work_space ? "Dedicated workspace" : null,
-                room.bathroom ? `Bathroom: Attached` : null,
+                room.bathroom ? `Attached Bathroom` : null,
+                
               ].filter(Boolean),
               booked: !!room.occupied,
               bookable: !room.occupied,
               bookedBy: room.user_name || undefined,
-              bookedUntil: undefined, // Not provided by API
+              bookedUntil: undefined, // Not provided by A
             }))
           );
         } else {
@@ -195,9 +196,13 @@ const ColivingPricing = ({ coliving }) => {
                   {/* <div className="colivingPricingCardDeposit">+Additional Deposit Initially</div> */}
                 </div>
                 <div className="colivingPricingCardFeatures">
-                  {room.details.map((d, i) => (
-                    <div className="colivingPricingCardFeature" key={i}>{d}</div>
-                  ))}
+                  {/* {room.details.map((k) => (
+                    <div className="colivingPricingCardFeature" >{k}</div>
+                  ))} */}
+                    <div className="colivingPricingCardFeature" >{room.details[0]}</div>
+                    <div className="colivingPricingCardFeature" >{room.details[1]}</div>
+                    <div className="colivingPricingCardFeature" >{room.details[2]}</div>
+                    <div className="colivingPricingCardFeature" >{coliving.state}</div>
                 </div>
                 {/* {room.bookedBy && (
                   <div className="colivingPricingCardOccupantSection">
