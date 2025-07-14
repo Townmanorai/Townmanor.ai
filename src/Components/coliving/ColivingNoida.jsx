@@ -86,7 +86,8 @@ const ColivingNoida = () => {
                 description: property.description,
                 amenities: property.amenities,
                 nearby_location: property.nearby_location,
-                roomDetails: roomData.data?.[0]
+                roomDetails: roomData.data?.[0],
+                city: property.city || 'Noida',
               };
             } catch (error) {
               console.error(`Error fetching rooms for property ${property.id}:`, error);
@@ -111,7 +112,7 @@ const ColivingNoida = () => {
 
     fetchProperties();
   }, []);
-
+ 
   // Filter and sort spaces
   useEffect(() => {
     if (loading) return;
@@ -167,14 +168,14 @@ const ColivingNoida = () => {
 if (error) {
     return <div className="colivingNoida__container">Error: {error}</div>;
   }
-
+  
   return (
     <div className="colivingNoida__container">
       {/* TM Luxe Info Section */}
       <div className="colivingNoida__tmluxeInfo">
-        <h2 className="colivingNoida__tmluxeTitle">TM Luxe (Townmanor Studio & Suites)</h2>
+        <h2 className="colivingNoida__tmluxeTitle">TM Luxe (Townmanor Studio & Suits)</h2>
         <p className="colivingNoida__tmluxeDesc">
-          TM Luxe (Townmanor Studio & Suites) is Townmanor Technology’s upscale extension into the hospitality domain, targeting discerning guests, business travelers, professionals, and couples seeking hotel-like comfort with apartment-style independence. Leveraging Townmanor's proptech heritage, TM Luxe properties are poised to blend the highest service standards with homely amenities. Explore urban living in style.
+          TM Luxe (Townmanor Studio & Suits) is Townmanor Technology’s upscale extension into the hospitality domain, targeting discerning guests, business travelers, professionals, and couples seeking hotel-like comfort with apartment-style independence. Leveraging Townmanor's proptech heritage, TM Luxe studios & suits are poised to blend the highest service standards with homely amenities. Explore urban living in style.
         </p>
       </div>
       
@@ -223,7 +224,7 @@ if (error) {
       {/* Top Spaces Section */}
       <section className="colivingNoida__spacesSection">
         <div className="colivingNoida__spacesHeader">
-          <span className="colivingNoida__spacesLabel">Select Your Property in Noida</span>
+          <span className="colivingNoida__spacesLabel">Select Your Property.</span>
           {/* <div className="colivingNoida__spacesFilters">
             <select 
               className="colivingNoida__spacesSelect"
@@ -279,7 +280,7 @@ if (error) {
                 </div>
 
                 <div className="colivingNoida__spacePriceSection">
-                  <span className="colivingNoida__roomsFrom">Rooms from</span>
+                  <span className="colivingNoida__roomsFrom">{space.city}</span>
                   <div className="colivingNoida__priceRow">
                     <span className="colivingNoida__spacePrice">₹{space.price}/ per Night</span>
                     {/* <span className={`colivingNoida__availability ${space.availability.toLowerCase().includes('available') ? 'available' : 'occupied'}`}>

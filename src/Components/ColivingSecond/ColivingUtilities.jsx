@@ -1,28 +1,48 @@
 import React from 'react'
-import { FiWifi } from 'react-icons/fi'
+
 import { TbGasStation } from 'react-icons/tb'
 import { HiOutlineLockClosed } from 'react-icons/hi2'
 import { FaTruckMoving } from 'react-icons/fa'
-import { GiForkKnifeSpoon } from 'react-icons/gi'
-import './ColivingUtilitiesUnique.css'
 
+import './ColivingUtilitiesUnique.css'
+import { FiWifi } from "react-icons/fi";
+import { TbPlug } from "react-icons/tb";
+
+import { GiForkKnifeSpoon, GiWaterDrop } from "react-icons/gi";
+import { FaTshirt } from "react-icons/fa";
 const utilities = [
   {
-    icon: <FiWifi className="colivingUtilitiesUniqueIcon" />, label: 'WiFi', sub: 'Included'
+    icon: <FiWifi className="colivingUtilitiesUniqueIcon" />,
+    label: 'WiFi',
+    sub: 'Included'
   },
   {
-    icon: <TbGasStation className="colivingUtilitiesUniqueIcon" />, label: 'Gas', sub: 'Pay per use'
+    icon: <HiOutlineLockClosed className="colivingUtilitiesUniqueIcon" />,
+    label: 'Code Lock',
+    sub: 'Included'
   },
   {
-    icon: <HiOutlineLockClosed className="colivingUtilitiesUniqueIcon" />, label: 'Code Lock', sub: 'Included'
+    icon: <GiForkKnifeSpoon className="colivingUtilitiesUniqueIcon" />,
+    label: 'DIY Kitchen',
+    sub: 'Included'
   },
   {
-    icon: <FaTruckMoving className="colivingUtilitiesUniqueIcon" />, label: 'Move-in Service', sub: '₹1,500'
+    icon: <TbPlug className="colivingUtilitiesUniqueIcon" />,
+    label: 'Electric Built-in Hob',
+    sub: 'Included'
   },
   {
-    icon: <GiForkKnifeSpoon className="colivingUtilitiesUniqueIcon" />, label: 'DIY Kitchen', sub: 'Included'
+    icon: <GiWaterDrop className="colivingUtilitiesUniqueIcon" />,
+    label: 'Built-in RO',
+    sub: 'Included'
+  },
+  {
+    icon: <FaTshirt className="colivingUtilitiesUniqueIcon" />,
+    label: 'Washing Machine',
+    sub: 'Included'
   }
-]
+];
+
 
 const ColivingUtilities = () => {
   return (

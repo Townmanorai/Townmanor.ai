@@ -159,7 +159,7 @@ function Coliving_space() {
                 </ul> */}
                 <button className="coliving-link-btn blue" onClick={()=>{
                   openInfoModal();
-                  setContent('TM Hive is the Brand name of Townmanor Coliving \n Townmanor Technology is working Towards to launch Premium Coliving Spaces in India target young Professional in NCR Hubs like Noida , Greater Noida & Gurgoan. \n Resolves Urban Housing Challenge - high csot , isolatoon , rigid leases - by delivering styled living with community & convience'); // Example content
+                  setContent('TM Hive is the Brand name of Townmanor Coliving \n Townmanor Technology is working Towards to launch Premium Coliving Spaces in India target young Professional in NCR Hubs like Noida , Greater Noida & Gurgoan. \n Resolves Urban Housing Challenge - high cost, isolation, community & Convenience'); // Example content
                   }}>
                   Learn more <FaArrowRight className="arrow-icon" />
                 </button>
@@ -203,7 +203,7 @@ function Coliving_space() {
                 </ul> */}
                 <button className="coliving-link-btn purple"  onClick={()=>{
                   openInfoModal();
-                  setContent('Townmanor Technologies expanding its hospitality offering into the PG branded or TM Stay . while concreate detail are still emergin , its position itself as an integrated Pg/co_living Solution aiming at young Professional & Student in India \n Designed to appel to millemial & Genz Professional/Student Seeing an upgarded PG Experience'); // Example content
+                  setContent('Townmanor Technologies expanding its hospitality offering into the PG branded as still emerging \n Professionals & Students in India.Designed to appeal to millennials and GenZ. Professionals & Students seeking an upgarded PG Experience'); // Example content
                   }}>
                   Learn more <FaArrowRight className="arrow-icon" />
                 </button>

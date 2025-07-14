@@ -53,9 +53,9 @@ function ColivingMain() {
       <ColivingBanner coliving={coliving} />
       <ColivingPricing coliving={coliving} />
       <ColivingUtilities coliving={coliving} />
-      <ColivingFlentPromise coliving={coliving} />
-      <ColivingSimilarListing coliving={coliving} />
-      <ColivingSecondFooter />
+      {/* <ColivingFlentPromise coliving={coliving} /> */}
+      {/* <ColivingSimilarListing coliving={coliving} />
+      <ColivingSecondFooter /> */}
     </>
   )
 }
