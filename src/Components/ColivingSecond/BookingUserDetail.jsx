@@ -85,17 +85,20 @@ const BookingUserDetail = () => {
             const days = differenceInDays(endDate, startDate);
             if (days > 0) {
                 setNights(days);
-                const basePrice = days * roomData.data.price;
+                const roomRentPerNight = roomData.data.price;
+                const basePrice = days * roomRentPerNight;
                 let gstAmount = 0;
                 let currentGstPercentage = 0;
 
-                if (basePrice < 7000) {
-                    currentGstPercentage = 10;
-                    gstAmount = basePrice * 0.10;
-                } else {
+                if (roomRentPerNight >= 1000 && roomRentPerNight <= 7499) {
+                    currentGstPercentage = 12;
+                } else if (roomRentPerNight >= 7500) {
                     currentGstPercentage = 18;
-                    gstAmount = basePrice * 0.18;
+                } else {
+                    currentGstPercentage = 0; // GST is 0% if rent is less than 1000
                 }
+
+                gstAmount = basePrice * (currentGstPercentage / 100);
 
                 setCalculatedPrice(basePrice);
                 setGst(gstAmount);
@@ -426,6 +429,7 @@ const BookingUserDetail = () => {
                         endDate: endDate,
                         key: 'selection',
                     }]}
+                    minDate={new Date()}
                     disabledDates={disabledDates}
                     months={2}
                     direction="horizontal"
@@ -516,20 +520,33 @@ const BookingUserDetail = () => {
 
                     {nights > 0 && (
                         <div className="booking-user-detail__price-breakdown">
-                            <p>You won't be charged yet</p>
+                            <h4>Price Details</h4>
                             <div className="booking-user-detail__price-item">
-                                <span>{`₹${roomData?.data?.price || 0} x ${nights} nights`}</span>
-                                <span>₹{calculatedPrice.toFixed(2)}</span>
+                                <span>Base Room Price (per night)</span>
+                                <span>₹{roomData?.data?.price?.toFixed(2) || 0}</span>
                             </div>
                             <div className="booking-user-detail__price-item">
-                                <span>{`GST (${gstPercentage}%)`}</span>
-                                <span>₹{gst.toFixed(2)}</span>
+                                <span>Number of Nights</span>
+                                <span>{nights}</span>
+                            </div>
+                            <div className="booking-user-detail__price-item">
+                                <span>Total Base Price</span>
+                                <span>{`₹${calculatedPrice.toFixed(2)} (₹${roomData?.data?.price || 0} × ${nights})`}</span>
+                            </div>
+                            <div className="booking-user-detail__price-item">
+                                <span>Applicable GST Rate</span>
+                                <span>{`${gstPercentage}%`}</span>
+                            </div>
+                            <div className="booking-user-detail__price-item">
+                                <span>GST Amount</span>
+                                <span>{`₹${gst.toFixed(2)} (${gstPercentage}% of ₹${calculatedPrice.toFixed(2)})`}</span>
                             </div>
                             <hr />
                             <div className="booking-user-detail__price-total">
-                                <span>Total</span>
+                                <span>Final Total (with GST)</span>
                                 <span>₹{totalPrice.toFixed(2)}</span>
                             </div>
+                             <p className="booking-user-detail__no-charge-yet">You won't be charged yet</p>
                         </div>
                     )}
                 </form>
@@ -540,12 +557,12 @@ const BookingUserDetail = () => {
     <div className="booking-user-detail__modal-content custom-photo-upload-modal">
       <button className="booking-user-detail__modal-close-button" onClick={() => setShowPhotoUpload(false)}>&times;</button>
       <h2>Upload Your Photo</h2>
-      <div className="custom-photo-upload__camera-preview">
+      {/* <div className="custom-photo-upload__camera-preview">
         <div className="custom-photo-upload__camera-icon">
           <span role="img" aria-label="camera" style={{fontSize: '40px', color: '#bdbdbd'}}>&#128247;</span>
         </div>
         <div className="custom-photo-upload__camera-text">Camera preview will appear here</div>
-      </div>
+      </div> */}
       <div className="custom-photo-upload__drag-drop">
         <div className="custom-photo-upload__upload-icon">
           <span role="img" aria-label="upload" style={{fontSize: '32px', color: '#90caf9'}}>&#128228;</span>
@@ -562,10 +579,10 @@ const BookingUserDetail = () => {
         />
       </div>
       <div className="custom-photo-upload__button-row">
-        <button type="button" className="custom-photo-upload__take-photo-btn">
+        {/* <button type="button" className="custom-photo-upload__take-photo-btn">
           <span role="img" aria-label="camera" style={{marginRight: '8px'}}>&#128247;</span>
           Take Photo
-        </button>
+        </button> */}
         <button
           type="button"
           onClick={handlePhotoUpload}

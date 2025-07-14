@@ -142,11 +142,16 @@
 }
 
 .booking-user-detail__price-breakdown {
-    text-align: center;
     font-size: 14px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #ddd;
 }
 
-.booking-user-detail__price-breakdown p {
+.booking-user-detail__price-breakdown h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 0;
     margin-bottom: 16px;
 }
 
@@ -155,10 +160,15 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 12px;
+    color: #484848;
+}
+
+.booking-user-detail__price-item span:last-child {
+    font-weight: 500;
 }
 
 .booking-user-detail__price-item span:first-child {
-    text-decoration: underline;
+    color: #717171;
 }
 
 .booking-user-detail__price-breakdown hr {
@@ -168,10 +178,112 @@
 }
 
 .booking-user-detail__price-total {
+    font-size: 16px;
     font-weight: 600;
+    color: #222;
+}
+
+.booking-user-detail__no-charge-yet {
+    text-align: center;
+    font-size: 14px;
+    color: #717171;
+    margin-top: 16px;
 }
 
 /* Custom Modal Styles */
+
+/* Responsive styles for BookingUserDetail */
+@media (max-width: 900px) {
+  .booking-user-detail__container {
+    flex-direction: column;
+    gap: 24px;
+    padding: 16px;
+    margin-top: 2rem;
+  }
+  .booking-user-detail__summary-card {
+    max-width: 100%;
+    position: static;
+    top: unset;
+    margin: 0 auto 24px auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .booking-user-detail__container {
+    padding: 8px;
+    gap: 12px;
+    margin-top: 1rem;
+  }
+  .booking-user-detail__calendar-section h2,
+  .booking-user-detail__price-info h3 {
+    font-size: 18px;
+  }
+  .booking-user-detail__calendar-section p {
+    font-size: 13px;
+  }
+  .booking-user-detail__summary-card {
+    padding: 12px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.09);
+    border-radius: 8px;
+    font-size: 13px;
+    min-width: unset;
+    max-width: 100vw;
+  }
+  .booking-user-detail__price-breakdown h4 {
+    font-size: 15px;
+  }
+  .booking-user-detail__price-item, .booking-user-detail__price-total {
+    font-size: 13px;
+  }
+  .booking-user-detail__date-inputs {
+    flex-direction: column;
+    border-radius: 6px;
+  }
+  .booking-user-detail__date-input {
+    width: 100%;
+    padding: 8px 8px;
+    border-right: none !important;
+    border-bottom: 1px solid #b0b0b0;
+  }
+  .booking-user-detail__date-input:last-child {
+    border-bottom: none;
+  }
+  .booking-user-detail__form-group label {
+    font-size: 13px;
+  }
+  .booking-user-detail__verify-input-group input,
+  .booking-user-detail__verify-input-group button {
+    font-size: 13px;
+    padding: 8px;
+  }
+  .booking-user-detail__reserve-button,
+  .booking-user-detail__payment-button {
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 6px;
+  }
+  .booking-user-detail__modal-content.custom-photo-upload-modal {
+    width: 98vw;
+    padding: 10px 4px 10px 4px;
+    border-radius: 10px;
+  }
+  .custom-photo-upload__camera-preview {
+    height: 90px;
+  }
+  .custom-photo-upload__button-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .rdrMonths {
+    display: flex
+;
+    flex-direction: column !important;
+}
+.rdrCalendarWrapper {
+  width: 100%;
+}
+}
+
 .booking-user-detail__modal-overlay {
   position: fixed;
   top: 0;

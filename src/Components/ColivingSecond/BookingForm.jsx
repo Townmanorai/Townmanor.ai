@@ -114,7 +114,7 @@ const BookingForm = () => {
             {coliving.address || 'N/A'}
             <span className="tmnBooking__badge">{coliving.flat_type || ''}</span>
           </div>
-          <div className="tmnBooking__title">Room No: {room.id}</div>
+          {/* <div className="tmnBooking__title">Room No: {room.id}</div> */}
           
           <div className="tmnBooking__features">
             {room.details?.map((d, i) => (
@@ -131,12 +131,12 @@ const BookingForm = () => {
         <div className="tmnBooking__termsBox">
           <ol style={{ paddingLeft: 10, margin: 0 }}>
             <li>1.Maintain cleanliness and follow building rules</li>
-            <li>2. Full refund if cancelled 7 days prior to check-in.</li>
-            <li>3. 50% refund if cancelled 3-6 days before check-in.</li>
-            <li>4. No refund if cancelled within 48 hours of check-in.</li>
+            <li>2. Full refund if cancelled 2 days prior to check-in.</li>
+            <li>3. 50% refund if cancelled 24 hours before check-in.</li>
+            <li>4. No refund if cancelled within same day of check-in.</li>
             <li>5. The Host is not liable for accidents, injuries, or loss of personal belongings.</li>
             <li>6.The Guest is responsible for any damages to the property during the stay.</li>
-            <li>7. The Property cannot used any trading , Bussiness & commercial purpose</li>
+            <li>7. The Property cannot be used for any trading , Bussiness & commercial purpose</li>
           </ol>
         </div>
         <div className="tmnBooking__checkboxRow">
