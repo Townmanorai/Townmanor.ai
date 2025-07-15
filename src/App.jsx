@@ -122,6 +122,7 @@ import BookingForm from './Components/ColivingSecond/BookingForm.jsx';
 import UserService from './Components/userdashboard/UserService.jsx';
 import BookingUserDetail from './Components/ColivingSecond/BookingUserDetail.jsx';
 import IndiaCityMapLeaflet from './Components/HomePage/IndiaCityMapLeaflet.jsx';
+import Banner from './banner.jsx';
 
 
 
@@ -168,7 +169,9 @@ function App() {
         <ScrollToTop />
         <ScrollRestoration />
         <div className="app-container">
+
           <Navbar />
+          <Banner/>
           <main className="main-content">
             <Routes>
               <Route path="/" element={<Home />} />

@@ -87,7 +87,7 @@ const CategoriesPresentation = () => {
                 >
                   <img
                     className="d-block w-100 img-fluid fluidx"
-                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752495818052-hero-section-card2-scaled.jpeg"
+                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752572964948-WhatsApp%20Image%202025-07-15%20at%2013.40.43_0dc8b2dc.jpg"
                     alt="View for rent"
                   />
                 </Carousel.Item>
@@ -101,7 +101,7 @@ const CategoriesPresentation = () => {
                 >
                   <img
                     className="d-block w-100 img-fluid fluidx"
-                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752495817975-Sobha-limited-sobha-builders.jpg"
+                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752572964885-Screenshot%202025-07-15%20151535.png"
                     alt="View for rent"
                   />
                 </Carousel.Item>

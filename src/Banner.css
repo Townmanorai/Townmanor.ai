@@ -1,0 +1,100 @@
+.tm-luxe-banner {
+  width: 100%;
+  background: linear-gradient(90deg, #f7f3ee 0%, #e6eaf7 70%, #f7e7c1 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(90, 70, 51, 0.08);
+  margin: 32px auto 0 auto;
+  max-width: 1200px;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  border: 1.5px solid #e3d3c2;
+  margin-top: 4.5rem;
+  margin-bottom: 5px;
+}
+
+.tm-luxe-banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 40px 28px 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.tm-luxe-banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tm-luxe-banner-headline {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #5a4633;
+  letter-spacing: 0.01em;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.tm-luxe-banner-discover {
+  color: #5a4633;
+  font-weight: 700;
+  font-size: 1.45rem;
+  margin-right: 6px;
+}
+
+.tm-luxe-banner-luxe {
+  color: #bfa16a;
+  font-weight: 700;
+  font-size: 1.45rem;
+}
+
+.tm-luxe-banner-subtext {
+  color: #7a5c2e;
+  font-size: 1.08rem;
+  font-weight: 400;
+  margin-top: 2px;
+  letter-spacing: 0.01em;
+}
+
+.tm-luxe-banner-btn {
+  background: linear-gradient(90deg, #4a7fd1 0%, #bfa16a 100%);
+  color: #fff;
+  padding: 12px 38px;
+  border-radius: 28px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 2px 12px rgba(191, 161, 106, 0.10);
+  transition: background 0.2s, box-shadow 0.2s;
+  border: 2px solid #bfa16a;
+  outline: none;
+  font-size: 1.08rem;
+  margin-left: 32px;
+  display: inline-block;
+  letter-spacing: 0.01em;
+}
+
+.tm-luxe-banner-btn:hover {
+  background: linear-gradient(90deg, #bfa16a 0%, #4a7fd1 100%);
+  box-shadow: 0 4px 16px rgba(191, 161, 106, 0.18);
+  color: #fff;
+}
+
+@media (max-width: 800px) {
+  .tm-luxe-banner-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 16px;
+    gap: 16px;
+  }
+  .tm-luxe-banner-btn {
+    margin: 12px 0 0 0;
+    width: 100%;
+    text-align: center;
+  }
+  .tm-luxe-banner-headline {
+    font-size: 1.1rem;
+  }
+}
