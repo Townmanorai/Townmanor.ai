@@ -108,7 +108,7 @@ function Coliving_space() {
       <div className="coliving-features-section">
         <div className="container">
           <div className="coliving-features-heading">
-            <h2>Our Smart Urban Living Options </h2>
+            <h2>Our <b>Smart</b> Urban <b>Living</b> Options </h2>
             <p>
               Choose the perfect living arrangement that suits your lifestyle
               and preferences.
