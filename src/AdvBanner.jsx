@@ -1,6 +1,6 @@
 import React from 'react'
 import './Banner.css'
-function Banner() {
+function AdvBanner() {
   return (
     <>
  <div class="tm-luxe-banner">
@@ -19,4 +19,4 @@ function Banner() {
   )
 }
 
-export default Banner
+export default AdvBanner
