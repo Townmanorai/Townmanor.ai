@@ -278,7 +278,7 @@ const ColivingPricing = ({ coliving }) => {
                   city: 'Bangalore'
                 }]} /> 
           </div>
-          <div className="colivingPricingUniqueNearby">
+          {/* <div className="colivingPricingUniqueNearby">
             {apiNearby.length > 0
               ? apiNearby.map((n, i) => (
                   <span
@@ -297,7 +297,7 @@ const ColivingPricing = ({ coliving }) => {
                     {n.label}
                   </span>
                 ))}
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="colivingPricingUniqueSidebar">

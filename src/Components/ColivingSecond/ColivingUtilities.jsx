@@ -51,6 +51,14 @@ const ColivingUtilities = ({coliving}) => {
     setData(Array.isArray(amenities) ? amenities : []);
   }, [coliving]);
   console.log(data);
+  // Parse nearby_location
+  let nearbyLocations = [];
+  try {
+    nearbyLocations = JSON.parse(coliving.nearby_location);
+  } catch {
+    nearbyLocations = [];
+  }
+
   return (
     <div id='colivingutility'>
       <div className="colivingUtilitiesUniqueBox">
@@ -62,6 +70,16 @@ const ColivingUtilities = ({coliving}) => {
               <div className="colivingUtilitiesUniqueLabel">{amenity}</div>
               <div className="colivingUtilitiesUniqueSub">Included</div>
             </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Nearby Location Section */}
+      <div className="colivingNearbyLocationBox">
+        <div className="colivingNearbyLocationTitle">Near by Location</div>
+        <div className="colivingNearbyLocationTabs">
+          {nearbyLocations.map((loc, idx) => (
+            <div className="colivingNearbyLocationTab" key={idx}>{loc}</div>
           ))}
         </div>
       </div>
