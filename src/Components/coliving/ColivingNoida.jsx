@@ -175,7 +175,7 @@ if (error) {
       <div className="colivingNoida__tmluxeInfo">
         <h2 className="colivingNoida__tmluxeTitle">TM Luxe (Townmanor Studios & Suites)</h2>
         <p className="colivingNoida__tmluxeDesc">
-          TM Luxe (Townmanor Studios & Suites) is Townmanor Technologies upscale extension into the hospitality domain, targeting discerning guests, business travelers, professionals, and couples seeking hotel-like comfort with apartment-style independence. Leveraging Townmanor's proptech heritage, TM Luxe studios & suites are poised to blend the highest service standards with homely amenities. Explore urban living in style.
+          TM Luxe (Townmanor Studios & Suites) is Townmanor Technologies upscale extension into the hospitality domain, targeting discerning guests, business travelers, professionals, and couples - seeking hotel-like comfort with apartment-style independence. Leveraging Townmanor's proptech heritage, TM Luxe studios & suites are poised to blend the highest service standards with homely amenities. Explore urban living in style.
         </p>
       </div>
       

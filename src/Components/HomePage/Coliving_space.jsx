@@ -159,8 +159,8 @@ function Coliving_space() {
                 </ul> */}
                 <button className="coliving-link-btn blue" onClick={()=>{
                   openInfoModal();
-                  setContent('TM Hive is the brand name of Townmanor Co-living.\n Townmanor Technologies is working towards launching premium co-living spaces in India, targeting young professionals in NCR hubs like Noida, Greater Noida, and Gurgaon. \n It aims to resolve urban housing challenges such as high costs, isolation, lack of community, and inconvenience'); 
-                  }}>
+                  setContent('TM Hive is the brand name of Townmanor Co-living.\n Townmanor Technologies is working towards to launch premium co-living spaces in India, targeting young professionals in NCR hubs like Noida, Greater Noida, and Gurgaon. \n Resolves urban housing challenges - high cost, isolation, rigid leases - by delivering.'); 
+               }}>
                   Learn more <FaArrowRight className="arrow-icon" />
                 </button>
               </div>
@@ -203,7 +203,7 @@ function Coliving_space() {
                 </ul> */}
                 <button className="coliving-link-btn purple"  onClick={()=>{
                   openInfoModal();
-                  setContent('Townmanor Technologies expanding its hospitality offering into the PG branded as still emerging \n Professionals & Students in India.Designed to appeal to millennials and GenZ. Professionals & Students seeking an upgarded PG Experience'); // Example content
+                  setContent('Townmanor Technologies is expanding its hospitality offerings into the PG branded as TM Stays. While concerete details are still emerging, its positions itself as an integrated PG/co-living solutions aiming at young professionals and students in India.\n Designed to appeal to millennials and Gen-Z professionals/students seeking an upgraded PG experience.'); // Example content
                   }}>
                   Learn more <FaArrowRight className="arrow-icon" />
                 </button>

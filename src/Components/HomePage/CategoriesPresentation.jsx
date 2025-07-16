@@ -101,7 +101,21 @@ const CategoriesPresentation = () => {
                 >
                   <img
                     className="d-block w-100 img-fluid fluidx"
-                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752572964885-Screenshot%202025-07-15%20151535.png"
+                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752645939633-WhatsApp%20Image%202025-07-16%20at%2011.34.16%20AM.jpeg"
+                    alt="View for rent"
+                  />
+                </Carousel.Item>
+                  <Carousel.Item
+                onClick={()=>{
+                  handleNavigate('https://www.sobhagroup.co/');
+                }}
+                style={{
+                  cursor:'pointer'
+                }}
+                >
+                  <img
+                    className="d-block w-100 img-fluid fluidx"
+                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752645939670-WhatsApp%20Image%202025-07-16%20at%2011.34.03%20AM.jpeg"
                     alt="View for rent"
                   />
                 </Carousel.Item>
