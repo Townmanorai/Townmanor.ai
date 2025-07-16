@@ -159,7 +159,7 @@ function Coliving_space() {
                 </ul> */}
                 <button className="coliving-link-btn blue" onClick={()=>{
                   openInfoModal();
-                  setContent('TM Hive is the Brand name of Townmanor Coliving \n Townmanor Technology is working Towards to launch Premium Coliving Spaces in India target young Professional in NCR Hubs like Noida , Greater Noida & Gurgoan. \n Resolves Urban Housing Challenge - high cost, isolation, community & Convenience'); // Example content
+                  setContent('TM Hive is the brand name of Townmanor Co-living.\n Townmanor Technologies is working towards launching premium co-living spaces in India, targeting young professionals in NCR hubs like Noida, Greater Noida, and Gurgaon. \n It aims to resolve urban housing challenges such as high costs, isolation, lack of community, and inconvenience'); 
                   }}>
                   Learn more <FaArrowRight className="arrow-icon" />
                 </button>
