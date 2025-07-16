@@ -1,100 +1,139 @@
-.tm-luxe-banner {
-  width: 100%;
-  background: linear-gradient(90deg, #f7f3ee 0%, #e6eaf7 70%, #f7e7c1 100%);
-  border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(90, 70, 51, 0.08);
-  margin: 32px auto 0 auto;
-  max-width: 1200px;
-  padding: 0;
-  position: relative;
-  overflow: hidden;
-  border: 1.5px solid #e3d3c2;
-  margin-top: 4.5rem;
-  margin-bottom: 5px;
+.tm-banner-container {
+position: fixed;
+    /* bottom: 30px; */
+    /* right: 30px; */
+    top: 148px;
+    left: 70px;
+    width: 260px;
+    height: 120px;
+    z-index: 9999;
+    animation: swing 3s ease-in-out infinite;
+    transform-origin: top center;
 }
 
-.tm-luxe-banner-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 28px 40px 28px 40px;
-  position: relative;
+/* Top nail */
+.tm-nail {
+  position: absolute;
+  top: 0;
+  left: 40%;
+  width: 12px;
+  height: 12px;
+  background: #ccc;
+  border: 2px solid #555;
+  border-radius: 50%;
+  transform: translateX(-50%);
   z-index: 2;
 }
 
-.tm-luxe-banner-text {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.tm-luxe-banner-headline {
-  font-size: 1.45rem;
-  font-weight: 700;
-  color: #5a4633;
-  letter-spacing: 0.01em;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.tm-luxe-banner-discover {
-  color: #5a4633;
-  font-weight: 700;
-  font-size: 1.45rem;
-  margin-right: 6px;
-}
-
-.tm-luxe-banner-luxe {
-  color: #bfa16a;
-  font-weight: 700;
-  font-size: 1.45rem;
-}
-
-.tm-luxe-banner-subtext {
-  color: #7a5c2e;
-  font-size: 1.08rem;
-  font-weight: 400;
-  margin-top: 2px;
-  letter-spacing: 0.01em;
-}
-
-.tm-luxe-banner-btn {
-  background: linear-gradient(90deg, #4a7fd1 0%, #bfa16a 100%);
-  color: #fff;
-  padding: 12px 38px;
-  border-radius: 28px;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 2px 12px rgba(191, 161, 106, 0.10);
-  transition: background 0.2s, box-shadow 0.2s;
-  border: 2px solid #bfa16a;
-  outline: none;
-  font-size: 1.08rem;
-  margin-left: 32px;
-  display: inline-block;
-  letter-spacing: 0.01em;
-}
-
-.tm-luxe-banner-btn:hover {
-  background: linear-gradient(90deg, #bfa16a 0%, #4a7fd1 100%);
-  box-shadow: 0 4px 16px rgba(191, 161, 106, 0.18);
-  color: #fff;
-}
-
-@media (max-width: 800px) {
-  .tm-luxe-banner-content {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px 16px;
-    gap: 16px;
-  }
-  .tm-luxe-banner-btn {
-    margin: 12px 0 0 0;
+/* SVG Threads */
+.tm-thread-lines {
+      position: absolute;
+    top: 9px;
+    left: -26px;
     width: 100%;
-    text-align: center;
+    height: 50px;
+    z-index: 1;
+}
+
+/* Rectangular board */
+.tm-board-horizontal {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 80%;
+  height: 70px;
+  background-color: #fef6f1;
+  border: 2px solid #f44336;
+  border-radius: 10px;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Text */
+.tm-left-text .tm-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+}
+
+/* Button */
+.tm-book-btn {
+  background-color: #f44336;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.tm-book-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* Swing animation */
+@keyframes swing {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-3deg); }
+  100% { transform: rotate(0deg); }
+}
+@media screen and (max-width: 480px) {
+  .tm-banner-container {
+               width: 84vw
+361.2px
+;
+        height: 110px;
+        /* bottom: 26px; */
+        /* right: 1%; */
+        top: 4%;
+        left: 219px;
   }
-  .tm-luxe-banner-headline {
-    font-size: 1.1rem;
+  .tm-nail {
+    position: absolute;
+    top: 0;
+    left: 33%;
+    width: 12px;
+    height: 12px;
+    background: #ccc;
+    border: 2px solid #555;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+  .tm-thread-lines {
+            height: 40%;
+        width: 100%;
+        left: 16%;
+    
+  }
+
+  .tm-board-horizontal {
+            top: 42px;
+        height: 50px;
+        flex-direction: row;
+        padding: 10px;
+        text-align: center;
+        width: 180px !important;
+  }
+
+  .tm-left-text .tm-title {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .tm-book-btn {
+    font-size: 13px;
+    padding: 6px 8px;
+    font-weight: 400 !important;
   }
 }
+

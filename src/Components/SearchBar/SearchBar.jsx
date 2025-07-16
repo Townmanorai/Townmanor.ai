@@ -4,6 +4,7 @@ import MultiRangeSlider from "multi-range-slider-react";
 import { useNavigate } from 'react-router-dom';
 import PropertyFilters from './PropertyFilter';
 import ReraVerificationForm from '../ReraVerification/ReraVerificationForm';
+import AdvBanner from '../../AdvBanner';
 
 const SearchBar = () => {
   const navigate = useNavigate();
@@ -355,6 +356,7 @@ const SearchBar = () => {
           )}
         </div>
       </div>
+      
     </>
   );
 };

@@ -21,11 +21,13 @@ import PropertyList from './PropertyList'
 import MainSearch from '../SearchBar/MainSearch'
 import Coliving_space from './Coliving_space'
 import Services from './Services'
+import AdvBanner from '../../AdvBanner'
 
 function Home() {
   return (
     <>
       <Helmet>
+      
         <meta charset="UTF-8" />
         <title>Property for sale | office interiors &amp; design - Townmanor Technologies</title>
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -95,7 +97,7 @@ function Home() {
         </script>
       </Helmet>
     <div>
-      
+        <AdvBanner/>
       {/* <Banner /> */}
       <MainSearch/>
       <PopularListing />
