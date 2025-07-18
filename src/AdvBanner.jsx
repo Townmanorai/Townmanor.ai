@@ -62,7 +62,7 @@ function AdvBanner() {
         <div className="tm-left-text">
           <span className="tm-title">TM Luxe</span>
         </div>
-        <a href="https://townmanor.ai/newcoliving" className="tm-book-btn">Book Now.</a>
+        <a href="https://townmanor.ai/newcoliving" className="tm-book-btn">Booking Request.</a>
       </div>
     </div>
     </>
@@ -70,3 +70,5 @@ function AdvBanner() {
 }
 
 export default AdvBanner
+
+

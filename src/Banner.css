@@ -60,6 +60,7 @@ position: fixed;
     z-index: 9999;
     /* animation: swing 3s ease-in-out infinite; */
     transform-origin: top center;
+    animation: blink 1.5s infinite;
 }
 
 /* Top nail */
@@ -129,6 +130,12 @@ position: fixed;
   background-color: #d32f2f;
 }
 
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
 /* Swing animation */
 @keyframes swing {
   0% { transform: rotate(0deg); }
@@ -187,8 +194,13 @@ position: fixed;
 }
 @media screen and (max-width: 480px) {
   .tm-banner-container {
-               width: 84vw
-361.2px
+           /* width: 84vw; */
+        /* height: 110px; */
+        /* bottom: 26px; */
+        /* right: 1%; */
+        top: 4%;
+        /* left: 219px; */
+        right: 160px;
 ;
         height: 110px;
         /* bottom: 26px; */
@@ -216,23 +228,25 @@ position: fixed;
   } */
 
   .tm-board-horizontal {
-            top: 448px;
-        height: 57px;
+                  top: 285px;
+        /* width: 35vw; */
+        height: 42px;
         flex-direction: row;
-        padding: 10px;
+        padding: 7px;
         text-align: center;
+        left: 13px;
+        width: 164px !important;
         /* width: 180px !important; */
   }
 
   .tm-left-text .tm-title {
-    font-size: 12px;
+    font-size: 11px;
     margin-bottom: 6px;
   }
 
   .tm-book-btn {
-    font-size: 13px;
-    padding: 8px 3px;
-    font-weight: 400 !important;
+    font-size: 10px;
+        padding: 8px 7px;
+        font-weight: 400 !important;
   }
 }
-
