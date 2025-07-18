@@ -122,7 +122,7 @@ import BookingForm from './Components/ColivingSecond/BookingForm.jsx';
 import UserService from './Components/userdashboard/UserService.jsx';
 import BookingUserDetail from './Components/ColivingSecond/BookingUserDetail.jsx';
 import IndiaCityMapLeaflet from './Components/HomePage/IndiaCityMapLeaflet.jsx';
-import AdvBanner from './AdvBanner.jsx';
+// import AdvBanner from './AdvBanner.jsx';
 
 
 
@@ -172,7 +172,7 @@ function App() {
         <div className="app-container">
 
           <Navbar />
-          <AdvBanner/>
+          {/* <AdvBanner/> */}
           <main className="main-content">
             <Routes>
               <Route path="/" element={<Home />} />

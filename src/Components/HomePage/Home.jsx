@@ -97,7 +97,7 @@ function Home() {
         </script>
       </Helmet>
     <div>
-        {/* <AdvBanner/> */}
+        <AdvBanner/>
       {/* <Banner /> */}
       <MainSearch/>
       <PopularListing />

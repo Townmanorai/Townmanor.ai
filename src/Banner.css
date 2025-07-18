@@ -1,5 +1,5 @@
 .tm-luxe-banner {
-  position: fixed;
+  position: absolute;
   top: 40px;
   left: 40px;
   width: 160px;
@@ -50,11 +50,11 @@
   background: #d32f2f;
 }
 .tm-banner-container {
-position: fixed;
+position: absolute;
     /* bottom: 30px; */
     /* right: 30px; */
     top: 148px;
-    left: 70px;
+    right: 10px;
     width: 260px;
     height: 120px;
     z-index: 9999;
@@ -90,13 +90,14 @@ position: fixed;
 /* Rectangular board */
 .tm-board-horizontal {
   position: absolute;
-  top: 40px;
-  left: 0;
-  width: 44%;
-  height: 62px;
-  background-color: #fef6f1;
-  border: 2px solid #f44336;
-  border-radius: 10px;
+  top: 393px;
+  left: 37;
+  width: 69%;
+  height: 41px;
+  background-color: yellow;
+  /* background-color: #fef6f1; */
+  border: none;
+  border-radius: 3px;
   box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
@@ -194,20 +195,19 @@ position: fixed;
 }
 @media screen and (max-width: 480px) {
   .tm-banner-container {
-           /* width: 84vw; */
-        /* height: 110px; */
-        /* bottom: 26px; */
-        /* right: 1%; */
-        top: 4%;
-        /* left: 219px; */
-        right: 160px;
-;
-        height: 110px;
-        /* bottom: 26px; */
-        /* right: 1%; */
-        top: 4%;
-        left: 219px;
-  }
+    /* width: 84vw; */
+    /* height: 110px; */
+    /* bottom: 26px; */
+    /* right: 1%; */
+    top: 4%;
+    /* left: 219px; */
+    right: 160px;
+    height: 110px;
+    /* bottom: 26px; */
+    /* right: 1%; */
+    top: 4%;
+    left: 131px;
+}
   .tm-nail {
     position: absolute;
     top: 0;
@@ -228,14 +228,24 @@ position: fixed;
   } */
 
   .tm-board-horizontal {
-                  top: 285px;
+                  top: 70px;
         /* width: 35vw; */
-        height: 42px;
+
+
+        
+
+        
+
+        height: 51px;
         flex-direction: row;
-        padding: 7px;
+        padding: 10px;
         text-align: center;
-        left: 13px;
-        width: 164px !important;
+        left: 20px;
+        width: 180px !important;
+
+
+
+
         /* width: 180px !important; */
   }
 
