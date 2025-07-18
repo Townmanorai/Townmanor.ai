@@ -172,7 +172,7 @@ function App() {
         <div className="app-container">
 
           <Navbar />
-          {/* <AdvBanner/> */}
+          <AdvBanner/>
           <main className="main-content">
             <Routes>
               <Route path="/" element={<Home />} />

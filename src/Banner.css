@@ -1,3 +1,54 @@
+.tm-luxe-banner {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  width: 160px;
+  height: 80px;
+  background: #fff;
+  border: 2px solid #f44336;
+  border-radius: 12px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  font-family: Arial, sans-serif;
+  /* Star effect using clip-path */
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  background: #fffbe6;
+  border: 2px solid #fbc02d;
+}
+
+.tm-luxe-banner .tm-luxe-new {
+  font-size: 22px;
+  font-weight: bold;
+  color: #f44336;
+  margin-bottom: 2px;
+  letter-spacing: 1px;
+}
+
+.tm-luxe-banner .tm-luxe-txt {
+  font-size: 13px;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.tm-luxe-banner .tm-luxe-btn {
+  background: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.10);
+  transition: background 0.2s;
+}
+.tm-luxe-banner .tm-luxe-btn:hover {
+  background: #d32f2f;
+}
 .tm-banner-container {
 position: fixed;
     /* bottom: 30px; */
@@ -7,12 +58,12 @@ position: fixed;
     width: 260px;
     height: 120px;
     z-index: 9999;
-    animation: swing 3s ease-in-out infinite;
+    /* animation: swing 3s ease-in-out infinite; */
     transform-origin: top center;
 }
 
 /* Top nail */
-.tm-nail {
+/* .tm-nail {
   position: absolute;
   top: 0;
   left: 40%;
@@ -23,7 +74,7 @@ position: fixed;
   border-radius: 50%;
   transform: translateX(-50%);
   z-index: 2;
-}
+} */
 
 /* SVG Threads */
 .tm-thread-lines {
@@ -40,8 +91,8 @@ position: fixed;
   position: absolute;
   top: 40px;
   left: 0;
-  width: 80%;
-  height: 70px;
+  width: 44%;
+  height: 62px;
   background-color: #fef6f1;
   border: 2px solid #f44336;
   border-radius: 10px;
@@ -56,7 +107,7 @@ position: fixed;
 
 /* Text */
 .tm-left-text .tm-title {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   color: #000;
 }
@@ -65,9 +116,9 @@ position: fixed;
 .tm-book-btn {
   background-color: #f44336;
   color: white;
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-size: 13px;
+  padding: 3px 9px;
+  border-radius: 902px;
+  font-size: 8px;
   font-weight: bold;
   text-decoration: none;
   box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
@@ -85,6 +136,54 @@ position: fixed;
   50% { transform: rotate(0deg); }
   75% { transform: rotate(-3deg); }
   100% { transform: rotate(0deg); }
+}
+/* New compact banner styles */
+.tm-luxe-banner {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  width: 160px;
+  height: 80px;
+  background: #fff;
+  border: 2px solid #f44336;
+  border-radius: 12px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  font-family: Arial, sans-serif;
+}
+
+.tm-luxe-banner .tm-luxe-new {
+  font-size: 22px;
+  font-weight: bold;
+  color: #f44336;
+  margin-bottom: 2px;
+  letter-spacing: 1px;
+}
+
+.tm-luxe-banner .tm-luxe-txt {
+  font-size: 13px;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.tm-luxe-banner .tm-luxe-btn {
+  background: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.10);
+  transition: background 0.2s;
+}
+.tm-luxe-banner .tm-luxe-btn:hover {
+  background: #d32f2f;
 }
 @media screen and (max-width: 480px) {
   .tm-banner-container {
@@ -109,20 +208,20 @@ position: fixed;
     transform: translateX(-50%);
     z-index: 2;
 }
-  .tm-thread-lines {
+  /* .tm-thread-lines {
             height: 40% !important;
         width: 100%;
         left: 16%;
     
-  }
+  } */
 
   .tm-board-horizontal {
-            top: 42px;
-        height: 50px;
+            top: 448px;
+        height: 57px;
         flex-direction: row;
         padding: 10px;
         text-align: center;
-        width: 180px !important;
+        /* width: 180px !important; */
   }
 
   .tm-left-text .tm-title {
@@ -132,7 +231,7 @@ position: fixed;
 
   .tm-book-btn {
     font-size: 13px;
-    padding: 6px 8px;
+    padding: 8px 3px;
     font-weight: 400 !important;
   }
 }

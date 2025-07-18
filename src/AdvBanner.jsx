@@ -51,12 +51,12 @@ function AdvBanner() {
       <button className="tm-close-btn" onClick={() => setVisible(false)}>×</button>
     </div> */}
       <div className="tm-banner-container">
-      <div className="tm-nail"></div>
+      {/* <div className="tm-nail"></div> */}
 
-      <svg className="tm-thread-lines" viewBox="0 0 100 50">
+      {/* <svg className="tm-thread-lines" viewBox="0 0 100 50">
         <line x1="45" y1="0" x2="15" y2="45" stroke="black" strokeWidth="2" />
         <line x1="55" y1="0" x2="85" y2="45" stroke="black" strokeWidth="2" />
-      </svg>
+      </svg> */}
 
       <div className="tm-board-horizontal">
         <div className="tm-left-text">
