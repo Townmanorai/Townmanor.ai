@@ -88,14 +88,13 @@ position: absolute;
 }
 
 /* Rectangular board */
-.tm-board-horizontal {
+/* .tm-board-horizontal {
   position: absolute;
   top: 393px;
   left: 37;
   width: 69%;
   height: 41px;
   background-color: yellow;
-  /* background-color: #fef6f1; */
   border: none;
   border-radius: 3px;
   box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
@@ -104,7 +103,26 @@ position: absolute;
   justify-content: space-between;
   padding: 0 14px;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif; */
+/* } */
+
+.tm-board-horizontal {
+    position: absolute;
+    top: 30px;
+    left: 37px;
+    width: 69%;
+    height: 41px;
+    background-color: white;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 3px 3px 6px #0003;
+    display: flex
+;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 /* Text */
