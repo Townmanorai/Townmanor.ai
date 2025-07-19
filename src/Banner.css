@@ -246,14 +246,7 @@ position: absolute;
   } */
 
   .tm-board-horizontal {
-                  top: 71px;
-        /* width: 35vw; */
-
-
-        
-
-        
-
+        top: 71px;
         height: 41px;
         flex-direction: row;
         padding: 10px;
@@ -261,10 +254,6 @@ position: absolute;
         left: -1px;
         width: 180px !important;
 
-
-
-
-        /* width: 180px !important; */
   }
 
   .tm-left-text .tm-title {
