@@ -122,7 +122,9 @@ import BookingForm from './Components/ColivingSecond/BookingForm.jsx';
 import UserService from './Components/userdashboard/UserService.jsx';
 import BookingUserDetail from './Components/ColivingSecond/BookingUserDetail.jsx';
 import IndiaCityMapLeaflet from './Components/HomePage/IndiaCityMapLeaflet.jsx';
+import FlentLandingPage from './Components/coliving/FlentLandingPage.jsx';
 // import AdvBanner from './AdvBanner.jsx';
+
 
 
 
@@ -169,6 +171,7 @@ function App() {
       <AuthProvider>
         <ScrollToTop />
         <ScrollRestoration />
+        
         <div className="app-container">
 
           <Navbar />
@@ -306,6 +309,9 @@ function App() {
                 <Route path='/ColivingBookingPage' element={<BookingForm/>}></Route>
                 <Route path='/ColivingBookingUserDetail' element={<BookingUserDetail/>}></Route>
                 <Route path='/cityview' element={<IndiaCityMapLeaflet/>}></Route>
+                <Route path='/landlord' element={<FlentLandingPage/>}></Route>
+
+                l
             </Routes>
           </main>
           <Footer />
