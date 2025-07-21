@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     id: 'faq2',
-    question: 'What properties do you accept?',
+    question: 'What properties do we accept?',
     answer: 'We accept various property types including apartments, houses, condos, and studios. Properties should be in good condition and located in desirable areas. Our team evaluates each property individually to ensure it meets our standards.'
   },
   {
@@ -143,7 +143,10 @@ export default function FlentLandingPage() {
           <div className="flent-unique-magic-text">
             <h2>Townmanor Magic</h2>
             <p>We transform ordinary properties into extraordinary rental experiences. Our expert team handles everything from premium furnishing to tenant management, ensuring your property stands out in the competitive rental market.</p>
-            <p>With our proven system, landlords see up to 40% higher rental yields compared to traditional letting. Join thousands of satisfied property owners who trust Flent with their investments.</p>
+            <p>With our proven system, landlords see up to 40% higher rental yields compared to traditional letting.
+As a fast-growing startup, property owners are already choosing Townmanor to elevate their rental income and simplify management.
+
+.</p>
           </div>
         </div>
       </section>

@@ -93,7 +93,7 @@ const CategoriesPresentation = () => {
                 </Carousel.Item>
                 <Carousel.Item
                 onClick={()=>{
-                  handleNavigate('https://www.sobhagroup.co/');
+                  handleNavigate('https://www.sobha.com/delhi-ncr/sobha-aurum-sector-36-greater-noida/');
                 }}
                 style={{
                   cursor:'pointer'
@@ -101,13 +101,14 @@ const CategoriesPresentation = () => {
                 >
                   <img
                     className="d-block w-100 img-fluid fluidx"
-                    src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752645939633-WhatsApp%20Image%202025-07-16%20at%2011.34.16%20AM.jpeg"
+                    src=  "https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1753077845445-Screenshot%202025-07-21%20113114.png"
+    
                     alt="View for rent"
                   />
                 </Carousel.Item>
                   <Carousel.Item
                 onClick={()=>{
-                  handleNavigate('https://www.sobhagroup.co/');
+                  handleNavigate('https://www.sobha.com/delhi-ncr/sobha-aurum-sector-36-greater-noida/');
                 }}
                 style={{
                   cursor:'pointer'
