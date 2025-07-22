@@ -159,6 +159,8 @@ const Navbar = () => {
                       <li className="nav-item"><Link to="/homelane" className="nav-link" onClick={closeMenu}>Home Interior</Link></li>
                       <li className="nav-item"><Link to="/homeshift" className="nav-link" onClick={closeMenu}>Home Shift</Link></li>
                       <li className="nav-item"><Link to="/pricing-plans" className="nav-link" onClick={closeMenu}>Subscription Plan</Link></li>
+                      <li className="nav-item"><Link to="/newcoliving" className="nav-link" onClick={closeMenu}>Smart Urban Living</Link></li>
+                      
                     </ul>
                     <div className="d-inline my-2 my-lg-0">
                       <ul className="navbar-nav nn-nav">

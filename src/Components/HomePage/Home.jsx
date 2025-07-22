@@ -100,6 +100,8 @@ function Home() {
         <AdvBanner/>
       {/* <Banner /> */}
       <MainSearch/>
+      <Coliving_space/>
+      <Services />
       <PopularListing />
      
       {/* <InHouseServices /> */}
@@ -110,9 +112,9 @@ function Home() {
       <ExclusiveOwnerProperties />
       {/* <PropertyList /> */}
       <TopRentedProperties />
-      <Services />
+     
       <StateHouseTax />
-      <Coliving_space/>
+     
       <LocationsGrid />
       <ExploreFeatures />
       <AdvertisementVideo />
