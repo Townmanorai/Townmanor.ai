@@ -76,7 +76,7 @@ const ColivingUtilities = ({coliving}) => {
 
       {/* Nearby Location Section */}
       <div className="colivingNearbyLocationBox">
-        <div className="colivingNearbyLocationTitle">Near by Location</div>
+        <div className="colivingNearbyLocationTitle">Nearby Location</div>
         <div className="colivingNearbyLocationTabs">
           {nearbyLocations.map((loc, idx) => (
             <div className="colivingNearbyLocationTab" key={idx}>{loc}</div>
