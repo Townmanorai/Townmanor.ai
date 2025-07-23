@@ -100,12 +100,16 @@ function Home() {
         <AdvBanner/>
       {/* <Banner /> */}
       <MainSearch/>
-      <Coliving_space/>
       <Services />
+      <Discovermore />
+      <Coliving_space/>
       <PopularListing />
+      
+      
+      
      
       {/* <InHouseServices /> */}
-      <Discovermore />
+      
       
       {/* <RightAgents /> */}
       <CategoriesPresentation />
