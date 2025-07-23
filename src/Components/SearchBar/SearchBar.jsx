@@ -88,7 +88,9 @@ const SearchBar = () => {
         
         {/* Content Layer */}
         <div style={{ position: 'relative', zIndex: 1 }}>
-          <h1 id='bannerhead' style={{fontWeight:'200'}}>Dream Home to <b>Daily Stay</b> - All in <b> One Place</b></h1>
+          <h1 id="bannerhead" style={{ fontWeight: 200 }}>
+  Dream <b>Home</b> to <b>Daily</b> Stay - All in <b>One</b> Place
+</h1>
           <div className='buttonbox'>
             <button
               type="button"

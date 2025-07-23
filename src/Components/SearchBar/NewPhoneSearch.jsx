@@ -158,8 +158,11 @@ const NewPhoneSearch = () => {
   fetchpriority="high"
         />
         <div className="new-phone-search-title">
-          <h1>Dream Home to <b>Daily Stay</b> - All in <b> One Place</b></h1>
-        </div>
+  <h1>
+    Dream <b>Home</b> to <b>Daily</b> Stay - All in <b>One</b> Place
+  </h1>
+</div>
+
         <div className="new-phone-search-tabs">
           {["Rent", "Buy", "New Projects","Plot/Land", "Coliving Space","Commercial Investment"].map(
             (tab) => (
