@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Coliving_space.css';
 import { FaUsers, FaBed, FaHome, FaCheck, FaArrowRight } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
+import Landing from './Landing';
 
 function Coliving_space() {
   const navigate = useNavigate();
@@ -332,6 +333,7 @@ function Coliving_space() {
           </div>
         </div> 
       )}
+      <Landing/>
     </>
   );
 }

@@ -1,0 +1,205 @@
+.slh-hero {
+  background: #f7fafd;
+  padding: 32px 0 0 0;
+  font-family: 'Inter', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.slh-hero-bg {
+  position: relative;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.slh-hero-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: #181c32;
+  margin-bottom: 12px;
+}
+
+.slh-hero-subtitle {
+  color: #5e6278;
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.slh-hero-btn {
+  background: #db1313;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(79, 106, 247, 0.1);
+  transition: background 0.2s;
+}
+
+
+.slh-hero-floating {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.8;
+}
+.slh-hero-float-chat {
+  left: 2%;
+  top: 80px;
+  width: 70px;
+  height: 50px;
+  background: linear-gradient(120deg, #4f6af7 60%, #7be3ff 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px #4f6af733;
+}
+.slh-hero-float-chart {
+  right: 5%;
+  top: 80px;
+  width: 110px;
+  height: 80px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px #4f6af733;
+}
+.slh-hero-float-badge {
+  left: 18%;
+  top: 120px;
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px #4f6af733;
+}
+
+.slh-hero-cards {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 20px auto;
+  max-width: 1100px;
+  flex-wrap: wrap;
+}
+
+.slh-hero-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #4f6af71a;
+  width: 320px;
+ 
+  position: relative;
+  overflow: hidden;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.slh-hero-card-icon {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #f7fafd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+.slh-hero-card-icon-ai {
+  background: #ffe6d1;
+}
+.slh-hero-card-icon-tenant {
+  background: #e6f7ff;
+}
+.slh-hero-card-icon-maintenance {
+  background: #fff7e6;
+}
+
+.slh-hero-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+ 
+}
+
+.slh-hero-card-img-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  background: #f7fafd;
+  border-radius: 12px;
+}
+.slh-hero-card-person {
+  width: 60px;
+  height: 100px;
+  background: #e6f7ff;
+  border-radius: 16px;
+  margin-right: 12px;
+}
+.slh-hero-card-phone {
+  width: 70px;
+  height: 120px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px #4f6af733;
+}
+
+.slh-hero-card-img-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 180px;
+  background: #f7fafd;
+  border-radius: 12px;
+}
+.slh-hero-card-worker {
+  width: 60px;
+  height: 100px;
+  background: #ffe6d1;
+  border-radius: 16px;
+  margin-right: 12px;
+}
+.slh-hero-card-oven {
+  width: 70px;
+  height: 120px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px #4f6af733;
+}
+
+@media (max-width: 900px) {
+  .slh-hero-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .slh-hero-card {
+    width: 95vw;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 600px) {
+  .slh-hero-title {
+    font-size: 1.3rem;
+  }
+  .slh-hero-btn {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+  .slh-hero-card {
+    min-height: 160px;
+    padding: 8px;
+  }
+  .slh-hero-card-img,
+  .slh-hero-card-img-center,
+  .slh-hero-card-img-right {
+    height: 120px;
+  }
+}
