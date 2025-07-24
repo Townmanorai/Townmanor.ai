@@ -184,10 +184,15 @@
     max-width: 350px;
   }
 }
-
+.slh-hero-floating {
+  display: none;
+}
 @media (max-width: 600px) {
   .slh-hero-title {
     font-size: 1.3rem;
+  }
+  .nophonecard{
+    display: none;
   }
   .slh-hero-btn {
     font-size: 0.95rem;
@@ -197,9 +202,5 @@
     min-height: 160px;
     padding: 8px;
   }
-  .slh-hero-card-img,
-  .slh-hero-card-img-center,
-  .slh-hero-card-img-right {
-    height: 120px;
-  }
+  
 }

@@ -106,6 +106,7 @@ function Coliving_space() {
       </div>
       </div> */}
       {/* Features Section */}
+    <section>
       <div className="coliving-features-section">
         <div className="container">
           <div className="coliving-features-heading">
@@ -333,7 +334,9 @@ function Coliving_space() {
           </div>
         </div> 
       )}
-      <Landing/>
+            <Landing/>
+    </section>
+
     </>
   );
 }

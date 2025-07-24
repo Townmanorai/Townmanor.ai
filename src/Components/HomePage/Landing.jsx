@@ -22,7 +22,7 @@ const Landing = () => {
       <div className="slh-hero-floating slh-hero-float-badge" />
     </div>
     <div className="slh-hero-cards">
-      <div className="slh-hero-card">
+      <div className="slh-hero-card nophonecard">
         
         <img
           src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752745345050-main5.jpeg"
@@ -42,7 +42,7 @@ const Landing = () => {
           <div className="slh-hero-card-phone" />
         </div> */}
       </div>
-      <div className="slh-hero-card">
+      <div className="slh-hero-card nophonecard">
        
         <img
           src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752745916380-main2.jpeg"

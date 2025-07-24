@@ -4,7 +4,15 @@
   padding-top: 35px;
   margin-left: -1px;
 }
-
+.coliving-features-section {
+        padding: 3rem 0;
+    background-color: white;
+    margin: 52px;
+    /* margin: 10px 0px; */
+    /* border: 1px solid #d3d0d0; */
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #adacac;
+}
 .co-left {
   max-width: 750px;
 }
@@ -200,7 +208,11 @@
       padding: 0px;
       flex-wrap: nowrap;
     }
-
+.coliving-features-section {
+    padding: 1rem 17px;
+    background-color: white;
+    margin: 10px;
+}
     .co-right{
       margin-left: -75px;
     }
