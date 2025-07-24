@@ -76,7 +76,7 @@ export default function FlentLandingPage() {
   return (
     <div className="flent-unique-root">
       {/* Hero Section */}
-      <section className="flent-unique-hero" style={{ backgroundImage: `url('https://readdy.ai/api/search-image?query=modern%20luxury%20apartment%20interior%20with%20warm%20lighting%2C%20contemporary%20furniture%2C%20large%20windows%20with%20city%20view%2C%20elegant%20living%20room%20with%20neutral%20colors%2C%20professional%20real%20estate%20photography%20style%2C%20high-end%20residential%20property%2C%20sophisticated%20home%20design%20with%20clean%20lines%20and%20premium%20finishes&width=1920&height=1080&seq=hero-bg&orientation=landscape')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <section className="flent-unique-hero" style={{ backgroundImage: `url('https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1753351390941-download%20%287%29.webp')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="flent-unique-hero-overlay"></div>
         <div className="flent-unique-hero-content">
           <div className="flent-unique-hero-text">
@@ -157,14 +157,14 @@ As a fast-growing startup, property owners are already choosing Townmanor to ele
           <h2>Peek Into TM Luxe World</h2>
           <div className="flent-unique-peek-gallery">
             <div className="flent-unique-peek-imgwrap">
-              <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752745345050-main5.jpeg" alt="Kitchen" />
+              <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1753350537828-download%20%287%29.png" alt="Kitchen" />
               <div className="flent-unique-peek-imgcaption">
                 <h3>Bedroom</h3>
                 <p>Premium Bedroom </p>
               </div>
             </div>
             <div className="flent-unique-peek-imgwrap">
-              <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752749285674-main9.jpeg" alt="Kitchen" />
+              <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1753351125907-download%20%289%29.png" alt="Kitchen" />
               <div className="flent-unique-peek-imgcaption">
                 <h3>Washroom</h3>
                 <p>Luxury Premium Washroom</p>

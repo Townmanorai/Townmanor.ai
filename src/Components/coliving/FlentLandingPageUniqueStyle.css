@@ -17,7 +17,7 @@
 .flent-unique-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, #fff 60%, rgba(255,255,255,0.8) 80%, transparent 100%);
+
   z-index: 1;
 }
 .flent-unique-hero-content {
@@ -62,10 +62,9 @@
   cursor: pointer;
   transition: background 0.2s;
   margin-top: 8px;
+  border: 1px solid #cdcdcd;
 }
-.flent-unique-btn-primary:hover {
-  background: #444;
-}
+
 
 /* Why Choose Section */
 .flent-unique-whychoose {
@@ -85,10 +84,10 @@
   flex: 1 1 350px;
 }
 .flent-unique-whychoose-features h2 {
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: #222;
-  margin-bottom: 40px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #222;
+    margin-bottom: 40px;
 }
 .flent-unique-feature-list {
   display: flex;
@@ -127,7 +126,7 @@
 }
 .flent-unique-feature-item h3 {
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom: 5px;
 }
 .flent-unique-feature-item p {
@@ -228,6 +227,7 @@
   transition: transform 0.3s;
 }
 .flent-unique-peek-imgcaption {
+  display: none;
   position: absolute;
   left: 20px;
   bottom: 18px;
@@ -264,8 +264,8 @@
   flex: 1 1 350px;
 }
 .flent-unique-apply-formwrap h2 {
-  font-size: 2.2rem;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 400;
   margin-bottom: 18px;
 }
 .flent-unique-apply-formwrap p {
@@ -285,7 +285,7 @@
 }
 .flent-unique-form-group label {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 400;
   color: #333;
 }
 .flent-unique-form-group input,
@@ -387,8 +387,8 @@
   padding: 0 32px;
 }
 .flent-unique-faq-inner h2 {
-  font-size: 2.2rem;
-  font-weight: bold;
+  font-size: 22px;
+  font-weight: 400;
   text-align: center;
   margin-bottom: 48px;
 }
@@ -412,8 +412,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1.08rem;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 400;
   color: #222;
   cursor: pointer;
   transition: background 0.13s;
