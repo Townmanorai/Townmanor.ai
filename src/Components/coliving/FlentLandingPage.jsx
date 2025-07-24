@@ -129,7 +129,7 @@ export default function FlentLandingPage() {
             </div>
           </div>
           <div className="flent-unique-whychoose-imgwrap">
-            <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752834819461-main3.jpeg" alt="Premium Property Interior" />
+            <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752838065543-image-1.png" alt="Premium Property Interior" />
           </div>
         </div>
       </section>

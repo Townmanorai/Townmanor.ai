@@ -457,15 +457,16 @@
   .flent-unique-magic-inner,
   .flent-unique-apply-inner,
   .flent-unique-faq-inner {
+       flex-direction: column-reverse !important;
     padding: 0 8px;
   }
   .flent-unique-whychoose-imgwrap img,
   .flent-unique-apply-imgwrap img {
     max-width: 100%;
-    height: 260px;
+  
   }
   .flent-unique-magic-imgwrap img {
-    height: 180px;
+    
   }
   .flent-unique-peek-imgwrap img {
     height: 160px;

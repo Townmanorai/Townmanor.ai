@@ -246,7 +246,7 @@ position: absolute;
   } */
 
   .tm-board-horizontal {
-        top: 75px;
+        top: 68px;
         height: 41px;
         flex-direction: row;
         padding: 10px;
