@@ -85,7 +85,7 @@ export default function FlentLandingPage() {
               <span className="flent-unique-text-primary">Own a Property? Turn It into a Premium Earning Asset with Townmanor</span>
             </h1>
             <p>
-Your property earns consistently with zero vacancy risk. We ensure steady rental income, disbursed after an initial setup period-regardless of occupancy. Unlock your property's true potential. Together, we design modern, functional spaces that attract high-quality tenants. From transformation to full management-we handle it all while you enjoy the returns.
+Unlock your property's true potential. Together, we design modern, functional spaces that attract high-quality tenants. From transformation to full management-we handle it all while you enjoy the returns.
             </p>
             <button className="flent-unique-btn-primary">Apply Now</button>
           </div>
@@ -102,7 +102,7 @@ Your property earns consistently with zero vacancy risk. We ensure steady rental
                 <div className="flent-unique-feature-icon flent-unique-feature-icon-primary"><FaShieldAlt /></div>
                 <div>
                   <h3>Premium Rent</h3>
-                  <p>We give your rental income every month, regardless of occupancy. Your property earns consistently with zero vacancy risk.</p>
+                  <p>Your property earns consistently with zero vacancy risk. We ensure steady rental income, disbursed after an initial setup period-regardless of occupancy.</p>
                 </div>
               </div>
               <div className="flent-unique-feature-item">
