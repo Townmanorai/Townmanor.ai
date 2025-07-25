@@ -10,12 +10,12 @@ const Landing = () => {
     <div className="slh-hero-bg">
       <div className="slh-hero-content">
         <h1 className="slh-hero-title">
-        Turn Your Property Into a Premium Rental with Townmanor
+        Elevate Your Property into a Premium Rental with Townmanor
         </h1>
         <p className="slh-hero-subtitle">
-        Co-create beautiful, functional living spaces. We handle transformation, listings, and tenant experience—together
+        Partner with us to design smart, stylish living spaces. From transformation to tenant experience, we handle everything-seamlessly, together.
         </p>
-        <button className="slh-hero-btn" onClick={() => navigate('/landlord')}>Know More</button>
+      
       </div>
       <div className="slh-hero-floating slh-hero-float-chat" />
       <div className="slh-hero-floating slh-hero-float-chart" />
@@ -54,6 +54,7 @@ const Landing = () => {
           <div className="slh-hero-card-oven" />
         </div> */}
       </div>
+        <button className="slh-hero-btn" onClick={() => navigate('/landlord')}>Know More</button>
     </div>
   </div></>
   );

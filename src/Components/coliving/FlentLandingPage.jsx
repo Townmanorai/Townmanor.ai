@@ -82,10 +82,11 @@ export default function FlentLandingPage() {
           <div className="flent-unique-hero-text">
             <h1>
               
-              <span className="flent-unique-text-primary">Turn Your Property Into a Premium Rental with Townmanor</span>
+              <span className="flent-unique-text-primary">Elevate Your Property into a Premium Rental with Townmanor</span>
             </h1>
             <p>
-            Co-create beautiful, functional living spaces. We handle transformation, listings, and tenant experience—together
+           Own a Property? Turn It into a Premium Earning Asset with Townmanor
+Unlock your property's true potential. Together, we design modern, functional spaces that attract high-quality tenants. From transformation to full management-we handle it all while you enjoy the returns.
             </p>
             <button className="flent-unique-btn-primary">Apply Now</button>
           </div>

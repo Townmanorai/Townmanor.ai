@@ -202,5 +202,13 @@
     min-height: 160px;
     padding: 8px;
   }
-  
+
+  .flent-unique-magic {
+    padding: 3px 0 !important;
+    background: #fff;
+}
+  .flent-unique-whychoose {
+    padding: 21px 0 !important;
+ 
+}
 }
