@@ -129,7 +129,7 @@ Unlock your property's true potential. Together, we design modern, functional sp
             </div>
           </div>
           <div className="flent-unique-whychoose-imgwrap">
-            <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1752838065543-image-1.png" alt="Premium Property Interior" />
+            <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1753446606314-download%20%2813%29.png" alt="Premium Property Interior" />
           </div>
         </div>
       </section>

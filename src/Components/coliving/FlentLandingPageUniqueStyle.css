@@ -472,31 +472,24 @@
     height: 160px;
   }
   .flent-unique-hero-text h1 {
-    font-size: 18px;
+    font-size: 1.8rem;
   }
   .flent-unique-whychoose-features h2,
   .flent-unique-magic-text h2,
   .flent-unique-peek-inner h2,
   .flent-unique-apply-formwrap h2,
   .flent-unique-faq-inner h2 {
-    font-size: 16px;
+    font-size: 1.8rem;
   }
   .flent-unique-hero-text p {
-    font-size: 16px;
+    font-size: 1.25rem;
 }
-  .flent-unique-hero{
-  background-image: none !important;
-  align-items: flex-start;
-  }
+  
   .flent-unique-hero-content {
     align-items: start;
   }
-  .flent-unique-hero {
-   min-height: 20vh !important;
-  }
-  .flent-unique-hero-content {
-    min-height: fit-content;
-  }
+   
+  
   .flent-unique-magic-imgwrap img {
     border-radius: 24px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
