@@ -138,7 +138,7 @@ Unlock your property's true potential. Together, we design modern, functional sp
       <section className="flent-unique-magic">
         <div className="flent-unique-magic-inner">
           <div className="flent-unique-magic-imgwrap">
-            <img src="/afterbefore.png" alt="Property Transformation" />
+            <img src="https://s3.ap-south-1.amazonaws.com/townamnor.ai/owner-images/1753435726870-download%20%2811%29.png" alt="Property Transformation" />
           </div>
           <div className="flent-unique-magic-text">
             <h2>Townmanor Magic</h2>
