@@ -87,7 +87,7 @@ export default function FlentLandingPage() {
             <p>
 Unlock your property's true potential. Together, we design modern, functional spaces that attract high-quality tenants. From transformation to full management-we handle it all while you enjoy the returns.
             </p>
-            <button className="flent-unique-btn-primary">Apply Now</button>
+            <a href='#flent_apply_form'><button className="flent-unique-btn-primary">Apply Now</button></a>
           </div>
         </div>
       </section>
@@ -182,7 +182,7 @@ As a fast-growing startup, property owners are already choosing Townmanor to ele
       </section>
 
       {/* Application Form Section */}
-      <section className="flent-unique-apply">
+      <section className="flent-unique-apply" id='flent_apply_form'>
         <div className="flent-unique-apply-inner">
           <div className="flent-unique-apply-formwrap">
             <h2>Let's get started</h2>
