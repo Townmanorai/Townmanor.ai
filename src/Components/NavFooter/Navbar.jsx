@@ -143,7 +143,7 @@ const Navbar = () => {
               <div className="col-xl-12">
                 <nav className="navbar navbar-expand-lg navbar-light">
                   <Link to="/" className="navbar-brand">
-                    <img width="250" src="/navbarlogo.png" alt="Townmanor Technologies Pvt Ltd." />
+                    <img width="250" src="/newlogo2.png" alt="Townmanor Technologies Pvt Ltd." />
                   </Link>
                   <button className="menu-button" type="button" onClick={handleMenuToggle} aria-controls="navbarSupportedContent">
                     <span className="icon-spar"></span>
