@@ -164,13 +164,15 @@ const SearchBar = () => {
               
               Plot/Land
             </button>
+            <a href='#smart-urban-living'>
             <button
               type="button"
               className={`btn btn-outline-danger btnr `}
-              onClick={() => setShowComingSoon(true)}
+              
             >
-             Co-living Space
+             Smart urban living
             </button>
+            </a>
             <button
               type="button"
               className={`btn btn-warning btnr`}
