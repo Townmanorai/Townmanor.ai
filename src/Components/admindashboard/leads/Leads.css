@@ -1,0 +1,74 @@
+.leads-container {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+    margin-top: 5rem;
+}
+
+.leads-title {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.leads-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.leads-table-header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: left;
+}
+
+.leads-table-header-cell {
+    padding: 12px 15px;
+}
+
+.leads-table-row:nth-of-type(even) {
+    background-color: #f2f2f2;
+}
+
+.leads-table-row:hover {
+    background-color: #ddd;
+}
+
+.leads-table-cell {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.pagination-button:hover {
+    background-color: #45a049;
+}
+
+.pagination-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.pagination-info {
+    margin: 0 10px;
+    font-size: 16px;
+    color: #333;
+}

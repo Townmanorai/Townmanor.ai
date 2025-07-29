@@ -123,6 +123,7 @@ import UserService from './Components/userdashboard/UserService.jsx';
 import BookingUserDetail from './Components/ColivingSecond/BookingUserDetail.jsx';
 import IndiaCityMapLeaflet from './Components/HomePage/IndiaCityMapLeaflet.jsx';
 import FlentLandingPage from './Components/coliving/FlentLandingPage.jsx';
+import Leads from './Components/admindashboard/leads/Leads.jsx';
 // import AdvBanner from './AdvBanner.jsx';
 
 
@@ -307,6 +308,7 @@ function App() {
                 <Route path='/colivingpaymentpage' element={<ColivingPaymentSuccess/>}/>
                 <Route path='/Colivingform' element={<ColivingMainForm/>}></Route>
                 <Route path='/ColivingBookingPage' element={<BookingForm/>}></Route>
+                  <Route path='/admin-leads' element={<Leads/>}></Route>
                 <Route path='/ColivingBookingUserDetail' element={<BookingUserDetail/>}></Route>
                 <Route path='/cityview' element={<IndiaCityMapLeaflet/>}></Route>
                 <Route path='/landlord' element={<FlentLandingPage/>}></Route>

@@ -106,8 +106,8 @@ function Coliving_space() {
       </div>
       </div> */}
       {/* Features Section */}
-    <section>
-      <div className="coliving-features-section" id='smart-urban-living'>
+    <section id='smart-urban-living'>
+      <div className="coliving-features-section" >
         <div className="container">
           <div className="coliving-features-heading">
             <h2>Smart <b>Urban</b> Living</h2>
