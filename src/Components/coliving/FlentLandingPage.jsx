@@ -240,7 +240,7 @@ As a fast-growing startup, property owners are already choosing Townmanor to ele
         </div>
       </section>
 
-      {/* FAQ Section */}
+   
       <section className="flent-unique-faq">
         <div className="flent-unique-faq-inner">
           <h2>Frequently Asked Questions</h2>
